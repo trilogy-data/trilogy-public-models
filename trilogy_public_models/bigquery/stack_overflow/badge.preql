@@ -1,0 +1,18 @@
+import user as user;
+
+key id int;
+key name string;
+key awarded_date date;
+key class int;
+key tag_based bool;
+
+datasource badges (
+    id: id,
+    name: name,
+    date: awarded_date,
+    user_id: Partial[user.id],
+    class: class,
+    tag_based: tag_based
+    )
+       grain (id)
+address bigquery-public-data.stackoverflow.badges;
