@@ -1,15 +1,17 @@
 import user as user;
 
 key id int;
-key name string;
-key awarded_date date;
-key class int;
-key tag_based bool;
+property id.name string;
+property id.awarded_time datetime;
+property id.class int;
+property id.tag_based bool;
+
+property awarded_date <- date(awarded_time);
 
 datasource badges (
     id: id,
     name: name,
-    date: awarded_date,
+    date: awarded_time,
     user_id: Partial[user.id],
     class: class,
     tag_based: tag_based
