@@ -17,6 +17,20 @@ jobs:
         python-version: ["3.9", "3.10",]
 
     steps:
+      # Setup gcloud CLI
+      - uses: 'actions/checkout@v3'
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      # Configure Workload Identity Federation and generate an access token.
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          #https://iam.googleapis.com/projects/230483776791/locations/global/workloadIdentityPools/demo-pool/providers/github-ci
+          workload_identity_provider: 'projects/230483776791/locations/global/workloadIdentityPools/demo-pool/providers/github-ci2'
+          service_account: '${{ secrets.DEPLOYER_EMAIL }}'
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
