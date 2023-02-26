@@ -9,7 +9,7 @@ models: Dict["str", Environment] = {}
 __version__ = "0.0.1"
 
 for loader, module_name, is_pkg in pkgutil.walk_packages([dirname(__file__)]):
-    module = loader.find_module(module_name) #type: ignore
+    module = loader.find_module(module_name)  # type: ignore
     if not module:
         continue
     _module = module.load_module(module_name)

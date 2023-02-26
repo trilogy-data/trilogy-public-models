@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10",]
 
     steps:
       - uses: actions/checkout@v2
@@ -41,5 +41,5 @@ jobs:
           pip install pytest
           pip install pytest-cov
           # disable active adventureworks queries unless we get docker configured
-          pytest --ignore=docs_src/ --cov=./ -m "not adventureworks_execution"
+          pytest --ignore=docs_src/ --cov=./
           codecov --token=${{ secrets.CODECOV_TOKEN }}

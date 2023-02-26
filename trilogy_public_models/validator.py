@@ -15,7 +15,6 @@ def validate_dataset(
         "SELECT\n " + ",\n".join([x.address for x in dataset.concepts]) + " LIMIT 0;"
     )
 
-
     try:
         _, parsed = parse_text(validation_query, environment)
         sql = executor.generator.generate_queries(environment, parsed)

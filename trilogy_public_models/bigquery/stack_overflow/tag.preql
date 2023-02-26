@@ -3,8 +3,6 @@
 key name string;
 property name.id int;
 property name.count int;
-property name.class int;
-property name.tag_based bool;
 
 datasource tags (
     id: id,
