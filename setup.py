@@ -5,7 +5,7 @@ import re
 import setuptools
 
 _version_re = re.compile(r"__version__\s+=\s+(.*)")
-with open("preql/__init__.py", "rb") as f:
+with open("trilogy_public_models/__init__.py", "rb") as f:
     _match = _version_re.search(f.read().decode("utf-8"))
     if _match is None:
         print("No version found")
