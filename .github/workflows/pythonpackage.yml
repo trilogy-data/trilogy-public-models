@@ -9,12 +9,21 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  PROJECT_ID: ${{ secrets.DEMO_PROJECT }}
+  SERVICE_NAME: trilogy-public-models
+  REGION: us-central1
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.9", "3.10",]
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
       # Setup gcloud CLI
