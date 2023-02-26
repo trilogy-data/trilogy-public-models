@@ -1,0 +1,68 @@
+import user as user;
+import question as question;
+import tag as tag;
+
+key id int;
+
+metric count <-count(id);
+
+property id.creation_timestamp timestamp;
+property creation_date <- date(creation_timestamp);
+property id.title	string	;			
+property id.body	string	;			
+property id.accepted_answer_id	string	;
+property id.comment_count	int	;
+property id.favorite_count	string	;
+
+property id.last_editor_display_name	string	;			
+
+property id.owner_display_name	string	;			
+
+property id.post_type_id	int	;			
+property id.score	int	;
+
+datasource post_answer_edits (
+    id:id,
+    last_editor_user_id: Partial[user.id],
+    last_editor_display_name: last_editor_display_name
+)
+    grain (id)
+    address bigquery-public-data.stackoverflow.posts_answers;
+
+
+datasource post_answers (
+    id:id,
+    title:title,
+    creation_date:creation_timestamp,
+    body:body,
+    score:score,
+    comment_count:comment_count,
+    owner_user_id: Partial[user.id],
+    owner_display_name: owner_display_name,
+    accepted_answer_id: accepted_answer_id,
+    parent_id: question.id,
+    favorite_count: favorite_count,
+    post_type_id: post_type_id
+
+    )
+    grain (id)
+    address bigquery-public-data.stackoverflow.posts_answers
+;
+
+
+datasource answer_tags (
+    id: id,
+    tag: Partial[tag.name],
+    creation_date: creation_timestamp
+    )
+    grain (id, tag.name)
+    query '''
+select
+    id,
+    owner_user_id,
+    tag,
+    creation_date
+FROM `bigquery-public-data.stackoverflow.posts_answers`
+CROSS JOIN UNNEST(split(tags, '|')) AS tag
+'''
+;
