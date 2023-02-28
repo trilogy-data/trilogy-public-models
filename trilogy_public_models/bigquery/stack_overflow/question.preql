@@ -25,7 +25,8 @@ datasource posts (
     title:title,
     creation_date: creation_timestamp,
     comment_count:comment_count,
-    last_edit_date: last_edit_timestamp
+    last_edit_date: last_edit_timestamp,
+    view_count: question_view_count
     )
     grain (id)
     address bigquery-public-data.stackoverflow.posts_questions
