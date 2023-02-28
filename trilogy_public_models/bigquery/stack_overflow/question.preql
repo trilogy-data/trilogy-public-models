@@ -10,6 +10,9 @@ property id.last_edit_timestamp timestamp;
 property last_edit_date <-date(last_edit_timestamp);
 property length <- len(text);
 property id.comment_count int;
+property id.title string;
+property id.question_view_count int;
+metric view_count <- sum(question_view_count);
 
 metric count <- count( id);
 metric avg_length <- avg(length);
@@ -19,6 +22,7 @@ datasource posts (
     owner_user_id: Partial[user.id],
     id: id,
     body: text,
+    title:title,
     creation_date: creation_timestamp,
     comment_count:comment_count,
     last_edit_date: last_edit_timestamp
@@ -30,6 +34,7 @@ datasource posts (
 
 datasource post_tags (
     id: id,
+    title:title,
     owner_user_id: Partial[user.id],
     tag: Partial[tag.name],
     creation_date: creation_timestamp
@@ -38,6 +43,7 @@ datasource post_tags (
     query '''
 select
     id,
+    title,
     owner_user_id,
     tag,
     creation_date
