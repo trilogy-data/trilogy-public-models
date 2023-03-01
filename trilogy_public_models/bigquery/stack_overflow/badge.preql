@@ -8,6 +8,8 @@ property id.tag_based bool;
 
 property awarded_date <- date(awarded_time);
 
+metric count <- count(id);
+
 datasource badges (
     id: id,
     name: name,
