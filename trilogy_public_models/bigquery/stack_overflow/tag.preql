@@ -2,7 +2,8 @@
 
 key name string;
 property name.id int;
-property name.count int;
+
+metric count int <-count(name.id);
 
 datasource tags (
     id: id,

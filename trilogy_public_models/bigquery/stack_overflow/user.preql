@@ -1,6 +1,6 @@
 ## users
 
-key id int metadata(description="the description");
+key id int metadata(description="The unique identifier of a user");
 key location string metadata(description="The user location");
 property id.display_name string metadata(description="The display name ");
 property id.about_me string metadata(description="User provided description");

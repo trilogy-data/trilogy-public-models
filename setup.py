@@ -27,7 +27,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(exclude=["dist", "build", "*.tests", "*.tests.*", "tests.*", "tests", "docs", ".github", "", "examples"]),
     package_data={
-        "": ["*.preql"],
+        "": ["*.preql", "py.typed"],
     },
     install_requires=install_requires,
     classifiers=[
