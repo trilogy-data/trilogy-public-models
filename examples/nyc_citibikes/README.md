@@ -176,7 +176,7 @@ GROUP BY year
 ORDER BY year;
 ```
 
-PreQL isn't significantly simpler here, but we'll highlight two strategies to answer this
+We'll highlight two strategies to answer this.
 We can either define a generic aggregation - male_trips - that can be created at any grain,
 or define a property of year that is the output of aggregating to that level in a query.
 
@@ -186,19 +186,20 @@ on you
 property male_trip  <- filter trip.start_time where rider.gender = 'male';
 property female_trip <- filter trip.start_time where rider.gender = 'female';
 
-# we can either define an arbitrary grain metric here
+# we can either define an arbitrary grain metric here, that can be aggregated
+# to any possible grain later (like trip.month)
 metric male_trips <- count(male_trip);
 metric female_trips <- count(female_trip);
 
+# or create a new property of the year implicitly via a select query. 
+
 select
     trip.year,
-    # or create a new property of the year
-    count(male_tri)-> yearly_male_trips,
+    count(male_trip)-> yearly_male_trips,
     count(female_trip) -> yearly_female_trips
 order by
     trip.year
     asc;
-
 
 property trip.month <- month(trip.start_time);
 
@@ -242,14 +243,13 @@ select
     count(customer_trip) -> yearly_customer_trips
 order by 
     trip.year asc;
-    
-
+   
 ```
 
 
 ## Trip Growth
 
-Trip growth will be fairly similar.
+Calculating trip growth shows how to use window functions, such as lag/lead. 
 
 ```sql
 SELECT year, trip, previous, trip-previous AS trip_growth, 
