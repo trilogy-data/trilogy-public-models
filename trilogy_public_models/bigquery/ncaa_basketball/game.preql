@@ -1,4 +1,7 @@
+import team as team;
+
 key id string; # [Game data] Unique identifier for the game
+property id.home_game bool; # whether the game is a home game for the team in the row
 property id.season int; # [Game data] Season the game was played in
 property season.status string; # [Game data] Indicates the last state of Sportradar's game file
 property season.coverage string; # [Game data] Type of coverage provided by Sportradar
@@ -37,15 +40,44 @@ property id.a_alias string; # [Away Team data] Away team school alias
 
 datasource games_sr (
     game_id:id,
+    home_game:home_game,
     season:season,
     scheduled_date:scheduled_date,
     gametime:gametime,
-    h_id:h_id,
-    h_name:h_name,
-    h_market:h_market,
-    a_id:a_id,
-    a_name:a_name,
-    a_market:a_market
+    team_id:team.id,
 )
-grain (id)
-address bigquery-public-data.ncaa_basketball.mbb_games_sr;
+grain (id, team.id)
+query '''
+
+select
+game_id,
+True as home_game,
+scheduled_date,
+season,
+neutral_site,
+attendance,
+times_tied,
+periods,
+tournament,
+gametime,
+h_id as team_id
+from `bigquery-public-data.ncaa_basketball.mbb_games_sr`
+
+UNION ALL
+SELECT
+game_id,
+False as home_game,
+scheduled_date,
+season,
+neutral_site,
+attendance,
+times_tied,
+periods,
+tournament,
+gametime,
+a_id as team_id
+from `bigquery-public-data.ncaa_basketball.mbb_games_sr`
+''';
+
+# metrics
+metric count <- count_distinct(id);
