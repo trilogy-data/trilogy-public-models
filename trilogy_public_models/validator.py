@@ -1,8 +1,8 @@
 from preql import Environment
-from preql.core.query_processor import get_datasource_by_concept_and_grain
 from preql.core.models import Grain, Concept, Datasource
 from preql.executor import Executor
 from preql.parser import parse_text
+from preql.core.processing.concept_strategies_v2 import source_concepts
 
 
 def validate_dataset(
@@ -22,6 +22,7 @@ def validate_dataset(
         print(validation_query)
         raise e
     for statement in sql:
+        compiled_sql = ''
         # Start the query, passing in the extra configuration.
         try:
             # for UI execution, cap the limit
@@ -47,8 +48,8 @@ def validate_dataset(
 
 
 def validate_concept(concept: Concept, env):
-    get_datasource_by_concept_and_grain(
-        concept, grain=Grain(components=[concept.with_default_grain()]), environment=env
+    source_concepts(
+        [concept], [], environment=env
     )
 
 

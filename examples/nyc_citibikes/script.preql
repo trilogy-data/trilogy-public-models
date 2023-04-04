@@ -1,0 +1,100 @@
+
+property trip.year<-year(trip.start_time);
+
+SELECT
+	trip.year,
+	bike.count
+ORDER BY
+    trip.year asc
+limit 100;
+
+property rider.birth_year.generation string;
+
+# TODO support case statements so we don't need a custom datasource here
+datasource generations (
+    birth_year:rider.birth_year,
+    generation:generation
+    )
+    grain(rider.birth_year)
+query '''SELECT birth_year,
+ CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
+      WHEN birth_year BETWEEN 1901 AND 1927 THEN 'G.I. Generation'
+      WHEN birth_year BETWEEN 1928 AND 1945 THEN 'Silent Generation'
+      WHEN birth_year BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
+      WHEN birth_year BETWEEN 1965 AND 1980 THEN 'Generation X'
+      WHEN birth_year BETWEEN 1981 AND 1996 THEN 'Millenials'
+      WHEN birth_year BETWEEN 1997 AND 2012 THEN 'Generation Z'
+      ELSE 'Other'
+    END AS generation
+  FROM `bigquery-public-data.new_york_citibike.citibike_trips`
+  group by birth_year''';
+
+select
+    generation,
+    trip.count
+order by
+    trip.count desc;
+
+
+key subscriber_rides_2016 <- filter trip.start_time where trip.year=2016 and trip.user_type='Subscriber';
+
+metric subscriber_ride_count_2016 <- count(subscriber_rides_2016);
+
+select
+    trip.start_station_name,
+    subscriber_ride_count_2016,
+order by
+    subscriber_ride_count_2016 desc
+limit 100;
+
+metric trip.avg_duration <- trip.total_duration / trip.count;
+
+select
+    bike.id,
+    trip.count,
+    trip.total_duration,
+    trip.avg_duration,
+order by
+    trip.total_duration desc
+limit 10;
+
+property male_trip  <- filter trip.start_time where rider.gender = 'male';
+property female_trip <- filter trip.start_time where rider.gender = 'female';
+
+metric male_trips <- count(male_trip);
+metric female_trips <- count(female_trip);
+
+select
+    trip.year,
+    male_trips,
+    female_trips
+order by
+    trip.year
+    asc;
+
+
+
+property subscriber_trip <- filter trip.start_time where trip.user_type = 'Subscriber';
+property customer_trip <- filter trip.start_time where trip.user_type = 'Customer';
+
+select
+    trip.year,
+    count(trip.start_time) -> yearly_trips,
+    count(subscriber_trip) -> yearly_subscriber_trips,
+    count(customer_trip) -> yearly_customer_trips
+order by
+    trip.year asc;
+
+
+metric lagging_yearly_trips <- lag yearly_trips by trip.year asc;
+metric yoy_trip_growth <- yearly_trips - lagging_yearly_trips;
+metric yoy_growth_ratio <- round(yoy_trip_growth / lagging_yearly_trips * 100 ,2);
+
+select
+    trip.year,
+    yearly_trips,
+    lagging_yearly_trips,
+    yoy_trip_growth,
+    yoy_growth_ratio
+order by
+    trip.year asc;

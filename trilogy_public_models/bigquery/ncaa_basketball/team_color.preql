@@ -1,0 +1,10 @@
+import team as team;
+
+key code_ncaa int; # The NCAA code for the team
+
+
+datasource team_colors (
+id:team.id,
+color:team.color
+)
+address bigquery-public-data.ncaa_basketball.team_colors;

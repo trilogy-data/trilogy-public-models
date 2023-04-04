@@ -13,3 +13,5 @@ property commit.message	string;
 property commit.difference_truncated boolean;
 property commit.repo_name list[repo.repo];
 property commit.encoding string;
+
+property author.time_sec ;

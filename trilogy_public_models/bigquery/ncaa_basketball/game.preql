@@ -1,0 +1,51 @@
+key id string; # [Game data] Unique identifier for the game
+property id.season int; # [Game data] Season the game was played in
+property season.status string; # [Game data] Indicates the last state of Sportradar's game file
+property season.coverage string; # [Game data] Type of coverage provided by Sportradar
+property id.neutral_site bool; # [Game data] Indicator of whether the game was played on a neutral court
+property id.scheduled_date date; # [Game data] Date the game was played
+property id.gametime timestamp; # [Game data] Date and time the game was played
+property id.conference_game bool; # [Game data] Indicator of whether the two teams were in the same conference at the time the game was played
+property id.tournament string; # [Game data] Whether the game was played in a post-season tournament
+property id.tournament_type string; # [Game data] Type of post-season tournament a game was in played
+property id.tournament_round string; # [Game data] Tournament round
+property id.tournament_game_no string; # [Game data] Tournament game number
+property id.attendance int; # [Game data] Attendance of the game
+property id.lead_changes int; # [Game stats] Number of lead changes in the game
+property id.times_tied int; # [Game stats] Number of ties in the game
+property id.periods int; # [Game stats] Number of periods the game
+property id.possession_arrow string; # [Game stats] The unique identifier of the team that would receive the ball the next time a jump ball is called, see https://en.wikipedia.org/wiki/Jump_ball for more information
+# property venue.venue_id string; # [Game data] Unique identifier for the venue where the game was played
+#property venue.city string; # [Game data] City where the game was played
+#property venue.state string; # [Game data] State where the game was played
+#property venue.address string; # [Game data] Address of the venue where the game was played
+#property venue.zip string; # [Game data] Address of the venue where the game was played
+#property venue.country string; # [Game data] Country where the game was played
+#property venue.name string; # [Game data] Name of the venue where the game was played
+#property venue.capacity int; # [Game data] Current capacity of the venue where the game was played
+property id.h_id string; # [Home Team data] Home team school ID from SportRadar (unique)
+property id.h_name string; # [Home Team data] Home team name
+property id.h_market string; # [Home Team data] Home team school name
+property id.h_alias string; # [Home Team data] Home team school alias (unique)
+property id.h_league_id string; # [Home Team data] Home team school league ID (not unique)
+property id.h_league_name string; # [Home Team data] Home team school league name (not unique)
+property id.h_league_alias string; # [Home Team data] Home team school league alias (not unique)
+property id.a_id string; # [Away Team data] Away team school ID from SportRadar (unique)
+property id.a_name string; # [Away Team data] Away team name
+property id.a_market string; # [Away Team data] Away team school name
+property id.a_alias string; # [Away Team data] Away team school alias
+
+datasource games_sr (
+    game_id:id,
+    season:season,
+    scheduled_date:scheduled_date,
+    gametime:gametime,
+    h_id:h_id,
+    h_name:h_name,
+    h_market:h_market,
+    a_id:a_id,
+    a_name:a_name,
+    a_market:a_market
+)
+grain (id)
+address bigquery-public-data.ncaa_basketball.mbb_games_sr;
