@@ -18,7 +18,7 @@ property id.eightd_has_available_keys bool; # Eightd_has_available_keys
 property id.last_reported timestamp; # Timestamp indicating the last time this station reported its status to the backend, in NYC local time.
 
 datasource citibike_stations (
-    id:id,
+    station_id:id,
     name:name,
     short_name:short_name,
     latitude:latitude,
@@ -41,14 +41,16 @@ address bigquery-public-data.new_york_citibike.citibike_stations;
 
 
 datasource citibike_station_rental_methods(
-    id:id,
+    station_id:id,
     rental_method:rental_method
 )
 query '''
 select
-    id,
-    rental_method
+    station_id,
+    TRIM(rental_method) rental_method
 FROM `bigquery-public-data.new_york_citibike.citibike_stations`
-CROSS JOIN UNNEST(rental_methods) AS rental_method
+CROSS JOIN UNNEST(SPLIT(rental_methods, ',')) AS rental_method
 '''
 ;
+
+metric count <- count(id);
