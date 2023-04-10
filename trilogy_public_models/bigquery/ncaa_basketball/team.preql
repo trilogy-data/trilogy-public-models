@@ -59,3 +59,10 @@ logo_small:logo_small
 )
 grain (id)
 address bigquery-public-data.ncaa_basketball.mbb_teams;
+
+
+datasource team_colors (
+id:id,
+color:color
+)
+address bigquery-public-data.ncaa_basketball.team_colors;

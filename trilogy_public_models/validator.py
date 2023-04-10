@@ -22,7 +22,7 @@ def validate_dataset(
         print(validation_query)
         raise e
     for statement in sql:
-        compiled_sql = ''
+        compiled_sql = ""
         # Start the query, passing in the extra configuration.
         try:
             # for UI execution, cap the limit
@@ -47,10 +47,12 @@ def validate_dataset(
         )
 
 
+def validate_datasource_grain(datasource):
+    pass
+
+
 def validate_concept(concept: Concept, env):
-    source_concepts(
-        [concept], [], environment=env
-    )
+    source_concepts([concept], [], environment=env)
 
 
 def validate_model(model: Environment, executor: Executor, dry_run_client):

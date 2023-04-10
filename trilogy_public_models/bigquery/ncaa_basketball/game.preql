@@ -1,10 +1,8 @@
-import team as team;
+import team as home_team;
+import team as away_team;
 
 key id string; # [Game data] Unique identifier for the game
-property id.home_game bool; # whether the game is a home game for the team in the row
 property id.season int; # [Game data] Season the game was played in
-property season.status string; # [Game data] Indicates the last state of Sportradar's game file
-property season.coverage string; # [Game data] Type of coverage provided by Sportradar
 property id.neutral_site bool; # [Game data] Indicator of whether the game was played on a neutral court
 property id.scheduled_date date; # [Game data] Date the game was played
 property id.gametime timestamp; # [Game data] Date and time the game was played
@@ -18,66 +16,33 @@ property id.lead_changes int; # [Game stats] Number of lead changes in the game
 property id.times_tied int; # [Game stats] Number of ties in the game
 property id.periods int; # [Game stats] Number of periods the game
 property id.possession_arrow string; # [Game stats] The unique identifier of the team that would receive the ball the next time a jump ball is called, see https://en.wikipedia.org/wiki/Jump_ball for more information
-# property venue.venue_id string; # [Game data] Unique identifier for the venue where the game was played
-#property venue.city string; # [Game data] City where the game was played
-#property venue.state string; # [Game data] State where the game was played
-#property venue.address string; # [Game data] Address of the venue where the game was played
-#property venue.zip string; # [Game data] Address of the venue where the game was played
-#property venue.country string; # [Game data] Country where the game was played
-#property venue.name string; # [Game data] Name of the venue where the game was played
-#property venue.capacity int; # [Game data] Current capacity of the venue where the game was played
-property id.h_id string; # [Home Team data] Home team school ID from SportRadar (unique)
-property id.h_name string; # [Home Team data] Home team name
-property id.h_market string; # [Home Team data] Home team school name
-property id.h_alias string; # [Home Team data] Home team school alias (unique)
-property id.h_league_id string; # [Home Team data] Home team school league ID (not unique)
-property id.h_league_name string; # [Home Team data] Home team school league name (not unique)
-property id.h_league_alias string; # [Home Team data] Home team school league alias (not unique)
-property id.a_id string; # [Away Team data] Away team school ID from SportRadar (unique)
-property id.a_name string; # [Away Team data] Away team name
-property id.a_market string; # [Away Team data] Away team school name
-property id.a_alias string; # [Away Team data] Away team school alias
 
-datasource games_sr (
-    game_id:id,
-    home_game:home_game,
-    season:season,
-    scheduled_date:scheduled_date,
-    gametime:gametime,
-    team_id:team.id,
-)
-grain (id, team.id)
-query '''
+property id.home_market string; # [Home Team data] Home team school name
+property id.home_alias string; # [Home Team data] Home team school alias (unique)
 
-select
-game_id,
-True as home_game,
-scheduled_date,
-season,
-neutral_site,
-attendance,
-times_tied,
-periods,
-tournament,
-gametime,
-h_id as team_id
-from `bigquery-public-data.ncaa_basketball.mbb_games_sr`
+property id.away_market string; # [Away Team data] Away team school name
+property id.away_alias string; # [Away Team data] Away team school alias
 
-UNION ALL
-SELECT
-game_id,
-False as home_game,
-scheduled_date,
-season,
-neutral_site,
-attendance,
-times_tied,
-periods,
-tournament,
-gametime,
-a_id as team_id
-from `bigquery-public-data.ncaa_basketball.mbb_games_sr`
-''';
+
+property id._home_three_points_att int; #  [Home Team data] Three point Attempts
+metric home_three_points_att <- sum(_home_three_points_att); # [Home Team data] Three point Attempts
+property id._home_three_points_made int; #  [Home Team data] Three points made
+metric home_three_points_made <- sum(_home_three_points_made); #  [Home Team data] Three points made
+metric home_three_points_pct <- home_three_points_made / home_three_points_att *100; #[Home Team data] Three point percent
+
+property id._away_three_points_att int; #  [Away Team data] Three point Attempts
+metric away_three_points_att <- sum(_away_three_points_att); #  [Away Team data] Three point Attempts
+property id._away_three_points_made int; #  [Away Team data] Three points made
+metric away_three_points_made <- sum(_away_three_points_made); #  [Away Team data] Three points made
+
+metric away_three_points_pct <- away_three_points_made / away_three_points_att *100; #[Away Team data] Three point percent
+
+
+property id._total_three_points_att <- _away_three_points_att + _home_three_points_att;
+metric total_three_points_att <- sum(id._total_three_points_att);
+
+property id._total_three_points_made <- _away_three_points_made + _home_three_points_made;
+metric total_three_points_made <- sum(id._total_three_points_made);
 
 # metrics
-metric count <- count_distinct(id);
+metric count <- count_distinct(id); # count of games
