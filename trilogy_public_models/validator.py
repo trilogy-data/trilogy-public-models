@@ -1,5 +1,5 @@
 from preql import Environment
-from preql.core.models import Grain, Concept, Datasource
+from preql.core.models import Concept, Datasource
 from preql.executor import Executor
 from preql.parser import parse_text
 from preql.core.processing.concept_strategies_v2 import source_concepts

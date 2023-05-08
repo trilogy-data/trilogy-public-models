@@ -1,6 +1,5 @@
 from os import listdir
 from os.path import dirname, join
-from pathlib import Path
 
 from preql import Environment
 from preql.parser import parse

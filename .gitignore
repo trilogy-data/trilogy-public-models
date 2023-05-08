@@ -6,3 +6,6 @@ __pycache__
 bigquery_auth
 bigquery_auth.json
 workload_federation_setup
+.venv
+.vscode
+*.code-workspace

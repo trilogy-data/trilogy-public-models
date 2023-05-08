@@ -1,0 +1,15 @@
+key name string; #Given name of a person at birth 
+key gender string; # Sex (M=male or F=female) 
+key state string; #2-digit state code
+key year int; #	4-digit year of birth 
+key name_count int; #Number of occurrences of the name 
+auto name_count.sum <- sum(name_count); # Sum of name count along chosen dimensions
+
+datasource usa_names(
+    name:name,
+    number:name_count,
+    year:year,
+    gender:gender,
+    state:state
+)
+address bigquery-public-data.usa_names.usa_1910_current;
