@@ -6,7 +6,7 @@ import sys
 
 models: Dict["str", Environment] = {}
 
-__version__ = "0.0.9"
+__version__ = "0.0.10"
 
 for loader, module_name, is_pkg in pkgutil.walk_packages([dirname(__file__)]):
     module = loader.find_module(module_name)  # type: ignore

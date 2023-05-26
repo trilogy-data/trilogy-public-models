@@ -11,7 +11,6 @@ property id.product_name string;
 property id.product_brand string;
 property id.product_retail_price float;
 property id.product_department string;
-property id.product_distribution_center_id int;
 property id.product_sku string;
 
 

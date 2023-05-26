@@ -52,7 +52,7 @@ Example response:
 Columns are:
 {columns}
 answer:
-    """
+    """  # noqa: E501
     results = llm(text)
     print(results)
     return json.loads(results)
@@ -114,7 +114,8 @@ def process_table(table, client: "bigquery.Client", keys:list[str]) -> Environme
         if concept.purpose == Purpose.PROPERTY:
             concept.keys = grain
     datasource = Datasource(
-        columns=columns, identifier=table.table_id, address=table.full_table_id.replace(':','.'),
+        columns=columns, identifier=table.table_id,
+          address=table.full_table_id.replace(':','.'),
         grain = Grain(components = grain)
     )
 
