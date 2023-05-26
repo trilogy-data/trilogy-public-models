@@ -1,8 +1,15 @@
 from preql import Environment
+from preql.constants import DEFAULT_NAMESPACE
 from preql.core.models import Concept, Datasource
+from preql.core.processing.concept_strategies_v2 import source_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
-from preql.core.processing.concept_strategies_v2 import source_concepts
+
+
+def safe_address(input: Concept):
+    if input.namespace == DEFAULT_NAMESPACE:
+        return input.name
+    return input.address
 
 
 def validate_dataset(
@@ -12,7 +19,9 @@ def validate_dataset(
     from google.cloud.bigquery import QueryJobConfig
 
     validation_query = (
-        "SELECT\n " + ",\n".join([x.address for x in dataset.concepts]) + " LIMIT 0;"
+        "SELECT\n "
+        + ",\n".join([safe_address(x) for x in dataset.concepts])
+        + " LIMIT 0;"
     )
 
     try:
@@ -48,6 +57,8 @@ def validate_dataset(
 
 
 def validate_datasource_grain(datasource):
+    #TODO: check that count(*) at datasource grain = 1
+    #CON: this requires running an real query
     pass
 
 
