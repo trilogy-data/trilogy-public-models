@@ -19,7 +19,7 @@ armed_crime_count
 order by
 armed_crime_count desc
 
-LIMIT 100;''')
+LIMIT 100;''')  # noqa: E501
 
 for row in results[0].fetchall():
     print(row)
