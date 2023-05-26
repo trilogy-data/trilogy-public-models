@@ -1,0 +1,31 @@
+key file_history_id string; # Primary key for file_history table
+property file_history_id.created_timestamp timestamp; #  When this file_history entry was created, i.e. the last time the broadcaster uploaded an updated file to the FCC. createdTimestap is overwhelmingly identical to lastUpdatedTimestamp, and when they differ, it is only by seconds, so you can consider them to be duplicates.
+property file_history_id.file_extension string; #  File extension of the original file the broadcaster sent the FCC, like 'pdf', 'docx' or 'rtf'. Even though these might not have been PDFs originally, the FCC converts them to PDFs after upload, so all the files available via the FCC and our project are PDFs.
+property file_history_id.file_folder_path string; #  Path to the folder in the FCC's API containing the original file, like 'Political Files/2016/Federal/US Senate/Jane Smith'
+property file_history_id.file_id string;
+property file_history_id.file_manager_id string;
+property file_history_id.file_name string; #  Name of the original file the broadcaster sent to the FCC, without the file extension, like 'Jane Smith for California Governor Invoice'. Often (but not necessarily) contains interesting keywords, like names of candidates ('Jane Smith') or locales ('California'). Other times, a generic file name with no interesting keywords like 'Receipt 1234'.
+property file_history_id.file_size int; #  Size in bytes of the original file the broadcaster sent the FCC, like '100000'.
+property file_history_id.file_status string;
+property file_history_id.folder_id string;
+property file_history_id.history_status string; #  Description of what happened to the file at this point in history. One of { 'purge', 'move', 'delete', 'new', 'restore', 'rename' }
+property file_history_id.last_updated_timestamp timestamp; #  The last time the broadcaster sent an updated version of the file to the FCC. lastUpdatedTimestap is overwhelmingly identical to the createdTimestamp column, and when they differ, it is only by seconds, so you can consider them to be duplicates.
+property file_history_id.station_id string; #  Unique identifier specifying the TV or radio broadcasting station who ran the ads described in this receipt.
+
+datasource file_history (
+    fileHistoryId:file_history_id,
+	createdTimestamp:created_timestamp,
+	fileExtension:file_extension,
+	fileFolderPath:file_folder_path,
+	fileId:file_id,
+	fileManagerId:file_manager_id,
+	fileName:file_name,
+	fileSize:file_size,
+	fileStatus:file_status,
+	folderId:folder_id,
+	historyStatus:history_status,
+	lastUpdatedTimestamp:last_updated_timestamp,
+	stationId:station_id
+    ) 
+grain (file_history_id) 
+address bigquery-public-data.fcc_political_ads.file_history;

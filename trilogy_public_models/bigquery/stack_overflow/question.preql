@@ -1,19 +1,17 @@
 ## posts
 import user as user;
 import tag as tag;
+import constants as constants;
 
 key id int;
-property _str_id <- cast(id as STRING);
 property id.text string;
 property id.creation_timestamp timestamp;
-property creation_date <- date(creation_timestamp);
 property id.last_edit_timestamp timestamp;
-property last_edit_date <-date(last_edit_timestamp);
 property length <- len(text);
 property id.comment_count int;
 property id.title string;
 property id.question_view_count int;
-property url <- concat('https://stackoverflow.com/questions/', _str_id);
+property url <- concat(constants.site_url, '/questions/', cast(id as STRING));
 metric view_count <- sum(question_view_count);
 
 metric count <- count( id);
