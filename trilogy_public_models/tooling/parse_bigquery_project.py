@@ -8,7 +8,7 @@ from preql.core.models import (
     Environment,
     Concept,
     Metadata,
-    Grain
+    Grain,
 )
 from preql.core.enums import DataType, Purpose
 from preql.parsing.render import render_environment
@@ -32,12 +32,11 @@ def write_ds_file():
     pass
 
 
-
-def get_table_keys(table:"bigquery.Table"):
+def get_table_keys(table: "bigquery.Table"):
     from langchain.llms import OpenAI
 
     llm = OpenAI(temperature=0.99)
-    columns = '\n'.join([f'{c.name}:{c.description}' for c in table.schema])
+    columns = "\n".join([f"{c.name}:{c.description}" for c in table.schema])
     text = f"""Given a list of the following pairs of columns and descriptions for a SQL table, which column
 or set of columns are the primary keys for the table?
 
@@ -57,15 +56,15 @@ answer:
     print(results)
     return json.loads(results)
 
+
 def process_description(input):
     if not input:
         return None
-    return ' '.join([x.strip() for x in input.split('\n')])
-
+    return " ".join([x.strip() for x in input.split("\n")])
 
 
 def parse_column(
-    c: "bigquery.SchemaField", keys:list[str], parents: list | None = None
+    c: "bigquery.SchemaField", keys: list[str], parents: list | None = None
 ) -> list[Concept]:
     parents = []
     type_map = {
@@ -73,12 +72,12 @@ def parse_column(
         "INTEGER": DataType.INTEGER,
         "BOOLEAN": DataType.BOOL,
         "TIMESTAMP": DataType.TIMESTAMP,
-        "FLOAT": DataType.FLOAT
+        "FLOAT": DataType.FLOAT,
     }
     if c.field_type == "RECORD":
         output = []
         for x in c.fields:
-            output.extend(parse_column(x, keys=keys, parents= parents + [c.name]))
+            output.extend(parse_column(x, keys=keys, parents=parents + [c.name]))
         return output
     purpose = Purpose.KEY
     if c.name in keys:
@@ -95,26 +94,35 @@ def parse_column(
         )
     ]
 
-def get_table_environment(table:"bigquery.Table",target:Path)->Environment:
+
+def get_table_environment(table: "bigquery.Table", target: Path) -> Environment:
     snake = camel_to_snake(table.table_id)
     from preql.parser import parse
+
     fpath = target / (snake + ".preql")
     if not fpath.exists():
-        return Environment()
+        return Environment(working_path=target)
     with open(fpath, "r", encoding="utf-8") as f:
+        print(f"{fpath} already exists, returning existing environment")
         contents = f.read()
-        env = Environment(working_path=dirname(fpath))
+        env = Environment(working_path=target)
         environment, statements = parse(contents, environment=env)
         return environment
 
 
-def process_table(table, client: "bigquery.Client", keys:list[str], target:Path) -> Environment:
-    environment = get_table_environment(table,  target=target)
+def process_table(table, client: "bigquery.Client", target: Path) -> Environment:
+    environment = get_table_environment(table, target=target)
     # environment = Environment()
     columns = []
-    grain = []
+    grain = [c for c in environment.concepts.values() if c.purpose == Purpose.KEY]
     existing_bindings = set()
-    
+    # if there are already keys defined, defer to that
+    # otherwise attempt to get keys from NLP
+    keys = (
+        [c.name for c in environment.concepts.values() if c.purpose == Purpose.KEY]
+        or get_table_keys(table)
+        or []
+    )
     for _, datasource in environment.datasources.items():
         for c in datasource.columns:
             existing_bindings.add(c.alias)
@@ -125,10 +133,11 @@ def process_table(table, client: "bigquery.Client", keys:list[str], target:Path)
         if c.name in keys:
             grain.extend(concepts)
         for concept in concepts:
-                
             environment.add_concept(concept, add_derived=False)
             assignment = ColumnAssignment(alias=c.name, concept=concept)
             columns.append(assignment)
+    if not grain:
+        raise ValueError(f"No grain found for table {table.table_id} keys {keys}")
     for concept in environment.concepts.values():
         if concept.purpose == Purpose.PROPERTY:
             concept.keys = grain
@@ -138,9 +147,10 @@ def process_table(table, client: "bigquery.Client", keys:list[str], target:Path)
             datasource.columns.append(c)
     if not datasource:
         datasource = Datasource(
-            columns=columns, identifier=table.table_id,
-            address=table.full_table_id.replace(':','.'),
-            grain = Grain(components = grain)
+            columns=columns,
+            identifier=table.table_id,
+            address=table.full_table_id.replace(":", "."),
+            grain=Grain(components=grain),
         )
 
     environment.datasources[table.table_id] = datasource
@@ -150,6 +160,7 @@ def process_table(table, client: "bigquery.Client", keys:list[str], target:Path)
 def parse_public_bigquery_project(dataset: str, write: bool):
     from google import auth
     from google.cloud import bigquery
+
     root = dirname(dirname(__file__))
     target = Path(root) / "bigquery" / dataset
     cred, project = auth.default()
@@ -161,8 +172,8 @@ def parse_public_bigquery_project(dataset: str, write: bool):
     entrypoints = []
     for table_ref in client.list_tables(dataset=dataset_instance):
         table = client.get_table(table_ref)
-        keys = get_table_keys(table) or []
-        ds = process_table(table, client=client, keys=keys, target=target)
+
+        ds = process_table(table, client=client, target=target)
         snake = camel_to_snake(table.table_id)
         entrypoints.append(snake)
         if write:
@@ -172,17 +183,18 @@ def parse_public_bigquery_project(dataset: str, write: bool):
                 f.write(render_environment(ds))
     if write:
         os.makedirs(target, exist_ok=True)
-        init = '''from trilogy_public_models.inventory import parse_initial_models
+        init = """from trilogy_public_models.inventory import parse_initial_models
 
 model = parse_initial_models(__file__)
-'''
-        path = target / '__init__.py'
-        with open(path, 'w') as f:
+"""
+        path = target / "__init__.py"
+        with open(path, "w") as f:
             f.write(init)
-        entrypoint = target / 'entrypoint.preql'
-        with open(entrypoint, 'w') as f:
-            entrypoints = '\n'.join([f'import {z} as {z};' for z in entrypoints])
+        entrypoint = target / "entrypoint.preql"
+        with open(entrypoint, "w") as f:
+            entrypoints = "\n".join([f"import {z} as {z};" for z in entrypoints])
             f.write(entrypoints)
+
 
 if __name__ == "__main__":
     parse_public_bigquery_project("thelook_ecommerce", write=True)
