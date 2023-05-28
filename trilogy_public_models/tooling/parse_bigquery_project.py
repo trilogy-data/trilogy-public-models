@@ -95,29 +95,53 @@ def parse_column(
         )
     ]
 
+def get_table_environment(table:"bigquery.Table",target:Path)->Environment:
+    snake = camel_to_snake(table.table_id)
+    from preql.parser import parse
+    fpath = target / (snake + ".preql")
+    if not fpath.exists():
+        return Environment()
+    with open(fpath, "r", encoding="utf-8") as f:
+        contents = f.read()
+        env = Environment(working_path=dirname(fpath))
+        environment, statements = parse(contents, environment=env)
+        return environment
 
-def process_table(table, client: "bigquery.Client", keys:list[str]) -> Environment:
-    environment = Environment()
 
-
+def process_table(table, client: "bigquery.Client", keys:list[str], target:Path) -> Environment:
+    environment = get_table_environment(table,  target=target)
+    # environment = Environment()
     columns = []
     grain = []
+    existing_bindings = set()
+    
+    for _, datasource in environment.datasources.items():
+        for c in datasource.columns:
+            existing_bindings.add(c.alias)
     for c in table.schema:
+        if c.name in existing_bindings:
+            continue
         concepts = parse_column(c, keys=keys)
         if c.name in keys:
             grain.extend(concepts)
         for concept in concepts:
+                
             environment.add_concept(concept, add_derived=False)
             assignment = ColumnAssignment(alias=c.name, concept=concept)
             columns.append(assignment)
     for concept in environment.concepts.values():
         if concept.purpose == Purpose.PROPERTY:
             concept.keys = grain
-    datasource = Datasource(
-        columns=columns, identifier=table.table_id,
-          address=table.full_table_id.replace(':','.'),
-        grain = Grain(components = grain)
-    )
+    datasource = environment.datasources.get(table.table_id)
+    if datasource:
+        for c in columns:
+            datasource.columns.append(c)
+    if not datasource:
+        datasource = Datasource(
+            columns=columns, identifier=table.table_id,
+            address=table.full_table_id.replace(':','.'),
+            grain = Grain(components = grain)
+        )
 
     environment.datasources[table.table_id] = datasource
     return environment
@@ -138,11 +162,10 @@ def parse_public_bigquery_project(dataset: str, write: bool):
     for table_ref in client.list_tables(dataset=dataset_instance):
         table = client.get_table(table_ref)
         keys = get_table_keys(table) or []
-        ds = process_table(table, client=client, keys=keys)
+        ds = process_table(table, client=client, keys=keys, target=target)
         snake = camel_to_snake(table.table_id)
         entrypoints.append(snake)
         if write:
-
             os.makedirs(target, exist_ok=True)
             path = target / (snake + ".preql")
             with open(path, "w") as f:
