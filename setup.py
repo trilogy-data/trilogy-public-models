@@ -24,8 +24,21 @@ setuptools.setup(
     author_email="preql-community@gmail.com",
     description="Public trilogy/preql models.",
     long_description=open("README.md").read(),
-    long_description_content_type='text/markdown',
-    packages=setuptools.find_packages(exclude=["dist", "build", "*.tests", "*.tests.*", "tests.*", "tests", "docs", ".github", "", "examples"]),
+    long_description_content_type="text/markdown",
+    packages=setuptools.find_packages(
+        exclude=[
+            "dist",
+            "build",
+            "*.tests",
+            "*.tests.*",
+            "tests.*",
+            "tests",
+            "docs",
+            ".github",
+            "",
+            "examples",
+        ]
+    ),
     package_data={
         "": ["*.preql", "py.typed"],
     },

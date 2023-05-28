@@ -40,7 +40,22 @@ order by
 
 
 LIMIT 100;'''
-results = executor.execute_text(QA_2)
+
+QA_3 =  '''
+
+auto order_price <- sum(order_items.sale_price) by orders.id;
+
+
+SELECT
+    users.id,
+    orders.id.count
+order by 
+    orders.id.count desc
+
+
+LIMIT 100;'''
+
+results = executor.execute_text(QA_3)
 
 for row in results[0].fetchall():
     print(row)

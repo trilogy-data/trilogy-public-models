@@ -8,8 +8,6 @@ property id.brand string;
 property id.retail_price float;
 property id.department string;
 property id.sku string;
-property id.cost float;
-
 
 datasource products (
     id:id,
