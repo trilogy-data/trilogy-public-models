@@ -1,7 +1,8 @@
 import users as users;
+
 key id int;
 property id.status string; # The order status - one of 'Shipped', 'Complete', 'Returned', 'Cancelled', 'Processing'
-property id.gender string; # The gender encoded as either 'M' or 'F' 
+property id.gender string; # The gender encoded as either 'M' or 'F'
 property id.created_at timestamp;
 property id.returned_at timestamp;
 property id.shipped_at timestamp;

@@ -4,14 +4,12 @@ import users as users;
 import products as products;
 
 key id int;
-property id.id int;
 property id.status string;
 property id.created_at timestamp;
 property id.shipped_at timestamp;
 property id.delivered_at timestamp;
 property id.returned_at timestamp;
 property id.sale_price float;
-
 
 datasource order_items (
     id:id,
