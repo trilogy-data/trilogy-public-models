@@ -43,17 +43,21 @@ LIMIT 100;'''
 
 QA_3 =  '''
 
-auto order_price <- sum(order_items.sale_price) by orders.id;
-
+key cancelled_orders <- filter orders.id where orders.status = 'Cancelled';
+auto orders.id.cancelled_count <- count(cancelled_orders);
 
 SELECT
-    users.id,
-    orders.id.count
-order by 
-    orders.id.count desc
-
-
-LIMIT 100;'''
+    users.city,
+    orders.id.cancelled_count / orders.id.count -> cancellation_rate,
+    orders.id.cancelled_count,
+    orders.id.count,
+    orders.created_at.year,
+WHERE
+    (orders.created_at.year = 2020)
+    and orders.id.count>10
+ORDER BY
+    cancellation_rate desc;
+'''
 
 results = executor.execute_text(QA_3)
 

@@ -1,7 +1,7 @@
 key id int;
-key name string;
-key latitude float;
-key longitude float;
+property id.name string;
+property id.latitude float;
+property id.longitude float;
 
 datasource distribution_centers (
     id:id,

@@ -11,6 +11,9 @@ property id.delivered_at timestamp;
 property id.returned_at timestamp;
 property id.sale_price float;
 
+metric id.sale_price.sum <- sum(sale_price);
+
+
 datasource order_items (
     id:id,
 	order_id:orders.id,
