@@ -1,0 +1,54 @@
+## posts
+import user as user;
+import tag as tag;
+import constants as constants;
+
+key id int;
+property id.text string;
+property id.creation_timestamp timestamp;
+property id.last_edit_timestamp timestamp;
+property length <- len(text);
+property id.comment_count int;
+property id.title string;
+property id.question_view_count int;
+property url <- concat(constants.site_url, '/questions/', cast(id as STRING));
+metric view_count <- sum(question_view_count);
+
+metric count <- count( id);
+metric avg_length <- avg(length);
+metric total_comment_count <- sum(comment_count);
+
+datasource posts (
+    owner_user_id: Partial[user.id],
+    id: id,
+    body: text,
+    title:title,
+    creation_date: creation_timestamp,
+    comment_count:comment_count,
+    last_edit_date: last_edit_timestamp,
+    view_count: question_view_count
+    )
+    grain (id)
+    address bigquery-public-data.stackoverflow.posts_questions
+;
+
+
+datasource post_tags (
+    id: id,
+    title:title,
+    owner_user_id: Partial[user.id],
+    tag: Partial[tag.name],
+    creation_date: creation_timestamp
+    )
+    grain (id, tag.name)
+    query '''
+select
+    id,
+    title,
+    owner_user_id,
+    tag,
+    creation_date
+FROM `bigquery-public-data.stackoverflow.posts_questions`
+CROSS JOIN UNNEST(split(tags, '|')) AS tag
+'''
+;

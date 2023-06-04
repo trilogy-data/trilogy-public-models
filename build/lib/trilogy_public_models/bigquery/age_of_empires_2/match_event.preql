@@ -1,0 +1,29 @@
+import match_players as match_players;
+import objects as objects;
+
+key id int;
+property id.duration int;
+property id.type int;
+property id.milliseconds_into_game int;
+auto seconds_into_game <- round(milliseconds_into_game / 1000,0);
+property id.event_id int;
+
+property name <- CASE
+	WHEN type = 1 THEN 'UNIT'
+	WHEN type = 2 THEN 'BUILDING'
+	WHEN type = 3 THEN 'TECH'
+	WHEN type = 4 THEN 'RESIGN'
+	WHEN type = 5 THEN 'TRIBUTE'
+END;  # The type of event, one of the following: Unit, Building, Tech, Resign, Tribute
+
+datasource match_player_actions (
+    id:id,
+	match_player_id:match_players.id,
+	event_type:type,
+	event_id:objects.id,
+	event_id:event_id,
+	time:milliseconds_into_game,
+	duration:duration,
+    ) 
+grain (id) 
+address ttl-test-355422.aoe2.match_player_actions;

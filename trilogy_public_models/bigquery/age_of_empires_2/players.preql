@@ -1,0 +1,9 @@
+key id int;
+property id.name string;
+
+datasource players (
+    id:id,
+	name:name
+    ) 
+grain (id) 
+address ttl-test-355422.aoe2.players;

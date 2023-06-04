@@ -1,0 +1,35 @@
+key content_info_id string; # Primary key for content_info table
+property content_info_id.advertiser string; #  Text listed in the file as the advertiser
+property content_info_id.candidate string; #  Candidate name from FEC record
+property content_info_id.gross_spend int; #  Gross amount paid for the ad in lower monetary value i.e., cents not dollars
+property content_info_id.info_source string; #  Where the annotation came from. Currently, the only value is 'MANUAL', for annotations a person manually transcribed from the file. We intend to eventually add annotations written automatically by algorithms.
+property content_info_id.invalid_ocr bool; #  Indicates if the ocr does not match the raw file text. In this case, the OCR process needs more work and the file is not ready to be transcribed.
+property content_info_id.ocr_file_directory string; #  If available, path in GCS Storage to the machine-readable plain text content of the original file. To retrieve the files, use the gsutil command from the Cloud SDK, like 'gsutil cp gs://fcc-files-ocr/125/akRGEs7DFUpkNYSZvZsHkg==/* ~/files'
+property content_info_id.organization string; #  Political campaign organization from FEC that paid for the ad
+property content_info_id.period_end string; #  Last day the ad aired in the broadcaster's local timezone as YYYY-MM-DD
+property content_info_id.period_start string; #  First day the ad aired in the broadcaster's local timezone as YYYY-MM-DD
+property content_info_id.product string; #  Text listed in the file as the product
+property content_info_id.raw_file_link string; #  HTTP URL to view the original file in your Web browser.
+property content_info_id.raw_file_path string; #  Cloud Storage URI to original file uploaded to the broadcaster
+property content_info_id.source_id string; #  For annotations that came from an external dataset (like ProPublica), the unique identifier for the annotation in the source dataset.
+property content_info_id.agency string; #  Text listed in the file as the agency that facilitated the ad purchase
+
+datasource content_info (
+    contentInfoId:content_info_id,
+	advertiser:advertiser,
+	candidate:candidate,
+	grossSpend:gross_spend,
+	infoSource:info_source,
+	invalidOcr:invalid_ocr,
+	ocrFileDirectory:ocr_file_directory,
+	organization:organization,
+	periodEnd:period_end,
+	periodStart:period_start,
+	product:product,
+	rawFileLink:raw_file_link,
+	rawFilePath:raw_file_path,
+	sourceId:source_id,
+	agency:agency
+    ) 
+grain (content_info_id) 
+address bigquery-public-data.fcc_political_ads.content_info;

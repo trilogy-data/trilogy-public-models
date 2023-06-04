@@ -1,0 +1,99 @@
+key station_id string; #  Unique identifier specifying the TV or radio broadcasting station who ran the ads described in this receipt.
+property station_id.license_expiration_date string; # License Expiration Date
+property station_id.status_date string; # Status Date
+property station_id.status string; # Status
+property station_id.community_city string; # Community City
+property station_id.community_state string; # Community State
+property station_id.facility_type string; # Facility Type
+property station_id.frequency string; # Frequency
+property station_id.active_ind string; # Active Indicator
+property station_id.scanned_letter_ids string; # Scanned Letter Ids
+property station_id.party_name string; # Party Name
+property station_id.party_address1 string; # Party Address1
+property station_id.party_address2 string; # Party Address2
+property station_id.party_city string; # Party City
+property station_id.party_zip1 string; # Party Zipcode1
+property station_id.party_zip2 string; # Party Zipcode2
+property station_id.party_state string; # Party State
+property station_id.party_phone string; # Party Phone Number
+property station_id.nielsen_dma string; # Nielsen DMA
+property station_id.network_afil string; # Network Affiliated To
+property station_id.band string; # Band
+property station_id.auth_app_id string; # Auth App ID
+property station_id.post_card_id string; # PostCard ID
+property station_id.address1 string; # CC Contact Address 1
+property station_id.address2 string; # CC Contact Address 2
+property station_id.city string; # CC Contact City
+property station_id.email string; # CC Contact Email
+property station_id.fax string; # CC Contact Fax
+property station_id.name string; # CC Contact Name
+property station_id.phone string; # CC Contact Phone Number
+property station_id.phone_ext string; # CC Contact Phone Number Extension
+property station_id.state string; # CC Contact State
+property station_id.title string; # CC Contact Title
+property station_id.website string; # CC Contact website
+property station_id.zip string; # CC Contact Zip Code
+property station_id.zip_ext string; # CC Contact Zip Code Extension
+key call_sign string; # Call Sign
+key service string; # Service
+key rf_channel string; # RF Channel
+key virtual_channel string; # Virtual Channel
+
+
+datasource broadcast_tv_radio_station (
+    stationId:station_id,
+	callSign:call_sign,
+	service:service,
+	rfChannel:rf_channel,
+	virtualChannel:virtual_channel,
+	licenseExpirationDate:license_expiration_date,
+	statusDate:status_date,
+	status:status,
+	communityCity:community_city,
+	communityState:community_state,
+	facilityType:facility_type,
+	frequency:frequency,
+	activeInd:active_ind,
+	scannedLetterIds:scanned_letter_ids,
+	partyName:party_name,
+	partyAddress1:party_address1,
+	partyAddress2:party_address2,
+	partyCity:party_city,
+	partyZip1:party_zip1,
+	partyZip2:party_zip2,
+	partyState:party_state,
+	partyPhone:party_phone,
+	nielsenDma:nielsen_dma,
+	networkAfil:network_afil,
+	band:band,
+	authAppId:auth_app_id,
+	postCardId:post_card_id,
+	mainStudioContact:address1,
+	mainStudioContact:address2,
+	mainStudioContact:city,
+	mainStudioContact:email,
+	mainStudioContact:fax,
+	mainStudioContact:name,
+	mainStudioContact:phone,
+	mainStudioContact:phone_ext,
+	mainStudioContact:state,
+	mainStudioContact:title,
+	mainStudioContact:website,
+	mainStudioContact:zip,
+	mainStudioContact:zip_ext,
+	ccContact:address1,
+	ccContact:address2,
+	ccContact:city,
+	ccContact:email,
+	ccContact:fax,
+	ccContact:name,
+	ccContact:phone,
+	ccContact:phone_ext,
+	ccContact:state,
+	ccContact:title,
+	ccContact:website,
+	ccContact:zip,
+	ccContact:zip_ext
+    ) 
+grain (station_id,call_sign,service,rf_channel,virtual_channel) 
+address bigquery-public-data.fcc_political_ads.broadcast_tv_radio_station;

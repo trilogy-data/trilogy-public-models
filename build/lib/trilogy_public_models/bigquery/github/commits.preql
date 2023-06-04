@@ -1,0 +1,17 @@
+import repo as repo;
+
+key commit string;
+
+property commit.tree string;
+property commit.parent list[string];
+# Level 1author	RECORD	NULLABLE
+# Level 1committer	RECORD	NULLABLE
+property commit.subject	string;
+property commit.message	string;
+# Level 1trailer	RECORD	REPEATED
+# Level 1difference	RECORD	REPEATED
+property commit.difference_truncated boolean;
+property commit.repo_name list[repo.repo];
+property commit.encoding string;
+
+property author.time_sec ;

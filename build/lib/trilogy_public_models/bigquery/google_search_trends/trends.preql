@@ -1,0 +1,23 @@
+
+key dma_id int; # The ID of a DMA, or designated_market_area
+property dma_id.dma_name string;  # Human readable name for the DMA
+key term string;  # The search term
+key week date; # Week for which the data is aggregated
+key score int; # index from 0–100 that denotes how popular this term was for a country’s region during the current date, relative to the other dates in the same time series for this term (260 weeks = 52 weeks * 5 years),
+key rank int; # Rank, the rank in that period
+key refresh_date date; # The date when the data was populated into the table
+
+
+datasource trends (
+    dma_id:dma_id,
+    dma_name:dma_name,
+    term:term,
+    week:week,
+    score:score,
+    rank:rank,
+    refresh_date:refresh_date
+    )
+    grain (dma_id,term, week, refresh_date)
+address bigquery-public-data.google_trends.top_terms;
+
+

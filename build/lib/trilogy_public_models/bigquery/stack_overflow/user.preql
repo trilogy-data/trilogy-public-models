@@ -1,0 +1,18 @@
+## users
+
+key id int metadata(description="The unique identifier of a user");
+key location string metadata(description="The user location");
+property id.display_name string metadata(description="The display name ");
+property id.about_me string metadata(description="User provided description");
+
+metric count <- count(id);
+
+datasource users (
+    id: id,
+    display_name: display_name,
+    about_me: about_me,
+    location:location
+    )
+    grain(id)
+    address bigquery-public-data.stackoverflow.users
+;

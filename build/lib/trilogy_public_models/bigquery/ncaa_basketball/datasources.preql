@@ -1,0 +1,60 @@
+import game as game;
+import game_event as game_event;
+import player as player;
+import team as event_team;
+
+# base games source
+datasource games_sr (
+    game_id:game.id,
+    season:game.season,
+    scheduled_date:game.scheduled_date,
+    gametime:game.gametime,
+    h_id: game.home_team.id,
+    a_id:game.away_team.id,
+    h_market: game.home_market,
+    h_alias: game.home_alias,
+    a_market: game.away_market,
+    a_alias:game.away_alias,
+    h_three_points_att:game._home_three_points_att,
+    a_three_points_att: game._away_three_points_att,
+    h_three_points_made: game._home_three_points_made,
+    a_three_points_made: game._away_three_points_made,
+    conference_game:game.conference_game,
+    tournament:game.tournament,
+    tournament_type:game.tournament_type,
+    tournament_round:game.tournament_round,
+    tournament_game_no:game.tournament_game_no,
+    attendance:game.attendance,
+    lead_changes:game.lead_changes,
+    times_tied:game.times_tied,
+    periods:game.periods,
+    neutral_site:game.neutral_site,
+    possession_arrow: game.possession_arrow
+)
+grain (game.id)
+address bigquery-public-data.ncaa_basketball.mbb_games_sr
+;
+
+
+
+datasource game_events
+(
+game_id:game.id,
+event_id:game_event.id,
+team_id: event_team.id,
+player_id: player.id,
+player_full_name:player.full_name,
+event_type:game_event.type,
+type: game_event.sub_type,
+shot_type: game_event.shot_type,
+shot_subtype: game_event.shot_subtype,
+points_scored: game_event.points_scored,
+event_description: game_event.description,
+shot_made: game_event.shot_made
+)
+
+grain (game_event.id)
+address bigquery-public-data.ncaa_basketball.mbb_pbp_sr;
+
+
+

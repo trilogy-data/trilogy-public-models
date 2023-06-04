@@ -1,0 +1,57 @@
+key file_record_id string; #  Primary key for file_record table
+property file_record_id.duplicate_content bool; #  The original FCC file records have duplicates, that is, multiple file_record rows may point the same rawFilePath. Each duplicate file_record row has duplicateContent=true. Even though they collectively point to the same rawFilePath, each duplicate file_record row still has its own unique fileId.
+property file_record_id.file_extension string; #  File extension of the original file the broadcaster sent the FCC, like 'pdf', 'docx' or 'rtf'. Even though these might not have been PDFs originally, the FCC converts them to PDFs after upload, so all the files available via the FCC are PDFs.
+property file_record_id.file_id string; #  Unique id for a file
+property file_record_id.file_manager_id string; #  Unique ID for a file manager
+property file_record_id.file_name string; #  Name of the original file the broadcaster sent to the FCC, without the file extension, e.g., 'Jane Smith for California Governor Invoice'.
+property file_record_id.file_size int; #  Size in bytes of the original file the broadcaster sent the FCC, like '100000'.
+property file_record_id.file_status string; #  Status of the file. Format is {uploadStatus}_{convertStatus}, where {uploadStatus} may be: PEN - Pending - upload processing has started, ERR - Error - there was an error converting the file to PDF, COM - Completed - upload and conversion is complete. {convertStatus} may be: UPL - Upload - file is being uploaded, CVT - file is being converted to PDF, COM_CVT - completed conversion, ERR_CVT - error in conversion, CPY - upload was already PDF with no need to convert, DLQ - error in internal processing. ETL - nightly data copy from a different database source (if preceded by err, error during ETL), INS - insertion, a very temporary status while the record is being inserted. PRC - processing (if preceded by err, means error in processing). An example value for fileStatus could be COM_CPY. 
+property file_record_id.folder_id string; #  Unique ID for a folder
+property file_record_id.folder_path string; #  Path to the folder in the FCC's API containing the original file, like 'Political Files/2016/Federal/US Senate/Jane Smith'
+property file_record_id.last_update_ts timestamp; #  Most recent time in UTC that a broadcaster sent the FCC an update to the previously submitted file, like '2019-01-01T00:00:00Z'. Uses ISO 8601 format.
+property file_record_id.ocr_file bool; #  Whether the raw file has been converted into machine-readable text.
+property file_record_id.ocr_file_directory string; #  If available, path in Google Cloud Storage to the machine-readable plain text content of the original file. To retrieve the files, use the gsutil command from the Cloud SDK, like 'gsutil cp gs://fcc-files-ocr/125/akRGEs7DFUpkNYSZvZsHkg==/* ~/files'
+property file_record_id.raw_file_path string; #  Path in Google Cloud Storage to the original file.
+property file_record_id.station_id string; #  Unique identifier specifying the TV or radio broadcasting station who ran the ads described in this receipt.
+property file_record_id.year int; #  Calendar year during which the ads described in the receipt were shown.
+property file_record_id.raw_file_link string; #  HTTP URL to view the original file in your Web browser.
+key md5 string; #  MD5 hash of the original file, encoded in base64. Uniquely identifies each original file.
+property file_record_id.duplicate_content bool; #  The original FCC file records have duplicates, that is, multiple file_record rows may point the same rawFilePath. Each duplicate file_record row has duplicateContent=true. Even though they collectively point to the same rawFilePath, each duplicate file_record row still has its own unique fileId.
+property file_record_id.file_extension string; #  File extension of the original file the broadcaster sent the FCC, like 'pdf', 'docx' or 'rtf'. Even though these might not have been PDFs originally, the FCC converts them to PDFs after upload, so all the files available via the FCC are PDFs.
+property file_record_id.file_id string; #  Unique id for a file
+property file_record_id.file_manager_id string; #  Unique ID for a file manager
+property file_record_id.file_name string; #  Name of the original file the broadcaster sent to the FCC, without the file extension, e.g., 'Jane Smith for California Governor Invoice'.
+property file_record_id.file_size int; #  Size in bytes of the original file the broadcaster sent the FCC, like '100000'.
+property file_record_id.file_status string; #  Status of the file. Format is {uploadStatus}_{convertStatus}, where {uploadStatus} may be: PEN - Pending - upload processing has started, ERR - Error - there was an error converting the file to PDF, COM - Completed - upload and conversion is complete. {convertStatus} may be: UPL - Upload - file is being uploaded, CVT - file is being converted to PDF, COM_CVT - completed conversion, ERR_CVT - error in conversion, CPY - upload was already PDF with no need to convert, DLQ - error in internal processing. ETL - nightly data copy from a different database source (if preceded by err, error during ETL), INS - insertion, a very temporary status while the record is being inserted. PRC - processing (if preceded by err, means error in processing). An example value for fileStatus could be COM_CPY. 
+property file_record_id.folder_id string; #  Unique ID for a folder
+property file_record_id.folder_path string; #  Path to the folder in the FCC's API containing the original file, like 'Political Files/2016/Federal/US Senate/Jane Smith'
+property file_record_id.last_update_ts timestamp; #  Most recent time in UTC that a broadcaster sent the FCC an update to the previously submitted file, like '2019-01-01T00:00:00Z'. Uses ISO 8601 format.
+property file_record_id.ocr_file bool; #  Whether the raw file has been converted into machine-readable text.
+property file_record_id.ocr_file_directory string; #  If available, path in Google Cloud Storage to the machine-readable plain text content of the original file. To retrieve the files, use the gsutil command from the Cloud SDK, like 'gsutil cp gs://fcc-files-ocr/125/akRGEs7DFUpkNYSZvZsHkg==/* ~/files'
+property file_record_id.raw_file_path string; #  Path in Google Cloud Storage to the original file.
+property file_record_id.station_id string; #  Unique identifier specifying the TV or radio broadcasting station who ran the ads described in this receipt.
+property file_record_id.year int; #  Calendar year during which the ads described in the receipt were shown.
+property file_record_id.raw_file_link string; #  HTTP URL to view the original file in your Web browser.
+
+datasource file_record (
+    fileRecordId:file_record_id,
+	duplicateContent:duplicate_content,
+	fileExtension:file_extension,
+	fileId:file_id,
+	fileManagerId:file_manager_id,
+	fileName:file_name,
+	fileSize:file_size,
+	fileStatus:file_status,
+	folderId:folder_id,
+	folderPath:folder_path,
+	lastUpdateTs:last_update_ts,
+	md5:md5,
+	ocrFile:ocr_file,
+	ocrFileDirectory:ocr_file_directory,
+	rawFilePath:raw_file_path,
+	stationId:station_id,
+	year:year,
+	rawFileLink:raw_file_link
+    ) 
+grain (file_record_id,md5) 
+address bigquery-public-data.fcc_political_ads.file_record;

@@ -1,0 +1,22 @@
+import user as user;
+
+key id int;
+property id.name string;
+property id.awarded_time datetime;
+property id.class int;
+property id.tag_based bool;
+
+property awarded_date <- date(awarded_time);
+
+metric count <- count(id);
+
+datasource badges (
+    id: id,
+    name: name,
+    date: awarded_time,
+    user_id: Partial[user.id],
+    class: class,
+    tag_based: tag_based
+    )
+       grain (id)
+address bigquery-public-data.stackoverflow.badges;

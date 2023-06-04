@@ -1,0 +1,26 @@
+import repo as repo;
+import language as language;
+
+datasource languages (
+    repo_name:repo.repo,
+    language.name: language.language,
+    language.bytes: language.per_repo_bytes
+    )
+    grain (repo.repo, language.language)
+    query '''
+select
+    repo_name,
+    language
+FROM `bigquery-public-data.github_repos.languages`
+CROSS JOIN UNNEST(language) AS language
+''';
+
+
+datasource licenses (
+    repo_name:repo.repo,
+    license: repo.license,
+    )
+    grain (repo.repo)
+    address bigquery-public-data.github_repos.licenses;
+
+

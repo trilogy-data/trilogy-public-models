@@ -1,0 +1,49 @@
+key unique_key int;
+property unique_key.case_number string;
+property unique_key.date timestamp;
+property unique_key.block string;
+property unique_key.iucr string;
+property unique_key.primary_type string;
+property unique_key.description string;
+property unique_key.location_description string;
+property unique_key.arrest bool;
+property unique_key.domestic bool;
+property unique_key.beat int;
+property unique_key.district int;
+property unique_key.ward int;
+property unique_key.community_area int;
+property unique_key.fbi_code string;
+property unique_key.x_coordinate float;
+property unique_key.y_coordinate float;
+property unique_key.year int;
+property unique_key.updated_on timestamp;
+property unique_key.latitude float;
+property unique_key.longitude float;
+property unique_key.location string;
+
+datasource crime (
+    unique_key:unique_key,
+	case_number:case_number,
+	date:date,
+	block:block,
+	iucr:iucr,
+	primary_type:primary_type,
+	description:description,
+	location_description:location_description,
+	arrest:arrest,
+	domestic:domestic,
+	beat:beat,
+	district:district,
+	ward:ward,
+	community_area:community_area,
+	fbi_code:fbi_code,
+	x_coordinate:x_coordinate,
+	y_coordinate:y_coordinate,
+	year:year,
+	updated_on:updated_on,
+	latitude:latitude,
+	longitude:longitude,
+	location:location
+    ) 
+grain (unique_key) 
+address bigquery-public-data.chicago_crime.crime;
