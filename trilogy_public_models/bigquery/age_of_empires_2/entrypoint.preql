@@ -1,7 +1,12 @@
-import match_event as match_event;
+
+import tech_research as tech_research;
+import building_creations as building_creations;
+import unit_creations as unit_creations;
 import match_players as match_players;
 import matches as matches;
 import objects as objects;
 import players as players;
 import civilizations as civilizations;
 import maps as maps;
+import units as units;
+import buildings as buildings;

@@ -107,23 +107,14 @@ limit 100
 
 WHAT_UNITS_SHOULD_I_BUILD = """
 
-key unit_events <- filter match_event.id where match_event.name = 'UNIT' and matches.time.date = '2021-08-30';
-
-property build_order <- rank unit_events over matches.id, players.id by match_event.milliseconds_into_game asc;
-
-property built_first_event <- filter unit_events where build_order = 1;
-
-key built_first_rank <- rank built_first_event over civilizations.id by built_first_event.count desc;
-
 select
-   civilizations.name,
-   objects.name,
-   built_first_event,
-   built_first_event.count,
-   built_first_rank
-where
-    built_first_rank=1
-limit 100
+    unit_creations.id.count,
+    units.name,
+    civilizations.name
+where 
+    civilizations.name = 'Aztecs'
+order by
+    unit_creations.id.count desc
 ;
 """  # noqa: E501
 results = executor.execute_text(WHAT_UNITS_SHOULD_I_BUILD)
