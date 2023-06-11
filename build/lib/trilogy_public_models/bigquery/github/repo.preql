@@ -1,7 +1,0 @@
-
-key repo string;
-
-
-property repo.license string;
-
-

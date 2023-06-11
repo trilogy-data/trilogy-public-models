@@ -1,4 +1,0 @@
-
-
-key id string; #Unique identifier for the player to whom the event is attributed
-property id.full_name string; #Name for the player to whom the event is attributed
