@@ -11,3 +11,4 @@ workload_federation_setup
 *.code-workspace
 *.parquet
 match_actions/
+build/
