@@ -3,7 +3,6 @@ import units as units;
 
 key id int;
 property id.duration int;
-property id.type int; # An integer representing the type of the event. Use the name concept to get a readable value.
 property id.milliseconds_into_game int; # The time of the event relative to the start of the match
 auto seconds_into_game <- round(milliseconds_into_game / 1000,0);
 
