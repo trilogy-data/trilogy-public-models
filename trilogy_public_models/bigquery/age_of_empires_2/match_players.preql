@@ -2,10 +2,10 @@ import players as players;
 import matches as matches;
 import civilizations as civilizations;
 key id int;
-property id.victory int;
+property id.victory int; # Integer flag if the player won the game. 1 for win, 0 for tie, -1 for loss.
 property id.parser_version int;
-property id.time_parsed timestamp;
-property id.opening_id int;
+property id.time_parsed timestamp; # time the game was processed
+property id.opening_id int; # Unknown
 
 
 
