@@ -3,6 +3,7 @@
 from pathlib import Path
 from tenacity import retry, wait_exponential, stop_after_attempt
 
+
 @retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
 def upload(file_path: str):
     root = Path(file_path).stem
@@ -40,6 +41,7 @@ def upload(file_path: str):
     destination_table = bq_client.get_table(table_id)
     print(f"Loaded {destination_table.num_rows} rows to {table_id}.")
 
+
 @retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
 def upload_action_file(file_path, index, storage_client, bq_client):
     from google.cloud import bigquery
@@ -58,7 +60,7 @@ def upload_action_file(file_path, index, storage_client, bq_client):
 
     job_config = bigquery.LoadJobConfig(
         source_format=bigquery.SourceFormat.PARQUET,
-                write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
+        write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
     )
     # empty table
     # destination_table = bq_client.get_table(table_id)
@@ -66,14 +68,16 @@ def upload_action_file(file_path, index, storage_client, bq_client):
         gcs_uri,
         table_id,
         job_config=job_config,
-
     )  # Make an API request.
 
     load_job.result()  # Waits for the job to complete.
 
     destination_table = bq_client.get_table(table_id)
     print(f"Loaded {destination_table.num_rows} rows to {table_id}.")
-#32
+
+
+# 32
+
 
 def load_match_actions():
     from google.cloud import bigquery
@@ -83,25 +87,25 @@ def load_match_actions():
     # Construct a BigQuery client object.
     bq_client = bigquery.Client()
     storage_client = storage.Client()
-    #have done from 17
-    folder_root = (Path(__file__).parent.parent.parent / "match_actions")
+    # have done from 17
+    folder_root = Path(__file__).parent.parent.parent / "match_actions"
     folders = folder_root.iterdir()
     for folder in folders:
-        idx = Path(folder).stem.split('=')[1]
+        idx = Path(folder).stem.split("=")[1]
         if int(idx) < 18:
             continue
         files = folder.iterdir()
         for file in files:
             path = folder_root / folder / file
-            print(f'uploading {path}')
+            print(f"uploading {path}")
             upload_action_file(path, idx, storage_client, bq_client)
 
 
 def main(load_dimensions=False, load_game_data=True):
     if load_dimensions:
         for file in [
-            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_player_actions.parquet",
-            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_players.parquet",
+            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_player_actions.parquet",  # noqa: E501
+            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_players.parquet",  # noqa: E501
             # r"C:\Users\ethan\coding_projects\trilogy-public-models\matches.parquet",
             # r"C:\Users\ethan\coding_projects\trilogy-public-models\players.parquet",
             r"C:\Users\ethan\coding_projects\trilogy-public-models\unit_ids.parquet"
@@ -109,6 +113,7 @@ def main(load_dimensions=False, load_game_data=True):
             upload(file)
     if load_game_data:
         load_match_actions()
+
 
 if __name__ == "__main__":
     main(load_game_data=True, load_dimensions=False)

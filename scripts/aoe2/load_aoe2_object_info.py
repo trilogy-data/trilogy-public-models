@@ -1,5 +1,4 @@
-
-TECH_INFO  = {
+TECH_INFO = {
     "Town Watch": 8,
     "Heavy Plow": 13,
     "Horse Collar": 14,
@@ -44,25 +43,25 @@ TECH_INFO  = {
     "Supplies": 716,
 }
 
-TECH_INFO = {v:k for k,v in TECH_INFO.items()}
+TECH_INFO = {v: k for k, v in TECH_INFO.items()}
 
 
-def get_dict()->dict:
+def get_dict() -> dict:
     import requests
     from bs4 import BeautifulSoup
-    url = r'http://userpatch.aiscripters.net/unit.ids.html'
+
+    url = r"http://userpatch.aiscripters.net/unit.ids.html"
 
     raw = requests.get(url)
 
-    soup = BeautifulSoup(raw.text
-                        , 'html.parser')
+    soup = BeautifulSoup(raw.text, "html.parser")
 
-    tables = soup.find_all('table')
+    tables = soup.find_all("table")
     print(len(tables))
 
     def get_flattest_item(item):
         output = []
-        if hasattr(item, 'children'):
+        if hasattr(item, "children"):
             for c in item.children:
                 output += get_flattest_item(c)
             return output
@@ -71,29 +70,30 @@ def get_dict()->dict:
     unit_ids = {}
     for table in tables:
         # print(table)
-        rows = table.find_all('tr')
+        rows = table.find_all("tr")
         for row in rows:
-            cols = row.find_all('td')
+            cols = row.find_all("td")
             flat = [get_flattest_item(x) for x in cols]
             print(flat)
-            if not len(flat)>=3:
+            if not len(flat) >= 3:
                 continue
-            if flat[-1] == ['\xa0']:
+            if flat[-1] == ["\xa0"]:
                 id = int(flat[-3][0])
                 name = flat[-2][0]
                 unit_ids[id] = name
     return unit_ids
 
 
-def transform_to_parquet(input:dict):
+def transform_to_parquet(input: dict):
     import duckdb
-    cmd = '''CREATE TABLE unit_ids (id INTEGER, name VARCHAR(255));'''
+
+    cmd = """CREATE TABLE unit_ids (id INTEGER, name VARCHAR(255));"""
     duckdb.sql(cmd)
-    con = duckdb.connect(':default:')
+    con = duckdb.connect(":default:")
     for id, name in input.items():
-        cmd = f'''INSERT INTO unit_ids VALUES (?, ?);'''
+        cmd = """INSERT INTO unit_ids VALUES (?, ?);"""
         con.execute(cmd, [id, name])
-    cmd = f"""COPY (select id, name from unit_ids) TO 'unit_ids.parquet' (FORMAT PARQUET);"""
+    cmd = """COPY (select id, name from unit_ids) TO 'unit_ids.parquet' (FORMAT PARQUET);"""  # noqa: E501
     duckdb.sql(cmd)
 
 

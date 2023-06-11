@@ -11,9 +11,13 @@ column_restriction = {
 
 
 def export_match_player_actions(db_name, mods=100):
-    for idx in range(0,2):
+    for idx in range(0, 2):
         print(idx)
-        cmd = f"""COPY (select *,  id%{mods} mod_division from  {db_name}.match_player_actions where id%{mods} = {idx} ) TO 'match_actions' (FORMAT PARQUET,  PARTITION_BY (mod_division), OVERWRITE_OR_IGNORE);"""
+        cmd = f"""COPY (select *,  id%{mods} mod_division 
+        from  {db_name}.match_player_actions 
+        where id%{mods} = {idx} ) TO 'match_actions' 
+        (FORMAT PARQUET,  PARTITION_BY (mod_division), 
+        OVERWRITE_OR_IGNORE);"""
         try:
             duckdb.sql(cmd)
         except Exception as e:
@@ -26,7 +30,8 @@ def export_match_player_actions(db_name, mods=100):
 
 def export_data(db_name: str, table_name: str, columns: list[str]):
     cols = ", ".join(columns)
-    cmd = f"""COPY (select {cols} from  {db_name}.{table_name}) TO '{table_name}.parquet' (FORMAT PARQUET);"""
+    cmd = f"""COPY (select {cols} from  {db_name}.{table_name}) 
+    TO '{table_name}.parquet' (FORMAT PARQUET);"""
     duckdb.sql(cmd)
 
 
@@ -54,6 +59,7 @@ def main():
     load_data(path)
 
     # export_data()
+
 
 if __name__ == "__main__":
     main()

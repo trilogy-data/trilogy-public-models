@@ -13,7 +13,6 @@ from preql.core.models import (
 from preql.core.enums import DataType, Purpose
 from preql.parsing.render import render_environment
 import re
-from os.path import dirname
 import os
 from pathlib import Path
 import json
@@ -157,7 +156,9 @@ def process_table(table, client: "bigquery.Client", target: Path) -> Environment
     return environment
 
 
-def parse_public_bigquery_project(dataset: str, write: bool, project="bigquery-public-data"):
+def parse_public_bigquery_project(
+    dataset: str, write: bool, project="bigquery-public-data"
+):
     from google import auth
     from google.cloud import bigquery
 
@@ -197,5 +198,5 @@ model = parse_initial_models(__file__)
 
 
 if __name__ == "__main__":
-    #ttl-test-355422.aoe2.match_player_actions
-    parse_public_bigquery_project("aoe2", write=True, project='ttl-test-355422')
+    # ttl-test-355422.aoe2.match_player_actions
+    parse_public_bigquery_project("aoe2", write=True, project="ttl-test-355422")
