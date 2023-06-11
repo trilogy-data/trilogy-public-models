@@ -13,7 +13,6 @@ from preql.core.models import (
 from preql.core.enums import DataType, Purpose
 from preql.parsing.render import render_environment
 import re
-from os.path import dirname
 import os
 from pathlib import Path
 import json
@@ -35,13 +34,13 @@ def write_ds_file():
 def get_table_keys(table: "bigquery.Table"):
     from langchain.llms import OpenAI
 
-    llm = OpenAI(temperature=0.99)
+    llm = OpenAI(temperature=0.99, max_retries=1)
     columns = "\n".join([f"{c.name}:{c.description}" for c in table.schema])
     text = f"""Given a list of the following pairs of columns and descriptions for a SQL table, which column
 or set of columns are the primary keys for the table?
 
-output the answer as a lJSON ist of column names with quotes around them.
-Example response:
+Output the answer as a list of JSON array formatted column names with quotes around them.
+Example responses:
 
 - ["user_id", "order_id"]
 - ["ssn"]
@@ -50,7 +49,7 @@ Example response:
 
 Columns are:
 {columns}
-answer:
+Answer:
     """  # noqa: E501
     results = llm(text)
     print(results)
@@ -157,14 +156,16 @@ def process_table(table, client: "bigquery.Client", target: Path) -> Environment
     return environment
 
 
-def parse_public_bigquery_project(dataset: str, write: bool):
+def parse_public_bigquery_project(
+    dataset: str, write: bool, project="bigquery-public-data"
+):
     from google import auth
     from google.cloud import bigquery
 
-    root = dirname(dirname(__file__))
+    root = Path(__file__).parent.parent.parent
     target = Path(root) / "bigquery" / dataset
     cred, project = auth.default()
-    client = bigquery.Client(credentials=cred, project="bigquery-public-data")
+    client = bigquery.Client(credentials=cred, project=project)
 
     dataset_instance = client.get_dataset(
         dataset,
@@ -197,4 +198,5 @@ model = parse_initial_models(__file__)
 
 
 if __name__ == "__main__":
-    parse_public_bigquery_project("thelook_ecommerce", write=True)
+    # ttl-test-355422.aoe2.match_player_actions
+    parse_public_bigquery_project("aoe2", write=True, project="ttl-test-355422")

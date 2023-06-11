@@ -1,0 +1,19 @@
+import maps as maps;
+key id int;
+property id.time timestamp;
+property id.ladder_id int;
+property id.patch_id float;
+property id.patch_number int;
+
+
+
+datasource matches (
+    id:id,
+	map_id:maps.id,
+	time:time,
+	ladder_id:ladder_id,
+	patch_id:patch_id,
+	patch_number:patch_number
+    ) 
+grain (id) 
+address ttl-test-355422.aoe2.matches;
