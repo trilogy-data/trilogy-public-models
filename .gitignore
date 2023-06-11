@@ -12,3 +12,4 @@ workload_federation_setup
 *.parquet
 match_actions/
 build/
+*.egg-info/
