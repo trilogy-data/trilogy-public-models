@@ -1,5 +1,5 @@
-key id int;
-property id.name string;
+key id int; # Integer identifier for a unit or building
+property id.name string; # The string name of a unit or building.
 
 datasource object_ids (
     id:id,

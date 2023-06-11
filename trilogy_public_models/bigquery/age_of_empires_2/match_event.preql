@@ -3,10 +3,9 @@ import objects as objects;
 
 key id int;
 property id.duration int;
-property id.type int;
-property id.milliseconds_into_game int;
+property id.type int; # An integer representing the type of the event. Use the name concept to get a readable value.
+property id.milliseconds_into_game int; # The time of the event relative to the start of the match
 auto seconds_into_game <- round(milliseconds_into_game / 1000,0);
-property id.event_id int;
 
 property name <- CASE
 	WHEN type = 1 THEN 'UNIT'
@@ -14,14 +13,13 @@ property name <- CASE
 	WHEN type = 3 THEN 'TECH'
 	WHEN type = 4 THEN 'RESIGN'
 	WHEN type = 5 THEN 'TRIBUTE'
-END;  # The type of event, one of the following: Unit, Building, Tech, Resign, Tribute
+END;  # The type of event, a capitalized string. One of the following: UNIT, BUILDING, TECH, RESIGN, TRIBUTE
 
 datasource match_player_actions (
     id:id,
 	match_player_id:match_players.id,
 	event_type:type,
 	event_id:objects.id,
-	event_id:event_id,
 	time:milliseconds_into_game,
 	duration:duration,
     ) 
