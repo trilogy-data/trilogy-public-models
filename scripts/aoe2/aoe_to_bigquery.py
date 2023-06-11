@@ -3,7 +3,7 @@
 from pathlib import Path
 from tenacity import retry, wait_exponential, stop_after_attempt
 
-# @retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
+@retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
 def upload(file_path: str):
     root = Path(file_path).stem
     from google.cloud import bigquery
@@ -40,7 +40,7 @@ def upload(file_path: str):
     destination_table = bq_client.get_table(table_id)
     print(f"Loaded {destination_table.num_rows} rows to {table_id}.")
 
-
+@retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
 def upload_action_file(file_path, index, storage_client, bq_client):
     from google.cloud import bigquery
 
@@ -73,7 +73,7 @@ def upload_action_file(file_path, index, storage_client, bq_client):
 
     destination_table = bq_client.get_table(table_id)
     print(f"Loaded {destination_table.num_rows} rows to {table_id}.")
-
+#32
 
 def load_match_actions():
     from google.cloud import bigquery
@@ -84,13 +84,15 @@ def load_match_actions():
     bq_client = bigquery.Client()
     storage_client = storage.Client()
     #have done from 17
-    folders = (Path(__file__).parent.parent / "match_actions").iterdir()
+    folder_root = (Path(__file__).parent.parent.parent / "match_actions")
+    folders = folder_root.iterdir()
     for folder in folders:
         idx = Path(folder).stem.split('=')[1]
-
+        if int(idx) < 18:
+            continue
         files = folder.iterdir()
         for file in files:
-            path = Path(__file__) / "match_player_actions" / folder / file
+            path = folder_root / folder / file
             print(f'uploading {path}')
             upload_action_file(path, idx, storage_client, bq_client)
 
@@ -109,4 +111,4 @@ def main(load_dimensions=False, load_game_data=True):
         load_match_actions()
 
 if __name__ == "__main__":
-    main(load_game_data=False, load_dimensions=True)
+    main(load_game_data=True, load_dimensions=False)

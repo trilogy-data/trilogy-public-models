@@ -91,10 +91,12 @@ limit 100
 
 QA_6 = '''
 select
-    round((match_event.seconds_into_game/60)/60,0) -> GAME_HOURS,
+    round((match_event.seconds_into_game/60)/60,0) -> game_hours,
     match_event.name,
     objects.name,
     match_event.id.count
+where
+    game_hours = 1
 order by 
     match_event.id.count desc
 limit 100
