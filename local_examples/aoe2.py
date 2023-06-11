@@ -108,13 +108,13 @@ limit 100
 WHAT_UNITS_SHOULD_I_BUILD = """
 
 select
-    unit_creations.id.count,
-    units.name,
+    tech_research.id.count,
+    technology.name,
     civilizations.name
 where 
     civilizations.name = 'Aztecs'
 order by
-    unit_creations.id.count desc
+    tech_research.id.count desc
 ;
 """  # noqa: E501
 results = executor.execute_text(WHAT_UNITS_SHOULD_I_BUILD)

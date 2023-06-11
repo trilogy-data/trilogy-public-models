@@ -1,7 +1,7 @@
 
 
 key id int;
-property key.name <- CASE
+property name <- CASE
 WHEN id=3 THEN 'British Yeoman'
 WHEN id=4 THEN 'Mayan El Dorado'
 WHEN id=5 THEN 'Celtic Furor Celtica'

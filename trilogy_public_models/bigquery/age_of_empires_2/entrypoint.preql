@@ -10,3 +10,4 @@ import civilizations as civilizations;
 import maps as maps;
 import units as units;
 import buildings as buildings;
+import technology as technology;
