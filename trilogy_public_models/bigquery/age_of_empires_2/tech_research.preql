@@ -1,0 +1,27 @@
+import match_players as match_players;
+import technology as technology;
+
+key id int;
+property id.duration int;
+property id.milliseconds_into_game int; # The time of the event relative to the start of the match
+auto seconds_into_game <- round(milliseconds_into_game / 1000,0);
+
+datasource tech_research (
+    id:id,
+	match_player_id:match_players.id,
+	event_id:technology.id,
+	time:milliseconds_into_game,
+	duration:duration,
+    ) 
+grain (id) 
+query '''
+select
+id,
+event_id,
+time,
+match_player_id,
+duration
+from
+ttl-test-355422.aoe2.match_player_actions
+where event_type = 3
+''';

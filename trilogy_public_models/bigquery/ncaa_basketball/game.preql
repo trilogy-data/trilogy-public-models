@@ -39,10 +39,10 @@ metric away_three_points_pct <- away_three_points_made / away_three_points_att *
 
 
 property id._total_three_points_att <- _away_three_points_att + _home_three_points_att;
-metric total_three_points_att <- sum(id._total_three_points_att);
+metric total_three_points_att <- sum(_total_three_points_att);
 
 property id._total_three_points_made <- _away_three_points_made + _home_three_points_made;
-metric total_three_points_made <- sum(id._total_three_points_made);
+metric total_three_points_made <- sum(_total_three_points_made);
 
 # metrics
 metric count <- count_distinct(id); # count of games

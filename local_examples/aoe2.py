@@ -104,7 +104,20 @@ order by
 limit 100
 ;
 """
-results = executor.execute_text(QA_6)
+
+WHAT_UNITS_SHOULD_I_BUILD = """
+
+select
+    tech_research.id.count,
+    technology.name,
+    civilizations.name
+where 
+    civilizations.name = 'Aztecs'
+order by
+    tech_research.id.count desc
+;
+"""  # noqa: E501
+results = executor.execute_text(WHAT_UNITS_SHOULD_I_BUILD)
 
 for row in results[0].fetchall():
     print(row)

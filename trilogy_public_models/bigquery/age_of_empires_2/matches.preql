@@ -1,6 +1,6 @@
 import maps as maps;
-key id int;
-property id.time timestamp;
+key id int; # unique identifier of the game
+property id.time timestamp; # Time of the game start
 property id.ladder_id int;
 property id.patch_id float;
 property id.patch_number int;
