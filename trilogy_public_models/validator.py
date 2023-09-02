@@ -57,8 +57,8 @@ def validate_dataset(
 
 
 def validate_datasource_grain(datasource):
-    #TODO: check that count(*) at datasource grain = 1
-    #CON: this requires running an real query
+    # TODO: check that count(*) at datasource grain = 1
+    # CON: this requires running an real query
     pass
 
 
