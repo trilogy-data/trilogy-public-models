@@ -20,6 +20,7 @@ class ModelDict(Dict[str, Environment]):
             # imports the module from the given path
             loaded = SourceFileLoader(item,path).load_module()
             self[item] = loaded.model
+            globals()[item] = loaded.model
             sys.modules["trilogy_public_models." + item] = loaded.model
             return loaded.model
         return super().__getitem__(item)
@@ -39,10 +40,9 @@ def load_module_wrap(info: pkgutil.ModuleInfo):
     module = loader.find_module(module_name)  # type: ignore
     if not module:
         return None
-    _module = module.load_module(module_name)
+    # _module = module.load_module(module_name)
     try:
-        sys.modules["trilogy_public_models." + module_name] = _module.model
-        models[module_name] = _module.model
+        sys.modules["trilogy_public_models." + module_name] = lambda: module.load_module(module_name).model
     except AttributeError:
         return None
 
@@ -54,7 +54,5 @@ def force_load_all():
         # this is expected in pyinstaller packages
         except AttributeError:
             pass
-
-force_load_all()
 
 __all__ = ["models"]
