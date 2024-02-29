@@ -14,3 +14,4 @@ match_actions/
 build/
 *.egg-info/
 .preql_cache.json
+*.prof
