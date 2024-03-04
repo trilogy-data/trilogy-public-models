@@ -4,13 +4,12 @@ from os.path import dirname, join
 from preql import Environment
 from preql.constants import ENV_CACHE_NAME
 from preql.parser import parse
-from datetime import datetime
+
 
 def parse_initial_models(fpath: str) -> Environment:
     parent_folder = dirname(fpath)
     files = listdir(dirname(fpath))
     cache_path = join(parent_folder, ENV_CACHE_NAME)
-    start = datetime.now()
     for file in files:
         if file == ENV_CACHE_NAME:
             env = Environment.from_cache(join(parent_folder, file))

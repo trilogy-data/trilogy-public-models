@@ -1,6 +1,11 @@
 from preql import Environment
 from preql.constants import DEFAULT_NAMESPACE
-from preql.core.models import Concept, Datasource
+from preql.core.models import (
+    Concept,
+    Datasource,
+    Select,
+    ProcessedShowStatement,
+)
 from preql.core.processing.concept_strategies_v2 import source_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
@@ -26,11 +31,16 @@ def validate_dataset(
 
     try:
         _, parsed = parse_text(validation_query, environment)
-        sql = executor.generator.generate_queries(environment, parsed)
+        processed: list[Select] = [
+            x for x in parsed if isinstance(x, Select)
+        ]
+        sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
         print(validation_query)
         raise e
     for statement in sql:
+        if isinstance(statement, ProcessedShowStatement):
+            continue
         compiled_sql = ""
         # Start the query, passing in the extra configuration.
         try:
