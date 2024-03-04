@@ -31,9 +31,7 @@ def validate_dataset(
 
     try:
         _, parsed = parse_text(validation_query, environment)
-        processed: list[Select] = [
-            x for x in parsed if isinstance(x, Select)
-        ]
+        processed: list[Select] = [x for x in parsed if isinstance(x, Select)]
         sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
         print(validation_query)
