@@ -1,0 +1,1 @@
+c:/Users/ethan/coding_projects/pypreql/.venv/Scripts/python.exe -m cProfile -o program.prof stack_overflow.py -and snakeviz program.prof

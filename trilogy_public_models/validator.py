@@ -1,10 +1,15 @@
 from preql import Environment
 from preql.constants import DEFAULT_NAMESPACE
-from preql.core.models import Concept, Datasource
+from preql.core.models import (
+    Concept,
+    Datasource,
+    Select,
+    ProcessedShowStatement,
+)
 from preql.core.processing.concept_strategies_v2 import source_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
-
+from preql.core.internal import INTERNAL_NAMESPACE
 
 def safe_address(input: Concept):
     if input.namespace == DEFAULT_NAMESPACE:
@@ -20,17 +25,20 @@ def validate_dataset(
 
     validation_query = (
         "SELECT\n "
-        + ",\n".join([safe_address(x) for x in dataset.concepts])
+        + ",\n\t".join([safe_address(x) for x in dataset.concepts])
         + " LIMIT 0;"
     )
 
     try:
         _, parsed = parse_text(validation_query, environment)
-        sql = executor.generator.generate_queries(environment, parsed)
+        processed: list[Select] = [x for x in parsed if isinstance(x, Select)]
+        sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
         print(validation_query)
         raise e
     for statement in sql:
+        if isinstance(statement, ProcessedShowStatement):
+            continue
         compiled_sql = ""
         # Start the query, passing in the extra configuration.
         try:
@@ -63,6 +71,8 @@ def validate_datasource_grain(datasource):
 
 
 def validate_concept(concept: Concept, env):
+    if concept.namespace == INTERNAL_NAMESPACE:
+        return
     source_concepts([concept], [], environment=env)
 
 
