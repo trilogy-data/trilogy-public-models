@@ -15,3 +15,6 @@ build/
 *.egg-info/
 .preql_cache.json
 *.prof
+.mypy_cache
+.pytest_cache
+.ruff_cache

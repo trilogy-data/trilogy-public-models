@@ -25,7 +25,7 @@ def validate_dataset(
 
     validation_query = (
         "SELECT\n "
-        + ",\n".join([safe_address(x) for x in dataset.concepts])
+        + ",\n\t".join([safe_address(x) for x in dataset.concepts])
         + " LIMIT 0;"
     )
 

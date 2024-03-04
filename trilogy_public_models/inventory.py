@@ -15,6 +15,7 @@ def parse_initial_models(fpath: str) -> Environment:
             env = Environment.from_cache(join(parent_folder, file))
             if env:
                 return env
+    for file in files:
         if file.endswith("entrypoint.preql"):
             with open(join(parent_folder, file), "r", encoding="utf-8") as f:
                 contents = f.read()
