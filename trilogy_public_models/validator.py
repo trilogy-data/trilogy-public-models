@@ -9,7 +9,7 @@ from preql.core.models import (
 from preql.core.processing.concept_strategies_v2 import source_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
-
+from preql.core.internal import INTERNAL_NAMESPACE
 
 def safe_address(input: Concept):
     if input.namespace == DEFAULT_NAMESPACE:
@@ -71,6 +71,8 @@ def validate_datasource_grain(datasource):
 
 
 def validate_concept(concept: Concept, env):
+    if concept.namespace == INTERNAL_NAMESPACE:
+        return
     source_concepts([concept], [], environment=env)
 
 
