@@ -3,13 +3,13 @@ property id.name string; # Given name of a person at birth
 property id.gender string; # Sex (M=male or F=female) 
 property id.state string; # The common two character abbreviation for a state, such as MA for Massachusetts or CT for Connecticut
 property id.year int; #	4-digit year of birth 
-property id.name_count int; # Number of occurrences of the name 
-auto name_count.sum <- sum(name_count); # Sum of name count along chosen dimensions
+property id.births int; # Number of occurrences of the name 
+auto total_births <- sum(births); # Sum of name count along chosen dimensions
 
 datasource usa_names(
     raw('''FARM_FINGERPRINT(CONCAT(CAST(name AS STRING), cast(state as string),  cast(year as string), cast(gender as string)))'''):id,
     name:name,
-    number:name_count,
+    number:births,
     year:year,
     gender:gender,
     state:state

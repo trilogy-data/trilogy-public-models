@@ -5,6 +5,7 @@ from os.path import dirname
 from pathlib import Path
 import sys
 from importlib.machinery import SourceFileLoader
+from preql.core.models import LazyEnvironment
 
 
 class ModelDict(Dict[str, Environment]):
@@ -20,7 +21,14 @@ class ModelDict(Dict[str, Environment]):
             self[item] = loaded.model
             sys.modules["trilogy_public_models." + item] = loaded.model
             return loaded.model
-        return super().__getitem__(item)
+        response = super().__getitem__(item)
+        # if the key is set but not loaded yet
+        if not response:
+            loaded = SourceFileLoader(item, path).load_module()
+            self[item] = loaded.model
+            sys.modules["trilogy_public_models." + item] = loaded.model
+            response = loaded.model
+        return response
 
     def __setitem__(self, key, value):
         super().__setitem__(key, value)
@@ -28,7 +36,7 @@ class ModelDict(Dict[str, Environment]):
 
 models: Dict["str", Environment] = ModelDict()
 
-__version__ = "0.0.17"
+__version__ = "0.0.18"
 
 
 def load_module_wrap(info: pkgutil.ModuleInfo):
@@ -53,6 +61,22 @@ def force_load_all():
             pass
 
 
-force_load_all()
+def discover_models():
+    import os
+
+    base = dirname(__file__)
+
+    for root, dirs, files in os.walk(base):
+        for f in files:
+            if f == "entrypoint.preql":
+                relative = Path(root).relative_to(base)
+                path = ".".join(relative.parts)
+                models[path] = None
+                sys.modules["trilogy_public_models." + path] = LazyEnvironment(
+                    load_path=Path(root) / f, working_path=Path(root)
+                )
+
+
+discover_models()
 
 __all__ = ["models"]
