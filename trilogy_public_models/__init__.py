@@ -35,7 +35,7 @@ class ModelDict(UserDict[str, Environment]):
         super().__setitem__(key, value)
 
 
-models: Dict["str", Environment] = ModelDict()
+models: UserDict["str", Environment] = ModelDict()
 
 __version__ = "0.0.18"
 
