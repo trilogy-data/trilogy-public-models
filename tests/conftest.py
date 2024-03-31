@@ -18,15 +18,19 @@ def bq_client():
         project = credentials.project_id
     else:
         credentials, project = default()
-    yield bigquery.Client(credentials=credentials, project=project)
+    yield lambda: bigquery.Client(credentials=credentials, project=project)
 
 
-@fixture()
-def bq_executor(bq_client):
+def create_executor(bq_client):
     engine = create_engine(
         "bigquery://ttl-test-355422/test_tables?user_supplied_client=True",
         connect_args={"client": bq_client},
     )
 
     executor = Executor(dialect=Dialects.BIGQUERY, engine=engine)
-    yield executor
+    return executor
+
+
+@fixture()
+def bq_executor(bq_client):
+    yield lambda: create_executor(bq_client())

@@ -11,6 +11,7 @@ from preql.executor import Executor
 from preql.parser import parse_text
 from preql.core.internal import INTERNAL_NAMESPACE
 
+
 def safe_address(input: Concept):
     if input.namespace == DEFAULT_NAMESPACE:
         return input.name

@@ -6,9 +6,10 @@ from pathlib import Path
 import sys
 from importlib.machinery import SourceFileLoader
 from preql.core.models import LazyEnvironment
+from collections import UserDict
 
 
-class ModelDict(Dict[str, Environment]):
+class ModelDict(UserDict[str, Environment]):
     def __init__(self):
         super().__init__()
         self.not_exists: set[str] = set()
