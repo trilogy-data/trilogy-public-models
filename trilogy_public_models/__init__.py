@@ -1,6 +1,5 @@
 import pkgutil
 from preql import Environment
-from typing import Dict
 from os.path import dirname
 from pathlib import Path
 import sys
