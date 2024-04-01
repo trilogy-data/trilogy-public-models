@@ -3,7 +3,6 @@ key tx_hash string;
 
 property tx_hash.input_value number;
 property tx_hash.output_value number;
-property tx_hash.type string;
 
 metric tx_input_value <- sum(input_value) by tx_hash;
 metric tx_output_value <- sum(output_value) by tx_hash;
