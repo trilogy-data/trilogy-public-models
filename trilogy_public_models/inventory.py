@@ -10,11 +10,12 @@ def parse_initial_models(fpath: str) -> Environment:
     parent_folder = dirname(fpath)
     files = listdir(dirname(fpath))
     cache_path = join(parent_folder, ENV_CACHE_NAME)
-    for file in files:
-        if file == ENV_CACHE_NAME:
-            env = Environment.from_cache(join(parent_folder, file))
-            if env:
-                return env
+    # 2024-03-31 - disable due to issue with pydantic parsing from cache wrong
+    # for file in files:
+    #     if file == ENV_CACHE_NAME:
+    #         env = Environment.from_cache(join(parent_folder, file))
+    #         if env:
+    #             return env
     for file in files:
         if file.endswith("entrypoint.preql"):
             with open(join(parent_folder, file), "r", encoding="utf-8") as f:
