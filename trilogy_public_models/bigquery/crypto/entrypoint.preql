@@ -9,7 +9,6 @@ metric tx_output_value <- sum(output_value) by tx_hash;
 
 key index int;
 
-key address string;
 
 
 datasource transactions (
