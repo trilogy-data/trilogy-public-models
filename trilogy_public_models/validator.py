@@ -6,10 +6,11 @@ from preql.core.models import (
     Select,
     ProcessedShowStatement,
 )
-from preql.core.processing.concept_strategies_v2 import source_concepts
+from preql.core.processing.concept_strategies_v3 import search_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
 from preql.core.internal import INTERNAL_NAMESPACE
+from preql.core.env_processor import generate_graph
 
 
 def safe_address(input: Concept):
@@ -74,7 +75,7 @@ def validate_datasource_grain(datasource):
 def validate_concept(concept: Concept, env):
     if concept.namespace == INTERNAL_NAMESPACE:
         return
-    source_concepts([concept], [], environment=env)
+    search_concepts([concept], environment=env, depth=0, g=generate_graph())
 
 
 def validate_model(model: Environment, executor: Executor, dry_run_client):
