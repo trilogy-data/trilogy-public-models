@@ -39,7 +39,6 @@ datasource citibike_trips (
     birth_year:rider.birth_year,
     gender:rider.gender,
     customer_plan:customer_plan,
-    raw(start_time):year
 )
 grain (start_station_id, end_station_id, start_time, bike.id)
 address bigquery-public-data.new_york_citibike.citibike_trips;
