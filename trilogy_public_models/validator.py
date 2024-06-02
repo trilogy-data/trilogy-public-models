@@ -75,7 +75,7 @@ def validate_datasource_grain(datasource):
 def validate_concept(concept: Concept, env):
     if concept.namespace == INTERNAL_NAMESPACE:
         return
-    search_concepts([concept], environment=env, depth=0, g=generate_graph())
+    search_concepts([concept], environment=env, depth=0, g=generate_graph(env))
 
 
 def validate_model(model: Environment, executor: Executor, dry_run_client):
