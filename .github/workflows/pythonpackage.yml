@@ -41,8 +41,8 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           #https://iam.googleapis.com/projects/230483776791/locations/global/workloadIdentityPools/demo-pool/providers/github-ci
-          workload_identity_provider: 'projects/230483776791/locations/global/workloadIdentityPools/demo-pool/providers/github-ci2'
-          service_account: '${{ secrets.DEPLOYER_EMAIL }}'
+          workload_identity_provider: 'projects/734709568634/locations/global/workloadIdentityPools/github/providers/trilogy-public-models'
+          project_id: 'preqldata'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
