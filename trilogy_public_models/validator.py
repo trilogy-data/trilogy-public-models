@@ -74,14 +74,15 @@ def validate_datasource_grain(datasource):
     pass
 
 
-def validate_concept(concept: Concept, env):
-    if concept.namespace == INTERNAL_NAMESPACE:
+def validate_concept(concept: Concept, env, graph):
+    if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
         return
-    search_concepts([concept], environment=env, depth=0, g=generate_graph(env))
+    search_concepts([concept], environment=env, depth=0, g=graph)
 
 
 def validate_model(model: Environment, executor: Executor, dry_run_client):
     for dataset in model.datasources.values():
         validate_dataset(dataset, model, executor, dry_run_client)
+    graph = generate_graph(model)
     for concept in model.concepts.values():
-        validate_concept(concept, model)
+        validate_concept(concept, model, graph)
