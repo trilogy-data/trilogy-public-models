@@ -4,6 +4,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 def single_model(key, model, bq_executor, bq_client):
+    # permission issue with this
+    if key == "bigquery.age_of_empires_2":
+        return
     try:
         validate_model(model, bq_executor, bq_client)
     except Exception as e:

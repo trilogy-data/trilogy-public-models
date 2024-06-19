@@ -71,10 +71,10 @@ ORDER BY users DESC;
 In preql we'll define a new property of the birth year for the generation,
 then provide a datasource off a query as our source.
 ```preql
-property rider.birth_year.generation string;
+property trip.rider.birth_year.generation string;
 
 datasource generations (
-    birth_year:rider.birth_year,
+    birth_year:trip.rider.birth_year,
     generation:generation
     )
     grain(rider.birth_year)

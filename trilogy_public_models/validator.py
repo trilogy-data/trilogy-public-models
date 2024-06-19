@@ -3,13 +3,14 @@ from preql.constants import DEFAULT_NAMESPACE
 from preql.core.models import (
     Concept,
     Datasource,
-    Select,
+    SelectStatement,
     ProcessedShowStatement,
 )
-from preql.core.processing.concept_strategies_v2 import source_concepts
+from preql.core.processing.concept_strategies_v3 import search_concepts
 from preql.executor import Executor
 from preql.parser import parse_text
 from preql.core.internal import INTERNAL_NAMESPACE
+from preql.core.env_processor import generate_graph
 
 
 def safe_address(input: Concept):
@@ -32,7 +33,9 @@ def validate_dataset(
 
     try:
         _, parsed = parse_text(validation_query, environment)
-        processed: list[Select] = [x for x in parsed if isinstance(x, Select)]
+        processed: list[SelectStatement] = [
+            x for x in parsed if isinstance(x, SelectStatement)
+        ]
         sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
         print(validation_query)
@@ -71,14 +74,15 @@ def validate_datasource_grain(datasource):
     pass
 
 
-def validate_concept(concept: Concept, env):
-    if concept.namespace == INTERNAL_NAMESPACE:
+def validate_concept(concept: Concept, env, graph):
+    if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
         return
-    source_concepts([concept], [], environment=env)
+    search_concepts([concept], environment=env, depth=0, g=graph)
 
 
 def validate_model(model: Environment, executor: Executor, dry_run_client):
     for dataset in model.datasources.values():
         validate_dataset(dataset, model, executor, dry_run_client)
+    graph = generate_graph(model)
     for concept in model.concepts.values():
-        validate_concept(concept, model)
+        validate_concept(concept, model, graph)

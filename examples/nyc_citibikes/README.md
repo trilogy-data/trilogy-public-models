@@ -34,7 +34,7 @@ property trip.year<-year(trip.start_time);
 
 SELECT
 	trip.year,
-	bike.count
+	trip.bike.count
 ORDER BY
     trip.year asc
 limit 100;
@@ -67,15 +67,7 @@ ORDER BY users DESC;
 In preql we'll define a new property of the birth year for the generation,
 then provide a datasource off a query as our source.
 ```preql
-property rider.birth_year.generation string;
-
-datasource generations (
-    birth_year:rider.birth_year,
-    generation:generation
-    )
-    grain(rider.birth_year)
-query '''SELECT birth_year,
- CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
+property trip.rider.birth_year.generation <-  CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
       WHEN birth_year BETWEEN 1901 AND 1927 THEN 'G.I. Generation'
       WHEN birth_year BETWEEN 1928 AND 1945 THEN 'Silent Generation'
       WHEN birth_year BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
@@ -83,12 +75,11 @@ query '''SELECT birth_year,
       WHEN birth_year BETWEEN 1981 AND 1996 THEN 'Millenials'
       WHEN birth_year BETWEEN 1997 AND 2012 THEN 'Generation Z'
       ELSE 'Other'
-    END AS generation
-  FROM `bigquery-public-data.new_york_citibike.citibike_trips`
-  group by birth_year''';
+    END AS generation;
+
 
 select
-    generation,
+    trip.rider.birth_year.generation,
     trip.count
 order by
     trip.count desc;
@@ -118,13 +109,19 @@ In preql, we'll reuse the year we already defined, filter to trips in that year
 where the type were subscriber, count those, and provide trip.start_station_name
 in the output to aggregate to that level. 
 ```sql
-key subscriber_rides_2016 <- filter trip.start_time where trip.year=2016 and trip.user_type='Subscriber';
-
-metric subscriber_ride_count_2016 <- count(subscriber_rides_2016);
+rowset sub_rides_2016 <- select 
+    trip.start_station_name, 
+    trip_start_time, 
+    trip.id, 
+    trip.year
+where 
+    trip.year=2016 and 
+    trip.user_type='Subscriber'
+    ;
 
 select
-    trip.start_station_name,
-    subscriber_ride_count_2016,
+    sub_rides_2016.trip.start_station_name,
+     count(sub_rides_2016.trip.start_time) ->subscriber_ride_count_2016,
 order by
     subscriber_ride_count_2016 desc
 limit 10;
@@ -154,7 +151,7 @@ no nesting required.
 metric trip.avg_duration <- trip.total_duration / trip.count;
 
 select
-    bike.id,
+    trip.bike.id,
     trip.count,
     trip.total_duration,
     trip.avg_duration,
@@ -270,9 +267,9 @@ ORDER BY year
 
 
 ```sql
-metric lagging_yearly_trips <- lag yearly_trips by trip.year asc;
-metric yoy_trip_growth <- yearly_trips - lagging_yearly_trips;
-metric yoy_growth_ratio <- round(yoy_trip_growth / lagging_yearly_trips * 100 ,2);
+auto lagging_yearly_trips <- lag yearly_trips by trip.year asc;
+auto yoy_trip_growth <- yearly_trips - lagging_yearly_trips;
+auto yoy_growth_ratio <- round(yoy_trip_growth / lagging_yearly_trips * 100 ,2);
 
 select
     trip.year,

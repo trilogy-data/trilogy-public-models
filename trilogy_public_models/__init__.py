@@ -36,7 +36,7 @@ class ModelDict(UserDict[str, Environment]):
 
 models: UserDict["str", Environment] = ModelDict()
 
-__version__ = "0.0.18"
+__version__ = "0.0.19"
 
 
 def load_module_wrap(info: pkgutil.ModuleInfo):
