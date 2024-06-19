@@ -3,7 +3,7 @@ from preql.constants import DEFAULT_NAMESPACE
 from preql.core.models import (
     Concept,
     Datasource,
-    Select,
+    SelectStatement,
     ProcessedShowStatement,
 )
 from preql.core.processing.concept_strategies_v3 import search_concepts
@@ -33,7 +33,7 @@ def validate_dataset(
 
     try:
         _, parsed = parse_text(validation_query, environment)
-        processed: list[Select] = [x for x in parsed if isinstance(x, Select)]
+        processed: list[SelectStatement] = [x for x in parsed if isinstance(x, SelectStatement)]
         sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
         print(validation_query)
