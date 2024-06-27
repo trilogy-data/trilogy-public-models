@@ -9,7 +9,7 @@ but writes out the queries in trilogy. The full code can be found in the script.
 section in this folder.
 
 For this kind of one-off analysis, the queries should look quite similar. Note that the
-preql examples are intended to be run sequentially as they define a few concepts
+trilogy examples are intended to be run sequentially as they define a few concepts
 that are re-used in later queries. 
 
 
@@ -46,7 +46,7 @@ limit 100;
 
 ### Case Statement
 
-Next we'll look at travel by 'generation'. Since we haven't implemented PreQL case/switch statements yet,
+Next we'll look at travel by 'generation'. Since we haven't implemented trilogy case/switch statements yet,
 this gets a bit hacky.
 
 ```sql
@@ -68,7 +68,7 @@ GROUP BY generation
 ORDER BY users DESC;
 ```
 
-In preql we'll define a new property of the birth year for the generation,
+In trilogy we'll define a new property of the birth year for the generation,
 then provide a datasource off a query as our source.
 ```preql
 property trip.rider.birth_year.generation string;

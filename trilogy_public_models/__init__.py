@@ -1,5 +1,5 @@
 import pkgutil
-from preql import Environment
+from trilogy import Environment
 from os.path import dirname
 from pathlib import Path
 import sys

@@ -1,4 +1,4 @@
-from preql import Environment
+from trilogy import Environment
 from trilogy.constants import DEFAULT_NAMESPACE
 from trilogy.core.models import (
     Concept,

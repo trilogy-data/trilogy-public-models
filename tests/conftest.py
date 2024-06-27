@@ -3,7 +3,7 @@ import os
 from google.auth import default
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from preql.executor import Executor, Dialects
+from trilogy.executor import Executor, Dialects
 from pytest import fixture
 from sqlalchemy.engine import create_engine
 
