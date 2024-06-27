@@ -22,7 +22,7 @@ setuptools.setup(
     url="",
     author="",
     author_email="preql-community@gmail.com",
-    description="Public trilogy/preql models.",
+    description="Public Trilogy models.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(

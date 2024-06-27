@@ -1,9 +1,9 @@
 from os import listdir
 from os.path import dirname, join
 
-from preql import Environment
-from preql.constants import ENV_CACHE_NAME
-from preql.parser import parse
+from trilogy import Environment
+from trilogy.constants import ENV_CACHE_NAME
+from trilogy.parser import parse
 
 
 def parse_initial_models(fpath: str) -> Environment:

@@ -1,10 +1,10 @@
 import pkgutil
-from preql import Environment
+from trilogy import Environment
 from os.path import dirname
 from pathlib import Path
 import sys
 from importlib.machinery import SourceFileLoader
-from preql.core.models import LazyEnvironment
+from trilogy.core.models import LazyEnvironment
 from collections import UserDict
 
 
@@ -36,7 +36,7 @@ class ModelDict(UserDict[str, Environment]):
 
 models: UserDict["str", Environment] = ModelDict()
 
-__version__ = "0.0.19"
+__version__ = "0.0.20"
 
 
 def load_module_wrap(info: pkgutil.ModuleInfo):
