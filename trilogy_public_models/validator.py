@@ -1,16 +1,16 @@
 from preql import Environment
-from preql.constants import DEFAULT_NAMESPACE
-from preql.core.models import (
+from trilogy.constants import DEFAULT_NAMESPACE
+from trilogy.core.models import (
     Concept,
     Datasource,
     SelectStatement,
     ProcessedShowStatement,
 )
-from preql.core.processing.concept_strategies_v3 import search_concepts
-from preql.executor import Executor
-from preql.parser import parse_text
-from preql.core.internal import INTERNAL_NAMESPACE
-from preql.core.env_processor import generate_graph
+from trilogy.core.processing.concept_strategies_v3 import search_concepts
+from trilogy.executor import Executor
+from trilogy.parser import parse_text
+from trilogy.core.internal import INTERNAL_NAMESPACE
+from trilogy.core.env_processor import generate_graph
 
 
 def safe_address(input: Concept):

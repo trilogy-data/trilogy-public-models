@@ -4,7 +4,7 @@ from os.path import dirname
 from pathlib import Path
 import sys
 from importlib.machinery import SourceFileLoader
-from preql.core.models import LazyEnvironment
+from trilogy.core.models import LazyEnvironment
 from collections import UserDict
 
 
