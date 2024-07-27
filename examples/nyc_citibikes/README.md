@@ -42,8 +42,6 @@ limit 100;
 
 ### Case Statement
 
-Next we'll look at travel by 'generation'. Since we haven't implemented PreQL case/switch statements yet,
-this gets a bit hacky.
 
 ```sql
 WITH new_view AS(
@@ -64,22 +62,25 @@ GROUP BY generation
 ORDER BY users DESC;
 ```
 
-In preql we'll define a new property of the birth year for the generation,
-then provide a datasource off a query as our source.
+In Preql, we'll get a similar case statement
 ```preql
-property trip.rider.birth_year.generation <-  CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
-      WHEN birth_year BETWEEN 1901 AND 1927 THEN 'G.I. Generation'
-      WHEN birth_year BETWEEN 1928 AND 1945 THEN 'Silent Generation'
-      WHEN birth_year BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
-      WHEN birth_year BETWEEN 1965 AND 1980 THEN 'Generation X'
-      WHEN birth_year BETWEEN 1981 AND 1996 THEN 'Millenials'
-      WHEN birth_year BETWEEN 1997 AND 2012 THEN 'Generation Z'
+-- this will be assigned to the parent namespace
+-- so we'll acess it as trip.rider
+property <trip.rider.birth_year>.generation <-  CASE 
+      WHEN trip.rider.birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
+      WHEN trip.rider.birth_year BETWEEN 1901 AND 1927 THEN 'G.I. Generation'
+      WHEN trip.rider.birth_year BETWEEN 1928 AND 1945 THEN 'Silent Generation'
+      WHEN trip.rider.birth_year BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
+      WHEN trip.rider.birth_year BETWEEN 1965 AND 1980 THEN 'Generation X'
+      WHEN trip.rider.birth_year BETWEEN 1981 AND 1996 THEN 'Millenials'
+      WHEN trip.rider.birth_year BETWEEN 1997 AND 2012 THEN 'Generation Z'
       ELSE 'Other'
-    END AS generation;
+    END;
 
 
 select
-    trip.rider.birth_year.generation,
+
+    trip.rider.generation,
     trip.count
 order by
     trip.count desc;
