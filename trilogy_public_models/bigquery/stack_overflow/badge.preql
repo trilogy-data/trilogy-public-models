@@ -14,7 +14,7 @@ datasource badges (
     id: id,
     name: name,
     date: awarded_time,
-    user_id: Partial[user.id],
+    user_id: ~user.id,
     class: class,
     tag_based: tag_based
     )

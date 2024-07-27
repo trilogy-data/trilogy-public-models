@@ -19,7 +19,7 @@ metric avg_length <- avg(length);
 metric total_comment_count <- sum(comment_count);
 
 datasource posts (
-    owner_user_id: Partial[user.id],
+    owner_user_id: ~user.id,
     id: id,
     body: text,
     title:title,
@@ -36,8 +36,8 @@ datasource posts (
 datasource post_tags (
     id: id,
     title:title,
-    owner_user_id: Partial[user.id],
-    tag: Partial[tag.name],
+    owner_user_id: ~user.id,
+    tag: ~tag.name,
     creation_date: creation_timestamp
     )
     grain (id, tag.name)

@@ -23,7 +23,7 @@ property id.score	int	;
 
 datasource post_answer_edits (
     id:id,
-    last_editor_user_id: Partial[user.id],
+    last_editor_user_id: ~user.id,
     last_editor_display_name: last_editor_display_name
 )
     grain (id)
@@ -37,7 +37,7 @@ datasource post_answers (
     body:body,
     score:score,
     comment_count:comment_count,
-    owner_user_id: Partial[user.id],
+    owner_user_id: ~user.id,
     owner_display_name: owner_display_name,
     accepted_answer_id: accepted_answer_id,
     parent_id: question.id,
@@ -52,7 +52,7 @@ datasource post_answers (
 
 datasource answer_tags (
     id: id,
-    tag: Partial[tag.name],
+    tag: ~tag.name,
     creation_date: creation_timestamp
     )
     grain (id, tag.name)
