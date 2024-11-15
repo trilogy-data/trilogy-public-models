@@ -19,11 +19,16 @@ def test_models(bq_client, bq_executor):
     results = []
     with ThreadPoolExecutor() as executor:
         for key, model in models.items():
-            future = executor.submit(
-                single_model, key, model, bq_executor(), bq_client()
-            )
-            results.append(future)
-
+            if 'bigquery' in key:
+                future = executor.submit(
+                    single_model, key, model, bq_executor(), bq_client()
+                )
+                results.append(future)
+            elif 'duckdb' in key:
+                future = executor.submit(
+                    single_model, key, model, duckdb_executor(), None
+                )
+                results.append(future)
     for future in results:
         result = future.result()
         print(result)

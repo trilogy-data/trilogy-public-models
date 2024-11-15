@@ -1,0 +1,26 @@
+key id int;
+property id.age int;
+property id.survived int; # 1 if survived, 0 if not
+property id.name string;
+property id.class int; # Integer classes; 1st, 2nd, 3rd
+property id.fare float; # Cost of fare, as float
+property id.cabin string;
+property id.embarked int;
+property id.ticket string;
+
+metric survived_count <- sum(survived); # Number of survivors
+property last_name <- split(name,',')[1];
+
+datasource raw_data (
+    passengerid: id,
+        age: age,
+        survived: survived,
+        pclass: class,
+        name: name,
+        fare: fare,
+        cabin: cabin,
+        embarked: embarked,
+        ticket: ticket
+    )
+grain (id)
+address raw_titanic;

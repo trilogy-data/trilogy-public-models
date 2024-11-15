@@ -35,7 +35,14 @@ from preql.executor import Executor, Dialects
 from sqlalchemy.engine import create_engine
 
 from trilogy_public_models.bigquery import google_search_trends
+from trilogy_public_models import get_executor
 
+
+# use default auth
+exec = get_executor('google_search_trends')
+
+# or provide client explicitly
+# if using more complicated auth
 project, auth = default()
 bq_client = bigquery.Client(auth, project)
 

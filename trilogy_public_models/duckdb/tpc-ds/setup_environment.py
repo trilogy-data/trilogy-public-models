@@ -86,7 +86,7 @@ def setup_richest_environment(env: Environment):
 
     env.add_datasource(
         Datasource(
-            name="rich_info",
+            identifier="rich_info",
             address="rich_info",
             columns=[
                 ColumnAssignment(alias="Name", concept=name),
@@ -256,7 +256,7 @@ def setup_titanic(env: Environment):
 
     env.add_datasource(
         Datasource(
-            name="raw_data",
+            identifier="raw_data",
             address="raw_titanic",
             columns=[
                 ColumnAssignment(alias="passengerid", concept=id),
@@ -275,7 +275,7 @@ def setup_titanic(env: Environment):
     rich_env = Environment()
     setup_richest_environment(rich_env)
     env.add_import("rich_info", rich_env)
-    return env, rich_env
+    return env
 
 
 def create_passenger_dimension(exec: Executor, name: str):
@@ -450,7 +450,7 @@ def setup_titanic_distributed(env: Environment):
 
     env.add_datasource(
         Datasource(
-            name="dim_passenger",
+            identifier="dim_passenger",
             address="dim_passenger",
             columns=[
                 ColumnAssignment(alias="id", concept=id),
@@ -469,7 +469,7 @@ def setup_titanic_distributed(env: Environment):
 
     env.add_datasource(
         Datasource(
-            name="fact_titanic",
+            identifier="fact_titanic",
             address="fact_titanic",
             columns=[
                 ColumnAssignment(alias="passengerid", concept=id),
@@ -485,7 +485,7 @@ def setup_titanic_distributed(env: Environment):
 
     env.add_datasource(
         Datasource(
-            name="dim_class",
+            identifier="dim_class",
             address="dim_class",
             columns=[
                 ColumnAssignment(alias="id", concept=class_id),
@@ -505,7 +505,7 @@ def setup_titanic_distributed(env: Environment):
 if __name__ == "__main__":
     executor = setup_engine()
     env = Environment()
-    model, rich_env = setup_titanic(env)
+    model = setup_titanic(env)
     for c in env.concepts:
         print(c)
 
@@ -517,4 +517,3 @@ if __name__ == "__main__":
     for row in results:
         print(row)
     print(render_environment(env))
-    print(render_environment(rich_env))

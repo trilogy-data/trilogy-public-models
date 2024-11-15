@@ -1,0 +1,10 @@
+key full_name string;
+property <full_name>.net_worth_1918_dollars string;
+property last_name <- split(full_name, ',')[-1];
+
+datasource wealth (
+    `Name`: full_name,
+    `Net Worth 1918 Dollars`: net_worth_1918_dollars
+    )
+grain (full_name)
+address wealth;
