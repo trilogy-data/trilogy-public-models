@@ -7,9 +7,6 @@ SKIPPED_KEYS = ["bigquery.age_of_empires_2", "duckdb.titanic"]
 
 
 def single_model(key, model: Environment, bq_executor, bq_client):
-    # permission issue with this
-    if key in SKIPPED_KEYS:
-        return
     try:
         validate_model(model, bq_executor, bq_client)
     except Exception as e:
@@ -22,6 +19,8 @@ def test_models(bq_client, bq_executor):
     results = []
     with ThreadPoolExecutor() as executor:
         for key, model in data_models.items():
+            if key in SKIPPED_KEYS:
+                continue
             if "bigquery" in key:
                 trilogy_executor = get_executor(key, executor=bq_executor())
                 future = executor.submit(
@@ -29,6 +28,7 @@ def test_models(bq_client, bq_executor):
                 )
                 results.append(future)
             elif "duckdb" in key:
+
                 trilogy_executor = get_executor(key)
                 future = executor.submit(
                     single_model, key, model.environment, trilogy_executor, None
