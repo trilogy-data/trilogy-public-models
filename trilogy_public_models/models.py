@@ -1,10 +1,7 @@
-from trilogy.core.models import Environment, LazyEnvironment as LazyEnvironment2
 from pathlib import Path
 from typing import Any
 from trilogy import Environment
-from pathlib import Path
 import sys
-from typing import Any
 from importlib.machinery import SourceFileLoader
 from collections import UserDict
 from dataclasses import dataclass
