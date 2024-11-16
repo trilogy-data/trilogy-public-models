@@ -58,7 +58,6 @@ class LazyEnvironment(Environment):
         env = Environment(working_path=str(self.working_path))
         with open(self.load_path, "r") as f:
             env, q = parse(f.read(), env)
-            print(len(q))
             for q in q:
                 self.setup_queries.append(q)
         self.loaded = True

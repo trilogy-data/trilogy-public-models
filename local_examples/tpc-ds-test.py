@@ -10,7 +10,7 @@ print(root_path)
 from trilogy_public_models import data_models
 from trilogy_public_models import get_executor
 
-executor = get_executor("duckdb.tpc-ds")
+executor = get_executor("duckdb.tpc_ds")
 
 QA_1 = """
 select 
