@@ -6,7 +6,10 @@ from trilogy.constants import ENV_CACHE_NAME
 from trilogy.parser import parse
 from trilogy.core.models import RawSQLStatement, Statement
 
-def parse_initial_models(fpath: str) -> tuple[Environment, list[RawSQLStatement | Statement]]:
+
+def parse_initial_models(
+    fpath: str,
+) -> tuple[Environment, list[RawSQLStatement | Statement]]:
     parent_folder = dirname(fpath)
     files = listdir(dirname(fpath))
     cache_path = join(parent_folder, ENV_CACHE_NAME)

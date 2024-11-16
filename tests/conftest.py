@@ -36,7 +36,6 @@ def bq_executor(bq_client):
     yield lambda: create_executor(bq_client())
 
 
-
 @fixture()
 def duckdb_executor():
     yield lambda: Dialects.DUCK_DB.default_executor()

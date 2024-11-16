@@ -2,16 +2,13 @@
 
 ## Overview
 
-This repository contains semantic models on public datasets for the Preql/Trilogy language. 
+This repository contains semantic models describing public datasets as Trilogy data models.
 
-This supports the interactive PreQL demo, but can also be used by anyone to boostrap exploration
-of these public datasets.
-
-You can install this library directly and import models to use.
+You can use this to quickly get started with Trilogy, or just as a place to find fun data to explore. 
 
 ## Installation
 
-```commandline
+```bash
 pip install trilogy-public-models
 ```
 
@@ -19,11 +16,36 @@ pip install trilogy-public-models
 
 This repository also contains a examples/ folder, which can be browsed for in-depth code examples.
 
-## Local Usage
+## Quickstart
+
+This will import and set up a duckdb engine with a SF .5 environment.
+
+```python
+from trilogy_public_models import data_models
+from trilogy_public_models import get_executor
+
+executor = get_executor("duckdb.tpc-ds")
+
+QA_1 ="""
+select 
+    store_sales.date.year, 
+    count(store_sales.customer.id)->customer_count
+order by 
+    store_sales.date.year desc ;
+"""  # noqa: E501
+
+results = executor.execute_text(QA_1)
+
+for row in results[0].fetchall():
+    print(row)
+
+```
+
+## Advanced Usage
 
 This example assumes you are querying Bigquery Datasets.
 
-To utilize a model, instantiate a standard PreQL executor (in this case, a bigquery client) 
+To utilize a model, instantiate a standard Trilogy executor (in this case, a bigquery client) 
 and then pass in one of the existing environments from this package into the environment argument.
 
 That will enable you to run queries against the semantic model.
@@ -31,7 +53,7 @@ That will enable you to run queries against the semantic model.
 ```python
 from google.auth import default
 from google.cloud import bigquery
-from preql.executor import Executor, Dialects
+from trilogy.executor import Executor, Dialects
 from sqlalchemy.engine import create_engine
 
 from trilogy_public_models.bigquery import google_search_trends
@@ -79,13 +101,23 @@ for row in results[0]:
 
 ```
 
+You can access all models through the data_model object:
+
+```python
+from trilog_public_models import data_models
+
+for k, v in data_models.items():
+    print(k)
+    _ = v.environment # environment
+```
+
 ## Combining Models
 
-Coming soon!
-
-Preql supports combining multiple environments into a single environment. This enables simplified querying
+Trilogy supports combining multiple environments into a single environment. This enables simplified querying
 of universal concepts, like looking up StackOverflow links embedded in Github commits, or merging GPS
 data across different domains. 
+
+Use the standard trilogy toolkit of merges to do this. 
 
 ## Contributing
 

@@ -1,13 +1,18 @@
 import passenger as passenger;
 import wealth as wealth;
 
-MERGE wealth.last_name ~into passenger.last_name;
+MERGE wealth.last_name into ~passenger.last_name;
+
+# TODO: fix this
+RAW_SQL('''
+set file_search_path = './duckdb/titanic/'
+''');
 
 RAW_SQL('''
-COPY raw_titanic FROM './train.csv' (HEADER false);
+CREATE TABLE raw_titanic AS FROM read_csv('train.csv');
 ''');
 
 
 RAW_SQL('''
-COPY wealth FROM './richest.csv' (HEADER false);
+CREATE TABLE wealth AS FROM read_csv('richest.csv');
 ''');

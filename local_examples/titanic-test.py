@@ -10,14 +10,11 @@ print(root_path)
 from trilogy_public_models import data_models
 from trilogy_public_models import get_executor
 
-executor = get_executor("duckdb.tpc-ds")
+executor = get_executor("duckdb.titanic")
 
 QA_1 = """
 select 
-    store_sales.date.year, 
-    count(store_sales.customer.id)->customer_count
-order by 
-    store_sales.date.year desc ;
+    passenger.last_name ;
 """  # noqa: E501
 
 results = executor.execute_text(QA_1)

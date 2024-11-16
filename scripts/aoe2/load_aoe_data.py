@@ -1,6 +1,5 @@
 """Adhoc script to parse an ao2 sql database into parquet"""
 
-
 import duckdb
 from pathlib import Path
 
