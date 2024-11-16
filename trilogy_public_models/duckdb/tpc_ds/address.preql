@@ -11,7 +11,7 @@ property id.country string;
 
 datasource customer_address(
     CA_ADDRESS_SK: id,
-    CA_STREET: street,
+    CA_STREET_NAME: street,
     CA_CITY: city,
     CA_STATE: state,
     CA_ZIP: zip,

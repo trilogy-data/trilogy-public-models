@@ -49,7 +49,7 @@ address memory.customer;
 
 datasource customer_address(
     CA_ADDRESS_SK: address_id,
-    CA_STREET: street,
+    CA_STREET_NAME: street,
     CA_CITY: city,
     CA_STATE: state,
     CA_ZIP: zip,

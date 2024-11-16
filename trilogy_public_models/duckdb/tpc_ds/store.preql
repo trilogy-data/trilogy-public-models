@@ -6,7 +6,7 @@ property id.name string;
 property id.employees int;
 property id.floor_space int;
 property id.hours string;
-property id.store_manager string;
+property id.manager string;
 property id.market_id int;
 property id.geography_class string;
 property id.market_manager string;
@@ -20,12 +20,12 @@ property id.market int;
 datasource store (
     S_STORE_SK: id,
     S_STORE_ID: text_id,
-    S_CLOSED_DATE: date.id,
+    S_CLOSED_DATE_SK: date.id,
     S_STORE_NAME: name,
-    S_EMPLOYEES: employees,
+    S_NUMBER_EMPLOYEES: employees,
     S_FLOOR_SPACE: floor_space,
     S_HOURS: hours,
-    S_STORE_MANAGER: store_manager,
+    S_MANAGER: manager,
     S_MARKET_ID: market_id,
     S_GEOGRAPHY_CLASS: geography_class,
     S_MARKET_MANAGER: market_manager,
