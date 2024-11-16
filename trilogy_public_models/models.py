@@ -13,28 +13,26 @@ class ModelOutput:
     setup: list[Any]
 
 
-class ModelDict(UserDict[str, Environment]):
+class ModelDict(UserDict[str, ModelOutput]):
     def __init__(self):
         super().__init__()
         self.not_exists: set[str] = set()
 
+    def _load(self, item: str, path: str):
+        loaded = SourceFileLoader(item, path).load_module()
+        output = ModelOutput(environment=loaded.model, setup=loaded.statements)
+        self[item] = output
+        sys.modules["trilogy_public_models." + item] = output  # type: ignore
+        return output
+
     def __getitem__(self, item: str) -> ModelOutput:
         path = str(Path(__file__).parent / item.replace(".", "/") / "__init__.py")
         if item not in self and item not in self.not_exists:
-            # imports the module from the given path
-            loaded = SourceFileLoader(item, path).load_module()
-            output = ModelOutput(environment=loaded.model, setup=loaded.statements)
-            self[item] = output
-            sys.modules["trilogy_public_models." + item] = output
-            return output
+            return self._load(item, path)
         response = super().__getitem__(item)
         # if the key is set but not loaded yet
         if not response:
-            loaded = SourceFileLoader(item, path).load_module()
-            output = ModelOutput(environment=loaded.model, setup=loaded.statements)
-            self[item] = output
-            sys.modules["trilogy_public_models." + item] = output
-            response = output
+            return self._load(item, path)
         return response
 
     def __setitem__(self, key, value):
