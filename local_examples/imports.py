@@ -18,6 +18,8 @@ print(type(models["bigquery.stack_overflow"]))
 
 print(type(stack_overflow))
 print(len(models["bigquery.stack_overflow"].concepts))
-assert len(stack_overflow.concepts) == len(models["bigquery.stack_overflow"].concepts), f"Expected {len(models['bigquery.stack_overflow'].concepts)} concepts, got {len(stack_overflow.concepts)} concepts."
+assert len(stack_overflow.concepts) == len(
+    models["bigquery.stack_overflow"].concepts
+), f"Expected {len(models['bigquery.stack_overflow'].concepts)} concepts, got {len(stack_overflow.concepts)} concepts."
 
 print(datetime.now() - start)

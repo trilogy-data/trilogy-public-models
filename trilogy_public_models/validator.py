@@ -1,4 +1,4 @@
-from trilogy import Environment
+from trilogy import Environment, Dialects
 from trilogy.constants import DEFAULT_NAMESPACE
 from trilogy.core.models import (
     Concept,
@@ -51,21 +51,29 @@ def validate_dataset(
 
             # TODO: implement this
             # rs = executor.engine.dry_run(compiled_sql)
-            job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
-            query_job = dry_run_client.query(
-                compiled_sql, job_config=job_config
-            )  # Make an API request.
+            if executor.dialect == Dialects.BIGQUERY:
+                # use a dry run to save costs
+                job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
+                query_job = dry_run_client.query(
+                    compiled_sql, job_config=job_config
+                )  # Make an API request.
+                print(
+                    "This query will process {} bytes.".format(
+                        query_job.total_bytes_processed
+                    )
+                )
+            elif executor.dialect == Dialects.DUCK_DB:
+                # use a dry run to save costs
+                query_job = executor.execute_raw_sql(compiled_sql)
+            else:
+                raise NotImplementedError(
+                    f"Validation not implemented for {executor.dialect}"
+                )
         except Exception as e:
             print("Failed validation on:")
             print(validation_query)
             print(compiled_sql)
             raise e
-
-        # TODO: do something interesting with cost modeling?
-        #
-        print(
-            "This query will process {} bytes.".format(query_job.total_bytes_processed)
-        )
 
 
 def validate_datasource_grain(datasource):

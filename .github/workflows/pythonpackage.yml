@@ -52,7 +52,10 @@ jobs:
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          ruff check .
+          ruff check trilogy_public_models
+      - name: Lint with mypy
+        run: |
+          mypy trilogy_public_models
       - name: Test with pytest
         run: |
           pip install pytest

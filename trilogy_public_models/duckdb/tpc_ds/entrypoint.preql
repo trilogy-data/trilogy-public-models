@@ -1,0 +1,21 @@
+import call_center as call_center;
+import catalog_returns as catalog_returns;
+import catalog_sales as catalog_sales;
+import customer_demographic as customer_demographic;
+import customer as customer;
+import inventory as inventory;
+import item as item;
+import promotion as promotion;
+import store_returns as store_returns;
+import store_sales as store_sales;
+import store as store;
+import time as time;
+import warehouse as warehouse;
+import web_sales as web_sales;
+
+# intialize the TPC-DS schema
+RAW_SQL('''
+INSTALL tpcds;
+LOAD tpcds;
+SELECT * FROM dsdgen(sf=.5);
+''');
