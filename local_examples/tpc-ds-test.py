@@ -1,9 +1,10 @@
 from os.path import dirname
-
+from pathlib import Path
 nb_path = __file__
 root_path = dirname(dirname(nb_path))
 from sys import path
 from os.path import dirname
+from json import dump
 
 path.insert(0, root_path)
 print(root_path)
@@ -20,6 +21,10 @@ order by
 """  # noqa: E501
 
 results = executor.execute_text(QA_1)
-
-for row in results[0].fetchall():
-    print(row)
+concepts = []
+for x in executor.environment.concepts:
+    if any(y.startswith('_') for y in x.split('.')):
+        continue
+    concepts.append(x)
+with open(Path(__file__).parent / 'concepts.txt', 'w') as f:
+    dump(concepts, f, indent=4)

@@ -1,4 +1,4 @@
-pytrilogy>=0.0.2.15
+pytrilogy>=0.0.2.42
 google-auth
 google-cloud-bigquery
 sqlalchemy-bigquery
