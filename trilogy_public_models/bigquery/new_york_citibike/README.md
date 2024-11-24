@@ -4,7 +4,7 @@
 
 
 ## Examples
-This example walks through an [existing `analysis](https://fitriwidyan.medium.com/nyc-citi-bike-trips-data-analysis-a07a1db9c1be)` of New York Citibike usage, 
+This example walks through an [existing analysis](https://fitriwidyan.medium.com/nyc-citi-bike-trips-data-analysis-a07a1db9c1be) of New York Citibike usage, 
 but writes out the queries in trilogy. The full code can be found in the script.preql
 section in this folder.
 
