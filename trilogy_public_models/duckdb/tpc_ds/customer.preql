@@ -51,7 +51,7 @@ datasource customer_address(
     CA_ADDRESS_SK: address_id,
     CA_STREET_NAME: street,
     CA_CITY: city,
-    CA_STATE: state,
+    CA_STATE: state, #Two character state code; eg. CA for California, MA for Massachusetts
     CA_ZIP: zip,
     CA_COUNTY: county,
     CA_COUNTRY:country,
