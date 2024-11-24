@@ -12,10 +12,3 @@ import store as store;
 import time as time;
 import warehouse as warehouse;
 import web_sales as web_sales;
-
-# intialize the TPC-DS schema
-RAW_SQL('''
-INSTALL tpcds;
-LOAD tpcds;
-SELECT * FROM dsdgen(sf=.25);
-''');
