@@ -1,0 +1,6 @@
+# intialize the TPC-DS schema
+RAW_SQL('''
+INSTALL tpcds;
+LOAD tpcds;
+SELECT * FROM dsdgen(sf=.5);
+''');

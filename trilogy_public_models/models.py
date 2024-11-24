@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Any
+from pydantic import BaseModel
 from trilogy import Environment
 import sys
 from importlib.machinery import SourceFileLoader
@@ -44,9 +45,19 @@ class LazyEnvironment(Environment):
     until relevant attributes accessed."""
 
     load_path: Path
+
     working_path: Path
     setup_queries: list[Any]
     loaded: bool = False
+
+    def __init__(self, **data):
+        # skip the Environment ini
+        # as it will be called late
+        BaseModel.__init__(self, **data)
+
+    @property
+    def setup_path(self) -> Path:
+        return self.load_path.parent / "setup.preql"
 
     def _load(self):
         if self.loaded:
@@ -54,10 +65,14 @@ class LazyEnvironment(Environment):
         from trilogy import parse
 
         env = Environment(working_path=str(self.working_path))
+
         with open(self.load_path, "r") as f:
-            env, q = parse(f.read(), env)
-            for q in q:
-                self.setup_queries.append(q)
+            env, _ = parse(f.read(), env)
+        if self.setup_path.exists():
+            with open(self.setup_path, "r") as f2:
+                env, q = parse(f2.read(), env)
+                for q in q:
+                    self.setup_queries.append(q)
         self.loaded = True
         self.datasources = env.datasources
         self.concepts = env.concepts
@@ -69,14 +84,14 @@ class LazyEnvironment(Environment):
         self.cte_name_map = env.cte_name_map
 
     def __getattribute__(self, name):
-        if name in (
-            "load_path",
-            "loaded",
-            "setup_queries",
-            "working_path",
-            "model_config",
-            "model_fields",
-            "model_post_init",
+        if name not in (
+            "datasources",
+            "concepts",
+            "imports",
+            "materialized_concepts",
+            "functions",
+            "datatypes",
+            "cte_name_map",
         ) or name.startswith("_"):
             return super().__getattribute__(name)
         if not self.loaded:

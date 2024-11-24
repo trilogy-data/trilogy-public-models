@@ -1,0 +1,13 @@
+# TODO: fix this
+RAW_SQL('''
+set file_search_path = :_env_working_path
+''');
+
+RAW_SQL('''
+CREATE TABLE raw_titanic AS FROM read_csv('train.csv');
+''');
+
+
+RAW_SQL('''
+CREATE TABLE wealth AS FROM read_csv('richest.csv');
+''');

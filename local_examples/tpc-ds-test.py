@@ -7,10 +7,9 @@ from os.path import dirname
 
 path.insert(0, root_path)
 print(root_path)
-from trilogy_public_models import data_models
 from trilogy_public_models import get_executor
 
-executor = get_executor("duckdb.tpc_ds")
+executor = get_executor("duckdb.tpc_ds", run_setup=True)
 
 QA_1 = """
 select 

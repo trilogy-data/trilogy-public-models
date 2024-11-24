@@ -3,7 +3,9 @@ from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment
 
 
-def get_executor(model: str, executor: Executor | None = None) -> Executor:
+def get_executor(
+    model: str, executor: Executor | None = None, run_setup: bool = True
+) -> Executor:
 
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
@@ -23,7 +25,8 @@ def get_executor(model: str, executor: Executor | None = None) -> Executor:
         queries = loaded.setup
     else:
         queries = loaded.setup()
-    for x in queries:
-        z = executor.execute_query(x)
-        z.fetchall()
+    if run_setup:
+        for x in queries:
+            z = executor.execute_query(x)
+            z.fetchall()
     return executor
