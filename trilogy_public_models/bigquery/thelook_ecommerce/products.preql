@@ -21,4 +21,4 @@ datasource products (
 	distribution_center_id:distribution_centers.id
     ) 
 grain (id) 
-address bigquery-public-data.thelook_ecommerce.products;
+address `bigquery-public-data.thelook_ecommerce.products`;

@@ -41,5 +41,5 @@ datasource citibike_trips (
     customer_plan:customer_plan,
 )
 grain (start_station_id, end_station_id, start_time, bike.id)
-address bigquery-public-data.new_york_citibike.citibike_trips;
+address `bigquery-public-data.new_york_citibike.citibike_trips`;
 

@@ -20,4 +20,4 @@ datasource match_players (
 	time_parsed:time_parsed
     ) 
 grain (id) 
-address ttl-test-355422.aoe2.match_players;
+address `ttl-test-355422.aoe2.match_players`;

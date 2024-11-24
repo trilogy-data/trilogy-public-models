@@ -18,6 +18,6 @@ datasource trends (
     refresh_date:refresh_date
     )
     grain (dma_id,term, week, refresh_date)
-address bigquery-public-data.google_trends.top_terms;
+address `bigquery-public-data.google_trends.top_terms`;
 
 

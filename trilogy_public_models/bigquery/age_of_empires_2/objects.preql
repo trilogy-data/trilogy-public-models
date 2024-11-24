@@ -6,4 +6,4 @@ datasource object_ids (
 	name:name,
     ) 
 grain (id) 
-address ttl-test-355422.aoe2.unit_ids;
+address `ttl-test-355422.aoe2.unit_ids`;

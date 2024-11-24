@@ -26,4 +26,4 @@ datasource order_items (
 	sale_price:sale_price
     ) 
 grain (id) 
-address bigquery-public-data.thelook_ecommerce.order_items;
+address `bigquery-public-data.thelook_ecommerce.order_items`;

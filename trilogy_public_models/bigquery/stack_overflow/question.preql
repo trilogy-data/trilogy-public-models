@@ -29,7 +29,7 @@ datasource posts (
     view_count: question_view_count
     )
     grain (id)
-    address bigquery-public-data.stackoverflow.posts_questions
+    address `bigquery-public-data.stackoverflow.posts_questions`
 ;
 
 

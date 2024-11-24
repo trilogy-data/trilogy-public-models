@@ -96,4 +96,4 @@ datasource broadcast_tv_radio_station (
 	ccContact:zip_ext
     ) 
 grain (station_id,call_sign,service,rf_channel,virtual_channel) 
-address bigquery-public-data.fcc_political_ads.broadcast_tv_radio_station;
+address `bigquery-public-data.fcc_political_ads.broadcast_tv_radio_station`;

@@ -28,4 +28,4 @@ datasource file_history (
 	stationId:station_id
     ) 
 grain (file_history_id) 
-address bigquery-public-data.fcc_political_ads.file_history;
+address `bigquery-public-data.fcc_political_ads.file_history`;

@@ -32,7 +32,7 @@ datasource games_sr (
     possession_arrow: game.possession_arrow
 )
 grain (game.id)
-address bigquery-public-data.ncaa_basketball.mbb_games_sr
+address `bigquery-public-data.ncaa_basketball.mbb_games_sr`
 ;
 
 
@@ -54,7 +54,7 @@ shot_made: game_event.shot_made
 )
 
 grain (game_event.id)
-address bigquery-public-data.ncaa_basketball.mbb_pbp_sr;
+address `bigquery-public-data.ncaa_basketball.mbb_pbp_sr`;
 
 
 
