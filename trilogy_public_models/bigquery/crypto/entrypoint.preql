@@ -15,7 +15,7 @@ datasource transactions (
     hash:tx_hash
 )
 grain (tx_hash)
-address bigquery-public-data.crypto_bitcoin.transactions;
+address `bigquery-public-data.crypto_bitcoin.transactions`;
 
 
 datasource inputs (
@@ -24,7 +24,7 @@ datasource inputs (
     index: index,
 )
 grain(tx_hash, index)
-address bigquery-public-data.crypto_bitcoin.inputs;
+address `bigquery-public-data.crypto_bitcoin.inputs`;
 
 
 datasource outputs (
@@ -33,7 +33,7 @@ datasource outputs (
     index:index
 )
 grain(tx_hash, index)
-address bigquery-public-data.crypto_bitcoin.outputs;
+address `bigquery-public-data.crypto_bitcoin.outputs`;
 
 
 

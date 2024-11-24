@@ -54,4 +54,4 @@ datasource file_record (
 	rawFileLink:raw_file_link
     ) 
 grain (file_record_id,md5) 
-address bigquery-public-data.fcc_political_ads.file_record;
+address `bigquery-public-data.fcc_political_ads.file_record`;

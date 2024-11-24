@@ -15,4 +15,4 @@ datasource usa_names(
     state:state
 )
 grain(id)
-address bigquery-public-data.usa_names.usa_1910_current;
+address `bigquery-public-data.usa_names.usa_1910_current`;

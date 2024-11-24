@@ -6,4 +6,4 @@ datasource players (
 	name:name
     ) 
 grain (id) 
-address ttl-test-355422.aoe2.players;
+address `ttl-test-355422.aoe2.players`;

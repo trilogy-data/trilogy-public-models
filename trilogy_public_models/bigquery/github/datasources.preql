@@ -21,6 +21,6 @@ datasource licenses (
     license: repo.license,
     )
     grain (repo.repo)
-    address bigquery-public-data.github_repos.licenses;
+    address `bigquery-public-data.github_repos.licenses`;
 
 

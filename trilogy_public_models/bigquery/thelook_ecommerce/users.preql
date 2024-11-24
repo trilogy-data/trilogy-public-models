@@ -32,4 +32,4 @@ datasource users (
 	created_at:created_at
     ) 
 grain (id) 
-address bigquery-public-data.thelook_ecommerce.users;
+address `bigquery-public-data.thelook_ecommerce.users`;

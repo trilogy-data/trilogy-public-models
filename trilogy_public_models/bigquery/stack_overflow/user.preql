@@ -14,5 +14,5 @@ datasource users (
     location:location
     )
     grain(id)
-    address bigquery-public-data.stackoverflow.users
+    address `bigquery-public-data.stackoverflow.users`
 ;

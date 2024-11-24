@@ -27,7 +27,7 @@ datasource post_answer_edits (
     last_editor_display_name: last_editor_display_name
 )
     grain (id)
-    address bigquery-public-data.stackoverflow.posts_answers;
+    address `bigquery-public-data.stackoverflow.posts_answers`;
 
 
 datasource post_answers (
@@ -46,7 +46,7 @@ datasource post_answers (
 
     )
     grain (id)
-    address bigquery-public-data.stackoverflow.posts_answers
+    address `bigquery-public-data.stackoverflow.posts_answers`
 ;
 
 

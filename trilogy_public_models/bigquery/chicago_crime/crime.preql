@@ -46,4 +46,4 @@ datasource crime (
 	location:location
     ) 
 grain (unique_key) 
-address bigquery-public-data.chicago_crime.crime;
+address `bigquery-public-data.chicago_crime.crime`;

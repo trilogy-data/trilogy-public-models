@@ -19,4 +19,4 @@ datasource badges (
     tag_based: tag_based
     )
        grain (id)
-address bigquery-public-data.stackoverflow.badges;
+address `bigquery-public-data.stackoverflow.badges`;

@@ -34,7 +34,7 @@ These queries are similar.
 
 PreQL:
 ```sql
-property trip.year<-year(trip.start_time);
+property `trip.year<-year(trip.start_time)`;
 
 SELECT
 	trip.year,
@@ -75,21 +75,18 @@ property trip.rider.birth_year.generation string;
 
 datasource generations (
     birth_year:trip.rider.birth_year,
-    generation:generation
-    )
-    grain(rider.birth_year)
-query '''SELECT birth_year,
- CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
+    CASE WHEN birth_year BETWEEN 1883 AND 1900 THEN 'Lost Generation'
       WHEN birth_year BETWEEN 1901 AND 1927 THEN 'G.I. Generation'
       WHEN birth_year BETWEEN 1928 AND 1945 THEN 'Silent Generation'
       WHEN birth_year BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
       WHEN birth_year BETWEEN 1965 AND 1980 THEN 'Generation X'
       WHEN birth_year BETWEEN 1981 AND 1996 THEN 'Millenials'
       WHEN birth_year BETWEEN 1997 AND 2012 THEN 'Generation Z'
-      ELSE 'Other'
-    END AS generation
-  FROM `bigquery-public-data.new_york_citibike.citibike_trips`
-  group by birth_year''';
+      ELSE 'other'
+      END: generation
+    )
+grain()
+address `bigquery-public-data.new_york_citibike.citibike_trips`;
 
 select
     generation,

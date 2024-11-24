@@ -29,4 +29,4 @@ datasource events (
 	event_type:event_type
     ) 
 grain (id) 
-address bigquery-public-data.thelook_ecommerce.events;
+address `bigquery-public-data.thelook_ecommerce.events`;

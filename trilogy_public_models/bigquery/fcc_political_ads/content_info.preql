@@ -32,4 +32,4 @@ datasource content_info (
 	agency:agency
     ) 
 grain (content_info_id) 
-address bigquery-public-data.fcc_political_ads.content_info;
+address `bigquery-public-data.fcc_political_ads.content_info`;
