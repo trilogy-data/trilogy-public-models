@@ -24,7 +24,7 @@ property address_id.zip string;
 property address_id.county string;
 property address_id.country string;
 
-
+auto full_name <- concat(salutation, ' ', first_name, ' ', last_name);
 
 datasource customers (
     C_CUSTOMER_SK: id,
