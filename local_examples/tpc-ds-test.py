@@ -15,8 +15,11 @@ executor = get_executor("duckdb.tpc_ds", run_setup=True)
 
 
 QA_1 = """
+MERGE store_sales.customer.* into customer.*;
 select 
+    customer.id,
     customer.full_name,
+    customer.birth_date,
     count(store_sales.ticket_number) as orders,
 order by
     customer.full_name desc;
