@@ -9,22 +9,23 @@ from json import dump
 path.insert(0, root_path)
 print(root_path)
 from trilogy_public_models import get_executor
-
+from datetime import datetime
+start = datetime.now()
 executor = get_executor("duckdb.tpc_ds", run_setup=True)
 
-QA_1 = """
-select 
-    store_sales.date.year, 
-    count(store_sales.customer.id)->customer_count
-order by 
-    store_sales.date.year desc ;
-"""  # noqa: E501
 
+QA_1 = """
+MERGE store_sales.customer.* into customer.*;
+select 
+    customer.id,
+    customer.full_name,
+    customer.birth_date,
+    count(store_sales.ticket_number) as orders,
+order by
+    customer.full_name desc;
+"""  # noqa: E501
+print(datetime.now()-start)
 results = executor.execute_text(QA_1)
-concepts = []
-for x in executor.environment.concepts:
-    if any(y.startswith('_') for y in x.split('.')):
-        continue
-    concepts.append(x)
-with open(Path(__file__).parent / 'concepts.txt', 'w') as f:
-    dump(concepts, f, indent=4)
+
+for row in results[0].fetchall():
+    print(row)
