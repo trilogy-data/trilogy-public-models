@@ -1,7 +1,12 @@
 {
     "name": "thelook_ecommerce",
     "engine": "bigquery",
-    "description": "The Look is a fictional e-commerce company that sells clothing and accessories. This dataset is provided by Google as part of their public datasets. Read more: https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/1057666841514/locations/us/dataExchanges/google_cloud_public_datasets_17e74966199/listings/thelook_ecommerce",
+    "description": "The Look is a fictional e-commerce company that sells clothing and accessories. This dataset is provided by Google as part of their bigquery public dataset program.",
+    "link": "https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/1057666841514/locations/us/dataExchanges/google_cloud_public_datasets_17e74966199/listings/thelook_ecommerce",
+    "tags": [
+      "bigquery",
+      "ecommerce"
+    ],
     "components": [
       {
         "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/distribution_centers.preql",
@@ -51,3 +56,4 @@
       }
     ]
   }
+
