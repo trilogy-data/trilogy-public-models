@@ -1,13 +1,14 @@
 
 
-key name string;
-property name.id int;
+key id int;
+property id.name string;
 
-metric count <-count(name);
+metric count <-count(id);
 
 datasource tags (
     id: id,
     tag_name: name,
     count: count,
     )
+grain(id)
 address `bigquery-public-data.stackoverflow.tags`;

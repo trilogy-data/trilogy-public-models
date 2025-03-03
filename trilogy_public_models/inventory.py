@@ -4,12 +4,12 @@ from os.path import dirname, join
 from trilogy import Environment
 from trilogy.constants import ENV_CACHE_NAME
 from trilogy.parser import parse
-from trilogy.core.models import RawSQLStatement, Statement
+from trilogy.authoring import RawSQLStatement, SelectStatement, PersistStatement
 
 
 def parse_initial_models(
     fpath: str,
-) -> tuple[Environment, list[RawSQLStatement | Statement]]:
+) -> tuple[Environment, list[RawSQLStatement | SelectStatement | PersistStatement]]:
     parent_folder = dirname(fpath)
     files = listdir(dirname(fpath))
     cache_path = join(parent_folder, ENV_CACHE_NAME)

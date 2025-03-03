@@ -28,14 +28,14 @@ property id._home_three_points_att int; #  [Home Team data] Three point Attempts
 metric home_three_points_att <- sum(_home_three_points_att); # [Home Team data] Three point Attempts
 property id._home_three_points_made int; #  [Home Team data] Three points made
 metric home_three_points_made <- sum(_home_three_points_made); #  [Home Team data] Three points made
-metric home_three_points_pct <- home_three_points_made / home_three_points_att *100; #[Home Team data] Three point percent
+auto home_three_points_pct <- home_three_points_made / home_three_points_att *100; #[Home Team data] Three point percent
 
 property id._away_three_points_att int; #  [Away Team data] Three point Attempts
 metric away_three_points_att <- sum(_away_three_points_att); #  [Away Team data] Three point Attempts
 property id._away_three_points_made int; #  [Away Team data] Three points made
 metric away_three_points_made <- sum(_away_three_points_made); #  [Away Team data] Three points made
 
-metric away_three_points_pct <- away_three_points_made / away_three_points_att *100; #[Away Team data] Three point percent
+auto away_three_points_pct <- away_three_points_made / away_three_points_att *100; #[Away Team data] Three point percent
 
 
 property id._total_three_points_att <- _away_three_points_att + _home_three_points_att;

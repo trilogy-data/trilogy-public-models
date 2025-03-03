@@ -1,0 +1,12 @@
+
+import order_items as order_items;
+
+SELECT
+    avg(order_items.sale_price) as avg_sale_price,
+    order_items.users.id,
+    order_items.users.first_name,
+    order_items.users.last_name,
+ORDER BY
+    avg_sale_price desc,
+    order_items.users.id desc
+LIMIT 10;
