@@ -22,6 +22,7 @@ def test_models(bq_client, bq_executor):
             if key in SKIPPED_KEYS:
                 continue
             if "bigquery" in key:
+                
                 trilogy_executor = get_executor(key, executor=bq_executor())
                 future = executor.submit(
                     single_model, key, model.environment, trilogy_executor, bq_client()
