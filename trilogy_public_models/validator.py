@@ -13,7 +13,8 @@ from trilogy.parser import parse_text
 from trilogy.core.internal import INTERNAL_NAMESPACE
 from trilogy.core.env_processor import generate_graph
 from trilogy.core.models.build import Factory, BuildConcept
-from trilogy.core.models.build_environment import BuildEnvironment  
+from trilogy.core.models.build_environment import BuildEnvironment
+
 
 def safe_address(input: Concept | ConceptRef):
     if input.namespace == DEFAULT_NAMESPACE:
