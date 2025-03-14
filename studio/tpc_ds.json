@@ -51,12 +51,6 @@
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/entrypoint.preql",
-        "name": "entrypoint",
-        "alias": "entrypoint",
-        "purpose": "source"
-      },
-      {
         "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/inventory.preql",
         "name": "inventory",
         "alias": "inventory",

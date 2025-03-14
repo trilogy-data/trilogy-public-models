@@ -51,7 +51,8 @@
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/users.preql",
+        "name": "top_customers_avg_price",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/thelook_ecommerce/top_customers_avg_price.preql",
         "purpose": "example"
       }
     ]
