@@ -1,7 +1,7 @@
 {
-    "name": "tpc_h",
+    "name": "demo-model",
     "engine": "duckdb",
-    "description": "TPC-H is a warehouse benchmark designed for analytic systems. This model is built off duck-db hosted parquet files.",
+    "description": "A demo model based on, TPC-H a warehouse benchmark designed for analytic systems. This model is built off duck-db hosted parquet files.",
     "link": "https://github.com/trilogy-public-models/trilogy_public_models/duckdb/tpc_h",
     "tags": [
       "duckdb",
