@@ -1,5 +1,5 @@
 {
-  "name": "tpc_h",
+  "name": "demo-model",
   "engine": "duckdb",
   "description": "The Trilogy studio demo model. Based TPC-H a warehouse benchmark designed for analytic systems. Uses duck-db hosted parquet files.",
   "link": "",
