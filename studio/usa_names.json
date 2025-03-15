@@ -1,0 +1,10 @@
+{
+  "name": "usa_names",
+  "engine": "bigquery",
+  "description": "usa_names dataset for bigquery",
+  "link": "",
+  "tags": [
+    "bigquery"
+  ],
+  "components": []
+}

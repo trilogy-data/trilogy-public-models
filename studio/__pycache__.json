@@ -1,0 +1,10 @@
+{
+  "name": "__pycache__",
+  "engine": "bigquery",
+  "description": "__pycache__ dataset for bigquery",
+  "link": "",
+  "tags": [
+    "bigquery"
+  ],
+  "components": []
+}

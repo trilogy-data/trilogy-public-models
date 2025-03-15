@@ -1,70 +1,69 @@
 {
-    "name": "demo-model",
-    "engine": "duckdb",
-    "description": "The trilgoy studio demo model. Based TPC-H a warehouse benchmark designed for analytic systems. Uses duck-db hosted parquet files.",
-    "link": "https://github.com/trilogy-public-models/trilogy_public_models/duckdb/tpc_h",
-    "tags": [
-      "duckdb",
-      "benchmark"
-    ],
-    "components": [
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/customer.preql",
-        "name": "customer",
-        "alias": "customer",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/lineitem.preql",
-        "name": "lineitem",
-        "alias": "lineitem",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/nation.preql",
-        "name": "nation",
-        "alias": "nation",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/order.preql",
-        "name": "order",
-        "alias": "order",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/part.preql",
-        "name": "partr",
-        "alias": "part",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/region.preql",
-        "name": "region",
-        "alias": "region",
-        "purpose": "source"
-      },
-      {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/supplier.preql",
-        "name": "supplier",
-        "alias": "supplier",
-        "purpose": "source"
-      },
-      {
-        "name": "tutorial_one_basic",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_one_basic.preql",
-        "purpose": "example"
-      },
-      {
-        "name": "tutorial_two_aggregate",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_two_aggregate.preql",
-        "purpose": "example"
-      },
-      {
-        "name": "tutorial_three_function_agg",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_three_function_agg.preql",
-        "purpose": "example"
-      }
-      
-    ]
-  }
+  "name": "tpc_h",
+  "engine": "duckdb",
+  "description": "The Trilogy studio demo model. Based TPC-H a warehouse benchmark designed for analytic systems. Uses duck-db hosted parquet files.",
+  "link": "",
+  "tags": [
+    "duckdb",
+    "benchmark"
+  ],
+  "components": [
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/customer.preql",
+      "name": "customer",
+      "alias": "customer",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/lineitem.preql",
+      "name": "lineitem",
+      "alias": "lineitem",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/nation.preql",
+      "name": "nation",
+      "alias": "nation",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/order.preql",
+      "name": "order",
+      "alias": "order",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/part.preql",
+      "name": "part",
+      "alias": "part",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/region.preql",
+      "name": "region",
+      "alias": "region",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/supplier.preql",
+      "name": "supplier",
+      "alias": "supplier",
+      "purpose": "source"
+    },
+    {
+      "name": "tutorial_one_basic",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_one_basic.preql",
+      "purpose": "example"
+    },
+    {
+      "name": "tutorial_three_function_agg",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_three_function_agg.preql",
+      "purpose": "example"
+    },
+    {
+      "name": "tutorial_two_aggregate",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_two_aggregate.preql",
+      "purpose": "example"
+    }
+  ]
+}
