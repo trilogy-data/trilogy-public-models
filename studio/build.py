@@ -19,13 +19,15 @@ def generate_json_files():
     
     # Get all engine directories (like bigquery, duckdb)
     for engine_dir in os.listdir(public_models_dir):
-        if engine_dir == '__pycache__':
+        if engine_dir.endswith('__pycache__'):
             continue
         engine_path = os.path.join(public_models_dir, engine_dir)
         
         if os.path.isdir(engine_path):
             # Get all dataset directories under each engine
             for dataset_dir in os.listdir(engine_path):
+                if dataset_dir.endswith('__pycache__'):
+                    continue
                 dataset_path = os.path.join(engine_path, dataset_dir)
                 
                 if os.path.isdir(dataset_path):
@@ -80,6 +82,7 @@ def generate_json_files():
                             current = json.load(f)
                             json_data["description"] = current["description"]
                             json_data["tags"] = current["tags"]
+                            json_data["link"] = current["link"]
                             
                     with open(json_file_path, 'w') as f:
                         json.dump(json_data, f, indent=2)
