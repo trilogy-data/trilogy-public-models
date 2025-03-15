@@ -1,0 +1,10 @@
+{
+  "name": "crypto",
+  "engine": "bigquery",
+  "description": "crypto dataset for bigquery",
+  "link": "",
+  "tags": [
+    "bigquery"
+  ],
+  "components": []
+}

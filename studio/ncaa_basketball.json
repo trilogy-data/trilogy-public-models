@@ -1,0 +1,64 @@
+{
+  "name": "ncaa_basketball",
+  "engine": "bigquery",
+  "description": "ncaa_basketball dataset for bigquery",
+  "link": "",
+  "tags": [
+    "bigquery"
+  ],
+  "components": [
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/conference.preql",
+      "name": "conference",
+      "alias": "conference",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/datasources.preql",
+      "name": "datasources",
+      "alias": "datasources",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/division.preql",
+      "name": "division",
+      "alias": "division",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game.preql",
+      "name": "game",
+      "alias": "game",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game_event.preql",
+      "name": "game_event",
+      "alias": "game_event",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/league.preql",
+      "name": "league",
+      "alias": "league",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/player.preql",
+      "name": "player",
+      "alias": "player",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/team.preql",
+      "name": "team",
+      "alias": "team",
+      "purpose": "source"
+    },
+    {
+      "name": "script",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/ncaa_basketball/script.preql",
+      "purpose": "example"
+    }
+  ]
+}

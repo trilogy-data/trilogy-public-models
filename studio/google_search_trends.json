@@ -1,0 +1,17 @@
+{
+  "name": "google_search_trends",
+  "engine": "bigquery",
+  "description": "google_search_trends dataset for bigquery",
+  "link": "",
+  "tags": [
+    "bigquery"
+  ],
+  "components": [
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/trends.preql",
+      "name": "trends",
+      "alias": "trends",
+      "purpose": "source"
+    }
+  ]
+}
