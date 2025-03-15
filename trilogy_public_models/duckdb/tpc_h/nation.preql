@@ -1,0 +1,14 @@
+import region as region;
+
+key id int;
+property id.name string;
+property id.comment string;
+
+datasource nation (
+    n_nationkey:id,
+    n_name:name,
+    n_regionkey:region.id,
+    n_comment:comment
+)
+grain(id)
+address `https://shell.duckdb.org/data/tpch/0_01/parquet/nation.parquet`;

@@ -1,0 +1,18 @@
+import part as part;
+
+WHERE part.supplier.nation.region.name = 'EUROPE'
+SELECT
+	part.supplier.account_balance,
+	part.supplier.name,
+	part.supplier.nation.name,
+	part.id,
+	part.manufacturer,
+	part.supplier.address,
+	part.supplier.phone,
+	part.supplier.comment,
+	--part.supply_cost,
+	min(part.supply_cost) by part.id as min_part_cost,
+HAVING
+	part.supply_cost = min_part_cost
+ORDER BY
+	part.id asc;

@@ -1,0 +1,7 @@
+import customer as customer;
+import lineitem as lineitem;
+import nation as nation;
+import order as order;
+import part as part;
+import region as region;
+import supplier as supplier;
