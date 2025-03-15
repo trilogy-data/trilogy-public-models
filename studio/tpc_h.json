@@ -9,60 +9,60 @@
     ],
     "components": [
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/customer.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/customer.preql",
         "name": "customer",
         "alias": "customer",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/lineitem.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/lineitem.preql",
         "name": "lineitem",
         "alias": "lineitem",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/nation.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/nation.preql",
         "name": "nation",
         "alias": "nation",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/order.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/order.preql",
         "name": "order",
         "alias": "order",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/part.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/part.preql",
         "name": "partr",
         "alias": "part",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/region.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/region.preql",
         "name": "region",
         "alias": "region",
         "purpose": "source"
       },
       {
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/trilogy_public_models/duckdb/tpc_h/supplier.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/supplier.preql",
         "name": "supplier",
         "alias": "supplier",
         "purpose": "source"
       },
       {
         "name": "tutorial_one_basic",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/examples/duckdb/tpc_h/tutorial_one_basic.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_one_basic.preql",
         "purpose": "example"
       },
       {
         "name": "tutorial_two_aggregate",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/examples/duckdb/tpc_h/tutorial_two_aggregate.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_two_aggregate.preql",
         "purpose": "example"
       },
       {
         "name": "tutorial_three_function_agg",
-        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/studio_two/examples/duckdb/tpc_h/tutorial_three_function_agg.preql",
+        "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_three_function_agg.preql",
         "purpose": "example"
       }
       

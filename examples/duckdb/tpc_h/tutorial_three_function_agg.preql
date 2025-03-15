@@ -5,23 +5,20 @@ import lineitem as line_item;
 auto discounted_price <- line_item.extended_price * (1-line_item.discount); #the discounted price is off the extended privce
 auto charge_price <- discounted_price * (1+line_item.tax); #charged price includes taxes
 
-# use def to define functions; all references in arguments will be replaced on evaluation
-def part_percent_of_nation(x) -> sum(x) by line_item.part.name / sum(x) by line_item.supplier.nation.id *100;
+# use functions to define repeatable templatized logic
+def part_percent_of_nation(x) -> sum(x) by line_item.part.name, line_item.supplier.nation.id / sum(x) by line_item.supplier.nation.id *100;
 
 
 WHERE line_item.ship_date <= '1998-12-01'::date 
 SELECT
-    line_item.part.id,
     line_item.part.name,
-    line_item.supplier.id,
-    line_item.supplier.name,
-    --line_item.supplier.nation.id,
     line_item.supplier.nation.name,
     sum(charge_price)-> total_charge_price,
     sum(discounted_price) -> total_discounted_price,
-    @part_percent_of_nation(charge_price) as charge_price_nation,
-    @part_percent_of_nation(discounted_price) as discount_price_nation
+    # call functions with @
+    @part_percent_of_nation(charge_price) as charge_price_percent_of_nation,
+    @part_percent_of_nation(discounted_price) as discount_price_percent_of_nation
 ORDER BY   
-    line_item.part.name desc limit 100
+    total_charge_price desc limit 100
 ;
 
