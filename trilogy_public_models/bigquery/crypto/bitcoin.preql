@@ -1,0 +1,36 @@
+
+key tx_hash string;
+
+property tx_hash.input_value number;
+property tx_hash.output_value number;
+
+metric tx_input_value <- sum(input_value) by tx_hash;
+metric tx_output_value <- sum(output_value) by tx_hash;
+
+key index int;
+
+
+
+datasource transactions (
+    hash:tx_hash
+)
+grain (tx_hash)
+address `bigquery-public-data.crypto_bitcoin.transactions`;
+
+
+datasource inputs (
+    value: input_value,
+    transaction_hash: tx_hash,
+    index: index,
+)
+grain(tx_hash, index)
+address `bigquery-public-data.crypto_bitcoin.inputs`;
+
+
+datasource outputs (
+    value: output_value,
+    transaction_hash:tx_hash,
+    index:index
+)
+grain(tx_hash, index)
+address `bigquery-public-data.crypto_bitcoin.outputs`;
