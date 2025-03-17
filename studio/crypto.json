@@ -6,5 +6,12 @@
   "tags": [
     "bigquery"
   ],
-  "components": []
+  "components": [
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/crypto/bitcoin.preql",
+      "name": "bitcoin",
+      "alias": "bitcoin",
+      "purpose": "source"
+    }
+  ]
 }
