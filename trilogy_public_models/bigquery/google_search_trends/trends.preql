@@ -1,23 +1,25 @@
 
 key dma_id int; # The ID of a DMA, or designated_market_area
-property dma_id.dma_name string;  # Human readable name for the DMA
+property dma_id.dma_name string;  # Human readable name for the DMA, ex: Hartford & New Haven CT
 key term string;  # The search term
-key week date; # Week for which the data is aggregated
-key score int; # index from 0–100 that denotes how popular this term was for a country’s region during the current date, relative to the other dates in the same time series for this term (260 weeks = 52 weeks * 5 years),
-key rank int; # Rank, the rank in that period
-key refresh_date date; # The date when the data was populated into the table
+key trend_week date; # Week for which the data is aggregated
+key historic_data_week date; # the data for this term in the past
+
+property <dma_id, term, historic_data_week, trend_week>.score int; # index from 0–100 that denotes how popular this term was for a country’s region during the current date, relative to the other dates in the same time series for this term (260 weeks = 52 weeks * 5 years),
+property <term, trend_week>.rank int; # Rank, the rank for this trend_week. Constant for all historics.
+
 
 
 datasource trends (
     dma_id:dma_id,
     dma_name:dma_name,
     term:term,
-    week:week,
+    week:historic_data_week,
     score:score,
     rank:rank,
-    refresh_date:refresh_date
+    refresh_date:trend_week
     )
-    grain (dma_id,term, week, refresh_date)
+    grain (dma_id, term, historic_data_week, trend_week)
 address `bigquery-public-data.google_trends.top_terms`;
 
 

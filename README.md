@@ -6,6 +6,21 @@ This repository contains semantic models describing public datasets as Trilogy d
 
 You can use this to quickly get started with Trilogy, or just as a place to find fun data to explore. 
 
+## Contributing
+
+### Model setup
+
+All models should be in a double nested directory; first the platform and then the semantic label of the model.
+
+Models should have the following
+
+- entrypoint.preql
+- README.md
+
+To expose models in the studio, run the 'build.py' script under the studio folder. 
+
+Examples will be picked up from matching subdirectories under the 'examples' folder.
+
 ## Installation
 
 ```bash
@@ -119,16 +134,7 @@ data across different domains.
 
 Use the standard trilogy toolkit of merges to do this. 
 
-## Contributing
 
-### Model setup
-
-All models should be in a double nested directory; first the platform and then the semantic label of the model
-
-Models should have the following
-
-- entrypoint.preql
-- README.md
 
 
 ### Model Tests

@@ -8,10 +8,21 @@
   ],
   "components": [
     {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/international_trends.preql",
+      "name": "international_trends",
+      "alias": "international_trends",
+      "purpose": "source"
+    },
+    {
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/trends.preql",
       "name": "trends",
       "alias": "trends",
       "purpose": "source"
+    },
+    {
+      "name": "football",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/google_search_trends/football.preql",
+      "purpose": "example"
     }
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "name": "faa",
+  "engine": "duckdb",
+  "description": "Faa dataset for duckdb. Useful sample dataset for comparing to Malloy.",
+  "link": "",
+  "tags": [
+    "duckdb"
+  ],
+  "components": [
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/aircraft.preql",
+      "name": "aircraft",
+      "alias": "aircraft",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/aircraft_model.preql",
+      "name": "aircraft_model",
+      "alias": "aircraft_model",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/airport.preql",
+      "name": "airport",
+      "alias": "airport",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/carrier.preql",
+      "name": "carrier",
+      "alias": "carrier",
+      "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/flight.preql",
+      "name": "flight",
+      "alias": "flight",
+      "purpose": "source"
+    }
+  ]
+}
