@@ -1,0 +1,29 @@
+
+key region_code int; # The ID of a region
+property region_code.region_name string;  # Human readable name for the region, ex: Hartford & New Haven CT
+key country_code string; # The country code, ex: US, CA, etc.
+key country_name string; # The country name, ex: United States, Canada, etc.
+key term string;  # The search term
+key trend_week date; # Week for which the data is aggregated
+key historic_data_week date; # the data for this term in the past
+
+property <region_code, country_code, term, historic_data_week, trend_week>.score int; # index from 0–100 that denotes how popular this term was for a country’s region during the current date, relative to the other dates in the same time series for this term (260 weeks = 52 weeks * 5 years),
+property <term, trend_week>.rank int; # Rank, the rank for this trend_week. Constant for all historics.
+
+
+
+datasource trends (
+    region_code:region_code,
+    region_name:region_name,
+    country_code:country_code,
+    country_name:country_name,
+    term:term,
+    week:historic_data_week,
+    score:score,
+    rank:rank,
+    refresh_date:trend_week
+    )
+    grain (region_code, term, historic_data_week, trend_week)
+address `bigquery-public-data.google_trends.international_top_terms`;
+
+

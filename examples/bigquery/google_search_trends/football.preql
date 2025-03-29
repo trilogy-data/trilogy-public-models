@@ -1,0 +1,15 @@
+import international_trends as trends;
+
+auto max_trend <- max(trends.trend_week) by *;
+
+where trends.trend_week = max_trend and trends.score is not null
+and (trends.term like '%fotbal%' or trends.term like '%footbal%')
+select 
+    trends.country_name,
+    trends.term, 
+    trends.historic_data_week,
+    avg(trends.score)-> avg_score
+order by
+    trends.country_name asc,
+    trends.historic_data_week asc
+limit 100000;
