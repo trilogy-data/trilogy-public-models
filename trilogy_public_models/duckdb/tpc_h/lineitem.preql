@@ -22,6 +22,7 @@ property id.comment string;
 
 auto total_revenue <- sum(extended_price* (1 - discount)); # total revenue is based on the extended price minus discount.
 
+# upper some fileds to fix stats issue
 datasource lineitem(
     l_orderkey: order.id,
     l_partkey: part.id,

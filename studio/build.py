@@ -58,7 +58,21 @@ def generate_json_files():
                             "purpose": "source"
                         }
                         json_data["components"].append(component)
-                    
+                    sql_files = glob.glob(os.path.join(dataset_path, "*.sql"))
+                    for sql_file in sql_files:
+                        file_name = os.path.basename(sql_file).replace(".sql", "")
+                        if file_name == 'entrypoint':
+                            continue
+                        github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
+                        
+                        component = {
+                            "url": github_path,
+                            "name": file_name,
+                            "alias": file_name,
+                            "purpose": "setup",
+                            "type": "sql"
+                        }
+                        json_data["components"].append(component)
                     # Add example components from examples directory if they exist
                     examples_dataset_path = os.path.join(examples_dir, engine_dir, dataset_dir)
                     if os.path.exists(examples_dataset_path):
