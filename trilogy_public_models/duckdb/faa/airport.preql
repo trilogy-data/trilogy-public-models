@@ -1,3 +1,5 @@
+import std.geography;
+
 #auto-generated datasource from table/view airport
 
 key id int;
@@ -7,13 +9,13 @@ property key.fac_type string;
 property key.fac_use string;
 property key.faa_region string;
 property key.faa_dist string;
-property key.city string;
+property key.city string::city;
 property key.county string;
 property key.state string;
 property key.full_name string;
 property key.own_type string;
-property key.longitude float;
-property key.latitude float;
+property key.longitude float::longitude;
+property key.latitude float::latitude;
 property key.elevation int;
 property key.aero_cht string;
 property key.cbd_dist int;

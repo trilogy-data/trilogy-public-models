@@ -1,12 +1,15 @@
+
 import region as region;
 
 key id int;
+property id._raw_name string; #internal field used to workaround issues with parquet statistics
 property id.name string;
 property id.comment string;
 
 datasource nation (
     n_nationkey:id,
-    n_name:name,
+    n_name: _raw_name,
+    UPPER(_raw_name):name,
     n_regionkey:region.id,
     n_comment:comment
 )

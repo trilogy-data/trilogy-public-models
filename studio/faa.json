@@ -36,6 +36,13 @@
       "name": "flight",
       "alias": "flight",
       "purpose": "source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/setup.sql",
+      "name": "setup",
+      "alias": "setup",
+      "purpose": "setup",
+      "type": "sql"
     }
   ]
 }
