@@ -10,7 +10,7 @@ property id.year int::year;
 property id.day_of_week int;
 property id.week_seq int;
 property id.month_of_year int;
-property id.quarter int::quarter;
+property id.quarter int;
 property id.d_week_seq1 int;
 
 
