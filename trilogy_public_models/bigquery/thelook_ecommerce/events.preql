@@ -1,9 +1,10 @@
 import users as users;
+import std.geography;
 
 key id int;
 key ip_address string;
 property id.city string;
-property id.state string;
+property id.state string::us_state_short;
 property id.postal_code string;
 property id.browser string;
 property id.traffic_source string;

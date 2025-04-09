@@ -1,16 +1,18 @@
+import std.geography;
+
 key id int;
 property id.first_name string;
 property id.last_name string;
 property id.email string;
 property id.age int;
 property id.gender string;
-property id.state string;
+property id.state string::us_state_short;
 property id.street_address string;
 property id.postal_code string;
-property id.city string;
-property id.country string;
-property id.latitude float;
-property id.longitude float;
+property id.city string::us_state_short;
+property id.country string::country;
+property id.latitude float::latitude;
+property id.longitude float::longitude;
 property id.traffic_source string;
 property id.created_at timestamp;
 

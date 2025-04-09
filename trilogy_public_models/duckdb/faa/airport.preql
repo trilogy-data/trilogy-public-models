@@ -11,7 +11,7 @@ property key.faa_region string;
 property key.faa_dist string;
 property key.city string::city;
 property key.county string;
-property key.state string;
+property key.state string::us_state_short;
 property key.full_name string;
 property key.own_type string;
 property key.longitude float::longitude;

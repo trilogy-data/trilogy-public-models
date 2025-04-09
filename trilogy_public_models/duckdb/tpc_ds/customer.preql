@@ -1,14 +1,14 @@
 import customer_demographic as demographics;
-
-
+import std.geography;
+import std.date;
 key id int;
 property id.text_id string;
 property id.last_name string;
 property id.first_name string;
 property id.preferred_cust_flag string;
-property id.birth_day int;
-property id.birth_month int;
-property id.birth_year int;
+property id.birth_day int::day;
+property id.birth_month int::month;
+property id.birth_year int::year;
 property id.birth_country string;
 property id.salutation string;
 property id.email_address string;
@@ -19,10 +19,10 @@ key address_id int;
 property address_id.address_id_string string;
 property address_id.street string;
 property address_id.city string;
-property address_id.state string?;
+property address_id.state string::us_state_short?;
 property address_id.zip string;
 property address_id.county string;
-property address_id.country string;
+property address_id.country string::country;
 
 property id.full_name <- concat(salutation, ' ', first_name, ' ', last_name);
 

@@ -1,4 +1,5 @@
-#auto-generated datasource from table/view aircraft
+import std.geography;
+
 import aircraft_model as aircraft_model;
 
 key id int;
@@ -13,7 +14,7 @@ property id.name string;
 property id.address1 string;
 property id.address2 string;
 property id.city string;
-property id.state string;
+property id.state string::us_state_short;
 property id.zip string;
 property id.region string;
 property id.county string;

@@ -1,4 +1,5 @@
 import date as date;
+import std.geography;
 
 key id int;
 property id.text_id string;
@@ -12,7 +13,7 @@ property id.geography_class string;
 property id.market_manager string;
 property id.tax_percentage float;
 property id.county string;
-property id.state string;
+property id.state string::us_state_short;
 property id.city string;
 property id.zip string;
 property id.market int;

@@ -1,9 +1,11 @@
+import std.geography;
+
 key station_id string; #  Unique identifier specifying the TV or radio broadcasting station who ran the ads described in this receipt.
 property station_id.license_expiration_date string; # License Expiration Date
 property station_id.status_date string; # Status Date
 property station_id.status string; # Status
-property station_id.community_city string; # Community City
-property station_id.community_state string; # Community State
+property station_id.community_city string::city; # Community City
+property station_id.community_state string::us_state_short; # Community State
 property station_id.facility_type string; # Facility Type
 property station_id.frequency string; # Frequency
 property station_id.active_ind string; # Active Indicator
@@ -14,7 +16,7 @@ property station_id.party_address2 string; # Party Address2
 property station_id.party_city string; # Party City
 property station_id.party_zip1 string; # Party Zipcode1
 property station_id.party_zip2 string; # Party Zipcode2
-property station_id.party_state string; # Party State
+property station_id.party_state string::us_state_short; # Party State
 property station_id.party_phone string; # Party Phone Number
 property station_id.nielsen_dma string; # Nielsen DMA
 property station_id.network_afil string; # Network Affiliated To
@@ -29,7 +31,7 @@ property station_id.fax string; # CC Contact Fax
 property station_id.name string; # CC Contact Name
 property station_id.phone string; # CC Contact Phone Number
 property station_id.phone_ext string; # CC Contact Phone Number Extension
-property station_id.state string; # CC Contact State
+property station_id.state string::us_state_short; # CC Contact State
 property station_id.title string; # CC Contact Title
 property station_id.website string; # CC Contact website
 property station_id.zip string; # CC Contact Zip Code

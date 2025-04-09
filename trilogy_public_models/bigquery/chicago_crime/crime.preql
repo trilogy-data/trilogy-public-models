@@ -1,3 +1,5 @@
+import std.date;
+
 key unique_key int;
 property unique_key.case_number string;
 property unique_key.date timestamp;
@@ -15,7 +17,7 @@ property unique_key.community_area int;
 property unique_key.fbi_code string;
 property unique_key.x_coordinate float;
 property unique_key.y_coordinate float;
-property unique_key.year int;
+property unique_key.year int::year;
 property unique_key.updated_on timestamp;
 property unique_key.latitude float;
 property unique_key.longitude float;
