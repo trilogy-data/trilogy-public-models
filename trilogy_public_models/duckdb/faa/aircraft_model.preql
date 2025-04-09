@@ -1,6 +1,6 @@
 
 key aircraft_model_code string;
-property aircraft_model_code.manufacturer string;
+property aircraft_model_code.manufacturer string; # uppercase manufacturer
 property aircraft_model_code.model string;
 property aircraft_model_code.aircraft_type_id int;
 property aircraft_model_code.aircraft_engine_type_id int;

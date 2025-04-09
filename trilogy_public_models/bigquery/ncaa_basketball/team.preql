@@ -1,6 +1,7 @@
 import division as division;
 import league as league;
 import conference as conference;
+import std.geography;
 
 key id string;
 key code_ncaa int;
@@ -13,10 +14,10 @@ property id.color string; # The team color
 
 property id.venue_id string;
 property id.venue_city string;
-property id.venue_state string;
+property id.venue_state string::us_state_short;
 property id.venue_address string;
 property id.venue_zip string;
-property id.venue_country string;
+property id.venue_country string::country;
 property id.venue_name string;
 property id.venue_capacity int;
 property id.logo_large string;

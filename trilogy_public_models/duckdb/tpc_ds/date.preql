@@ -1,12 +1,12 @@
 
-
+import std.date;
 
 key id int;
 property id.date_string string;
 property id._date_string string;
 property id.date date;
 property id._year_string string;
-property id.year int;
+property id.year int::year;
 property id.day_of_week int;
 property id.week_seq int;
 property id.month_of_year int;
