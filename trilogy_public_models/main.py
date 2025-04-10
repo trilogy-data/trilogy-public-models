@@ -1,6 +1,6 @@
 from trilogy import Executor, Dialects
 from trilogy_public_models.discovery import data_models
-from trilogy_public_models.models import LazyEnvironment
+from trilogy_public_models.models import LazyEnvironment, QueryType
 
 
 def get_executor(
@@ -27,6 +27,14 @@ def get_executor(
         queries = loaded.setup()
     if run_setup:
         for x in queries:
-            z = executor.execute_query(x)
-            z.fetchall()
+            print(x)
+            if x.type == QueryType.SQL:
+                z = executor.execute_raw_sql(x.text)
+                z.fetchall()
+            elif x.type == QueryType.TRILOGY:
+                z = executor.execute_query(x.text)
+                z.fetchall()
+            else:
+                z = executor.execute_query(x)
+                z.fetchall()
     return executor

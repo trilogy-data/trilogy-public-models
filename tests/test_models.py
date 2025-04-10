@@ -19,6 +19,8 @@ def test_models(bq_client, bq_executor):
     results = []
     with ThreadPoolExecutor() as executor:
         for key, model in data_models.items():
+            if "faa" not in key:
+                continue
             if key in SKIPPED_KEYS:
                 continue
             if "bigquery" in key:

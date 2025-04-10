@@ -27,4 +27,5 @@ def parse_initial_models(
                 environment, statements = parse(contents, environment=env)
                 env.to_cache(cache_path)
                 return environment, statements
+
     raise ValueError(f"Missing entrypoint.preql in {fpath}")

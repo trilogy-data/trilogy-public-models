@@ -6,12 +6,24 @@ import sys
 from importlib.machinery import SourceFileLoader
 from collections import UserDict
 from dataclasses import dataclass
+from enum import Enum
+
+
+class QueryType(Enum):
+    SQL = "sql"
+    TRILOGY = "trilogy"
+
+
+@dataclass
+class SetupQuery:
+    text: str
+    type: QueryType
 
 
 @dataclass
 class ModelOutput:
     environment: Environment
-    setup: list[Any]
+    setup: list[SetupQuery]
 
 
 class ModelDict(UserDict[str, ModelOutput]):
@@ -59,6 +71,10 @@ class LazyEnvironment(Environment):
     def setup_path(self) -> Path:
         return self.load_path.parent / "setup.preql"
 
+    @property
+    def setup_path_sql(self) -> Path:
+        return self.load_path.parent / "setup.sql"
+
     def _load(self):
         if self.loaded:
             return
@@ -72,7 +88,10 @@ class LazyEnvironment(Environment):
             with open(self.setup_path, "r") as f2:
                 env, q = parse(f2.read(), env)
                 for q in q:
-                    self.setup_queries.append(q)
+                    self.setup_queries.append(SetupQuery(q.text, QueryType.TRILOGY))
+        if self.setup_path_sql.exists():
+            with open(self.setup_path_sql, "r") as f2:
+                self.setup_queries.append(SetupQuery(f2.read(), QueryType.SQL))
         self.loaded = True
         self.datasources = env.datasources
         self.concepts = env.concepts
