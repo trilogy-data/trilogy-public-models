@@ -27,12 +27,11 @@ def get_executor(
         queries = loaded.setup()
     if run_setup:
         for x in queries:
-            print(x)
             if x.type == QueryType.SQL:
-                z = executor.execute_raw_sql(x.text)
+                z = executor.execute_raw_sql(x.query)
                 z.fetchall()
             elif x.type == QueryType.TRILOGY:
-                z = executor.execute_query(x.text)
+                z = executor.execute_query(x.query)
                 z.fetchall()
             else:
                 z = executor.execute_query(x)

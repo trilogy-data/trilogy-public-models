@@ -16,7 +16,7 @@ class QueryType(Enum):
 
 @dataclass
 class SetupQuery:
-    text: str
+    query: Any
     type: QueryType
 
 
@@ -88,7 +88,7 @@ class LazyEnvironment(Environment):
             with open(self.setup_path, "r") as f2:
                 env, q = parse(f2.read(), env)
                 for q in q:
-                    self.setup_queries.append(SetupQuery(q.text, QueryType.TRILOGY))
+                    self.setup_queries.append(SetupQuery(q, QueryType.TRILOGY))
         if self.setup_path_sql.exists():
             with open(self.setup_path_sql, "r") as f2:
                 self.setup_queries.append(SetupQuery(f2.read(), QueryType.SQL))
