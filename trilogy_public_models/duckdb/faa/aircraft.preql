@@ -7,7 +7,7 @@ key id int;
 property id.tail_num string;
 property id.aircraft_serial string;
 property id.aircraft_engine_code string;
-property id.year_built int::date;
+property id.year_built int::year;
 property id.aircraft_type_id int;
 property id.aircraft_engine_type_id int;
 property id.registrant_type_id int;
