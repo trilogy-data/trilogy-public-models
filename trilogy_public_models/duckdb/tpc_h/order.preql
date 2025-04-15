@@ -1,8 +1,10 @@
+import std.money;
+
 import customer as customer;
 
 key id int; #order key
 property id.status string;
-property id.total_price float;
+property id.total_price float::usd;
 property id.date date;
 property id.priority string;
 property id.clerk string;

@@ -1,3 +1,5 @@
+import std.money;
+
 import supplier as supplier;
 
 key id int;
@@ -7,7 +9,7 @@ property id.brand string;
 property id.type string;
 property id.size int;
 property id.container string;
-property id.retail_price float;
+property id.retail_price float::money;
 property id.comment string;
 
 datasource part (
