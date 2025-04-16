@@ -8,7 +8,7 @@ import part as part;
 
 key id int;
 property id.quantity float;
-property id.extended_price numeric::usd;
+property id.extended_price float::usd;
 property id.discount float::percent; # percent discount
 property id.tax float::percent; # tax, as percentage
 property id.return_flag string;

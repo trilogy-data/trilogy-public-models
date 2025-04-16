@@ -43,6 +43,11 @@
       "alias": "setup",
       "purpose": "setup",
       "type": "sql"
+    },
+    {
+      "name": "flights",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/faa/flights.json",
+      "purpose": "dashboard"
     }
   ]
 }

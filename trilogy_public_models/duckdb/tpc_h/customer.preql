@@ -5,7 +5,7 @@ key id int;
 property id.name string;
 property id.address string;
 property id.phone string;
-property id.account_balance numeric::usd;
+property id.account_balance float::usd;
 property id.market_segment string;
 property id.comment string;
 

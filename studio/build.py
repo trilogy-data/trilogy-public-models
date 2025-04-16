@@ -101,7 +101,21 @@ def generate_json_files(check):
                                 "purpose": "example",
                             }
                             json_data["components"].append(component)
+                        dashboard_files = glob.glob(
+                            os.path.join(examples_dataset_path, "*.json")
+                        )
+                        for dashboard_file in dashboard_files:
+                            file_name = os.path.basename(dashboard_file).replace(
+                                ".json", ""
+                            )
+                            github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/{engine_dir}/{dataset_dir}/{file_name}.json"
 
+                            component = {
+                                "name": file_name,
+                                "url": github_path,
+                                "purpose": "dashboard",
+                            }
+                            json_data["components"].append(component)
                     # Get existing file data if it exists
                     json_file_name = f"{dataset_dir}.json"
                     json_file_path = os.path.join(studio_dir, json_file_name)
