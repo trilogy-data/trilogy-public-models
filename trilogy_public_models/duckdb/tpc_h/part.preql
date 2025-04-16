@@ -9,7 +9,7 @@ property id.brand string;
 property id.type string;
 property id.size int;
 property id.container string;
-property id.retail_price numeric::money;
+property id.retail_price float::usd;
 property id.comment string;
 
 datasource part (
@@ -27,7 +27,7 @@ grain(id)
 address `https://shell.duckdb.org/data/tpch/0_01/parquet/part.parquet`;
 
 property <id,supplier.id>.available_quantity float;
-property <id,supplier.id>.supply_cost numeric::money; 
+property <id,supplier.id>.supply_cost float::usd;
 property <id,supplier.id>.supplier_comment string;
 
 datasource partsupp (

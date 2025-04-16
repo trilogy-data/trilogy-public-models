@@ -1,0 +1,206 @@
+{
+    "name": "Flights",
+    "layout": [
+      {
+        "x": 2,
+        "y": 12,
+        "w": 3,
+        "h": 9,
+        "i": "0"
+      },
+      {
+        "x": 5,
+        "y": 12,
+        "w": 3,
+        "h": 9,
+        "i": "1"
+      },
+      {
+        "x": 2,
+        "y": 21,
+        "w": 6,
+        "h": 8,
+        "i": "2"
+      },
+      {
+        "x": 2,
+        "y": 9,
+        "w": 2,
+        "h": 3,
+        "i": "3"
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "w": 6,
+        "h": 7,
+        "i": "4"
+      },
+      {
+        "x": 4,
+        "y": 9,
+        "w": 2,
+        "h": 3,
+        "i": "5"
+      },
+      {
+        "x": 6,
+        "y": 9,
+        "w": 2,
+        "h": 3,
+        "i": "6"
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "w": 6,
+        "h": 2,
+        "i": "7"
+      }
+    ],
+    "gridItems": {
+      "0": {
+        "type": "chart",
+        "content": "select \r\n    model_group, \r\n    aircraft.model.manufacturer, \r\n    count\r\norder by count desc\r\nlimit 15",
+        "name": "Chart 0",
+        "width": 513,
+        "height": 315,
+        "chartConfig": {
+          "chartType": "bar",
+          "xField": "flight_count",
+          "yField": "dim",
+          "yAggregation": "sum",
+          "colorField": "",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "",
+          "showDebug": false
+        },
+        "chartFilters": [],
+        "filters": [],
+        "conceptFilters": []
+      },
+      "1": {
+        "type": "chart",
+        "content": "select \r\n    origin.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
+        "name": "Chart 1",
+        "width": 513,
+        "height": 315,
+        "conceptFilters": [],
+        "filters": [],
+        "chartConfig": {
+          "chartType": "usa-map",
+          "xField": "",
+          "yField": "",
+          "yAggregation": "sum",
+          "colorField": "count",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "origin_state",
+          "showDebug": true
+        },
+        "chartFilters": []
+      },
+      "2": {
+        "type": "table",
+        "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.model,\r\n    aircraft.model.seats*count as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
+        "name": "Table 2",
+        "width": 1036,
+        "height": 275,
+        "chartFilters": [],
+        "filters": [],
+        "conceptFilters": []
+      },
+      "3": {
+        "type": "chart",
+        "content": "select count as flight_count",
+        "name": "Chart 3",
+        "width": 339,
+        "height": 75,
+        "chartConfig": {
+          "chartType": "headline",
+          "xField": "flight_count",
+          "yField": "",
+          "yAggregation": "sum",
+          "colorField": "",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "",
+          "showDebug": false
+        },
+        "conceptFilters": [],
+        "filters": [],
+        "chartFilters": []
+      },
+      "4": {
+        "type": "chart",
+        "content": "SELECT\r\n    dep_time.month_start,\r\n    carrier.name,\r\n    count\r\norder by dep_time.month_start asc",
+        "name": "Chart 4",
+        "width": 1036,
+        "height": 235,
+        "conceptFilters": [],
+        "filters": [],
+        "chartFilters": [],
+        "chartConfig": {
+          "chartType": "area",
+          "xField": "dep_time_month_start",
+          "yField": "count",
+          "yAggregation": "sum",
+          "colorField": "carrier_name",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "",
+          "showDebug": true
+        }
+      },
+      "5": {
+        "type": "chart",
+        "content": "SELECT\r\n    count(carrier.name) as carrier_count\r\n",
+        "name": "Chart 5",
+        "width": 339,
+        "height": 75,
+        "chartConfig": {
+          "chartType": "headline",
+          "xField": "carrier_count"
+        },
+        "conceptFilters": [],
+        "filters": []
+      },
+      "6": {
+        "type": "chart",
+        "content": "SELECT count(\r\n    aircraft.model.model) \r\n as model_count",
+        "name": "Chart 6",
+        "width": 339,
+        "height": 75,
+        "chartConfig": {
+          "chartType": "headline",
+          "xField": "model_count"
+        },
+        "conceptFilters": [],
+        "filters": []
+      },
+      "7": {
+        "type": "markdown",
+        "content": "### US Flights (Early 2000s)\nAn interactive exploration. Click to filter.",
+        "name": "Note 7",
+        "width": 1036,
+        "height": 35,
+        "conceptFilters": [],
+        "filters": []
+      }
+    },
+    "nextId": 8,
+    "createdAt": "2025-04-06T15:01:06.199Z",
+    "updatedAt": "2025-04-16T01:38:39.400Z",
+    "filter": null,
+    "imports": [
+      {
+        "name": "flight",
+        "alias": ""
+      }
+    ]
+  }
