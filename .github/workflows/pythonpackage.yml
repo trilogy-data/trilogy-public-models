@@ -62,3 +62,6 @@ jobs:
           pip install pytest-cov
           pytest --ignore=docs_src/ --cov=./
           codecov --token=${{ secrets.CODECOV_TOKEN }}
+      - name: Check studio interface was updated
+        run: |
+          python studio/build.py --check

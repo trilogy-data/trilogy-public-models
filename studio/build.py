@@ -1,10 +1,16 @@
 import os
 import json
 import glob
+import click
+import tempfile
+import filecmp
 from pathlib import Path
 
 
-def generate_json_files():
+@click.command()
+@click.option("--check", is_flag=True, help="Check if any files would be changed")
+def generate_json_files(check):
+    """Generate JSON files for all datasets and optionally check if any changes would be made."""
     # Base directory where the script is running
     base_dir = Path(__file__).parent.parent
 
@@ -17,6 +23,9 @@ def generate_json_files():
     # Path to studio directory (where JSON files will be saved)
     studio_dir = os.path.join(base_dir, "studio")
     os.makedirs(studio_dir, exist_ok=True)
+
+    # Track if any files would be modified
+    files_changed = False
 
     # Get all engine directories (like bigquery, duckdb)
     for engine_dir in os.listdir(public_models_dir):
@@ -93,7 +102,7 @@ def generate_json_files():
                             }
                             json_data["components"].append(component)
 
-                    # Write the JSON file
+                    # Get existing file data if it exists
                     json_file_name = f"{dataset_dir}.json"
                     json_file_path = os.path.join(studio_dir, json_file_name)
                     if os.path.exists(json_file_path):
@@ -103,10 +112,31 @@ def generate_json_files():
                             json_data["tags"] = current["tags"]
                             json_data["link"] = current["link"]
 
-                    with open(json_file_path, "w") as f:
-                        json.dump(json_data, f, indent=2)
+                    # Check if this would create changes
+                    if check:
+                        # Create a temporary file with the new content
+                        with tempfile.NamedTemporaryFile(mode="w+", delete=False) as temp_file:
+                            json.dump(json_data, temp_file, indent=2)
+                            temp_path = temp_file.name
+                        
+                        # Check if the file exists and is different
+                        if not os.path.exists(json_file_path) or not filecmp.cmp(temp_path, json_file_path):
+                            files_changed = True
+                            print(f"File would change: {json_file_path}")
+                        
+                        # Clean up temp file
+                        os.unlink(temp_path)
+                    else:
+                        # Write the JSON file
+                        with open(json_file_path, "w") as f:
+                            json.dump(json_data, f, indent=2)
+                        print(f"Created {json_file_path}")
 
-                    print(f"Created {json_file_path}")
+    # If running in check mode and files would change, exit with error
+    if check and files_changed:
+        raise click.ClickException(
+            "Files would be changed. Please run the script without --check and commit the changes."
+        )
 
 
 if __name__ == "__main__":

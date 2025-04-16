@@ -1,4 +1,4 @@
-import std.geopgrahy;
+import std.geography;
 import region as region;
 
 key id int;
