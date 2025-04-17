@@ -1,53 +1,53 @@
 {
-  "name": "stack_overflow",
-  "engine": "bigquery",
-  "description": "stack_overflow dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/answer.preql",
-      "name": "answer",
       "alias": "answer",
-      "purpose": "source"
+      "name": "answer",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/answer.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/badge.preql",
-      "name": "badge",
       "alias": "badge",
-      "purpose": "source"
+      "name": "badge",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/badge.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/constants.preql",
-      "name": "constants",
       "alias": "constants",
-      "purpose": "source"
+      "name": "constants",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/constants.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/question.preql",
-      "name": "question",
       "alias": "question",
-      "purpose": "source"
+      "name": "question",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/question.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/tag.preql",
-      "name": "tag",
       "alias": "tag",
-      "purpose": "source"
+      "name": "tag",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/tag.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/user.preql",
-      "name": "user",
       "alias": "user",
-      "purpose": "source"
+      "name": "user",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/user.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/user_metrics.preql",
-      "name": "user_metrics",
       "alias": "user_metrics",
-      "purpose": "source"
+      "name": "user_metrics",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/stack_overflow/user_metrics.preql"
     }
+  ],
+  "description": "stack_overflow dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "stack_overflow",
+  "tags": [
+    "bigquery"
   ]
 }

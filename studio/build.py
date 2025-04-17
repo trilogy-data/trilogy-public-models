@@ -3,7 +3,6 @@ import json
 import glob
 import click
 import tempfile
-import filecmp
 from pathlib import Path
 
 
@@ -120,30 +119,39 @@ def generate_json_files(check):
                     json_file_name = f"{dataset_dir}.json"
                     json_file_path = os.path.join(studio_dir, json_file_name)
                     if os.path.exists(json_file_path):
-                        with open(json_file_path, "r") as f:
-                            current = json.load(f)
-                            json_data["description"] = current["description"]
-                            json_data["tags"] = current["tags"]
-                            json_data["link"] = current["link"]
+                        try:
+                            with open(json_file_path, "r", newline="") as f:
+                                current = json.load(f)
+                                json_data["description"] = current["description"]
+                                json_data["tags"] = current["tags"]
+                                json_data["link"] = current["link"]
+                        except json.JSONDecodeError:
+                            print(f"Warning: Could not parse existing file {json_file_path}")
 
+                    # Ensure deterministic JSON output - sort keys and use consistent separators
+                    json_output = json.dumps(json_data, indent=2, sort_keys=True, separators=(',', ': '))
+                    
                     # Check if this would create changes
                     if check:
-                        # Create a temporary file with the new content
-                        with tempfile.NamedTemporaryFile(mode="w+", delete=False) as temp_file:
-                            json.dump(json_data, temp_file, indent=2)
-                            temp_path = temp_file.name
-                        
-                        # Check if the file exists and is different
-                        if not os.path.exists(json_file_path) or not filecmp.cmp(temp_path, json_file_path):
+                        current_content = ""
+                        if os.path.exists(json_file_path):
+                            try:
+                                with open(json_file_path, "r", newline="") as f:
+                                    current_content = json.dumps(json.load(f), indent=2, sort_keys=True, separators=(',', ': '))
+                            except json.JSONDecodeError:
+                                # If we can't parse the current file, we'll count it as a change
+                                files_changed = True
+                                print(f"File would change (current file not parsable): {json_file_path}")
+                                continue
+                                
+                        # Compare the normalized JSON strings instead of files
+                        if not os.path.exists(json_file_path) or current_content != json_output:
                             files_changed = True
                             print(f"File would change: {json_file_path}")
-                        
-                        # Clean up temp file
-                        os.unlink(temp_path)
                     else:
-                        # Write the JSON file
-                        with open(json_file_path, "w") as f:
-                            json.dump(json_data, f, indent=2)
+                        # Write the JSON file with LF line endings
+                        with open(json_file_path, "w", newline="\n") as f:
+                            f.write(json_output)
                         print(f"Created {json_file_path}")
 
     # If running in check mode and files would change, exit with error

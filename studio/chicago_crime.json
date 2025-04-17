@@ -1,17 +1,17 @@
 {
-  "name": "chicago_crime",
-  "engine": "bigquery",
-  "description": "Chicago Police Department crime data from 2001 to present",
-  "link": "https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/1057666841514/locations/us/dataExchanges/google_cloud_public_datasets_17e74966199/listings/ea2f8b7adbf346578ac8c307eab1b81a",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/chicago_crime/crime.preql",
-      "name": "crime",
       "alias": "crime",
-      "purpose": "source"
+      "name": "crime",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/chicago_crime/crime.preql"
     }
+  ],
+  "description": "Chicago Police Department crime data from 2001 to present",
+  "engine": "bigquery",
+  "link": "https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/1057666841514/locations/us/dataExchanges/google_cloud_public_datasets_17e74966199/listings/ea2f8b7adbf346578ac8c307eab1b81a",
+  "name": "chicago_crime",
+  "tags": [
+    "bigquery"
   ]
 }

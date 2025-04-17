@@ -1,17 +1,17 @@
 {
-  "name": "usa_names",
-  "engine": "bigquery",
-  "description": "usa_names dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/usa_names/names.preql",
-      "name": "names",
       "alias": "names",
-      "purpose": "source"
+      "name": "names",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/usa_names/names.preql"
     }
+  ],
+  "description": "usa_names dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "usa_names",
+  "tags": [
+    "bigquery"
   ]
 }

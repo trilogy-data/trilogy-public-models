@@ -1,28 +1,28 @@
 {
-  "name": "google_search_trends",
-  "engine": "bigquery",
-  "description": "google_search_trends dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/international_trends.preql",
-      "name": "international_trends",
       "alias": "international_trends",
-      "purpose": "source"
+      "name": "international_trends",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/international_trends.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/trends.preql",
-      "name": "trends",
       "alias": "trends",
-      "purpose": "source"
+      "name": "trends",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/trends.preql"
     },
     {
       "name": "football",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/google_search_trends/football.preql",
-      "purpose": "example"
+      "purpose": "example",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/google_search_trends/football.preql"
     }
+  ],
+  "description": "google_search_trends dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "google_search_trends",
+  "tags": [
+    "bigquery"
   ]
 }
