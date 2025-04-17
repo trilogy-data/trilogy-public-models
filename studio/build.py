@@ -145,9 +145,43 @@ def generate_json_files(check):
                                 continue
                                 
                         # Compare the normalized JSON strings instead of files
-                        if not os.path.exists(json_file_path) or current_content != json_output:
+                        if not os.path.exists(json_file_path):
+                            files_changed = True
+                            print(f"File would be created: {json_file_path}")
+                        elif current_content != json_output:
                             files_changed = True
                             print(f"File would change: {json_file_path}")
+                            
+                            # Debug: Show the differences
+                            print("--- Differences detected ---")
+                            if len(current_content) != len(json_output):
+                                print(f"Length difference: current={len(current_content)} vs new={len(json_output)}")
+                            
+                            # Find and print the first few differences
+                            diff_count = 0
+                            for i, (c1, c2) in enumerate(zip(current_content, json_output)):
+                                if c1 != c2:
+                                    diff_count += 1
+                                    print(f"Diff at position {i}: '{c1}' vs '{c2}'")
+                                    
+                                    # Print context around difference
+                                    start = max(0, i - 10)
+                                    end = min(len(current_content), i + 10)
+                                    print(f"Current context: '{current_content[start:end]}'")
+                                    print(f"New context: '{json_output[start:end]}'")
+                                    
+                                    if diff_count >= 3:  # Show only first 3 differences
+                                        break
+                            
+                            # Check for trailing content if lengths differ
+                            if len(current_content) != len(json_output):
+                                if len(current_content) > len(json_output):
+                                    print(f"Current file has {len(current_content) - len(json_output)} extra characters")
+                                    print(f"Extra trailing content: '{current_content[len(json_output):len(json_output)+20]}...'")
+                                else:
+                                    print(f"New output has {len(json_output) - len(current_content)} extra characters")
+                                    print(f"Extra trailing content: '{json_output[len(current_content):len(current_content)+20]}...'")
+                            print("------------------------")
                     else:
                         # Write the JSON file with LF line endings
                         with open(json_file_path, "w", newline="\n") as f:
