@@ -66,7 +66,7 @@ def generate_json_files(check):
                         }
                         json_data["components"].append(component)
                     sql_files = glob.glob(os.path.join(dataset_path, "*.sql"))
-                    for sql_file in sql_files:
+                    for sql_file in sorted(sql_files):
                         file_name = os.path.basename(sql_file).replace(".sql", "")
                         if file_name == "entrypoint":
                             continue
@@ -88,7 +88,7 @@ def generate_json_files(check):
                         example_files = glob.glob(
                             os.path.join(examples_dataset_path, "*.preql")
                         )
-                        for example_file in example_files:
+                        for example_file in sorted(example_files):
                             file_name = os.path.basename(example_file).replace(
                                 ".preql", ""
                             )
@@ -103,7 +103,7 @@ def generate_json_files(check):
                         dashboard_files = glob.glob(
                             os.path.join(examples_dataset_path, "*.json")
                         )
-                        for dashboard_file in dashboard_files:
+                        for dashboard_file in sorted(dashboard_files):
                             file_name = os.path.basename(dashboard_file).replace(
                                 ".json", ""
                             )
