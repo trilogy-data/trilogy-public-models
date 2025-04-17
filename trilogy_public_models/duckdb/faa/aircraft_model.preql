@@ -1,15 +1,15 @@
 
 key code string;
-property aircraft_model_code.manufacturer string; # uppercase manufacturer
-property aircraft_model_code.model string;
-property aircraft_model_code.type_id int;
-property aircraft_model_code.engine_type_id int;
-property aircraft_model_code.category_id int;
-property aircraft_model_code.amateur int;
-property aircraft_model_code.engines int;
-property aircraft_model_code.seats int;
-property aircraft_model_code.weight int;
-property aircraft_model_code.speed int;
+property code.manufacturer string; # uppercase manufacturer
+property code.model string;
+property code.type_id int;
+property code.engine_type_id int;
+property code.category_id int;
+property code.amateur int;
+property code.engines int;
+property code.seats int;
+property code.weight int;
+property code.speed int;
 
 datasource aircraft_model (
 	aircraft_model_code:code,
@@ -24,5 +24,5 @@ datasource aircraft_model (
 	weight:weight,
 	speed:speed,
 )
-grain (aircraft_model_code)
+grain (code)
 address aircraft_model;
