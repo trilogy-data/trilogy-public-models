@@ -63,7 +63,7 @@ datasource aircraft_tail_num (
 	id:id,
 	tail_num:tail_num,
 	aircraft_serial:serial,
-	aircraft_model_code:model.model_code,
+	aircraft_model_code:model.code,
 	aircraft_engine_code:engine_code,
 	year_built:year_built,
 	aircraft_type_id:type_id,
