@@ -52,7 +52,7 @@ def generate_json_files(check):
 
                     # Add source components from trilogy_public_models
                     preql_files = glob.glob(os.path.join(dataset_path, "*.preql"))
-                    for preql_file in preql_files:
+                    for preql_file in sorted(preql_files):
                         file_name = os.path.basename(preql_file).replace(".preql", "")
                         if file_name == "entrypoint":
                             continue
