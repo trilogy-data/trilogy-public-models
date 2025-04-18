@@ -1,29 +1,29 @@
 {
-  "name": "titanic",
-  "engine": "duckdb",
-  "description": "titanic dataset for duckdb",
-  "link": "",
-  "tags": [
-    "duckdb"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/passenger.preql",
-      "name": "passenger",
       "alias": "passenger",
-      "purpose": "source"
+      "name": "passenger",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/passenger.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/setup.preql",
-      "name": "setup",
       "alias": "setup",
-      "purpose": "source"
+      "name": "setup",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/setup.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/wealth.preql",
-      "name": "wealth",
       "alias": "wealth",
-      "purpose": "source"
+      "name": "wealth",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/wealth.preql"
     }
+  ],
+  "description": "titanic dataset for duckdb",
+  "engine": "duckdb",
+  "link": "",
+  "name": "titanic",
+  "tags": [
+    "duckdb"
   ]
 }

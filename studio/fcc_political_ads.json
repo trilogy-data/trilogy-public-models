@@ -1,35 +1,35 @@
 {
-  "name": "fcc_political_ads",
-  "engine": "bigquery",
-  "description": "fcc_political_ads dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/broadcast_tv_radio_station.preql",
-      "name": "broadcast_tv_radio_station",
       "alias": "broadcast_tv_radio_station",
-      "purpose": "source"
+      "name": "broadcast_tv_radio_station",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/broadcast_tv_radio_station.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/content_info.preql",
-      "name": "content_info",
       "alias": "content_info",
-      "purpose": "source"
+      "name": "content_info",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/content_info.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_history.preql",
-      "name": "file_history",
       "alias": "file_history",
-      "purpose": "source"
+      "name": "file_history",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_history.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_record.preql",
-      "name": "file_record",
       "alias": "file_record",
-      "purpose": "source"
+      "name": "file_record",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_record.preql"
     }
+  ],
+  "description": "fcc_political_ads dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "fcc_political_ads",
+  "tags": [
+    "bigquery"
   ]
 }

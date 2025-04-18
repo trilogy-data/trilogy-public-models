@@ -1,35 +1,35 @@
 {
-  "name": "new_york_citibike",
-  "engine": "bigquery",
-  "description": "new_york_citibike dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/bikes.preql",
-      "name": "bikes",
       "alias": "bikes",
-      "purpose": "source"
+      "name": "bikes",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/bikes.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/riders.preql",
-      "name": "riders",
       "alias": "riders",
-      "purpose": "source"
+      "name": "riders",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/riders.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/stations.preql",
-      "name": "stations",
       "alias": "stations",
-      "purpose": "source"
+      "name": "stations",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/stations.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/trips.preql",
-      "name": "trips",
       "alias": "trips",
-      "purpose": "source"
+      "name": "trips",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/trips.preql"
     }
+  ],
+  "description": "new_york_citibike dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "new_york_citibike",
+  "tags": [
+    "bigquery"
   ]
 }

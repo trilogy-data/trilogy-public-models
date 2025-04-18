@@ -1,53 +1,53 @@
 {
-  "name": "github",
-  "engine": "bigquery",
-  "description": "github dataset for bigquery",
-  "link": "",
-  "tags": [
-    "bigquery"
-  ],
   "components": [
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/commits.preql",
-      "name": "commits",
       "alias": "commits",
-      "purpose": "source"
+      "name": "commits",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/commits.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/contents.preql",
-      "name": "contents",
       "alias": "contents",
-      "purpose": "source"
+      "name": "contents",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/contents.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/datasources.preql",
-      "name": "datasources",
       "alias": "datasources",
-      "purpose": "source"
+      "name": "datasources",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/datasources.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/files.preql",
-      "name": "files",
       "alias": "files",
-      "purpose": "source"
+      "name": "files",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/files.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/language.preql",
-      "name": "language",
       "alias": "language",
-      "purpose": "source"
+      "name": "language",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/language.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/licenses.preql",
-      "name": "licenses",
       "alias": "licenses",
-      "purpose": "source"
+      "name": "licenses",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/licenses.preql"
     },
     {
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/repo.preql",
-      "name": "repo",
       "alias": "repo",
-      "purpose": "source"
+      "name": "repo",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/github/repo.preql"
     }
+  ],
+  "description": "github dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "github",
+  "tags": [
+    "bigquery"
   ]
 }

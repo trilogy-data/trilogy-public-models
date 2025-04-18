@@ -1,9 +1,9 @@
-
+import std.geography;
 import region as region;
 
 key id int;
 property id._raw_name string; #internal field used to workaround issues with parquet statistics
-property id.name string;
+property id.name string::country;
 property id.comment string;
 
 datasource nation (

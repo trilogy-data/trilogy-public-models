@@ -1,14 +1,14 @@
-
+import std.money;
+import std.display;
 import order as order;
 import supplier as supplier;
 import part as part;
 
-type money float;
-type percent float;
+
 
 key id int;
 property id.quantity float;
-property id.extended_price float::money;
+property id.extended_price float::usd;
 property id.discount float::percent; # percent discount
 property id.tax float::percent; # tax, as percentage
 property id.return_flag string;
