@@ -125,6 +125,7 @@ def generate_json_files(check):
                                 json_data["description"] = current["description"]
                                 json_data["tags"] = current["tags"]
                                 json_data["link"] = current["link"]
+                                json_data["components"] = sorted(json_data["components"], key=lambda x: x["name"])
                         except json.JSONDecodeError:
                             print(f"Warning: Could not parse existing file {json_file_path}")
 
@@ -137,7 +138,9 @@ def generate_json_files(check):
                         if os.path.exists(json_file_path):
                             try:
                                 with open(json_file_path, "r", newline="") as f:
-                                    current_content = json.dumps(json.load(f), indent=2, sort_keys=True, separators=(',', ': '))
+                                    base = json.load(f)
+                                    base["components"] = sorted(base["components"], key=lambda x: x["name"])    
+                                    current_content = json.dumps(base, indent=2, sort_keys=True, separators=(',', ': '))
                             except json.JSONDecodeError:
                                 # If we can't parse the current file, we'll count it as a change
                                 files_changed = True
@@ -182,6 +185,8 @@ def generate_json_files(check):
                                     print(f"New output has {len(json_output) - len(current_content)} extra characters")
                                     print(f"Extra trailing content: '{json_output[len(current_content):len(current_content)+20]}...'")
                             print("------------------------")
+                        else:
+                            print(f"No changes detected for {json_file_path}")
                     else:
                         # Write the JSON file with LF line endings
                         with open(json_file_path, "w", newline="\n") as f:
