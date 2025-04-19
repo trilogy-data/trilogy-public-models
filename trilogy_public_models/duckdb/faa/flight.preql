@@ -3,8 +3,6 @@ import airport as origin;
 import airport as destination;
 import carrier as carrier;
 
-property id2.origin string; #airport code, such as LAX
-property id2.destination string; #airport code, such as LAX
 property id2.flight_num string;
 property id2.flight_time int;
 property id2.dep_time datetime;
