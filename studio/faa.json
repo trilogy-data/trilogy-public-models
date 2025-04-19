@@ -31,16 +31,16 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/flight.preql"
     },
     {
+      "name": "flights",
+      "purpose": "dashboard",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/faa/flights.json"
+    },
+    {
       "alias": "setup",
       "name": "setup",
       "purpose": "setup",
       "type": "sql",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/setup.sql"
-    },
-    {
-      "name": "flights",
-      "purpose": "dashboard",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/faa/flights.json"
     }
   ],
   "description": "Faa dataset for duckdb. Useful sample dataset for comparing to Malloy.",

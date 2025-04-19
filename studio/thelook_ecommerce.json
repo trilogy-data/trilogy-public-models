@@ -1,6 +1,11 @@
 {
   "components": [
     {
+      "name": "city_cancellations",
+      "purpose": "example",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/thelook_ecommerce/city_cancellations.preql"
+    },
+    {
       "alias": "distribution_centers",
       "name": "distribution_centers",
       "purpose": "source",
@@ -19,16 +24,16 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/inventory_items.preql"
     },
     {
-      "alias": "orders",
-      "name": "orders",
-      "purpose": "source",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/orders.preql"
-    },
-    {
       "alias": "order_items",
       "name": "order_items",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/order_items.preql"
+    },
+    {
+      "alias": "orders",
+      "name": "orders",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/orders.preql"
     },
     {
       "alias": "products",
@@ -37,20 +42,15 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/products.preql"
     },
     {
+      "name": "top_customers_avg_price",
+      "purpose": "example",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/thelook_ecommerce/top_customers_avg_price.preql"
+    },
+    {
       "alias": "users",
       "name": "users",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/users.preql"
-    },
-    {
-      "name": "city_cancellations",
-      "purpose": "example",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/thelook_ecommerce/city_cancellations.preql"
-    },
-    {
-      "name": "top_customers_avg_price",
-      "purpose": "example",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/thelook_ecommerce/top_customers_avg_price.preql"
     }
   ],
   "description": "thelook_ecommerce dataset for bigquery",

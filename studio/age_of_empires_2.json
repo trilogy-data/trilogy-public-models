@@ -1,16 +1,16 @@
 {
   "components": [
     {
-      "alias": "buildings",
-      "name": "buildings",
-      "purpose": "source",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/buildings.preql"
-    },
-    {
       "alias": "building_creations",
       "name": "building_creations",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/building_creations.preql"
+    },
+    {
+      "alias": "buildings",
+      "name": "buildings",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/buildings.preql"
     },
     {
       "alias": "civilizations",
@@ -25,12 +25,6 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/maps.preql"
     },
     {
-      "alias": "matches",
-      "name": "matches",
-      "purpose": "source",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/matches.preql"
-    },
-    {
       "alias": "match_event",
       "name": "match_event",
       "purpose": "source",
@@ -41,6 +35,12 @@
       "name": "match_players",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/match_players.preql"
+    },
+    {
+      "alias": "matches",
+      "name": "matches",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/matches.preql"
     },
     {
       "alias": "objects",
@@ -55,28 +55,28 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/players.preql"
     },
     {
-      "alias": "technology",
-      "name": "technology",
-      "purpose": "source",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/technology.preql"
-    },
-    {
       "alias": "tech_research",
       "name": "tech_research",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/tech_research.preql"
     },
     {
-      "alias": "units",
-      "name": "units",
+      "alias": "technology",
+      "name": "technology",
       "purpose": "source",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/units.preql"
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/technology.preql"
     },
     {
       "alias": "unit_creations",
       "name": "unit_creations",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/unit_creations.preql"
+    },
+    {
+      "alias": "units",
+      "name": "units",
+      "purpose": "source",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/age_of_empires_2/units.preql"
     }
   ],
   "description": "An exported set of AOE2 game data.",

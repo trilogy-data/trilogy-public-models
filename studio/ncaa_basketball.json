@@ -43,15 +43,15 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/player.preql"
     },
     {
+      "name": "script",
+      "purpose": "example",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/ncaa_basketball/script.preql"
+    },
+    {
       "alias": "team",
       "name": "team",
       "purpose": "source",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/team.preql"
-    },
-    {
-      "name": "script",
-      "purpose": "example",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/ncaa_basketball/script.preql"
     }
   ],
   "description": "ncaa_basketball dataset for bigquery",
