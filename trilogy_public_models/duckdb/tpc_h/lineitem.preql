@@ -21,10 +21,11 @@ property id.ship_mode string;
 property id.comment string;
 
 
-property id.revenue <- extended_price* (1 - discount);
-property id.customer_charged <- l_extendedprice * (1 - l_discount) * (1 + l_tax);
+property id.revenue <- extended_price* (1 - discount); # revenue is our price, with discount applied
 
-auto total_revenue <- sum(revenue); # total revenue is based on the extended price minus discount.
+property id.customer_charged <- revenue * (1 + tax); # the customer is charged a total that includes tax based on the revenue
+
+auto total_revenue <- sum(revenue); # total revenue is an aggregated revenue suitable for use in a report
 
 # upper some fileds to fix stats issue
 datasource lineitem(
