@@ -3,7 +3,7 @@ import region as region;
 
 key id int;
 property id._raw_name string; #internal field used to workaround issues with parquet statistics
-property id.name string::country # capitalized; eg UNITED STATES or FRANCE or CANADA
+property id.name string::country; # capitalized; eg UNITED STATES or FRANCE or CANADA
 property id.comment string;
 
 datasource nation (
