@@ -6,8 +6,8 @@ import part as part;
 
 
 
-key id int;
-property id.quantity float;
+key id int; #unique key identifying a lineitem within an order
+property id.quantity float; #quantity of an part within an order
 property id.extended_price float::usd;
 property id.discount float::percent; # percent discount
 property id.tax float::percent; # tax, as percentage
@@ -20,7 +20,12 @@ property id.ship_instruct string;
 property id.ship_mode string;
 property id.comment string;
 
-auto total_revenue <- sum(extended_price* (1 - discount)); # total revenue is based on the extended price minus discount.
+
+property id.revenue <- extended_price* (1 - discount); # revenue is our price, with discount applied
+
+property id.customer_charged <- revenue * (1 + tax); # the customer is charged a total that includes tax based on the revenue
+
+auto total_revenue <- sum(revenue); # total revenue is an aggregated revenue suitable for use in a report
 
 # upper some fileds to fix stats issue
 datasource lineitem(

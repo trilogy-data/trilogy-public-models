@@ -5,19 +5,19 @@
       "x": 4,
       "y": 9,
       "w": 4,
-      "h": 9,
+      "h": 10,
       "i": "0"
     },
     {
       "x": 8,
-      "y": 9,
+      "y": 14,
       "w": 4,
-      "h": 9,
+      "h": 5,
       "i": "1"
     },
     {
       "x": 4,
-      "y": 18,
+      "y": 19,
       "w": 8,
       "h": 8,
       "i": "2"
@@ -56,15 +56,22 @@
       "w": 2,
       "h": 3,
       "i": "7"
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "w": 4,
+      "h": 5,
+      "i": "8"
     }
   ],
   "gridItems": {
     "0": {
       "type": "chart",
-      "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count\r\norder by\r\n    count desc\r\nlimit 15;",
+      "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count\r\norder by count desc\r\nlimit 15;",
       "name": "Chart 0",
-      "width": 524,
-      "height": 315,
+      "width": 525,
+      "height": 355,
       "chartConfig": {
         "chartType": "bar",
         "xField": "flight_count",
@@ -83,10 +90,10 @@
     },
     "1": {
       "type": "chart",
-      "content": "select \r\n    origin.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
-      "name": "Chart 1",
-      "width": 524,
-      "height": 315,
+      "content": "select \r\n    destination.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
+      "name": "Destination",
+      "width": 525,
+      "height": 155,
       "conceptFilters": [],
       "filters": [],
       "chartConfig": {
@@ -105,9 +112,9 @@
     },
     "2": {
       "type": "table",
-      "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.model,\r\n    sum(aircraft.model.seats) as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
+      "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.model,\r\n    sum(group(aircraft.model.seats) by id2 ) as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
       "name": "Table 2",
-      "width": 1058,
+      "width": 1059,
       "height": 275,
       "chartFilters": [],
       "filters": [],
@@ -139,7 +146,7 @@
       "type": "chart",
       "content": "SELECT\r\n    dep_time.month_start,\r\n    carrier.name,\r\n    count\r\norder by dep_time.month_start asc",
       "name": "Chart 4",
-      "width": 1058,
+      "width": 1059,
       "height": 195,
       "conceptFilters": [],
       "filters": [],
@@ -189,16 +196,40 @@
       },
       "conceptFilters": [],
       "filters": []
+    },
+    "8": {
+      "type": "chart",
+      "content": "select \r\n    origin.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
+      "name": "Origin",
+      "width": 525,
+      "height": 155,
+      "chartFilters": [],
+      "filters": [],
+      "chartConfig": {
+        "chartType": "usa-map",
+        "xField": "",
+        "yField": "",
+        "yAggregation": "sum",
+        "colorField": "flight_count",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "origin_state",
+        "showDebug": true
+      },
+      "conceptFilters": []
     }
   },
-  "nextId": 8,
+  "nextId": 9,
   "createdAt": "2025-04-06T15:01:06.199Z",
-  "updatedAt": "2025-04-17T13:11:11.333Z",
-  "filter": null,
+  "updatedAt": "2025-04-18T17:22:07.142Z",
+  "filter": " \nlocal.dep_delay > 0 \nAND origin.state = 'CA'::string \n",
   "imports": [
     {
       "name": "flight",
       "alias": ""
     }
-  ]
+  ],
+  "version": 1,
+  "published": false
 }
