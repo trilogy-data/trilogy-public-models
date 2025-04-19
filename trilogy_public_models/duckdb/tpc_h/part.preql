@@ -3,6 +3,7 @@ import std.money;
 import supplier as supplier;
 
 key id int;
+property id._name string; #internal field used to workaround issues with parquet statistics
 property id.name string;
 property id.manufacturer string;
 property id.brand string;
@@ -14,7 +15,8 @@ property id.comment string;
 
 datasource part (
     p_partkey:id,
-    p_name:name,
+    p_name:_name,
+    UPPER(_name):name,
     p_mfgr: manufacturer,
     p_brand:brand,
     p_type:type,
