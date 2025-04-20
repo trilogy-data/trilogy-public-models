@@ -9,36 +9,42 @@
       "alias": "distribution_centers",
       "name": "distribution_centers",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/distribution_centers.preql"
     },
     {
       "alias": "events",
       "name": "events",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/events.preql"
     },
     {
       "alias": "inventory_items",
       "name": "inventory_items",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/inventory_items.preql"
     },
     {
       "alias": "order_items",
       "name": "order_items",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/order_items.preql"
     },
     {
       "alias": "orders",
       "name": "orders",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/orders.preql"
     },
     {
       "alias": "products",
       "name": "products",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/products.preql"
     },
     {
@@ -50,6 +56,7 @@
       "alias": "users",
       "name": "users",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/thelook_ecommerce/users.preql"
     }
   ],

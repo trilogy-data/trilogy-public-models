@@ -4,24 +4,28 @@
       "alias": "bikes",
       "name": "bikes",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/bikes.preql"
     },
     {
       "alias": "riders",
       "name": "riders",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/riders.preql"
     },
     {
       "alias": "stations",
       "name": "stations",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/stations.preql"
     },
     {
       "alias": "trips",
       "name": "trips",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/new_york_citibike/trips.preql"
     }
   ],

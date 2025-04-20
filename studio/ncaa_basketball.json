@@ -4,42 +4,49 @@
       "alias": "conference",
       "name": "conference",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/conference.preql"
     },
     {
       "alias": "datasources",
       "name": "datasources",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/datasources.preql"
     },
     {
       "alias": "division",
       "name": "division",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/division.preql"
     },
     {
       "alias": "game",
       "name": "game",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game.preql"
     },
     {
       "alias": "game_event",
       "name": "game_event",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game_event.preql"
     },
     {
       "alias": "league",
       "name": "league",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/league.preql"
     },
     {
       "alias": "player",
       "name": "player",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/player.preql"
     },
     {
@@ -51,6 +58,7 @@
       "alias": "team",
       "name": "team",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/team.preql"
     }
   ],

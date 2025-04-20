@@ -4,47 +4,55 @@
       "alias": "customer",
       "name": "customer",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/customer.preql"
     },
     {
       "name": "demo_dashboard",
-      "purpose": "dashboard",
+      "purpose": "example",
+      "type": "dashboard",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/demo_dashboard.json"
     },
     {
       "alias": "lineitem",
       "name": "lineitem",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/lineitem.preql"
     },
     {
       "alias": "nation",
       "name": "nation",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/nation.preql"
     },
     {
       "alias": "order",
       "name": "order",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/order.preql"
     },
     {
       "alias": "part",
       "name": "part",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/part.preql"
     },
     {
       "alias": "region",
       "name": "region",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/region.preql"
     },
     {
       "alias": "supplier",
       "name": "supplier",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_h/supplier.preql"
     },
     {
