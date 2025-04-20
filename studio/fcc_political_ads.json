@@ -4,24 +4,28 @@
       "alias": "broadcast_tv_radio_station",
       "name": "broadcast_tv_radio_station",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/broadcast_tv_radio_station.preql"
     },
     {
       "alias": "content_info",
       "name": "content_info",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/content_info.preql"
     },
     {
       "alias": "file_history",
       "name": "file_history",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_history.preql"
     },
     {
       "alias": "file_record",
       "name": "file_record",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/fcc_political_ads/file_record.preql"
     }
   ],

@@ -4,18 +4,21 @@
       "alias": "passenger",
       "name": "passenger",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/passenger.preql"
     },
     {
       "alias": "setup",
       "name": "setup",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/setup.preql"
     },
     {
       "alias": "wealth",
       "name": "wealth",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/titanic/wealth.preql"
     }
   ],

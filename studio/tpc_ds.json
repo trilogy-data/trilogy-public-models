@@ -4,108 +4,126 @@
       "alias": "address",
       "name": "address",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/address.preql"
     },
     {
       "alias": "call_center",
       "name": "call_center",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/call_center.preql"
     },
     {
       "alias": "catalog_returns",
       "name": "catalog_returns",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/catalog_returns.preql"
     },
     {
       "alias": "catalog_sales",
       "name": "catalog_sales",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/catalog_sales.preql"
     },
     {
       "alias": "customer",
       "name": "customer",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/customer.preql"
     },
     {
       "alias": "customer_demographic",
       "name": "customer_demographic",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/customer_demographic.preql"
     },
     {
       "alias": "date",
       "name": "date",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/date.preql"
     },
     {
       "alias": "inventory",
       "name": "inventory",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/inventory.preql"
     },
     {
       "alias": "item",
       "name": "item",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/item.preql"
     },
     {
       "alias": "promotion",
       "name": "promotion",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/promotion.preql"
     },
     {
       "alias": "setup",
       "name": "setup",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/setup.preql"
     },
     {
       "alias": "store",
       "name": "store",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/store.preql"
     },
     {
       "alias": "store_returns",
       "name": "store_returns",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/store_returns.preql"
     },
     {
       "alias": "store_sales",
       "name": "store_sales",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/store_sales.preql"
     },
     {
       "alias": "time",
       "name": "time",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/time.preql"
     },
     {
       "alias": "warehouse",
       "name": "warehouse",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/warehouse.preql"
     },
     {
       "alias": "web_returns",
       "name": "web_returns",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/web_returns.preql"
     },
     {
       "alias": "web_sales",
       "name": "web_sales",
       "purpose": "source",
+      "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/tpc_ds/web_sales.preql"
     }
   ],

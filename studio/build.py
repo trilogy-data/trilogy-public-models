@@ -63,6 +63,7 @@ def generate_json_files(check):
                             "name": file_name,
                             "alias": file_name,
                             "purpose": "source",
+                            "type": "trilogy"
                         }
                         json_data["components"].append(component)
                     sql_files = glob.glob(os.path.join(dataset_path, "*.sql"))
@@ -112,7 +113,8 @@ def generate_json_files(check):
                             component = {
                                 "name": file_name,
                                 "url": github_path,
-                                "purpose": "dashboard",
+                                "purpose": "example",
+                                "type": "dashboard",
                             }
                             json_data["components"].append(component)
                     # Get existing file data if it exists
@@ -192,6 +194,23 @@ def generate_json_files(check):
                         with open(json_file_path, "w", newline="\n") as f:
                             f.write(json_output)
                         print(f"Created {json_file_path}")
+
+    # copy tpc_h.json output as demo-model.json with the name updated
+    demo_model_path = os.path.join(studio_dir, "demo-model.json")
+    tpc_h_path = os.path.join(studio_dir, "tpc_h.json")
+    if os.path.exists(tpc_h_path):
+        with open(tpc_h_path, "r", newline="") as f:
+            tpc_h_data = json.load(f)
+            tpc_h_data["name"] = "demo-model"
+            tpc_h_data["description"] = "The demo model used in Studio tutorials"
+            tpc_h_data["tags"] = [*tpc_h_data["tags"], "demo"]
+            demo_model_output = json.dumps(
+                tpc_h_data, indent=2, sort_keys=True, separators=(",", ": ")
+            )
+        with open(demo_model_path, "w", newline="\n") as f:
+            f.write(demo_model_output)
+        print(f"Created {demo_model_path}")
+    
 
     # If running in check mode and files would change, exit with error
     if check and files_changed:
