@@ -2,7 +2,7 @@ import std.geography;
 import std.date;
 
 key id string; # Unique identifier for each row
-property id.name string; # Given name of a person at birth 
+property id.name string; # Given name of a person at birth. Typically first letter is capitalized, rest are lowercase.
 property id.gender string; # Sex (M=male or F=female) 
 property id.state string::us_state_short; # The common two character abbreviation for a state, such as MA for Massachusetts or CT for Connecticut
 property id.year int::year; #	4-digit year of birth 
