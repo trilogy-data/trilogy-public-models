@@ -11,13 +11,13 @@ property id.quantity float; #quantity of an part within an order
 property id.extended_price float::usd;
 property id.discount float::percent; # percent discount
 property id.tax float::percent; # tax, as percentage
-property id.return_flag string;
-property id.line_status string;
+property id.return_flag string; # Capital flag, one of A | N | R
+property id.line_status string; # Capital flag, one of O | F
 property id.ship_date date;
 property id.commit_date date;
 property id.receipt_date date;
-property id.ship_instruct string;
-property id.ship_mode string;
+property id.ship_instruct string; # one of DELIVER IN PERSON | COLLECT COD | NONE | TAKE BACK RETURN
+property id.ship_mode string; # capitalized; one of TRUCK | MAIL | AIR | REG AIR | FOB | RAIL | SHIP
 property id.comment string;
 
 
