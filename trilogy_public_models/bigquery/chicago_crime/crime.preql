@@ -1,4 +1,5 @@
 import std.date;
+import std.geography;
 
 key unique_key int;
 property unique_key.case_number string;
@@ -19,8 +20,8 @@ property unique_key.x_coordinate float;
 property unique_key.y_coordinate float;
 property unique_key.year int::year;
 property unique_key.updated_on timestamp;
-property unique_key.latitude float;
-property unique_key.longitude float;
+property unique_key.latitude float::latitude;
+property unique_key.longitude float::longitude;
 property unique_key.location string;
 
 datasource crime (

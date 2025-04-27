@@ -6,6 +6,12 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/usa_names/names.preql"
+    },
+    {
+      "name": "top_names",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/usa_names/top_names.json"
     }
   ],
   "description": "usa_names dataset for bigquery",

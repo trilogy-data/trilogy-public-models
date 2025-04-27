@@ -71,7 +71,7 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/tpc_h/tutorial_two_aggregate.preql"
     }
   ],
-  "description": "The demo model used in Studio Tutorials",
+  "description": "The demo model used in Studio tutorials",
   "engine": "duckdb",
   "link": "",
   "name": "demo-model",

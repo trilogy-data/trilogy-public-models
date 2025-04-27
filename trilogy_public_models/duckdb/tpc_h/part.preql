@@ -7,9 +7,9 @@ property id._name string; #internal field used to workaround issues with parquet
 property id.name string;
 property id.manufacturer string;
 property id.brand string;
-property id.type string;
-property id.size int;
-property id.container string;
+property id.type string; # Capitalized; large number of values
+property id.size int; # number; 1-50
+property id.container string; # Capitalized; large number of values, ex LG DRUM | WRAP BAG
 property id.retail_price float::usd;
 property id.comment string;
 

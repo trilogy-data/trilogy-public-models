@@ -10,67 +10,74 @@
       },
       {
         "x": 0,
-        "y": 8,
+        "y": 3,
         "w": 4,
-        "h": 4,
+        "h": 3,
         "i": "1"
       },
       {
         "x": 4,
-        "y": 8,
+        "y": 3,
         "w": 4,
-        "h": 4,
+        "h": 3,
         "i": "2"
       },
       {
         "x": 8,
-        "y": 8,
+        "y": 3,
         "w": 4,
-        "h": 4,
+        "h": 3,
         "i": "3"
       },
       {
         "x": 12,
-        "y": 8,
+        "y": 3,
         "w": 4,
-        "h": 4,
+        "h": 3,
         "i": "4"
       },
       {
         "x": 0,
-        "y": 12,
+        "y": 16,
         "w": 8,
         "h": 8,
         "i": "5"
       },
       {
         "x": 8,
-        "y": 12,
+        "y": 16,
         "w": 8,
         "h": 8,
         "i": "6"
       },
       {
         "x": 0,
-        "y": 3,
+        "y": 6,
         "w": 16,
-        "h": 5,
+        "h": 6,
         "i": "7"
       },
       {
         "x": 0,
-        "y": 20,
+        "y": 24,
         "w": 16,
         "h": 8,
         "i": "8"
+      },
+      {
+        "x": 0,
+        "y": 12,
+        "w": 16,
+        "h": 4,
+        "i": "9"
       }
     ],
     "gridItems": {
       "0": {
         "type": "markdown",
-        "content": "## Manufacturer Investigation\n\nTrack how the manufacturers of products are distributed across our sales. ",
+        "content": "## Manufacturer Overview\n\nFor manufacturers, review sales, products, and regions. Click on a manufacturer to drill down.",
         "name": "Note 0",
-        "width": 1481,
+        "width": 719,
         "height": 75,
         "conceptFilters": [],
         "filters": []
@@ -79,8 +86,8 @@
         "type": "chart",
         "content": "\r\n \r\n# Selecting total revenue\r\n# Total revenue is based on the extended price minus discount\r\nselect \r\n    local.total_revenue;",
         "name": "Chart 1",
-        "width": 364,
-        "height": 115,
+        "width": 173,
+        "height": 75,
         "chartConfig": {
           "chartType": "headline",
           "xField": "total_revenue",
@@ -92,7 +99,7 @@
           "groupField": "",
           "trellisField": "",
           "geoField": "",
-          "showDebug": true
+          "showDebug": false
         },
         "filters": [],
         "chartFilters": [],
@@ -102,8 +109,8 @@
         "type": "chart",
         "content": "  \n# This query calculates the total items sold by counting the local.id of each sold item.  \n# The total sold items are derived simply by counting the ids, which is a boolean indicator of whether an item has sold.  \nselect sum(quantity) as total_items_sold  \n;  \n",
         "name": "Chart 2",
-        "width": 364,
-        "height": 115,
+        "width": 173,
+        "height": 75,
         "conceptFilters": [],
         "filters": []
       },
@@ -111,8 +118,8 @@
         "type": "chart",
         "content": "  \n# The user requests the total number of orders.  \n# We will count the order.id field to find out the total orders.  \n\nselect count(order.id) as total_orders  \n;  \n",
         "name": "Chart 3",
-        "width": 364,
-        "height": 115,
+        "width": 173,
+        "height": 75,
         "conceptFilters": [],
         "filters": []
       },
@@ -120,54 +127,72 @@
         "type": "chart",
         "content": " \n# Counting the total number of customers\nselect count(order.customer.id) as total_customers;\n",
         "name": "Chart 4",
-        "width": 364,
-        "height": 115,
+        "width": 173,
+        "height": 75,
         "conceptFilters": [],
         "filters": []
       },
       "5": {
         "type": "chart",
-        "content": "\n# Selecting the best selling products based on total revenue\nselect \n    part.id as product_id, \n    part.name as product_name, \n    sum(local.extended_price - local.discount) as total_revenue \nhaving \n    total_revenue > 0 \norder by \n    total_revenue desc\nlimit 15;\n",
+        "content": "\n# Selecting the best selling products based on total revenue\nselect \n    part.id as product_id, \n    part.name, \n    sum(revenue) as total_revenue \nhaving \n    total_revenue > 0 \norder by \n    total_revenue desc\nlimit 15;\n",
         "name": "Chart 5",
-        "width": 736,
+        "width": 355,
         "height": 275,
         "conceptFilters": [],
         "filters": [],
         "chartConfig": {
           "chartType": "barh",
           "xField": "total_revenue",
-          "yField": "product_name",
-          "colorField": "product_name"
-        }
+          "yField": "part_name",
+          "yField2": "",
+          "yAggregation": "sum",
+          "colorField": "part_name",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "",
+          "showDebug": false
+        },
+        "chartFilters": []
       },
       "6": {
         "type": "chart",
-        "content": " \n# This query selects the count of local.id \n# for each country, representing items sold to each country. \n\nselect \n    order.customer.nation.name as country, \n    sum(quantity) as items_sold \nhaving \n    items_sold > 0;\n\n",
+        "content": " \n# This query selects the count of local.id \n# for each country, representing items sold to each country. \n\nselect \n    order.customer.nation.name, \n    sum(quantity) as items_sold \nhaving \n    items_sold > 0;\n\n",
         "name": "Sales By Country",
-        "width": 736,
+        "width": 355,
         "height": 275,
         "conceptFilters": [],
-        "filters": []
+        "filters": [],
+        "chartFilters": []
       },
       "7": {
         "type": "chart",
-        "content": " \n# Query to get total sales by supplier \n# Total sales is calculated as the extended price minus discount\n\nselect \n    part.manufacturer, \n    sum(local.extended_price * (1- local.discount)) as total_sales \nhaving total_sales > 0 \norder by\n    total_sales desc\n; \n",
+        "content": " \n# Query to get total sales by supplier \n# Total sales is calculated as the extended price minus discount\n\nselect \n    part.manufacturer, \n    total_revenue\nhaving total_revenue > 0 \norder by\n    total_revenue desc\n; \n",
         "name": "Chart 7",
-        "width": 1481,
-        "height": 155,
+        "width": 719,
+        "height": 195,
         "chartFilters": [],
         "chartConfig": {
           "chartType": "bar",
           "xField": "part_manufacturer",
-          "yField": "total_sales"
+          "yField": "total_revenue",
+          "yField2": "",
+          "yAggregation": "sum",
+          "colorField": "",
+          "sizeField": "",
+          "groupField": "",
+          "trellisField": "",
+          "geoField": "",
+          "showDebug": true
         },
-        "filters": []
+        "filters": [],
+        "conceptFilters": []
       },
       "8": {
         "type": "chart",
         "content": "select \n    order.customer.nation.region.id as region_id,\n    order.customer.nation.region.name,\n    count(order.id) as order_count,\n    sum(order.total_price) as total_sales \nwhere \n    order.customer.nation.region.id is not null;\n",
         "name": "Chart 8",
-        "width": 1481,
+        "width": 719,
         "height": 275,
         "chartConfig": {
           "chartType": "barh",
@@ -176,12 +201,28 @@
           "colorField": "order_customer_nation_region_name"
         },
         "conceptFilters": [],
+        "filters": [],
+        "chartFilters": []
+      },
+      "9": {
+        "type": "chart",
+        "content": "select\n  order.date.month_start,\n  part.manufacturer,\n  sum(local.revenue) as monthly_revenue;\n",
+        "name": "Chart 9",
+        "width": 719,
+        "height": 115,
+        "chartConfig": {
+          "chartType": "area",
+          "xField": "order_date_month_start",
+          "yField": "monthly_revenue",
+          "colorField": "part_manufacturer"
+        },
+        "chartFilters": [],
         "filters": []
       }
     },
-    "nextId": 9,
+    "nextId": 10,
     "createdAt": "2025-04-19T13:09:49.195Z",
-    "updatedAt": "2025-04-19T16:20:15.726Z",
+    "updatedAt": "2025-04-20T19:41:15.230Z",
     "filter": "",
     "imports": [
       {
