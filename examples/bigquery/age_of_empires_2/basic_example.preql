@@ -1,0 +1,11 @@
+import match_event;
+
+# what were the most common units from winning players in this dataset?
+WHERE match_players.victory = 1 and name = 'UNIT'
+SELECT
+    match_players.civilizations.name,
+    objects.name,
+    count(id) as unit_count
+ORDER BY
+    unit_count DESC
+LIMIT 10;

@@ -1,6 +1,11 @@
 {
   "components": [
     {
+      "name": "basic_example",
+      "purpose": "example",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/age_of_empires_2/basic_example.preql"
+    },
+    {
       "alias": "building_creations",
       "name": "building_creations",
       "purpose": "source",
