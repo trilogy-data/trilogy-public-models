@@ -5,21 +5,21 @@ import aircraft_model as model;
 
 key id int;
 property id.tail_num string;
-property id.serial string;
-property id.engine_code string;
+property id.aircraft_serial string;
+property id.aircraft_engine_code string;
 property id.year_built int::year;
-property id.type_id int;
-property id.engine_type_id int;
+property id.aircraft_type_id int;
+property id.aircraft_engine_type_id int;
 property id.registrant_type_id int;
 property id.name string;
 property id.address1 string;
 property id.address2 string;
 property id.city string;
-property id.state string::us_state_short;
+property id.state string::us_state_short; # the state of the aricraft registration; unrelated to flights.
 property id.zip string;
 property id.region string;
 property id.county string;
-property id.country string::country;
+property id.country string::country; # country of aircraft registration; unrelated to flights
 property id.certification string;
 property id.status_code string;
 property id.mode_s_code string;
@@ -31,12 +31,12 @@ property id.air_worth_date date;
 datasource aircraft (
 	id:id,
 	tail_num:tail_num,
-	aircraft_serial:serial,
-	aircraft_model_code:model.code,
-	aircraft_engine_code:engine_code,
+	aircraft_serial:aircraft_serial,
+	aircraft_model_code:model.aircraft_model_code,
+	aircraft_engine_code:aircraft_engine_code,
 	year_built:year_built,
-	aircraft_type_id:type_id,
-	aircraft_engine_type_id:engine_type_id,
+	aircraft_type_id:aircraft_type_id,
+	aircraft_engine_type_id:aircraft_engine_type_id,
 	registrant_type_id:registrant_type_id,
 	name:name,
 	address1:address1,
@@ -62,12 +62,12 @@ address aircraft;
 datasource aircraft_tail_num (
 	id:id,
 	tail_num:tail_num,
-	aircraft_serial:serial,
-	aircraft_model_code:model.code,
-	aircraft_engine_code:engine_code,
+	aircraft_serial:aircraft_serial,
+	aircraft_model_code:model.aircraft_model_code,
+	aircraft_engine_code:aircraft_engine_code,
 	year_built:year_built,
-	aircraft_type_id:type_id,
-	aircraft_engine_type_id:engine_type_id,
+	aircraft_type_id:aircraft_type_id,
+	aircraft_engine_type_id:aircraft_engine_type_id,
 	registrant_type_id:registrant_type_id,
 	name:name,
 	address1:address1,
