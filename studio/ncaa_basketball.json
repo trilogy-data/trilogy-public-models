@@ -15,18 +15,25 @@
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/division.preql"
     },
     {
-      "alias": "game",
-      "name": "game",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game.preql"
-    },
-    {
       "alias": "game_event",
       "name": "game_event",
       "purpose": "source",
       "type": "trilogy",
       "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game_event.preql"
+    },
+    {
+      "alias": "game_tall",
+      "name": "game_tall",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game_tall.preql"
+    },
+    {
+      "alias": "game_wide",
+      "name": "game_wide",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/ncaa_basketball/game_wide.preql"
     },
     {
       "alias": "league",
