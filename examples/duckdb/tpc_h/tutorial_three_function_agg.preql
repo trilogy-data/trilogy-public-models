@@ -1,12 +1,13 @@
 # trilogy models run on imports to reuse logic
 import lineitem as line_item;
+import std.display;
 
 # you can define new concepts in line 
 auto discounted_price <- line_item.extended_price * (1-line_item.discount); #the discounted price is off the extended privce
 auto charge_price <- discounted_price * (1+line_item.tax); #charged price includes taxes
 
 # use functions to define repeatable templatized logic
-def part_percent_of_nation(x) -> sum(x) by line_item.part.name, line_item.supplier.nation.id / sum(x) by line_item.supplier.nation.id *100;
+def part_percent_of_nation(x) -> cast(sum(x) by line_item.part.name, line_item.supplier.nation.id / sum(x) by line_item.supplier.nation.id as float::percent);
 
 
 WHERE line_item.ship_date <= '1998-12-01'::date 
