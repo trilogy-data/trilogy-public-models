@@ -7,7 +7,7 @@ property id.code string;
 property id.site_number string;
 property id.fac_type string;
 property id.fac_use string;
-property id.faa_region string;
+property id.faa_region string; # capitalized, FAA region; eg ASO | AWP | AEA | ASW | AGL | ANM | ANE | AAL | ALP
 property id.faa_dist string;
 property id.city string::city; # capitalized; eg NEW YORK or BURLIGNTON
 property id.county string;

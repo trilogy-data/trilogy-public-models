@@ -1,4 +1,5 @@
-import game as game;
+import game_wide as game;
+import game_tall as game_tall;
 import game_event as game_event;
 import conference as conference;
 import division as division;

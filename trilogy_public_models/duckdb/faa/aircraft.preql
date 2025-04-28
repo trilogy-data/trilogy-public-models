@@ -15,11 +15,11 @@ property id.name string;
 property id.address1 string;
 property id.address2 string;
 property id.city string;
-property id.state string::us_state_short;
+property id.state string::us_state_short; # the state of the aricraft registration; unrelated to flights.
 property id.zip string;
 property id.region string;
 property id.county string;
-property id.country string::country;
+property id.country string::country; # the country of the aricraft registration; unrelated to flights.
 property id.certification string;
 property id.status_code string;
 property id.mode_s_code string;

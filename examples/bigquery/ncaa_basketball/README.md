@@ -59,7 +59,7 @@ LIMIT 5;
 
 PreQL
 ```sql
-
+import game_wide as game;
 
 SELECT
   game.id,
