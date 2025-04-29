@@ -40,7 +40,7 @@
     "gridItems": {
       "0": {
         "type": "chart",
-        "content": "SELECT\r\n    gender,\r\n    sum(births) as total_births\r\norder by\r\n    total_births desc\r\nlimit 10;",
+        "content": "SELECT\r\n    gender,\r\n    total_births\r\norder by\r\n    total_births desc\r\nlimit 10;",
         "name": "Chart 0",
         "width": 364,
         "height": 395,
@@ -84,7 +84,7 @@
       },
       "2": {
         "type": "chart",
-        "content": "SELECT\r\n    name,\r\n    sum(births) as total_births\r\norder by\r\n    total_births desc limit 15;",
+        "content": "SELECT\r\n    name,\r\n    total_births\r\norder by\r\n    total_births desc limit 15;",
         "name": "Chart 2",
         "width": 364,
         "height": 395,
@@ -106,7 +106,7 @@
       },
       "3": {
         "type": "chart",
-        "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    sum(births) ->total_births,\r\n    rank name by sum(births) by name desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
+        "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    total_births,\r\n    rank name by group total_births by name desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
         "name": "Chart 3",
         "width": 1109,
         "height": 235,
