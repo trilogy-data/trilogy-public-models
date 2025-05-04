@@ -12,9 +12,9 @@ property id2.arr_delay int;
 property id2.taxi_out int;
 property id2.taxi_in int;
 property id2.distance int;
-property id2.cancelled string;
-property id2.diverted string;
-key id2 int;
+property id2.cancelled string; #capital string flag, Y or N
+property id2.diverted string; #capital string flag, Y or N
+key id2 int; # Unique identifier for the flight 
 
 auto count <-count(id2);
 auto total_distance <-sum(distance);
