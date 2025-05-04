@@ -1,4 +1,5 @@
 import team as team;
+import team as opponent_team;
 import std.geography;
 import std.display;
 
@@ -32,29 +33,9 @@ property <id, team.id>.venue_capacity int; # [Game data] Current capacity of the
 
 # Team properties (combined home/away)
 property <id, team.id>.is_home bool; # Indicator of whether this team was the home team
-property <id, team.id>.team_name string; # Team name
-property <id, team.id>.team_market string; # Team school name
-property <id, team.id>.team_alias string; # Team school alias (unique)
-property <id, team.id>.team_league_id string; # Team school league ID (not unique)
-property <id, team.id>.team_league_name string; # Team school league name (not unique, capitalized)
-property <id, team.id>.team_league_alias string; # Team school league alias (not unique)
-property <id, team.id>.team_conf_id string; # Team current conference ID (not unique)
-property <id, team.id>.team_conf_name string; # Team current conference name (not unique)
-property <id, team.id>.team_conf_alias string; # Team current conference alias (not unique)
-property <id, team.id>.team_division_id string; # Team current division ID (not unique)
-property <id, team.id>.team_division_name string; # Team current division name (not unique)
-property <id, team.id>.team_division_alias string; # Team current division alias (not unique)
-property <id, team.id>.team_logo_large string; # Team logo 200x200
-property <id, team.id>.team_logo_medium string; # Team logo 70x70
-property <id, team.id>.team_logo_small string; # Team logo 24x24
 #property <id, team.id>.team_rank int; # Team rank
 property <id, team.id>.team_minutes string; # Team total minutes played
 
-# Opponent properties
-property <id, team.id>.opponent_team_id string; # Opponent team ID
-property <id, team.id>.opponent_name string; # Opponent team name
-property <id, team.id>.opponent_market string; # Opponent team school name
-property <id, team.id>.opponent_alias string; # Opponent team school alias (unique)
 
 # Team stats
 property <id, team.id>.points_game int; # Team points scored
@@ -112,26 +93,8 @@ datasource team_games_sr (
     coverage:coverage,
     scheduled_date:scheduled_date,
     gametime:gametime,
-    opponent_team_id:opponent_team_id,
-    opponent_name:opponent_name,
-    opponent_market:opponent_market,
-    opponent_alias:opponent_alias,
+    opponent_team_id:opponent_team.id,
     opponent_points:opponent_points,
-    team_name:team_name,
-    team_market:team_market,
-    team_alias:team_alias,
-    team_league_id:team_league_id,
-    team_league_name:team_league_name,
-    team_league_alias:team_league_alias,
-    team_conf_id:team_conf_id,
-    team_conf_name:team_conf_name,
-    team_conf_alias:team_conf_alias,
-    team_division_id:team_division_id,
-    team_division_name:team_division_name,
-    team_division_alias:team_division_alias,
-    team_logo_large:team_logo_large,
-    team_logo_medium:team_logo_medium,
-    team_logo_small:team_logo_small,
     points_game:points_game,
     team_minutes:team_minutes,
     field_goals_made:field_goals_made,
@@ -201,25 +164,7 @@ SELECT
   scheduled_date,
   gametime,
   a_id as opponent_team_id,
-  a_name as opponent_name,
-  a_market as opponent_market,
-  a_alias as opponent_alias,
   a_points as opponent_points,
-  h_name as team_name,
-  h_market as team_market,
-  h_alias as team_alias,
-  h_league_id as team_league_id,
-  h_league_name as team_league_name,
-  h_league_alias as team_league_alias,
-  h_conf_id as team_conf_id,
-  h_conf_name as team_conf_name,
-  h_conf_alias as team_conf_alias,
-  h_division_id as team_division_id,
-  h_division_name as team_division_name,
-  h_division_alias as team_division_alias,
-  h_logo_large as team_logo_large,
-  h_logo_medium as team_logo_medium,
-  h_logo_small as team_logo_small,
   h_points_game as points_game,
   h_minutes as team_minutes,
   h_field_goals_made as field_goals_made,
@@ -288,25 +233,7 @@ SELECT
   scheduled_date,
   gametime,
   h_id as opponent_team_id,
-  h_name as opponent_name,
-  h_market as opponent_market,
-  h_alias as opponent_alias,
-  h_points as opponent_points,
-  a_name as team_name,
-  a_market as team_market,
-  a_alias as team_alias,
-  a_league_id as team_league_id,
-  a_league_name as team_league_name,
-  a_league_alias as team_league_alias,
-  a_conf_id as team_conf_id,
-  a_conf_name as team_conf_name,
-  a_conf_alias as team_conf_alias,
-  a_division_id as team_division_id,
-  a_division_name as team_division_name,
-  a_division_alias as team_division_alias,
-  a_logo_large as team_logo_large,
-  a_logo_medium as team_logo_medium,
-  a_logo_small as team_logo_small,
+  h_points_game as opponent_points,
   a_points_game as points_game,
   a_minutes as team_minutes,
   a_field_goals_made as field_goals_made,
