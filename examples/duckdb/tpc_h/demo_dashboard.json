@@ -134,7 +134,7 @@
       },
       "5": {
         "type": "chart",
-        "content": "\n# Selecting the best selling products based on total revenue\nselect \n    part.id as product_id, \n    part.name, \n    sum(revenue) as total_revenue \nhaving \n    total_revenue > 0 \norder by \n    total_revenue desc\nlimit 15;\n",
+        "content": "\n# Selecting the best selling products based on total revenue\nselect \n    part.id as product_id, \n    part.name, \n    total_revenue \nhaving \n    total_revenue > 0 \norder by \n    total_revenue desc\nlimit 15;\n",
         "name": "Chart 5",
         "width": 355,
         "height": 275,

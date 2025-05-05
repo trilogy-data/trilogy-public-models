@@ -10,7 +10,7 @@ property id.name string;
 property id.kaggle_team_id int;
 property id.school_ncaa string;
 property id.turner_name string;
-property id.color string; # The team color
+property id.color string; # The team color, as a hex code - eg #8db9e5
 
 property id.venue_id string;
 property id.venue_city string;
