@@ -46,5 +46,5 @@ datasource lineitem(
     l_shipmode: ship_mode,
     l_comment:comment
 )
-grain(id)
+grain(id, order.id)
 address `https://shell.duckdb.org/data/tpch/0_01/parquet/lineitem.parquet`;
