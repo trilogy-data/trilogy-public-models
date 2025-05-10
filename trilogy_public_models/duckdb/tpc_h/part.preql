@@ -26,7 +26,7 @@ datasource part (
     p_comment:comment
 )
 grain(id)
-address `https://shell.duckdb.org/data/tpch/0_01/parquet/part.parquet`;
+address `https://blobs.duckdb.org/data/tpch-sf0.01-parquet/part.parquet`;
 
 property <id,supplier.id>.available_quantity float;
 property <id,supplier.id>.supply_cost float::usd;
@@ -40,4 +40,4 @@ datasource partsupp (
     ps_comment:supplier_comment
 )
 grain (id, supplier.id)
-address `https://shell.duckdb.org/data/tpch/0_01/parquet/partsupp.parquet`;
+address `https://blobs.duckdb.org/data/tpch-sf0.01-parquet/partsupp.parquet`;
