@@ -6,7 +6,7 @@ import std.display;
 key name string; # Given name of a person at birth. Firrst name only, typically with first letter capitalized. 
 key gender string; # Sex (M=male or F=female) 
 key state string::us_state_short; # The common two character abbreviation for a state, such as MA for Massachusetts or CT for Connecticut
-key year int::year; #	4-digit year of birth 
+key year int::year; #	4-digit year of birth. 1910-2021. 
 property <name, gender, state, year>.births int; # Number of occurrences of the name 
 auto total_births <- sum(births); # Sum of name count along chosen dimensions
 
