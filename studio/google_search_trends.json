@@ -3,21 +3,21 @@
     {
       "name": "football",
       "purpose": "example",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/bigquery/google_search_trends/football.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/google_search_trends/football.preql"
     },
     {
       "alias": "international_trends",
       "name": "international_trends",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/international_trends.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/international_trends.preql"
     },
     {
       "alias": "trends",
       "name": "trends",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/google_search_trends/trends.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/trends.preql"
     }
   ],
   "description": "google_search_trends dataset for bigquery",

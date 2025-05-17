@@ -1,0 +1,154 @@
+{
+  "count": 16,
+  "files": [
+    {
+      "description": "An exported set of AOE2 game data.",
+      "engine": "bigquery",
+      "filename": "age_of_empires_2.json",
+      "name": "age_of_empires_2",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "Chicago Police Department crime data from 2001 to present",
+      "engine": "bigquery",
+      "filename": "chicago_crime.json",
+      "name": "chicago_crime",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "crypto dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "crypto.json",
+      "name": "crypto",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "The demo model used in Studio tutorials",
+      "engine": "duckdb",
+      "filename": "demo-model.json",
+      "name": "demo-model",
+      "tags": [
+        "duckdb",
+        "benchmark",
+        "demo"
+      ]
+    },
+    {
+      "description": "Faa dataset for duckdb. Useful sample dataset for comparing to Malloy.",
+      "engine": "duckdb",
+      "filename": "faa.json",
+      "name": "faa",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
+      "description": "fcc_political_ads dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "fcc_political_ads.json",
+      "name": "fcc_political_ads",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "github dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "github.json",
+      "name": "github",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "google_search_trends dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "google_search_trends.json",
+      "name": "google_search_trends",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "ncaa_basketball dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "ncaa_basketball.json",
+      "name": "ncaa_basketball",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "new_york_citibike dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "new_york_citibike.json",
+      "name": "new_york_citibike",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "stack_overflow dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "stack_overflow.json",
+      "name": "stack_overflow",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "thelook_ecommerce dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "thelook_ecommerce.json",
+      "name": "thelook_ecommerce",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "titanic dataset for duckdb",
+      "engine": "duckdb",
+      "filename": "titanic.json",
+      "name": "titanic",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
+      "description": "TPC-DS is a decision support benchmark that models several generally applicable aspects of a decision support system, including queries and data maintenance.",
+      "engine": "duckdb",
+      "filename": "tpc_ds.json",
+      "name": "tpc_ds",
+      "tags": [
+        "duckdb",
+        "benchmark"
+      ]
+    },
+    {
+      "description": "The Trilogy studio demo model. Based TPC-H a warehouse benchmark designed for analytic systems. Uses duck-db hosted parquet files.",
+      "engine": "duckdb",
+      "filename": "tpc_h.json",
+      "name": "tpc_h",
+      "tags": [
+        "duckdb",
+        "benchmark"
+      ]
+    },
+    {
+      "description": "usa_names dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "usa_names.json",
+      "name": "usa_names",
+      "tags": [
+        "bigquery"
+      ]
+    }
+  ],
+  "updated_at": "2025-05-16T21:16:28.362110"
+}
