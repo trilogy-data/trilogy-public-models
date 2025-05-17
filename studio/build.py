@@ -58,7 +58,7 @@ def generate_json_files(check:bool):
                         file_name = os.path.basename(preql_file).replace(".preql", "")
                         if file_name == "entrypoint":
                             continue
-                        github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.preql"
+                        github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.preql"
 
                         component = {
                             "url": github_path,
@@ -73,7 +73,7 @@ def generate_json_files(check:bool):
                         file_name = os.path.basename(sql_file).replace(".sql", "")
                         if file_name == "entrypoint":
                             continue
-                        github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
+                        github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
 
                         component = {
                             "url": github_path,
@@ -95,7 +95,7 @@ def generate_json_files(check:bool):
                             file_name = os.path.basename(example_file).replace(
                                 ".preql", ""
                             )
-                            github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/{engine_dir}/{dataset_dir}/{file_name}.preql"
+                            github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{file_name}.preql"
 
                             component = {
                                 "name": file_name,
@@ -110,7 +110,7 @@ def generate_json_files(check:bool):
                             file_name = os.path.basename(dashboard_file).replace(
                                 ".json", ""
                             )
-                            github_path = f"https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/{engine_dir}/{dataset_dir}/{file_name}.json"
+                            github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{file_name}.json"
 
                             component = {
                                 "name": file_name,

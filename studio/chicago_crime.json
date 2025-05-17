@@ -5,7 +5,7 @@
       "name": "crime",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/chicago_crime/crime.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/chicago_crime/crime.preql"
     }
   ],
   "description": "Chicago Police Department crime data from 2001 to present",

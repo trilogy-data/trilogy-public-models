@@ -5,48 +5,48 @@
       "name": "aircraft",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/aircraft.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/aircraft.preql"
     },
     {
       "alias": "aircraft_model",
       "name": "aircraft_model",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/aircraft_model.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/aircraft_model.preql"
     },
     {
       "alias": "airport",
       "name": "airport",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/airport.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/airport.preql"
     },
     {
       "alias": "carrier",
       "name": "carrier",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/carrier.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/carrier.preql"
     },
     {
       "alias": "flight",
       "name": "flight",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/flight.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight.preql"
     },
     {
       "name": "flights",
       "purpose": "example",
       "type": "dashboard",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/examples/duckdb/faa/flights.json"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/flights.json"
     },
     {
       "alias": "setup",
       "name": "setup",
       "purpose": "setup",
       "type": "sql",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/duckdb/faa/setup.sql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/setup.sql"
     }
   ],
   "description": "Faa dataset for duckdb. Useful sample dataset for comparing to Malloy.",

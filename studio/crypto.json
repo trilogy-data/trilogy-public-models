@@ -5,7 +5,7 @@
       "name": "bitcoin",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/refs/heads/main/trilogy_public_models/bigquery/crypto/bitcoin.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/crypto/bitcoin.preql"
     }
   ],
   "description": "crypto dataset for bigquery",
