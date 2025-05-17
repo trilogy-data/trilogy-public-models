@@ -3,7 +3,7 @@ import json
 import glob
 import click
 from pathlib import Path
-
+from datetime import datetime
 
 @click.command()
 @click.option("--check", is_flag=True, help="Check if any files would be changed")
@@ -24,6 +24,9 @@ def generate_json_files(check:bool):
 
     # Track if any files would be modified
     files_changed = False
+    
+    # Keep track of all generated JSON files for the index
+    all_json_files = []
 
     # Get all engine directories (like bigquery, duckdb)
     for engine_dir in os.listdir(public_models_dir):
@@ -138,6 +141,15 @@ def generate_json_files(check:bool):
                     json_output = json.dumps(
                         json_data, indent=2, sort_keys=True, separators=(",", ": ")
                     )
+                    
+                    # Add to our list of JSON files for the index
+                    all_json_files.append({
+                        "filename": json_file_name,
+                        "name": json_data["name"],
+                        "engine": json_data["engine"],
+                        "description": json_data["description"],
+                        "tags": json_data["tags"]
+                    })
 
                     # Check if this would create changes
                     if check:
@@ -235,9 +247,67 @@ def generate_json_files(check:bool):
             demo_model_output = json.dumps(
                 tpc_h_data, indent=2, sort_keys=True, separators=(",", ": ")
             )
-        with open(demo_model_path, "w", newline="\n") as f:
-            f.write(demo_model_output)
-        print(f"Created {demo_model_path}")
+            
+        # Add the demo model to our index
+        all_json_files.append({
+            "filename": "demo-model.json",
+            "name": tpc_h_data["name"],
+            "engine": tpc_h_data["engine"],
+            "description": tpc_h_data["description"],
+            "tags": tpc_h_data["tags"]
+        })
+        
+        if not check:
+            with open(demo_model_path, "w", newline="\n") as f:
+                f.write(demo_model_output)
+            print(f"Created {demo_model_path}")
+
+    # Generate the index.json file
+    index_file_path = os.path.join(studio_dir, "index.json")
+    # Sort the files by name for consistency
+    all_json_files.sort(key=lambda x: x["name"])
+    
+    index_data = {
+        "updated_at": datetime.now().isoformat(),
+        "count": len(all_json_files),
+        "files": all_json_files
+    }
+    
+    index_output = json.dumps(
+        index_data, indent=2, sort_keys=True, separators=(",", ": ")
+    )
+    
+    # Check if index file would change
+    if check:
+        if os.path.exists(index_file_path):
+            try:
+                with open(index_file_path, "r", newline="") as f:
+                    current_index = json.load(f)
+                    # Remove the timestamp for comparison since it will always change
+                    current_index.pop("updated_at", None)
+                    temp_index = index_data.copy()
+                    temp_index.pop("updated_at", None)
+                    
+                    current_content = json.dumps(
+                        current_index, indent=2, sort_keys=True, separators=(",", ": ")
+                    )
+                    new_content = json.dumps(
+                        temp_index, indent=2, sort_keys=True, separators=(",", ": ")
+                    )
+                    
+                    if current_content != new_content:
+                        files_changed = True
+                        print(f"Index file would change: {index_file_path}")
+            except (json.JSONDecodeError, FileNotFoundError):
+                files_changed = True
+                print(f"Index file would change (current file not parsable): {index_file_path}")
+        else:
+            files_changed = True
+            print(f"Index file would be created: {index_file_path}")
+    else:
+        with open(index_file_path, "w", newline="\n") as f:
+            f.write(index_output)
+        print(f"Created {index_file_path}")
 
     # If running in check mode and files would change, exit with error
     if check and files_changed:
