@@ -10,6 +10,7 @@ def single_model(key, model: Environment, bq_executor, bq_client):
     try:
         validate_model(model, bq_executor, bq_client)
     except Exception as e:
+        raise e
         raise ValueError(
             f"Failed to handle model {key} {type(model)} with error {str(e)}"
         )
