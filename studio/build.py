@@ -5,9 +5,10 @@ import click
 from pathlib import Path
 from datetime import datetime
 
+
 @click.command()
 @click.option("--check", is_flag=True, help="Check if any files would be changed")
-def generate_json_files(check:bool):
+def generate_json_files(check: bool):
     """Generate JSON files for all datasets and optionally check if any changes would be made."""
     # Base directory where the script is running
     base_dir = Path(__file__).parent.parent
@@ -24,7 +25,7 @@ def generate_json_files(check:bool):
 
     # Track if any files would be modified
     files_changed = False
-    
+
     # Keep track of all generated JSON files for the index
     all_json_files = []
 
@@ -141,15 +142,17 @@ def generate_json_files(check:bool):
                     json_output = json.dumps(
                         json_data, indent=2, sort_keys=True, separators=(",", ": ")
                     )
-                    
+
                     # Add to our list of JSON files for the index
-                    all_json_files.append({
-                        "filename": json_file_name,
-                        "name": json_data["name"],
-                        "engine": json_data["engine"],
-                        "description": json_data["description"],
-                        "tags": json_data["tags"]
-                    })
+                    all_json_files.append(
+                        {
+                            "filename": json_file_name,
+                            "name": json_data["name"],
+                            "engine": json_data["engine"],
+                            "description": json_data["description"],
+                            "tags": json_data["tags"],
+                        }
+                    )
 
                     # Check if this would create changes
                     if check:
@@ -247,16 +250,18 @@ def generate_json_files(check:bool):
             demo_model_output = json.dumps(
                 tpc_h_data, indent=2, sort_keys=True, separators=(",", ": ")
             )
-            
+
         # Add the demo model to our index
-        all_json_files.append({
-            "filename": "demo-model.json",
-            "name": tpc_h_data["name"],
-            "engine": tpc_h_data["engine"],
-            "description": tpc_h_data["description"],
-            "tags": tpc_h_data["tags"]
-        })
-        
+        all_json_files.append(
+            {
+                "filename": "demo-model.json",
+                "name": tpc_h_data["name"],
+                "engine": tpc_h_data["engine"],
+                "description": tpc_h_data["description"],
+                "tags": tpc_h_data["tags"],
+            }
+        )
+
         if not check:
             with open(demo_model_path, "w", newline="\n") as f:
                 f.write(demo_model_output)
@@ -266,17 +271,17 @@ def generate_json_files(check:bool):
     index_file_path = os.path.join(studio_dir, "index.json")
     # Sort the files by name for consistency
     all_json_files.sort(key=lambda x: x["name"])
-    
+
     index_data = {
         "updated_at": datetime.now().isoformat(),
         "count": len(all_json_files),
-        "files": all_json_files
+        "files": all_json_files,
     }
-    
+
     index_output = json.dumps(
         index_data, indent=2, sort_keys=True, separators=(",", ": ")
     )
-    
+
     # Check if index file would change
     if check:
         if os.path.exists(index_file_path):
@@ -287,20 +292,22 @@ def generate_json_files(check:bool):
                     current_index.pop("updated_at", None)
                     temp_index = index_data.copy()
                     temp_index.pop("updated_at", None)
-                    
+
                     current_content = json.dumps(
                         current_index, indent=2, sort_keys=True, separators=(",", ": ")
                     )
                     new_content = json.dumps(
                         temp_index, indent=2, sort_keys=True, separators=(",", ": ")
                     )
-                    
+
                     if current_content != new_content:
                         files_changed = True
                         print(f"Index file would change: {index_file_path}")
             except (json.JSONDecodeError, FileNotFoundError):
                 files_changed = True
-                print(f"Index file would change (current file not parsable): {index_file_path}")
+                print(
+                    f"Index file would change (current file not parsable): {index_file_path}"
+                )
         else:
             files_changed = True
             print(f"Index file would be created: {index_file_path}")
