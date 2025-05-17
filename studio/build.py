@@ -2,13 +2,12 @@ import os
 import json
 import glob
 import click
-import tempfile
 from pathlib import Path
 
 
 @click.command()
 @click.option("--check", is_flag=True, help="Check if any files would be changed")
-def generate_json_files(check):
+def generate_json_files(check:bool):
     """Generate JSON files for all datasets and optionally check if any changes would be made."""
     # Base directory where the script is running
     base_dir = Path(__file__).parent.parent
