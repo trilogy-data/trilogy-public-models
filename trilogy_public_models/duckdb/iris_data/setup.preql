@@ -4,6 +4,6 @@ set file_search_path = :_env_working_path
 ''');
 
 RAW_SQL('''
-CREATE TABLE distribution AS FROM read_csv('distribu.csv');
+CREATE TABLE distribution AS FROM read_csv('distribution.csv');
 ''');
 
