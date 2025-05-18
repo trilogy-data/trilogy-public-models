@@ -1,0 +1,18 @@
+{
+  "components": [
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/setup.preql"
+    }
+  ],
+  "description": "iris_data dataset for duckdb",
+  "engine": "duckdb",
+  "link": "",
+  "name": "iris_data",
+  "tags": [
+    "duckdb"
+  ]
+}

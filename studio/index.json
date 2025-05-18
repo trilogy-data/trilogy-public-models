@@ -1,5 +1,5 @@
 {
-  "count": 16,
+  "count": 17,
   "files": [
     {
       "description": "An exported set of AOE2 game data.",
@@ -73,6 +73,15 @@
       "name": "google_search_trends",
       "tags": [
         "bigquery"
+      ]
+    },
+    {
+      "description": "iris_data dataset for duckdb",
+      "engine": "duckdb",
+      "filename": "iris_data.json",
+      "name": "iris_data",
+      "tags": [
+        "duckdb"
       ]
     },
     {
@@ -150,5 +159,5 @@
       ]
     }
   ],
-  "updated_at": "2025-05-16T21:16:28.362110"
+  "updated_at": "2025-05-18T12:01:48.814567"
 }
