@@ -9,7 +9,6 @@ workload_federation_setup
 .venv
 .vscode
 *.code-workspace
-*.parquet
 match_actions/
 build/
 *.egg-info/
