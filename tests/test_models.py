@@ -14,7 +14,7 @@ def single_model(key, model: Environment, bq_executor, bq_client, retry:bool=Fal
     except PydanticUserError as e:
         if retry:
             raise e
-        return validate_model(model, bq_executor, bq_client, True)
+        return single_model(model, bq_executor, bq_client, True)
     except Exception as e:
         error_traceback = traceback.format_exc()
         raise ValueError(
