@@ -1,0 +1,9 @@
+import menu;
+
+
+SELECT
+    truck_brand_name,
+    item_category,
+    id.count as product_count,
+	avg(sale_price_usd) as avg_sale_price;
+

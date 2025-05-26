@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "alias": "menu",
+      "name": "menu",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/snowflake/tasty_bytes/menu.preql"
+    },
+    {
+      "name": "truck_comparison",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/snowflake/tasty_bytes/truck_comparison.preql"
+    }
+  ],
+  "description": "tasty_bytes dataset for snowflake",
+  "engine": "snowflake",
+  "link": "",
+  "name": "tasty_bytes",
+  "tags": [
+    "snowflake"
+  ]
+}

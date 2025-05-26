@@ -4,3 +4,5 @@ ruff
 mypy
 google-cloud-bigquery
 duckdb
+fakesnow
+snowflake-sqlalchemy
