@@ -5,12 +5,13 @@ from trilogy import Environment
 import traceback
 from pydantic.errors import PydanticUserError
 
+
 SKIPPED_KEYS = ["bigquery.age_of_empires_2", "duckdb.titanic"]
 
 
-def single_model(key, model: Environment, bq_executor, bq_client, retry:bool=False):
+def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = False):
     try:
-        validate_model(model, bq_executor, bq_client)
+        validate_model(key, model, bq_executor, bq_client)
     except PydanticUserError as e:
         if retry:
             raise e

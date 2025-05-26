@@ -1,0 +1,30 @@
+{
+  "components": [
+    {
+      "alias": "hacker_news",
+      "name": "hacker_news",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/hacker_news.preql"
+    },
+    {
+      "alias": "post",
+      "name": "post",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/post.preql"
+    },
+    {
+      "name": "day_of_week_analysis",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/day_of_week_analysis.preql"
+    }
+  ],
+  "description": "hacker_news dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "hacker_news",
+  "tags": [
+    "bigquery"
+  ]
+}
