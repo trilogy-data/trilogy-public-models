@@ -1,4 +1,4 @@
-import hackernews;
+import hacker_news;
 
 
 # for stories, which days of the week have the most posts in 2024?
