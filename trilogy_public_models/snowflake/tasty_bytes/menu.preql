@@ -11,7 +11,8 @@ property id.item_subcategory string;
 property id.cost_of_goods_usd int::usd;
 property id.sale_price_usd int::usd;
 property id.item_health_metrics_obj string;
-datasource MENU (
+
+datasource menu (
     MENU_ID:id,
     MENU_TYPE_ID:type_id,
     MENU_TYPE:type,

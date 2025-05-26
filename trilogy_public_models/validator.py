@@ -77,6 +77,9 @@ def validate_query(
             elif executor.dialect == Dialects.DUCK_DB:
                 # use a dry run to save costs
                 query_job = executor.execute_raw_sql(compiled_sql)
+            elif executor.dialect == Dialects.SNOWFLAKE:
+                # dry run with fake snow
+                query_job = executor.execute_raw_sql(compiled_sql)
             else:
                 raise NotImplementedError(
                     f"Validation not implemented for {executor.dialect}"

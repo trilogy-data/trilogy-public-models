@@ -11,6 +11,8 @@ def get_executor(
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
         dialect = Dialects.DUCK_DB
+    elif "snowflake" in model:
+        dialect = Dialects.SNOWFLAKE
     else:
         raise NotImplementedError(f"Model {model} not supported")
     loaded = data_models[model]

@@ -23,7 +23,7 @@ def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = 
         )
 
 
-def test_models(bq_client, bq_executor):
+def test_models(bq_client, bq_executor, snowflake_executor):
     results = []
     with ThreadPoolExecutor() as executor:
         for key, model in data_models.items():
@@ -37,6 +37,12 @@ def test_models(bq_client, bq_executor):
                 results.append(future)
             elif "duckdb" in key:
                 trilogy_executor = get_executor(key)
+                future = executor.submit(
+                    single_model, key, model.environment, trilogy_executor, None
+                )
+                results.append(future)
+            elif "snowflake" in key:
+                trilogy_executor = get_executor(key, executor=snowflake_executor())
                 future = executor.submit(
                     single_model, key, model.environment, trilogy_executor, None
                 )

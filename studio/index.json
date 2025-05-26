@@ -121,10 +121,10 @@
       ]
     },
     {
-      "description": "tasty_btes dataset for snowflake",
+      "description": "tasty_bytes dataset for snowflake",
       "engine": "snowflake",
-      "filename": "tasty_btes.json",
-      "name": "tasty_btes",
+      "filename": "tasty_bytes.json",
+      "name": "tasty_bytes",
       "tags": [
         "snowflake"
       ]
@@ -177,5 +177,5 @@
       ]
     }
   ],
-  "updated_at": "2025-05-26T13:42:05.620333"
+  "updated_at": "2025-05-26T14:13:09.913122"
 }
