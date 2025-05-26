@@ -1,5 +1,5 @@
 {
-  "count": 17,
+  "count": 18,
   "files": [
     {
       "description": "An exported set of AOE2 game data.",
@@ -71,6 +71,15 @@
       "engine": "bigquery",
       "filename": "google_search_trends.json",
       "name": "google_search_trends",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "hacker_news dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "hacker_news.json",
+      "name": "hacker_news",
       "tags": [
         "bigquery"
       ]
@@ -159,5 +168,5 @@
       ]
     }
   ],
-  "updated_at": "2025-05-18T13:06:25.868129"
+  "updated_at": "2025-05-26T12:59:33.159984"
 }
