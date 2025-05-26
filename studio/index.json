@@ -1,5 +1,5 @@
 {
-  "count": 18,
+  "count": 19,
   "files": [
     {
       "description": "An exported set of AOE2 game data.",
@@ -121,6 +121,15 @@
       ]
     },
     {
+      "description": "tasty_btes dataset for snowflake",
+      "engine": "snowflake",
+      "filename": "tasty_btes.json",
+      "name": "tasty_btes",
+      "tags": [
+        "snowflake"
+      ]
+    },
+    {
       "description": "thelook_ecommerce dataset for bigquery",
       "engine": "bigquery",
       "filename": "thelook_ecommerce.json",
@@ -168,5 +177,5 @@
       ]
     }
   ],
-  "updated_at": "2025-05-26T12:59:33.159984"
+  "updated_at": "2025-05-26T13:42:05.620333"
 }
