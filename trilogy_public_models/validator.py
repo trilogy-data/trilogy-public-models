@@ -14,6 +14,9 @@ from trilogy.core.internal import INTERNAL_NAMESPACE
 from trilogy.core.env_processor import generate_graph
 from trilogy.core.models.build import Factory, BuildConcept
 from trilogy.core.models.build_environment import BuildEnvironment
+from pathlib import Path
+
+example_path = Path(__file__).parent.parent / "examples"
 
 
 def safe_address(input: Concept | ConceptRef):
@@ -25,12 +28,17 @@ def safe_address(input: Concept | ConceptRef):
 def validate_dataset(
     dataset: Datasource, environment: Environment, executor: Executor, dry_run_client
 ):
-
     validation_query = (
         "SELECT\n "
         + ",\n\t".join([safe_address(x) for x in dataset.concepts])
         + " LIMIT 0;"
     )
+    validate_query(validation_query, environment, executor, dry_run_client)
+
+
+def validate_query(
+    validation_query: str, environment: Environment, executor: Executor, dry_run_client
+):
 
     try:
         _, parsed = parse_text(validation_query, environment)
@@ -86,13 +94,24 @@ def validate_datasource_grain(datasource):
     pass
 
 
+def get_example_queries(key: str) -> list[str]:
+    type, name = key.split(".")
+    example_dir = example_path / type / name
+    queries = example_dir.glob("*.preql")
+    final = []
+    for query in queries:
+        with open(query, "r") as f:
+            final.append(f.read())
+    return final
+
+
 def validate_concept(concept: BuildConcept, history: History, env, graph):
     if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
         return
     search_concepts([concept], history=history, environment=env, depth=0, g=graph)
 
 
-def validate_model(model: Environment, executor: Executor, dry_run_client):
+def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
     for dataset in model.datasources.values():
         validate_dataset(dataset, model, executor, dry_run_client)
     history = History(base_environment=model)
@@ -101,3 +120,7 @@ def validate_model(model: Environment, executor: Executor, dry_run_client):
     graph = generate_graph(build_model)
     for concept in build_model.concepts.values():
         validate_concept(concept, history, build_model, graph)
+
+    for example in get_example_queries(key):
+
+        validate_query(example, model, executor, dry_run_client)

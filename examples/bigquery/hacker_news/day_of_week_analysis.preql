@@ -1,0 +1,14 @@
+import hackernews;
+
+
+# for stories, which days of the week have the most posts in 2024?
+
+where type = 'story'
+  and create_time.year = 2024
+select
+  create_time.day_of_week,
+  id.count as story_count,
+  avg(score) as average_score
+order by
+  story_count desc
+limit 7;
