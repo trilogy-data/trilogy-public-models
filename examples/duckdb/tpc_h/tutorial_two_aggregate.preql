@@ -7,6 +7,7 @@ SELECT
 	part.supplier.nation.name,
 	part.id,
 	part.manufacturer,
+	part.supplier.id,
 	part.supplier.address,
 	part.supplier.phone,
 	part.supplier.comment,
