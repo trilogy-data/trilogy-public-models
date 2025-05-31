@@ -1,7 +1,31 @@
 
 key repo string;
-
+key language string;
 
 property repo.license string;
 
+property <language, repo>.per_repo_bytes int;
+
+
+datasource licenses (
+    repo_name: repo,
+    license: license,
+    )
+    grain (repo)
+    address `bigquery-public-data.github_repos.licenses`;
+
+
+datasource languages (
+    repo_name:repo,
+    language.name: language,
+    language.bytes: per_repo_bytes
+    )
+    grain (repo, language)
+    query '''
+select
+    repo_name,
+    language
+FROM `bigquery-public-data.github_repos.languages`
+CROSS JOIN UNNEST(language) AS language
+''';
 
