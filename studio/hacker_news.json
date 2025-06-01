@@ -20,7 +20,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/post.preql"
     }
   ],
-  "description": "hacker_news dataset for bigquery",
+  "description": "Exported Hacker News dataset from BigQuery. Contains posts and comment information. May include additional datasources that are fun to support analysis. PRs welcome.",
   "engine": "bigquery",
   "link": "",
   "name": "hacker_news",
