@@ -1,0 +1,10 @@
+import hacker_news;
+
+where type = 'story' and is_show_hn and create_time.year>2024 and not deleted and not dead
+select
+  round( len(text) /100, 0) as size_bucket,
+  avg(score) as avg_score,
+  count(id) as sample_size
+having sample_size
+>5
+;
