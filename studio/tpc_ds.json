@@ -78,6 +78,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/setup.preql"
     },
     {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/setup.sql"
+    },
+    {
       "alias": "store",
       "name": "store",
       "purpose": "source",
