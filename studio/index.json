@@ -1,5 +1,5 @@
 {
-  "count": 19,
+  "count": 20,
   "files": [
     {
       "description": "An exported set of AOE2 game data.",
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "description": "hacker_news dataset for bigquery",
+      "description": "Exported Hacker News dataset from BigQuery. Contains posts and comment information. May include additional datasources that are fun to support analysis. PRs welcome.",
       "engine": "bigquery",
       "filename": "hacker_news.json",
       "name": "hacker_news",
@@ -107,6 +107,15 @@
       "engine": "bigquery",
       "filename": "new_york_citibike.json",
       "name": "new_york_citibike",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
+      "description": "norway_transit dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "norway_transit.json",
+      "name": "norway_transit",
       "tags": [
         "bigquery"
       ]
@@ -177,5 +186,5 @@
       ]
     }
   ],
-  "updated_at": "2025-05-26T14:13:09.913122"
+  "updated_at": "2025-06-15T10:57:04.999638"
 }

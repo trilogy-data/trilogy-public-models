@@ -1,0 +1,18 @@
+{
+  "components": [
+    {
+      "alias": "travel_data",
+      "name": "travel_data",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/norway_transit/travel_data.preql"
+    }
+  ],
+  "description": "norway_transit dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "norway_transit",
+  "tags": [
+    "bigquery"
+  ]
+}

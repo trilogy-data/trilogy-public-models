@@ -6,6 +6,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/day_of_week_analysis.preql"
     },
     {
+      "alias": "github",
+      "name": "github",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/github.preql"
+    },
+    {
       "alias": "hacker_news",
       "name": "hacker_news",
       "purpose": "source",
@@ -18,9 +25,34 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/post.preql"
+    },
+    {
+      "name": "worst_show_days",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_days.preql"
+    },
+    {
+      "name": "worst_show_git_language",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_git_language.preql"
+    },
+    {
+      "name": "worst_show_git_license",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_git_license.preql"
+    },
+    {
+      "name": "worst_show_post_size",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_post_size.preql"
+    },
+    {
+      "name": "worst_show_time_of_day",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_time_of_day.preql"
     }
   ],
-  "description": "hacker_news dataset for bigquery",
+  "description": "Exported Hacker News dataset from BigQuery. Contains posts and comment information. May include additional datasources that are fun to support analysis. PRs welcome.",
   "engine": "bigquery",
   "link": "",
   "name": "hacker_news",

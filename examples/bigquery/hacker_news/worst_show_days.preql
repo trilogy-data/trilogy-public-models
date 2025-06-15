@@ -1,0 +1,46 @@
+import post;
+import std.date;
+
+where type = 'story' and is_show_hn and create_time.year>2024 and not deleted and not dead
+select
+    CASE 
+   # New Year's Day
+    WHEN create_time.month = 1 and create_time.day = 1 THEN 'New Years Day'
+    # Valentine's Day
+    WHEN create_time.month = 2 and create_time.day = 14 THEN 'Valentines Day'
+   #Presidents Day (3rd Monday in February)
+    WHEN create_time.month = 2 and create_time.day_of_week_name = 'Monday' 
+         and create_time.day >= 15 and create_time.day <= 21 THEN 'Presidents Day'
+    # St. Patrick's Day
+    WHEN create_time.month = 3 and create_time.day = 17 THEN 'St. Patricks Day'
+   #April Fools' Day
+    WHEN create_time.month = 4 and create_time.day = 1 THEN 'April Fools Day'
+   #Memorial Day (last Monday in May)
+    WHEN create_time.month = 5 and create_time.day_of_week_name = 'Monday' 
+         and create_time.day >= 25 THEN 'Memorial Day'
+    # Independence Day
+    WHEN create_time.month = 7 and create_time.day = 4 THEN 'Independence Day'
+   # Labor Day (1st Monday in September)
+    WHEN create_time.month = 9 and create_time.day_of_week_name = 'Monday' 
+         and create_time.day <= 7 THEN 'Labor Day'
+   # Halloween
+    WHEN create_time.month = 10 and create_time.day = 31 THEN 'Halloween'
+    #Veterans Day
+    WHEN create_time.month = 11 and create_time.day = 11 THEN 'Veterans Day'
+    #Thanksgiving (4th Thursday in November)
+    WHEN create_time.month = 11 and create_time.day_of_week_name = 'Thursday' 
+         and create_time.day >= 22 and create_time.day <= 28 THEN 'Thanksgiving'
+    # Black Friday (day after Thanksgiving)
+    WHEN create_time.month = 11 and create_time.day_of_week_name = 'Friday' 
+         and create_time.day >= 23 and create_time.day <= 29 THEN 'Black Friday'
+    #Christmas Eve
+    WHEN create_time.month = 12 and create_time.day = 24 THEN 'Christmas Eve'
+    # Christmas
+    WHEN create_time.month = 12 and create_time.day = 25 THEN 'Christmas'
+    # New Year's Eve
+    WHEN create_time.month = 12 and create_time.day = 31 THEN 'New Years Eve'
+    else create_time.day_of_week_name
+    end::string::day_of_week_name as fun_label,
+    id.count,
+    avg(score) as avg_score,
+order by avg_score desc;

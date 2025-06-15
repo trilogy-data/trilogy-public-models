@@ -73,9 +73,9 @@
     {
       "alias": "setup",
       "name": "setup",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/setup.preql"
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/setup.sql"
     },
     {
       "alias": "store",

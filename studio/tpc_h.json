@@ -49,6 +49,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/region.preql"
     },
     {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/setup.sql"
+    },
+    {
       "alias": "supplier",
       "name": "supplier",
       "purpose": "source",

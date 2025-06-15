@@ -49,4 +49,4 @@ datasource lineitem(
     l_comment:comment
 )
 grain(line_no, order.id)
-address `https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/lineitem.parquet`;
+address memory.lineitem;

@@ -1,0 +1,7 @@
+import post;
+
+where type = 'story' and is_show_hn and create_time.year>2024 and not deleted and not dead
+SELECT
+  create_time.hour,
+  id.count,
+  avg(score) as avg_score;
