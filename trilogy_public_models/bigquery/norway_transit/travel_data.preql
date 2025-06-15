@@ -1,57 +1,57 @@
-import std.geography;
+# import std.geography;
 
-key route_id string;  #ID of a route. For example: RUT:Line:86
-key trip_id string;  #ID of a trip. For example: NSB:ServiceJourney:1-1314-2166-202109211325
-key stop_seq int;  #Order of stops for a particular trip. For example: 23. The values increase along the trip but are not necessarily consecutive.
+# key route_id string;  #ID of a route. For example: RUT:Line:86
+# key trip_id string;  #ID of a trip. For example: NSB:ServiceJourney:1-1314-2166-202109211325
+# key stop_seq int;  #Order of stops for a particular trip. For example: 23. The values increase along the trip but are not necessarily consecutive.
 
-property <trip_id, stop_seq>.agency_id string;  #Transit agency ID. For example: RUT:Authority:RUT
-property <trip_id, stop_seq>.agency_name string;  #Name of the transit agency. For example: Ruter
+# property <trip_id, stop_seq>.agency_id string;  #Transit agency ID. For example: RUT:Authority:RUT
+# property <trip_id, stop_seq>.agency_name string;  #Name of the transit agency. For example: Ruter
 
-property route_id.route_short_name string;  #Short name of the route. For example: L13
-property route_id.route_long_name string;  #Full name of a route. For example: Majorstuen - Storo
-property route_id.route_type string;  #Indicates the type of transportation used on a route. For example: Bus.
+# property route_id.route_short_name string;  #Short name of the route. For example: L13
+# property route_id.route_long_name string;  #Full name of a route. For example: Majorstuen - Storo
+# property route_id.route_type string;  #Indicates the type of transportation used on a route. For example: Bus.
 
-property trip_id.trip_headsign string;  #Identifies the trip's destination to the passengers. For example: Eidsvoll. This field can be used to distinguish between different patterns of service on the same route
-property trip_id.direction_id int;  #Indicates the direction of travel for a trip and provides a way to separate trips by direction. For example: 0 (Outbound travel)
-property <trip_id, stop_seq>.shape_id string;  #Identifies a geospatial shape that describes the vehicle travel path for a trip
-property <trip_id, stop_seq>.shape_dist_traveled float;  #Actual distance traveled along the associated shape, from the first stop to the stop specified in this record. For example: If a bus travels a distance of 5.25 kilometers from the start of the shape to the stop, shape_dist_traveled=5.25
-property <trip_id, stop_seq>.stop_id string;  #Identifies the serviced stop in NSR format. For example: NSR:Quay:7333 (Nationaltheatret)
-property <trip_id, stop_seq>.stop_name string;  #Name of a stop, station, or a station enterance. For example: Jernbanetorget
-property <trip_id, stop_seq>.stop_description string;  #Description of the stop location. For example: Retning vest
-property <trip_id, stop_seq>.parent_station string;  #ID of the parent station of the stop in NSR format. For example: NSR:StopPlace:4067 (Nationaltheatret)
-property <trip_id, stop_seq>.stop_longitude float::longitude;  #Longitude of the stop location. For example: 10.618477
-property <trip_id, stop_seq>.stop_latitude float::latitude;  #Latitude of the stop location. For example: 59.925800
-property <trip_id, stop_seq>.platform_code string;  #Platform identifier for a platform stop (a stop belonging to a station)
-property <trip_id, stop_seq>.operating_date date;  #Date of the service day. For example: 2021-07-12. A service day may exceed 24:00:00 if service begins on one day and ends on a following day and is represented by fields departure_time and arrival_time
-property <trip_id, stop_seq>.departure_time timestamp;  #Departure time at a specific stop for a specific trip on a route. For example: 22:22:00
-property <trip_id, stop_seq>.arrival_time timestamp;  #Arrival time at a specific stop for a specific trip on a route. For example: 22:22:00
+# property trip_id.trip_headsign string;  #Identifies the trip's destination to the passengers. For example: Eidsvoll. This field can be used to distinguish between different patterns of service on the same route
+# property trip_id.direction_id int;  #Indicates the direction of travel for a trip and provides a way to separate trips by direction. For example: 0 (Outbound travel)
+# property <trip_id, stop_seq>.shape_id string;  #Identifies a geospatial shape that describes the vehicle travel path for a trip
+# property <trip_id, stop_seq>.shape_dist_traveled float;  #Actual distance traveled along the associated shape, from the first stop to the stop specified in this record. For example: If a bus travels a distance of 5.25 kilometers from the start of the shape to the stop, shape_dist_traveled=5.25
+# property <trip_id, stop_seq>.stop_id string;  #Identifies the serviced stop in NSR format. For example: NSR:Quay:7333 (Nationaltheatret)
+# property <trip_id, stop_seq>.stop_name string;  #Name of a stop, station, or a station enterance. For example: Jernbanetorget
+# property <trip_id, stop_seq>.stop_description string;  #Description of the stop location. For example: Retning vest
+# property <trip_id, stop_seq>.parent_station string;  #ID of the parent station of the stop in NSR format. For example: NSR:StopPlace:4067 (Nationaltheatret)
+# property <trip_id, stop_seq>.stop_longitude float::longitude;  #Longitude of the stop location. For example: 10.618477
+# property <trip_id, stop_seq>.stop_latitude float::latitude;  #Latitude of the stop location. For example: 59.925800
+# property <trip_id, stop_seq>.platform_code string;  #Platform identifier for a platform stop (a stop belonging to a station)
+# property <trip_id, stop_seq>.operating_date date;  #Date of the service day. For example: 2021-07-12. A service day may exceed 24:00:00 if service begins on one day and ends on a following day and is represented by fields departure_time and arrival_time
+# property <trip_id, stop_seq>.departure_time timestamp;  #Departure time at a specific stop for a specific trip on a route. For example: 22:22:00
+# property <trip_id, stop_seq>.arrival_time timestamp;  #Arrival time at a specific stop for a specific trip on a route. For example: 22:22:00
 
-property <trip_id, stop_seq>.gtfs_version date;  #Version of the GTFS data. Refers to the date the GTFS dataset was produced, for instance 2021-07-15
+# property <trip_id, stop_seq>.gtfs_version date;  #Version of the GTFS data. Refers to the date the GTFS dataset was produced, for instance 2021-07-15
 
-datasource gtfs_last_recorded_ent_v1 (
-	agency_id:agency_id,
-	agency_name:agency_name,
-	route_id:route_id,
-	route_short_name:route_short_name,
-	route_long_name:route_long_name,
-	route_type:route_type,
-	trip_id:trip_id,
-	trip_headsign:trip_headsign,
-	direction_id:direction_id,
-	shape_id:shape_id,
-	shape_dist_traveled:shape_dist_traveled,
-	stop_id:stop_id,
-	stop_name:stop_name,
-	stop_description:stop_description,
-	parent_station:parent_station,
-	stop_longitude:stop_longitude,
-	stop_latitude:stop_latitude,
-	platform_code:platform_code,
-	operating_date:operating_date,
-	departure_time:departure_time,
-	arrival_time:arrival_time,
-	stop_sequence:stop_seq,
-	gtfs_version:gtfs_version,
-)
-grain (trip_id, stop_seq)
-address `ent-data-sharing-ext-prd.timetable_gtfs.gtfs_last_recorded_ent_v1`;
+# datasource gtfs_last_recorded_ent_v1 (
+# 	agency_id:agency_id,
+# 	agency_name:agency_name,
+# 	route_id:route_id,
+# 	route_short_name:route_short_name,
+# 	route_long_name:route_long_name,
+# 	route_type:route_type,
+# 	trip_id:trip_id,
+# 	trip_headsign:trip_headsign,
+# 	direction_id:direction_id,
+# 	shape_id:shape_id,
+# 	shape_dist_traveled:shape_dist_traveled,
+# 	stop_id:stop_id,
+# 	stop_name:stop_name,
+# 	stop_description:stop_description,
+# 	parent_station:parent_station,
+# 	stop_longitude:stop_longitude,
+# 	stop_latitude:stop_latitude,
+# 	platform_code:platform_code,
+# 	operating_date:operating_date,
+# 	departure_time:departure_time,
+# 	arrival_time:arrival_time,
+# 	stop_sequence:stop_seq,
+# 	gtfs_version:gtfs_version,
+# )
+# grain (trip_id, stop_seq)
+# address `ent-data-sharing-ext-prd.timetable_gtfs.gtfs_last_recorded_ent_v1`;
