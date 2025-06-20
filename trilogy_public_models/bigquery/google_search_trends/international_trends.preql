@@ -12,7 +12,7 @@ property <term, trend_week>.rank int; # Rank, the rank for this trend_week. Cons
 
 
 
-datasource trends (
+datasource internation_trends (
     region_code:region_code,
     region_name:region_name,
     country_code:country_code,

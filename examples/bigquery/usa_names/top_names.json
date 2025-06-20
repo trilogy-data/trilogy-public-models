@@ -1,140 +1,156 @@
 {
-    "name": "USA Names",
-    "layout": [
-      {
-        "x": 0,
-        "y": 10,
-        "w": 4,
-        "h": 11,
-        "i": "0"
-      },
-      {
-        "x": 8,
-        "y": 10,
-        "w": 4,
-        "h": 11,
-        "i": "1"
-      },
-      {
-        "x": 4,
-        "y": 10,
-        "w": 4,
-        "h": 11,
-        "i": "2"
-      },
-      {
-        "x": 0,
-        "y": 3,
-        "w": 12,
-        "h": 7,
-        "i": "3"
-      },
-      {
-        "x": 0,
-        "y": 0,
-        "w": 12,
-        "h": 3,
-        "i": "4"
-      }
-    ],
-    "gridItems": {
-      "0": {
-        "type": "chart",
-        "content": "SELECT\r\n    gender,\r\n    total_births\r\norder by\r\n    total_births desc\r\nlimit 10;",
-        "name": "Chart 0",
-        "width": 364,
-        "height": 395,
-        "chartFilters": [],
-        "filters": [],
-        "conceptFilters": [],
-        "chartConfig": {
-          "chartType": "bar",
-          "xField": "gender",
-          "yField": "total_births",
-          "yAggregation": "sum",
-          "colorField": "gender",
-          "sizeField": "",
-          "groupField": "",
-          "trellisField": "",
-          "geoField": "",
-          "showDebug": false
-        }
-      },
-      "1": {
-        "type": "chart",
-        "content": "SELECT\r\n    state,\r\n    percent_of_total\r\n;",
-        "name": "Births by State",
-        "width": 364,
-        "height": 395,
-        "chartConfig": {
-          "chartType": "usa-map",
-          "xField": "",
-          "yField": "",
-          "yAggregation": "sum",
-          "colorField": "total_births",
-          "sizeField": "",
-          "groupField": "",
-          "trellisField": "",
-          "geoField": "state",
-          "showDebug": false
-        },
-        "conceptFilters": [],
-        "filters": [],
-        "chartFilters": []
-      },
-      "2": {
-        "type": "chart",
-        "content": "SELECT\r\n    name,\r\n    total_births\r\norder by\r\n    total_births desc limit 15;",
-        "name": "Chart 2",
-        "width": 364,
-        "height": 395,
-        "conceptFilters": [],
-        "filters": [],
-        "chartFilters": [],
-        "chartConfig": {
-          "chartType": "barh",
-          "xField": "total_births",
-          "yField": "name",
-          "yAggregation": "sum",
-          "colorField": "",
-          "sizeField": "",
-          "groupField": "",
-          "trellisField": "",
-          "geoField": "",
-          "showDebug": true
-        }
-      },
-      "3": {
-        "type": "chart",
-        "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    total_births,\r\n    rank name by group total_births by name desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
-        "name": "Chart 3",
-        "width": 1109,
-        "height": 235,
-        "conceptFilters": [],
-        "filters": [],
-        "chartFilters": []
-      },
-      "4": {
-        "type": "markdown",
-        "content": "## Names Analysis\n\nLook at the top 5 names over time, and then all names broken down by gender, name, and US state. Click on charts to cross-filter and interact. ",
-        "name": "Note 4",
-        "width": 1109,
-        "height": 75,
-        "conceptFilters": [],
-        "filters": []
+  "name": "USA Names",
+  "layout": [
+    {
+      "x": 0,
+      "y": 10,
+      "w": 6,
+      "h": 11,
+      "i": "0"
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "w": 6,
+      "h": 11,
+      "i": "1"
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "w": 6,
+      "h": 11,
+      "i": "2"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "w": 18,
+      "h": 7,
+      "i": "3"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 18,
+      "h": 3,
+      "i": "4"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "chart",
+      "content": "SELECT\r\n    gender,\r\n    total_births\r\norder by\r\n    total_births desc\r\nlimit 10;",
+      "name": "Chart 0",
+      "width": 438,
+      "height": 395,
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": [],
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "gender",
+        "yField": "total_births",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "gender",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
       }
     },
-    "nextId": 5,
-    "createdAt": "2025-04-05T15:31:48.185Z",
-    "updatedAt": "2025-04-26T21:29:44.294Z",
-    "filter": "abs(sum(births? gender = 'M') by name - sum(births? gender = 'F') by name) < (.1*sum(births) by name)",
-    "imports": [
-      {
-        "name": "names",
-        "alias": ""
+    "1": {
+      "type": "chart",
+      "content": "SELECT\r\n    state,\r\n    percent_of_total\r\n;",
+      "name": "Births by State",
+      "width": 438,
+      "height": 395,
+      "chartConfig": {
+        "chartType": "usa-map",
+        "xField": "",
+        "yField": "",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "percent_of_total",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "state",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "2": {
+      "type": "chart",
+      "content": "SELECT\r\n    name,\r\n    total_births\r\norder by\r\n    total_births desc limit 15;",
+      "name": "Chart 2",
+      "width": 438,
+      "height": 395,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "total_births",
+        "yField": "name",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": true
       }
-    ],
-    "version": 1,
-    "published": false,
-    "description": ""
-  }
+    },
+    "3": {
+      "type": "chart",
+      "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    total_births,\r\n    --rank name by group total_births by name desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
+      "name": "Chart 3",
+      "width": 1332,
+      "height": 235,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "chartConfig": {
+        "chartType": "line",
+        "xField": "year",
+        "yField": "total_births",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "name",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      }
+    },
+    "4": {
+      "type": "markdown",
+      "content": "## Names Analysis\n\nLook at the top 5 names over time, and then all names broken down by gender, name, and US state. Click on charts to cross-filter and interact. ",
+      "name": "Note 4",
+      "width": 1332,
+      "height": 75,
+      "conceptFilters": [],
+      "filters": []
+    }
+  },
+  "nextId": 5,
+  "createdAt": "2025-04-05T15:31:48.185Z",
+  "updatedAt": "2025-06-20T17:33:31.289Z",
+  "filter": "abs(sum(births? gender = 'M') by name - sum(births? gender = 'F') by name) < (.1*sum(births) by name)",
+  "imports": [
+    {
+      "name": "names",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": ""
+}
