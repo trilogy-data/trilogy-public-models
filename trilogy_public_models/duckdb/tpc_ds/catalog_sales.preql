@@ -10,8 +10,6 @@ import warehouse as warehouse;
 import customer_demographic as bill_customer_demographic;
 import promotion as promotion;
 
-key warehouse_id int;
-
 key order_number int;
 property <order_number,item.id>.quantity int;
 property <order_number,item.id>.sales_price float;
