@@ -26,6 +26,8 @@ SELECT
     co.country_name,
     co.country_code_alpha2,
     co.country_code_alpha3,
+    adm.admin_name AS state_province_name,
+    adm.iso_code AS state_iso_code,
     ST_Y(c.city_point) AS latitude,
     ST_X(c.city_point) AS longitude,
     c.feature_type,
@@ -33,6 +35,8 @@ SELECT
 FROM cities_raw c
 INNER JOIN `preqldata.public_geo.osm_countries` co 
     ON ST_CONTAINS(co.country_geometry, c.city_point)
+LEFT JOIN `preqldata.public_geo.osm_state_province` adm
+    ON ST_CONTAINS(adm.admin_geometry, c.city_point)
 WHERE 
     -- Only include cities that successfully matched to a country
     co.country_name IS NOT NULL;
