@@ -6,3 +6,4 @@ google-cloud-bigquery
 duckdb
 fakesnow
 snowflake-sqlalchemy
+pandas
