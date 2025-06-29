@@ -15,10 +15,9 @@ property end_station_id.end_station_latitude float;  # End Station Latitude
 property end_station_id.end_station_longitude float; # End Station Longitude
 key user_type string; # User Type (Customer = 24-hour pass or 7-day pass user, Subscriber = Annual Member)
 key customer_plan string; # The name of the plan that determines the rate charged for the trip
-property <start_station_id, end_station_id, start_time, bike.id>.year int; # The year of the trip
 
 # picking an arbitrary row to count off of
-metric count<-count(start_time);
+metric ride_count<-count(start_time);
 
 metric total_duration <- sum(duration);
 
