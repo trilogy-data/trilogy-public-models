@@ -1,0 +1,10 @@
+{
+  "components": [],
+  "description": "open_street_map dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "open_street_map",
+  "tags": [
+    "bigquery"
+  ]
+}

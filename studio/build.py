@@ -74,6 +74,8 @@ def generate_json_files(check: bool):
                         file_name = os.path.basename(sql_file).replace(".sql", "")
                         if file_name == "entrypoint":
                             continue
+                        if file_name.startswith('_'):
+                            continue
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
 
                         component = {

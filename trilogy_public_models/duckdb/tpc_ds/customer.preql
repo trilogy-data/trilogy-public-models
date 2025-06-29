@@ -16,7 +16,6 @@ property id.login string;
 property id.last_review_date string;
 
 key address_id int;
-property address_id.address_id_string string;
 property address_id.street string;
 property address_id.city string;
 property address_id.state string::us_state_short?;
