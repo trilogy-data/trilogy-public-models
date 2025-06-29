@@ -1,0 +1,32 @@
+{
+  "components": [
+    {
+      "alias": "build_cities",
+      "name": "build_cities",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/open_street_map/build_cities.sql"
+    },
+    {
+      "alias": "build_countries",
+      "name": "build_countries",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/open_street_map/build_countries.sql"
+    },
+    {
+      "alias": "build_states_provinces",
+      "name": "build_states_provinces",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/open_street_map/build_states_provinces.sql"
+    }
+  ],
+  "description": "open_street_map dataset for bigquery",
+  "engine": "bigquery",
+  "link": "",
+  "name": "open_street_map",
+  "tags": [
+    "bigquery"
+  ]
+}

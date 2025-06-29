@@ -1,5 +1,5 @@
 {
-  "count": 20,
+  "count": 21,
   "files": [
     {
       "description": "An exported set of AOE2 game data.",
@@ -121,6 +121,15 @@
       ]
     },
     {
+      "description": "open_street_map dataset for bigquery",
+      "engine": "bigquery",
+      "filename": "open_street_map.json",
+      "name": "open_street_map",
+      "tags": [
+        "bigquery"
+      ]
+    },
+    {
       "description": "stack_overflow dataset for bigquery",
       "engine": "bigquery",
       "filename": "stack_overflow.json",
@@ -186,5 +195,5 @@
       ]
     }
   ],
-  "updated_at": "2025-06-15T10:57:04.999638"
+  "updated_at": "2025-06-28T20:39:13.049330"
 }
