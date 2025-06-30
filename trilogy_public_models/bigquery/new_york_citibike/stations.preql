@@ -1,8 +1,11 @@
+import std.geography;
+
+
 key id string; # Unique identifier of a station.
 property id.name string;   # Public name of the station.
 property id.short_name string; # Short name or other type of identifier, as used by the data publisher.
-property id.latitude float;  # The latitude of station. The field value must be a valid WGS 84 latitude in decimal degrees format.
-property id.longitude float; # The longitude of station. The field value must be a valid WGS 84 latitude in decimal degrees format.
+property id.latitude float::latitude;  # The latitude of station. The field value must be a valid WGS 84 latitude in decimal degrees format.
+property id.longitude float::longitude; # The longitude of station. The field value must be a valid WGS 84 latitude in decimal degrees format.
 property id.region_id int; # ID of the region where station is located.
 property id.rental_method string;
 property id.capacity int; # Number of total docking points installed at this station, both available and unavailable.
@@ -18,7 +21,7 @@ property id.eightd_has_available_keys bool; # Eightd_has_available_keys
 property id.last_reported timestamp; # Timestamp indicating the last time this station reported its status to the backend, in NYC local time.
 
 datasource citibike_stations (
-    station_id:id,
+    station_id: id,
     name:name,
     short_name:short_name,
     latitude:latitude,
@@ -37,7 +40,7 @@ datasource citibike_stations (
     last_reported:last_reported
 )
 grain (id)
-address `bigquery-public-data.new_york_citibike.citibike_stations`;
+address `bigquery-public-data.new_york.citibike_stations`;
 
 
 datasource citibike_station_rental_methods(
@@ -48,7 +51,7 @@ query '''
 select
     station_id,
     TRIM(rental_method) rental_method
-FROM `bigquery-public-data.new_york_citibike.citibike_stations`
+FROM `bigquery-public-data.new_york.citibike_stations`
 CROSS JOIN UNNEST(SPLIT(rental_methods, ',')) AS rental_method
 '''
 ;

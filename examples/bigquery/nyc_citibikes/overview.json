@@ -1,0 +1,229 @@
+{
+  "name": "Fun Analysis of NYC Citibike Dataset",
+  "layout": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 20,
+      "h": 5,
+      "i": "0"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "w": 10,
+      "h": 7,
+      "i": "1"
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "w": 10,
+      "h": 7,
+      "i": "2"
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "w": 10,
+      "h": 5,
+      "i": "3"
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "w": 10,
+      "h": 5,
+      "i": "4"
+    },
+    {
+      "x": 0,
+      "y": 17,
+      "w": 20,
+      "h": 12,
+      "i": "5"
+    },
+    {
+      "x": 0,
+      "y": 29,
+      "w": 10,
+      "h": 6,
+      "i": "6"
+    },
+    {
+      "x": 10,
+      "y": 29,
+      "w": 10,
+      "h": 6,
+      "i": "7"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "markdown",
+      "content": "# NYC Citibike 2013 Ride Analysis\n\nThis dashboard offers an interactive exploration of the iconic New York City Citibike dataset. Discover when people ride, which stations are most popular, how long trips last, and who the riders are. Use the charts and tables to uncover interesting patterns and stories behind the rides.",
+      "name": "Introduction",
+      "width": 1481,
+      "height": 155,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "1": {
+      "type": "chart",
+      "content": "  \nselect  \n    start_time.date,\n    count(start_time) as total_rides,  \n    (sum(duration) / count(duration)) / 60 as avg_trip_duration_minutes  \norder by  \n    start_time.date asc\nlimit 100;  \n",
+      "name": "Monthly Rides & Average Duration",
+      "width": 736,
+      "height": 235,
+      "chartConfig": {
+        "chartType": "line",
+        "xField": "start_time_date",
+        "yField": "total_rides",
+        "yField2": "avg_trip_duration_minutes",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "2": {
+      "type": "chart",
+      "content": "\nselect  \n    round(duration/60, 0) as duration_bucket,  \n    count(start_time) as trip_count  \nhaving trip_count>10\nand duration_bucket <120\norder by  \n    duration_bucket asc\n",
+      "name": "Trip Duration Distribution",
+      "width": 736,
+      "height": 235,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "duration_bucket",
+        "yField": "trip_count",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "3": {
+      "type": "table",
+      "content": "\nselect\n    start_station.id,\n    start_station.name,\n    count(start_time) as total_rides,\n    start_station.capacity\norder by\n    total_rides desc\nlimit 10;\n",
+      "name": "Top Start Stations",
+      "width": 736,
+      "height": 155,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "4": {
+      "type": "table",
+      "content": "\nselect  \n    end_station.id,  \n    end_station.name,  \n    count(start_time) as total_rides,\n    end_station.capacity as capacity\norder by  \n    total_rides desc  \nlimit 10;\n",
+      "name": "Top End Stations",
+      "width": 736,
+      "height": 155,
+      "chartFilters": [],
+      "conceptFilters": [],
+      "filters": [],
+      "parameters": {}
+    },
+    "5": {
+      "type": "chart",
+      "content": "  \nselect  \n    start_station.id,  \n    start_station.longitude,  \n    start_station.latitude,  \n    count(start_time) as tripss\nwhere start_station.longitude != 0\nlimit 1000;  \n",
+      "name": "Station Ride Counts",
+      "width": 1481,
+      "height": 435,
+      "chartConfig": {
+        "chartType": "usa-map",
+        "xField": "start_station_longitude",
+        "yField": "start_station_latitude",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "tripss",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "6": {
+      "type": "chart",
+      "content": "\nselect\n    user_type,\n    rider.gender,\n    count(start_time) as total_rides\norder by\n    user_type asc,\n    rider.gender asc\nlimit 100;\n",
+      "name": "User Type and Gender Breakdown",
+      "width": 736,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "user_type",
+        "yField": "total_rides",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "rider_gender",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "7": {
+      "type": "chart",
+      "content": "\nselect\n    start_time.day_of_week,\n    start_time.hour,\n    count(start_time) as total_ride_count\norder by\n    start_time.day_of_week asc,\n    start_time.hour asc\n",
+      "name": "Ride Counts by Day of Week and Hour",
+      "width": 736,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "point",
+        "xField": "start_time_day_of_week",
+        "yField": "start_time_hour",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "total_ride_count",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    }
+  },
+  "nextId": 8,
+  "createdAt": "2025-06-30T12:25:05.387Z",
+  "updatedAt": "2025-06-30T13:54:28.443Z",
+  "filter": "",
+  "imports": [
+    {
+      "name": "trips",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": "Explore the classic New York Citibike dataset with engaging visualizations that reveal usage trends, popular stations, rider demographics, and temporal patterns. Use this dashboard to dive into the story behind the rides across NYC."
+}
