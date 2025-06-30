@@ -4,64 +4,43 @@
     {
       "x": 4,
       "y": 9,
-      "w": 4,
-      "h": 10,
+      "w": 6,
+      "h": 11,
       "i": "0"
     },
     {
-      "x": 8,
-      "y": 14,
-      "w": 4,
+      "x": 10,
+      "y": 15,
+      "w": 6,
       "h": 5,
       "i": "1"
     },
     {
       "x": 4,
-      "y": 19,
-      "w": 8,
+      "y": 20,
+      "w": 12,
       "h": 8,
       "i": "2"
     },
     {
       "x": 4,
       "y": 6,
-      "w": 2,
+      "w": 12,
       "h": 3,
       "i": "3"
     },
     {
       "x": 4,
       "y": 0,
-      "w": 8,
+      "w": 12,
       "h": 6,
       "i": "4"
     },
     {
-      "x": 8,
-      "y": 6,
-      "w": 2,
-      "h": 3,
-      "i": "5"
-    },
-    {
       "x": 10,
-      "y": 6,
-      "w": 2,
-      "h": 3,
-      "i": "6"
-    },
-    {
-      "x": 6,
-      "y": 6,
-      "w": 2,
-      "h": 3,
-      "i": "7"
-    },
-    {
-      "x": 8,
       "y": 9,
-      "w": 4,
-      "h": 5,
+      "w": 6,
+      "h": 6,
       "i": "8"
     }
   ],
@@ -70,14 +49,15 @@
       "type": "chart",
       "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count\r\norder by count desc\r\nlimit 15;",
       "name": "Chart 0",
-      "width": 525,
-      "height": 355,
+      "width": 427,
+      "height": 395,
       "chartConfig": {
-        "chartType": "bar",
-        "xField": "flight_count",
-        "yField": "dim",
+        "chartType": "barh",
+        "xField": "count",
+        "yField": "aircraft_model_model",
+        "yField2": "",
         "yAggregation": "sum",
-        "colorField": "",
+        "colorField": "aircraft_model_manufacturer",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
@@ -92,7 +72,7 @@
       "type": "chart",
       "content": "select \r\n    destination.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
       "name": "Destination",
-      "width": 525,
+      "width": 427,
       "height": 155,
       "conceptFilters": [],
       "filters": [],
@@ -100,12 +80,13 @@
         "chartType": "usa-map",
         "xField": "",
         "yField": "",
+        "yField2": "",
         "yAggregation": "sum",
-        "colorField": "count",
+        "colorField": "flight_count",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": "origin_state",
+        "geoField": "destination_state",
         "showDebug": true
       },
       "chartFilters": []
@@ -114,7 +95,7 @@
       "type": "table",
       "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.model,\r\n    sum(group(aircraft.model.seats) by id2 ) as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
       "name": "Table 2",
-      "width": 1059,
+      "width": 863,
       "height": 275,
       "chartFilters": [],
       "filters": [],
@@ -122,14 +103,15 @@
     },
     "3": {
       "type": "chart",
-      "content": "select count as flight_count",
+      "content": "select count as flight_count,\r\nsum(\r\n    group(aircraft.model.seats) \r\nby id2) as seats_flown,\r\ncount(carrier.name) as carrier_count,\r\ncount(\r\n    aircraft.model.model) as model_count",
       "name": "Chart 3",
-      "width": 258,
+      "width": 863,
       "height": 75,
       "chartConfig": {
         "chartType": "headline",
         "xField": "flight_count",
         "yField": "",
+        "yField2": "",
         "yAggregation": "sum",
         "colorField": "",
         "sizeField": "",
@@ -146,7 +128,7 @@
       "type": "chart",
       "content": "SELECT\r\n    dep_time.month_start,\r\n    carrier.name,\r\n    count\r\norder by dep_time.month_start asc",
       "name": "Chart 4",
-      "width": 1059,
+      "width": 863,
       "height": 195,
       "conceptFilters": [],
       "filters": [],
@@ -155,60 +137,29 @@
         "chartType": "area",
         "xField": "dep_time_month_start",
         "yField": "count",
-        "colorField": "carrier_name"
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "carrier_name",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
       }
-    },
-    "5": {
-      "type": "chart",
-      "content": "SELECT\r\n    count(carrier.name) as carrier_count\r\n",
-      "name": "Chart 5",
-      "width": 258,
-      "height": 75,
-      "chartConfig": {
-        "chartType": "headline",
-        "xField": "carrier_count"
-      },
-      "conceptFilters": [],
-      "filters": []
-    },
-    "6": {
-      "type": "chart",
-      "content": "SELECT count(\r\n    aircraft.model.model) \r\n as model_count",
-      "name": "Chart 6",
-      "width": 258,
-      "height": 75,
-      "chartConfig": {
-        "chartType": "headline",
-        "xField": "model_count"
-      },
-      "conceptFilters": [],
-      "filters": []
-    },
-    "7": {
-      "type": "chart",
-      "content": "SELECT sum(\r\n    group(aircraft.model.seats) \r\nby id2) as seats_flown",
-      "name": "Chart 7",
-      "width": 258,
-      "height": 75,
-      "chartConfig": {
-        "chartType": "headline",
-        "xField": "seats_flown"
-      },
-      "conceptFilters": [],
-      "filters": []
     },
     "8": {
       "type": "chart",
       "content": "select \r\n    origin.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
       "name": "Origin",
-      "width": 525,
-      "height": 155,
+      "width": 427,
+      "height": 195,
       "chartFilters": [],
       "filters": [],
       "chartConfig": {
         "chartType": "usa-map",
         "xField": "",
         "yField": "",
+        "yField2": "",
         "yAggregation": "sum",
         "colorField": "flight_count",
         "sizeField": "",
@@ -222,8 +173,8 @@
   },
   "nextId": 9,
   "createdAt": "2025-04-06T15:01:06.199Z",
-  "updatedAt": "2025-04-18T17:22:07.142Z",
-  "filter": " \nlocal.dep_delay > 0 \nAND origin.state = 'CA'::string \n",
+  "updatedAt": "2025-06-29T19:49:13.329Z",
+  "filter": " local.dep_delay > 0 \n",
   "imports": [
     {
       "name": "flight",
@@ -231,5 +182,6 @@
     }
   ],
   "version": 1,
-  "published": false
+  "state": "editing",
+  "description": ""
 }
