@@ -11,7 +11,6 @@ key _start_station_id int;  # Start Station ID
 key _end_station_id int; # End Station ID
 
 key user_type string; # User Type (Customer = 24-hour pass or 7-day pass user, Subscriber = Annual Member)
-key customer_plan string; # The name of the plan that determines the rate charged for the trip
 
 # picking an arbitrary row to count off of
 metric ride_count<-count(start_time);
@@ -36,7 +35,6 @@ datasource citibike_trips (
     usertype:user_type,
     birth_year:rider.birth_year,
     gender:rider.gender,
-    customer_plan:customer_plan,
 )
 grain (start_station.id, end_station.id, start_time, bike.id)
 address `bigquery-public-data.new_york.citibike_trips`;
