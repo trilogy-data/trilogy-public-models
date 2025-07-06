@@ -1,0 +1,285 @@
+{
+  "name": "Top Scoring Players Analysis",
+  "layout": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 20,
+      "h": 3,
+      "i": "0"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "w": 6,
+      "h": 37,
+      "i": "1"
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "w": 14,
+      "h": 8,
+      "i": "2"
+    },
+    {
+      "x": 13,
+      "y": 17,
+      "w": 7,
+      "h": 8,
+      "i": "3"
+    },
+    {
+      "x": 6,
+      "y": 17,
+      "w": 7,
+      "h": 8,
+      "i": "4"
+    },
+    {
+      "x": 6,
+      "y": 31,
+      "w": 14,
+      "h": 9,
+      "i": "5"
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "w": 14,
+      "h": 3,
+      "i": "8"
+    },
+    {
+      "x": 6,
+      "y": 25,
+      "w": 14,
+      "h": 6,
+      "i": "9"
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "w": 12,
+      "h": 3,
+      "i": "10"
+    },
+    {
+      "x": 18,
+      "y": 3,
+      "w": 2,
+      "h": 3,
+      "i": "11"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "markdown",
+      "content": "## NCAA Player Analysis\n\nNormalized to points-per-game. Use the chart on the left to select a player. The right panels will update to show detailed seasonal performance, shot type distribution, shot efficiency, and other key stats for the selected player.\n",
+      "name": "Introduction",
+      "width": 81,
+      "height": 75,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "1": {
+      "type": "chart",
+      "content": "select\n    player.full_name,\n    # shot_type,\n    total_points/game_count as points_per_game,\n    coalesce(sum(points_scored),0) as total_points,\n    --count(game.id) as game_count,\n    --player_rank,\nhaving\n    player_rank<100\norder by\n    player_rank asc\n\n",
+      "name": "Top Scoring Players and Shot Types",
+      "width": 18,
+      "height": 1435,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "points_per_game",
+        "yField": "player_full_name",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "total_points",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false,
+        "hideLegend": "true"
+      },
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": [],
+      "parameters": {}
+    },
+    "2": {
+      "type": "chart",
+      "content": "import std.display;\n\n# where shot_display is not null\nselect\n    --player_rank,\n    sum(points_scored) as total_points,\n    (count(id ? shot_made) / count(id))::float::percent as shot_percentage,\n    --game.id,\n    game.season,\nhaving\n    player_rank=1\n;\n",
+      "name": "Player Performance Over Season",
+      "width": 54,
+      "height": 275,
+      "chartConfig": {
+        "chartType": "point",
+        "xField": "total_points",
+        "yField": "shot_percentage",
+        "colorField": "game_season",
+        "sizeField": ""
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "3": {
+      "type": "chart",
+      "content": "import std.display;\n\nselect  \n    --player_rank,\n    shot_display,\n    sum(points_scored) as total_points  ,\n    (count(id ? shot_made) / count(id))::float::percent as shot_percentage,\n    \nhaving\n    player_rank=1\norder by  \n    total_points desc  \nlimit 10;  \n",
+      "name": "Points Distribution by Shot Type",
+      "width": 23,
+      "height": 275,
+      "chartConfig": {
+        "chartType": "donut",
+        "xField": "shot_display",
+        "yField": "total_points",
+        "colorField": "shot_percentage"
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "4": {
+      "type": "chart",
+      "content": "import std.display;\n\nselect\n--player_rank,\n    shot_display,\n    count(id) as shot_attempts,\n    --count(id ? shot_made) as shots_made,\n    (shots_made/ shot_attempts)::float::percent as shot_made_pct\nhaving\n    player_rank = 1 and shot_display is not null\norder by\n    shot_attempts desc\nlimit 50;\n",
+      "name": "Shot Efficiency Metrics",
+      "width": 23,
+      "height": 275,
+      "conceptFilters": [],
+      "filters": [],
+      "chartConfig": {
+        "chartType": "donut",
+        "xField": "shot_display",
+        "yField": "shot_attempts",
+        "colorField": "shot_made_pct"
+      },
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "5": {
+      "type": "table",
+      "content": "  import std.display;\n \nselect  \n    --player_rank,\n    shot_type,  \n    shot_subtype,  \n    count(id) as shots_taken,  \n    count( id ? shot_made = true) as shots_made,  \n    (shots_made / shots_taken)::float::percent as shooting_percentage,  \nhaving\n    player_rank = 1\norder by shots_taken desc  \n;  \n",
+      "name": "Shot Type and Subtype Details",
+      "width": 54,
+      "height": 315,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "8": {
+      "type": "chart",
+      "content": "import std.display;\r\n\r\nselect  \r\n    --player.full_name,\r\n    --player_rank,\r\n    min(game.season) as first_season,\r\n    max(game.season)  as last_season,\r\n    count(id ? type = 'threepointmade') as  three_points,\r\n    count(id ? type = 'twopointmade') as two_points,\r\n    count(id ? type = 'rebound') as rebounds \r\nhaving\r\n    player_rank=1\r\nlimit 10;  \r\n",
+      "name": "Chart 8",
+      "width": 54,
+      "height": 75,
+      "chartConfig": {
+        "chartType": "headline",
+        "xField": "first_season",
+        "yField": "",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "9": {
+      "type": "chart",
+      "content": "import std.display;\r\n\r\nselect  \r\n    --player.full_name,\r\n    --player_rank,\r\n    type,\r\n    count(id) as  event_count\r\n    \r\nhaving\r\n    player_rank=1\r\n\r\nlimit 10;  \r\n",
+      "name": "Chart 9",
+      "width": 54,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "event_count",
+        "yField": "type",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
+    },
+    "10": {
+      "type": "chart",
+      "content": "import std.display;\r\n\r\nselect  \r\n    player.full_name,\r\n    --player_rank\r\nhaving\r\n    player_rank=1\r\nlimit 10;  \r\n",
+      "name": "Chart 10",
+      "width": 45,
+      "height": 75,
+      "chartConfig": {
+        "chartType": "headline",
+        "xField": "",
+        "yField": "",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "filters": [],
+      "chartFilters": [],
+      "conceptFilters": [],
+      "parameters": {}
+    },
+    "11": {
+      "type": "chart",
+      "content": "import std.display;\r\nimport std.net;\r\n\r\nselect  \r\n    --player.full_name,\r\n    event_team.name,\r\n    --player_rank\r\nhaving\r\n    player_rank=1\r\nlimit 10;  \r\n",
+      "name": "Chart 11",
+      "width": 131,
+      "height": 75,
+      "chartConfig": {
+        "chartType": "headline",
+        "xField": "",
+        "yField": "",
+        "yField2": "",
+        "yAggregation": "sum",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
+      },
+      "filters": [],
+      "chartFilters": [],
+      "conceptFilters": [],
+      "parameters": {}
+    }
+  },
+  "nextId": 12,
+  "createdAt": "2025-07-04T19:56:02.020Z",
+  "updatedAt": "2025-07-06T21:21:05.078Z",
+  "filter": "",
+  "imports": [
+    {
+      "name": "top_player_dashboard",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": "This dashboard enables exploration of the top scoring players, their shot types, and detailed performance metrics. Select a player on the left to drill down into their seasonal performance, shot distribution, and key statistics."
+}

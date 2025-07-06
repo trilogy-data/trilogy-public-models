@@ -60,6 +60,19 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/ncaa_basketball/team.preql"
+    },
+    {
+      "alias": "top_player_dashboard",
+      "name": "top_player_dashboard",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/ncaa_basketball/top_player_dashboard.preql"
+    },
+    {
+      "name": "top_scoring_players",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/top_scoring_players.json"
     }
   ],
   "description": "ncaa_basketball dataset for bigquery",
