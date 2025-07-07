@@ -5,10 +5,10 @@ auto eligible <- CASE WHEN count(game.id) by player.full_name >10 THEN 1 else 0 
 auto player_rank <- rank  player.full_name by eligible desc, sum(points_scored) by player.full_name / count(game.id) by player.full_name desc; # rank players by eligibility, then by points scored. Used to filter dashboard.
 
 auto shot_display <-
-    case when type = 'threepointmade' then shot_type || '-three'
-    when type = 'twopointmade' then shot_type || '-two'
-    when type = 'threepointmiss' then shot_type || '-three'
-    when type = 'twopointmiss' then shot_type || '-two'
+    case when type = 'threepointmade' then coalesce(shot_type,'') || '-three'
+    when type = 'twopointmade' then coalesce(shot_type,'') || '-two'
+    when type = 'threepointmiss' then coalesce(shot_type,'') || '-three'
+    when type = 'twopointmiss' then coalesce(shot_type,'') || '-two'
     when type = 'freethrowmade' then 'free-throw'
     when type = 'freethrowmiss' then 'free-throw'
     end;
