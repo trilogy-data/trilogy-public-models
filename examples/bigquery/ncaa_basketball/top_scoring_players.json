@@ -119,8 +119,14 @@
         "chartType": "point",
         "xField": "total_points",
         "yField": "shot_percentage",
+        "yField2": "",
+        "yAggregation": "sum",
         "colorField": "game_season",
-        "sizeField": ""
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "showDebug": false
       },
       "conceptFilters": [],
       "filters": [],
@@ -129,15 +135,15 @@
     },
     "3": {
       "type": "chart",
-      "content": "import std.display;\n\nselect  \n    --player_rank,\n    shot_display,\n    sum(points_scored) as total_points  ,\n    (count(id ? shot_made) / count(id))::float::percent as shot_percentage,\n    \nhaving\n    player_rank=1\norder by  \n    total_points desc  \nlimit 10;  \n",
+      "content": "import std.display;\n\nselect  \n    --player_rank,\n    shot_display,\n    sum(points_scored) as total_points  ,\n    shooting_percentage,\n    \nhaving\n    player_rank=1\norder by  \n    total_points desc  \nlimit 10;  \n",
       "name": "Points Distribution by Shot Type",
       "width": 23,
       "height": 275,
       "chartConfig": {
         "chartType": "donut",
-        "xField": "shot_display",
-        "yField": "total_points",
-        "colorField": "shot_percentage"
+        "xField": "total_points",
+        "yField": "shot_display",
+        "colorField": "shooting_percentage"
       },
       "conceptFilters": [],
       "filters": [],
@@ -146,7 +152,7 @@
     },
     "4": {
       "type": "chart",
-      "content": "import std.display;\n\nselect\n--player_rank,\n    shot_display,\n    count(id) as shot_attempts,\n    --count(id ? shot_made) as shots_made,\n    (shots_made/ shot_attempts)::float::percent as shot_made_pct\nhaving\n    player_rank = 1 and shot_display is not null\norder by\n    shot_attempts desc\nlimit 50;\n",
+      "content": "import std.display;\n\nselect\n--player_rank,\n    shot_display,\n    count(id) as shot_attempts,\n    --shots_made,\n    shooting_percentage\nhaving\n    player_rank = 1 and shot_display is not null\norder by\n    shot_attempts desc\nlimit 50;\n",
       "name": "Shot Efficiency Metrics",
       "width": 23,
       "height": 275,
@@ -154,16 +160,16 @@
       "filters": [],
       "chartConfig": {
         "chartType": "donut",
-        "xField": "shot_display",
-        "yField": "shot_attempts",
-        "colorField": "shot_made_pct"
+        "xField": "shot_attempts",
+        "yField": "shot_display",
+        "colorField": "shooting_percentage"
       },
       "chartFilters": [],
       "parameters": {}
     },
     "5": {
       "type": "table",
-      "content": "  import std.display;\n \nselect  \n    --player_rank,\n    shot_type,  \n    shot_subtype,  \n    count(id) as shots_taken,  \n    count( id ? shot_made = true) as shots_made,  \n    (shots_made / shots_taken)::float::percent as shooting_percentage,  \nhaving\n    player_rank = 1\norder by shots_taken desc  \n;  \n",
+      "content": "  import std.display;\n \nselect  \n    --player_rank,\n    shot_display,\n    sub_shot_display,  \n    shots_taken,  \n    shots_made,  \n    shooting_percentage,  \nhaving\n    player_rank = 1\norder by shots_taken desc  \n;  \n",
       "name": "Shot Type and Subtype Details",
       "width": 54,
       "height": 315,
@@ -248,7 +254,7 @@
       "type": "chart",
       "content": "import std.display;\r\nimport std.net;\r\n\r\nselect  \r\n    --player.full_name,\r\n    event_team.name,\r\n    --player_rank\r\nhaving\r\n    player_rank=1\r\nlimit 10;  \r\n",
       "name": "Chart 11",
-      "width": 131,
+      "width": 251,
       "height": 75,
       "chartConfig": {
         "chartType": "headline",
@@ -271,12 +277,13 @@
   },
   "nextId": 12,
   "createdAt": "2025-07-04T19:56:02.020Z",
-  "updatedAt": "2025-07-06T21:21:05.078Z",
+  "updatedAt": "2025-07-08T02:12:35.628Z",
   "filter": "",
   "imports": [
     {
       "name": "top_player_dashboard",
-      "alias": ""
+      "alias": "",
+      "id": "trilogy-new-ncaa_basketball-connection_1751732577543"
     }
   ],
   "version": 1,
