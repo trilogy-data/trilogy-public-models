@@ -50,6 +50,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/date.preql"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/entrypoint.preql"
+    },
+    {
       "alias": "inventory",
       "name": "inventory",
       "purpose": "source",
@@ -127,7 +134,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/web_sales.preql"
     }
   ],
-  "description": "TPC-DS is a decision support benchmark that models several generally applicable aspects of a decision support system, including queries and data maintenance.",
+  "description": "## TPC-DS dataset\n\nUsable with the [duckdb extension](https://duckdb.org/docs/extensions/tpcds.html).\n\nRequires generating data first.\n\nTrilogy:\n```sql\n# intialize the TPC-DS schema\nRAW_SQL('''\nINSTALL tpcds;\nLOAD tpcds;\nSELECT * FROM dsdgen(sf=.25);\n''');\n\nSQL:\n```\nScale factor 1 example:\n```sql\nINSTALL tpcds;\nLOAD tpcds;\nCALL dsdgen(sf = 1);\n```",
   "engine": "duckdb",
   "link": "",
   "name": "tpc_ds",

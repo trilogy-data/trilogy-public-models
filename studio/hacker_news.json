@@ -6,6 +6,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/day_of_week_analysis.preql"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/entrypoint.preql"
+    },
+    {
       "alias": "github",
       "name": "github",
       "purpose": "source",
@@ -52,7 +59,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_time_of_day.preql"
     }
   ],
-  "description": "Exported Hacker News dataset from BigQuery. Contains posts and comment information. May include additional datasources that are fun to support analysis. PRs welcome.",
+  "description": "# Bigquery Hackernews Dataset\n\nUp to date.",
   "engine": "bigquery",
   "link": "",
   "name": "hacker_news",

@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/entrypoint.preql"
+    },
+    {
       "name": "football",
       "purpose": "example",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/google_search_trends/football.preql"
@@ -20,7 +27,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/trends.preql"
     }
   ],
-  "description": "google_search_trends dataset for bigquery",
+  "description": "# Google Search Trends\n\nDaily top 25 terms in the United States with score, ranking, time, and designated market area (DMA) code.\n\nHistorical data only includes terms that are in the current trending dataset; focus on analysis of the\nlast 30 days.",
   "engine": "bigquery",
   "link": "",
   "name": "google_search_trends",

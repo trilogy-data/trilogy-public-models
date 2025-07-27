@@ -22,6 +22,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/stack_overflow/constants.preql"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/stack_overflow/entrypoint.preql"
+    },
+    {
       "alias": "question",
       "name": "question",
       "purpose": "source",
@@ -50,7 +57,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/stack_overflow/user_metrics.preql"
     }
   ],
-  "description": "stack_overflow dataset for bigquery",
+  "description": "## Stack Overflow Data\n\nContext in this [blog post](https://cloud.google.com/blog/topics/public-datasets/google-bigquery-public-datasets-now-include-stack-overflow-q-a)",
   "engine": "bigquery",
   "link": "",
   "name": "stack_overflow",

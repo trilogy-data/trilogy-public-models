@@ -14,6 +14,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/demo_dashboard.json"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/entrypoint.preql"
+    },
+    {
       "alias": "lineitem",
       "name": "lineitem",
       "purpose": "source",
@@ -78,7 +85,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/tutorial_two_aggregate.preql"
     }
   ],
-  "description": "The Trilogy studio demo model. Based TPC-H a warehouse benchmark designed for analytic systems. Uses duck-db hosted parquet files.",
+  "description": "## TPC-H dataset\n\nUses duck-db hosted parquet files.",
   "engine": "duckdb",
   "link": "",
   "name": "tpc_h",

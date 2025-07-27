@@ -6,9 +6,16 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/chicago_crime/crime.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/chicago_crime/entrypoint.preql"
     }
   ],
-  "description": "Chicago Police Department crime data from 2001 to present",
+  "description": "# Chicago Crime Data",
   "engine": "bigquery",
   "link": "https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/1057666841514/locations/us/dataExchanges/google_cloud_public_datasets_17e74966199/listings/ea2f8b7adbf346578ac8c307eab1b81a",
   "name": "chicago_crime",

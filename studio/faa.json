@@ -29,6 +29,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/carrier.preql"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/entrypoint.preql"
+    },
+    {
       "alias": "flight",
       "name": "flight",
       "purpose": "source",
@@ -49,7 +56,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/setup.sql"
     }
   ],
-  "description": "Faa dataset for duckdb. Useful sample dataset for comparing to Malloy.",
+  "description": "## FAA Data - 2000 - 2005\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.",
   "engine": "duckdb",
   "link": "",
   "name": "faa",

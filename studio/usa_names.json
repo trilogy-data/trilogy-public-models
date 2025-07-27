@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/usa_names/entrypoint.preql"
+    },
+    {
       "alias": "names",
       "name": "names",
       "purpose": "source",
@@ -14,7 +21,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/usa_names/top_names.json"
     }
   ],
-  "description": "usa_names dataset for bigquery",
+  "description": "# Name/Birth Dataset",
   "engine": "bigquery",
   "link": "",
   "name": "usa_names",

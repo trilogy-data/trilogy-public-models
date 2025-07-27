@@ -6,9 +6,16 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/crypto/bitcoin.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/crypto/entrypoint.preql"
     }
   ],
-  "description": "crypto dataset for bigquery",
+  "description": "### WIP Crypto Dataset",
   "engine": "bigquery",
   "link": "",
   "name": "crypto",

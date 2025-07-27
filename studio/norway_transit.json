@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/norway_transit/entrypoint.preql"
+    },
+    {
       "alias": "travel_data",
       "name": "travel_data",
       "purpose": "source",
