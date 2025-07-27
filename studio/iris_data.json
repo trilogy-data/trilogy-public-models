@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/entrypoint.preql"
+    },
+    {
       "alias": "setup",
       "name": "setup",
       "purpose": "source",

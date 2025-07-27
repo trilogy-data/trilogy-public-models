@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/snowflake/tasty_bytes/entrypoint.preql"
+    },
+    {
       "alias": "menu",
       "name": "menu",
       "purpose": "source",

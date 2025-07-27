@@ -38,11 +38,14 @@ def generate_json_files(check: bool):
         if os.path.isdir(engine_path):
             # Get all dataset directories under each engine
             for dataset_dir in os.listdir(engine_path):
+
                 if dataset_dir.endswith("__pycache__"):
                     continue
                 dataset_path = os.path.join(engine_path, dataset_dir)
 
                 if os.path.isdir(dataset_path):
+                    # README authoritative description
+                    readme_description = False
                     # Create the JSON structure
                     json_data = {
                         "name": dataset_dir,
@@ -52,29 +55,42 @@ def generate_json_files(check: bool):
                         "tags": [engine_dir],
                         "components": [],
                     }
+                    readme = os.path.join(dataset_path, "README.md")
+                    if os.path.exists(readme):
+                        with open(readme, "r", encoding="utf-8") as f:
+                            json_data["description"] = f.read().strip()
+                            readme_description = True
 
                     # Add source components from trilogy_public_models
                     preql_files = glob.glob(os.path.join(dataset_path, "*.preql"))
                     for preql_file in sorted(preql_files):
                         file_name = os.path.basename(preql_file).replace(".preql", "")
-                        if file_name == "entrypoint":
-                            continue
-                        github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.preql"
 
-                        component = {
-                            "url": github_path,
-                            "name": file_name,
-                            "alias": file_name,
-                            "purpose": "source",
-                            "type": "trilogy",
-                        }
+                        github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.preql"
+                        if file_name == "entrypoint":
+                            # Special case for entrypoint file
+                            component = {
+                                "url": github_path,
+                                "name": file_name,
+                                "alias": "entrypoint",
+                                "purpose": "entrypoint",
+                                "type": "trilogy",
+                            }
+                        else:
+                            component = {
+                                "url": github_path,
+                                "name": file_name,
+                                "alias": file_name,
+                                "purpose": "source",
+                                "type": "trilogy",
+                            }
                         json_data["components"].append(component)
                     sql_files = glob.glob(os.path.join(dataset_path, "*.sql"))
                     for sql_file in sorted(sql_files):
                         file_name = os.path.basename(sql_file).replace(".sql", "")
                         if file_name == "entrypoint":
                             continue
-                        if file_name.startswith('_'):
+                        if file_name.startswith("_"):
                             continue
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
 
@@ -129,7 +145,11 @@ def generate_json_files(check: bool):
                         try:
                             with open(json_file_path, "r", newline="") as f:
                                 current = json.load(f)
-                                json_data["description"] = current["description"]
+                                json_data["description"] = (
+                                    current["description"]
+                                    if not readme_description
+                                    else json_data["description"]
+                                )
                                 json_data["tags"] = current["tags"]
                                 json_data["link"] = current["link"]
                                 json_data["components"] = sorted(

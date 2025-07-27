@@ -14,6 +14,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/demo_dashboard.json"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/entrypoint.preql"
+    },
+    {
       "alias": "lineitem",
       "name": "lineitem",
       "purpose": "source",

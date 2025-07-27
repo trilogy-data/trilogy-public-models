@@ -8,6 +8,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/github/commits.preql"
     },
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/github/entrypoint.preql"
+    },
+    {
       "alias": "repo",
       "name": "repo",
       "purpose": "source",
@@ -15,7 +22,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/github/repo.preql"
     }
   ],
-  "description": "github dataset for bigquery",
+  "description": "# Github Data\n\nContext in this [blog post](https://cloud.google.com/blog/topics/public-datasets/github-on-bigquery-analyze-all-the-open-source-code)",
   "engine": "bigquery",
   "link": "",
   "name": "github",

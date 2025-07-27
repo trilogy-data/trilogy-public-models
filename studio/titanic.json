@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/entrypoint.preql"
+    },
+    {
       "alias": "passenger",
       "name": "passenger",
       "purpose": "source",
@@ -22,7 +29,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/wealth.preql"
     }
   ],
-  "description": "titanic dataset for duckdb",
+  "description": "### Titanic Dataset\n\nDataset from demo. use 'setup_environment.py' to build an executor with the csv files imported.",
   "engine": "duckdb",
   "link": "",
   "name": "titanic",
