@@ -1,0 +1,22 @@
+import std.net;
+
+key name string;  # init cap, eg Mobula
+property name.image string::url_image; # wikipedia image, if available
+property name.description string; # wikipedma description, if available
+
+datasource genus_info (
+	genus:name,
+	image,
+	description
+)
+grain (name)
+
+query '''
+select 'Aequorea' as genus,
+'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Aequorea4.jpg/250px-Aequorea4.jpg' as image,
+'Aequorea victoria, also sometimes called the crystal jelly, is a bioluminescent hydrozoan jellyfish, or hydromedusa, that is found off the west coast of North America. The species is best known as the source of aequorin (a photoprotein), and green fluorescent protein (GFP); two proteins involved in bioluminescence. Their discoverers, Osamu Shimomura and colleagues, won the 2008 Nobel Prize in Chemistry for their work on GFP.' as description
+union all
+select 'Megaptera' as genus,
+'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Humpback_Whale_underwater_shot.jpg/250px-Humpback_Whale_underwater_shot.jpg' as image,
+'The humpback whale (Megaptera novaeangliae) is a species of baleen whale. It is a rorqual (a member of the family Balaenopteridae) and is the only species in the genus Megaptera. Adults range in length from 14–17 m (46–56 ft) and weigh up to 40 metric tons (44 short tons).' as description
+''';

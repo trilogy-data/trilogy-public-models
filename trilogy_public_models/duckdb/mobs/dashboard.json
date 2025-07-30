@@ -1,0 +1,329 @@
+{
+  "name": "Aquatic Animal Sizing Exploration",
+  "layout": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 20,
+      "h": 4,
+      "i": "0"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "w": 5,
+      "h": 6,
+      "i": "1"
+    },
+    {
+      "x": 0,
+      "y": 26,
+      "w": 9,
+      "h": 6,
+      "i": "2"
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "w": 10,
+      "h": 10,
+      "i": "3"
+    },
+    {
+      "x": 9,
+      "y": 26,
+      "w": 11,
+      "h": 6,
+      "i": "6"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 20,
+      "h": 5,
+      "i": "7"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "w": 5,
+      "h": 6,
+      "i": "9"
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "w": 5,
+      "h": 6,
+      "i": "10"
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "w": 5,
+      "h": 6,
+      "i": "11"
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "w": 10,
+      "h": 10,
+      "i": "14"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "w": 20,
+      "h": 2,
+      "i": "15"
+    },
+    {
+      "x": 0,
+      "y": 22,
+      "w": 20,
+      "h": 4,
+      "i": "16"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "markdown",
+      "content": "## Aquatic Animal Sizing Samples: From Small Fish to Whales\n\nThis dashboard explores the size diversity of aquatic animals using their length (in cm). From tiny fish to massive whales, explore length distributions across taxonomies.\n\nThe top 4 bar charts show Phylum, Class, Order, and Family distribution. Use them to click to filter. As they only show the top 15 values, access smaller average classes, use the top filter on size category to restrict.",
+      "name": "Introduction and Usage",
+      "width": 1405,
+      "height": 115,
+      "conceptFilters": [],
+      "filters": []
+    },
+    "1": {
+      "type": "chart",
+      "content": "\nwhere length_cm is not null\nselect\n    class,\n    count(column00) as total_samples,\n    min(length_cm) as min_length_cm,\n    avg(length_cm) as avg_length_cm,\n    max(length_cm) as max_length_cm\norder by\n    class asc\nlimit 15;\n",
+      "name": "Average Class Length",
+      "width": 345,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "avg_length_cm",
+        "yField": "class",
+        "yField2": "",
+        "colorField": "total_samples",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": "true",
+        "showTitle": true
+      },
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": []
+    },
+    "2": {
+      "type": "chart",
+      "content": "  \nwhere length_cm is not null and length_cm > 0  \nselect  \n     log_length_bin,  \n    sample_count  \norder by  \n    log_length_bin asc  \nlimit 100;  \n",
+      "name": "Overall Length Distribution",
+      "width": 627,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "log_length_bin",
+        "yField": "sample_count",
+        "yField2": "",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "3": {
+      "type": "chart",
+      "content": "\nwhere length_cm is not null\nselect\n    genus.name,\n    avg(length_cm) as avg_length_cm,\n    count(column00) as total_samples,\norder by\n    avg_length_cm desc\nlimit 25\n",
+      "name": "Sample Count by Genus",
+      "width": 698,
+      "height": 355,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "avg_length_cm",
+        "yField": "genus_name",
+        "yField2": "",
+        "colorField": "total_samples",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "6": {
+      "type": "chart",
+      "content": "\nwhere length_cm is not null\nselect\ncolumn00,\n    family,\n    length_cm,\n    avg(length_cm) by family as avg_family_size\norder by\n    avg_family_size asc,\n    family asc,\n    length_cm asc,\nlimit 1000;\n",
+      "name": "Distribution of Sizes",
+      "width": 769,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "column00",
+        "yField": "length_cm",
+        "colorField": "family",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "7": {
+      "type": "table",
+      "content": "  \nselect  \n    scientificName,  \n    class,  \n    avg(length_cm) as avg_length_cm,  \n    rank scientificName by avg_length_cm asc as rank_asc,  \n    rank scientificName by avg_length_cm desc as rank_desc  \nwhere  \n    rank_asc <= 10 or rank_desc <= 10  \norder by  \n    rank_desc asc  \nlimit 20;  \n",
+      "name": "Largest and Smallest Species",
+      "width": 1405,
+      "height": 155,
+      "conceptFilters": [],
+      "filters": []
+    },
+    "9": {
+      "type": "chart",
+      "content": "\r\nwhere length_cm is not null\r\nselect\r\n    phylum,\r\n    avg(length_cm) as avg_length_cm,\r\n    count(column00) as total_samples,\r\norder by\r\n    avg_length_cm desc\r\nlimit 15;\r\n",
+      "name": "Average Phylum Length",
+      "width": 345,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "avg_length_cm",
+        "yField": "phylum",
+        "yField2": "",
+        "colorField": "total_samples",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": "true",
+        "showTitle": true
+      },
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": []
+    },
+    "10": {
+      "type": "chart",
+      "content": "\r\nwhere length_cm is not null\r\nselect\r\n    orders,\r\n    avg(length_cm) as avg_length_cm,\r\n    count(column00) as total_samples,\r\norder by\r\n    avg_length_cm desc\r\nlimit 10;\r\n",
+      "name": "Average Order Length",
+      "width": 345,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "avg_length_cm",
+        "yField": "orders",
+        "yField2": "",
+        "colorField": "total_samples",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": "true",
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "11": {
+      "type": "chart",
+      "content": "\r\nwhere length_cm is not null\r\nselect\r\n    family,\r\n    avg(length_cm) as avg_length_cm,\r\n    count(column00) as total_samples,\r\norder by\r\n    avg_length_cm desc\r\nlimit 10;\r\n",
+      "name": "Average Family Length",
+      "width": 345,
+      "height": 195,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "avg_length_cm",
+        "yField": "family",
+        "yField2": "",
+        "colorField": "total_samples",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": "true",
+        "showTitle": true
+      },
+      "filters": [],
+      "chartFilters": [],
+      "conceptFilters": []
+    },
+    "14": {
+      "type": "chart",
+      "content": "SELECT\r\n    genus.image,\r\n    --genus.name,\r\n    -- avg(length_cm) as avg_length\r\norder by \r\n    avg_length desc\r\n    limit 1;",
+      "name": "Biggest Boi",
+      "width": 698,
+      "height": 355,
+      "chartConfig": {
+        "chartType": "headline",
+        "xField": "",
+        "yField": "",
+        "yField2": "",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": []
+    },
+    "15": {
+      "type": "markdown",
+      "content": "### Phylum Drilldown\n\nThe left chart shows remaining phylum. Click on them to further filter. The largest phylum in the set will be shown on the right with a description below.",
+      "name": "Note 15",
+      "width": 1405,
+      "height": 35,
+      "conceptFilters": [],
+      "filters": []
+    },
+    "16": {
+      "type": "table",
+      "content": "SELECT\r\n    genus.description,\r\n    --genus.name,\r\n    -- avg(length_cm) as avg_length\r\norder by \r\n    avg_length desc\r\n    limit 1;",
+      "name": "Table 16",
+      "width": 1405,
+      "height": 115,
+      "conceptFilters": [],
+      "filters": []
+    }
+  },
+  "nextId": 17,
+  "createdAt": "2025-07-30T02:28:43.282Z",
+  "updatedAt": "2025-07-30T12:54:54.873Z",
+  "filter": "family in ('Balaenopteridae', 'Delphinidae', 'Physeteridae', 'Otariidae', 'Lamnidae')",
+  "imports": [
+    {
+      "id": "data_all_112224",
+      "name": "data_all",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": "This dashboard provides an in-depth exploration of aquatic animal sizing samples, focusing primarily on length measurements across a wide range of species from small fish to whales. The visualizations highlight differences by taxonomic class and genus, revealing distribution patterns, size extremes, and relationships between length and height. Use interactive charts to drill down into specific classes and genera, and explore the tables for detailed species insights.",
+  "changed": false,
+  "deleted": false
+}
