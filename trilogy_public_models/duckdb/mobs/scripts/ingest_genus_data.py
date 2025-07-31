@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import duckdb
 import csv
+from pathlib import Path
 
 def get_genus_list():
     db = duckdb.connect(database=':memory:')
@@ -54,7 +55,8 @@ if __name__ == "__main__":
     genus_list = get_genus_list()
     
     # Open CSV file for writing
-    with open('genus_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    target = Path(__file__).parent / 'genus_data.csv'
+    with open(target, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['genus', 'image_url', 'summary']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
