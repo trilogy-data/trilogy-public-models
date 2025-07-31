@@ -102,6 +102,21 @@ def generate_json_files(check: bool):
                             "type": "sql",
                         }
                         json_data["components"].append(component)
+                    csv_files = glob.glob(os.path.join(dataset_path, "*.csv"))
+                    for csv_file in sorted(csv_files):
+                        file_name = os.path.basename(csv_file).replace(".csv", "")
+                        if file_name.startswith("_"):
+                            continue
+                        github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.csv"
+
+                        component = {
+                            "url": github_path,
+                            "name": file_name,
+                            "alias": file_name,
+                            "purpose": "data",
+                            "type": "csv",
+                        }
+                        json_data["components"].append(component)
                     # Add example components from examples directory if they exist
                     examples_dataset_path = os.path.join(
                         examples_dir, engine_dir, dataset_dir

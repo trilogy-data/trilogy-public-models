@@ -1,5 +1,4 @@
 import wikipedia
-import wikipediaapi
 import requests
 from bs4 import BeautifulSoup
 import duckdb
@@ -53,9 +52,15 @@ def get_wikipedia_summary_and_image(genus_name):
 
 if __name__ == "__main__":
     genus_list = get_genus_list()
-    
+    target = Path(__file__).parent.parent / 'genus_data.csv'
+    with open(target, 'r', encoding='utf-8') as f:
+        # get existing values
+        existing_data = set(line.strip().split(',')[0] for line in f if line.strip())
+    print(f"Existing genera in CSV: {len(existing_data)}")
+    # Filter out genera that already exist in the CSV
+    final_genus_list = [genus for genus in genus_list if genus not in existing_data]    
+
     # Open CSV file for writing
-    target = Path(__file__).parent / 'genus_data.csv'
     with open(target, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['genus', 'image_url', 'summary']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -64,7 +69,7 @@ if __name__ == "__main__":
         writer.writeheader()
         
         # Process each genus and write to CSV
-        for genus in genus_list:
+        for genus in final_genus_list:
             data = get_wikipedia_summary_and_image(genus)
             
             # Write row with only the required fields
@@ -75,6 +80,9 @@ if __name__ == "__main__":
             })
             
             # Optional: Print progress
-            print(f"Processed: {data['genus']}")
+            if 'error' in data:
+                print(f"Error processing {genus}: {data['error']}")
+            else:
+                print(f"Processed: {data['genus']}")
     
     print(f"\nData written to genus_data.csv for {len(genus_list)} genera")
