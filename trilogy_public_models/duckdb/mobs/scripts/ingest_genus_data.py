@@ -61,7 +61,7 @@ if __name__ == "__main__":
     final_genus_list = [genus for genus in genus_list if genus not in existing_data]    
     print(f"Total genera to process: {len(final_genus_list)}")
     # Open CSV file for writing
-    with open(target, 'w', newline='', encoding='utf-8') as csvfile:
+    with open(target, 'a', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['genus', 'image_url', 'summary']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
