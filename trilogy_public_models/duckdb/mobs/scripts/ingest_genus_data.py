@@ -59,7 +59,7 @@ if __name__ == "__main__":
     print(f"Existing genera in CSV: {len(existing_data)}")
     # Filter out genera that already exist in the CSV
     final_genus_list = [genus for genus in genus_list if genus not in existing_data]    
-
+    print(f"Total genera to process: {len(final_genus_list)}")
     # Open CSV file for writing
     with open(target, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['genus', 'image_url', 'summary']
