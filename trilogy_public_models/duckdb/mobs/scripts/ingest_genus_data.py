@@ -53,15 +53,20 @@ def get_wikipedia_summary_and_image(genus_name):
 if __name__ == "__main__":
     genus_list = get_genus_list()
     target = Path(__file__).parent.parent / 'genus_data.csv'
-    with open(target, 'r', encoding='utf-8') as f:
-        # get existing values
-        existing_data = set(line.strip().split(',')[0] for line in f if line.strip())
+    if target.exists():
+        with open(target, 'r', encoding='utf-8') as f:
+            # get existing values
+            existing_data = set(line.strip().split(',')[0] for line in f if line.strip())
+    else:
+        existing_data = set()
     print(f"Existing genera in CSV: {len(existing_data)}")
     # Filter out genera that already exist in the CSV
     final_genus_list = [genus for genus in genus_list if genus not in existing_data]    
     print(f"Total genera to process: {len(final_genus_list)}")
+    exit(0)
+    write_mode = "a" if target.exists() and len(existing_data) > 0 else "w"
     # Open CSV file for writing
-    with open(target, 'a', newline='', encoding='utf-8') as csvfile:
+    with open(target, write_mode, newline='', encoding='utf-8') as csvfile:
         fieldnames = ['genus', 'image_url', 'summary']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
@@ -69,6 +74,7 @@ if __name__ == "__main__":
         writer.writeheader()
         
         # Process each genus and write to CSV
+        processed_count = 0
         for genus in final_genus_list:
             data = get_wikipedia_summary_and_image(genus)
             
@@ -84,5 +90,11 @@ if __name__ == "__main__":
                 print(f"Error processing {genus}: {data['error']}")
             else:
                 print(f"Processed: {data['genus']}")
-    
+            processed_count += 1
+
+            # Print progress every 10 species
+            if processed_count % 10 == 0:
+                print(
+                    f"  Processed {processed_count}/{len(final_genus_list)} genera"
+                )
     print(f"\nData written to genus_data.csv for {len(genus_list)} genera")
