@@ -5,6 +5,7 @@ import duckdb
 import csv
 from pathlib import Path
 import os
+import pandas as pd
 
 
 def get_genus_list():
@@ -34,7 +35,6 @@ def get_wikipedia_summary_and_image(genus_name):
         "image_url": None,
         "page_url": None,
     }
-    e = None
     for search_phrase in [
         genus_name,
         genus_name + " genus",
@@ -135,9 +135,6 @@ def checkpoint_progress(target_file, data_dict):
         print(f"✓ Checkpoint saved: {target_file} ({len(updated_data_list)} records)")
     except Exception as e:
         print(f"✗ Failed to save checkpoint: {e}")
-
-
-import pandas as pd
 
 
 def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
