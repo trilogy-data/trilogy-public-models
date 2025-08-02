@@ -1,0 +1,66 @@
+{
+  "components": [
+    {
+      "alias": "data_all",
+      "name": "data_all",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/data_all.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/entrypoint.preql"
+    },
+    {
+      "alias": "genus",
+      "name": "genus",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/genus.preql"
+    },
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/setup.sql"
+    },
+    {
+      "alias": "genus_data",
+      "name": "genus_data",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/genus_data.csv"
+    },
+    {
+      "alias": "genus_data_processed",
+      "name": "genus_data_processed",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/genus_data_processed.csv"
+    },
+    {
+      "alias": "species_data",
+      "name": "species_data",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/species_data.csv"
+    },
+    {
+      "name": "oceanic-animals-sizes",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/mobs/oceanic-animals-sizes.json"
+    }
+  ],
+  "description": "## The Marine Organismal Body Size (MOBS) Database\n\nA dataset of marine animals, sizes, and metadata.\n\nMcClain, C. R., Heim, N. A., Knope, M. L., Monarrez, P. M., Payne, J. L., Santos, I. T., & Webb, T. J. (2025). MOBS 1.0: A database of interspecific variation in marine organismal body sizes. Global Ecology and Biogeography, 34: e70062. https://doi.org/10.1111/geb.70062\n\n\nWikipedia for descriptions and images.",
+  "engine": "duckdb",
+  "link": "",
+  "name": "mobs",
+  "tags": [
+    "duckdb"
+  ]
+}

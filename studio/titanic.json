@@ -15,11 +15,25 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/passenger.preql"
     },
     {
+      "alias": "richest",
+      "name": "richest",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/richest.csv"
+    },
+    {
       "alias": "setup",
       "name": "setup",
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/setup.preql"
+    },
+    {
+      "alias": "train",
+      "name": "train",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/train.csv"
     },
     {
       "alias": "wealth",

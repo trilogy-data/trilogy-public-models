@@ -1,6 +1,13 @@
 {
   "components": [
     {
+      "alias": "distribution",
+      "name": "distribution",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/distribution.csv"
+    },
+    {
       "alias": "entrypoint",
       "name": "entrypoint",
       "purpose": "entrypoint",
