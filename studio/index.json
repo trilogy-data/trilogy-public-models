@@ -1,5 +1,5 @@
 {
-  "count": 21,
+  "count": 22,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -89,6 +89,15 @@
       "engine": "duckdb",
       "filename": "iris_data.json",
       "name": "iris_data",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
+      "description": "## The Marine Organismal Body Size (MOBS) Database\n\nA dataset of marine animals, sizes, and metadata.\n\nMcClain, C. R., Heim, N. A., Knope, M. L., Monarrez, P. M., Payne, J. L., Santos, I. T., & Webb, T. J. (2025). MOBS 1.0: A database of interspecific variation in marine organismal body sizes. Global Ecology and Biogeography, 34: e70062. https://doi.org/10.1111/geb.70062\n\n\nWikipedia for descriptions and images.",
+      "engine": "duckdb",
+      "filename": "mobs.json",
+      "name": "mobs",
       "tags": [
         "duckdb"
       ]
@@ -195,5 +204,5 @@
       ]
     }
   ],
-  "updated_at": "2025-07-27T13:00:35.098250"
+  "updated_at": "2025-08-02T10:50:04.708255"
 }
