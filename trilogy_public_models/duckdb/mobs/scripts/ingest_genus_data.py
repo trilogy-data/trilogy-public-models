@@ -35,27 +35,34 @@ def get_wikipedia_summary_and_image(genus_name):
         "image_url": None,
         "page_url": None,
     }
-    try:
-        # Search and get page title
-        page_title = wikipedia.search(genus_name)[0]
-        wiki_page = wikipedia.page(page_title, auto_suggest=False, redirect=True)
-        result["summary"] = wikipedia.summary(page_title, sentences=3)
-        result["page_url"] = wiki_page.url
+    e = None
+    for search_phrase in [genus_name, genus_name + " genus", genus_name + " genus ocean"]:
+        try:
+            # Search and get page title
+            print(f"Searching Wikipedia for genus: {search_phrase}")
+            search = wikipedia.search(search_phrase)
+            if not search:
+                print(f"No Wikipedia page found for genus: {search_phrase}")
+                return result
+            page_title = search[0]
+            
+            wiki_page = wikipedia.page(page_title, auto_suggest=False, redirect=True)
+            result["summary"] = wiki_page.summary
+            result["page_url"] = wiki_page.url
 
-        # Now parse the image from the actual HTML
-        response = requests.get(wiki_page.url)
-        soup = BeautifulSoup(response.content, "html.parser")
+            # Now parse the image from the actual HTML
+            response = requests.get(wiki_page.url)
+            soup = BeautifulSoup(response.content, "html.parser")
 
-        # Most top-right images are in the infobox
-        infobox = soup.find("table", {"class": "infobox"})
-        if infobox:
-            img_tag = infobox.find("img")
-            if img_tag and img_tag.has_attr("src"):
-                result["image_url"] = "https:" + img_tag["src"]
-
-    except Exception as e:
-        result["error"] = str(e)
-
+            # Most top-right images are in the infobox
+            infobox = soup.find("table", {"class": "infobox"})
+            if infobox:
+                img_tag = infobox.find("img")
+                if img_tag and img_tag.has_attr("src"):
+                    result["image_url"] = "https:" + img_tag["src"]
+            return result
+        except Exception as e:
+            continue
     return result
 
 
@@ -106,6 +113,23 @@ def write_updated_csv(target_file, updated_data):
         print(f"Successfully updated {target_file} with {len(updated_data)} rows")
     except Exception as e:
         print(f"Error writing CSV file: {e}")
+
+
+def checkpoint_progress(target_file, data_dict):
+    """
+    Save current progress by overwriting the source file
+    
+    Args:
+        target_file (Path): Target file path to overwrite
+        data_dict (dict): Current data dictionary
+    """
+    updated_data_list = list(data_dict.values())
+    
+    try:
+        write_updated_csv(target_file, updated_data_list)
+        print(f"✓ Checkpoint saved: {target_file} ({len(updated_data_list)} records)")
+    except Exception as e:
+        print(f"✗ Failed to save checkpoint: {e}")
 
 
 import pandas as pd
@@ -211,8 +235,9 @@ if __name__ == "__main__":
     # Create a dictionary for quick lookup and updates
     data_dict = {row['genus']: row for row in existing_data_list}
     
-    # Process each genus
+    # Process each genus with checkpointing
     processed_count = 0
+    
     for genus in genera_to_process:
         data = get_wikipedia_summary_and_image(genus)
         
@@ -233,16 +258,17 @@ if __name__ == "__main__":
         
         processed_count += 1
         
-        # Print progress every 10 species
+        # Checkpoint every 10 records by overwriting source file
         if processed_count % 10 == 0:
-            print(f"  Processed {processed_count}/{len(genera_to_process)} genera")
+            checkpoint_progress(target, data_dict)
+            print(f"  Progress: {processed_count}/{len(genera_to_process)} genera completed")
     
-    # Convert back to list and write to CSV
+    # Final save to main file (redundant but ensures final state is saved)
     updated_data_list = list(data_dict.values())
     write_updated_csv(target, updated_data_list)
     
-    print(f"\nCompleted processing {len(genera_to_process)} genera")
-    print(f"Total records in CSV: {len(updated_data_list)}")
+    print(f"\n✓ Completed processing {len(genera_to_process)} genera")
+    print(f"Total records in final CSV: {len(updated_data_list)}")
     
     # Show final statistics
     final_missing = sum(1 for row in updated_data_list 
