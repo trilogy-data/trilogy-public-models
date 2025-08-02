@@ -1,0 +1,11 @@
+[project]
+name = "trilogy_public_models"
+version = "0.1.0"
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]
+
+
+[[tool.mypy.overrides]]
+module = ["trilogy_public_models.*"]
+ignore_missing_imports = true

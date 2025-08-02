@@ -3,7 +3,7 @@
 # requires-python = ">=3.8"
 # dependencies = [
 #     "wikipedia",
-#     "requests",
+#     "httpx",
 #     "beautifulsoup4",
 #     "duckdb",
 #     "google-generativeai",
@@ -11,7 +11,7 @@
 # ///
 
 import wikipedia
-import requests
+import httpx
 from bs4 import BeautifulSoup
 import duckdb
 import csv
@@ -81,8 +81,10 @@ class SpeciesCategorizer:
             "Broadcast Spawners",
             "Live-bearers",
             "Brooders / Egg Layers",
-            "Planktonic Larvae", "Direct Developers",
-            "R-Strategists", "K-Strategists",
+            "Planktonic Larvae",
+            "Direct Developers",
+            "R-Strategists",
+            "K-Strategists",
         ]
 
         self.regional_ocean_options = [
@@ -166,16 +168,18 @@ def get_wikipedia_summary_and_image(species_name: str) -> Dict:
         result["summary"] = wikipedia.summary(page_title, sentences=3)
         result["page_url"] = wiki_page.url
 
-        # Parse the image from the actual HTML
-        response = requests.get(wiki_page.url)
-        soup = BeautifulSoup(response.content, "html.parser")
+        # Parse the image from the actual HTML using httpx
+        with httpx.Client() as client:
+            response = client.get(wiki_page.url)
+            response.raise_for_status()  # Raise an exception for bad status codes
+            soup = BeautifulSoup(response.content, "html.parser")
 
-        # Most top-right images are in the infobox
-        infobox = soup.find("table", {"class": "infobox"})
-        if infobox:
-            img_tag = infobox.find("img")
-            if img_tag and img_tag.has_attr("src"):
-                result["image_url"] = "https:" + img_tag["src"]
+            # Most top-right images are in the infobox
+            infobox = soup.find("table", {"class": "infobox"})
+            if infobox:
+                img_tag = infobox.find("img")  # type: ignore
+                if img_tag and img_tag.has_attr("src"):
+                    result["image_url"] = "https:" + img_tag["src"]
 
     except Exception as e:
         result["error"] = str(e)

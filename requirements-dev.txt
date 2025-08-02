@@ -1,0 +1,7 @@
+pytrilogy>=0.0.3.52
+google-auth
+google-cloud-bigquery
+sqlalchemy-bigquery
+httpx
+wikipedia-api
+

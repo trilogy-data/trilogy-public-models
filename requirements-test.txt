@@ -7,3 +7,4 @@ duckdb
 fakesnow
 snowflake-sqlalchemy
 pandas
+pandas-stubs
