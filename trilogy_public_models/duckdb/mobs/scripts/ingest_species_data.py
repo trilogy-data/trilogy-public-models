@@ -307,7 +307,7 @@ def main():
                 # Get AI categorization if summary is available
                 categorization = {}
                 if wiki_data["summary"] and categorizer.model:
-                    print(f"  Categorizing with AI...")
+                    print("  Categorizing with AI...")
                     categorization = categorize_species_with_gemini(
                         categorizer, full_species_name, wiki_data["summary"]
                     )

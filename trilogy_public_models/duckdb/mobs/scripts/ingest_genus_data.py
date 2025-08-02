@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import duckdb
 import csv
 from pathlib import Path
-import duckdb
 import os
 
 
@@ -61,7 +60,7 @@ def get_wikipedia_summary_and_image(genus_name):
                 if img_tag and img_tag.has_attr("src"):
                     result["image_url"] = "https:" + img_tag["src"]
             return result
-        except Exception as e:
+        except Exception:
             continue
     return result
 
@@ -133,7 +132,6 @@ def checkpoint_progress(target_file, data_dict):
 
 
 import pandas as pd
-import pyarrow
 
 def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
     """
@@ -188,7 +186,7 @@ def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
         print(verification_df.head(3).to_string())
         
         # Show data types
-        print(f"\nData types:")
+        print("\nData types:")
         print(verification_df.dtypes)
 
     except Exception as e:
