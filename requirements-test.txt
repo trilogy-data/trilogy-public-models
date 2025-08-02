@@ -8,3 +8,5 @@ fakesnow
 snowflake-sqlalchemy
 pandas
 pandas-stubs
+httpx
+wikipedia
