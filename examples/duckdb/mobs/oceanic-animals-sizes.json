@@ -24,7 +24,7 @@
     },
     {
       "x": 8,
-      "y": 25,
+      "y": 24,
       "w": 12,
       "h": 10,
       "i": "7"
@@ -40,7 +40,7 @@
       "x": 8,
       "y": 8,
       "w": 12,
-      "h": 10,
+      "h": 9,
       "i": "14"
     },
     {
@@ -66,7 +66,7 @@
     },
     {
       "x": 8,
-      "y": 18,
+      "y": 17,
       "w": 12,
       "h": 7,
       "i": "23"
@@ -80,7 +80,7 @@
         "query": "select sample_count;"
       },
       "name": "Introduction and Usage",
-      "width": 761,
+      "width": 513,
       "height": 275,
       "conceptFilters": [],
       "filters": [],
@@ -91,8 +91,8 @@
     "3": {
       "type": "chart",
       "content": "\nwhere length_cm is not null\nselect\n    # genus.name,\n    class,\n    avg(length_cm) as avg_length_cm,\n    count(genus.name) as total_genera,\norder by\n    avg_length_cm desc\nlimit 25\n",
-      "name": "Length By Family",
-      "width": 761,
+      "name": "Length By Class",
+      "width": 513,
       "height": 355,
       "chartConfig": {
         "chartType": "barh",
@@ -118,7 +118,7 @@
       "type": "chart",
       "content": "\nwhere length_cm is not null\nselect\n\n    column00,\n    family,\n    length_cm as sample_length_cm,\n    avg(length_cm) by genus.name as avg_genus_size\norder by\n    avg_genus_size desc,\n    family asc,\n    sample_length_cm asc;",
       "name": "Distribution of Sizes",
-      "width": 761,
+      "width": 513,
       "height": 275,
       "chartConfig": {
         "chartType": "point",
@@ -144,7 +144,7 @@
       "type": "table",
       "content": "  \nselect  \n    scientificName,  \n    phylum,\n    genus.name,\n    class,  \n    genus.image,\n    avg(length_cm) as avg_length_cm,  \n    sample_count,\n    --rank scientificName by avg_length_cm asc as rank_asc,  \n    --rank scientificName by avg_length_cm desc as rank_desc  ,\n    -- rank genus.name by avg(length_cm) by genus.name desc as genus_filter\nhaving \n    genus_filter = 1\norder by  \n    rank_desc asc  \nlimit 20;  \n",
       "name": "Largest and Smallest Species",
-      "width": 1147,
+      "width": 773,
       "height": 355,
       "conceptFilters": [],
       "filters": [],
@@ -154,16 +154,16 @@
     },
     "9": {
       "type": "chart",
-      "content": "\r\nselect\r\n    round(avg(length_cm),4) as avg_length_cm,\r\n    count(scientificName) as species_count,\r\n    count(phylum) as phylum_count,\r\n    count(orders) as order_count,\r\n    count(family) as family_count,\r\n    count(column00) as total_samples,\r\norder by\r\n    avg_length_cm desc\r\nlimit 15;\r\n",
+      "content": "\r\nselect\r\n    round(avg(length_cm),4) as avg_length_cm,\r\n    count(scientificName) as species_count,\r\n    count(phylum) as phylum_count,\r\n    count(class) as class_count,\r\n    count(family) as family_count,\r\n    # count(column00) as total_samples,\r\norder by\r\n    avg_length_cm desc\r\nlimit 15;\r\n",
       "name": "Summary Statistics",
-      "width": 1147,
+      "width": 773,
       "height": 115,
       "chartConfig": {
         "chartType": "headline",
         "xField": "avg_length_cm",
         "yField": "",
         "yField2": "",
-        "colorField": "total_samples",
+        "colorField": "",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
@@ -182,8 +182,8 @@
       "type": "chart",
       "content": "\r\nSELECT\r\n    genus.image,\r\n    --genus.name,\r\n    -- avg(length_cm) by genus.name as avg_length\r\norder by \r\n    avg_length desc\r\n    limit 1;",
       "name": "Biggest Boi",
-      "width": 1147,
-      "height": 355,
+      "width": 773,
+      "height": 315,
       "chartConfig": {
         "chartType": "headline",
         "xField": "",
@@ -211,7 +211,7 @@
         "query": "\r\nselect\r\n    genus.name,\r\n    family,\r\n    count(scientificName) as species_count,\r\n    --avg(length_cm) as avg_length\r\norder by avg_length desc\r\n    limit 1;"
       },
       "name": "Note 17",
-      "width": 1147,
+      "width": 773,
       "height": 115,
       "conceptFilters": [],
       "filters": [],
@@ -222,8 +222,8 @@
     "18": {
       "type": "chart",
       "content": "  \r\nwhere length_cm is not null and length_cm > 0  \r\nselect  \r\n     log_length_bin,  \r\n    sample_count  \r\norder by  \r\n    log_length_bin asc  \r\nlimit 100;  \r\n",
-      "name": "Chart 18",
-      "width": 761,
+      "name": "Size Groupings",
+      "width": 513,
       "height": 275,
       "chartConfig": {
         "chartType": "barh",
@@ -249,7 +249,7 @@
       "type": "chart",
       "content": "\nwhere length_cm is not null\nselect\n    genus.name,\n    # class,\n    avg(length_cm) as avg_length_cm,\n    count(scientificName) as total_species,\norder by\n    avg_length_cm desc\nlimit 25\n",
       "name": "Avg Length By Genus",
-      "width": 761,
+      "width": 513,
       "height": 355,
       "chartConfig": {
         "chartType": "barh",
@@ -278,27 +278,26 @@
         "query": "SELECT\r\n    genus.description,\r\n    --genus.name,\r\n    -- avg(length_cm) as avg_length\r\norder by \r\n    avg_length desc\r\n    limit 1;"
       },
       "name": "Note 23",
-      "width": 1147,
+      "width": 773,
       "height": 235,
       "allowCrossFilter": true,
       "conceptFilters": [],
-      "filters": []
+      "filters": [],
+      "chartFilters": [],
+      "parameters": {}
     }
   },
   "nextId": 24,
   "createdAt": "2025-08-01T12:02:28.479Z",
-  "updatedAt": "2025-08-02T14:56:09.916Z",
+  "updatedAt": "2025-08-03T16:37:53.012Z",
   "filter": "",
   "imports": [
     {
-      "id": "data_all_112224",
       "name": "data_all",
       "alias": ""
     }
   ],
   "version": 1,
   "state": "editing",
-  "description": "This dashboard provides an in-depth exploration of aquatic animal sizing samples, focusing primarily on length measurements across a wide range of species from small fish to whales. The visualizations highlight differences by taxonomic class and genus, revealing distribution patterns, size extremes, and relationships between length and height. Use interactive charts to drill down into specific classes and genera, and explore the tables for detailed species insights.",
-  "changed": false,
-  "deleted": false
+  "description": "This dashboard provides an in-depth exploration of aquatic animal sizing samples, focusing primarily on length measurements across a wide range of species from small fish to whales. The visualizations highlight differences by taxonomic class and genus, revealing distribution patterns, size extremes, and relationships between length and height. Use interactive charts to drill down into specific classes and genera, and explore the tables for detailed species insights."
 }
