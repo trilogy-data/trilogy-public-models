@@ -14,3 +14,7 @@ Fishbase for some images.
 Froese, R. and D. Pauly. Editors. 2025. FishBase.
 World Wide Web electronic publication.
 www.fishbase.org, version (04/2025).
+
+### Notomyxine
+
+1983; Photo was made available to FishBase with the help of Cristian Pérez, Assistant Curator of the Ichthyology Collection of the Centro Nacional Patagónico (CONICET) Puerto Madryn, Argentina.  
