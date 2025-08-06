@@ -15,11 +15,23 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/entrypoint.preql"
     },
     {
-      "alias": "setup",
-      "name": "setup",
+      "alias": "genus_info",
+      "name": "genus_info",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/setup.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/genus_info.preql"
+    },
+    {
+      "name": "geography",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/iris_data/example/geography.preql"
+    },
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/setup.sql"
     }
   ],
   "description": "iris_data dataset for duckdb",
