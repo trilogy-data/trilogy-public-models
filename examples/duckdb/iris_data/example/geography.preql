@@ -1,0 +1,9 @@
+import genus_info;
+
+
+select
+	latitude,
+	longitude,
+	species,
+	country,
+	count(sample_id) as sample_count;

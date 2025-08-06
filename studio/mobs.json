@@ -56,7 +56,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/species_data.csv"
     }
   ],
-  "description": "## The Marine Organismal Body Size (MOBS) Database\n\nA dataset of marine animals, sizes, and metadata.\n\n\n### Size Data\nMcClain, C. R., Heim, N. A., Knope, M. L., Monarrez, P. M., Payne, J. L., Santos, I. T., & Webb, T. J. (2025). MOBS 1.0: A database of interspecific variation in marine organismal body sizes. Global Ecology and Biogeography, 34: e70062. https://doi.org/10.1111/geb.70062\n\n### Images\nWikipedia for descriptions and images.\n\n### Images Alt\nFishbase for some images.\nFroese, R. and D. Pauly. Editors. 2025. FishBase.\nWorld Wide Web electronic publication.\nwww.fishbase.org, version (04/2025).",
+  "description": "## The Marine Organismal Body Size (MOBS) Database\n\nA dataset of marine animals, sizes, and metadata.\n\n\n### Size Data\nMcClain, C. R., Heim, N. A., Knope, M. L., Monarrez, P. M., Payne, J. L., Santos, I. T., & Webb, T. J. (2025). MOBS 1.0: A database of interspecific variation in marine organismal body sizes. Global Ecology and Biogeography, 34: e70062. https://doi.org/10.1111/geb.70062\n\n### Images\nWikipedia for descriptions and images.\n\n### Images Alt\nFishbase for some images.\nFroese, R. and D. Pauly. Editors. 2025. FishBase.\nWorld Wide Web electronic publication.\nwww.fishbase.org, version (04/2025).\n\n### Notomyxine\n\n1983; Photo was made available to FishBase with the help of Cristian P\u00e9rez, Assistant Curator of the Ichthyology Collection of the Centro Nacional Patag\u00f3nico (CONICET) Puerto Madryn, Argentina.",
   "engine": "duckdb",
   "link": "",
   "name": "mobs",

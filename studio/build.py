@@ -122,15 +122,16 @@ def generate_json_files(check: bool):
                         examples_dir, engine_dir, dataset_dir
                     )
                     if os.path.exists(examples_dataset_path):
-                        example_files = glob.glob(
-                            os.path.join(examples_dataset_path, "*.preql")
-                        )
+                        example_files = list(Path(examples_dataset_path).rglob("*.preql"))
                         for example_file in sorted(example_files):
                             file_name = os.path.basename(example_file).replace(
                                 ".preql", ""
                             )
-                            github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{file_name}.preql"
-
+                            sub_path = example_file.parent.relative_to(examples_dataset_path)
+                            if sub_path.parts:
+                                github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{sub_path}/{file_name}.preql"
+                            else:
+                                github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{file_name}.preql"
                             component = {
                                 "name": file_name,
                                 "url": github_path,

@@ -1,0 +1,12 @@
+import passenger;
+import wealth as wealth;
+
+MERGE wealth.last_name into ~last_name;
+
+select
+    class,
+    name,
+    fare,
+    count(id ? wealth.net_worth_1918_dollars is not null) as rich_passengers,
+    avg(wealth.net_worth_1918_dollars) as avg_class_wealth,
+    max(wealth.net_worth_1918_dollars) as max_class_wealth;
