@@ -36,9 +36,9 @@ def get_wikipedia_summary_and_image(genus_name):
         "page_url": None,
     }
     for search_phrase in [
-        genus_name,
-        genus_name + " genus",
         genus_name + " genus ocean",
+        genus_name + " genus",
+        genus_name,
     ]:
         try:
             # Search and get page title
@@ -210,12 +210,16 @@ if __name__ == "__main__":
         for row in existing_data_list:
             genus = row.get("genus", "").strip()
             image = row.get("image_url", "").strip()
+            description = row.get("summary", "").strip()
+            if 'Greek myth' in description:
+                print(f"Skipping genus with Greek myth in description: {genus}")
+                continue
             if genus:
                 existing_genera.add(genus)
                 # Track genera that need image updates
-                if not image or image in ["None", "null", ""]:
-                    missing_image_genera.add(genus)
-                    print(f"Missing image for genus: {genus}")
+                # if not image or image in ["None", "null", ""]:
+                #     missing_image_genera.add(genus)
+                #     print(f"Missing image for genus: {genus}")
 
     print(f"Existing genera in CSV: {len(existing_genera)}")
     print(f"Genera missing images: {len(missing_image_genera)}")
