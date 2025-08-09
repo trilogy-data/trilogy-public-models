@@ -195,6 +195,12 @@ def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
 
         traceback.print_exc()
 
+RECHECK_WORDS = [
+    "bird",
+    "Greek myth",
+    "disease",
+    "surname"
+]
 
 if __name__ == "__main__":
     genus_list = get_genus_list()
@@ -211,8 +217,8 @@ if __name__ == "__main__":
             genus = row.get("genus", "").strip()
             image = row.get("image_url", "").strip()
             description = row.get("summary", "").strip()
-            if 'Greek myth' in description:
-                print(f"Skipping genus with Greek myth in description: {genus}")
+            if any(word in description for word in RECHECK_WORDS):
+                print(f"Rechecking genus due to keywords in description: {genus}")
                 continue
             if genus:
                 existing_genera.add(genus)

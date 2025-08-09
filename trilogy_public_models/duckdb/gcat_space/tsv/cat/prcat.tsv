@@ -1,0 +1,168 @@
+#JCAT	Piece	Name	LDate	TLast	TOp	TDate	TF	Program	Plane	Att	Mvr	Class	Category	Result	Control	Discipline	UNState	UNReg	UNPeriod	UNPerigee	UNApogee	UNInc	DispEpoch	DispPeri	DispApo	DispInc	Comment
+# Updated 2025 Aug  5 0444:32
+R01454	1956-S107	Vanguard TV0	1956 Dec  8 	1956 Dec  8	1956 Dec  8	1956 Dec  8	-	Vanguard Prog	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R01568	1957-S31	Vanguard TV1	1957 May  1 	1957 May  1	1957 May  1	1957 May  1	-	Vanguard Prog	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R01854	1957-S142	Vanguard TV2	1957 Oct 23 	1957 Oct 23	1957 Oct 23	1957 Oct 23	-	Vanguard Prog	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03150	1959-S165	Mercury P	1959 Sep  9 	1959 Sep  9	1959 Sep  9	1959 Sep  9	-	Mercury MA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03305	1959-S226	Shotput 1	1959 Oct 28 	1959 Oct 28	1959 Oct 28	1959 Oct 28	-	Echo Shotput	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03417	1959-S264	Mercury P	1959 Dec  4 	1959 Dec  4	1959 Dec  4	1959 Dec  4	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03512	1960-S13	Shotput 2	1960 Jan 16 	1960 Jan 16	1960 Jan 16	1960 Jan 16	-	Echo Shotput	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03577	1960-S41	Shotput 3	1960 Feb 27 	1960 Feb 27	1960 Feb 27	1960 Feb 27	-	Echo Shotput	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03643	1960-S70	Shotput 4	1960 Apr  1 	1960 Apr  1	1960 Apr  1	1960 Apr  1	-	Echo Shotput	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03753	1960-S115	Shotput 5	1960 May 31 	1960 May 31	1960 May 31	1960 May 31	-	Echo Shotput	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R03864	1960-S161	ST-1	1960 Jul  2 	1960 Jul  2	1960 Jul  2	1960 Jul  2 0027	-	Scout Test	-	-	-	C	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04254	1960-S352	D-2	1960 Nov  8 	1960 Nov  8	1960 Nov  8	1960 Nov  8	-	Blue Scout D	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04388	1960-S415	Mercury SC2	1960 Dec 19 	1960 Dec 19	1960 Dec 19	1960 Dec 19	-	Mercury MR	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04437	1961-S12	D-3	1961 Jan  7 	1961 Jan  7	1961 Jan  7	1961 Jan  7 1754?	-	Blue Scout D	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04473	1961-S31	Mercury SC5	1961 Jan 31 	1961 Jan 31	1961 Jan 31	1961 Jan 31	-	Mercury MR	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04541	1961-S56	Mercury SC6	1961 Feb 21 	1961 Feb 21	1961 Feb 21	1961 Feb 21	-	Mercury MA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04575	1961-S66	D-4	1961 Mar  3 	1961 Mar  3	1961 Mar  3	1961 Mar  3	-	Blue Scout D	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04625	1961-S87	Mercury P	1961 Mar 24 	1961 Mar 24	1961 Mar 24	1961 Mar 24	-	Mercury MR	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04686	1961-S109	D-5	1961 Apr 12 	1961 Apr 12	1961 Apr 12	1961 Apr 12	-	Blue Scout D	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04746	1961-S135	Freedom Seven (MR-3)	1961 May  5 	1961 May  5	1961 May  5	1961 May  5 1449	-	Mercury MR	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R04947	1961-S216	Liberty Bell 7 (MR-4)	1961 Jul 21 	1961 Jul 21	1961 Jul 21	1961 Jul 21 1235	-	Mercury MR	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05254	1961-S357	Saturn SA-1	1961 Oct 27 	1961 Oct 27	1961 Oct 27	1961 Oct 27	-	Saturn Block I	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05255	1961-S357	Saturn S-V	1961 Oct 27 	1961 Oct 27	1961 Oct 27	1961 Oct 27	-	Saturn S-V	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05423	1961-S425	TB IIa	1961 Dec 14 	1961 Dec 14	1961 Dec 14	1961 Dec 14	-	TB	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05543	1962-S14	Big Shot 1	1962 Jan 15 	1962 Jan 15	1962 Jan 15	1962 Jan 15	-	Echo Big Shot	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05810	1962-S108	Saturn SA-2	1962 Apr 25 	1962 Apr 25	1962 Apr 25	1962 Apr 25	-	Saturn Block I	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05811	1962-S108	Saturn S-V	1962 Apr 25 	1962 Apr 25	1962 Apr 25	1962 Apr 25	-	Saturn S-V	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05933	1962-S152	Beanstalk 1 (Flight 102)	1962 May 31 	1962 May 31	1962 May 31	1962 May 31	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R05646	1962-S51	Reentry 1	1962 Mar  1 	1962 Mar  1	1962 Mar  1	1962 Mar  1	-	Scout Reentry	-	-	-	C	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06186	1962-S244	X-15-3 Flight 3-7-14	1962 Jul 17 	1962 Jul 17	1962 Jul 17	1962 Jul 17 1741:31	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06189	1962-S245	Big Shot 2	1962 Jul 18 	1962 Jul 18	1962 Jul 18	1962 Jul 18	-	Echo Big Shot	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06223	1962-S257	Beanstalk 2	1962 Jul 24 	1962 Jul 24	1962 Jul 24	1962 Jul 24	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06753	1962-S480	Saturn SA-3	1962 Nov 16 	1962 Nov 16	1962 Nov 16	1962 Nov 16	-	Saturn Block I	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06754	1962-S480	Saturn S-V	1962 Nov 16 	1962 Nov 16	1962 Nov 16	1962 Nov 16	-	Saturn S-V	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06766	1962-S485	Beanstalk 3	1962 Nov 21 	1962 Nov 21	1962 Nov 21	1962 Nov 21	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R06963	1962-S573	Ion Engine Test 21-1	1962 Dec 19 	1962 Dec 19	1962 Dec 19	1962 Dec 19	-	Blue Scout Ion	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07035	1963-S08	Trailblazer IId	1963 Mar 23 	1963	1963	1963	-	TB	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07074	1963-S14	X-15-3 Flight 3-14-24	1963 Jan 17 	1963 Jan 17	1963 Jan 17	1963 Jan 17 1909:21	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07108	1963-S32	Beanstalk 4	1963 Feb  2 	1963 Feb  2	1963 Feb  2	1963 Feb  2	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07256	1963-S96	Beanstalk 5	1963 Mar 14 	1963 Mar 14	1963 Mar 14	1963 Mar 14	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07317	1963-S121	Saturn SA-4	1963 Mar 28 	1963 Mar 28	1963 Mar 28	1963 Mar 28	-	Saturn Block I	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07318	1963-S121	Saturn S-V	1963 Mar 28 	1963 Mar 28	1963 Mar 28	1963 Mar 28	-	Saturn S-V	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07548	1963-S207	Beanstalk 6	1963 May 17 	1963 May 17	1963 May 17	1963 May 17	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07593	1963-S226	RFD-1	1963 May 22 	1963 May 22	1963 May 22	1963 May 22	-	RFD	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07630	1963-S241	RAM B-2	1963 May 28 	1963 May 28	1963 May 28	1963 May 28	-	Scout RAM	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07801	1963-S304	X-15-3 Flight 3-20-31	1963 Jun 27 	1963 Jun 27	1963 Jun 27	1963 Jun 27 1806:31	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R07917	1963-S344	X-15-3 Flight 3-21-32	1963 Jul 19 	1963 Jul 19	1963 Jul 19	1963 Jul 19 1820:05	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R08068	1963-S401	X-15-3 Flight 3-22-36	1963 Aug 22 	1963 Aug 22	1963 Aug 22	1963 Aug 22 1817:06	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R08603	1963-S605	SAC probe (Beanstalk OT1)	1963 Dec 17 	1963 Dec 17	1963 Dec 17	1963 Dec 17	-	ERCS 279	-	-	-	D	COM	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R09060	1964-S146	OAR 22-2	1964 Mar 13 	1964 Mar 13	1964 Mar 13	1964 Mar 13	-	OAR Probe	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R09448	1964-S279	Blue Streak F-1	1964 Jun  4 	1964 Jun  4	1964 Jun  4	1964 Jun  4 2358	-	ELDO P	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R09757	1964-S371	SERT I	1964 Jul 20 	1964 Jul 20	1964 Jul 20	1964 Jul 20	-	SERT	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R10004	1964-S448	Ion Engine Test 21-2	1964 Aug 29 	1964 Aug 29	1964 Aug 29	1964 Aug 29	-	Blue Scout Ion	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R10226	1964-S513	RFD-2	1964 Oct  9 	1964 Oct  9	1964 Oct  9	1964 Oct  9	-	RFD	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R10285	1964-S532	Blue Streak F-2	1964 Oct 19 	1964 Oct 19	1964 Oct 19	1964 Oct 19 2309	-	ELDO P	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R10748	1964-S696	Ion Engine Test 21-3	1964 Dec 22 	1964 Dec 22	1964 Dec 22	1964 Dec 22	-	Blue Scout Ion	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R10942	1965-S54	AFCRL-309 (OAR 22-3)	1965 Jan 28 	1965 Jan 28	1965 Jan 28	1965 Jan 28	-	OAR Probe	-	-	-	D	SCI	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R11304	1965-S181	Blue Streak F-3	1965 Mar 21 	1965 Mar 21	1965 Mar 21	1965 Mar 21 2317	-	ELDO P	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R11983	1965-S392	X-15-3 Flight 3-44-67	1965 Jun 29 	1965 Jun 29	1965 Jun 29	1965 Jun 29 1821:17	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R12188	1965-S461	X-15-3 Flight 3-46-70	1965 Aug 10 	1965 Aug 10	1965 Aug 10	1965 Aug 10 1952:13	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R12403	1965-S519	X-15-3 Flight 3-49-73	1965 Sep 28 	1965 Sep 28	1965 Sep 28	1965 Sep 28 1819:33	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R12453	1965-078	OV1 Dummy	1965 Oct  5 	1965 Oct  5	1965 Oct  5	1965 Oct  5	-	OV1 X	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R12493	1965-S554	X-15-1 Flight 1-61-101	1965 Oct 14 	1965 Oct 14	1965 Oct 14	1965 Oct 14 2056:00	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R13432	1966-U04	SA-201	1966 Feb 26 	1966 Feb 26	1966 Feb 26	1966 Feb 26 1644	-	Saturn IB	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R13894	1966-S276	ELDO F-4 STV	1966 May 23 	1966 May 23	1966 May 23	1966 May 23 2342?	-	STV	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R14400	1966-S444	Scanner 1	1966 Aug 16 	1966 Aug 16	1966 Aug 16	1966 Aug 16	-	LARC Reentry	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R14448	1966-U06	SA-202	1966 Aug 25 	1966 Aug 25	1966 Aug 25	1966 Aug 25 1731	-	Saturn IB	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R14819	1966-S579	X-15-3 Flight 3-56-83	1966 Nov  1 	1966 Nov  1	1966 Nov  1	1966 Nov  1 2134:55	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R14972	1966-S620	ELDO F-5 STV	1966 Nov 14 	1966 Nov 14	1966 Nov 14	1966 Nov 14 2045:18	-	STV	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R15062	1966-S658	SPARTA 1	1966 Nov 28 	1966 Nov 28	1966 Nov 28	1966 Nov 28	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R15132	1966-S683	SPARTA 2	1966 Dec 13 	1966 Dec 13	1966 Dec 13	1966 Dec 13	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R15950	1967-S225	SPARTA 3	1967 Apr 19 	1967 Apr 19	1967 Apr 19	1967 Apr 19	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16322	1967-S332	SPARTA 4	1967 Jul  4 	1967 Jul  4	1967 Jul  4	1967 Jul  4	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16401	1967-S356	SPARTA 5	1967 Jul 24 	1967 Jul 24	1967 Jul 24	1967 Jul 24	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16448	1967-S367	ELDO F-6/1 STV	1967 Aug  4 	1967 Aug  4	1967 Aug  4	1967 Aug  4 0401	-	STV	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16506	1967-S390	SPARTA 6	1967 Aug 17 	1967 Aug 17	1967 Aug 17	1967 Aug 17	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16645	1967-S438	SPARTA 7	1967 Sep 15 	1967 Sep 15	1967 Sep 15	1967 Sep 15	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16787	1967-S487	SPARTA 8	1967 Oct 11 	1967 Oct 11	1967 Oct 11	1967 Oct 11	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16811	1967-S496	X-15-3 Flight 3-64-95	1967 Oct 17 	1967 Oct 17	1967 Oct 17	1967 Oct 17 1650:29	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16870	1967-S513	SPARTA 9	1967 Oct 31 	1967 Oct 31	1967 Oct 31	1967 Oct 31	-	WRESAT	-	-	-	D	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R16957	1967-S535	X-15-3 Flight 3-65-97	1967 Nov 15 	1967 Nov 15	1967 Nov 15	1967 Nov 15 1834:58	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R17053	1967-S561	ELDO F-6/2 STV	1967 Dec  5 	1967 Dec  5	1967 Dec  5	1967 Dec  5 2103	-	STV	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R18022	1968-S289	Reentry 5	1968 Apr 27 	1968 Apr 27	1968 Apr 27	1968 Apr 27	-	Scout Reentry	-	-	-	C	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R18538	1968-S467	X-15-1 Flight 1-79-139	1968 Aug 21 	1968 Aug 21	1968 Aug 21	1968 Aug 21 1614:11	-	X-15	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R20831	1969-S480	L-4T	1969 Sep  3 	1969 Sep  3	1969 Sep  3	1969 Sep  3	-	L-4S	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R21268	1969-S588	US-A GVM	1969 Nov  1 	1969 Nov  1	1969 Nov  1	1969 Nov  1	-	US-A	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R22228	1970-S187	Black Arrow R-1	1970 Mar  3 	1970 Mar  3	1970 Mar  3	1970 Mar  3	-	UKX	-	-	-	C	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R23314	1970-S488	GVM L-1e 82-EV	1970 Aug 18 	1970 Aug 18	1970 Aug 18	1970 Aug 18 0404?	-	L-1e	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R23581	1970-S545	RAM C-3	1970 Sep 30 	1970 Sep 30	1970 Sep 30	1970 Sep 30	-	Scout RAM	-	-	-	C	RV	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R23905	1970-S626	NB22.208	1970 Nov 25 	1970 Nov 25	1970 Nov 25	1970 Nov 25	-	Scout Probe	-	-	-	C	AST	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R25389	1971-S334	PAET	1971 Jun 20 	1971 Jun 20	1971 Jun 20	1971 Jun 20 1945	-	Scout Probe	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R38431	1977-S246	FB-1 Test	1977 Sep 14 	1977 Sep 14	1977 Sep 14	1977 Sep 14	-	FB-1 Test	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R39843	1978-S112	FB-1 Test	1978 Apr 15 	1978 Apr 15	1978 Apr 15	1978 Apr 15	-	FB-1 Test	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R42644	1979-S263	L-4SC-5 Nosecone	1979 Sep 20 	1979 Sep 20	1979 Sep 20	1979 Sep 20	-	Lambda	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R44812	1980-S222	BOR-4S No. 401	1980 Dec  5 	1980 Dec  5	1980 Dec  5	1980 Dec  5	-	BOR-4	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R50222	1984-S44	ASAT 1	1984 Jan 21 	1984 Jan 21	1984 Jan 21	1984 Jan 21	-	MHV	-	-	-	D	WEAPON	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R50786	1984-S99	BOR-5 No. 501	1984 Jul  5 	1984 Jul  5	1984 Jul  5	1984 Jul  5	-	BOR-5	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R51109	1984-S130	ASAT 2	1984 Nov 13 	1984 Nov 13	1984 Nov 13	1984 Nov 13	-	MHV	-	-	-	D	WEAPON	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R51581	1985-S69	BOR-5 No. 502	1985 Apr 16 	1985 Apr 17	1985 Apr 17	1985 Apr 17	-	BOR-5	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R52037	1985-S118	ASAT 3	1985 Sep 13 	1985 Sep 13	1985 Sep 13	1985 Sep 13 2043	-	MHV	-	-	-	D	WEAPON	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R53069	1986-S80	ASAT 4	1986 Aug 22 	1986 Aug 22	1986 Aug 22	1986 Aug 22	-	MHV	-	-	-	D	WEAPON	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R53206	1986-S100	ASAT 5	1986 Sep 30 	1986 Sep 30	1986 Sep 30	1986 Sep 30	-	MHV	-	-	-	D	WEAPON	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R53403	1986-S118	BOR-5 No. 503	1986 Dec 25 	1986 Dec 25	1986 Dec 25	1986 Dec 25	-	BOR-5	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R54455	1987-S131	BOR-5 No. 504	1987 Aug 26 	1987 Aug 27	1987 Aug 27	1987 Aug 27	-	BOR-5	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R55739	1988-S99	BOR-5 No. 505	1988 Jun 21 	1988 Jun 21	1988 Jun 21	1988 Jun 21	-	BOR-5	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R62508	1996-S07	HYFLEX	1996 Feb 11 	1996 Feb 11	1996 Feb 11	1996 Feb 11	-	NASDA RV	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R65951	2001-S37	Cosmos-1 Test	2001 Jul 20 	2001 Jul 20	2001 Jul 20	2001 Jul 20	-	TPS	-	-	-	A	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R66541	2002-S53	IRDT-2	2002 Jul 12 	2002 Jul 12	2002 Jul 12	2002 Jul 12	-	IRDT	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R68102	2005-S42	IRDT-2R	2005 Oct  6 	2005 Oct  6	2005 Oct  6	2005 Oct  6	-	IRDT	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R68772	2007-S19	Celestis 06	2007 Apr 28 	2007 Apr 28	2007 Apr 28	2007 Apr 28	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R70262	2010-S30	HTV-2a	2010 Apr 22 	2010 Apr 22	2010 Apr 22	2010 Apr 22	-	AF Hyper	-	-	-	D	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R70282	2010-S32	Celestis 09	2010 May  4 	2010 May  4	2010 May  4	2010 May  4	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R70813	2011-S18	Celestis 10	2011 May 20 	2011 May 20	2011 May 20	2011 May 20	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R71930	2013-S41	Celestis 12	2013 Jun 21 	2023 Jun 21	2023 Jun 21	2023 Jun 21	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R72622	2014-S37	GVM A2PP	2014 Jul  9 	2014 Jul  9	2014 Jul  9	2014 Jul  9	-	Angara	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R72851	2014-S64	Celestis 13	2014 Oct 23 	2014 Oct 23	2024 Oct 23	2024 Oct 23	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R72938	2014-S79	CARE	2014 Dec 18 	2014 Dec 18	2014 Dec 18	2014 Dec 18	-	Gagan	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R73452	2015-S72	Celestis 14	2015 Nov  6 	2015 Nov  6	2015 Nov  6	2015 Nov  6	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R73478	2015-S29	New Shepard NS-01	2015 Apr 29 	2015 Apr 29	2015 Apr 29	2015 Apr 29	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R73480	2015-S76	New Shepard NS-02	2015 Nov 23 	2015 Nov 23	2015 Nov 23	2015 Nov 23	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R74078	2016-S02	New Shepard NS-03	2016 Jan 22 	2016 Jan 22	2016 Jan 22	2016 Jan 22	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R74141	2016-S23	New Shepard NS-04	2016 Apr  2 	2016 Apr  2	2016 Apr  2	2016 Apr  2	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R74173	2016-S37	New Shepard NS-05	2016 Jun 19 	2016 Jun 19	2016 Jun 19	2016 Jun 19	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R74245	2016-S60	New Shepard NS-06	2016 Oct  5 	2016 Oct  5	2016 Oct  5	2016 Oct  5	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78089	2017-S104	New Shepard NS-07	2017 Dec 12 	2017 Dec 12	2017 Dec 12	2017 Dec 12	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78716	2018-S24	New Shepard NS-08	2018 Apr 29 	2018 Apr 29	2018 Apr 29	2018 Apr 29	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78784	2018-S41	New Shepard NS-09	2018 Jul 18 	2018 Jul 18	2018 Jul 18	2018 Jul 18	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78809	2018-S58	Celestis 15	2018 Sep 17 	2018 Sep 17	2018 Sep 17	2018 Sep 17	-	CPAC	-	-	-	B	MISC	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78887	2018-S79	Unity VP-03	2018 Dec 13 	2018 Dec 13	2018 Dec 13	2018 Dec 13 1613:47	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R78912	2019-S03	New Shepard NS-10	2019 Jan 23 	2019 Jan 23	2019 Jan 23	2019 Jan 23	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R79373	2019-S08	Unity VF-01	2019 Feb 22 	2019 Feb 22	2019 Feb 22	2019 Feb 22 1708:49	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R79392	2019-S18	New Shepard NS-11	2019 May  2 	2019 May  2	2019 May  2	2019 May  2	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R79603	2019-S79	New Shepard NS-12	2019 Dec 11 	2019 Dec 11	2019 Dec 11	2019 Dec 11	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80085	2020-S35	New Shepard NS-13	2020 Oct 13 	2020 Oct 13	2020 Oct 13	2020 Oct 13	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80182	2021-S01	New Shepard NS-14	2021 Jan 14 	2021 Jan 14	2021 Jan 14	2021 Jan 14	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80325	2021-S21	New Shepard NS-15	2021 Apr 14 	2021 Apr 14	2021 Apr 14	2021 Apr 14	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80392	2021-S26	Unity 21	2021 May 22 	2021 May 22	2021 May 22	2021 May 22 1539:40?	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80458	2017-S112	Simorgh dummy payload?	2017 Jul 27 	2017 Jul 27	2017 Jul 27	2017 Jul 27 0940?	-	Iran	-	-	-	C	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80510	2021-S41	Unity 22	2021 Jul 11 	2021 Jul 11	2021 Jul 11	2021 Jul 11 1538:36	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80531	2021-S45	New Shepard NS-16	2021 Jul 20 	2021 Jul 20	2021 Jul 20	2021 Jul 20 1321:18	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80626	2021-S55	New Shepard NS-17	2021 Aug 26 	2021 Aug 26	2021 Aug 26	2021 Aug 26	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80710	2021-S69	New Shepard NS-18	2021 Oct 13 	2021 Oct 13	2021 Oct 13	2021 Oct 13 1459:09	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R80894	2021-S89	New Shepard NS-19	2021 Dec 11 	2021 Dec 11	2021 Dec 11	2021 Dec 11 1510:55	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R81130	2022-S22	New Shepard NS-20	2022 Mar 31 	2022 Mar 31	2022 Mar 31	2022 Mar 31 1407:59	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R81259	2022-S37	New Shepard NS-21	2022 Jun  4 	2022 Jun  4	2022 Jun  4	2022 Jun  4 1335:07	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R81480	2022-S77	New Shepard NS-22	2022 Aug  4 	2022 Aug  4	2022 Aug  4	2022 Aug  4 1406:27	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82284	2023-S26	Unity 25	2023 May 25 	2023 May 25	2023 May 25	2023 May 25 1637:04?	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82373	2023-S31	Galactic 01	2023 Jun 29 	2023 Jun 29	2023 Jun 29	2023 Jun 29 1542:27	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82465	2023-S34	Galactic 02	2023 Aug 10 	2023 Aug 10	2023 Aug 10	2023 Aug 10 1532:48	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82541	2023-S38	Galactic 03	2023 Sep  8 	2023 Sep  8	2023 Sep  8	2023 Sep  8 1535:13	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82640	2023-S42	Galactic 04	2023 Oct  6 	2023 Oct  6	2023 Oct  6	2023 Oct  6 1624:53	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82715	2023-S54	Galactic 05	2023 Nov  2 	2023 Nov  2	2023 Nov  2	2023 Nov  2 1558:40	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82868	2023-S72	New Shepard NS-24	2023 Dec 19 	2023 Dec 19	2023 Dec 19	2023 Dec 19 1652:42	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R82972	2024-S01	Galactic 06	2024 Jan 26 	2024 Jan 26	2024 Jan 26	2024 Jan 26 1756?	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83309	2024-S34	New Shepard NS-25	2024 May 19 	2024 May 19	2024 May 19	2024 May 19 1445:02	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83394	2024-S37	Galactic 07	2024 Jun  8 	2024 Jun  8	2024 Jun  8	2024 Jun  8 1540:31	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83569	2024-S49	New Shepard NS-26	2024 Aug 29 	2024 Aug 29	2024 Aug 29	2024 Aug 29 1317:12	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83732	2024-S64	New Shepard NS-27	2024 Oct 23 	2024 Oct 23	2024 Oct 23	2024 Oct 23 1535:34?	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83847	2024-S75	New Shepard NS-28	2024 Nov 22 	2024 Nov 22	2024 Nov 22	2024 Nov 22 1540:14	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R83991	2024-084	Think Orbital F1	2024 May  6 	2024 May  6	2024 May  6	2024 May  6 1822:17	-	Think	-	-	-	B	TECH	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84110	2025-S03	New Shepard NS-29	2025 Feb  4 	2025 Feb  4	2025 Feb  4	2025 Feb  4 1610:06	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84164	2025-S08	New Shepard NS-30	2025 Feb 25 	2025 Feb 25	2025 Feb 25	2025 Feb 25 1559:19	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84333	2025-S16	New Shepard NS-31	2025 Apr 14 	2025 Apr 14	2025 Apr 14	2025 Apr 14 1340:21	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84507	2025-S24	New Shepard NS-32	2025 May 31 	2025 May 31	2025 May 31	2025 May 31 1349:18	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84605	2025-S29	New Shepard NS-33	2025 Jun 29 	2025 Jun 29	2025 Jun 29	2025 Jun 29 1450:10	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+R84708	2025-S36	New Shepard NS-34	2025 Aug  3 	2025 Aug  3	2025 Aug  3	2025 Aug  3 1252:28	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
