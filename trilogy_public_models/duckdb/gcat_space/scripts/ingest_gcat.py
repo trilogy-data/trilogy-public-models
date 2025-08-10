@@ -60,6 +60,34 @@ FILES_TO_DOWNLOAD: List[str] = [
 
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
+ENCODING = "utf-8"
+
+def strip_comment_line(tsv_path: Path) -> Path:
+    """
+    Remove the second line if it starts with '#' (comment line).
+    Creates a temporary cleaned file and returns its path.
+    """
+    cleaned_path = tsv_path.with_suffix('.cleaned.tsv')
+    # with open(tsv_path, 'rb') as file:
+    #     raw_data = file.read()
+    #     encoding = chardet.detect(raw_data)['encoding']
+    #     print(encoding)
+    with open(tsv_path, 'rb') as infile, \
+         open(cleaned_path, 'wb') as outfile:
+
+        lines = infile.readlines()
+        
+        if len(lines) > 1 and lines[1].strip().startswith(b'#'):
+            # Write header line and skip comment line
+            outfile.write(lines[0].lstrip(b'#'))
+            # Write remaining lines (starting from line 3)
+            outfile.writelines(lines[2:])
+            print(f"Stripped comment line from {tsv_path.name}")
+        else:
+            # No comment line to strip, write all lines
+            outfile.writelines(lines)
+    
+    return cleaned_path
 
 async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.Semaphore):
     url = BASE_URL + rel_path
@@ -83,6 +111,7 @@ async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.
                         async for chunk in resp.aiter_bytes(chunk_size=CHUNK_SIZE):
                             fd.write(chunk)
                 print(f"Saved: {out_path}")
+                strip_comment_line(out_path)
                 return
             except Exception as e:
                 # remove partial file if any
