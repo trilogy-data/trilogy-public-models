@@ -204,8 +204,8 @@ if __name__ == "__main__":
 
     # Read existing data into memory
     existing_data_list = []
-    missing_image_genera = set()
-    existing_genera = set()
+    missing_image_genera: set[str] = set()
+    existing_genera: set[str] = set()
 
     if target.exists():
         existing_data_list = read_csv_to_memory(target)
