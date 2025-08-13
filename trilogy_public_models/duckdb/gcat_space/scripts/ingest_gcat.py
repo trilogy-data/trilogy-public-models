@@ -95,9 +95,9 @@ async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Skip if file already exists
-    if out_path.exists():
-        print(f"SKIP (exists): {rel_path}")
-        return
+    # if out_path.exists():
+    #     print(f"SKIP (exists): {rel_path}")
+    #     return
 
     async with sem:
         for attempt in range(1, RETRIES + 1):
@@ -112,6 +112,10 @@ async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.
                             fd.write(chunk)
                 print(f"Saved: {out_path}")
                 strip_comment_line(out_path)
+                out_path.unlink()
+                parquet_path = out_path.with_suffix(".parquet")
+                if parquet_path.exists():
+                    parquet_path.unlink()
                 return
             except Exception as e:
                 # remove partial file if any
