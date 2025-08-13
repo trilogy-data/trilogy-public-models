@@ -195,12 +195,8 @@ def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
 
         traceback.print_exc()
 
-RECHECK_WORDS = [
-    "bird",
-    "Greek myth",
-    "disease",
-    "surname"
-]
+
+RECHECK_WORDS = ["bird", "Greek myth", "disease", "surname"]
 
 if __name__ == "__main__":
     genus_list = get_genus_list()

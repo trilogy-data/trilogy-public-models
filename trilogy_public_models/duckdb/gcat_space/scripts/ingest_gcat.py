@@ -1,7 +1,6 @@
 # ingest_gcat_whitelist.py
 import asyncio
 import httpx
-import os
 from pathlib import Path
 from typing import List
 
@@ -24,14 +23,12 @@ FILES_TO_DOWNLOAD: List[str] = [
     "tsv/tables/lvs.tsv",
     "tsv/tables/refs.tsv",
     "tsv/tables/stages.tsv",
-
     # Derived (full catalogs & logs)
     "tsv/derived/currentcat.tsv",
     "tsv/derived/launchlog.tsv",
     "tsv/derived/active.tsv",
     "tsv/derived/analyst.tsv",
     "tsv/derived/geotab.tsv",
-
     # Main / supporting / temporary / payload catalogs (catalog directory)
     "tsv/cat/satcat.tsv",
     "tsv/cat/auxcat.tsv",
@@ -62,34 +59,37 @@ DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 ENCODING = "utf-8"
 
+
 def strip_comment_line(tsv_path: Path) -> Path:
     """
     Remove the second line if it starts with '#' (comment line).
     Creates a temporary cleaned file and returns its path.
     """
-    cleaned_path = tsv_path.with_suffix('.cleaned.tsv')
+    cleaned_path = tsv_path.with_suffix(".cleaned.tsv")
     # with open(tsv_path, 'rb') as file:
     #     raw_data = file.read()
     #     encoding = chardet.detect(raw_data)['encoding']
     #     print(encoding)
-    with open(tsv_path, 'rb') as infile, \
-         open(cleaned_path, 'wb') as outfile:
+    with open(tsv_path, "rb") as infile, open(cleaned_path, "wb") as outfile:
 
         lines = infile.readlines()
-        
-        if len(lines) > 1 and lines[1].strip().startswith(b'#'):
+
+        if len(lines) > 1 and lines[1].strip().startswith(b"#"):
             # Write header line and skip comment line
-            outfile.write(lines[0].lstrip(b'#'))
+            outfile.write(lines[0].lstrip(b"#"))
             # Write remaining lines (starting from line 3)
             outfile.writelines(lines[2:])
             print(f"Stripped comment line from {tsv_path.name}")
         else:
             # No comment line to strip, write all lines
             outfile.writelines(lines)
-    
+
     return cleaned_path
 
-async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.Semaphore):
+
+async def fetch_and_save(
+    client: httpx.AsyncClient, rel_path: str, sem: asyncio.Semaphore
+):
     url = BASE_URL + rel_path
     out_path = DOWNLOAD_DIR.joinpath(rel_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -131,7 +131,9 @@ async def fetch_and_save(client: httpx.AsyncClient, rel_path: str, sem: asyncio.
 
 async def main():
     sem = asyncio.Semaphore(CONCURRENCY)
-    limits = httpx.Limits(max_keepalive_connections=CONCURRENCY, max_connections=CONCURRENCY)
+    limits = httpx.Limits(
+        max_keepalive_connections=CONCURRENCY, max_connections=CONCURRENCY
+    )
     async with httpx.AsyncClient(limits=limits, follow_redirects=True) as client:
         tasks = [fetch_and_save(client, p, sem) for p in FILES_TO_DOWNLOAD]
         # run tasks, catching errors per task inside fetch_and_save
