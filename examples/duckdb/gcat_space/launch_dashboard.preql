@@ -3,7 +3,7 @@ import launch;
 
 auto launch_year <- date_trunc( launch_date, year);
 
-property launch_filter <- CASE WHEN launch_type_code = 'O' then "Orbital"
+key launch_filter <- CASE WHEN launch_type_code = 'O' then "Orbital"
 WHEN launch_type_code = 'D' then 'Deep Space'
 ELSE 'Other' END;
 
