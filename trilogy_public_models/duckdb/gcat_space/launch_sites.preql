@@ -17,7 +17,6 @@ property <key>.longitude float::longitude;
 property <key>.latitude float::latitude;
 property <key>.error string;
 property <key>.parent string;
-property <key>.short_e_name string;
 property <key>.e_name string;
 # property <key>.group string;
 property <key>.u_name string;
