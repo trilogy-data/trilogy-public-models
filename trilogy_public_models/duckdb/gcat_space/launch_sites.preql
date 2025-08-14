@@ -1,6 +1,5 @@
 
 
-
 #auto-generated datasource from table/view launch_keys
 import std.geography;
 
@@ -33,10 +32,11 @@ datasource launch_sites (
 	ShortName:short_name,
 	Name:name,
 	Location:location,
-	llong:longitude,
-	llat:latitude,
+	longitude:longitude,
+	latitude:latitude,
 	Error:error,
 	Parent:parent,
+	ShortName:short_name,
 	EName:e_name,
 	# Group,
 	UName:u_name,
