@@ -32,33 +32,32 @@ SELECT
     LTCite,
     Cite,
     Notes
-FROM read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/tables/launch_cleaned.tsv',
+FROM read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/launch_cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE platform_info as
 SELECT * 
-from read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/tables/platforms.cleaned.tsv',
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/platforms.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE lv_info as
 SELECT *
-from read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/tables/lv.cleaned.tsv',
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/lv.cleaned.tsv',
 sample_size=-1);
 
 
 CREATE OR REPLACE TABLE launch_sites as
-SELECT *, cast(case when latitude='-' then null else latitude end as float) llat, cast(case when longitude='-' then null else longitude end as float) llong
-from read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
+SELECT * EXCLUDE(latitude, longitude), cast(case when latitude='-' then null else latitude end as float) latitude, cast(case when longitude='-' then null else longitude end as float) longitude
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
 sample_size=-1);
 
 
 CREATE OR REPLACE TABLE organizations as
 SELECT *
-from read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/tables/orgs.cleaned.tsv',
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/orgs.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE satcat as
 SELECT *
-from read_csv_auto('https://raw.githubusercontent.com/trilogy-data/trilogy-public-models/221de04c0cd1b2f3459d3ca8c217fef923cfcb48/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
 sample_size=-1);
-

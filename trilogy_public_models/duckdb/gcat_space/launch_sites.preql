@@ -1,6 +1,5 @@
 
 
-
 #auto-generated datasource from table/view launch_keys
 import std.geography;
 
@@ -18,6 +17,7 @@ property <key>.longitude float::longitude;
 property <key>.latitude float::latitude;
 property <key>.error string;
 property <key>.parent string;
+property <key>.short_e_name string;
 property <key>.e_name string;
 # property <key>.group string;
 property <key>.u_name string;
@@ -33,10 +33,11 @@ datasource launch_sites (
 	ShortName:short_name,
 	Name:name,
 	Location:location,
-	llong:longitude,
-	llat:latitude,
+	longitude:longitude,
+	latitude:latitude,
 	Error:error,
 	Parent:parent,
+	ShortName:short_name,
 	EName:e_name,
 	# Group,
 	UName:u_name,
