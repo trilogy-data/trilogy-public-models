@@ -1,0 +1,859 @@
+JCAT	Piece	Name	LDate	TLast	TOp	TDate	TF	Program	Plane	Att	Mvr	Class	Category	Result	Control	Discipline	UNState	UNReg	UNPeriod	UNPerigee	UNApogee	UNInc	DispEpoch	DispPeri	DispApo	DispInc	Comment
+F00002	1957-F01	Vanguard Test Satellite F	1957 Dec  6 	1957 Dec  6	1957 Dec  6	1957 Dec  6	-	Vanguard Test	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00004	1958-F01	Vanguard Test Satellite G	1958 Feb  5 	1958 Feb  5	1958 Feb  5	1958 Feb  5	-	Vanguard Test	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00006	1958-F02	Explorer 2	1958 Mar  5 	1958 Mar  5	1958 Mar  5	1958 Mar  5	-	Explorer ABMA	-	-	-	C	SCI	U	-	P*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F00008	1958-F03	[ISZ]	1958 Apr 27 	1958 Apr 27	1958 Apr 27	1958 Apr 27	-	ObjectD	-	-	-	C	SCI	U	-	P/F/MM*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation satellite
+F00011	1958-F04	Vanguard	1958 Apr 29 	1958 Apr 29	1958 Apr 29	1958 Apr 29	-	Vanguard	-	-	-	C	SCI	U	-	SX*	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar X-rays
+F00013	1958-F05	Vanguard	1958 May 28 	1958 May 28	1958 May 28	1958 May 28	-	Vanguard	-	-	-	C	SCI	U	-	SOL*	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar Lyman Alpha
+F00015	1958-F06	Vanguard	1958 Jun 26 	1958 Jun 26	1958 Jun 26	1958 Jun 26	-	Vanguard	-	-	-	C	SCI	U	-	SX*	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar X-rays
+F00018	1958-F07	NOTS 1	1958 Jul 25 	1958 Jul 25	1958 Jul 25	1958 Jul 25	-	NOTS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00021	1958-F08	NOTS 2	1958 Aug 12 	1958 Aug 12	1958 Aug 12	1958 Aug 12	-	NOTS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00023	1958-F09	Pioneer	1958 Aug 17 	1958 Aug 17	1958 Aug 17	1958 Aug 17	-	Able	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00027	1958-F10	NOTS 3	1958 Aug 22 	1958 Aug 22	1958 Aug 22	1958 Aug 22	-	NOTS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00029	1958-F11	Explorer 5	1958 Aug 24 	1958 Aug 24	1958 Aug 24	1958 Aug 24	-	Explorer ABMA	-	-	-	C	SCI	U	-	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F00032	1958-F12	NOTS 4	1958 Aug 25 	1958 Aug 25	1958 Aug 25	1958 Aug 25	-	NOTS	-	-	-	D	SCI	U	-	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F00035	1958-F13	NOTS 5	1958 Aug 26 	1958 Aug 26	1958 Aug 26	1958 Aug 26	-	NOTS	-	-	-	D	SCI	U	-	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F00038	1958-F14	NOTS 6	1958 Aug 28 	1958 Aug 28	1958 Aug 28	1958 Aug 28	-	NOTS	-	-	-	D	SCI	U	-	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F00040	1958-F15	[AMS Luna]	1958 Sep 23 	1958 Sep 23	1958 Sep 23	1958 Sep 23	-	Luna	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00042	1958-U01	Vanguard	1958 Sep 26 	1958 Sep 26	1958 Sep 26	1958 Sep 26	-	Vanguard	-	-	-	C	IMG	U	-	ATM*	-	-	-	-	-	-	-	       0	       0	  0.00 	Cloud cover imagera
+F00044	1958-F17	[AMS Luna]	1958 Oct 11 	1958 Oct 11	1958 Oct 11	1958 Oct 11	-	Luna	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00048	1958-F18	Beacon	1958 Oct 23 	1958 Oct 23	1958 Oct 23	1958 Oct 23	-	Beacon	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Balloon satellite
+F00051	1958-F19	Pioneer 2	1958 Nov  8 	1958 Nov  8	1958 Nov  8	1958 Nov  8 0812	-	Able	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00054	1958-F20	[AMS Luna]	1958 Dec  4 	1958 Dec  4	1958 Dec  4	1958 Dec  4	-	Luna	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00056	1959-F01	Vanguard	1959 Apr 14 	1959 Apr 14	1959 Apr 14	1959 Apr 14	-	Vanguard3	-	-	-	C	SCI	U	-	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Magnetometer
+F00058	1959-F01	30-inch Sphere	1959 Apr 14 	1959 Apr 14	1959 Apr 14	1959 Apr 14	-	Beacon	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Balloon satellite
+F00060	1959-F02	Discoverer 3	1959 Jun  3 	1959 Jun  3	1959 Jun  3	1959 Jun  3	-	CORONA Early	-	-	-	D	TECH	U	-	BIO	-	-	-	-	-	-	-	       0	       0	  0.00 	Mice package
+F00062	1959-F02	SRV	1959 Jun  3 	1959 Jun  3	1959 Jun  3	1959 Jun  3	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00064	1959-F06	[AMS Luna]	1959 Jun 18 	1959 Jun 18	1959 Jun 18	1959 Jun 18	-	Luna	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00066	1959-F03	Vanguard	1959 Jun 22 	1959 Jun 22	1959 Jun 22	1959 Jun 22	-	Vanguard	-	-	-	C	SCI	U	-	ATM*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation balance
+F00068	1959-U01	Discoverer 4	1959 Jun 25 	1959 Jun 25	1959 Jun 25	1959 Jun 25	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00070	1959-U01	SRV 102	1959 Jun 25 	1959 Jun 25	1959 Jun 25	1959 Jun 25	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00072	1959-F05	NASA S-1	1959 Jul 16 	1959 Jul 16	1959 Jul 16	1959 Jul 16	-	ExplorerG	-	-	-	C	SCI	U	-	P/MM/SX*	-	-	-	-	-	-	-	       0	       0	  0.00 	First NASA Explorer
+F00074	1959-F07	Beacon	1959 Aug 15 	1959 Aug 15	1959 Aug 15	1959 Aug 15	-	Beacon	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Balloon satellite
+F00077	1959-F08	Transit 1A	1959 Sep 17 	1959 Sep 17	1959 Sep 17	1959 Sep 17	-	Transit	-	-	-	D	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00081	1959-F09	P-3	1959 Nov 26 	1959 Nov 26	1959 Nov 26	1959 Nov 26	-	Able	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00083	1960-F01	Discoverer 9	1960 Feb  4 	1960 Feb  4	1960 Feb  4	1960 Feb  4	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00085	1960-F01	SRV 113	1960 Feb  4 	1960 Feb  4	1960 Feb  4	1960 Feb  4	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00086	1960-F01	TOD-1	1960 Feb  4 	1960 Feb  4	1960 Feb  4	1960 Feb  4	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00088	1960-F02	Discoverer 10	1960 Feb 19 	1960 Feb 19	1960 Feb 19	1960 Feb 19	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00090	1960-F02	SRV 110	1960 Feb 19 	1960 Feb 19	1960 Feb 19	1960 Feb 19	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00091	1960-F02	TOD-2	1960 Feb 19 	1960 Feb 19	1960 Feb 19	1960 Feb 19	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00093	1960-F03	Midas 1	1960 Feb 26 	1960 Feb 26	1960 Feb 26	1960 Feb 26	-	Midas ETS	-	-	-	D	EW	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00096	1960-F04	NASA S-46	1960 Mar 23 	1960 Mar 23	1960 Mar 23	1960 Mar 23	-	ExplorerG	-	-	-	C	SCI	U	-	P*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation studies
+F00098	1960-F06	[Luna-4]	1960 Apr 16 	1960 Apr 16	1960 Apr 16	1960 Apr 16	-	Luna	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00101	1960-F07	Echo	1960 May 13 	1960 May 13	1960 May 13	1960 May 13	-	Echo	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00104	1960-F08	Discoverer 12	1960 Jun 29 	1960 Jun 29	1960 Jun 29	1960 Jun 29	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00106	1960-F08	SRV	1960 Jun 29 	1960 Jun 29	1960 Jun 29	1960 Jun 29	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00108	1960-F09	[Korabl'-Sputnik]	1960 Jul 28 	1960 Jul 28	1960 Jul 28	1960 Jul 28 0717?	-	Vostok1	-	-	-	C	SS	U	-	BIO	-	-	-	-	-	-	-	       0	       0	  0.00 	Spaceship test
+F00111	1960-F10	Courier 1A	1960 Aug 18 	1960 Aug 18	1960 Aug 18	1960 Aug 18	-	Courier	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00113	1960-F11	P-30	1960 Sep 25 	1960 Sep 25	1960 Sep 25	1960 Sep 25	-	Able	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00117	1960-F12	[AMS Mars]	1960 Oct 10 	1960 Oct 10	1960 Oct 10	1960 Oct 10	-	MV	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Mars probe
+F00119	1960-F13	Samos 1	1960 Oct 11 	1960 Oct 11	1960 Oct 11	1960 Oct 11 2048?	-	SAMOS E-1	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00123	1960-F14	[AMS Mars]	1960 Oct 14 	1960 Oct 14	1960 Oct 14	1960 Oct 14	-	MV	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Mars probe
+F00125	1960-F15	Discoverer 16	1960 Oct 26 	1960 Oct 26	1960 Oct 26	1960 Oct 26	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00127	1960-F15	SRV 506	1960 Oct 26 	1960 Oct 26	1960 Oct 26	1960 Oct 26	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00128	1960-F15	TOD-5	1960 Oct 26 	1960 Oct 26	1960 Oct 26	1960 Oct 26	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00132	1960-F16	Transit 3A	1960 Nov 30 	1960 Nov 30	1960 Nov 30	1960 Nov 30	-	Transit	-	-	-	D	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00133	1960-F16	SR 2	1960 Nov 30 	1960 Nov 30	1960 Nov 30	1960 Nov 30	-	GRAB	-	-	-	D	SIG	U	-	SX	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar X
+F00136	1960-F17	NASA S-56	1960 Dec  4 	1960 Dec  4	1960 Dec  4	1960 Dec  4	-	Explorer AD	-	-	-	C	SCI	U	-	ATM*	-	-	-	-	-	-	-	       0	       0	  0.00 	Air density balloon
+F00138	1960-F18	P-31	1960 Dec 15 	1960 Dec 15	1960 Dec 15	1960 Dec 15	-	Able	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00140	1960-F19	[Korabl'-Sputnik]	1960 Dec 22 	1960 Dec 22	1960 Dec 22	1960 Dec 22 0800?	-	Vostok1	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00143	1961-F01	NASA S-45	1961 Feb 25 	1961 Feb 25	1961 Feb 25	1961 Feb 25	-	ExplorerG	-	-	-	C	SCI	U	-	ION*	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere beacon
+F00145	1961-F02	Discoverer 22	1961 Mar 30 	1961 Mar 30	1961 Mar 30	1961 Mar 30	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00147	1961-F02	SRV 509	1961 Mar 30 	1961 Mar 30	1961 Mar 30	1961 Mar 30	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00149	1961-F03	Mercury MA-3	1961 Apr 25 	1961 Apr 25	1961 Apr 25	1961 Apr 25	-	Mercury MA	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00152	1961-F04	NASA S-45A	1961 May 24 	1961 May 24	1961 May 24	1961 May 24	-	ExplorerG	-	-	-	C	SCI	U	-	ION*	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere beacon
+F00154	1961-F05	Discoverer 24	1961 Jun  8 	1961 Jun  8	1961 Jun  8	1961 Jun  8	-	CORONA ARGON	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00156	1961-F05	SRV 541	1961 Jun  8 	1961 Jun  8	1961 Jun  8	1961 Jun  8	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00158	1961-F06	NASA S-55	1961 Jun 30 	1961 Jun 30	1961 Jun 30	1961 Jun 30	-	Explorer MME	-	-	-	C	SCI	U	-	MM*	-	-	-	-	-	-	-	       0	       0	  0.00 	Meteoroids
+F00160	1961-F07	Discoverer 27	1961 Jul 21 	1961 Jul 21	1961 Jul 21	1961 Jul 21	-	CORONA ARGON	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00162	1961-F07	SRV 524	1961 Jul 21 	1961 Jul 21	1961 Jul 21	1961 Jul 21	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00164	1961-F08	Discoverer 28	1961 Aug  4 	1961 Aug  4	1961 Aug  4	1961 Aug  4	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00166	1961-F08	SRV 512	1961 Aug  4 	1961 Aug  4	1961 Aug  4	1961 Aug  4	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00168	1961-F09	Samos 3	1961 Sep  9 	1961 Sep  9	1961 Sep  9	1961 Sep  9 1928	-	SAMOS E-2	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00170	1961-F10	Discoverer 33	1961 Oct 23 	1961 Oct 23	1961 Oct 23	1961 Oct 23	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00172	1961-F10	SRV 513	1961 Oct 23 	1961 Oct 23	1961 Oct 23	1961 Oct 23	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00174	1961-F11	Kosmos	1961 Oct 27 	1961 Oct 27	1961 Oct 27	1961 Oct 27	-	DS Early	-	-	-	C	SCI	U	-	P?*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation?
+F00176	1961-F12	Mercury MS-1	1961 Nov  1 	1961 Nov  1	1961 Nov  1	1961 Nov  1	-	Mercury Scout	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00180	1961-F13	Samos 4	1961 Nov 22 	1961 Nov 22	1961 Nov 22	1961 Nov 22	-	SAMOS E-5	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00182	1961-F14	[Kosmos-1]	1961 Dec 11 	1961 Dec 11	1961 Dec 11	1961 Dec 11	-	Zenit-2 LKI	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00185	1961-F15	Kosmos	1961 Dec 21 	1961 Dec 21	1961 Dec 21	1961 Dec 21	-	DS Early	-	-	-	C	SCI	U	-	P?*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation?
+F00187	1962-F01	Discoverer 37	1962 Jan 13 	1962 Jan 13	1962 Jan 13	1962 Jan 13	-	CORONA Early	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00189	1962-F01	SRV 571	1962 Jan 13 	1962 Jan 13	1962 Jan 13	1962 Jan 13	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00190	1962-F01	LPARL Aurora 1962a	1962 Jan 13 	1962 Jan 13	1962 Jan 13	1962 Jan 13	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00192	1962-F02	SR 4	1962 Jan 24 	1962 Jan 24	1962 Jan 24	1962 Jan 24	-	GRAB	-	-	-	D	SIG	U	-	SX	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar X?
+F00193	1962-F02	Lofti 2	1962 Jan 24 	1962 Jan 24	1962 Jan 24	1962 Jan 24	-	Lofti	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00194	1962-F02	Secor	1962 Jan 24 	1962 Jan 24	1962 Jan 24	1962 Jan 24	-	Secor I	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Geodesy
+F00195	1962-F02	Injun 2	1962 Jan 24 	1962 Jan 24	1962 Jan 24	1962 Jan 24	-	Injun	-	-	-	C	SCI	U	-	P/AUR*	-	-	-	-	-	-	-	       0	       0	  0.00 	Particles and aurora
+F00196	1962-F02	Surcal	1962 Jan 24 	1962 Jan 24	1962 Jan 24	1962 Jan 24	-	Surcal	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00198	1962-F03	Blue Scout	1962 Apr 26 	1962 Apr 26	1962 Apr 26	1962 Apr 26	-	GRAB	-	-	-	D	SIG	N	-	-	US	A/AC.105/INF.007	-	-	-	-	-	       0	       0	  0.00 	-
+F00200	1962-F04	Thor-Ablestar	1962 May 10 	1962 May 10	1962 May 10	1962 May 10	-	ANNA	-	-	-	D	NAV	U	-	GEOD	US	A/AC.105/INF.008	-	-	-	-	-	       0	       0	  0.00 	Geodesy
+F00202	1962-F05	Blue Scout	1962 May 24 	1962 May 24	1962 May 24	1962 May 24	-	P35	-	-	-	D	MET	U	-	-	US	A/AC.105/INF.010	-	-	-	-	-	       0	       0	  0.00 	-
+F00206	1962-F06	[Kosmos-6]	1962 Jun  1 	1962 Jun  1	1962 Jun  1	1962 Jun  1	-	Zenit-2 LKI	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00209	1962-F07	Atlas Agena B	1962 Jul 22 	1962 Jul 22	1962 Jul 22	1962 Jul 22	-	Mariner	-	-	-	C	PLAN	U	-	PL	US	A/AC.105/INF.015	-	-	-	-	-	       0	       0	  0.00 	Venus probe
+F00211	1962-F08	Kosmos	1962 Oct 25 	1962 Oct 25	1962 Oct 25	1962 Oct 25	-	MS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00213	1962-F09	Atlas Agena B	1962 Dec 17 	1962 Dec 17	1962 Dec 17	1962 Dec 17	-	Midas ETS-III	-	-	-	D	EW	U	-	-	US	A/AC.105/INF.027	-	-	-	-	-	       0	       0	  0.00 	-
+F00214	1962-F09	TRS 3	1962 Dec 17 	1962 Dec 17	1962 Dec 17	1962 Dec 17	-	TRS I	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00215	1962-F09	TRS 4	1962 Dec 17 	1962 Dec 17	1962 Dec 17	1962 Dec 17	-	TRS I	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00216	1962-F09	GRD Package/HSRP-9	1962 Dec 17 	1962 Dec 17	1962 Dec 17	1962 Dec 17	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00220	1963-F01	[Luna-4]	1963 Feb  3 	1963 Feb  3	1963 Feb  3	1963 Feb  3	-	E-6	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar lander
+F00221	1963-F01	ALS	1963 Feb  3 	1963 Feb  3	1963 Feb  3	1963 Feb  3	-	E-6SA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00225	1963-F02	Thor Agena	1963 Feb 28 	1963 Feb 28	1963 Feb 28	1963 Feb 28	-	CORONA M	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.032	-	-	-	-	-	       0	       0	  0.00 	-
+F00227	1963-F02	SRV 610	1963 Feb 28 	1963 Feb 28	1963 Feb 28	1963 Feb 28	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00228	1963-F02	LPARL Aurora 1963a	1963 Feb 28 	1963 Feb 28	1963 Feb 28	1963 Feb 28	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00230	1963-F03	Thor Agena	1963 Mar 18 	1963 Mar 18	1963 Mar 18	1963 Mar 18	-	LANYARD	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.035	-	-	-	-	-	       0	       0	  0.00 	-
+F00232	1963-F03	SRV 612	1963 Mar 18 	1963 Mar 18	1963 Mar 18	1963 Mar 18	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00234	1963-F03	P-11?	1963 Mar 18 	1963 Mar 18	1963 Mar 18	1963 Mar 18	-	EHH A	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation belt study
+F00238	1963-F04	Scout	1963 Apr  5 	1963 Apr  5	1963 Apr  5	1963 Apr  5	-	Transit 5	-	-	-	D	NAV	U	-	-	US	A/AC.105/INF.037	-	-	-	-	-	       0	       0	  0.00 	-
+F00240	1963-F05	Kosmos	1963 Apr  6 	1963 Apr  6	1963 Apr  6	1963 Apr  6	-	DS-P1	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00242	1963-F06	Blue Scout	1963 Apr 26 	1963 Apr 26	1963 Apr 26	1963 Apr 26	-	P35	-	-	-	D	MET	U	-	-	US	A/AC.105/INF.038	-	-	-	-	-	       0	       0	  0.00 	-
+F00246	1963-F07	Thor Agena	1963 Apr 26 	1963 Apr 26	1963 Apr 26	1963 Apr 26	-	CORONA ARGON	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.038	-	-	-	-	-	       0	       0	  0.00 	-
+F00248	1963-F07	SRV 605	1963 Apr 26 	1963 Apr 26	1963 Apr 26	1963 Apr 26	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00250	1963-F08	Kosmos	1963 Jun  1 	1963 Jun  1	1963 Jun  1	1963 Jun  1	-	DS-MT	-	-	-	C	SCI/AST	U	-	UVA	-	-	-	-	-	-	-	       0	       0	  0.00 	UV background
+F00252	1963-F09	Atlas Agena	1963 Jun 12 	1963 Jun 13	1963 Jun 13	1963 Jun 13	-	Midas ETS-III	-	-	-	D	EW	U	-	-	US	A/AC.105/INF.042	-	-	-	-	-	       0	       0	  0.00 	-
+F00253	1963-F09	TRS 7	1963 Jun 12 	1963 Jun 13	1963 Jun 13	1963 Jun 13	-	TRS I	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00254	1963-F09	TRS 8	1963 Jun 12 	1963 Jun 13	1963 Jun 13	1963 Jun 13	-	TRS I	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00256	1963-E01	[Kosmos-19]	1963 Jul 10 	1963 Jul 10	1963 Jul 10	1963 Jul 10	-	Zenit-2 LKI	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00259	1963-F11	Kosmos	1963 Aug 22 	1963 Aug 22	1963 Aug 22	1963 Aug 22	-	DS-A1	-	-	-	C	SCI	U	-	P/ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation/ionosphere
+F00261	1963-F12	Blue Scout	1963 Sep 27 	1963 Sep 27	1963 Sep 27	1963 Sep 27	-	P35	-	-	-	D	MET	U	-	-	US	A/AC.105/INF.052	-	-	-	-	-	       0	       0	  0.00 	-
+F00265	1963-F13	Kosmos	1963 Oct 24 	1963 Oct 24	1963 Oct 24	1963 Oct 24	-	DS-A1	-	-	-	C	SCI	U	-	P/ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation/ionosphere
+F00267	1963-F14	Thor Agena	1963 Nov  9 	1963 Nov  9	1963 Nov  9	1963 Nov  9	-	CORONA M	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.053	-	-	-	-	-	       0	       0	  0.00 	-
+F00269	1963-F14	SRV 632	1963 Nov  9 	1963 Nov  9	1963 Nov  9	1963 Nov  9	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00270	1963-F14	RM-5	1963 Nov  9 	1963 Nov  9	1963 Nov  9	1963 Nov  9	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00272	1963-F15	[Kosmos-23]	1963 Nov 28 	1963 Nov 28	1963 Nov 28	1963 Nov 28	-	Zenit-2 A	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00277	1964-F01	[Zond]	1964 Feb 19 	1964 Feb 19	1964 Feb 19	1964 Feb 19	-	3MV	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Venus probe
+F00278	1964-F01	Spuskaemiy apparat	1964 Feb 19 	1964 Feb 19	1964 Feb 19	1964 Feb 19	-	MV SA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00280	1964-F02	Delta	1964 Mar 19 	1964 Mar 19	1964 Mar 19	1964 Mar 19	-	Explorer BE	-	-	-	C	SCI	U	-	ION*	US	A/AC.105/INF.068	-	-	-	-	-	       0	       0	  0.00 	Ionospheric beacon
+F00286	1964-F03	[Luna-5]	1964 Mar 21 	1964 Mar 21	1964 Mar 21	1964 Mar 21	-	E-6	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar lander
+F00287	1964-F03	ALS	1964 Mar 21 	1964 Mar 21	1964 Mar 21	1964 Mar 21	-	E-6SA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00291	1964-F04	Thor Agena	1964 Mar 24 	1964 Mar 24	1964 Mar 24	1964 Mar 24	-	CORONA J	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.068	-	-	-	-	-	       0	       0	  0.00 	-
+F00293	1964-F04	SRV 631	1964 Mar 24 	1964 Mar 24	1964 Mar 24	1964 Mar 24	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00295	1964-F04	SRV 630	1964 Mar 24 	1964 Mar 24	1964 Mar 24	1964 Mar 24	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00297	1964-F04	LPARL Aurora 1964	1964 Mar 24 	1964 Mar 24	1964 Mar 24	1964 Mar 24	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00301	1964-F05	[Luna-5]	1964 Apr 20 	1964 Apr 20	1964 Apr 20	1964 Apr 20	-	E-6	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar lander
+F00302	1964-F05	ALS	1964 Apr 20 	1964 Apr 20	1964 Apr 20	1964 Apr 20	-	E-6SA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00306	1964-U03	Transit VBN-3	1964 Apr 21 	1964 Apr 21	1964 Apr 21	1964 Apr 21	-	Transit 5	-	-	-	D	NAV	U	-	-	US	A/AC.105/INF.070	-	-	-	-	-	       0	       0	  0.00 	-
+F00307	1964-U03	Transit VE-2	1964 Apr 21 	1964 Apr 21	1964 Apr 21	1964 Apr 21	-	Transit 5E	-	-	-	C	SCI	U	-	P?	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation study?
+F00311	1964-F07	Molniya-1 No 2	1964 Jun  4 	1964 Jun  4	1964 Jun  4	1964 Jun  4	-	Molniya-1	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00313	1964-F08	ESRS	1964 Jun 25 	1964 Jun 25	1964 Jun 25	1964 Jun 25	-	AFCRL	-	-	-	C	SCI	U	-	P/MM	US	A/AC.105/INF.077	-	-	-	-	-	       0	       0	  0.00 	Radiation, micrometeors
+F00315	1964-F09	AC-3 Instrumentation Ring	1964 Jun 30 	1964 Jun 30	1964 Jun 30	1964 Jun 30	-	AC	-	-	-	C	TECH	U	-	-	US	A/AC.105/INF.077	-	-	-	-	-	       0	       0	  0.00 	-
+F00316	1964-F10	Titan IIIA	1964 Sep  1 	1964 Sep  1	1964 Sep  1	1964 Sep  1	-	Transtage PL	-	-	-	D	TECH	F	-	-	US	A/AC.105/INF.082	-	-	-	-	-	       0	       0	  0.00 	-
+F00317	1964-F10	Transtage 2	1964 Sep  1 	1964 Sep  1	1964 Sep  1	1964 Sep  1	-	Transtage	-	-	-	D	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00319	1964-F11	Atlas Agena	1964 Oct  7 	1964 Oct  8	1964 Oct  8	1964 Oct  8	-	AFP-206	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.085	-	-	-	-	-	       0	       0	  0.00 	-
+F00321	1964-F11	SRV	1964 Oct  7 	1964 Oct  8	1964 Oct  8	1964 Oct  8	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00322	1964-F11	P-11	1964 Oct  7 	1964 Oct  8	1964 Oct  8	1964 Oct  8	-	EHH A	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00324	1964-F12	Kosmos	1964 Oct 23 	1964 Oct 23	1964 Oct 23	1964 Oct 23	-	Strela-1	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00325	1964-F12	Kosmos	1964 Oct 23 	1964 Oct 23	1964 Oct 23	1964 Oct 23	-	Strela-1	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00326	1964-F12	Kosmos	1964 Oct 23 	1964 Oct 23	1964 Oct 23	1964 Oct 23	-	Strela-1	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00328	1964-F13	Kosmos	1964 Dec  1 	1964 Dec  1	1964 Dec  1	1964 Dec  1	-	DS Early	-	-	-	C	SCI	U	-	ION*	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionospheric beacon
+F00330	1965-F01	Atlas	1965 Jan 21 	1965 Jan 21	1965 Jan 21	1965 Jan 21	-	OV1 X	-	-	-	C	SCI	U	-	P/F/MM	US	A/AC.105/INF.098	-	-	-	-	-	       0	       0	  0.00 	Radiation studies
+F00332	1965-F02	Kosmos	1965 Feb 12 	1965 Feb 12	1965 Feb 12	1965 Feb 12	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00334	1965-F03	Kosmos	1965 Feb 20 	1965 Feb 20	1965 Feb 20	1965 Feb 20	-	DS-A1	-	-	-	D	EW	U	-	P/ION*	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation/ionosphere
+F00335	1965-F04	Centaur AC-5	1965 Mar  2 	1965 Mar  2	1965 Mar  2	1965 Mar  2	-	AC	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00336	1965-F04	Atlas Centaur	1965 Mar  2 	1965 Mar  2	1965 Mar  2	1965 Mar  2	-	Surveyor A-21	-	-	-	C	TECH	U	-	-	US	A/AC.105/INF.101	-	-	-	-	-	       0	       0	  0.00 	-
+F00340	1965-F05	[Luna-5]	1965 Apr 10 	1965 Apr 10	1965 Apr 10	1965 Apr 10	-	E-6	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar lander
+F00341	1965-F05	ALS	1965 Apr 10 	1965 Apr 10	1965 Apr 10	1965 Apr 10	-	E-6SA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00346	1965-F06	OV1-3	1965 May 28 	1965 May 28	1965 May 28	1965 May 28	-	OV1 X	-	-	-	C	SCI	U	-	P/ION	US	A/AC.105/INF.114	-	-	-	-	-	       0	       0	  0.00 	Radiation effects
+F00348	1965-F07	Atlas Agena	1965 Jul 12 	1965 Jul 12	1965 Jul 12	1965 Jul 12	-	AFP-206	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.111	-	-	-	-	-	       0	       0	  0.00 	-
+F00350	1965-F07	SRV	1965 Jul 12 	1965 Jul 12	1965 Jul 12	1965 Jul 12	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00352	1965-F08	[Kosmos]	1965 Jul 13 	1965 Jul 13	1965 Jul 13	1965 Jul 13	-	Zenit-2 A	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00355	1965-F09	Delta	1965 Aug 25 	1965 Aug 25	1965 Aug 25	1965 Aug 25	-	OSO	-	-	-	C	AST	U	-	SOL/GRA*	US	A/AC.105/INF.114	-	-	-	-	-	       0	       0	  0.00 	Solar observatory
+F00358	1965-F10	Thor Agena	1965 Sep  2 	1965 Sep  2	1965 Sep  2	1965 Sep  2	-	CORONA E	-	-	-	C	SCI	U	-	ION/ATM*	US	A/AC.105/INF.120	-	-	-	-	-	       0	       0	  0.00 	Propagation/atmosphere
+F00359	1965-F10	SHIP	1965 Sep  2 	1965 Sep  2	1965 Sep  2	1965 Sep  2	-	SHIP	-	-	-	D	TECH	N	-	ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere propagation
+F00361	1965-F11	Atlas Agena	1965 Oct 25 	1965 Oct 25	1965 Oct 25	1965 Oct 25	-	TDA	-	-	-	C	SS	U	-	-	US	A/AC.105/INF.121	-	-	-	-	-	       0	       0	  0.00 	-
+F00363	1965-F12	Kosmos	1965 Dec 28 	1965 Dec 28	1965 Dec 28	1965 Dec 28	-	DS-K-8	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00365	1966-F01	Thor Altair	1966 Jan  7 	1966 Jan  8	1966 Jan  8	1966 Jan  8	-	DAPP2	-	-	-	D	MET	U	-	-	US	A/AC.105/INF.131	-	-	-	-	-	       0	       0	  0.00 	-
+F00367	1966-F02	Kosmos	1966 Feb 21 	1966 Feb 21	1966 Feb 21	1966 Feb 21	-	DS-K-8	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00369	1966-F03	[Proton-3]	1966 Mar 24 	1966 Mar 24	1966 Mar 24	1966 Mar 24	-	N-4	-	-	-	C	SCI	U	-	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Cosmic rays
+F00375	1966-F04	Molniya-1 No 5	1966 Mar 27 	1966 Mar 27	1966 Mar 27	1966 Mar 27	-	Molniya-1	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00377	1966-F05	Thor Agena	1966 May  3 	1966 May  3	1966 May  3	1966 May  3	-	CORONA J	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.139	-	-	-	-	-	       0	       0	  0.00 	-
+F00379	1966-F05	SRV 707	1966 May  3 	1966 May  3	1966 May  3	1966 May  3	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00381	1966-F05	SRV 708	1966 May  3 	1966 May  3	1966 May  3	1966 May  3	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00384	1966-F06	[Kosmos]	1966 May 17 	1966 May 17	1966 May 17	1966 May 17	-	Zenit-4	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00387	1966-F07	Atlas Agena	1966 May 17 	1966 May 17	1966 May 17	1966 May 17	-	TDA	-	-	-	C	SS	U	-	-	US	A/AC.105/INF.140	-	-	-	-	-	       0	       0	  0.00 	-
+F00389	1966-063	OV1-7	1966 Jul 14 	1966 Jul 14	1966 Jul 14	1966 Jul 14	-	OV1 X	-	-	-	C	SCI	U	-	ATM/SX	-	-	-	-	-	-	-	       0	       0	  0.00 	Airglow,oxygen,Solar X
+F00390	1966-F08	Transtage 12	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	Transtage	-	-	-	D	TECH	U	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00391	1966-F08	Titan IIIC	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	US	A/AC.105/INF.147	-	-	-	-	-	       0	       0	  0.00 	-
+F00392	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00393	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00394	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00395	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00396	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00397	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00398	1966-F08	IDCSP	1966 Aug 26 	1966 Aug 26	1966 Aug 26	1966 Aug 26	-	IDCSP	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00401	1966-F09	[Kosmos]	1966 Sep 16 	1966 Sep 16	1966 Sep 16	1966 Sep 16	-	Zenit-2 A	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00404	1966-F10	L-4S-1	1966 Sep 26 	1966 Sep 26	1966 Sep 26	1966 Sep 26	-	L-4S	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00406	1966-F11	Kosmos	1966 Nov 16 	1966 Nov 16	1966 Nov 16	1966 Nov 16	-	Strela-2	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00410	1966-F12	[Soyuz]	1966 Dec 14 	1966 Dec 14	1966 Dec 14	1966 Dec 14	-	7K-OK	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00412	1966-F13	L-4S-2	1966 Dec 20 	1966 Dec 20	1966 Dec 20	1966 Dec 20	-	L-4S	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00414	1967-F01	Scout	1967 Jan 31 	1967 Jan 31	1967 Jan 31	1967 Jan 31	-	OV3	-	-	-	C	SCI	U	-	ATM	US	A/AC.105/INF.169	-	-	-	-	-	       0	       0	  0.00 	Atmospheric composition
+F00418	1967-F02	[Kosmos]	1967 Mar 22 	1967 Mar 22	1967 Mar 22	1967 Mar 22	-	OGCh	-	-	-	D	WEAPON	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00420	1967-F03	L-4S-3	1967 Apr 13 	1967 Apr 13	1967 Apr 13	1967 Apr 13	-	L-4S	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00422	1967-F04	Titan IIIB	1967 Apr 26 	1967 Apr 26	1967 Apr 26	1967 Apr 26	-	KH8A	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.170	-	-	-	-	-	       0	       0	  0.00 	-
+F00424	1967-F04	SRV-1	1967 Apr 26 	1967 Apr 26	1967 Apr 26	1967 Apr 26	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00428	1967-F05	Scout	1967 May 30 	1967 May 30	1967 May 30	1967 May 30	-	ESRO	-	-	-	C	SCI	U	-	P/SX*	US	A/AC.105/INF.175	-	-	-	-	-	       0	       0	  0.00 	Radiation studies; first European mission
+F00430	1967-F06	[Kosmos]	1967 Jun 20 	1967 Jun 20	1967 Jun 20	1967 Jun 20	-	Zenit-4	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00433	1967-F07	Kosmos	1967 Jun 26 	1967 Jun 26	1967 Jun 26	1967 Jun 26	-	Tselina-O	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00435	1967-F08	[Kosmos]	1967 Jul 21 	1967 Jul 21	1967 Jul 21	1967 Jul 21	-	Zenit-4	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00438	1967-072	OV1-11	1967 Jul 27 	1967 Jul 27	1967 Jul 27	1967 Jul 27	-	OV1 F	-	-	-	C	SCI	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00440	1967-F09	[Kosmos]	1967 Sep  1 	1967 Sep  1	1967 Sep  1	1967 Sep  1	-	Zenit-2 B	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00443	1967-F10	Kosmos	1967 Sep 27 	1967 Sep 27	1967 Sep 27	1967 Sep 27	-	Tsiklon A1	-	-	-	D	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00448	1967-F11	[Zond-4]	1967 Sep 27 	1967 Sep 27	1967 Sep 27	1967 Sep 27	-	L-1	-	-	-	C	SS	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar spaceship test
+F00453	1967-F12	[Zond-4]	1967 Nov 22 	1967 Nov 22	1967 Nov 22	1967 Nov 22	-	L-1	-	-	-	C	SS	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar spaceship test
+F00457	1968-F01	[Luna]	1968 Feb  7 	1968 Feb  7	1968 Feb  7	1968 Feb  7	-	E-6LS	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar orbiter
+F00461	1968-F02	Kosmos	1968 Mar  6 	1968 Mar  6	1968 Mar  6	1968 Mar  6	-	DS-U1-Ya	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation studies
+F00466	1968-F03	[Zond-5]	1968 Apr 22 	1968 Apr 22	1968 Apr 22	1968 Apr 22	-	L-1	-	-	-	C	SS	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar spaceship test
+F00469	1968-F04	Thor Agena	1968 May 18 	1968 May 18	1968 May 18	1968 May 18	-	Nimbus	-	-	-	C	MET	U	-	-	US	A/AC.105/INF.193	-	-	-	-	-	       0	       0	  0.00 	-
+F00470	1968-F04	EGRS 10	1968 May 18 	1968 May 18	1968 May 18	1968 May 18	-	Secor II	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Operational geodesy
+F00472	1968-F05	Kosmos	1968 Jun  4 	1968 Jun  4	1968 Jun  4	1968 Jun  4	-	Sfera	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Operational geodesy
+F00474	1968-F06	Kosmos	1968 Jun 15 	1968 Jun 15	1968 Jun 15	1968 Jun 15	-	Strela-2	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00476	1968-F07	UVR	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric background
+F00478	1968-F07	EGRS 11	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	Secor II	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Operational geodesy
+F00479	1968-F07	EGRS 12	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	Secor II	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Operational geodesy
+F00480	1968-F07	OV5-8	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	ORS III	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	Vacuum friction
+F00481	1968-F07	Radcat	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	Radcat	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00482	1968-F07	LCS 3	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	LCS	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00483	1968-F07	Orbiscal 1	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	Orbiscal	-	-	-	C	SCI	U	-	ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere beacon
+F00485	1968-F07	LIDOS	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	NNS P	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Doppler geodesy beacon
+F00486	1968-F07	RM-18	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric background
+F00488	1968-F07	AVL-802 Mylar Sphere	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00489	1968-F07	AVL-802 Grid Sphere 7-1	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00490	1968-F07	AVL-802 Grid Sphere 7-2	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00491	1968-F07	AVL-802 Rigid Sphere	1968 Aug 16 	1968 Aug 16	1968 Aug 16	1968 Aug 16	-	STP1	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00498	1968-F08	Delta	1968 Sep 19 	1968 Sep 19	1968 Sep 19	1968 Sep 19	-	Int3	-	-	-	C	COM	U	-	-	US	A/AC.105/INF.197	-	-	-	-	-	       0	       0	  0.00 	-
+F00501	1968-F09	STV 5	1968 Nov 29 	1968 Nov 29	1968 Nov 29	1968 Nov 29 2328	-	STV	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00506	1969-F01	[Zond-7]	1969 Jan 20 	1969 Jan 20	1969 Jan 20	1969 Jan 20	-	L-1	-	-	-	C	SS	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar spaceship test
+F00511	1969-U03	[Kosmos]	1969 Jan 25 	1969 Jan 25	1969 Jan 25	1969 Jan 25	-	US-A	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00514	1969-F03	[Meteor]	1969 Feb  1 	1969 Feb  1	1969 Feb  1	1969 Feb  1	-	Meteor B	-	-	-	D	MET	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00518	1969-F04	[Luna-15]	1969 Feb 19 	1969 Feb 19	1969 Feb 19	1969 Feb 19	-	E-8	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar probe
+F00519	1969-F04	[Lunokhod]	1969 Feb 19 	1969 Feb 19	1969 Feb 19	1969 Feb 19	-	8EL	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar rover
+F00525	1969-F05	L-1S No. 3  11F92	1969 Feb 21 	1969 Feb 21	1969 Feb 21	1969 Feb 21	-	L-1S	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00532	1969-F06	[Mars-2]	1969 Mar 27 	1969 Mar 27	1969 Mar 27	1969 Mar 27	-	3M	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Mars probe
+F00536	1969-F07	[Mars-2]	1969 Apr  2 	1969 Apr  2	1969 Apr  2	1969 Apr  2	-	3M	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Mars probe
+F00540	1969-F08	[Luna-15]	1969 Jun 14 	1969 Jun 14	1969 Jun 14	1969 Jun 14	-	E-8-5	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+F00542	1969-F08	[VA]	1969 Jun 14 	1969 Jun 14	1969 Jun 14	1969 Jun 14	-	E-8-5 VA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00546	1969-F09	Instrument package	1969 Jul  2 	1969 Jul  2	1969 Jul  2	1969 Jul  2	-	ELDO P	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00547	1969-F09	STV 6	1969 Jul  2 	1969 Jul  2	1969 Jul  2	1969 Jul  2	-	STV	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00550	1969-F10	L-1S No. 5	1969 Jul  3 	1969 Jul  3	1969 Jul  3	1969 Jul  3	-	L-1S	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00556	1969-F11	Kosmos	1969 Jul 23 	1969 Jul 23	1969 Jul 23	1969 Jul 23	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00559	1969-F12	TETR C	1969 Aug 27 	1969 Aug 27	1969 Aug 27	1969 Aug 27	-	TTS	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00560	1969-F12	Delta	1969 Aug 27 	1969 Aug 27	1969 Aug 27	1969 Aug 27	-	Solar Pioneer	-	-	-	C	PLAN	U	-	P/F	US	A/AC.105/INF.217	-	-	-	-	-	       0	       0	  0.00 	Solar wind monitor
+F00562	1969-F13	L-4S-4	1969 Sep 22 	1969 Sep 22	1969 Sep 22	1969 Sep 22	-	L-4S	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00566	1969-F14	[Kosmos-313]	1969 Nov 28 	1969 Nov 28	1969 Nov 28	1969 Nov 28	-	L-1e	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00569	1969-F15	Kosmos	1969 Dec 27 	1969 Dec 27	1969 Dec 27	1969 Dec 27	-	ISTN	-	-	-	C	SCI	U	-	ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionospheric beacon
+F00571	1970-F01	Kosmos	1970 Jan 30 	1970 Jan 30	1970 Jan 30	1970 Jan 30	-	DS-P1-I	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00575	1970-F02	[Luna-16]	1970 Feb  6 	1970 Feb  6	1970 Feb  6	1970 Feb  6	-	E-8-5	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+F00577	1970-F02	VA	1970 Feb  6 	1970 Feb  6	1970 Feb  6	1970 Feb  6	-	E-8-5 VA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00581	1970-F03	Kosmos	1970 May 22 	1970 May 22	1970 May 22	1970 May 22	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00583	1970-U02	STV 7	1970 Jun 12 	1970 Jun 12	1970 Jun 12	1970 Jun 12	-	STV	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00585	1970-F05	Kosmos	1970 Jun 27 	1970 Jun 27	1970 Jun 27	1970 Jun 27	-	Strela-2M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00587	1970-F06	[Kosmos]	1970 Jul 21 	1970 Jul 21	1970 Jul 21	1970 Jul 21	-	Zenit-4	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00590	1970-F07	R-2	1970 Sep  2 	1970 Sep  2	1970 Sep  2	1970 Sep  2	-	UKX	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00591	1970-F07	Orba	1970 Sep  2 	1970 Sep  2	1970 Sep  2	1970 Sep  2	-	UKX	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Air density sphere
+F00593	1970-F08	MS-F1	1970 Sep 25 	1970 Sep 25	1970 Sep 25	1970 Sep 25	-	Mu Early	-	-	-	C	SCI	U	-	ION/P*	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere/particles
+F00597	1970-U03	Atlas/Centaur	1970 Nov 30 	1970 Nov 30	1970 Nov 30	1970 Nov 30	-	OAO	-	-	-	C	AST	U	-	UVA*	US	A/AC.105/INF.227	-	-	-	-	-	       0	       0	  0.00 	1-meter telescope
+F00599	1970-F10	Kosmos	1970 Dec 22 	1970 Dec 22	1970 Dec 22	1970 Dec 22	-	DS-P1-M	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00601	1971-F01	Thor/Agena	1971 Feb 17 	1971 Feb 17	1971 Feb 17	1971 Feb 17	-	CORONA CR	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.230	-	-	-	-	-	       0	       0	  0.00 	-
+F00603	1971-F01	SRV 825	1971 Feb 17 	1971 Feb 17	1971 Feb 17	1971 Feb 17	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00605	1971-F01	SRV 826	1971 Feb 17 	1971 Feb 17	1971 Feb 17	1971 Feb 17	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00607	1971-F01	SS C3	1971 Feb 17 	1971 Feb 17	1971 Feb 17	1971 Feb 17	-	P801	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00608	1971-F01	Doppler Beacon 4	1971 Feb 17 	1971 Feb 17	1971 Feb 17	1971 Feb 17	-	ARPL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00610	1971-F03	[Kosmos]	1971 Mar  5 	1971 Mar  5	1971 Mar  5	1971 Mar  5	-	Zenit-2M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00612	1971-F03	[Nauka]	1971 Mar  5 	1971 Mar  5	1971 Mar  5	1971 Mar  5	-	Nauka 2KS	-	-	-	C	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00614	1971-F02	Kosmos	1971 Mar  5 	1971 Mar  5	1971 Mar  5	1971 Mar  5	-	DS-P1-Yu C	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00616	1971-F04	Atlas Centaur	1971 May  9 	1971 May  9	1971 May  9	1971 May  9	-	Mariner	-	-	-	C	PLAN	U	-	PL	US	A/AC.105/INF.235	-	-	-	-	-	       0	       0	  0.00 	Mars orbiter
+F00618	1971-F05	[Kosmos]	1971 Jun 25 	1971 Jun 25	1971 Jun 25	1971 Jun 25	-	Zenit-4M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00626	1971-F06	LK	1971 Jun 26 	1971 Jun 26	1971 Jun 26	1971 Jun 26	-	LK	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00628	1971-F06	LOK	1971 Jun 26 	1971 Jun 26	1971 Jun 26	1971 Jun 26	-	LOK	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00632	1971-F07	Kosmos	1971 Jul 22 	1971 Jul 22	1971 Jul 22	1971 Jul 22	-	Tselina-OM	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00634	1971-F08	Kosmos	1971 Aug  3 	1971 Aug  3	1971 Aug  3	1971 Aug  3	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00636	1971-F09	[Kosmos]	1971 Aug 19 	1971 Aug 19	1971 Aug 19	1971 Aug 19	-	Zenit-2M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00642	1971-F10	STV 4	1971 Nov  5 	1971 Nov  5	1971 Nov  5	1971 Nov  5	-	STV	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00644	1971-F12	[Kosmos]	1971 Dec  3 	1971 Dec  3	1971 Dec  3	1971 Dec  3	-	Zenit-2M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00646	1971-F12	[Nauka]	1971 Dec  3 	1971 Dec  3	1971 Dec  3	1971 Dec  3	-	Nauka 5KS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00648	1971-F13	AFP-827	1971 Dec  4 	1971 Dec  4	1971 Dec  4	1971 Dec  4	-	CANYON	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00650	1971-F14	D-2A Polaire	1971 Dec  5 	1971 Dec  5	1971 Dec  5	1971 Dec  5	-	Diamant Ast	-	-	-	C	AST	U	-	UVA*	-	-	-	-	-	-	-	       0	       0	  0.00 	Geocoronal study
+F00652	1972-F01	Titan IIIB/Agena	1972 Feb 16 	1972 Feb 16	1972 Feb 16	1972 Feb 16	-	Jumpseat	-	-	-	D	SIG	U	-	-	US	A/AC.105/INF.253	-	-	-	-	-	       0	       0	  0.00 	-
+F00654	1972-F02	Kosmos	1972 Apr 25 	1972 Apr 25	1972 Apr 25	1972 Apr 25	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00657	1972-F03	Titan IIIB/Agena	1972 May 20 	1972 May 20	1972 May 20	1972 May 20	-	KH8C	-	-	-	D	IMG	U	-	-	US	A/AC.105/INF.258	-	-	-	-	-	       0	       0	  0.00 	-
+F00659	1972-F03	SRV-1	1972 May 20 	1972 May 20	1972 May 20	1972 May 20	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00661	1972-F03	SRV-2	1972 May 20 	1972 May 20	1972 May 20	1972 May 20	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00663	1972-F04	[Salyut-2]	1972 Jul 29 	1972 Jul 29	1972 Jul 29	1972 Jul 29	-	DOS	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00665	1972-F05	[Kosmos]	1972 Sep  2 	1972 Sep  2	1972 Sep  2	1972 Sep  2	-	Zenit-4M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00669	1972-F06	Kosmos	1972 Oct 17 	1972 Oct 17	1972 Oct 17	1972 Oct 17	-	Strela-2M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00675	1972-F07	Mockup LK	1972 Nov 23 	1972 Nov 23	1972 Nov 23	1972 Nov 23	-	LK	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00677	1972-F07	LOK	1972 Nov 23 	1972 Nov 23	1972 Nov 23	1972 Nov 23	-	LOK	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00681	1973-U01	[Kosmos]	1973 Apr 25 	1973 Apr 25	1973 Apr 25	1973 Apr 25	-	US-A	-	-	-	D	IMG-R	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00686	1973-U02	D-5B	1973 May 21 	1973 May 21	1973 May 21	1973 May 21	-	Diamant Tech	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00687	1973-U02	D-5A	1973 May 21 	1973 May 21	1973 May 21	1973 May 21	-	Diamant Tech	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00689	1973-F03	Kosmos	1973 May 25 	1973 May 25	1973 May 25	1973 May 25	-	Zaliv	-	-	-	D	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00691	1973-F04	OPS 4018	1973 Jun 26 	1973 Jun 26	1973 Jun 26	1973 Jun 26	-	KH8D	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00693	1973-F04	SRV-1	1973 Jun 26 	1973 Jun 26	1973 Jun 26	1973 Jun 26	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00695	1973-F04	SRV-2	1973 Jun 26 	1973 Jun 26	1973 Jun 26	1973 Jun 26	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00698	1973-F05	[Kosmos]	1973 Jul  4 	1973 Jul  4	1973 Jul  4	1973 Jul  4	-	Zenit-4M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00702	1973-F06	Delta	1973 Jul 16 	1973 Jul 16	1973 Jul 16	1973 Jul 16	-	ITOS	-	-	-	C	MET	U	-	-	US	A/AC.105/INF.280	-	-	-	-	-	       0	       0	  0.00 	-
+F00704	1973-F07	JSSW 1	1973 Sep 18 	1973 Sep 18	1973 Sep 18	1973 Sep 18	-	JSSW	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00705	1974-F01	Centaur TC-1	1974 Feb 11 	1974 Feb 11	1974 Feb 11	1974 Feb 11	-	Centaur HCO	-	-	-	C	TECH	U	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00706	1974-F01	Titan III/Centaur	1974 Feb 11 	1974 Feb 11	1974 Feb 11	1974 Feb 11	-	Viking	-	-	-	C	TECH	U	-	-	US	A/AC.105/INF.292	-	-	-	-	-	       0	       0	  0.00 	-
+F00707	1974-F01	Sphinx	1974 Feb 11 	1974 Feb 11	1974 Feb 11	1974 Feb 11	-	NASA Small	-	-	-	C	TECH	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Spacecraft charging
+F00709	1974-F02	[Kosmos]	1974 Apr 12 	1974 Apr 12	1974 Apr 12	1974 Apr 12	-	Zenit-4MK	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00714	1974-F03	[Kosmos]	1974 May 23 	1974 May 23	1974 May 23	1974 May 23	-	Feniks	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00717	1974-F04	Kosmos	1974 Jul 11 	1974 Jul 11	1974 Jul 11	1974 Jul 11	-	DS-P1-Yu A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00719	1974-F05	JSSW 2	1974 Jul 12 	1974 Jul 12	1974 Jul 12	1974 Jul 12	-	JSSW	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00722	1974-F06	[Kosmos]	1974 Aug 30 	1974 Aug 30	1974 Aug 30	1974 Aug 30	-	Zenit-2M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00724	1974-F06	[Kapsula]	1974 Aug 30 	1974 Aug 30	1974 Aug 30	1974 Aug 30	-	FEU-170	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00727	1974-F07	Recoverable sat.	1974 Nov  5 	1974 Nov  5	1974 Nov  5	1974 Nov  5	-	FSWP	-	-	-	D	IMG	U	-	-	CN	ST/SG/SER.E/475	   91.0 	     173	     483	 63.0 	-	       0	       0	  0.00 	Erroneously registered with UN
+F00728	1974-F07	FSW RV	1974 Nov  5 	1974 Nov  5	1974 Nov  5	1974 Nov  5	-	FSW RV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00731	1975-F01	Intelsat IV F6	1975 Feb 20 	1975 Feb 20	1975 Feb 20	1975 Feb 20	-	Int4	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00734	1975-F02	[Soyuz-18]	1975 Apr  5 	1975 Apr  5	1975 Apr  5	1975 Apr  5	-	7K-T	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00738	1975-F03	P72-2	1975 Apr 13 	1975 Apr 13	1975 Apr 13	1975 Apr 13	-	STP1	-	-	-	D	AST/TECH	U	-	IRA/ION	-	-	-	-	-	-	-	       0	       0	  0.00 	IR sky survey; ionos. propagation
+F00740	1975-F04	[Interkosmos-14]	1975 Jun  3 	1975 Jun  3	1975 Jun  3	1975 Jun  3	-	DS-U3-IK	-	-	-	C	AST	U	-	SOL*	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar observatory
+F00744	1975-F05	[Luna-24] KT	1975 Oct 16 	1975 Oct 16	1975 Oct 16	1975 Oct 16	-	E-8-5	-	-	-	C	PLAN	U	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+F00746	1975-F05	[Luna-24] VA	1975 Oct 16 	1975 Oct 16	1975 Oct 16	1975 Oct 16	-	E-8-5 VA	-	-	-	C	PLAN/RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00750	1975-F06	DAD-A	1975 Dec  6 	1975 Dec  6	1975 Dec  6	1975 Dec  6	-	Explorer AD	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00751	1975-F06	DAD-B	1975 Dec  6 	1975 Dec  6	1975 Dec  6	1975 Dec  6	-	Explorer AD	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Atmospheric density
+F00755	1975-F07	Kosmos	1975 Dec 19 	1975 Dec 19	1975 Dec 19	1975 Dec 19	-	Lira	-	-	-	D	TARG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00757	1976-F01	CORSA	1976 Feb  4 	1976 Feb  4	1976 Feb  4	1976 Feb  4	-	CORSA	-	-	-	C	AST	U	-	XRA*	-	-	-	-	-	-	-	       0	       0	  0.00 	X-ray detectors
+F00759	1976-F02	[Kosmos]	1976 Oct  4 	1976 Oct  4	1976 Oct  4	1976 Oct  4	-	Fram	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00764	1976-F03	JSSW 6	1976 Nov 10 	1976 Nov 10	1976 Nov 10	1976 Nov 10	-	JSSW	-	-	-	D	IMG?	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00766	1977-F01	[Kosmos]	1977 Feb 22 	1977 Feb 22	1977 Feb 22	1977 Feb 22	-	Zenit-4MK	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00771	1977-F02	[Kosmos]	1977 Aug  4 	1977 Aug  4	1977 Aug  4	1977 Aug  4	-	TKS VA	-	-	-	D	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00772	1977-F02	[Kosmos]	1977 Aug  4 	1977 Aug  4	1977 Aug  4	1977 Aug  4	-	TKS VA	-	-	-	D	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00773	1977-F02	TKS GVM	1977 Aug  4 	1977 Aug  4	1977 Aug  4	1977 Aug  4	-	TKS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00778	1977-F03	[Kosmos]	1977 Aug 10 	1977 Aug 10	1977 Aug 10	1977 Aug 10	-	Zenit-4MKM	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00784	1977-F04	OTS 1	1977 Sep 13 	1977 Sep 13	1977 Sep 13	1977 Sep 13	-	OTS	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00788	1977-F05	Intelsat IVA F5	1977 Sep 30 	1977 Sep 30	1977 Sep 30	1977 Sep 30	-	Int4A	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00790	1977-F06	-	1977 Nov 29 	1977 Nov 29	1977 Nov 29	1977 Nov 29	-	Tsikada	-	-	-	C	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00792	1978-F01	DSCS II F-9	1978 Mar 25 	1978 Mar 25	1978 Mar 25	1978 Mar 25	-	DSCS	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00793	1978-F01	DSCS II F-10	1978 Mar 25 	1978 Mar 25	1978 Mar 25	1978 Mar 25	-	DSCS	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00800	1978-F02	Ekran	1978 May 27 	1978 May 27	1978 May 27	1978 May 27	-	Ekran	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00806	1978-F03	Ekran	1978 Aug 17 	1978 Aug 17	1978 Aug 17	1978 Aug 17	-	Ekran	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00812	1978-F04	Ekran	1978 Oct 17 	1978 Oct 17	1978 Oct 17	1978 Oct 17	-	Ekran	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00814	1979-F01	[Kosmos]	1979 Feb 16 	1979 Feb 16	1979 Feb 16	1979 Feb 16	-	Zenit-2M	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00816	1979-F01	[Nauka]	1979 Feb 16 	1979 Feb 16	1979 Feb 16	1979 Feb 16	-	Nauka 32KS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00818	1979-F02	SJ	1979 Jul 27 	1979 Jul 28	1979 Jul 28	1979 Jul 28	-	SJ	-	-	-	C	SCI	U	-	F/ATM/SX*	-	-	-	-	-	-	-	       0	       0	  0.00 	Solar-terrestrial study
+F00819	1979-F02	SJ Ionosphere	1979 Jul 27 	1979 Jul 28	1979 Jul 28	1979 Jul 28	-	SJ	-	-	-	C	SCI	U	-	ION*	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionospheric beacon
+F00820	1979-F02	SJ Atmosphere	1979 Jul 27 	1979 Jul 28	1979 Jul 28	1979 Jul 28	-	SJ	-	-	-	C	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Density spheres
+F00822	1979-F03	Rohini	1979 Aug 10 	1979 Aug 10	1979 Aug 10	1979 Aug 10	-	Rohini	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00825	1979-U01	[Kosmos]	1979 Oct 12 	1979 Oct 12	1979 Oct 12	1979 Oct 12	-	Zenit-6	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00830	1980-F01	CAT	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	CAT	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00831	1980-F01	Amsat Phase 3A	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	AMSAT P3	-	-	-	A	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00832	1980-F01	Feuerrad	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	DLR Chem	-	-	-	C	SCI	U	-	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Chemical release satellite
+F00833	1980-F01	Feuerrad subsatellite 1	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	DLR Chem	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Chemical release satellite
+F00834	1980-F01	Feuerrad subsatellite 2	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	DLR Chem	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Chemical release satellite
+F00835	1980-F01	Feuerrad subsatellite 3	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	DLR Chem	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Chemical release satellite
+F00836	1980-F01	Feuerrad subsatellite 4	1980 May 23 	1980 May 23	1980 May 23	1980 May 23	-	DLR Chem	-	-	-	C	SCI	U	-	P/F	-	-	-	-	-	-	-	       0	       0	  0.00 	Chemical release satellite
+F00852	1980-F02	DMSP 5D F-5	1980 Jul 15 	1980 Jul 15	1980 Jul 15	1980 Jul 15	-	DMSP 5D-1	-	-	-	D	MET	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00858	1980-U01	OPS 3255	1980 Dec  9 	1980 Dec  9	1980 Dec  9	1980 Dec  9	-	PARCAE	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00859	1980-U01	SSU	1980 Dec  9 	1980 Dec  9	1980 Dec  9	1980 Dec  9	-	SSU	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00860	1980-U01	SSU	1980 Dec  9 	1980 Dec  9	1980 Dec  9	1980 Dec  9	-	SSU	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00861	1980-U01	SSU	1980 Dec  9 	1980 Dec  9	1980 Dec  9	1980 Dec  9	-	SSU	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00862	1980-U01	LIPS 1	1980 Dec  9 	1980 Dec  9	1980 Dec  9	1980 Dec  9	-	LIPS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00867	1981-F01	[Kosmos]	1981 Jan 23 	1981 Jan 23	1981 Jan 23	1981 Jan 23	-	Musson	-	-	-	D	GEOD	U	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Operational geodesy
+F00870	1981-F02	Spuskaemaya Kapsula	1981 Mar 28 	1981 Mar 28	1981 Mar 28	1981 Mar 28	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00872	1981-F02	Spuskaemaya Kapsula	1981 Mar 28 	1981 Mar 28	1981 Mar 28	1981 Mar 28	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00874	1981-F02	[Kosmos]	1981 Mar 28 	1981 Mar 28	1981 Mar 28	1981 Mar 28	-	Feniks	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00876	1981-F03	Navstar 7	1981 Dec 19 	1981 Dec 19	1981 Dec 19	1981 Dec 19	-	GPS I	-	-	-	D	NAV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00879	1982-F01	Kosmos	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	Taifun-2V	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00880	1982-F01	Kosmos      SS 1	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00881	1982-F01	Kosmos      SS 2	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00882	1982-F01	Kosmos      SS 3	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00883	1982-F01	Kosmos      SS 4	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00884	1982-F01	Kosmos      SS 5	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00885	1982-F01	Kosmos      SS 6	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00886	1982-F01	Kosmos      SS 7	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00887	1982-F01	Kosmos      SS 8	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00888	1982-F01	Kosmos      SS 9	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00889	1982-F01	Kosmos      SS 10	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00890	1982-F01	Kosmos      SS 11	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00891	1982-F01	Kosmos      SS 12	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00892	1982-F01	Kosmos      SS 13	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00893	1982-F01	Kosmos      SS 14	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00894	1982-F01	Kosmos      SS 15	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00895	1982-F01	Kosmos      SS 16	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00896	1982-F01	Kosmos      SS 17	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00897	1982-F01	Kosmos      SS 18	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00898	1982-F01	Kosmos      SS 19	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00899	1982-F01	Kosmos      SS 20	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00900	1982-F01	Kosmos      SS 21	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00901	1982-F01	Kosmos      SS 22	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00902	1982-F01	Kosmos      SS 23	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00903	1982-F01	Kosmos      SS 24	1982 Mar  4 	1982 Mar  4	1982 Mar  4	1982 Mar  4	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00905	1982-F02	[Kosmos]	1982 May 15 	1982 May 15	1982 May 15	1982 May 15	-	Zenit-6	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00910	1982-F03	[Kosmos]	1982 Jun 12 	1982 Jun 12	1982 Jun 12	1982 Jun 12	-	Zenit-6	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00919	1982-F04	Ekran	1982 Jul 22 	1982 Jul 22	1982 Jul 22	1982 Jul 22	-	Ekran	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00921	1982-F05	Kosmos	1982 Aug 30 	1982 Aug 30	1982 Aug 30	1982 Aug 30	-	Strela-2M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00924	1982-F06	Marecs B	1982 Sep  9 	1982 Sep  9	1982 Sep  9	1982 Sep  9	-	Marecs	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00927	1982-F06	Sirio 2	1982 Sep  9 	1982 Sep  9	1982 Sep  9	1982 Sep  9	-	Sirio	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00929	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00930	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00931	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00932	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00933	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00934	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00935	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00936	1982-F07	Kosmos	1982 Nov 24 	1982 Nov 24	1982 Nov 24	1982 Nov 24	-	Strela-1M	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00942	1982-F08	Raduga	1982 Dec 24 	1982 Dec 24	1982 Dec 24	1982 Dec 24	-	Raduga	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00944	1983-F01	Kosmos	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	Taifun-2B	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00945	1983-F01	Kosmos      SS 1	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00946	1983-F01	Kosmos      SS 2	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00947	1983-F01	Kosmos      SS 3	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00948	1983-F01	Kosmos      SS 4	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00949	1983-F01	Kosmos      SS 5	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00950	1983-F01	Kosmos      SS 6	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00951	1983-F01	Kosmos      SS 7	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00952	1983-F01	Kosmos      SS 8	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00953	1983-F01	Kosmos      SS 9	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00954	1983-F01	Kosmos      SS 10	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00955	1983-F01	Kosmos      SS 11	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00956	1983-F01	Kosmos      SS 12	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00957	1983-F01	Kosmos      SS 13	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00958	1983-F01	Kosmos      SS 14	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00959	1983-F01	Kosmos      SS 15	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00960	1983-F01	Kosmos      SS 16	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00961	1983-F01	Kosmos      SS 17	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00962	1983-F01	Kosmos      SS 18	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00963	1983-F01	Kosmos      SS 19	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00964	1983-F01	Kosmos      SS 20	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00965	1983-F01	Kosmos      SS 21	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00966	1983-F01	Kosmos      SS 22	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00967	1983-F01	Kosmos      SS 23	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00968	1983-F01	Kosmos      SS 24	1983 Jan 25 	1983 Jan 25	1983 Jan 25	1983 Jan 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00971	1983-F02	[Soyuz T]	1983 Sep 26 	1983 Sep 26	1983 Sep 26	1983 Sep 26 1943	-	7K-ST	-	-	-	C	SS	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00979	1985-F01	GVM	1985 Apr 13 	1985 Apr 13	1985 Apr 13	1985 Apr 13	-	Tselina-2 GVM	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00981	1985-F02	-	1985 Aug 28 	1985 Aug 28	1985 Aug 28	1985 Aug 28	-	CRYSTAL 2	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00984	1985-F03	Eutelsat I F-3	1985 Sep 12 	1985 Sep 12	1985 Sep 12	1985 Sep 12	-	ECS	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00986	1985-F03	Spacenet F3	1985 Sep 12 	1985 Sep 12	1985 Sep 12	1985 Sep 12	-	Spacenet	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00991	1985-F04	Kosmos	1985 Oct 23 	1985 Oct 23	1985 Oct 23	1985 Oct 23	-	Parus	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00992	1986-F01	IUS ASE-1	1986 Jan 28 	1986 Jan 28	1986 Jan 28	1986 Jan 28 1642	-	IUS ASE	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00994	1986-F01	Challenger	1986 Jan 28 	1986 Jan 28	1986 Jan 28	1986 Jan 28 1642	-	OV-099	-	-	-	C	SS	U	-	BIO/MG/UVA	-	-	-	-	-	-	-	       0	       0	  0.00 	Comet Halley imager
+F00995	1986-F01	SPTN SFSS	1986 Jan 28 	1986 Jan 28	1986 Jan 28	1986 Jan 28 1642	-	MPESS	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F00996	1986-F01	Spartan-Halley	1986 Jan 28 	1986 Jan 28	1986 Jan 28	1986 Jan 28 1642	-	Spartan	-	-	-	C	AST	U	-	UVA*	-	-	-	-	-	-	-	       0	       0	  0.00 	Comet Halley imager
+F00999	1986-F01	TDRS B	1986 Jan 28 	1986 Jan 28	1986 Jan 28	1986 Jan 28 1642	-	TDRS	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01001	1986-F02	[Kosmos]	1986 Mar 26 	1986 Mar 26	1986 Mar 26	1986 Mar 26	-	Oblik	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01006	1986-F03	-	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	Hex III	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01007	1986-F03	-	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	PRUBY	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01010	1986-F03	SRV-1	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01012	1986-F03	SRV-2	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01014	1986-F03	SRV-3	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01016	1986-F03	SRV-4	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18	-	SRV	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01020	1986-F04	GOES G	1986 May  3 	1986 May  3	1986 May  3	1986 May  3	-	GOES D	-	-	-	C	MET	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01023	1986-F05	Intelsat VA F14	1986 May 31 	1986 May 31	1986 May 31	1986 May 31	-	Int5	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01025	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01026	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01027	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01028	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01029	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01030	1986-F06	[Kosmos]	1986 Oct 15 	1986 Oct 15	1986 Oct 15	1986 Oct 15	-	Strela-3	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01032	1986-F07	[Kosmos]	1986 Nov 29 	1986 Nov 29	1986 Nov 29	1986 Nov 29	-	Mech	-	-	-	D	IMG-R	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01034	1987-F01	SROSS-A	1987 Mar 24 	1987 Mar 24	1987 Mar 24	1987 Mar 24	-	SROSS	-	-	-	C	TECH/AST	U	-	GRA	-	-	-	-	-	-	-	       0	       0	  0.00 	Gamma ray bursts
+F01036	1987-F02	FLTSATCOM F6	1987 Mar 26 	1987 Mar 26	1987 Mar 26	1987 Mar 26	-	FLTSATCOM	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01039	1987-U01	FSB	1987 May 15 	1987 May 15	1987 May 15	1987 May 15	-	TKS	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01040	1987-U01	Polyus	1987 May 15 	1987 May 15	1987 May 15	1987 May 15	-	Skif-DM	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01043	1987-F04	[Kosmos]	1987 Jun 18 	1987 Jun 18	1987 Jun 18	1987 Jun 18	-	Resurs-F1 B	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01052	1988-F01	Gorizont	1988 Jan 18 	1988 Jan 18	1988 Jan 18	1988 Jan 18	-	Gorizont	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01054	1988-F02	[Kosmos]	1988 Jul  9 	1988 Jul  9	1988 Jul  9	1988 Jul  9	-	Terilen	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01057	1988-F03	SROSS-B	1988 Jul 13 	1988 Jul 13	1988 Jul 13	1988 Jul 13	-	SROSS	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01059	1988-F04	[Kosmos]	1988 Jul 27 	1988 Jul 27	1988 Jul 27	1988 Jul 27	-	Resurs-F1 C	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01064	1988-F05	[Kosmos]	1988 Nov 11 	1988 Nov 11	1988 Nov 11	1988 Nov 11	-	Neman	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01067	1989-F01	Okean	1989 Jun  9 	1989 Jun  9	1989 Jun  9	1989 Jun  9	-	Okean-O1	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01069	1990-F01	Superbird B	1990 Feb 22 	1990 Feb 22	1990 Feb 22	1990 Feb 22	-	Superbird	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01071	1990-F01	BS 2X	1990 Feb 22 	1990 Feb 22	1990 Feb 22	1990 Feb 22	-	BS	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01076	1990-F02	Spuskaemaya Kapsula	1990 Apr  3 	1990 Apr  3	1990 Apr  3	1990 Apr  3	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01078	1990-F02	Spuskaemaya Kapsula	1990 Apr  3 	1990 Apr  3	1990 Apr  3	1990 Apr  3	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01080	1990-F02	[Kosmos]	1990 Apr  3 	1990 Apr  3	1990 Apr  3	1990 Apr  3	-	Kobal't	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01083	1990-F03	Spuskaemaya Kapsula	1990 Jul  3 	1990 Jul  3	1990 Jul  3	1990 Jul  3	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01085	1990-F03	Spuskaemaya Kapsula	1990 Jul  3 	1990 Jul  3	1990 Jul  3	1990 Jul  3	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01087	1990-F03	[Kosmos]	1990 Jul  3 	1990 Jul  3	1990 Jul  3	1990 Jul  3	-	Kobal't	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01093	1990-F04	Ekran-M	1990 Aug  9 	1990 Aug  9	1990 Aug  9	1990 Aug  9	-	Ekran-M	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01099	1990-F05	-	1990 Oct  4 	1990 Oct  4	1990 Oct  4	1990 Oct  4	-	Tselina-2 A	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01101	1991-F01	BS-3H	1991 Apr 18 	1991 Apr 18	1991 Apr 18	1991 Apr 18	-	BS	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01105	1991-F02	Kosmos	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	Taifun-2A	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01106	1991-F02	Kosmos      SS 1	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01107	1991-F02	Kosmos      SS 2	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01108	1991-F02	Kosmos      SS 3	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01109	1991-F02	Kosmos      SS 4	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01110	1991-F02	Kosmos      SS 5	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01111	1991-F02	Kosmos      SS 6	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01112	1991-F02	Kosmos      SS 7	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01113	1991-F02	Kosmos      SS 8	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01114	1991-F02	Kosmos      SS 9	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01115	1991-F02	Kosmos      SS 10	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01116	1991-F02	Kosmos      SS 11	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01117	1991-F02	Kosmos      SS 12	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01118	1991-F02	Kosmos      SS 13	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01119	1991-F02	Kosmos      SS 14	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01120	1991-F02	Kosmos      SS 15	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01121	1991-F02	Kosmos      SS 16	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01122	1991-F02	Kosmos      SS 17	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01123	1991-F02	Kosmos      SS 18	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01124	1991-F02	Kosmos      SS 19	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01125	1991-F02	Kosmos      SS 20	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01126	1991-F02	Kosmos      SS 21	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01127	1991-F02	Kosmos      SS 22	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01128	1991-F02	Kosmos      SS 23	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01129	1991-F02	Kosmos      SS 24	1991 Jun 25 	1991 Jun 25	1991 Jun 25	1991 Jun 25	-	ESO	-	-	-	D	CAL	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01135	1991-F03	-	1991 Aug 30 	1991 Aug 30	1991 Aug 30	1991 Aug 30	-	Tselina-2 A	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01141	1992-F01	-	1992 Feb  5 	1992 Feb  5	1992 Feb  5	1992 Feb  5	-	Tselina-2 A	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01143	1992-F02	Galaxy IR	1992 Aug 22 	1992 Aug 22	1992 Aug 22	1992 Aug 22	-	Galaxy	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01145	1992-090	Optus B2	1992 Dec 21 	1992 Dec 21	1992 Dec 21	1992 Dec 21	-	Optus	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01151	1993-F01	Gorizont	1993 May 27 	1993 May 27	1993 May 27	1993 May 27	-	Gorizont	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01153	1993-F02	-	1993 Aug  2 	1993 Aug  2	1993 Aug  2	1993 Aug  2	-	SLDCOM	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01154	1993-F02	-	1993 Aug  2 	1993 Aug  2	1993 Aug  2	1993 Aug  2	-	NOSS2	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01155	1993-F02	-	1993 Aug  2 	1993 Aug  2	1993 Aug  2	1993 Aug  2	-	NOSS2	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01156	1993-F02	-	1993 Aug  2 	1993 Aug  2	1993 Aug  2	1993 Aug  2	-	NOSS2	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01159	1993-F03	IRS-1E	1993 Sep 20 	1993 Sep 20	1993 Sep 20	1993 Sep 20	-	IRS	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01161	1993-F04	Landsat 6	1993 Oct  5 	1993 Oct  5	1993 Oct  5	1993 Oct  5	-	Landsat MMS	-	-	-	B	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01163	1994-F01	Eutelsat 2 F5	1994 Jan 24 	1994 Jan 24	1994 Jan 24	1994 Jan 24	-	Eutelsat II	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01165	1994-F01	Turksat 1A	1994 Jan 24 	1994 Jan 24	1994 Jan 24	1994 Jan 24	-	Turksat	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01167	1994-F02	[Kosmos]	1994 May 25 	1994 May 25	1994 May 25	1994 May 25	-	Tselina-R	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01169	1994-F03	STEP M1	1994 Jun 27 	1994 Jun 27	1994 Jun 27	1994 Jun 27	-	STP1	-	-	-	D	SCI/TECH	U	-	F/ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Propagation studies
+F01171	1994-F04	PAS 3	1994 Dec  1 	1994 Dec  1	1994 Dec  1	1994 Dec  1	-	PAS	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01174	1995-F01	Apstar 2	1995 Jan 25 	1995 Jan 25	1995 Jan 25	1995 Jan 25	-	Apstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01176	1995-F02	TECHSAT-1	1995 Mar 28 	1995 Mar 28	1995 Mar 28	1995 Mar 28	-	Techsat	-	-	-	A	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01177	1995-F02	ENB	1995 Mar 28 	1995 Mar 28	1995 Mar 28	1995 Mar 28	-	UNAMSAT	-	-	-	A	SCI	U	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Meteor radio echoes
+F01178	1995-F02	EKA-2	1995 Mar 28 	1995 Mar 28	1995 Mar 28	1995 Mar 28	-	EKA	-	-	-	D	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01179	1995-F03	STEP M3	1995 Jun 22 	1995 Jun 22	1995 Jun 22	1995 Jun 22	-	STP1	-	-	-	D	TECH	U	-	ENV	-	-	-	-	-	-	-	       0	       0	  0.00 	Materials exposure
+F01182	1995-F04	Gemstar DSS-1	1995 Aug 15 	1995 Aug 15	1995 Aug 15	1995 Aug 15	-	Gemstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01184	1995-F05	Meteor SM	1995 Oct 23 	1995 Oct 23	1995 Oct 23	1995 Oct 23	-	EER	-	-	-	B	MET	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01185	1995-F05	Meteor RV	1995 Oct 23 	1995 Oct 23	1995 Oct 23	1995 Oct 23	-	EER	-	-	-	B	MET	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01188	1996-F01	Intelsat 708	1996 Feb 14 	1996 Feb 14	1996 Feb 14	1996 Feb 14	-	Int7	-	-	-	C	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01189	1996-F02	-	1996 May 14 	1996 May 14	1996 May 14	1996 May 14	-	Kometa	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01196	1996-F03	Cluster F3	1996 Jun  4 	1996 Jun  4	1996 Jun  4	1996 Jun  4	-	ESA Cluster	-	-	-	C	SCI	U	ESOC	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Magnetosphere constellation
+F01197	1996-F03	Cluster F4	1996 Jun  4 	1996 Jun  4	1996 Jun  4	1996 Jun  4	-	ESA Cluster	-	-	-	C	SCI	U	ESOC	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Magnetosphere constellation
+F01199	1996-F03	Cluster F1	1996 Jun  4 	1996 Jun  4	1996 Jun  4	1996 Jun  4	-	ESA Cluster	-	-	-	C	SCI	U	ESOC	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Magnetosphere constellation
+F01200	1996-F03	Cluster F2	1996 Jun  4 	1996 Jun  4	1996 Jun  4	1996 Jun  4	-	ESA Cluster	-	-	-	C	SCI	U	ESOC	P/F*	-	-	-	-	-	-	-	       0	       0	  0.00 	Magnetosphere constellation
+F01202	1996-F04	[Kosmos]	1996 Jun 20 	1996 Jun 20	1996 Jun 20	1996 Jun 20	-	Kobal't	-	-	-	D	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01205	1996-F04	Spuskaemaya Kapsula	1996 Jun 20 	1996 Jun 20	1996 Jun 20	1996 Jun 20	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01207	1996-F04	Spuskaemaya Kapsula	1996 Jun 20 	1996 Jun 20	1996 Jun 20	1996 Jun 20	-	SpK	-	-	-	D	RV	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01212	1997-F01	GPS SVN 42	1997 Jan 17 	1997 Jan 17	1997 Jan 17	1997 Jan 17	-	GPS IIR	-	-	-	D	NAV	U	USSC	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01218	1997-F02	-	1997 May 20 	1997 May 20	1997 May 20	1997 May 20	-	Tselina-2	-	-	-	D	SIG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01220	1997-F03	SCD-2A	1997 Nov  2 	1997 Nov  2	1997 Nov  2	1997 Nov  2	-	INPE SCD	-	-	-	C	TECH	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01222	1998-F01	'Ofeq-4	1998 Jan 22 	1998 Jan 22	1998 Jan 22	1998 Jan 22	-	Ofeq	-	-	-	C	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01224	1998-F02	USA	1998 Aug 12 	1998 Aug 12	1998 Aug 12	1998 Aug 12	-	MERCURY	-	-	-	D	SIG	U	Onizuka	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01226	1998-F03	Galaxy X	1998 Aug 27 	1998 Aug 27	1998 Aug 27	1998 Aug 27	-	Galaxy	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01228	1998-F04	Kwangmyongsong 1	1998 Aug 31 	1998 Aug 31	1998 Aug 31	1998 Aug 31	-	KMS	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01235	1998-F05	Globalstar FM5	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01236	1998-F05	Globalstar FM7	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01237	1998-F05	Globalstar FM9	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01238	1998-F05	Globalstar FM10	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01239	1998-F05	Globalstar FM11	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01240	1998-F05	Globalstar FM12	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01241	1998-F05	Globalstar FM13	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01242	1998-F05	Globalstar FM16	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01243	1998-F05	Globalstar FM17	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01244	1998-F05	Globalstar FM18	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01245	1998-F05	Globalstar FM20	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01246	1998-F05	Globalstar FM21	1998 Sep  9 	1998 Sep  9	1998 Sep  9	1998 Sep  9	-	Globalstar	-	-	-	B	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01249	1999-F01	Ikonos 1	1999 Apr 27 	1999 Apr 27	1999 Apr 27	1999 Apr 27	-	Ikonos	-	-	-	B	IMG	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01253	1999-F02	Raduga	1999 Jul  5 	1999 Jul  5	1999 Jul  5	1999 Jul  5	-	Raduga	-	-	-	D	COM	U	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01259	1999-F03	Ekspress-A	1999 Oct 27 	1999 Oct 27	1999 Oct 27	1999 Oct 27	-	Ekspress A	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01261	1999-F04	MTSAT	1999 Nov 15 	1999 Nov 15	1999 Nov 15	1999 Nov 15	-	GMS	-	-	-	C	COM/IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01263	1999-F05	SACI-2	1999 Dec 11 	1999 Dec 11	1999 Dec 11	1999 Dec 11	-	SACI	-	-	-	C	SCI	N	INPE	P/F/ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Cosmic rays, airglow
+F01265	2000-U01	ASTRO E	2000 Feb 10 	2000 Feb 10	2000 Feb 10	2000 Feb 10	-	ASTRO	-	-	-	C	AST	N	ISAS	XRA*	-	-	-	-	-	-	-	       0	       0	  0.00 	X-ray calorimeter mission
+F01266	2000-F02	ICO F-1	2000 Mar 12 	2000 Mar 12	2000 Mar 12	2000 Mar 12	-	ICO	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01268	2000-F03	Gonets	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Gonets-D1	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	LEO comms relay
+F01269	2000-F03	Gonets	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Gonets-D1	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	LEO comms relay
+F01270	2000-F03	Gonets	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Gonets-D1	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	LEO comms relay
+F01271	2000-F03	Strela-3	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Strela-3	-	-	-	D	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	Military comms
+F01272	2000-F03	Strela-3	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Strela-3	-	-	-	D	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	Military comms
+F01273	2000-F03	Strela-3	2000 Dec 27 	2000 Dec 27	2000 Dec 27	2000 Dec 27	-	Strela-3	-	-	-	D	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	Military comms
+F01276	2001-U01	Orbview-4	2001 Sep 21 	2001 Sep 21	2001 Sep 21	2001 Sep 21	-	OrbView	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01278	2001-U01	TOMS	2001 Sep 21 	2001 Sep 21	2001 Sep 21	2001 Sep 21	-	Earth Probe	-	-	-	C	SCI	N	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Ozone monitor
+F01279	2001-U01	SBD	2001 Sep 21 	2001 Sep 21	2001 Sep 21	2001 Sep 21	-	Orbcomm-X	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01280	2001-U01	Celestis	2001 Sep 21 	2001 Sep 21	2001 Sep 21	2001 Sep 21	-	CPAC	-	-	-	B	MISC	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01281	2002-F01	HTSTL	2002 Sep 15 	2002 Sep 15	2002 Sep 15	2002 Sep 15	-	HTSTL	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01283	2002-F02	Foton-M	2002 Oct 15 	2002 Oct 15	2002 Oct 15	2002 Oct 15	-	Foton	-	-	-	C	MGRAV	N	-	MG	-	-	-	-	-	-	-	       0	       0	  0.00 	Microgravity
+F01287	2002-F03	Hot Bird 7	2002 Dec 11 	2002 Dec 11	2002 Dec 11	2002 Dec 11	-	Eutelsat HB	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01288	2002-F03	Stentor	2002 Dec 11 	2002 Dec 11	2002 Dec 11	2002 Dec 11	-	Stentor	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01294	2003-F02	IGS-2a	2003 Nov 29 	2003 Nov 29	2003 Nov 29	2003 Nov 29	-	IGS-O-G1	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01295	2003-F02	IGS-2b	2003 Nov 29 	2003 Nov 29	2003 Nov 29	2003 Nov 29	-	IGS-R-G1	-	-	-	D	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01301	2004-F01	Ofeq 6	2004 Sep  6 	2004 Sep  6	2004 Sep  6	2004 Sep  6	-	Ofeq	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01302	2005-F01	Molniya-3K	2005 Jun 21 	2005 Jun 21	2005 Jun 21	2005 Jun 21	-	Molniya-3K	-	-	-	D	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01306	2005-F02	Cosmos-1	2005 Jun 21 	2005 Jun 21	2005 Jun 21	2005 Jun 21	-	TPS	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01309	2005-F03	CRYOSAT	2005 Oct  8 	2005 Oct  8	2005 Oct  8	2005 Oct  8	-	Earth Exp	-	-	-	C	SCI	N	ESTEC	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Climate: cryosphere
+F01311	2006-F01	Falconsat 2	2006 Mar 24 	2006 Mar 24	2006 Mar 24	2006 Mar 24	-	Falconsat	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01313	2006-F02	Insat 4C	2006 Jul 10 	2006 Jul 10	2006 Jul 10	2006 Jul 10	-	Insat 4	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01317	2006-F03	BelKA	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	BelKA	-	-	-	C	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01318	2006-F03	Baumanets	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Baumanets	-	-	-	A	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01319	2006-F03	Unisat-4	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Unisat	-	-	-	A	TECH	N	Sapienza	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01320	2006-F03	PICPOT	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Torino	-	-	-	A	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01321	2006-F03	ION	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	UIUC	-	-	-	A	TECH	N	UIUC	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01322	2006-F03	SACRED	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Arizona	-	-	-	A	TECH	N	U.Arizona	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation component exposure
+F01323	2006-F03	KUTESat	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Kansas	-	-	-	A	SCI	N	U.Kansas/Lawrence	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation dose
+F01324	2006-F03	ICECube-1	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Cornell	-	-	-	A	SCI	N	Cornell	ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere scintillation
+F01325	2006-F03	RINCON	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Arizona	-	-	-	A	COM	N	U.Arizona	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01326	2006-F03	SEEDS	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Nihon	-	-	-	A	TECH	N	NihonU	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01327	2006-F03	HAUSAT 1	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	KAU	-	-	-	A	TECH	N	HankukAvU	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01328	2006-F03	nCUBE-1	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	NSC	-	-	-	A	COM	N	NTNU	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01329	2006-F03	MEROPE	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	MSU	-	-	-	A	SCI	N	Montana State	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation sensor
+F01330	2006-F03	AeroCube-1	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Aerocube	-	-	-	C	TECH	N	Aero.Corp	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01331	2006-F03	CalPoly CP2	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	CP	-	-	-	A	TECH	N	CalPoly	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01332	2006-F03	CalPoly CP1	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	CP	-	-	-	A	TECH	N	CalPoly	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01333	2006-F03	ICECube-2	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	Cornell	-	-	-	A	SCI	N	Cornell	ION	-	-	-	-	-	-	-	       0	       0	  0.00 	Ionosphere scintillation
+F01334	2006-F03	Voyager	2006 Jul 26 	2006 Jul 26	2006 Jul 26	2006 Jul 26	-	UHI	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01336	2007-F01	NSS 8	2007 Jan 30 	2007 Jan 30	2007 Jan 30	2007 Jan 30	-	NSS	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01337	2007-F02	Falcon 1 Demo	2007 Mar 21 	2007 Mar 21	2007 Mar 21	2007 Mar 21	-	SpX Test	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01339	2007-F03	JCSAT 11	2007 Sep  5 	2007 Sep  5	2007 Sep  5	2007 Sep  5	-	JCSAT	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01342	2008-F01	Trailblazer	2008 Aug  3 	2008 Aug  3	2008 Aug  3	2008 Aug  3	-	ORS	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01343	2008-F01	PreSat	2008 Aug  3 	2008 Aug  3	2008 Aug  3	2008 Aug  3	-	Ames	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01344	2008-F01	NanoSail-D	2008 Aug  3 	2008 Aug  3	2008 Aug  3	2008 Aug  3	-	Ames	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01347	2008-F01	Celestis	2008 Aug  3 	2008 Aug  3	2008 Aug  3	2008 Aug  3	-	CPAC	-	-	-	B	MISC	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01349	2008-F02	Omid?	2008 Aug 16 	2008 Aug 16	2008 Aug 16	2008 Aug 16	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01351	2009-F01	OCO	2009 Feb 24 	2009 Feb 24	2009 Feb 24	2009 Feb 24	-	Earth Sci	-	-	-	C	SCI	N	-	ATM	-	-	-	-	-	-	-	       0	       0	  0.00 	Climate study - carbon measurement
+F01353	2009-F02	Kwangmyongsong-2	2009 Apr  5 	2009 Apr  5	2009 Apr  5	2009 Apr  5	-	KMS	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01355	2009-F03	STSAT-2	2009 Aug 25 	2009 Aug 25	2009 Aug 25	2009 Aug 25	-	STSAT	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01357	2010-F01	GSAT-4	2010 Apr 15 	2010 Apr 15	2010 Apr 15	2010 Apr 15	-	GSAT	-	-	-	C	COM	N	Hassan	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01359	2010-F02	STSat-2B	2010 Jun 10 	2010 Jun 10	2010 Jun 10	2010 Jun 10	-	STSAT	-	-	-	C	GEOD/IMG	N	-	GEOD	-	-	-	-	-	-	-	       0	       0	  0.00 	Laser reflector,radiometers
+F01361	2010-F03	Glonass-M	2010 Dec  5 	2010 Dec  5	2010 Dec  5	2010 Dec  5	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01362	2010-F03	Glonass-M	2010 Dec  5 	2010 Dec  5	2010 Dec  5	2010 Dec  5	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01363	2010-F03	Glonass-M	2010 Dec  5 	2010 Dec  5	2010 Dec  5	2010 Dec  5	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01369	2010-F04	GSAT-5P	2010 Dec 25 	2010 Dec 25	2010 Dec 25	2010 Dec 25	-	GSAT	-	-	-	C	COM	N	Hassan	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01371	2011-F01	Glory	2011 Mar  4 	2011 Mar  4	2011 Mar  4	2011 Mar  4	-	Earth Sci	-	-	-	C	SCI	N	-	ATM/SOL	-	-	-	-	-	-	-	       0	       0	  0.00 	Soalr irradiance, aerosols
+F01372	2011-F01	KySat	2011 Mar  4 	2011 Mar  4	2011 Mar  4	2011 Mar  4	-	KySat	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01373	2011-F01	Explorer 1 Prime	2011 Mar  4 	2011 Mar  4	2011 Mar  4	2011 Mar  4	-	MSU	-	-	-	A	SCI	N	-	P	-	-	-	-	-	-	-	       0	       0	  0.00 	Radiation
+F01374	2011-F01	Hermes-1	2011 Mar  4 	2011 Mar  4	2011 Mar  4	2011 Mar  4	-	UCO	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01375	2011-F02	Shi Jian 11-04	2011 Aug 18 	2011 Aug 18	2011 Aug 18	2011 Aug 18	-	SJ-11	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01382	2011-F03	Progress M-12M	2011 Aug 24 	2011 Aug 24	2011 Aug 24	2011 Aug 24	-	Progress MM	-	-	-	C	SS	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01385	2011-F04	Meridian No. 15L?	2011 Dec 23 	2011 Dec 23	2011 Dec 23	2011 Dec 23	-	Meridian	-	-	-	D	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01387	2012-F01	Kwangmyongsong-3	2012 Apr 12 	2012 Apr 12	2012 Apr 12	2012 Apr 12	-	KMS	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01389	2012-F02	Fajr	2012 May 23 	2012 May 23	2012 May 23	2012 May 23	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01391	2012-F03	Fajr?	2012 Sep 22 	2012 Sep 22	2012 Sep 22	2012 Sep 22	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01393	2013-F01	Intelsat IS-27	2013 Feb  1 	2013 Feb  1	2013 Feb  1	2013 Feb  1	-	IntIS	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01394	2013-F02	Uragan-M No. 748	2013 Jul  2 	2013 Jul  2	2013 Jul  2	2013 Jul  2	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01395	2013-F02	Uragan-M No. 749	2013 Jul  2 	2013 Jul  2	2013 Jul  2	2013 Jul  2	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01396	2013-F02	Uragan-M No. 750	2013 Jul  2 	2013 Jul  2	2013 Jul  2	2013 Jul  2	-	Uragan-M	-	-	-	D	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01403	2013-F03	Zi Yuan 1-3	2013 Dec  9 	2013 Dec  9	2013 Dec  9	2013 Dec  9	-	ZY1	-	-	-	C	IMG	N	Xian	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01407	2014-F01	Ekspress-AM4R	2014 May 15 	2014 May 15	2014 May 15	2014 May 15	-	Ekspress AM	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01409	2005-F04	KT-1 satellite?	2005 Jun  9 	2005 Jun  9	2005 Jun  9	2005 Jun  9	-	HTSTL	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01410	1960-F13	Samos 1 F-1	1960 Oct 11 	1960 Oct 11	1960 Oct 11	1960 Oct 11	-	SAMOS F-1	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01411	2014-F02	SS Deke Slayton	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Cygnus	-	-	-	B	SS	N	MCC-D Dulles	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01414	2014-F02	RACE	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	UT	-	-	-	C	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01415	2014-F02	Arkyd-3	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Arkyd	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01416	2014-F02	Flock 1d-1	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01417	2014-F02	Flock 1d-2	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01418	2014-F02	Flock 1d-3	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01419	2014-F02	Flock 1d-4	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01420	2014-F02	Flock 1d-5	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01421	2014-F02	Flock 1d-6	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01422	2014-F02	Flock 1d-7	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01423	2014-F02	Flock 1d-8	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01424	2014-F02	Flock 1d-9	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01425	2014-F02	Flock 1d-10	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01426	2014-F02	Flock 1d-11	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01427	2014-F02	Flock 1d-12	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01428	2014-F02	Flock 1d-13	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01429	2014-F02	Flock 1d-14	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01430	2014-F02	Flock 1d-15	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01431	2014-F02	Flock 1d-16	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01432	2014-F02	Flock 1d-17	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01433	2014-F02	Flock 1d-18	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01434	2014-F02	Flock 1d-19	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01435	2014-F02	Flock 1d-20	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01436	2014-F02	Flock 1d-21	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01437	2014-F02	Flock 1d-22	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01438	2014-F02	Flock 1d-23	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01439	2014-F02	Flock 1d-24	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01440	2014-F02	Flock 1d-25	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01441	2014-F02	Flock 1d-26	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	Flock-1/S	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01442	2014-F02	GOMX-2	2014 Oct 28 	2014 Oct 28	2014 Oct 28	2014 Oct 28	-	GOMX	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01446	2015-F01	Mexsat-1 Centenario	2015 May 16 	2015 May 16	2015 May 16	2015 May 16	-	Solidaridad	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01448	2015-F02	Dragon CRS-7	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Dragon	-	-	-	B	SS	N	Hawthorne	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01451	2015-F02	Flock 1f-1	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01452	2015-F02	Flock 1f-2	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01453	2015-F02	Flock 1f-3	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01454	2015-F02	Flock 1f-4	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01455	2015-F02	Flock 1f-5	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01456	2015-F02	Flock 1f-6	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01457	2015-F02	Flock 1f-7	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01458	2015-F02	Flock 1f-8	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	Flock-1/I	1	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01461	1960-F15	SOCTOP 3	1960 Oct 26 	1960 Oct 26	1960 Oct 26	1960 Oct 26	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01462	1961-F02	SOCTOP 5	1961 Mar 30 	1961 Mar 30	1961 Mar 30	1961 Mar 30	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01463	1961-F08	SOCTOP 8	1961 Aug  4 	1961 Aug  4	1961 Aug  4	1961 Aug  4	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01464	1961-F08	TAKI	1961 Aug  4 	1961 Aug  4	1961 Aug  4	1961 Aug  4	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01465	1962-F01	TAKI	1962 Jan 13 	1962 Jan 13	1962 Jan 13	1962 Jan 13	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01466	1963-F02	VINO 2	1963 Feb 28 	1963 Feb 28	1963 Feb 28	1963 Feb 28	-	AFTRACK	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01468	2015-F03	HiakaSat	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	UHI	-	-	-	A	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01469	2015-F03	Argus	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	SLU	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01470	2015-F03	PrintSat	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	MSU	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01471	2015-F03	Tecsat-1	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	INFOCUS	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01472	2015-F03	STACEM	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	USU	-	-	-	A	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01473	2015-F03	EDSN 1	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01474	2015-F03	EDSN 2	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01475	2015-F03	EDSN 3	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01476	2015-F03	EDSN 4	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01477	2015-F03	EDSN 5	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01478	2015-F03	EDSN 6	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01479	2015-F03	EDSN 7	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01480	2015-F03	EDSN 8	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Ames	-	-	-	C	TECH/SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01482	2016-F01	Gao Fen 10	2016 Aug 31 	2016 Aug 31	2016 Aug 31	2016 Aug 31	-	JB-12	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01484	2016-F02	Progress MS-04	2016 Dec  1 	2016 Dec  1	2016 Dec  1	2016 Dec  1	-	Progress MS	-	-	-	C	SS	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01486	2017-F01	TRICOM-1	2017 Jan 14 	2017 Jan 14	2017 Jan 14	2017 Jan 14	-	Tokyo	-	-	-	A	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01488	2015-F03	Elysium Star 1	2015 Nov  4 	2015 Nov  4	2015 Nov  4	2015 Nov  4	-	Elysium	-	-	-	B	MISC	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01490	2017-F02	It's A Test	2017 May 25 	2017 May 25	2017 May 25	2017 May 25	-	RocketLab	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01493	2017-F03	Shi Jian 18	2017 Jul  2 	2017 Jul  2	2017 Jul  2	2017 Jul  2	-	SJ GEO	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01494	2015-F02	IDA-1	2015 Jun 28 	2015 Jun 28	2015 Jun 28	2015 Jun 28	-	IDA	-	-	-	C	SS	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01505	2017-F05	Meteor-M No. 2-1	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Meteor-M	-	-	-	C	MET	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01506	2017-F05	LEO Vantage 2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Vantage	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01507	2017-F05	Baumanets-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Baumanets	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01508	2017-F05	IDEA-OSG 1	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Astroscale	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01509	2017-F05	Landmapper-BC 3	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Landmapper	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01510	2017-F05	Helios Wire BIU	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Sirion	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01511	2017-F05	AISSAT-3	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	NORSAT	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01512	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01513	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01514	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01515	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01516	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01517	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01518	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01519	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01520	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01521	2017-F05	Lemur-2	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	Spire	-	-	-	B	COM/MET-RO	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01522	2017-F05	SEAM	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	KTH	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01523	2017-F05	D-Star One	2017 Nov 28 	2017 Nov 28	2017 Nov 28	2017 Nov 28	-	GOS	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01524	2017-F02	Humanity Star	2017 May 25 	2017 May 25	2017 May 25	2017 May 25	-	Beck Star	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01526	2018-F01	Soyuz MS-10	2018 Oct 11 	2018 Oct 11	2018 Oct 11	2018 Oct 11	-	Soyuz MS	-	-	-	C	SS	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01530	2018-F02	Weilai	2018 Oct 27 	2018 Oct 27	2018 Oct 27	2018 Oct 27	-	MinoSpace	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01532	2019-F01	Payam	2019 Jan 15 	2019 Jan 15	2019 Jan 15	2019 Jan 15	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01533	2019-F02	Dousti	2019 Feb  5 	2019 Feb  5	2019 Feb  5	2019 Feb  5	-	Iran	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01537	2019-F03	Lingque 1B xing	2019 Mar 27 	2019 Mar 27	2019 Mar 27	2019 Mar 27	-	Lingque	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01539	2019-F04	Yaogan 33-01	2019 May 22 	2019 May 22	2019 May 22	2019 May 22	-	JB-12	-	-	-	D	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01546	2019-F05	FalconEye 1	2019 Jul 11 	2019 Jul 11	2019 Jul 11	2019 Jul 11	-	FalconEye	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01548	2020-F01	Zafar	2020 Feb  9 	2020 Feb  9	2020 Feb  9	2020 Feb  9	-	Iran	-	-	-	C	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01550	2020-F02	Xinjishu Yanzheng 6	2020 Mar 16 	2020 Mar 16	2020 Mar 16	2020 Mar 16	-	XJS	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01552	2020-F03	Nusantara Dua	2020 Apr  9 	2020 Apr  9	2020 Apr  9	2020 Apr  9	-	PSN	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01554	2020-F04	Starshine 4	2020 May 25 	2020 May 25	2020 May 25	2020 May 25	-	Starshine	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01555	2020-F04	INTERNSAT	2020 May 25 	2020 May 25	2020 May 25	2020 May 25	-	VOSAT	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01558	2020-F05	CE-SAT-I	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Canon	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01559	2020-F05	Faraday-1	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	InSpace	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01560	2020-F05	Flock 4e-1	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Flock-4	2	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01561	2020-F05	Flock 4e-2	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Flock-4	2	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01562	2020-F05	Flock 4e-3	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Flock-4	2	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01563	2020-F05	Flock 4e-4	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Flock-4	2	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01564	2020-F05	Flock 4e-5	2020 Jul  4 	2020 Jul  4	2020 Jul  4	2020 Jul  4	-	Flock-4	2	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01566	2020-F06	Jilin-1 Gaofen 02E	2020 Jul 10 	2020 Jul 10	2020 Jul 10	2020 Jul 10	-	Jilin-1 GF	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01567	2020-F06	Xiangrikui 2	2020 Jul 10 	2020 Jul 10	2020 Jul 10	2020 Jul 10	-	Centispace	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01569	2020-F07	Astra Test Payload	2020 Sep 12 	2020 Sep 12	2020 Sep 12	2020 Sep 12	-	Astra Rocket	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01571	2020-F08	Jilin-1 Gaofen 02C	2020 Sep 12 	2020 Sep 12	2020 Sep 12	2020 Sep 12	-	Jilin-1 GF	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01574	2020-U01	SEOSat-Ingenio	2020 Nov 17 	2020 Nov 17	2020 Nov 17	2020 Nov 17	-	SEOSAT	-	-	-	CD	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01575	2020-U01	Taranis	2020 Nov 17 	2020 Nov 17	2020 Nov 17	2020 Nov 17	-	Myriade	-	-	-	C	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01577	2020-F09	Astra Test Payload	2020 Dec 15 	2020 Dec 15	2020 Dec 15	2020 Dec 15	-	Astra Rocket	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01579	2021-F01	Test Payload	2021 Feb  1 	2021 Feb  1	2021 Feb  1	2021 Feb  1	-	SQ-1	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01582	2021-F02	BlackSky 8	2021 May 15 	2021 May 15	2021 May 15	2021 May 15	-	BlackSky	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01583	2021-F02	BlackSky 9	2021 May 15 	2021 May 15	2021 May 15	2021 May 15	-	BlackSky	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01585	2021-F03	Test satellite	2021 Jun 12 	2021 Jun 12	2021 Jun 12	2021 Jun 12	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01589	2021-F05	Jilin-1	2021 Aug  3 	2021 Aug  3	2021 Aug  3	2021 Aug  3	-	Jilin-1 MF	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01593	2021-F06	EOS-03	2021 Aug 12 	2021 Aug 12	2021 Aug 12	2021 Aug 12 0023?	-	ISRO EOS	-	-	-	C	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01594	1986-F03	RADC-801	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18 1745	-	STP1	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01596	2021-F07	STP-27AD1	2021 Aug 28 	2021 Aug 28	2021 Aug 28	2021 Aug 28	-	STP2	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01599	2021-F08	BSS 1	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	Bench	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01600	2021-F08	QubiK 1	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	Libre	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01601	2021-F08	QubiK 2	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	Libre	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01602	2021-F08	Fossa 1B	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	Fossa	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01603	2021-F08	Fossa 2	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	Fossa	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01604	2021-F08	GENESIS N	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	AMEA	-	-	-	A	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01605	2021-F08	GENESIS L	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	AMEA	-	-	-	A	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01606	2021-F08	NPS-CENETIX-Orbital 1	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	NPS	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01607	2021-F08	Serenity	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	TIS	-	-	-	A	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01608	2021-F08	Hiapo	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	UHI	-	-	-	A	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01609	2021-F08	Spinnaker-3	2021 Sep  3 	2021 Sep  3	2021 Sep  3	2021 Sep  3	-	CP	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01612	2021-F09	Nuri Test Payload	2021 Oct 21 	2021 Oct 21	2021 Oct 21	2021 Oct 21	-	Nuri	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01613	1986-F03	LORRI-II	1986 Apr 18 	1986 Apr 18	1986 Apr 18	1986 Apr 18 1745	-	NRO Sig Tech	-	-	-	D	SIG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01615	2021-F10	GeeSat-1A	2021 Dec 15 	2021 Dec 15	2021 Dec 15	2021 Dec 15 0205?	-	GeeSpace	-	-	-	B	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01616	2021-F10	GeeSat-1B	2021 Dec 15 	2021 Dec 15	2021 Dec 15	2021 Dec 15 0205?	-	GeeSpace	-	-	-	B	NAV	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01618	2021-F11	Test satellite	2021 Dec 30 	2021 Dec 30	2021 Dec 30	2021 Dec 30	-	Iran	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01620	2022-F01	BAMA-1	2022 Feb 10 	2022 Feb 10	2022 Feb 10	2022 Feb 10	-	BAMA	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01621	2022-F01	INCA	2022 Feb 10 	2022 Feb 10	2022 Feb 10	2022 Feb 10	-	NMSU	-	-	-	A	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01622	2022-F01	QubeSat	2022 Feb 10 	2022 Feb 10	2022 Feb 10	2022 Feb 10	-	UCB	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01623	2022-F01	R5-S1	2022 Feb 10 	2022 Feb 10	2022 Feb 10	2022 Feb 10	-	JSC Cube	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01625	2022-F02	Jilin-1	2022 May 13 	2022 May 13	2022 May 13	2022 May 13	-	Jilin-1 MF	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01627	2022-F03	TROPICS 1	2022 Jun 12 	2022 Jun 12	2022 Jun 12	2022 Jun 12	-	MIT Cube	-	-	-	A	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01628	2022-F03	TROPICS 2	2022 Jun 12 	2022 Jun 12	2022 Jun 12	2022 Jun 12	-	MIT Cube	-	-	-	A	SCI	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01632	2022-F04	RAISE-3	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	JAXA Tech	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01633	2022-F04	QPS-SAR 3	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	QPS	-	P	M	B	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01634	2022-F04	QPS-SAR 3	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	QPS	-	P	M	B	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01638	2022-F04	MITSUBA	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	Kyutech	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01639	2022-F04	WASEDA-SAT-ZERO	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	Waseda	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01640	2022-F04	MAGNARO 1	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	Nagoya	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01641	2022-F04	MAGNARO 2	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	Nagoya	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01642	2022-F04	KOSEN-2	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	KOSEN	-	-	-	A	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01643	2022-F04	FSI-SAT	2022 Oct 12 	2022 Oct 12	2022 Oct 12	2022 Oct 12	-	HSU	-	-	-	A	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01645	2022-F05	Zhixing 1B	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Zhixing	-	-	-	B	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01646	2022-F05	Unknown payload 1	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01647	2022-F05	Unknown payload 2	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01648	2022-F05	Unknown payload 3	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01649	2022-F05	Unknown payload 4	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01650	2022-F05	Unknown payload 5	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01651	2022-F05	Unknown payload 6	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01652	2022-F05	Unknown payload 7	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01653	2022-F05	Unknown payload 8	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01654	2022-F05	Unknown payload 9	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01655	2022-F05	Unknown payload 10	2022 Dec 14 	2022 Dec 14	2022 Dec 14	2022 Dec 14	-	Unk CN	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01657	2022-F06	Pleiades Neo 5	2022 Dec 21 	2022 Dec 21	2022 Dec 21	2022 Dec 21	-	Pleiades Neo	-	P	M	BD	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01658	2022-F06	Pleiades Neo 6	2022 Dec 21 	2022 Dec 21	2022 Dec 21	2022 Dec 21	-	Pleiades Neo	-	P	M	BD	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01660	2023-F01	IOD-3 Amber	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	Catapult	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01661	2023-F01	Prometheus-2-1	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	DSTL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01662	2023-F01	Prometheus-2-2	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	DSTL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01663	2023-F01	CIRCE 1	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	DSTL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01664	2023-F01	CIRCE 2	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	DSTL	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01665	2023-F01	DOVER	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	RHEA	-	-	-	D	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01666	2023-F01	ForgeStar-0	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	Space Forge	-	-	-	B	MG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01667	2023-F01	AMAN	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	Oman	-	-	-	C	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01668	2023-F01	STORK 6	2023 Jan  9 	2023 Jan  9	2023 Jan  9	2023 Jan  9	-	STORK	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01670	2023-F02	Varisat-1A	2023 Jan 10 	2023 Jan 10	2023 Jan 10	2023 Jan 10	-	Varisat	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01671	2023-F02	Varisat-1B	2023 Jan 10 	2023 Jan 10	2023 Jan 10	2023 Jan 10	-	Varisat	-	-	-	B	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01673	2023-F03	Daichi-3	2023 Mar  7 	2023 Mar  7	2023 Mar  7	2023 Mar  7	-	NASDA RS	-	-	-	C	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01675	2023-F04	GLHF	2023 Mar 23 	2023 Mar 23	2023 Mar 23	2023 Mar 23	-	RelSpace	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01677	2023-F05	Starship 24	2023 Apr 20 	2023 Apr 20	2023 Apr 20	2023 Apr 20 1340	-	Starship FT	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01679	2023-F06	NK Recon 1	2023 May 30 	2023 May 30	2023 May 30	2023 May 30 2144?	-	NK Recon	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01681	2023-F07	NK Recon 2	2023 Aug 23 	2023 Aug 23	2023 Aug 23	2023 Aug 23 1905?	-	NK Recon	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01684	2023-F08	Capella 12	2023 Sep 19 	2023 Sep 19	2023 Sep 19	2023 Sep 19 0658?	-	Capella	-	P	M	B	IMG-R	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01686	2023-F09	Jilin-1 GaoFen 04B	2023 Sep 21 	2023 Sep 21	2023 Sep 21	2023 Sep 21	-	Jilin-1 GF	-	-	-	B	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01688	2023-F10	Nahid 1	2023 Mar  4 	2023 Mar  4	2023 Mar  4	2023 Mar  4	-	Iran	-	-	-	C	COM	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01689	2023-F11	Starship 25	2023 Nov 18 	2023 Nov 18	2023 Nov 18	2023 Nov 18 1311	-	Starship FT	-	-	-	B	TECH	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01692	2024-F01	TUGKE 1	2024 Mar 13 	2024 Mar 13	2024 Mar 13	2024 Mar 13 0201:22	-	TUGKE	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01693	2022-F02	Jin Zijing 1-04	2022 May 13 	2022 May 13	2022 May 13	2022 May 13 0713?	-	Bauhinia	-	-	-	B	IMG	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01695	2024-F02	NK Recon 4	2024 May 27 	2024 May 27	2024 May 27	2024 May 27 1341?	-	NK Recon	-	-	-	D	IMG	N	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01697	2024-F03	Yunyao-1 xx	2024 Jul 10 	2024 Jul 10	2024 Jul 10	2024 Jul 10 2351?	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01698	2024-F03	Yunyao-1 xx	2024 Jul 10 	2024 Jul 10	2024 Jul 10	2024 Jul 10 2351?	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01699	2024-F03	Yunyao-1 xx	2024 Jul 10 	2024 Jul 10	2024 Jul 10	2024 Jul 10 2351?	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01702	2024-F04	Tatara-1	2024 Dec 18 	2024 Dec 18	2024 Dec 18	2024 Dec 18 0202	-	TerraSpace	-	-	-	B	TECH	N	-	-	[J]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01703	2024-F04	Ishiki	2024 Dec 18 	2024 Dec 18	2024 Dec 18	2024 Dec 18 0202	-	Hiroo	-	-	-	B	TECH	N	-	-	[J]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01704	2024-F04	SC-Sat-1	2024 Dec 18 	2024 Dec 18	2024 Dec 18	2024 Dec 18 0202	-	SpaceCubic	-	-	-	B	TECH	N	-	-	[J]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01705	2024-F04	PARUS-T1A	2024 Dec 18 	2024 Dec 18	2024 Dec 18	2024 Dec 18 0202	-	TASA Cube	-	-	-	C	TECH	N	-	-	[J]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01706	2024-F04	Unknown cubesat	2024 Dec 18 	2024 Dec 18	2024 Dec 18	2024 Dec 18 0202	-	Unk J	-	-	-	B	TECH	N	-	-	[J]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01708	2024-F05	Dear-3	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	DEAR SM	-	-	-	B	MGRAV	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01709	2024-F05	CASAA-Sat	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	LAM	-	-	-	A	TECH	N	-	-	[F]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01710	2024-F05	Yixian-A	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Zhongshan	-	-	-	A	TECH	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01711	2024-F05	Yinglong-1	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yinglong	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01712	2024-F05	Yangwang-2	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Origin	-	-	-	B	AST	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01713	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01714	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01715	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01716	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01717	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01718	2024-F05	Yunyao-1 xx	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	Yunyao	-	-	-	B	MET	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01719	2024-F05	DEAR RV	2024 Dec 27 	2024 Dec 27	2024 Dec 27	2024 Dec 27	-	DEAR RV	-	-	D	B	MGRAV	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01721	2025-F01	Starship FT-7	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starship FT	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01722	2025-F01	Starlink Simulator 1	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01723	2025-F01	Starlink Simulator 2	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01724	2025-F01	Starlink Simulator 3	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01725	2025-F01	Starlink Simulator 4	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01726	2025-F01	Starlink Simulator 5	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01727	2025-F01	Starlink Simulator 6	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01728	2025-F01	Starlink Simulator 7	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01729	2025-F01	Starlink Simulator 8	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01730	2025-F01	Starlink Simulator 9	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01731	2025-F01	Starlink Simulator 10	2025 Jan 16 	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01733	2025-F02	Unk Payload	2025 Mar  1 	2025 Mar  1	2025 Mar  1	2025 Mar  1 1001?	-	Unk CN	-	-	-	B	TECH	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01734	2025-F03	Starship FT-8	2025 Mar  6 	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starship FT	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01735	2025-F03	Starlink Simulator 11	2025 Mar  6 	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01736	2025-F03	Starlink Simulator 12	2025 Mar  6 	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01737	2025-F03	Starlink Simulator 13	2025 Mar  6 	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01738	2025-F03	Starlink Simulator 14	2025 Mar  6 	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01740	2025-F04	Spectrum Flight 1	2025 Mar 30 	2025 Mar 30	2025 Mar 30	2025 Mar 30 1030:35	-	ISAR Spectrum	-	-	-	B	TECH	F	-	-	[D]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01742	2025-F05	EOS-09	2025 May 18 	2025 May 18	2025 May 18	2025 May 18 0045?	-	RISAT	-	-	M	C	IMG-R	N	-	-	[IN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01743	2021-F01	Xingshidai-13	2021 Feb  1 	2021 Feb  1	2021 Feb  1	2021 Feb  1 0815?	-	Xingshidai	-	-	-	B	IMG	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01744	2021-F01	Xingshidai-14	2021 Feb  1 	2021 Feb  1	2021 Feb  1	2021 Feb  1 0815?	-	Xingshidai	-	-	-	B	IMG	N	-	-	[CN]	-	-	-	-	-	-	       0	       0	  0.00 	-
+F01747	2025-F06	Eris Flight 1	2025 Jul 29 	2025 Jul 29	2025 Jul 29	2025 Jul 29 2236	-	Gilmour	-	-	-	B	TECH	N	-	-	[AU]	-	-	-	-	-	-	       0	       0	  0.00 	-

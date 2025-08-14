@@ -1,0 +1,12 @@
+JCAT	Piece	Name	LDate	TLast	TOp	TDate	TF	Program	Plane	Att	Mvr	Class	Category	Result	Control	Discipline	UNState	UNReg	UNPeriod	UNPerigee	UNApogee	UNInc	DispEpoch	DispPeri	DispApo	DispInc	Comment
+D01052	1969-U01	Eagle	1969 Jul 21 	1969 Jul 21	1969 Jul 21	1969 Jul 21 2342	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	First human lunar landing, Apollo 11
+D01055	1969-U02	Intrepid	1969 Nov 20 	1969 Nov 20	1969 Nov 20	1969 Nov 20 2217	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar geology, Apollo 12
+D01059	1970-U01	Luna-16 VA	1970 Sep 21 	1970 Sep 24	1970 Sep 24	1970 Sep 24 0526	-	VA	-	-	M	C	PLAN/RV	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+D01060	1971-U01	Antares	1971 Feb  6 	1971 Feb  7	1971 Feb  7	1971 Feb  7 0045	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar geology, Apollo 14
+D01063	1971-U02	Falcon	1971 Aug  2 	1971 Aug  3	1971 Aug  3	1971 Aug  3 0303	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar geology, Apollo 15
+D01067	1972-U01	Luna-20 VA	1972 Feb 22 	1972 Feb 25	1972 Feb 25	1972 Feb 25 1912	-	VA	-	-	M	C	PLAN/RV	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+D01068	1972-U02	Orion	1972 Apr 24 	1972 Apr 25	1972 Apr 25	1972 Apr 25 1200?	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar geology, Apollo 16
+D01071	1972-U03	Challenger	1972 Dec 14 	1972 Dec 15	1972 Dec 15	1972 Dec 16 0650	-	LM	-	-	M	C	SS	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar geology, Apollo 17
+D01075	1976-U01	Luna-24 VA	1976 Aug 19 	1976 Aug 23	1976 Aug 23	1976 Aug 23 0555	-	VA	-	-	-	C	PLAN	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+D01076	2020-U02	Chang'e-5 Shangsheng Qi	2020 Dec  3 	2020 Dec  7	2020 Dec  7	2020 Dec  7 2330	-	Chang'e	-	-	M	C	PLAN	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return
+D01166	2024-U02	Chang'e-6 Shangsheng Qi	2024 Jun  3 	2024 Jun  8	2024 Jun  8	2024 Jun  8	-	Chang'e	-	-	M	C	PLAN	S	-	PL	-	-	-	-	-	-	-	       0	       0	  0.00 	Lunar sample return

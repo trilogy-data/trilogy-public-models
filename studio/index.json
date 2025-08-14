@@ -1,5 +1,5 @@
 {
-  "count": 22,
+  "count": 23,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -55,6 +55,15 @@
       "name": "fcc_political_ads",
       "tags": [
         "bigquery"
+      ]
+    },
+    {
+      "description": "# GCAT: General Catalog of Artificial Space Objects\n\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects,\n  Release 1.7.3 , https://planet4589.org/space/gcat",
+      "engine": "duckdb",
+      "filename": "gcat_space.json",
+      "name": "gcat_space",
+      "tags": [
+        "duckdb"
       ]
     },
     {
@@ -204,5 +213,5 @@
       ]
     }
   ],
-  "updated_at": "2025-08-06T09:06:57.707517"
+  "updated_at": "2025-08-13T21:00:25.571690"
 }

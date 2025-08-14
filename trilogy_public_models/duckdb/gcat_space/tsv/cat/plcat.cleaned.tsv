@@ -1,0 +1,63 @@
+JCAT	Piece	Name	LDate	TLast	TOp	TDate	TF	Program	Plane	Att	Mvr	Class	Category	Result	Control	Discipline	UNState	UNReg	UNPeriod	UNPerigee	UNApogee	UNInc	DispEpoch	DispPeri	DispApo	DispInc	Comment
+L05717	1959-E01	CORONA	1959 Jan 21 	1959 Jan 21	1959 Jan 21	1959 Jan 21	-	CORONA Early	-	-	-	D	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L06146	1959-A141	Mercury P	1959 Aug 21 	1959 Aug 21	1959 Aug 21	1959 Aug 21	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L06227	1959-E02	P-1	1959 Sep 24 	1959 Sep 24	1959 Sep 24	1959 Sep 24	-	Able	-	-	-	C	PLAN	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L06275	1959-M35	Mercury BP	1959 Oct  4 	1959 Oct  4	1959 Oct  4	1959 Oct  4	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L06369	1959-A187	Mercury P	1959 Nov  4 	1959 Nov  4	1959 Nov  4	1959 Nov  4	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L06571	1960-A17	Mercury P	1960 Jan 21 	1960 Jan 21	1960 Jan 21	1960 Jan 21	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L07125	1960-A173	Mercury SC4	1960 Jul 29 	1960 Jul 29	1960 Jul 29	1960 Jul 29 1316:23	-	Mercury MA	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L07503	1960-A258	Mercury SC3	1960 Nov  8 	1960 Nov  8	1960 Nov  8	1960 Nov  8	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L07549	1960-A271	Mercury SC2	1960 Nov 21 	1960 Nov 21	1960 Nov 21	1960 Nov 21	-	Mercury MR	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L07939	1961-A77	Mercury SC14	1961 Mar 18 	1961 Mar 18	1961 Mar 18	1961 Mar 18	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L08077	1961-A113	Mercury SC14A	1961 Apr 28 	1961 Apr 28	1961 Apr 28	1961 Apr 28	-	Mercury LJ	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L08107	1961-A123	D-6	1961 May  9 	1961 May  9	1961 May  9	1961 May 9	-	Blue Scout D	-	-	-	D	SCI	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L08851	1962-A50	Blue Scout	1962 Apr 12 	1962 Apr 12	1962 Apr 12	1962 Apr 12	-	Blue Scout D	-	-	-	D	TECH	F	-	-	US	A/AC.105/INF.007	-	-	-	-	-	       0	       0	  0.00 	-
+L08936	1962-A74	Centaur AC-1	1962 May  8 	1962 May  8	1962 May  8	1962 May  8	-	AC	-	-	-	C	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L09185	1962-A108	X-15 3-A-11	1962 Jul 10 	1962 Jul 10	1962 Jul 10	1962 Jul 10	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L09189	1962-A109	X-15 3-A-12	1962 Jul 11 	1962 Jul 11	1962 Jul 11	1962 Jul 11	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L09199	1962-A112	X-15 3-A-13	1962 Jul 16 	1962 Jul 16	1962 Jul 16	1962 Jul 16	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10523	1963-A109	Reentry 3	1963 Jul 20 	1963 Jul 20	1963 Jul 20	1963 Jul 20	-	Scout Reentry	-	-	-	C	RV	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10581	1963-A117	X-15-3 Flight 3-A-33	1963 Aug  6 	1963 Aug  6	1963 Aug  6	1963 Aug  6	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10593	1963-A119	X-15-3 Flight 3-A-34	1963 Aug 13 	1963 Aug 13	1963 Aug 13	1963 Aug 13	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10598	1963-A120	X-15-3 Flight 3-A-35	1963 Aug 15 	1963 Aug 15	1963 Aug 15	1963 Aug 15	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10627	1963-A123	Apollo Dummy CM	1963 Aug 28 	1963 Aug 28	1963 Aug 28	1963 Aug 28	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L10857	1963-A165	Apollo PA-1	1963 Nov  7 	1963 Nov  7	1963 Nov  7	1963 Nov  7	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L11601	1964-A68	A-001	1964 May 13 	1964 May 13	1964 May 13	1964 May 13	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L12624	1964-A180	A-002	1964 Dec  8 	1964 Dec  8	1964 Dec  8	1964 Dec  8	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L13438	1965-A73	A-003	1965 May 19 	1965 May 19	1965 May 19	1965 May 19	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L13679	1965-A90	Apollo PA-2	1965 Jun 29 	1965 Jun 29	1965 Jun 29	1965 Jun 29	-	Apollo BP	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L14200	1965-A142	X-15-1 Flight 1-A-100	1965 Oct  8 	1965 Oct  8	1965 Oct  8	1965 Oct  8	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L14886	1966-A18	Apollo SC002	1966 Jan 20 	1966 Jan 20	1966 Jan 20	1966 Jan 20	-	Apollo I	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L15515	1966-E01	OGCh	1966 Mar 15 	1966 Mar 15	1966 Mar 15	1966 Mar 15	-	OGCh	-	-	-	D	WEAPON	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L18743	1967-A134	X-15-3 Flight 3-A-96	1967 Oct 31 	1967 Oct 31	1967 Oct 31	1967 Oct 31	-	X-15	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L19988	1968-E01	L-1	1968 Jul 15 	1968 Jul 15	1968 Jul 15	1968 Jul 15	-	L-1	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L22519	1969-A109	Black Arrow R-0	1969 Jun 27 	1969 Jun 27	1969 Jun 27	1969 Jun 27	-	UKX	-	-	-	C	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L35134	1973-E01	Tselina-O	1973 Jun 26 	1973 Jun 26	1973 Jun 26	1973 Jun 26	-	Tselina-OM	-	-	-	D	SIG	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L52543	1979-A61	TKS VA	1979 Apr 20 	1979 Apr 20	1979 Apr 20	1979 Apr 20	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L52545	1979-A62	TKS VA	1979 Aug 16 	1979 Aug 16	1979 Aug 16	1979 Aug 16	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L52550	1979-A63	TKS VA	1979 Sep 30 	1979 Oct	1979 Oct	1979 Oct	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L53907	1980-E01	Tselina-D	1980 Mar 18 	1980 Mar 18	1980 Mar 18	1980 Mar 18	-	Tselina-D	-	-	-	D	SIG	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L55338	1979-A64	TKS VA	1979 Sep 30 	1979 Dec?	1979 Dec?	1979 Dec?	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L58932	1980-A65	TKS VA	1979 Dec 31 	1980?	1980?	1980?	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L59166	1980-A66	TKS VA	1980 Aug 28 	1980 Aug 28	1980 Aug 28	1980 Aug 28	-	TKS VA	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L73683	2003-E01	SATEC	2003 Aug 22 	2003 Aug 22	2003 Aug 22	2003 Aug 22	-	SACI	-	-	-	C	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L73759	2003-E01	UNOSAT	2003 Aug 22 	2003 Aug 22	2003 Aug 22	2003 Aug 22	-	UNOPAR	-	-	-	A	TECH	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L74846	2009-A03	Celestis 08	2009 May  2 	2009 May  2	2009 May  2	2009 May  2	-	CPAC	-	-	-	B	MISC	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L77118	2015-A03	Dragon pad abort	2015 May  6 	2015 May  6	2015 May  6	2015 May  6	-	Dragon 2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L77124	2016-E01	Amos 6	2016 Sep  1 	2016 Sep  1	2016 Sep  1	2016 Sep  1	-	Amos	-	-	-	B	COM	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L79606	2023-A14	Celestis 20	2023 May  1 	2023 May  1	2023 May  1	2023 May  1	-	CPAC	-	-	-	B	MISC	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80114	2019-E01	Nahid-1	2019 Aug 29 	2019 Aug 29	2019 Aug 29	2019 Aug 29	-	Iran	-	-	-	C	COM	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80279	2020-A04	Crew Dragon IFA	2020 Jan 19 	2020 Jan 19	2020 Jan 19	2020 Jan 19	-	Dragon 2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80318	2019-A96	Orion AA-2 CM	2019 Jul  2 	2019 Jul  2	2019 Jul  2	2019 Jul  2	-	Artemis	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80321	2018-A252	Gaganyaan boilerplate	2018 Jul  5 	2018 Jul  5	2018 Jul  5	2018 Jul  5	-	Gagan	-	-	-	C	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80519	1965-A245	Gemini VI-A	1965 Dec 12 	1965 Dec 12	1965 Dec 12	1965 Dec 12 1454	-	Gemini	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80526	1984-A47	Discovery (STS 41-D)	1984 Jun 26 	1984 Jun 26	1984 Jun 26	1984 Jun 26 1243	-	STS	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80530	1985-A26	Challenger (STS 51-F)	1985 Jul 12 	1985 Jul 12	1985 Jul 12	1985 Jul 12 2030	-	STS	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80532	2020-A22	Spaceship Two	2020 Dec 12 	2020 Dec 12	2020 Dec 12	2020 Dec 21 1616	-	SS2	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80543	1994-A08	Endeavour (STS-68)	1994 Aug 18 	1994 Aug 18	1994 Aug 18	1994 Aug 18 1053:58	-	STS	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80547	1993-A20	Columbia (STS-55)	1993 Mar 22 	1993 Mar 22	1993 Mar 22	1993 Mar 22 1450:57	-	STS	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80551	1993-A21	STS-51 RSLS Abort	1993 Aug 12 	1993 Aug 12	1993 Aug 12	1993 Aug 12 1312:32	-	STS	-	-	-	C	SS	F	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80538	2020-A11	Unity VG-018	2020 May  1 	2020 May  1	2020 May  1	2020 May  1	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80539	2020-A14	Unity VG-019	2020 Jun 25 	2020 Jun 25	2020 Jun 25	2020 Jun 25	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80875	2023-A13	Unity 24	2023 Apr 26 	2023 Apr 26	2023 Apr 26	2023 Apr 26	-	SS2	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-
+L80998	2022-A20	New Shepard NS-23	2022 Sep 12 	2023 Sep 12	2023 Sep 12	2023 Sep 12	-	New Shepard	-	-	-	B	SS	S	-	-	-	-	-	-	-	-	-	       0	       0	  0.00 	-

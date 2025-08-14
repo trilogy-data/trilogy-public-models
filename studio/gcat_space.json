@@ -1,0 +1,78 @@
+{
+  "components": [
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/entrypoint.preql"
+    },
+    {
+      "alias": "launch",
+      "name": "launch",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch.preql"
+    },
+    {
+      "alias": "launch_sites",
+      "name": "launch_sites",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_sites.preql"
+    },
+    {
+      "alias": "organizations",
+      "name": "organizations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/organizations.preql"
+    },
+    {
+      "alias": "platform",
+      "name": "platform",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/platform.preql"
+    },
+    {
+      "alias": "satcat",
+      "name": "satcat",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satcat.preql"
+    },
+    {
+      "alias": "vehicle",
+      "name": "vehicle",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/vehicle.preql"
+    },
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/setup.sql"
+    },
+    {
+      "name": "launch_dashboard",
+      "purpose": "example",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/launch_dashboard.preql"
+    },
+    {
+      "name": "launch_stats",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/launch_stats.json"
+    }
+  ],
+  "description": "# GCAT: General Catalog of Artificial Space Objects\n\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects,\n  Release 1.7.3 , https://planet4589.org/space/gcat",
+  "engine": "duckdb",
+  "link": "",
+  "name": "gcat_space",
+  "tags": [
+    "duckdb"
+  ]
+}

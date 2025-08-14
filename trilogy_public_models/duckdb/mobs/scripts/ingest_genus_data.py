@@ -36,9 +36,9 @@ def get_wikipedia_summary_and_image(genus_name):
         "page_url": None,
     }
     for search_phrase in [
-        genus_name,
-        genus_name + " genus",
         genus_name + " genus ocean",
+        genus_name + " genus",
+        genus_name,
     ]:
         try:
             # Search and get page title
@@ -196,26 +196,32 @@ def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
         traceback.print_exc()
 
 
+RECHECK_WORDS = ["bird", "Greek myth", "disease", "surname"]
+
 if __name__ == "__main__":
     genus_list = get_genus_list()
     target = Path(__file__).parent.parent / "genus_data.csv"
 
     # Read existing data into memory
     existing_data_list = []
-    missing_image_genera = set()
-    existing_genera = set()
+    missing_image_genera: set[str] = set()
+    existing_genera: set[str] = set()
 
     if target.exists():
         existing_data_list = read_csv_to_memory(target)
         for row in existing_data_list:
             genus = row.get("genus", "").strip()
             image = row.get("image_url", "").strip()
+            description = row.get("summary", "").strip()
+            if any(word in description for word in RECHECK_WORDS):
+                print(f"Rechecking genus due to keywords in description: {genus}")
+                continue
             if genus:
                 existing_genera.add(genus)
                 # Track genera that need image updates
-                if not image or image in ["None", "null", ""]:
-                    missing_image_genera.add(genus)
-                    print(f"Missing image for genus: {genus}")
+                # if not image or image in ["None", "null", ""]:
+                #     missing_image_genera.add(genus)
+                #     print(f"Missing image for genus: {genus}")
 
     print(f"Existing genera in CSV: {len(existing_genera)}")
     print(f"Genera missing images: {len(missing_image_genera)}")
