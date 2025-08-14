@@ -213,7 +213,7 @@
       "type": "markdown",
       "content": {
         "markdown": "# {vehicle_name} ({vehicle_family})\n\nThe top launcher by mass with {total_mass} tons to {launch_targets} in {launch_count} launches.\n\n## Quick Stats\n\n*Length*: {vehicle_length} meters\n*Diameter*: {vehicle_diameter} meters\n*LEO Capacity*: {vehicle_leo_capacity} Kgs\n*Launch Mass*: {vehicle_launch_mass}\n*Launch Thrust*: {vehicle_to_thrust}\n\n",
-        "query": "SELECT vehicle.name, vehicle.class, vehicle.length, vehicle.leo_capacity,\r\nlaunch_count,\r\nvehicle.family,\r\nvehicle.launch_mass, vehicle.to_thrust,\r\nvehicle.diameter, round(sum(orb_pay),2) as total_mass,\r\narray_to_string(array_agg(launch_filter), ', ') as launch_targets\r\norder by total_mass desc limit 1;"
+        "query": "SELECT vehicle.name, vehicle.class, vehicle.length, vehicle.leo_capacity,\r\nlaunch_count,\r\nvehicle.family,\r\nvehicle.launch_mass, vehicle.to_thrust,\r\nvehicle.diameter, round(sum(orb_pay),2) as total_mass,\r\narray_to_string(array_distinct(array_agg(launch_filter)), ', ') as launch_targets\r\norder by total_mass desc limit 1;"
       },
       "name": "Overview & instructions",
       "width": 614,
