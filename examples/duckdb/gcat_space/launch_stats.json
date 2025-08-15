@@ -224,7 +224,7 @@
     "11": {
       "type": "chart",
       "content": "\r\n\r\nselect\r\nlaunch_state_flag,\r\n#launch_count\r\norder by launch_state_flag asc\r\n;",
-      "name": "Launch Org (double-click to clear)",
+      "name": "Launch Org (click title to clear)",
       "width": 520,
       "height": 35,
       "allowCrossFilter": false,
