@@ -1,7 +1,7 @@
 import std.net;
 import launch;
 
-auto launch_year <- date_trunc( launch_date, year);
+auto launch_year <- year(launch_date);
 
 property launch_filter <- CASE WHEN launch_type_code = 'O' then "Earth Orbit"
 WHEN launch_type_code = 'D' then 'Deep Space'

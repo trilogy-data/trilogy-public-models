@@ -15,9 +15,11 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch.preql"
     },
     {
+      "alias": "launch_dashboard",
       "name": "launch_dashboard",
-      "purpose": "example",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/launch_dashboard.preql"
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_dashboard.preql"
     },
     {
       "alias": "launch_sites",
