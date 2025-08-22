@@ -25,6 +25,7 @@ property <launch_tag>.range string; # the range in km measured along the curved 
 property <launch_tag>.range_flag string;
 property <launch_tag>.dest string;
 property <launch_tag>.orb_pay float; # payload in tonnes delivered to orbit
+property <launch_tag>.agency string;
 key _launch_code string; 
 property <launch_tag>.fail_code string;
 # property <launch_tag>.group string;
@@ -33,25 +34,28 @@ property <launch_tag>.lt_cite string;
 property <launch_tag>.cite string;
 property <launch_tag>.notes string;
 
+
+
 # file merges
 merge payload.launch_tag into ~launch_tag;
 
 auto launch_date <- date_add('1900-01-01'::date, day, (launch_jd::float - 2415021)::int);
 
 auto success_flag <- case
-  when _launch_code is null or _launch_code = '' then null
+  when _launch_code = '' then null
   when len(_launch_code) > 1 then substring(_launch_code, 2, len(_launch_code) - 1)
-  else null
-end;
+  else null 
+end; # F|E|O for most cases; F is failure. E is pad issue.
+
+auto was_complete_success <- case when success_flag = 'S' THEN True else False END; #whether the mission was a complete sucess
 
 auto launch_type_code <- case
-  when _launch_code is null or _launch_code = '' then null
+  when  _launch_code = '' then null
   else substring(_launch_code, 1, 1) END; # O | M | T | A | S | D | H | R | X | Y - see launch_type_label for details
 
 # interpret the first letter of the existing launch_code into a readable label
 # Kept as launch_code_label to avoid shadowing the original launch_code property
 auto launch_type_label <- case
-  when launch_type_code is null then null
   when launch_type_code = 'O' then 'Orbital'
   when launch_type_code = 'M' then 'Military Missile'
   when launch_type_code = 'T' then 'Test Rocket'
@@ -67,7 +71,7 @@ end;
 
 auto launch_count <-count(launch_tag); # count of launches
 
-auto orbit_code <- split(category, ' ')[2];  #Three letter, captial. One of: DSO	Deep space orbit (Earth orbit with apogee beyond 150,000 km) EEO	Earth escape orbit GEO	Direct geosync insertion GTO	Geosync transfer orbit HEO	Highly elliptical orbit (except MTO, MOL, DSO) ISS	International Space Station LEO	Low Earth Orbit (other than SSO, LSS, ISS) LSS	LEO space station other than ISS MEO	Medium Earth Orbit MOL	Molniya orbit MTO	MEO transfer orbit (with payload performing MEO circularization) SSO	Sun-sync orbit STO	Supersync transfer orbit (apogee more than 45000 km) XO	Extraterrestrial launch (e.g. launch from lunar surface)
+key orbit_code <- split(category, ' ')[2];  #Three letter, captial. One of: DSO	Deep space orbit (Earth orbit with apogee beyond 150,000 km) EEO	Earth escape orbit GEO	Direct geosync insertion GTO	Geosync transfer orbit HEO	Highly elliptical orbit (except MTO, MOL, DSO) ISS	International Space Station LEO	Low Earth Orbit (other than SSO, LSS, ISS) LSS	LEO space station other than ISS MEO	Medium Earth Orbit MOL	Molniya orbit MTO	MEO transfer orbit (with payload performing MEO circularization) SSO	Sun-sync orbit STO	Supersync transfer orbit (apogee more than 45000 km) XO	Extraterrestrial launch (e.g. launch from lunar surface)
 
 datasource launch_info (
 	Launch_Tag:launch_tag,
