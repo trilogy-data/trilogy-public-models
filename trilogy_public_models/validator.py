@@ -62,7 +62,7 @@ def validate_query(
             # rs = executor.engine.dry_run(compiled_sql)
             if executor.dialect == Dialects.BIGQUERY:
                 # use a dry run to save costs
-                # TODO: move ths into executor so we don't need this import
+                # TODO: move this into executor so we don't need this import
                 from google.cloud.bigquery import QueryJobConfig
 
                 job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
@@ -115,6 +115,8 @@ def validate_concept(concept: BuildConcept, history: History, env, graph):
 
 
 def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
+    if executor.dialect == Dialects.DUCK_DB:
+        return executor.validate_environment()
     for dataset in model.datasources.values():
         validate_dataset(dataset, model, executor, dry_run_client)
     history = History(base_environment=model)

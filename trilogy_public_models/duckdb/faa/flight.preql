@@ -20,7 +20,7 @@ auto count <-count(id2);
 auto total_distance <-sum(distance);
 
 datasource flight (
-	carrier:carrier.code,
+	carrier:~carrier.code,
 	origin:origin.code,
 	destination:destination.code,
 	flight_num:flight_num,
