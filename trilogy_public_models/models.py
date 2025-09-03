@@ -92,8 +92,7 @@ class LazyEnvironment(Environment):
         if self.setup_path_sql.exists():
             with open(self.setup_path_sql, "r") as f2:
                 self.setup_queries.append(SetupQuery(f2.read(), QueryType.SQL))
-        if "game.gametime.date.day_of_week" in env.concepts:
-            raise SyntaxError
+
         self.loaded = True
         self.datasources = env.datasources
         self.concepts = env.concepts

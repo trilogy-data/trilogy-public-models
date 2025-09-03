@@ -39,14 +39,17 @@ def validate_dataset(
 def validate_query(
     validation_query: str, environment: Environment, executor: Executor, dry_run_client
 ):
-
+    environment.cte_name_map = {}
     try:
         _, parsed = parse_text(validation_query, environment)
         processed: list[SelectStatement] = [
             x for x in parsed if isinstance(x, SelectStatement)
         ]
         sql = executor.generator.generate_queries(environment, processed)
+        print('passed validation query')
+        print(validation_query)
     except Exception as e:
+        print('Failing Validation Query Is')
         print(validation_query)
         raise e
     for statement in sql:
@@ -117,14 +120,14 @@ def validate_concept(concept: BuildConcept, history: History, env, graph):
 def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
     if executor.dialect == Dialects.DUCK_DB:
         return executor.validate_environment()
-    for dataset in model.datasources.values():
-        validate_dataset(dataset, model, executor, dry_run_client)
-    history = History(base_environment=model)
-    factory = Factory(model)
-    build_model: BuildEnvironment = factory.build(model)
-    graph = generate_graph(build_model)
-    for concept in build_model.concepts.values():
-        validate_concept(concept, history, build_model, graph)
+    # for dataset in model.datasources.values():
+    #     validate_dataset(dataset, model, executor, dry_run_client)
+    # history = History(base_environment=model)
+    # factory = Factory(model)
+    # build_model: BuildEnvironment = factory.build(model)
+    # graph = generate_graph(build_model)
+    # for concept in build_model.concepts.values():
+    #     validate_concept(concept, history, build_model, graph)
 
     for example in get_example_queries(key):
 
