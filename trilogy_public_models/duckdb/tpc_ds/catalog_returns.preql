@@ -7,12 +7,12 @@ key order_number int;
 property<order_number,item.id>.net_loss float;
 
 datasource catalog_returns (
-    CR_RETURNED_DATE_SK: date.id,
-    CR_RETURNED_TIME_SK: time.id,
+    CR_RETURNED_DATE_SK: ~date.id,
+    CR_RETURNED_TIME_SK: ~?time.id,
     CR_ITEM_SK: item.id,
     CR_ORDER_NUMBER: sales.order_number,
     CR_ORDER_NUMBER: order_number,
-    CR_NET_LOSS: net_loss,
+    CR_NET_LOSS: ?net_loss,
 
 )
 grain (order_number, item.id)

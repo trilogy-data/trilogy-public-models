@@ -29,8 +29,6 @@ def test_models(bq_client, bq_executor, snowflake_executor):
         for key, model in data_models.items():
             if key in SKIPPED_KEYS:
                 continue
-            if key !='bigquery.hacker_news':
-                continue
             if "bigquery" in key:
                 trilogy_executor = get_executor(key, executor=bq_executor())
                 future = executor.submit(

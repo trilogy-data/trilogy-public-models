@@ -46,8 +46,6 @@ def validate_query(
             x for x in parsed if isinstance(x, SelectStatement)
         ]
         sql = executor.generator.generate_queries(environment, processed)
-        print('passed validation query')
-        print(validation_query)
     except Exception as e:
         print('Failing Validation Query Is')
         print(validation_query)

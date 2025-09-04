@@ -17,17 +17,17 @@ property id.units string?;
 datasource items (
     I_ITEM_SK: id,
     I_ITEM_ID: name,
-    I_ITEM_DESC: desc,
+    I_ITEM_DESC: ?desc,
     I_BRAND: brand_name,
-    I_BRAND_ID: brand_id,
-    I_MANUFACT_ID: manufacturer_id,
-    I_CATEGORY: category,
-    I_CLASS: class,
-    I_CURRENT_PRICE: current_price,
-    I_COLOR: color,
-    I_MANAGER_ID: manager_id,
-    I_SIZE: size,
-    I_UNITS: units,
+    I_BRAND_ID: ?brand_id,
+    I_MANUFACT_ID: ?manufacturer_id,
+    I_CATEGORY: ?category,
+    I_CLASS: ?class,
+    I_CURRENT_PRICE: ?current_price,
+    I_COLOR: ?color,
+    I_MANAGER_ID: ?manager_id,
+    I_SIZE: ?size,
+    I_UNITS: ?units,
 )
 grain (id)
 address memory.item;
