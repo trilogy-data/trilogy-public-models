@@ -11,9 +11,7 @@ from trilogy.core.processing.concept_strategies_v3 import search_concepts, Histo
 from trilogy.executor import Executor
 from trilogy.parser import parse_text
 from trilogy.core.internal import INTERNAL_NAMESPACE
-from trilogy.core.env_processor import generate_graph
-from trilogy.core.models.build import Factory, BuildConcept
-from trilogy.core.models.build_environment import BuildEnvironment
+from trilogy.core.models.build import BuildConcept
 from pathlib import Path
 
 example_path = Path(__file__).parent.parent / "examples"
@@ -47,7 +45,7 @@ def validate_query(
         ]
         sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
-        print('Failing Validation Query Is')
+        print("Failing Validation Query Is")
         print(validation_query)
         raise e
     for statement in sql:
