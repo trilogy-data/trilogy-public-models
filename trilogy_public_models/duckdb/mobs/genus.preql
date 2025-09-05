@@ -6,8 +6,8 @@ property name.description string; # wikipedma description, if available
 
 datasource genus_info (
 	genus:name,
-	image_url:image,
-	summary:description
+	image_url:?image,
+	summary:?description
 )
 grain (name)
 address genus_info;

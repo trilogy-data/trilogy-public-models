@@ -10,7 +10,6 @@ import satcat as payload;
 key launch_tag string; # Each rocket launch in the database is labelled with a unique designation. For successful orbital launches, we use the International Designation (also called the COSPAR designation, after the Committee on Space Research which adopted the system.) For other launches, I use a variation on that scheme of my own design. I introduce the generalized concept of `launch designation' to include the International/COSPAR designation and other similar schemes. The term `piece designation' is also introduced to generalize the per-piece (per-cataloged-object) international designation. 
 property <launch_tag>.launch_jd string; # float of launch date on julian calendar
 # property <launch_tag>.launch_date string; 
-property <launch_tag>.variant string;
 property <launch_tag>.flight_id string; #  an identifier for the particular launch, for example the serial number of the launch vehicle or the mission number or name assigned by the launch agency. 
 property <launch_tag>.flight string; #  additional identifers for the launch. For orbital flights, at least one flight/mission/flightode is usually the name of the payload. Some launches have a lot of different designations. I haven't been fully consistent about which name goes in which of the Flight, Mission, FlightCode fields, although usually names in a specific series are in the same column. 
 property <launch_tag>.mission string; #  additional identifers for the launch. For orbital flights, at least one flight/mission/flightode is usually the name of the payload. Some launches have a lot of different designations. I haven't been fully consistent about which name goes in which of the Flight, Mission, FlightCode fields, although usually names in a specific series are in the same column. 
@@ -70,20 +69,34 @@ end;
 
 auto launch_count <-count(launch_tag); # count of launches
 
-key orbit_code <- split(category, ' ')[2];  #Three letter, captial. One of: DSO	Deep space orbit (Earth orbit with apogee beyond 150,000 km) EEO	Earth escape orbit GEO	Direct geosync insertion GTO	Geosync transfer orbit HEO	Highly elliptical orbit (except MTO, MOL, DSO) ISS	International Space Station LEO	Low Earth Orbit (other than SSO, LSS, ISS) LSS	LEO space station other than ISS MEO	Medium Earth Orbit MOL	Molniya orbit MTO	MEO transfer orbit (with payload performing MEO circularization) SSO	Sun-sync orbit STO	Supersync transfer orbit (apogee more than 45000 km) XO	Extraterrestrial launch (e.g. launch from lunar surface)
+key orbit_code <- split(category, ' ')[2];  # Orbit code definitions (3-letter codes, capitalized):
+# DSO - Deep Space Orbit: Earth orbit with apogee beyond 150,000 km
+# EEO - Earth Escape Orbit
+# GEO - Direct Geosynchronous insertion
+# GTO - Geosynchronous Transfer Orbit
+# HEO - Highly Elliptical Orbit (excludes MTO, MOL, DSO)
+# ISS - International Space Station
+# LEO - Low Earth Orbit (excludes SSO, LSS, ISS)
+# LSS - LEO Space Station (other than ISS)
+# MEO - Medium Earth Orbit
+# MOL - Molniya Orbit
+# MTO - MEO Transfer Orbit (payload performs MEO circularization)
+# SSO - Sun-Synchronous Orbit
+# STO - Supersynchronous Transfer Orbit (apogee > 45,000 km)
+# XO  - Extraterrestrial Launch (e.g., launch from lunar surface)
 
 datasource launch_info (
 	Launch_Tag:launch_tag,
 	Launch_JD:launch_jd,
 	# Launch_Date:julian_launch_date,
-	LV_Type:vehicle.name,
-	Variant:variant,
+	LV_Type:~vehicle.name,
+	Variant:~vehicle.variant,
 	Flight_ID:flight_id,
 	Flight:flight,
 	Mission:mission,
 	FlightCode:flight_code,
-	Platform:?platform.code,
-	Launch_Site:?site.key,
+	Platform:~?platform.code,
+	Launch_Site:~?site.key,
 	Launch_Pad:launch_pad,
 	Ascent_Site:ascent_site,
 	Ascent_Pad:ascent_pad,
@@ -93,9 +106,9 @@ datasource launch_info (
 	RangeFlag:range_flag,
 	Dest:dest,
 	OrbPay:orb_pay,
-	Agency:org.code,
+	Agency:~org.code,
 	LaunchCode:_launch_code,
-	FailCode:fail_code,
+	FailCode:?fail_code,
 	# Group,
 	Category:category,
 	LTCite:lt_cite,

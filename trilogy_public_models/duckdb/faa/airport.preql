@@ -1,7 +1,5 @@
 import std.geography;
 
-#auto-generated datasource from table/view airport
-
 key id int;
 property id.code string;
 property id.site_number string;
@@ -29,37 +27,35 @@ property id.joint_use string;
 property id.mil_rts string;
 property id.cntl_twr string;
 property id.major string;
-
 auto count <- count(id);
-
 datasource airport (
-	id:id,
-	code:code,
-	site_number:site_number,
-	fac_type:fac_type,
-	fac_use:fac_use,
-	faa_region:faa_region,
-	faa_dist:faa_dist,
-	city:city,
-	county:county,
-	state:state,
-	full_name:full_name,
-	own_type:own_type,
-	longitude:longitude,
-	latitude:latitude,
-	elevation:elevation,
-	aero_cht:aero_cht,
-	cbd_dist:cbd_dist,
-	cbd_dir:cbd_dir,
-	act_date:act_date,
-	cert:cert,
-	fed_agree:fed_agree,
-	cust_intl:cust_intl,
-	c_ldg_rts:c_ldg_rts,
-	joint_use:joint_use,
-	mil_rts:mil_rts,
-	cntl_twr:cntl_twr,
-	major:major,
+    id:id,
+    code:code,
+    site_number:site_number,
+    fac_type:fac_type,
+    fac_use:fac_use,
+    faa_region:?faa_region,
+    faa_dist:faa_dist,
+    city:city,
+    county:county,
+    state:?state,
+    full_name:full_name,
+    own_type:own_type,
+    longitude:longitude,
+    latitude:latitude,
+    elevation:elevation,
+    aero_cht:aero_cht,
+    cbd_dist:cbd_dist,
+    cbd_dir:?cbd_dir,
+    act_date:?act_date,
+    cert:?cert,
+    fed_agree:?fed_agree,
+    cust_intl:?cust_intl,
+    c_ldg_rts:?c_ldg_rts,
+    joint_use:?joint_use,
+    mil_rts:?mil_rts,
+    cntl_twr:cntl_twr,
+    major:major,
 )
 grain(id)
 address airport;

@@ -8,10 +8,10 @@ property id.cost float;
 datasource promotion (
     P_PROMO_SK: id,
     P_PROMO_ID: string_id,
-    P_COST: cost,
-    P_CHANNEL_EMAIL: channel_email,
-    P_CHANNEL_EVENT: channel_event,
-    P_CHANNEL_CATALOG: channel_catalog,
+    P_COST: ?cost,
+    P_CHANNEL_EMAIL: ?channel_email,
+    P_CHANNEL_EVENT: ?channel_event,
+    P_CHANNEL_CATALOG: ?channel_catalog,
 )
 grain (id)
 address memory.promotion;

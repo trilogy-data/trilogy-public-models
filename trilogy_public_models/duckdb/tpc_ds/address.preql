@@ -1,23 +1,20 @@
 import std.geography;
-
 key id int;
-property id.address_id_string string;
+
 property id.street string;
 property id.city string;
-property id.state string::us_state_short?;
-property id.zip string;
+property id.state string::us_state_short;
+property id.zip string; #Two character state code; eg. CA for California, MA for Massachusetts
 property id.county string;
 property id.country string;
-
-
-datasource customer_address(
+datasource customer_address (
     CA_ADDRESS_SK: id,
-    CA_STREET_NAME: street,
-    CA_CITY: city,
-    CA_STATE: state, #Two character state code; eg. CA for California, MA for Massachusetts
-    CA_ZIP: zip,
-    CA_COUNTY: county,
-    CA_COUNTRY:country,
-)
+    CA_STREET_NAME: ?street,
+    CA_CITY: ?city,
+    CA_STATE: ?state,
+    CA_ZIP: ?zip,
+    CA_COUNTY: ?county,
+    CA_COUNTRY: ?country
+    )
 grain (id)
 address memory.customer_address;

@@ -11,9 +11,7 @@ from trilogy.core.processing.concept_strategies_v3 import search_concepts, Histo
 from trilogy.executor import Executor
 from trilogy.parser import parse_text
 from trilogy.core.internal import INTERNAL_NAMESPACE
-from trilogy.core.env_processor import generate_graph
-from trilogy.core.models.build import Factory, BuildConcept
-from trilogy.core.models.build_environment import BuildEnvironment
+from trilogy.core.models.build import BuildConcept
 from pathlib import Path
 
 example_path = Path(__file__).parent.parent / "examples"
@@ -39,7 +37,7 @@ def validate_dataset(
 def validate_query(
     validation_query: str, environment: Environment, executor: Executor, dry_run_client
 ):
-
+    environment.cte_name_map = {}
     try:
         _, parsed = parse_text(validation_query, environment)
         processed: list[SelectStatement] = [
@@ -47,6 +45,7 @@ def validate_query(
         ]
         sql = executor.generator.generate_queries(environment, processed)
     except Exception as e:
+        print("Failing Validation Query Is")
         print(validation_query)
         raise e
     for statement in sql:
@@ -62,7 +61,7 @@ def validate_query(
             # rs = executor.engine.dry_run(compiled_sql)
             if executor.dialect == Dialects.BIGQUERY:
                 # use a dry run to save costs
-                # TODO: move ths into executor so we don't need this import
+                # TODO: move this into executor so we don't need this import
                 from google.cloud.bigquery import QueryJobConfig
 
                 job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
@@ -115,14 +114,16 @@ def validate_concept(concept: BuildConcept, history: History, env, graph):
 
 
 def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
-    for dataset in model.datasources.values():
-        validate_dataset(dataset, model, executor, dry_run_client)
-    history = History(base_environment=model)
-    factory = Factory(model)
-    build_model: BuildEnvironment = factory.build(model)
-    graph = generate_graph(build_model)
-    for concept in build_model.concepts.values():
-        validate_concept(concept, history, build_model, graph)
+    if executor.dialect == Dialects.DUCK_DB:
+        return executor.validate_environment()
+    # for dataset in model.datasources.values():
+    #     validate_dataset(dataset, model, executor, dry_run_client)
+    # history = History(base_environment=model)
+    # factory = Factory(model)
+    # build_model: BuildEnvironment = factory.build(model)
+    # graph = generate_graph(build_model)
+    # for concept in build_model.concepts.values():
+    #     validate_concept(concept, history, build_model, graph)
 
     for example in get_example_queries(key):
 

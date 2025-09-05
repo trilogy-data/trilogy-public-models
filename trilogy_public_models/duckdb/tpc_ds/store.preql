@@ -21,7 +21,7 @@ property id.market int;
 datasource store (
     S_STORE_SK: id,
     S_STORE_ID: text_id,
-    S_CLOSED_DATE_SK: date.id,
+    S_CLOSED_DATE_SK: ~?date.id,
     S_STORE_NAME: name,
     S_NUMBER_EMPLOYEES: employees,
     S_FLOOR_SPACE: floor_space,
