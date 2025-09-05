@@ -1315,9 +1315,11 @@ Rutherford	RLABU	-	-	LOX	 Kero	-	 	-	 	      20.30 	 	311.0 	 	-	 	  1	2017	Elec
 Rutherford Vac	RLABU	-	-	LOX	 Kero	-	 	-	 	      22.00 	 	343.0 	 	-	 	  1	2017	Electron St 2	LOX/Kero
 NewtonFour	VORB	-	-	LOX	 Kerosene RP-1	-	 	-	 	      22.00 	 	  0.0 	 	-	 	  1	2019	LauncherOne [2]	LOX/Kero
 Hadley	UMAJ	-	-	LOX	 Kero	-	 	-	 	      22.00 	 	-	 	-	 	  1	2019	Talon [1]	LOX/Kero
+Hadfield	NORDSP	-	-	LOX	 Kero	-	 	-	 	      25.00 	 	-	 	-	 	  1	2025	Taiga	LOX/Kero
 Delphin	ASTRV	-	-	LOX	 Kero	-	 	-	 	      28.00 	 	-	 	 170.0 	 	  1	2020	Astra St 1	LOX/Kero
 TEPREL-B	PLDS	-	-	LOX	 Kero	-	 	-	 	      30.20 	 	-	 	 240.0 	 	  1	2023	Miura 1	LOX/Kero
 Kestrel	SPXTX	-	-	LOX	 Kero	-	 	-	 	      33.00 	 	317.0 	 	 378.0 	 	  1	-	Falcon 1 [2]	LOX/Kero
+Starsailor	CONCOR	-	-	LOX	 Kero	-	 	-	 	      40.00 	 	-	 	-	 	  1	-	Starsailor	LOX/Kero
 RO-5	KBKHA	-	8D714	LOX	 Kero	-	 	-	 	      49.90 	 	316.0 	 	 450.0 	 	  1	1958	Blok E	LOX/Kero
 RO-7	KBKHA	-	8D719	LOX	 Kero	-	 	-	 	      54.50 	 	323.0 	 	 430.0 	 	  1	1959	Blok E	LOX/Kero
 ABL E2	ABLSS	-	-	LOX	 Kero RP-1	-	 	-	 	      58.00 	 	-	 	 420.0 	 	  1	2022	RS1	LOX/Kero

@@ -79,6 +79,7 @@ ANHU	LP3	-	LP	-	2005	-	Anhueng LP3	LP3, ADD Anhueng	South of Anhueng	    125.908
 APBS	CE-6 ZQ	-	LP	-	2024 Jun	2024 Jun	Apollo Basin S	Chang'e-6 Zhuolu Qi, Apollo Basin South	Luna	   -153.9855 	  -41.6384 	0.0001 	CAST	-	-	-
 APC	KT-408	-	LP	-	1972 Feb 22	1972 Feb 22	APC   KT-408	KT No. 408, Luna-20 Site, Apollonius C, Mare Undarum B3	Luna	     56.5500 	    3.5300 	0.0100 	NPOL	-	-	-
 ASKTH	LP1	-	LP	-	2014	*	ASK t'Harde	Launch Point 1, Artillerie Schietkamp, t'Harde	t'Harde, Nederland	      5.9232 	   52.3947 	0.0001 	TMINUS	-	-	-
+ASX	SLC-02	-	LP	-	2025	*	ASX SLC-02	Space Launch Complex 02, Atlantic Spaceport Complex	St Lawrence, Newfoundland	    -55.3479 	   46.8981 	0.0001 	NORDSP	-	-	-
 BALKH	LC A	-	LP	-	1960	*	SSATC LC A	Launch Complex A, Sary Shagan [US designation]	Priozyorsk (Sary Shagan-2), Kazakhstan	     72.8700 	   46.3800 	0.0200 	MO	-	-	-
 BALKH	LC B	-	LP	-	1960	*	SSATC LC B	Launch Complex B, Sary Shagan [US designation]	Priozyorsk (Sary Shagan-2), Kazakhstan	     72.6000 	   45.9500 	0.0500 	MO	-	-	-
 BALKH	LC35	-	LP	-	1960	*	Balkash LC35	Launch Complex 35, Sary Shagan	Priozyorsk (Sary Shagan-2), Kazakhstan	     72.8700 	   46.3800 	0.1000 	MO	-	-	-
@@ -1850,7 +1851,7 @@ HHAI	LP2	-	LP	-	2019	-	Huang Hai	Launch Point 2, Huang Hai CZ-11 launch zone	-	 
 HHAI	LP3	-	LP	-	2019	-	Huang Hai	Launch Point 3, Huang Hai CZ-11 launch zone	-	    123.8000 	   32.1900 	0.0003 	CALT	-	-	-
 HHAI	LP4	-	LP	-	2019	-	Huang Hai	Launch Point 4, Huang Hai CZ-11 launch zone	-	    121.1983 	   36.6310 	0.0002 	CALT	-	-	-
 HHAI	LP5	-	LP	-	2019	-	Huang Hai	Launch Point 5, Huang Hai JL-3 launch zone	-	    123.7115 	   37.3395 	0.0010 	CZHJ	-	-	-
-HHAI	LP6	-	LP	-	2019	-	Huang Hai	Launch Point 6, Huang Hai GSX-1 launch zone (Rizhao)	-	    119.6000 	   35.3900 	0.0010 	CZHJ	-	-	-
+HHAI	LP6	-	LP	-	2019	-	Huang Hai	Launch Point 6, Huang Hai GSX-1 launch zone (Rizhao)	-	    119.5986 	   35.3916 	0.0010 	CZHJ	-	-	-
 HHAI	LP7	-	LP	-	2019	-	Huang Hai	Launch Point 7, Huang Hai GSX-1 launch zone	-	    123.2000 	   36.4200 	0.0010 	CZHJ	-	-	-
 HICK	RW08R/26L	-	LP	-	-	-	Hickam RW08R/26L	Runway 08R/26L, Joint Base Pearl Harbor-Hickam, Honolulu	Pearl Harbor, Hawaii	   -157.9824 	   21.3066 	0.0001 	USAF	-	-	-
 HMG	Agate	-	LP	-	1952	1967	HMG   Brigitte/A	Agate launcher, Brigitte, CIEES B2, Hammaguir, Algerie	-	     -3.0566 	   30.7782 	0.0001 	F	-	-	-
@@ -2640,6 +2641,7 @@ WI	LA1 ML	-	LP	-	1950?	*	WI    LA4 ML	Military Launcher, Launch Area 4, Wallops 
 WI	LA2	-	LP	-	1950?	*	WI    LA2	Launch Area 2, Wallops Flight Facility	-	    -75.4834 	   37.8376 	0.0001 	NASA	-	-	-
 WI	LA2 AML1	-	LP	-	1950?	*	WI    LA2 AML-1	Thiokol AML-1 North, Launch Area 2, Wallops Flight Facility	-	    -75.4828 	   37.8381 	0.0001 	NASA	-	-	-
 WI	LA2 AML2	-	LP	-	1950?	*	WI    LA2 AML-2	Thiokol AML-2 South, Launch Area 2, Wallops Flight Facility	-	    -75.4830 	   37.8379 	0.0001 	NASA	-	-	-
+WI	LA2 50K	-	LP	-	1950?	*	WI    LA2 50K	50K (AML?) launcher, LA2, Wallops Flight Facility	-	    -75.4828 	   37.8381 	0.0001 	NASA	-	-	-
 WI	LA2 ARC	-	LP	-	1950?	*	WI    LA2 ARC	ARC Launcher, Launch Area 2, Wallops Flight Facility	-	    -75.4841 	   37.8380 	0.0001 	NASA	-	-	-
 WI	LA2 HAD	-	LP	-	1950?	*	WI    LA2 HAD	HAD Launcher, Launch Area 2, Wallops Flight Facility	-	    -75.4826 	   37.8383 	0.0001 	NASA	-	-	-
 WI	LA2 JUP	-	LP	-	1950?	*	WI    LA2 JUP	Jupiter Launcher, Launch Area 2A, Wallops Flight Facility	-	    -75.4820 	   37.8394 	0.0001 	NASA	-	-	-
