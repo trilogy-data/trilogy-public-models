@@ -27,8 +27,10 @@ def test_models(bq_client, bq_executor, snowflake_executor):
     results = []
     with ThreadPoolExecutor() as executor:
         for key, model in data_models.items():
+            print(f"Validating {key}")
             if key in SKIPPED_KEYS:
                 continue
+
             if "bigquery" in key:
                 trilogy_executor = get_executor(key, executor=bq_executor())
                 future = executor.submit(

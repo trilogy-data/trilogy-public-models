@@ -1,6 +1,6 @@
 import std.geography;
 key id int;
-property id.address_id_string string;
+
 property id.street string;
 property id.city string;
 property id.state string::us_state_short;

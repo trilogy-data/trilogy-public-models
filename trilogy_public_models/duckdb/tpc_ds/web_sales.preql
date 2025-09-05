@@ -12,7 +12,7 @@ import warehouse as warehouse;
 import address as ship_address;
 
 key order_number int;
-key return_order_number int;
+
 property <item.id,order_number>.quantity int;
 property <item.id,order_number>.sales_price float;
 property <item.id,order_number>.net_profit float;
@@ -34,7 +34,8 @@ datasource web_sales (
     WS_NET_PROFIT: net_profit,
     WS_WEB_SITE_SK: ?web_site.id,
     WS_WAREHOUSE_SK: ?warehouse.id,
-    WS_SHIP_ADDR_SK: ~?ship_address.id
+    WS_SHIP_ADDR_SK: ~?ship_address.id,
+    WS_QUANTITY: ?quantity
     )
 grain (item.id,order_number)
 address memory.web_sales;
