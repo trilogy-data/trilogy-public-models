@@ -33,9 +33,11 @@ def get_executor(
                 z = executor.execute_raw_sql(x.query)
                 z.fetchall()
             elif x.type == QueryType.TRILOGY:
-                z = executor.execute_query(x.query)
-                z.fetchall()
+                z2 = executor.execute_query(x.query)
+                if z2:
+                    z2.fetchall()
             else:
-                z = executor.execute_query(x)
-                z.fetchall()
+                z3 = executor.execute_query(x)
+                if z3:
+                    z3.fetchall()
     return executor
