@@ -1223,6 +1223,7 @@ Improved Orion	Orion               	AJSP	Orion	  1.8 	 0.35 	   0.4 	-	      13.
 Meteor-2	Meteor2             	PAI	-	  4.2 	 0.35 	   0.4 	     126 	      24.0 	  18.0 	Meteor-2	 1
 10KS2500	10KS2500            	THKE	-	  2.9 	 0.35 	   0.1 	-	      11.0 	  10.0 	10KS2500	 1
 LS-A Booster	STA                 	MHITO?	-	  3.0 	 0.35 	   0.4 	-	      60.0 	  10.0 	LS-A Booster	 1
+Starsailor	Amateur	CONCOR	-	 10.0 	 0.35 	   0.2 	-	      40.0 	-	Starsailor	 1
 Qased-S3	Qased-S3            	IRGC	-	  0.5 	 0.35 	   0.3 	-	-	-	Qased-S3	 1
 Mk 104	Standard            	THKE?	-	  2.9 	 0.35 	   0.5 	     128 	-	-	Mk 104	 1
 Mk 104 (ARC)	Standard            	ATLCA	-	  2.9 	 0.35 	   0.5 	     128 	-	-	Mk 104	 1
@@ -1268,6 +1269,7 @@ AAD St 2	AAD                 	HAL	-	  4.0 	 0.30 	   1.0 	-	-	-	-	 1
 Taepo Dong 1 Stage 3	TD3                 	KPA	-	  1.8 	 0.30 	   0.2 	      50 	      18.0 	  27.0 	TD1	 1
 Tiny Tim	TTB                 	USN	-	  2.4 	 0.30 	   0.3 	     278 	     222.0 	   0.6 	Tiny Tim	 1
 MARC 14B1	TTB                 	USN	-	  0.8 	 0.30 	   0.1 	      59 	      84.0 	   0.8 	MARC 14B1	 7
+Taiga	Taiga	NORDSP	-	  4.5 	 0.30 	   0.5 	-	      25.0 	-	Hadfield	 1
 Sonda 2A	Sonda               	AVIB	-	  4.2 	 0.30 	   0.3 	      77 	      36.0 	  20.0 	S-20	 1
 Sonda 2M	Sonda               	AVIB	-	  2.2 	 0.30 	   0.2 	      69 	      18.0 	  20.0 	S-23	 1
 VLS-R1	Sonda               	AVIB	-	  2.5 	 0.30 	   0.5 	       0 	      18.0 	  20.0 	S-20	 1

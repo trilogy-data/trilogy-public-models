@@ -590,6 +590,7 @@ ARTOPL	GIMR	US	O	D	1967 Jul 31	1991 May  6	USA ETL	US Army Engineer Topographic 
 ARTOPO	ACE	US	-	D	1968 Sep  1	1972 Jul  1	USA TOPO	US Army Topographic Command	Bethesda, Maryland?	    -77.1100 	   38.9800 	0.0200 	USA	-	-	US Army Topographic Command
 ASAL	ASAL	DZ	O/PL	C	2002 Jan	-	ASAL	Agence Spatiale Algerienne	Dzayer (Algiers)	      3.0600 	   36.7500 	0.0200 	-	-	Algerian Space Agency	Agence Spatiale Algérienne
 ASBC	ASBC	J	-	B	2002 Nov	2007	ASBC	Shin Eisei Bijinesu KabushiKigaisha	Tokyo:Chiyoda	    139.7500 	   35.6900 	0.0200 	-	-	Advanced Space Business Corporation	新衛星ビジネス株式会社
+ASC24	ASC24	J	O	A	2024	-	ASC 24	Tamura atsushi no uchi charenji' 24	Tokyo	    139.7500 	   35.6900 	0.0200 	-	-	Atsushi Tamura's Space Challege '24	田村淳の宇宙チャレンジ’24
 ASC45	ASC45	US	-	D	-	-	45OG Det 2	USAF 45th Operations Group, Det 2, Ascension Island	Ascension Island	    -14.4100 	   -7.9800 	0.0200 	USAF	-	-	USAF 45th Operations Group, Det 2, Ascension Island
 ASCO	ASCO	US	-	B	1982	1985	ASC	American Satellite Corp	Germantown, Maryland	    -77.2700 	   39.1800 	0.0200 	-	-	-	American Satellite Corp
 ASE	ASE	US	PL/S	A	1958	-	ASE	American Science and Engineering	Cambridge, MA	    -71.1100 	   42.3700 	0.0200 	-	-	-	American Science and Engineering
@@ -1441,6 +1442,8 @@ GHJ	GHJ	CN	PL	C	-	-	G. Haiyang ju	Guojia haiyang ju	Beijing?	    116.3800 	   39
 GHK	GHK	CN	O/PL	B	2019	-	Gang Hang Ke	Gang Hang Ke (Shenzhen) kongjian jishu YG	Shenzhen	    113.9400 	   22.5200 	0.0200 	HKATG	-	Gang Hang Ke (Shenzhen) Space Tech Co.	港航科（深圳）空间技术有限公司
 GHRCE	GHRCE	IN	O/PL	A	1996	-	GHRCE	G. H. Raisoni College of Engineering,  Rashtrasant Tukadoji Maharaj Nagpur U.	Nagpur	     79.0800 	   21.1500 	0.0200 	-	-	-	G. H. Raisoni College of Engineering,  Rashtrasant Tukadoji Maharaj Nagpur U.
 GICZ	GICZ	CZ	PL/S	B	1920	-	GI Czech	Geofyzikalni Ustav Ak. ved Ceske republiky (GFU)	Praha	     14.4200 	   50.0800 	0.0200 	-	-	Geophysical Inst. of the Czech Academy of Sciences	Geofyzikální ústav Akademie věd České republiky
+GIDAI	GIDAI	J	O/PL	A	1949	-	Gidai	Gifu Daigaku	Gifu	    136.7400 	   35.4600 	0.0200 	-	-	Gifu University	岐阜大学
+GIFU	GIFU	J	O	A	1567	-	Gifu Ken	Gifu Ken	Gifu	    136.7600 	   35.4200 	0.0200 	-	-	Gifu Prefecture	岐阜県
 GILM	GILM	AU	LV	B	2013	-	Gilmour Space	Gilmour Space Technologies	Helensvale, Queensland	    153.2800 	   27.8200 	0.0200 	-	-	-	Gilmour Space Technologies
 GIMR	GIMR	US	O	D	1960 Aug  2	1967 Jul 31	GIMRADA	US Army Engineer Geodesy, Intelligence and Mapping R and D Agency (under ACE)	Fort Belvoir, Virginia	    -77.1500 	   38.7200 	0.0200 	USA	-	-	US Army Engineer Geodesy, Intelligence and Mapping R and D Agency (under ACE)
 GIRD	GIRD	SU	-	D	1931	1933	GIRD	Gruppa izucheniya reaktivnogo dvizheniya	Moskva	     37.6200 	   55.7500 	0.0200 	-	-	Group for the Study of Reactive Motion	Группа изучения реактивного движения
@@ -1507,6 +1510,7 @@ HACES	HACES	US	-	B	1955	1985	HAC	Hughes Aircraft Co., El Segundo	El Segundo, Cal
 HADC	HADC	US	LA/LS/S	D	1942	1957 Sep  1	HADC	Holloman Air Development Center	Alamagordo, New Mexico	   -106.1100 	   32.8500 	0.0200 	HAFB	-	-	Holloman Air Development Center
 HAFB	HAFB	US	LS	D	1948 Jan 13	-	HAFB	Holloman Air Force Base	Alamagordo, New Mexico	   -106.1100 	   32.8500 	0.0200 	USAF	-	-	Holloman Air Force Base
 HAITAO	HAITAO	BVI	O	B	-	-	Haitao Intl	Haitao Guoji Jituan	Road Town, British Virgin Is.	    -64.6200 	   18.4300 	0.0200 	-	-	Haitao International Group	海涛国际集团
+HAIWS	HAIWS	CN	O	C	2022	-	Hainan Weixing	Hainan Weixing Shuju Yu Yingyong Yanjiu Zhongxi	Wenchang	    110.9500 	   19.6200 	0.0200 	-	-	Hainan Satellite Data and App. Research Center	海南卫星数据与应用研究中心
 HAL	HAL	IN	LV/PL	B	1940	-	HAL	Hindustan Aeronautics Ltd	Bangalore	     77.5800 	   12.9800 	0.0200 	-	-	-	Hindustan Aeronautics Ltd
 HAL5	HAL5	US	LA/LV/E/LS/S	A	1997	-	HAL5	Huntsville, Alabama L5 Society	Huntsville, Alabama	    -86.5900 	   34.7300 	0.0200 	-	-	-	Huntsville, Alabama L5 Society
 HAM	HAM	US	S	D	1945?	-	AeroMed	Holloman Aeromedical Lab, Holloman Air Force Base	Alamagordo, New Mexico	   -106.1100 	   32.8500 	0.0200 	HADC	-	-	Holloman Aeromedical Lab, Holloman Air Force Base
@@ -2336,6 +2340,7 @@ NATC	NATC	US	O	D	-	-	NATC	Naval Air Test Center, Patuxent River, Maryland	Patuxe
 NATO	NATO	I-NATO	O/LS	D	-	-	NATO	North Atlantic Treaty Organization	Brussel:Haren	      4.4200 	   50.8900 	0.0200 	-	-	-	North Atlantic Treaty Organization
 NAVAIR	BUORD	US	O	D	1966 May  1	-	USN NAVAIR	USN Naval Air Systems Command (NAVAIR)	Patuxent River, Maryland	    -76.4200 	   38.3100 	0.0200 	USN	-	-	USN Naval Air Systems Command (NAVAIR)
 NAVAST	NAVAST	US	-	D	1962	1990 Jun 12	USN NAVASTROGRU	USN Naval Astronautics Group	Pt Mugu, California	   -119.1200 	   34.1200 	0.0200 	USN	-	-	USN Naval Astronautics Group
+NAVIBD	NAVIBD	CN	O	B	2007	-	Navi Beidou	Shaanxi Nouwei Beidou Xinxi Keji Gufen YG	Xi'an	    108.9400 	   34.2600 	0.0200 	-	Navi Beidou	Navi Beidou Info. Tech Co. Ltd.	陕西诺维北斗信息科技股份有限公司
 NAVMAT	NAVMAT	US	P	D	1966 May  1	1985 May  6	USN NAVMAT	USN Naval Material Command	Washington, DC	    -77.0200 	   38.9000 	0.0200 	USN	-	-	USN Naval Material Command
 NAVSEA	NAVSEA	US	-	D	1974	-	USN NAVSEA	USN Naval Sea Systems Command	Washington, DC	    -77.0200 	   38.9000 	0.0200 	USN	-	-	USN Naval Sea Systems Command
 NAVSPA	NAVSPA	US	P	D	1983 Oct  1	-	USN NAVSPACECOM	US Naval Space Command (NAVSPACECOM)	Dahlgren, Virginia	    -77.0500 	   38.3400 	0.0200 	USN	-	-	US Naval Space Command (NAVSPACECOM)
@@ -2455,6 +2460,7 @@ NOL	NOL	US	LA/S	D	1929	1993	NOL	Naval Ordnance Lab	White Oak, Maryland	    -76.9
 NONAN	NONAN	F	LA	B	2009	2015	NovaNano	NovaNano	Lyon/Saint-Didier	      4.8000 	   45.8100 	0.0200 	-	-	-	国立天文台野辺山
 NORD	NORD	F	LV/PL	B	1954 Oct  1	1970	Nord	Nord Aviation	Bourges, Cher	      2.4000 	   47.0800 	0.0200 	-	-	-	Nord Aviation
 NORDS	NORD	F	PL	B	1921	1954 Oct  1	SNCAN	Societe Nationale de Constructions Aeronautiques du Nord	Bourges, Cher	      2.4000 	   47.0800 	0.0200 	-	-	-	Société nationale de constructions aéronautiques du Nord
+NORDSP	NORDSP	CA	LV	B	2022	-	NordSpace	NordSpace	Toronto:Markham, Ontario	    -79.2600 	   43.8800 	0.0200 	-	-	-	NordSpace
 NORLM	NORLM	F	LV	B	1921	1970	Nord/LesM	Nord Aviation	Paris:Les Mureaux, Yvelines	      1.9200 	   48.9900 	0.0200 	NORD	-	-	Nord Aviation
 NORSM	NORSM	F	LV	B	1960?	1970?	Nord/St-Medard	Nord Aviation/St-Medard	St-Medard-en-Jalles	     -0.7200 	   44.9000 	0.0200 	SAFRAN	-	-	Nord Aviation/St-Medard
 NORTH	NORTH	US	LV/PL	B	1939	1962 Jul	Northrop	Northrop Corporation	Hawthorne, California	   -118.3500 	   33.9200 	0.0200 	-	-	-	Northrop Corporation
@@ -2975,7 +2981,7 @@ SDC	ARGMA	US	O/LA/E	D	1985 Jul	1992 Aug	USA SDC	US Army Strategic Defense Comman
 SDCO	SDCO	US	LA/LV/PL/E/S	B	1963	1988	SpaceDataCorp	Space Data Corp.	Phoenix:Tempe/Chandler, Arizona	   -111.8300 	   33.3000 	0.0200 	-	-	-	Space Data Corp.
 SDIIT	SDIIT	CN	O/PL	B	-	-	Shandong changye	Shandong changye jishu yanjiuyuan	Jinan	    117.0200 	   36.6700 	0.0200 	-	-	Shandong Insitute of Industrial Technology	山东产业技术研究院
 SDIO	SDIO	US	O/LA/PL/S	D	1984	1993	SDIO	Strategic Defense Initiative Organization, DoD	Washington, DC:Pentagon	    -77.0600 	   38.8700 	0.0200 	DOD	-	-	Strategic Defense Initiative Organization, DoD
-SDK	SDK	CN	O	B	2018	-	Shikong Daoyu	Shikong Daoyi Keji YG	Hanghzhou, Zhejiang	    120.1700 	   30.2500 	0.0200 	GEELY	-	Shikong Daoyu Technology Ltd	时空道宇科技有限公司
+SDK	SDK	CN	O	B	2018	-	Shikong Daoyu	Shikong Daoyi Keji YG	Hanghzhou, Zhejiang	    120.1700 	   30.2500 	0.0200 	GEELY	-	Spacetime Daoyu Technology Ltd	时空道宇科技有限公司
 SDLP	SDLP	CZ	PL	B	1991	-	SDL/Praha	Space Devices s.r.o.	Praha	     14.4200 	   50.0800 	0.0200 	-	-	Space Devices Ltd.	Space Devices s.r.o.
 SDP	SDP	F	E	C	1873	1971	SdP	Services des Poudres	Saint-Medard-en-Jalles, Gironde	     -0.7200 	   44.9000 	0.0200 	-	-	-	Services des Poudres
 SDSC	SHAR	IN	S	C	2002	-	ISRO-SDSC	Satish Dhawan Space Center	Sriharikota	     80.3000 	   13.6200 	0.0200 	ISRO	-	-	Satish Dhawan Space Center
@@ -3364,6 +3370,7 @@ THKE	THKE	US	LV/PL/E	B	1947	2001	Thiokol/TE	Thiokol-Elkton	Elkton, Maryland	    
 THKU	THKU	US	LV/PL/E	B	1957	2001	Thiokol/UT	Thiokol Wasatch Div/Air Force Plant 78	Brigham City/Promontory, Utah	   -112.5500 	   41.6200 	0.0200 	THK	-	-	Thiokol Wasatch Div/Air Force Plant 78
 THKX	THKX	US	LV/PL/E	B	1949	1996	TX	Thiokol/Huntsville	Huntsville, Alabama	    -86.6500 	   34.6800 	0.0200 	THK	-	-	Thiokol/Huntsville
 THKXM	THKXM	US	LV/E	B	1952	1971	Thiokol/TX	Thiokol Longhorn Division	Marshall, Texas	    -94.3700 	   32.5500 	0.0200 	THK	-	-	Thiokol Longhorn Division
+THUMB	THUMB	MX	PL	B	2015	-	Thumbsat	ThumbSat Mexico S.A. de C.V	Tijuana	   -117.0300 	   32.5200 	0.0200 	-	-	-	ThumbSat México S.A. de C.V.
 THUR	THUR	UAE	O	B	1997	2018 Apr	Thuraya	Thuraya Satellite	Abu Dhabi	     54.3700 	   24.4700 	0.0200 	-	-	Thuraya Satellite	Thuraya Satellite
 THURY	THUR	UAE	-	B	2018 Apr	-	Yahsat Thuraya	Thuraya Satellite (Yahsat)	Abu Dhabi	     54.3700 	   24.4700 	0.0200 	ALYAH	-	Thuraya Satellite	Thuraya Satellite (Yahsat)
 TIANB	TIANB	CN	LV	B	-	-	Tianbing Keji	Beijing Tianbing Keji YG	Beijing:Fengtai	    116.4100 	   39.8600 	0.0200 	-	Space Pioneer	Beijing Tianbing Tech. Co. Ltd (Space Pioneer)	北京天兵科技有限公司
@@ -3747,6 +3754,7 @@ WAKA	WAKA	J	O/PL	A	1949	-	Wakayama	Wakayama Daigaku	Wakayama, Wakayama-ken	    1
 WAML	WAML	US	S	D	1940	1951	WAML	Wright Aeromedical Laboratory, WADC	Wright-Patterson AFB, Dayton, Ohio	    -84.0500 	   39.8200 	0.0200 	USAF	-	-	Wright Aeromedical Laboratory, WADC
 WARP	WARP	J	O/PL	B	2016	-	WarpSpace Co	Kabushikigaisha Wapusupesu	Tsukuba	    140.0800 	   36.0800 	0.0200 	-	-	WarpSpace Co. Ltd.	株式会社ワープスペース
 WASEDA	WASEDA	J	O/PL	A	1902	-	Waseda U	Waseda Daigaku (Sodai)	Tokyo:Shinjuku	    139.7200 	   35.7100 	0.0200 	-	-	-	早稲田大学
+WAVIX	WAVIX	US	O	B	1999	2003 Sep	Wavix	Wavix Inc.	Beltsville, Maryland	    -76.9200 	   39.0400 	0.0200 	-	-	-	Wavix Inc.
 WBLU	WBLU	US	O	B	1998	2009 Dec 15	WildBlue	WildBlue Communications Inc.	Denver:Greenwood Village, Colorado	   -104.9100 	   39.6200 	0.0200 	-	-	-	WildBlue Communications Inc.
 WBLUV	WBLU	US	O	B	2009 Dec 15	-	WildBlue	WildBlue Communications Inc. (Viasat)	Denver:Greenwood Village, Colorado	   -104.9100 	   39.6200 	0.0200 	VIA	-	-	WildBlue Communications Inc. (Viasat)
 WEB	WEB	US	O/PL	A	1889	-	Weber	Weber State Univ., Utah	Ogden, Utah	   -111.9400 	   41.1900 	0.0200 	-	-	-	Weber State Univ., Utah
