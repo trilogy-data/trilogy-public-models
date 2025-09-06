@@ -22502,7 +22502,7 @@ Launch_Tag	Launch_Date	Piece	Type	Name	PLName	JCAT	SatOwner	SatState	LV_Type	Fli
 2024-149 	2024 Aug 16 1856:00	2024-149DQ	P           	Lemur-2 SquirrelComm	Lemur-2	S60578	SPIREL/MYRI	L	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
 2024-149 	2024 Aug 16 1856:00	2024-149DR	P           	Lemur-2 Sierrini	Lemur-2	S60579	SPIREL/MYRI	L	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
 2024-149 	2024 Aug 16 1856:00	2024-149DS	P           	Sedna-1	Sedna-1	S60580	CLAAC	UK	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
-2024-149 	2024 Aug 16 1856:00	2024-149DT	P      O?   	Flock 4be-21	Dove 2502	S60581	PLAN	US	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
+2024-149 	2024 Aug 16 1856:00	2024-149DT	P      R    	Flock 4be-21	Dove 2502	A11108	PLAN	US	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
 2024-149 	2024 Aug 16 1856:00	2024-149	PXAA        	Transporter-11	Rideshare Adapter Stack	A11288	SPX	US	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
 2024-149 	2024 Aug 16 1856:00	2024-149CT	PXAA        	Celestis-24	Celestis Harmony	A11325	SSICE	US	Falcon 9	369/B1075.12 F366	-	VSFBS	SLC4E	-	-	SPX	US	OS	Wire
 2024-150 	2024 Aug 20 1320:00	2024-150A	P      O    	Starlink 31844	Starlink Group 10-5-01	S60583	SPXS	US	Falcon 9	359/B1085.1  F367	-	CC	LC40	-	-	SPX	US	OS	Wire
@@ -26414,56 +26414,89 @@ Launch_Tag	Launch_Date	Piece	Type	Name	PLName	JCAT	SatOwner	SatState	LV_Type	Fli
 2025-192 	2025 Aug 31 1149:00	2025-192AB	P      D    	Starlink 35014	Starlink Group 10-14-26	S65428	SPXS	US	Falcon 9	xxx/B1077.23 F526	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
 2025-192 	2025 Aug 31 1149:00	2025-192AC	P      D    	Starlink 35025	Starlink Group 10-14-27	S65429	SPXS	US	Falcon 9	xxx/B1077.23 F526	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
 2025-192 	2025 Aug 31 1149:00	2025-192AD	P      D    	Starlink 35034	Starlink Group 10-14-28	S65430	SPXS	US	Falcon 9	xxx/B1077.23 F526	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-193 	2025 Sep  2 1930	2025-193A	P ------C   	'Ofeq-19	'Ofeq-19	S65431	DDRD/U9900	IL	Shavit 2	13	-	PALB	-	-	-	ISA	IL	OS	Wire
-2025-194 	2025 Sep  3 0351:26	2025-194A	P      D    	Starlink 35142	Starlink Group 17-8-01	S65433	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194B	P      D    	Starlink 34978	Starlink Group 17-8-02	S65434	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194C	P      D    	Starlink 35043	Starlink Group 17-8-03	S65435	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194D	P      D    	Starlink 35080	Starlink Group 17-8-04	S65436	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194E	P      D    	Starlink 35068	Starlink Group 17-8-05	S65437	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194F	P      D    	Starlink 35045	Starlink Group 17-8-06	S65438	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194G	P      D    	Starlink 35050	Starlink Group 17-8-07	S65439	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194H	P      D    	Starlink 35065	Starlink Group 17-8-08	S65440	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194J	P      D    	Starlink 34679	Starlink Group 17-8-09	S65441	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194K	P      D    	Starlink 34678	Starlink Group 17-8-10	S65442	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194L	P      D    	Starlink 35049	Starlink Group 17-8-11	S65443	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194M	P      D    	Starlink 35029	Starlink Group 17-8-12	S65444	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194N	P      D    	Starlink 34991	Starlink Group 17-8-13	S65445	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194P	P      D    	Starlink 34920	Starlink Group 17-8-14	S65446	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194Q	P      D    	Starlink 35030	Starlink Group 17-8-15	S65447	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194R	P      D    	Starlink 35009	Starlink Group 17-8-16	S65448	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194S	P      D    	Starlink 34970	Starlink Group 17-8-17	S65449	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194T	P      D    	Starlink 35039	Starlink Group 17-8-18	S65450	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194U	P      D    	Starlink 35084	Starlink Group 17-8-19	S65451	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194V	P      D    	Starlink 34988	Starlink Group 17-8-20	S65452	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194W	P      D    	Starlink 35059	Starlink Group 17-8-21	S65453	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194X	P      D    	Starlink 34728	Starlink Group 17-8-22	S65454	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194Y	P      D    	Starlink 35005	Starlink Group 17-8-23	S65455	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-194 	2025 Sep  3 0351:26	2025-194Z	P      D    	Starlink 35076	Starlink Group 17-8-24	S65456	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
-2025-195 	2025 Sep  3 1156:10	2025-195A	P      D    	Starlink 34784	Starlink Group 10-22-01	S65457	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195B	P      D    	Starlink 34867	Starlink Group 10-22-02	S65458	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195C	P      D    	Starlink 34850	Starlink Group 10-22-03	S65459	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195D	P      D    	Starlink 35159	Starlink Group 10-22-04	S65460	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195E	P      D    	Starlink 35180	Starlink Group 10-22-05	S65461	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195F	P      D    	Starlink 35111	Starlink Group 10-22-06	S65462	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195G	P      D    	Starlink 35107	Starlink Group 10-22-07	S65463	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195H	P      D    	Starlink 35169	Starlink Group 10-22-08	S65464	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195J	P      D    	Starlink 35027	Starlink Group 10-22-09	S65465	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195K	P      D    	Starlink 34816	Starlink Group 10-22-10	S65466	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195L	P      D    	Starlink 35033	Starlink Group 10-22-11	S65467	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195M	P      D    	Starlink 34924	Starlink Group 10-22-12	S65468	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195N	P      D    	Starlink 34829	Starlink Group 10-22-13	S65469	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195P	P      D    	Starlink 34888	Starlink Group 10-22-14	S65470	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195Q	P      D    	Starlink 34799	Starlink Group 10-22-15	S65471	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195R	P      D    	Starlink 34762	Starlink Group 10-22-16	S65472	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195S	P      D    	Starlink 34998	Starlink Group 10-22-17	S65473	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195T	P      D    	Starlink 34832	Starlink Group 10-22-18	S65474	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195U	P      D    	Starlink 35098	Starlink Group 10-22-19	S65475	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195V	P      D    	Starlink 35071	Starlink Group 10-22-20	S65476	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195W	P      D    	Starlink 35093	Starlink Group 10-22-21	S65477	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195X	P      D    	Starlink 35096	Starlink Group 10-22-22	S65478	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195Y	P      D    	Starlink 35040	Starlink Group 10-22-23	S65479	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195Z	P      D    	Starlink 35042	Starlink Group 10-22-24	S65480	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195AA	P      D    	Starlink 35038	Starlink Group 10-22-25	S65481	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195AB	P      D    	Starlink 35037	Starlink Group 10-22-26	S65482	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195AC	P      D    	Starlink 35089	Starlink Group 10-22-27	S65483	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
-2025-195 	2025 Sep  3 1156:10	2025-195AD	P      D    	Starlink 35143	Starlink Group 10-22-28	S65484	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-193 	2025 Sep  2 1930	2025-193A	P ------C   	'Ofeq-19	'Ofeq-19	S65432	DDRD/U9900	IL	Shavit 2	13	-	PALB	-	-	-	ISA	IL	OS	Wire
+2025-194 	2025 Sep  3 0351:26	2025-194A	P      D    	Starlink 35142	Starlink Group 17-8-01	S65434	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194B	P      D    	Starlink 34978	Starlink Group 17-8-02	S65435	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194C	P      D    	Starlink 35043	Starlink Group 17-8-03	S65436	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194D	P      D    	Starlink 35080	Starlink Group 17-8-04	S65437	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194E	P      D    	Starlink 35068	Starlink Group 17-8-05	S65438	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194F	P      D    	Starlink 35045	Starlink Group 17-8-06	S65439	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194G	P      D    	Starlink 35050	Starlink Group 17-8-07	S65440	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194H	P      D    	Starlink 35065	Starlink Group 17-8-08	S65441	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194J	P      D    	Starlink 34679	Starlink Group 17-8-09	S65442	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194K	P      D    	Starlink 34678	Starlink Group 17-8-10	S65443	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194L	P      D    	Starlink 35049	Starlink Group 17-8-11	S65444	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194M	P      D    	Starlink 35029	Starlink Group 17-8-12	S65445	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194N	P      D    	Starlink 34991	Starlink Group 17-8-13	S65446	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194P	P      D    	Starlink 34920	Starlink Group 17-8-14	S65447	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194Q	P      D    	Starlink 35030	Starlink Group 17-8-15	S65448	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194R	P      D    	Starlink 35009	Starlink Group 17-8-16	S65449	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194S	P      D    	Starlink 34970	Starlink Group 17-8-17	S65450	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194T	P      D    	Starlink 35039	Starlink Group 17-8-18	S65451	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194U	P      D    	Starlink 35084	Starlink Group 17-8-19	S65452	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194V	P      D    	Starlink 34988	Starlink Group 17-8-20	S65453	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194W	P      D    	Starlink 35059	Starlink Group 17-8-21	S65454	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194X	P      D    	Starlink 34728	Starlink Group 17-8-22	S65455	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194Y	P      D    	Starlink 35005	Starlink Group 17-8-23	S65456	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-194 	2025 Sep  3 0351:26	2025-194Z	P      D    	Starlink 35076	Starlink Group 17-8-24	S65457	SPXS	US	Falcon 9	xxx/B1097.1  F527	-	VSFBS	SLC4E	-	-	SPX	US	OS	SpaceX
+2025-195 	2025 Sep  3 1156:10	2025-195A	P      D    	Starlink 34784	Starlink Group 10-22-01	S65458	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195B	P      D    	Starlink 34867	Starlink Group 10-22-02	S65459	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195C	P      D    	Starlink 34850	Starlink Group 10-22-03	S65460	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195D	P      D    	Starlink 35159	Starlink Group 10-22-04	S65461	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195E	P      D    	Starlink 35180	Starlink Group 10-22-05	S65462	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195F	P      D    	Starlink 35111	Starlink Group 10-22-06	S65463	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195G	P      D    	Starlink 35107	Starlink Group 10-22-07	S65464	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195H	P      D    	Starlink 35169	Starlink Group 10-22-08	S65465	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195J	P      D    	Starlink 35027	Starlink Group 10-22-09	S65466	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195K	P      D    	Starlink 34816	Starlink Group 10-22-10	S65467	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195L	P      D    	Starlink 35033	Starlink Group 10-22-11	S65468	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195M	P      D    	Starlink 34924	Starlink Group 10-22-12	S65469	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195N	P      D    	Starlink 34829	Starlink Group 10-22-13	S65470	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195P	P      D    	Starlink 34888	Starlink Group 10-22-14	S65471	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195Q	P      D    	Starlink 34799	Starlink Group 10-22-15	S65472	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195R	P      D    	Starlink 34762	Starlink Group 10-22-16	S65473	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195S	P      D    	Starlink 34998	Starlink Group 10-22-17	S65474	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195T	P      D    	Starlink 34832	Starlink Group 10-22-18	S65475	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195U	P      D    	Starlink 35098	Starlink Group 10-22-19	S65476	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195V	P      D    	Starlink 35071	Starlink Group 10-22-20	S65477	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195W	P      D    	Starlink 35093	Starlink Group 10-22-21	S65478	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195X	P      D    	Starlink 35096	Starlink Group 10-22-22	S65479	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195Y	P      D    	Starlink 35040	Starlink Group 10-22-23	S65480	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195Z	P      D    	Starlink 35042	Starlink Group 10-22-24	S65481	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195AA	P      D    	Starlink 35038	Starlink Group 10-22-25	S65482	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195AB	P      D    	Starlink 35037	Starlink Group 10-22-26	S65483	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195AC	P      D    	Starlink 35089	Starlink Group 10-22-27	S65484	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-195 	2025 Sep  3 1156:10	2025-195AD	P      D    	Starlink 35143	Starlink Group 10-22-28	S65485	SPXS	US	Falcon 9	xxx/B1083.14 F528	-	CC	LC40	-	-	SPX	US	OS	nasaspaceflight.com
+2025-196 	2025 Sep  5 0234	2025-196A	P           	Shiyan 29	Shiyan 29	S65486	CNSA	CN	Chang Zheng 3C/YZ-1	-	-	XSC	-	-	-	CALT	CN	OS	nasaspaceflight.com
+2025-197 	2025 Sep  5 1139	2025-197A	P       ?   	Kaiyun-1	Jiazhou	S65489	KAIYUN	CN	Gushenxing 1	Y15	-	JQ	LC43/95B	-	-	XIDO	CN	OS	nasaspaceflight.com
+2025-197 	2025 Sep  5 1139	2025-197B	P       ?   	Yuxing 3-08	Yuxing 3-08	S65490	UNKCN	CN	Gushenxing 1	Y15	-	JQ	LC43/95B	-	-	XIDO	CN	OS	nasaspaceflight.com
+2025-197 	2025 Sep  5 1139	2025-197C	P       ?   	Yunyao-1 27	TY170	S65491	YYAO	CN	Gushenxing 1	Y15	-	JQ	LC43/95B	-	-	XIDO	CN	OS	nasaspaceflight.com
+2025-197 	2025 Sep  5 1139	2025-197D	P       ?   	Aishenxing Luigui S. Pingtai	Aishen OTP	S65492	XIDO	CN	Gushenxing 1	Y15	-	JQ	LC43/95B	-	-	XIDO	CN	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198A	P      D    	Starlink 35226	Starlink Group 10-57-01	S65493	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198B	P      D    	Starlink 35242	Starlink Group 10-57-02	S65494	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198C	P      D    	Starlink 35223	Starlink Group 10-57-03	S65495	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198D	P      D    	Starlink 34446	Starlink Group 10-57-04	S65496	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198E	P      D    	Starlink 35212	Starlink Group 10-57-05	S65497	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198F	P      D    	Starlink 34455	Starlink Group 10-57-06	S65498	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198G	P      D    	Starlink 35203	Starlink Group 10-57-07	S65499	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198H	P      D    	Starlink 35166	Starlink Group 10-57-08	S65500	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198J	P      D    	Starlink 35207	Starlink Group 10-57-09	S65501	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198K	P      D    	Starlink 35140	Starlink Group 10-57-10	S65502	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198L	P      D    	Starlink 35114	Starlink Group 10-57-11	S65503	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198M	P      D    	Starlink 35126	Starlink Group 10-57-12	S65504	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198N	P      D    	Starlink 35182	Starlink Group 10-57-13	S65505	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198P	P      D    	Starlink 35072	Starlink Group 10-57-14	S65506	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198Q	P      D    	Starlink 35184	Starlink Group 10-57-15	S65507	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198R	P      D    	Starlink 35163	Starlink Group 10-57-16	S65508	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198S	P      D    	Starlink 35119	Starlink Group 10-57-17	S65509	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198T	P      D    	Starlink 35168	Starlink Group 10-57-18	S65510	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198U	P      D    	Starlink 35122	Starlink Group 10-57-19	S65511	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198V	P      D    	Starlink 35124	Starlink Group 10-57-20	S65512	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198W	P      D    	Starlink 35149	Starlink Group 10-57-21	S65513	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198X	P      D    	Starlink 35019	Starlink Group 10-57-22	S65514	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198Y	P      D    	Starlink 35026	Starlink Group 10-57-23	S65515	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198Z	P      D    	Starlink 35241	Starlink Group 10-57-24	S65516	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198AA	P      D    	Starlink 35216	Starlink Group 10-57-25	S65517	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198AB	P      D    	Starlink 35228	Starlink Group 10-57-26	S65518	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198AC	P      D    	Starlink 35232	Starlink Group 10-57-27	S65519	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
+2025-198 	2025 Sep  5 1232:30	2025-198AD	P      D    	Starlink 35164	Starlink Group 10-57-28	S65520	SPXS	US	Falcon 9	xxx/B1069.27 F529	-	KSC	LC39A	-	-	SPX	US	OS	nasaspaceflight.com
