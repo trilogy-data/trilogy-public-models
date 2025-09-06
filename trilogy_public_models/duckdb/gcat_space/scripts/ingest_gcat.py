@@ -70,60 +70,60 @@ def clean_and_process_tsv(tsv_path: Path) -> Path:
     3. Converting '-' to empty string in numeric columns
     """
     cleaned_path = tsv_path.with_suffix(".cleaned.tsv")
-    
+
     try:
         # Read the raw file to handle comments manually
-        with open(tsv_path, "r", encoding=ENCODING, errors='replace') as infile:
+        with open(tsv_path, "r", encoding=ENCODING, errors="replace") as infile:
             lines = infile.readlines()
-        
+
         if not lines:
             return cleaned_path
-        
+
         # Process header - always use first line, strip # if present
         header_line = lines[0].lstrip("#").strip()
-        
+
         # Collect non-comment data lines
         data_lines = []
         comment_count = 0
-        
+
         for line in lines[1:]:
             if line.strip().startswith("#"):
                 comment_count += 1
             else:
                 data_lines.append(line.strip())
-        
+
         if comment_count > 0:
             print(f"Stripped {comment_count} comment line(s) from {tsv_path.name}")
-        
+
         # Parse with CSV reader to handle fields properly
         all_rows = []
-        
+
         # Parse header
-        header_reader = csv.reader(io.StringIO(header_line), delimiter='\t')
+        header_reader = csv.reader(io.StringIO(header_line), delimiter="\t")
         headers = [col.strip() for col in next(header_reader)]
         all_rows.append(headers)
-        
+
         # Parse data rows and strip whitespace
         for line in data_lines:
             if line:  # Skip empty lines
-                row_reader = csv.reader(io.StringIO(line), delimiter='\t')
+                row_reader = csv.reader(io.StringIO(line), delimiter="\t")
                 row = [field.strip() for field in next(row_reader)]
                 all_rows.append(row)
-        
+
         if len(all_rows) <= 1:  # Only header, no data
-            with open(cleaned_path, "w", encoding=ENCODING, newline='') as outfile:
-                writer = csv.writer(outfile, delimiter='\t')
+            with open(cleaned_path, "w", encoding=ENCODING, newline="") as outfile:
+                writer = csv.writer(outfile, delimiter="\t")
                 writer.writerows(all_rows)
             return cleaned_path
-        
+
         # Identify numeric columns (columns where all non-'-' values can be converted to float)
         numeric_columns = set()
         for col_idx, header in enumerate(headers):
             non_dash_values = []
             for row in all_rows[1:]:  # Skip header
-                if col_idx < len(row) and row[col_idx] != '-' and row[col_idx] != '':
+                if col_idx < len(row) and row[col_idx] != "-" and row[col_idx] != "":
                     non_dash_values.append(row[col_idx])
-            
+
             if non_dash_values:  # Only check if there are non-dash values
                 try:
                     # Try to convert all non-dash values to float
@@ -134,39 +134,39 @@ def clean_and_process_tsv(tsv_path: Path) -> Path:
                 except ValueError:
                     # Not a numeric column
                     pass
-        
+
         # Replace '-' with empty string in numeric columns
         for row in all_rows[1:]:  # Skip header
             for col_idx in numeric_columns:
-                if col_idx < len(row) and row[col_idx] == '-':
-                    row[col_idx] = ''
-        
+                if col_idx < len(row) and row[col_idx] == "-":
+                    row[col_idx] = ""
+
         # Write cleaned TSV
-        with open(cleaned_path, "w", encoding=ENCODING, newline='') as outfile:
-            writer = csv.writer(outfile, delimiter='\t')
+        with open(cleaned_path, "w", encoding=ENCODING, newline="") as outfile:
+            writer = csv.writer(outfile, delimiter="\t")
             writer.writerows(all_rows)
-        
+
         print(f"Processed and cleaned: {tsv_path.name} -> {cleaned_path.name}")
-        
+
     except Exception as e:
         print(f"Error processing {tsv_path.name}: {e}")
         # Fallback to simple cleaning
-        with open(tsv_path, "r", encoding=ENCODING, errors='replace') as infile:
+        with open(tsv_path, "r", encoding=ENCODING, errors="replace") as infile:
             lines = infile.readlines()
-        
+
         with open(cleaned_path, "w", encoding=ENCODING) as outfile:
             if lines:
                 # Write header
                 header = lines[0].lstrip("#").strip()
                 outfile.write(header + "\n")
-                
+
                 # Write data lines, stripping whitespace from fields
                 for line in lines[1:]:
                     if not line.strip().startswith("#") and line.strip():
                         # Split, strip each field, rejoin
-                        fields = [field.strip() for field in line.strip().split('\t')]
-                        outfile.write('\t'.join(fields) + "\n")
-    
+                        fields = [field.strip() for field in line.strip().split("\t")]
+                        outfile.write("\t".join(fields) + "\n")
+
     return cleaned_path
 
 
@@ -194,13 +194,13 @@ async def fetch_and_save(
                         async for chunk in resp.aiter_bytes(chunk_size=CHUNK_SIZE):
                             fd.write(chunk)
                 print(f"Saved: {out_path}")
-                
+
                 # Clean and process the downloaded file
-                cleaned_path = clean_and_process_tsv(out_path)
-                
+                clean_and_process_tsv(out_path)
+
                 # Remove the original raw file to save space
                 out_path.unlink()
-                
+
                 return
             except Exception as e:
                 # remove partial file if any
