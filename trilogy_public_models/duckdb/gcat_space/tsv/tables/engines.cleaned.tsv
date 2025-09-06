@@ -1,7 +1,4 @@
 Name	Manufacturer	Family	Alt_Name	Oxidizer	Fuel	Mass	MFlag	Impulse	ImpFlag	Thrust	TFlag	Isp	IspFlag	Duration	DurFlag	Chambers	Date	Usage	Group
-#
-# Solid propellant engines
-#
 RSRMV	NGISP	RSRM	-	-	 PBAN	  726000.0 	 	 1320000 	 	    9996.00 	 	-	 	 132.8 	 	  1	2022	SLS SRB	Solid
 SRM	THKU	SRM	-	-	 PBAN	  590000.0 	 	-	 	   11790.00 	 	267.3 	 	 123.0 	 	  1	1981	STS SRB	Solid
 SRMU	ATKP	SRMU	-	-	 HTPB	  350000.0 	 	-	 	    7500.00 	 	285.6 	 	 137.8 	 	  1	1994	Titan 4B	Solid
@@ -874,9 +871,6 @@ Cedre St1	LRS	-	-	-	 Solid	-	 	-	 	     138.00 	 	-	 	-	 	  1	1962	Cedre 3	Solid
 Cedre St2	LRS	-	-	-	 Solid	-	 	-	 	      78.00 	 	-	 	-	 	  1	1962	Cedre 3	Solid
 Cedre St3	LRS	-	-	-	 Solid	-	 	-	 	      20.00 	 	-	 	-	 	  1	1962	Cedre 3	Solid
 Cedre-4 St1	LRS	-	-	-	 Solid	-	 	-	 	     138.00 	 	-	 	-	 	  1	1962	Cedre 4	Solid
-#
-# Hybrid propellant engines
-#
 SORS	DVST	-	-	LOX?	 Solid	-	 	-	 	-	 	-	 	-	 	  1	2021	SORS	Hybrid
 HALO	HAL5	-	-	N2O	 HTPB	      20.0 	 	-	 	       1.90 	 	240.0 	 	-	 	  1	1997	HALO	Hybrid
 Rhumi	SZI	-	-	N2O	 Solid	-	 	     180 	 	       2.50 	 	-	 	   0.0 	 	  1	2024	Rhumi	Hybrid
@@ -900,13 +894,7 @@ HYSR	LMMI	-	-	LOX	 HTPB	-	 	    8000 	?	     270.00 	 	290.0 	 	  33.4 	 	  1	20
 RM-2 (1)	SIENV	-	-	N2O	 HTPB	-	 	   16000 	?	     270.00 	 	-	 	  60.0 	?	  1	2007	SS2	Hybrid
 RM-2	SCAL/SPDEV	-	-	N2O	 Polyamide	-	 	   16000 	?	     310.00 	 	250.0 	 	  60.0 	?	  1	2007	SS2	Hybrid
 H500	AMROC	-	-	LOX	 PB	       0.0 	 	   23000 	?	     333.00 	 	295.2 	 	  70.0 	 	  1	1989 Oct  5	AMROC	Hybrid
-#
-# N2 cold gas
-#
 DS	MITT	Start DS	-	-	 N2	-	 	-	 	       0.00 	 	-	 	 210.0 	 	  1	-	Start DS	N2
-#
-# Liquid propellant engines: Nitric acid/Aniline or alcohol
-#
 P4-1 Sustainer	NAA	-	-	IRFNA	 Hydyne	-	 	-	 	       0.50 	 	262.0 	 	-	 	  1	-	-	NA/AA
 T-7 LRE	SIMED	-	-	NA	 Aniline	    1000.0 	 	-	 	       2.00 	 	-	 	-	 	  1	1960	T-7	NA/AA
 P4-1 Booster	NAA	-	-	IRFNA	 Hydyne	-	 	-	 	       2.40 	 	232.0 	 	-	 	  1	-	-	NA/AA
@@ -931,9 +919,6 @@ TD-232	RMD	Bullpup B	-	IRFNA	 MAF-1	     255.0 	 	-	 	      53.00 	?	-	 	-	 	  1
 Wasserfall	HVP	-	-	NA	 Vinyl Isobutyl ethe	-	 	-	 	      78.00 	 	-	 	  40.0 	 	  1	1944	Wasserfall	NA/AA
 Corporal E	JPL	-	-	RFNA	 Aniline	-	 	-	 	      89.00 	 	-	 	-	 	  1	1947	Corporal E	NA/AA
 Corporal	AJGC	-	-	IRFNA	 Aniline	-	 	-	 	      89.00 	 	-	 	  63.0 	 	  1	-	Corporal	NA/AA
-#
-# Liquid propellant engines: Nitric acid/Amine
-#
 S2.721V	ISAEV	S2.721	-	NA	 Amine	-	 	-	 	      11.80 	 	-	 	-	 	  1	1956?	-	NA/Amine
 P-15	ISAEV	S2.721	-	NA	 Amine	-	 	-	 	      11.90 	 	-	 	-	 	  1	-	-	NA/Amine
 S5.4	ISAEV	S5.4	-	NA	 Amine	-	 	-	 	      15.80 	 	266.0 	 	-	 	  1	-	-	NA/Amine
@@ -952,9 +937,6 @@ S5.3	ISAEV	S5.3	-	NA	 Amine	-	 	-	 	     392.00 	 	-	 	-	 	  1	-	R-21	NA/Amine
 S5.38	ISAEV	S5.3	-	NA	 Amine	-	 	-	 	     392.00 	 	-	 	-	 	  1	-	R-21	NA/Amine
 S5.3M	ISAEV	S5.3	-	NA	 Amine	-	 	-	 	     396.70 	 	241.0 	s	-	 	  1	-	-	NA/Amine
 S2.1150	ISAEV	S2.1150	-	NA AK-27I	 Amine TG-02	-	 	-	 	     671.20 	 	250.0 	 	-	 	  1	1959	Burya	NA/Amine
-#
-# Liquid propellant engines: Nitric acid/Kerosene
-#
 AlKahir	EGAO	-	-	NA?	 Kerosene?	-	 	-	 	       0.00 	 	-	 	-	 	  1	1962	Al Kahir	NA/Kero
 LE-1	STA	LS-A	-	WFNA	 Kerosene	-	 	     350 	 	      10.00 	 	195.0 	 	  35.0 	 	  1	1963	LS-A	NA/Kero
 Aerobee Jr	AJGC	-	-	RFNA	 Kerosene JP-4	-	 	-	 	      11.60 	 	200.0 	 	  40.0 	 	  1	1958	Aerobee 100	NA/Kero
@@ -972,17 +954,11 @@ TD-2	KPA	-	-	RFNA	 Kerosene	-	 	-	 	     250.00 	?	-	 	 120.0 	 	  1	2006	TD-2	N
 RD-214 Early	EMASH	RD-214	-	NA	 Kerosene	-	 	-	 	     625.00 	 	210.0 	 	-	 	  4	1957 Jun 22	R-12	NA/Kero
 S2.1100	ISAEV	S2.253	-	NA AK-27I	 Kerosene T-1	-	 	-	 	     673.00 	?	-	 	-	 	  4	1957 Aug  1	Burya	NA/Kero
 RD-214	EMASH/PERM	RD-214	8D59	NA	 Kerosene	-	 	-	 	     730.00 	 	264.0 	 	-	 	  4	1957 Jun 22	R-12	NA/Kero
-#
-# Liquid propellant engines: Nitric acid/Turpentine
-#
 Veronique	LRBA	LRBA	-	WFNA	 Diesel oil	-	 	-	 	      40.00 	 	-	 	-	 	  1	1952 May	Veronique	NA/Turps
 Veronique AGI	LRBA	LRBA	-	WFNA	 Turpentine	-	 	    1900 	 	      40.00 	 	-	 	  49.0 	 	  1	1959 Mar  7	Veronique AGI	NA/Turps
 Veronique 61	LRBA	LRBA	-	NA	 Turpentine	-	 	-	 	      60.00 	 	-	 	-	 	  1	1964 Jun  8	Veronique 61	NA/Turps
 Vesta	LRBA	LRBA	-	NA	 Turpentine	-	 	    7900 	 	     140.00 	 	-	 	  56.4 	 	  1	1965 Oct 15	Vesta	NA/Turps
 Vexin	LRBA	LRBA	-	NA	 Turpentine	-	 	   25500 	 	     274.00 	 	-	 	  93.0 	 	  1	1964 Jun 15	Emeraude	NA/Turps
-#
-# Liquid propellant engines: Nitric acid/UDMH
-#
 Unha St3	KPA	Nodong	-	NA	 UDMH	-	 	-	 	-	 	-	 	-	 	  1	-	-	NA/UDMH
 KDU-414	ISAEV	11D414	-	NA AK-20	 UDMH	-	 	      80 	 	       2.00 	 	290.0 	 	-	 	  1	1964	Molniya-1	NA/UDMH
 11D429	ISAEV	-	-	NA AK-20	 UDMH	-	 	      80 	 	       2.00 	 	290.0 	 	-	 	  1	1974	Molniya-1 mod	NA/UDMH
@@ -1026,9 +1002,6 @@ RD-225	EMASH	RD-215	-	NA	 UDMH	-	 	-	 	     889.00 	 	294.0 	 	-	 	  1	-	-	NA/UD
 RD-216	EMASH/KRAS	RD-215	11D614	NA AK-27	 UDMH	-	 	-	 	    1728.00 	 	291.0 	 	 130.0 	 	  4	-	Kosmos-3M St1	NA/UDMH
 RD-224	EMASH	RD-215	-	NA	 UDMH	-	 	-	 	    1778.00 	 	294.0 	 	-	 	  1	-	-	NA/UDMH
 S5.45	ISAEV	S5.45	-	NA	 UDMH	-	 	-	 	    1961.00 	 	267.0 	 	-	 	  1	-	-	NA/UDMH
-#
-# Monopropellant hydrazine engines
-#
 MR-111	RRC	MR-111	-	-	 Hydrazine	-	 	-	 	       0.00 	 	229.0 	 	-	 	  1	1980 Dec	AOCS 4N	MonoHyd
 MR-103	RRC	MR-103	-	-	 Hydrazine	-	 	-	 	       0.00 	 	227.0 	 	-	 	  1	1974 May 30	AOCS 1N	MonoHyd
 MR-50	RRC	MR-50	-	-	 Hydrazine	-	 	-	 	       0.02 	 	228.0 	 	-	 	  1	1974 May 22	AOCS 22N	MonoHyd
@@ -1040,9 +1013,6 @@ MR-104H	RRC	MR-104	-	-	 Hydrazine	-	 	-	 	       0.89 	 	-	 	-	 	  1	2012	AOCS 8
 REA 20-4	HASTD	REA20-4	-	-	 Hydrazine	-	 	-	 	       0.56 	 	-	 	-	 	  1	-	-	MonoHyd
 EPBS	JAXA	-	-	-	 Hydrazine	-	 	-	 	       0.40 	 	215.0 	 	-	 	  1	-	-	MonoHyd
 Kairos PBS	JAXA	-	-	-	 Hydrazine	-	 	-	 	       0.40 	?	215.0 	/	-	 	  1	-	-	MonoHyd
-#
-# Liquid propellant engines: Nitrogen tetroxide/hydrazine
-#
 GYUB4	ADD	-	-	N2O4?	 MMH?	-	 	-	 	-	 	-	 	-	 	  1	-	GYUB [4]	NTO/Hyd
 KZ1-4	ARMT	-	-	N2O4	 MMH	-	 	-	 	-	 	-	 	-	 	  1	-	KZ-1 [4]	NTO/Hyd
 KZ1AE-4	ARMT	-	-	N2O4	 MMH	-	 	-	 	-	 	-	 	-	 	  1	-	KZ-1 [4]	NTO/Hyd
@@ -1084,9 +1054,6 @@ Aestus	ASTO	Aestus	-	N2O4	 MMH	-	 	-	 	      29.00 	 	324.0 	 	-	 	  1	1996	Aria
 MMBPS	TRW	-	-	N2O4	 MMH	-	 	-	 	      40.00 	 	-	 	-	 	  1	1967	Rhyolite LAE??	NTO/Hyd
 RS-36	RDYNE	-	-	N2O4	 MMH	-	 	-	 	      55.60 	 	281.0 	 	-	 	  1	1982	HOE Axial Engine	NTO/Hyd
 Super Draco	SPXTX	-	-	N2O4	 MMH	-	 	-	 	      71.00 	 	235.0 	 	  25.0 	 	  1	2014	Dragon2	NTO/Hyd
-#
-# Liquid propellant engines: Nitrogen tetroxide/UDMH
-#
 ESM OMS	AJGC	-	-	N2O4	 UDMH	-	 	-	 	      26.60 	 	-	 	-	 	  1	-	Orion ESM	NTO/UDMH
 CL1-2	NADA	-	-	N2O4?	 UDMH?	-	 	-	 	-	 	-	 	-	 	  1	2023	CL-1	NTO/UDMH
 CL1-3	NADA	-	-	N2O4?	 UDMH?	-	 	-	 	-	 	-	 	-	 	  1	2023	CL-1	NTO/UDMH
@@ -1250,9 +1217,6 @@ RD-253 14D14	EMASH/PERM	RD-253	14D14	N2O4	 UDMH	-	 	-	 	    1750.00 	 	316.0 	 	
 RD-275	EMASH/PERM	RD-253	-	N2O4	 UDMH	-	 	-	 	    1745.00 	 	317.0 	 	 130.0 	 	  1	1986	Proton-M [1] x 6	NTO/UDMH
 RD-251	EMASH/YUZHM	RD-251	-	N2O4	 UDMH	-	 	-	 	    2643.00 	 	301.0 	 	 120.0 	 	  1	1965	R-36  = RD-250 x 3	NTO/UDMH
 RD-261	EMASH/YUZHM	RD-251	-	N2O4	 UDMH	-	 	-	 	    3032.00 	 	270.0 	s	 120.0 	 	  2	1965	R-36 [1] = ? x 3	NTO/UDMH
-#
-# Liquid propellant engines: Hydrogen peroxide/kerosene
-#
 Sprite	DEHAVE	-	-	H2O2	 Kerosene	-	 	-	 	      22.20 	 	-	 	-	 	  1	-	RATO	H2O2/Kero
 AR2-3	RDYNE	-	-	H2O2	 Kerosene JP-4	-	 	-	 	      31.00 	 	245.0 	 	-	 	  1	-	F-104, X-37B	H2O2/Kero
 Skylark L	SKYR	-	-	H2O2	 Kerosene	-	 	-	 	      35.00 	 	272.0 	 	-	 	  1	-	Skylark L	H2O2/Kero
@@ -1265,9 +1229,6 @@ Stentor 101	ASID	-	-	H2O2	 Kerosene	-	 	-	 	     112.00 	 	-	 	-	 	  1	1950s	Blu
 Mockingbird	OSCC	-	-	H2O2	 Kerosene	-	 	-	 	     165.00 	 	-	 	  72.0 	 	  1	2001?	Mockingbird	H2O2/Kero
 Gamma 8	BSELC?	Gamma	-	H2O2	 Kerosene	-	 	-	 	     234.80 	 	265.0 	 	 142.0 	 	  8	1969 Jun 27	Black Arrow	H2O2/Kero
 YF-85	TIANJ	-	-	H2O2	 Kerosene	-	 	-	 	    4000.00 	 	-	 	-	 	  1	2015	CZ-6	H2O2/Kero
-#
-# Liquid propellant engines: LOX/Alcohol
-#
 MX-774	RMI	MX-774	-	LOX	 Alcohol	-	 	-	 	       9.00 	 	-	 	  75.0 	 	  1	1948	Hiroc	LOX/Alcohol
 Momo 6	IST	-	-	LOX	 Ethanol	-	 	-	 	      14.00 	 	-	 	 100.0 	 	  1	2021	Momo	LOX/Alcohol
 Momo	IST	-	-	LOX	 Ethanol	-	 	-	 	      12.00 	 	-	 	 100.0 	 	  1	2017	Momo	LOX/Alcohol
@@ -1287,23 +1248,14 @@ RD-101	EMASH/YUZHM	A-4	8D52	LOX	 Alcohol	-	 	-	 	     363.00 	s	210.0 	 	-	 	  1
 RD-103	EMASH/YUZHM	A-4	8D54	LOX	 Alcohol	-	 	-	 	     500.00 	 	220.0 	 	-	 	  1	1953 Mar 15	R-5	LOX/Alcohol
 RD-103M	EMASH/YUZHM	A-4	8D71	LOX	 Alcohol	-	 	-	 	     500.00 	 	220.0 	 	-	 	  1	1953 Mar 15	R-5M	LOX/Alcohol
 XLR-83-NA-1	NAADR	XLR-83	-	LOX	 Alcohol	-	 	-	 	     602.00 	 	273.0 	 	-	 	  1	-	-	LOX/Alcohol
-#
-# Liquid propellant engines: LOX/UDMH
-#
 RD-119	EMASH/KRAS	RD-109	8D710	LOX	 UDMH	-	 	-	 	     105.00 	 	352.0 	 	-	 	  1	1961	63S1	LOX/UDMH
 Redstone A-7	ABMA	Redstone	-	LOX	 Hydyne	-	 	   58000 	 	     416.20 	 	265.0 	 	 155.0 	 	  1	1953 Aug 20	Juno I [1]	LOX/UDMH
 RD-112	EMASH	RD-112	-	LOX	 UDMH	-	 	-	 	    1089.00 	 	344.0 	 	-	 	  1	1960?	-	LOX/UDMH
 RD-113	EMASH	RD-112	-	LOX	 UDMH	-	 	-	 	    1138.00 	 	360.0 	 	-	 	  1	1960?	-	LOX/UDMH
 RD-114	EMASH	RD-112	-	LOX	 UDMH	-	 	-	 	    1653.00 	 	341.0 	 	-	 	  1	1961?	-	LOX/UDMH
 RD-115	EMASH	RD-112	-	LOX	 UDMH	-	 	-	 	    1726.00 	 	357.0 	 	-	 	  1	1961?	-	LOX/UDMH
-#
-# Liquid propellant engines: LOX/Ammonia
-#
 XLR-11	RMI	XLR-11	-	LOX	 Ammonia	-	 	-	 	      36.00 	 	-	 	 100.0 	 	  4	1959	X-15	LOX/NH3
 XLR-99	RMD	XLR-99	-	LOX	 Ammonia	-	 	-	 	     257.00 	 	276.0 	 	 100.0 	 	  1	1960	X-15	LOX/NH3
-#
-# Liquid propellant engines: LOX/Kerosene
-#
 Phoenix	GILM	-	-	LOX	 Kero	-	 	-	 	-	 	-	 	-	 	  1	2024	Eris St 3	LOX/Kero
 NK Kero	KP	-	-	LOX	 Kero	-	 	-	 	-	 	-	 	-	 	  1	2024	NK Kerolox	LOX/Kero
 Aether	ASTRV	-	-	LOX	 Kero	-	 	-	 	       3.30 	 	-	 	 315.0 	 	  1	2020	Astra St 1	LOX/Kero
@@ -1416,9 +1368,6 @@ F-1	RDYNE	F-1	-	LOX	 Kerosene RP-1	-	 	-	 	    6680.00 	 	260.0 	 	-	 	  1	1967	
 RD-170	EMASH	RD-170	11D521	LOX	 Kero	-	 	-	 	    7908.00 	 	337.0 	 	-	 	  4	1985 Apr 13	Energiya	LOX/Kero
 RD-171	EMASH	RD-170	11D520	LOX	 Kero	-	 	-	 	    7908.00 	 	337.0 	 	-	 	  4	1985 Apr 13	Zenit St 1	LOX/Kero
 ROKETSAN-SR-0.1	ROKSN	-	-	LOX?	 Kero?	-	 	-	 	-	 	-	 	-	 	-	2020	SR 0.1 [2]	LOX/Kero
-#
-# Liquid propellant engines: LOX/Methane
-#
 BW1-2	PERI	-	-	LOX	 Methane LNG	-	 	-	 	-	 	348.0 	?	-	 	  1	2020	Blue Whale 1 [2]	LOX/Methane
 BW1-1	PERI	-	-	LOX	 Methane LNG	-	 	-	 	-	 	348.0 	 	 150.0 	 	  1	2020	Blue Whale 1 [1]	LOX/Methane
 PWR35M	PWRD	-	-	LOX	 Methane	-	 	-	 	-	 	-	 	-	 	  1	2009	Taurus 2 Alt-2	LOX/Methane
@@ -1438,15 +1387,9 @@ Raptor 2 Vac	SPX	-	-	LOX	 Methane	-	 	-	 	    2500.00 	 	-	 	-	 	  1	2020	Starsh
 Raptor 3 SL	SPX	-	-	LOX	 Methane	-	 	-	 	    2800.00 	 	-	 	-	 	  1	2019	Starship	LOX/Methane
 Raptor 3 Vac	SPX	-	-	LOX	 Methane	-	 	-	 	    2800.00 	 	-	 	-	 	  1	2020	Starship	LOX/Methane
 BE-4	BLORTX	-	-	LOX	 Methane LNG	-	 	-	 	    2447.00 	 	-	 	-	 	  1	2023	Vulcan	LOX/Methane
-#
-# Liquid propellant engines: LOX/Propane
-#
 Aquila SL	ISAR	-	-	LOX	 Propane	-	 	-	 	      75.00 	 	-	 	-	 	  1	2025	Spectrum	LOX/Propane
 Aquila Vac	ISAR	-	-	LOX	 Propane	-	 	-	 	      94.00 	 	-	 	-	 	  1	2025	Spectrum	LOX/Propane
 Weka	NASCOM	-	-	LOX	 Propane	-	 	-	 	-	 	-	 	-	 	-	2024	Weka	LOX/Propane
-#
-# Liquid propellant engines: LOX/Hydrogen
-#
 YF-73	SLREC	YF-73	-	LOX	 LH2	-	 	-	 	      44.10 	 	425.0 	 	 800.0 	 	  4	1984	CZ-3 Stage 3	LOX/LH2
 HM-7	SEP	-	-	LOX	 LH2	-	 	-	 	      61.70 	 	442.6 	 	 510.1 	 	  1	1979	Ariane H8	LOX/LH2
 HM-7B	SEP	-	-	LOX	 LH2	-	 	-	 	      64.80 	 	445.1 	 	 745.0 	 	  1	-	Ariane H10-3	LOX/LH2
@@ -1493,15 +1436,9 @@ SSME	RDYNE	RS-25	-	LOX	 LH2	-	 	-	 	    2100.00 	 	452.5 	 	 516.0 	 	  1	1981	S
 RS-25	RDYNE	RS-25	-	LOX	 LH2	-	 	-	 	    2100.00 	 	452.5 	 	 516.0 	 	  1	2022	SLS	LOX/LH2
 RS-68	RDYNE	RS-68	-	LOX	 LH2	-	 	-	 	    2950.00 	s	409.0 	s	-	 	  1	-	Delta 4	LOX/LH2
 RS-68A	RDYNE	RS-68	-	LOX	 LH2	-	 	-	 	    3124.00 	s	414.0 	s	-	 	  1	2012	Delta 4	LOX/LH2
-#
-# Liquid propellant engines: Green
-#
 Curie	RLABU	-	-	LOX?	 RL Green Prop	-	 	-	 	       0.12 	 	303.0 	 	-	 	  1	2017	Electron St 3	Green
 HyperCurie	RLABU	-	-	LOX?	 RL Green Prop	-	 	-	 	       0.50 	 	320.0 	 	-	 	  1	2017	Electron St 3	Green
 GR-1	RDYNE	-	-	-	 NH3OHNO3 AF-M315E	       0.0 	 	-	 	-	 	-	 	-	 	-	2017	GPM	Green
-#
-# Electric propulsion engines: Xenon, Krypton
-#
 PPS-1350	SEPVR	-	-	Elec SPT	 Xe	-	 	-	 	       0.00 	 	1800.0 	 	-	 	  1	-	SMART-1/Stentor	EP
 PPS-5000	SNECMS	-	-	Elec SPT	 Xe	-	 	-	 	       0.00 	 	2000.0 	 	-	 	  1	-	Spacebus-NEO XPS	EP
 XIPS-25	L3HED	-	-	IPS	 Xe	-	 	       0 	 	       0.00 	 	3550.0 	 	-	 	  1	-	XIPS-25	EP

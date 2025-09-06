@@ -62,30 +62,39 @@ ENCODING = "utf-8"
 
 def strip_comment_line(tsv_path: Path) -> Path:
     """
-    Remove the second line if it starts with '#' (comment line).
+    Remove all rows that start with '#' (comment lines) except the first line.
+    Always writes the first line as header with '#' stripped if present.
     Creates a temporary cleaned file and returns its path.
     """
     cleaned_path = tsv_path.with_suffix(".cleaned.tsv")
-    # with open(tsv_path, 'rb') as file:
-    #     raw_data = file.read()
-    #     encoding = chardet.detect(raw_data)['encoding']
-    #     print(encoding)
+    
     with open(tsv_path, "rb") as infile, open(cleaned_path, "wb") as outfile:
-
         lines = infile.readlines()
-
-        if len(lines) > 1 and lines[1].strip().startswith(b"#"):
-            # Write header line and skip comment line
-            outfile.write(lines[0].lstrip(b"#"))
-            # Write remaining lines (starting from line 3)
-            outfile.writelines(lines[2:])
-            print(f"Stripped comment line from {tsv_path.name}")
+        
+        if not lines:
+            return cleaned_path
+        
+        # Always write the first line as header, stripping # if present
+        outfile.write(lines[0].lstrip(b"#").lstrip())
+        
+        # Write remaining lines, but skip any that start with #
+        non_comment_lines = []
+        comment_count = 0
+        
+        for line in lines[1:]:
+            if line.strip().startswith(b"#"):
+                comment_count += 1
+            else:
+                non_comment_lines.append(line)
+        
+        outfile.writelines(non_comment_lines)
+        
+        if comment_count > 0:
+            print(f"Stripped {comment_count} comment line(s) from {tsv_path.name}")
         else:
-            # No comment line to strip, write all lines
-            outfile.writelines(lines)
-
+            print(f"No comment lines to strip from {tsv_path.name}")
+    
     return cleaned_path
-
 
 async def fetch_and_save(
     client: httpx.AsyncClient, rel_path: str, sem: asyncio.Semaphore

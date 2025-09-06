@@ -662,7 +662,8 @@ AUCZ	AUCZ	CZ	O	C	1992	-	Astron. Ustav.	Astronomicky' u'stav AV CR	Ondrejov	     
 AUDACY	AUDACY	US	O	B	2015	-	Audacy	Audacy	San Francisco:Mountain View, California	   -122.0800 	   37.3900 	0.0200 	-	-	-	Audacy
 AUDISR	AUDISR	AU	-	C	2009	-	Australia DIISR	Space Policy Unit, Dept of Innovation, Industry, Science and Research	Canberra, ACT	    149.1200 	   35.3100 	0.0200 	AU	-	-	Space Policy Unit, Dept of Innovation, Industry, Science and Research
 AUINS	AUINS	US	O	B	2016?	2022 Dec	Aurora Insight	Aurora Insight Inc.	Washington, D.C.	    -77.0200 	   38.9000 	0.0200 	-	-	-	Aurora Insight Inc.
-AUINSM	AUINS	US	O	B	2022 Dec	-	Aurora Insight	Maxar Aurora Insight Inc.	Washington, D.C.	    -77.0200 	   38.9000 	0.0200 	MAXAR	-	-	Aurora Insight Inc.
+AUINSH	AUINS	US	O	B	2023 Dec	-	Aurora Insight	Maxar Aurora Insight Inc.	Washington, D.C.	    -77.0200 	   38.9000 	0.0200 	HE360	-	-	Aurora Insight Inc.
+AUINSM	AUINS	US	O	B	2022 Dec	2023 Dec	Aurora Insight	Hawkeye 360 / Aurora Insight	Washington, D.C.	    -77.0200 	   38.9000 	0.0200 	MAXAR	-	-	Aurora Insight Inc.
 AURAK	AURAK	UAE	O/PL	A	2009	-	AURAK	American University of Ras Al Khaimah	Ras al-Khaimah	     55.9500 	   25.7800 	0.0200 	-	-	-	American University of Ras Al Khaimah
 AURFS	AURFS	US	O	B	1989	-	Aurora Flt.Sci.	Aurora Flight Sciences	Manassas, Virginia	    -77.5156 	   38.7214 	0.0010 	BOE	-	-	Aurora Flight Sciences
 AURFSC	PLSYS	US	O	B	2007 Oct	2007 Dec?	Payload Systems	Aurora Flight Sciences/Payload Systems, Inc.	Cambridge, Massachusetts	    -71.0800 	   42.3700 	0.0200 	-	-	-	Aurora Flight Sciences/Payload Systems Inc.
@@ -1854,6 +1855,7 @@ KAIRSP	KAIRSP	KR	O/PL	B	-	-	KairoSpace	Kairo Space	Seongnam	    127.1700 	   37.
 KAISR	KAISR	KR	PL	C	1989 Aug	1999	KAIST SatRec	Hanguk gwahag gisul-won Ingong-wiseong yeongusenteo	Daejeon	    127.3900 	   36.3500 	0.0200 	KAIST	-	KAIST Satellite Research Center (SatRec)	한국과학기술원 인공위성연구센터
 KAIST	KAIST	KR	O/PL	A	1971	-	KAIST	Hanguk gwahag gisul-won	Daejeon	    127.3900 	   36.3500 	0.0200 	-	-	Korea Advanced Institute for Space Technology	한국과학기술원
 KAIT	KAIT	J	S	A	1975	-	KAIT	Kanagawa koka daigaku	Atsugi, Kanagawa	    139.3700 	   35.4300 	0.0200 	-	-	Kanagawa Institute of Technology	神奈川工科大学
+KAIYUN	KAIYUN	CN	O	B	2004	-	Kaiyun	Beijing Kaiyun Lianhe Xinxi Jishu Jituan Gufen YG	Beijing:Chaoyang	    116.4800 	   39.8700 	0.0200 	-	CreatUnion	Kaiyun United Information Tech Group Co Ltd.	 北京开运联合信息技术集团股份有限公司
 KANA	KANA	J	O	A	1949	-	Kanazawa U	Kanazawa Daigaku (Kindai)	Kakuma, Kanazawa	    136.6600 	   36.5600 	0.0200 	-	-	Kanazawa University	金沢大学
 KANAT	KANAT	J	O	B	2023?	-	Kanatta Co	Kannata kabushikigaisha	Tokyo:Meguro	    139.7000 	   35.6400 	0.0200 	-	-	Kanatta Co. Ltd.	株式会社Kanatta
 KANSAI	KANSAI	J	O	A	1886	-	Kansai U	Kansai Daigaku	Osaka:Suita	    135.5100 	   34.7700 	0.0200 	-	-	Kansai University	関西大学

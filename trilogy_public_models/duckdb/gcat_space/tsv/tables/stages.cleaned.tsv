@@ -37,7 +37,9 @@ Ariane 5 EPS P2000	EPS                 	DORN	EPS L10	  5.2 	 5.46 	  13.0 	    2
 ESC-A	EPS                 	ASTD	-	  7.0 	 5.43 	  18.4 	    2000 	      64.0 	 945.0 	HM-7B	 1
 ESC-D	EPS                 	ASTD	-	  7.0 	 5.43 	  19.0 	    2000 	      64.0 	 945.0 	HM-7B	 1
 Vulcan	Vulcan	ULAD	Vulcan	 33.3 	 5.40 	 540.0 	   50000 	    4800.0 	 299.0 	BE-4	 2
-Centaur V	CentaurV            	ULAD	Centaur	 11.7 	 5.40 	  60.0 	    5500 	     212.0 	 740.0 	RL10C-1-1A	 2
+Centaur V	CentaurV            	ULAD	Centaur	 11.7 	 5.40 	  53.6 	    7100 	     218.0 	 740.0 	RL10C-1-1A	 2
+Centaur CV-HE	CentaurV            	ULAD	Centaur	 12.6 	 5.40 	  53.6 	    7100 	     218.0 	1077.0 	RL10E1	 2
+Centaur CV-L	CentaurV            	ULAD	Centaur	 10.7 	 5.40 	  40.0 	    5000 	     218.0 	 740.0 	RL10E1	 2
 H-IIB Stage 1	H2B                 	MHITO	H-II	 38.0 	 5.20 	 202.0 	   24000 	    2196.0 	 352.0 	LE-7A	 2
 H3 Stage 1 2E	H2B                 	MHITO	H-3	 37.0 	 5.20 	 114.0 	   13000 	    2441.0 	 300.0 	LE-9	 2
 H3 Stage 1 3E	H2B                 	MHITO	H-3	 37.0 	 5.20 	 240.0 	   15000 	    3663.0 	 300.0 	LE-9	 3
