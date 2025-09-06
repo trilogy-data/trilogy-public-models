@@ -1,470 +1,470 @@
 JCAT	Piece	Name	Owner	State	World	Lon	Lat	LType	Status	LaunchDate	LandDate	OffDate	Dur	LSite	Comment
-D00007	1959 XI 1	AMS E-1A No. 7 (Luna-2)	OKB1	SU	Luna	    0.0	   30.0	I	I	1959 Sep 12 0639:42	1959 Sep 13 2102	1959 Sep 13 2102	    0.000 	Sinus Lunicus	Lunar impact probe
-D00008	1959 XI	8K72E No. I1-7B (Luna-2 R/B)	NII88	SU	Luna	         -	         -	R	I	1959 Sep 12 0639:42	1959 Sep 13 2100?	1959 Sep 13 2100?	    0.000 	-	Rocket stage, probably hit Moon
-D00026	1962 MU	Ranger Capsule 13	JPL	US	Luna	 -130.50	  -15.50	LI	I	1962 Apr 23 2050	1962 Apr 26 1249	1962 Apr 26 1250	    0.000 	-	Ranger 4 capsule, off course and hit farside
-D00025	1962 MU	BE-3	JPL	US	Luna	 -130.50	  -15.50	C	I	1962 Apr 23 2050	1962 Apr 26 1249	1962 Apr 26 1250	    0.000 	-	Retromotor
-D00024	1962 MU 1	Ranger 4	JPL	US	Luna	 -130.50	  -15.50	C	I	1962 Apr 23 2050	1962 Apr 26 1250	1962 Apr 26 1250	    0.000 	-	Service module
-D00044	1964-007A	Ranger 6	JPL	US	Luna	   21.4806	    9.3866	I	I	1964 Jan 30 1549:09	1964 Feb  2 0924:33	1964 Feb  2 0924:33	    0.000 	-	Lunar impact probe, no data
-D00050	1964-041A	Ranger 7	JPL	US	Luna	  -20.6771	  -10.6340	I	I	1964 Jul 28 1650:07	1964 Jul 31 1325:49	1964 Jul 31 1325:49	    0.000 	Mare Cognitum	Lunar impact probe, returned images
-D00061	1965-010A	Ranger 8	JPL	US	Luna	   24.7881	    2.6377	I	I	1965 Feb 17 1705:00	1965 Feb 20 0957:37	1965 Feb 20 0957:37	    0.000 	-	Lunar impact probe, returned images
-D00063	1965-023A	Ranger 9	JPL	US	Luna	   -2.3884	  -12.8281	I	I	1965 Mar 21 2137:02	1965 Mar 24 1408:21	1965 Mar 24 1408:21	    0.000 	-	Lunar impact probe, returned images
-D00066	1965-036	E-6 No 10 SA (Luna-5)	OKB1	SU	Luna	   -8	  -31	LA	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1913	    0.000 	-	Lost attitude, crashed
-D00065	1965-036A	Luna-5	OKB1	SU	Luna	   -8	  -31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1913	    0.000 	-	Service module
-D00067	1965-036	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	   -8	  -31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1910	    0.000 	-	Component
-D00068	1965-036	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	   -8	  -31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1910	    0.000 	-	Component
-D00083	1965-077A	Luna-7	OKB1	SU	Luna	  -49	    9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	    0.000 	-	Service module
-D00084	1965-077A	ALS Luna-7	OKB1	SU	Luna	  -49	    9	LA	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	    0.000 	-	No retro burn, crashed
-D00085	1965-077	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	  -49	    9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	    0.000 	-	Component
-D00086	1965-077	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	  -49	    9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	    0.000 	-	Component
-D00093	1965-099A	Luna-8	OKB1	SU	Luna	  -63.30	    9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	    0.000 	-	Service module
-D00094	1965-099A	ALS Luna-8	OKB1	SU	Luna	  -63.30	    9.13	LA	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	    0.000 	-	Retro burn late, crashed
-D00095	1965-099	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	  -63.30	    9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	    0.000 	-	Component
-D00096	1965-099	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	  -63.30	    9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151	1965 Dec  6 2151:30	    0.000 	-	Component
-D00100	1966-006A	Luna-9	IKI	SU	Luna	  -64.37	    7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	    0.000 	-	Service module
-D00101	1966-006A	ALS Luna-9	OKB1	SU	Luna	  -64.37	    7.13	LA	L	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  6 2255	    3.174 	-	First survivable landing
-D00102	1966-006	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	  -64.37	    7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	    0.000 	-	Component
-D00103	1966-006	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	  -64.37	    7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	    0.000 	-	Component
-D00090	1965-092A	Venera-3	OKB1	SU	Venus	         -	         -	C	I	1965 Nov 16 0413:35	1966 Mar  1 0656	1966 Jan?	    0.000 	-	Service module, attached to SA Veneri-3
-D00091	1965-092	Spuskaemiy apparat Veneri-3	OKB1	SU	Venus	         -	         -	LP	I	1965 Nov 16 0413:35	1966 Mar  1 0656	1966 Jan?	    0.000 	-	Contact lost before arrival, crashed
-D00110	1966-045A	Surveyor 1	JPL	US	Luna	  -43.3398	    2.4745	L	L	1966 May 30 1441:01	1966 Jun  2 0617	1967 Jan  7 0730	  219.051 	-	First thruster landing
-D00111	1966-045	Surveyor 1 radar	JPL	US	Luna	  -43.3398	    2.4745	C	I	1966 May 30 1441:01	1966 Jun  2 0615	1966 Jun  2 0615	    0.000 	-	Component
-D00112	1966-045	Star 37 S/N A21-26	JPL	US	Luna	  -43.3398	    2.4745	C	I	1966 May 30 1441:01	1966 Jun  2 0616?	1966 Jun  2 0615	    0.000 	-	Component
-D00128	1966-084A	Surveyor 2	JPL	US	Luna	  -11	    4	L	I	1966 Sep 20 1232:00	1966 Sep 23 0318	1966 Sep 22 0935	    0.000 	-	Propulsion failure, contact lost
-D00129	1966-084	Star 37 S/N A21-27	JPL	US	Luna	  -11	    4	C	I	1966 Sep 20 1232:00	1966 Sep 23 0315?	1966 Sep 22 0935	    0.000 	-	Propulsion failure, contact lost
-D00130	1966-084	Surveyor 2 Radar	JPL	US	Luna	  -11	    4	C	I	1966 Sep 20 1232:00	1966 Sep 23 0315?	1966 Sep 22 0935	    0.000 	-	Propulsion failure, contact lost
-D00119	1966-073A	Lunar Orbiter I	LARCN	US	Luna	  162.0	    6.7	O	I	1966 Aug 10 1926:00	1966 Oct 29 1330	1966 Oct 29 1330	    0.000 	-	Deorbited at end of mission
-D00140	1966-116A	Luna-13	IKI	SU	Luna	  -62.05	   18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801	1966 Dec 24 1801	    0.000 	-	Service module
-D00141	1966-116	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	  -62.05	   18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801?	1966 Dec 24 1801	    0.000 	-	Component
-D00142	1966-116	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	  -62.05	   18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801?	1966 Dec 24 1801	    0.000 	-	Component
-D00143	1966-116A	Luna-13 ALS	OKB1	SU	Luna	  -62.05	   18.87	LA	L	1966 Dec 21 1017:08	1966 Dec 24 1801	1966 Dec 28 0613	    3.508 	-	Airbag lander
-D00150	1967-035A	Surveyor 3	JPL	US	Luna	  -23.418	   -3.0163	L	L	1967 Apr 17 0705:01	1967 Apr 20 0004	1967 May  4 0004	   14.000 	Surveyor Base	Visited later by Apollo 12
-D00151	1967-035	Surveyor 3 Radar	JPL	US	Luna	  -23.418	   -3.0163	C	I	1967 Apr 17 0705:01	1967 Apr 20 0002	1967 Apr 20 0002	    0.000 	-	Component
-D00152	1967-035	Star 37 S/N A22-8	JPL	US	Luna	  -23.418	   -3.0163	C	I	1967 Apr 17 0705:01	1967 Apr 20 0003	1967 Apr 20 0002	    0.000 	-	Component
-D00166	1967-068A	Surveyor 4	JPL	US	Luna	   -1.44	    0.47	L	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	    0.000 	-	Retro motor exploded
-D00167	1967-068	Star 37 S/N A22-9	JPL	US	Luna	   -1.44	    0.47	C	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	    0.000 	-	Component
-D00168	1967-068	Surveyor 4 Radar	JPL	US	Luna	   -1.44	    0.47	C	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	    0.000 	-	Component
-D00180	1967-084A	Surveyor 5	JPL	US	Luna	   23.1944	    1.4550	L	L	1967 Sep  8 0757:01	1967 Sep 11 0046	1967 Dec 17 0430	   97.155 	-	Successful
-D00177	1967-084	Surveyor 5 Radar	JPL	US	Luna	   23.1944	    1.4550	C	I	1967 Sep  8 0757:01	1967 Sep 11 0045	1967 Sep 11 0045	    0.000 	-	Component
-D00178	1967-084	Star 37 S/N A21-28	JPL	US	Luna	   23.1944	    1.4550	C	I	1967 Sep  8 0757:01	1967 Sep 11 0045	1967 Sep 11 0045	    0.000 	-	Component
-D00145	1967-008A	Lunar Orbiter 3	LARCN	US	Luna	  -92.70	   14.32	O	I	1967 Feb  5 0117:01	1967 Oct  9 1027:11	1967 Oct  9 1027:11	    0.000 	-	Deorbited at end of mission
-D00138	1966-100A	Lunar Orbiter 2	LARCN	US	Luna	  119.13	    2.96	O	I	1966 Nov  6 2321:00	1967 Oct 11 0712	1967 Oct 11 0712	    0.000 	-	Deorbited at end of mission
-D00161	1967-058A	Venera-4	IKI	SU	Venus	   38	   19	C	I	1967 Jun 12 0239:45	1967 Oct 18 0435	1967 Oct 18 0435	    0.000 	-	Service module
-D00162	1967-058	Spuskaemiy apparat Veneri-4	IKI	SU	Venus	   38	   19	LP	I	1967 Jun 12 0239:45	1967 Oct 18 0614	1967 Oct 18 0614	    0.000 	-	Crushed during descent in atmosphere
-D00155	1967-041A	Lunar Orbiter 4	LARCN	US	Luna	  -26	   -3	O	I	1967 May  4 2225:00	1967 Oct 31?	1967 Jul 17	    0.000 	-	Post-mission orbit decay
-D00182	1967-112A	Surveyor 6	JPL	US	Luna	   -1.4275	    0.4743	L	L	1967 Nov  7 0739:01	1967 Nov 10 0101:04	1967 Dec 14 1914	   34.579 	-	Successful; made 3 m hop on Nov 17
-D00183	1967-112	Star 37 S/N A21-29	JPL	US	Luna	   -1.4275	    0.4743	C	I	1967 Nov  7 0739:01	1967 Nov 10 0100	1967 Nov 10 0058	    0.000 	-	Component
-D00184	1967-112	Surveyor 6 Radar	JPL	US	Luna	   -1.4275	    0.4743	C	I	1967 Nov  7 0739:01	1967 Nov 10 0100	1967 Nov 10 0058	    0.000 	-	Component
-D00125	1966-078A	Luna-11	IKI	SU	Luna	         -	         -	O	R	1966 Aug 24 0803:21	1968?	1966 Oct  1 0203	    0.000 	-	Post-mission orbit decay
-D00190	1968-001A	Surveyor 7	JPL	US	Luna	  -11.5127	  -40.9811	L	L	1968 Jan  7 0630:00	1968 Jan 10 0105:36	1968 Feb 21 0024	   41.971 	-	Successful
-D00192	1968-001	Star 37 S/N A22-14	JPL	US	Luna	  -11.5127	  -40.9811	C	I	1968 Jan  7 0630:00	1968 Jan 10 0105?	1968 Jan 10 0103	    0.000 	-	Component
-D00191	1968-001	Surveyor 7 Radar	JPL	US	Luna	  -11.5127	  -40.9811	C	I	1968 Jan  7 0630:00	1968 Jan 10 0105?	1968 Jan 10 0103	    0.000 	-	Component
-D00176	1967-075A	Lunar Orbiter 5	LARCN	US	Luna	  -83.04	   -2.79	O	I	1967 Aug  1 2233:00	1968 Jan 31 0758	1968 Jan 31 0758	    0.000 	-	Deorbited at end of mission
-D00230	1969-001A	Venera-5	IKI	SU	Venus	   18	   -3	C	I	1969 Jan  5 0628:08	1969 May 16 0700?	1969 May 16 0601?	    0.000 	-	Service module
-D00231	1969-001	SA Veneri-5	IKI	SU	Venus	   18	   -3	LP	I	1969 Jan  5 0628:08	1969 May 16 0700?	1969 May 16 0654:56	    0.000 	-	Crushed during descent in atmosphere
-D00233	1969-002A	Venera-6	IKI	SU	Venus	   23	   -5	C	I	1969 Jan 10 0551:52	1969 May 17 0700?	1969 May 17 0605?	    0.000 	-	Service module
-D00234	1969-002	SA Veneri-6	IKI	SU	Venus	   23	   -5	LP	I	1969 Jan 10 0551:52	1969 May 17 0700?	1969 May 17 0658:04	    0.000 	-	Crushed during descent in atmosphere
-D00243	1969-043C	LM 4 DS	MSC	US	Luna	        -	        -	C	R	1969 May 18 1649:00	1969 Jun?	1969 May 22 2334:17	    0.000 	-	Post-mission orbit decay
-D00271	1969-059	LM 5 DS	MSC	US	Luna	   23.4333	    0.6875	L	L	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	Statio Tranquillitatis	First human-carrying lander, Tranquility Base
-D00274	1969-059C	Eagle	MSC	US	Luna	   23.4333	    0.6875	AV	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	-	Cabin and ascent vehicle, Apollo 11
-D00265	1969-059	A7L-056	MSC	US	Luna	   23.4333	    0.6875	H	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	-	N. Armstrong
-D00266	1969-059	A7L-077	MSC	US	Luna	   23.4333	    0.6875	H	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	-	E. Aldrin
-D00267	1969-059	A7L-056 PLSS	MSC	US	Luna	   23.4333	    0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	-	Spacesuit backpack
-D00268	1969-059	A7L-077 PLSS	MSC	US	Luna	   23.4333	    0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	    0.901 	-	Spacesuit backpack
-D00269	1969-059	EASEP PSEP	MSC	US	Luna	   23.4333	    0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Aug 27	   37.000 	-	Experiment package
-D00270	1969-059	EASEP LRRR	MSC	US	Luna	   23.4333	    0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 20 2017:40	    0.000 	-	Passive experiment
-D00259	1969-058A	Luna-15 KT (E-8-5 No. 401)	IKI	SU	Luna	   60	   17	L	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	    0.000 	-	Late ignition, crashed
-D00262	1969-058A	Luna-15 VA	IKI	SU	Luna	   60	   17	AV	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	    0.000 	-	Attached to Luna-15
-D00263	1969-058A	Luna-15 VS	IKI	SU	Luna	   60	   17	AV	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	    0.000 	-	Attached to Luna-15
-D00300	1969-099	LM 6 DS	MSC	US	Luna	  -23.4216	   -3.0124	L	L	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	Surveyor Base	Apollo 12 lander
-D00293	1969-099C	Intrepid	MSC	US	Luna	  -23.4216	   -3.0124	AV	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	-	Cabin and ascent vehicle, Apollo 12
-D00295	1969-099	A7L-065	MSC	US	Luna	  -23.4216	   -3.0124	H	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	-	C. Conrad
-D00296	1969-099	A7L-067	MSC	US	Luna	  -23.4216	   -3.0124	H	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	-	A. Bean
-D00297	1969-099	A7L-065 PLSS	MSC	US	Luna	  -23.4216	   -3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	-	Spacesuit backpack
-D00298	1969-099	A7L-067 PLSS	MSC	US	Luna	  -23.4216	   -3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	    1.313 	-	Spacesuit backpack
-D00299	1969-099	Apollo 12 ALSEP	MSC	US	Luna	  -23.4216	   -3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1977 Sep 30	 2872.000 	-	Experiment package
-D01055	1969-U02	Intrepid	MSC	US	Luna	  -21.20	   -3.94	AV	I	1969 Nov 20 1425:56	1969 Nov 20 2217:25	1969 Nov 20 2217:25	    0.000 	-	Empty ascent vehicle, deorbited
-D00260	1969-058	Sbrasivaemiy otsek	IKI	SU	Luna	   60	   17	C	R	1969 Jul 13 0254:42	1970?	1969 Jul 21 1545	    0.000 	-	Post-mission orbit decay
-D00261	1969-058	Sbrasivaemiy otsek	IKI	SU	Luna	   60	   17	C	R	1969 Jul 13 0254:42	1970?	1969 Jul 21 1545	    0.000 	-	Post-mission orbit decay
-D01052	1969-U01	Eagle	MSC	US	Luna	        -	        -	AV	R	1969 Jul 21 1754:01	1970?	1969 Jul 21 2342	    0.000 	-	May still be in lunar orbit?
-D00105	1966-027A	Luna-10	IKI	SU	Luna	         -	         -	O	R	1966 Mar 31 1046:59	1970s?	1966 May 29	    0.000 	-	Post-mission orbit decay
-D00108	1966-027	Luna-10 DU	IKI	SU	Luna	         -	         -	C	R	1966 Mar 31 1046:59	1970s?	1966 Apr  3 1845	    0.000 	-	Post-mission orbit decay
-D00199	1968-027A	Luna-14	IKI	SU	Luna	        -	        -	O	R	1968 Apr  7 1009:32	1970s?	1968 Jun 24	    0.000 	-	Post-mission orbit decay
-D00323	1970-029B	Saturn S-IVB-508	MSFC	US	Luna	  -27.8873	   -2.5550	R	I	1970 Apr 11 1913:03	1970 Apr 15 0109:40	1970 Apr 12 0116:36	    0.000 	-	Apollo 13 rocket stage
-D00324	1970-029	S-IU-508	MSFC	US	Luna	  -27.8873	   -2.5550	C	IC	1970 Apr 11 1913:03	1970 Apr 15 0109:40	1970 Apr 12 0116:36	    0.000 	-	Attached to S-IVB
-D00334	1970-072A	Luna-16 KT (E-8-5 No. 406)	IKI	SU	Luna	   56.3638	   -0.5137	L	L	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	    1.101 	-	Lander for sample return craft
-D00338	1970-072	Luna-16 VS	IKI	SU	Luna	   56.3638	   -0.5137	AV	LC	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	    1.101 	-	Returned samples to Earth
-D00337	1970-072A	Luna-16 VA	IKI	SU	Luna	   56.3638	   -0.5137	AV	LC	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	    1.101 	-	Returned samples to Earth
-D00335	1970-072	Sbrasivaemiy otsek	IKI	SU	Luna	   56.3638	   -0.5137	C	R	1970 Sep 12 1325:53	1970 Oct?	-	    0.000 	-	Post-mission orbit decay
-D00336	1970-072	Sbrasivaemiy otsek	IKI	SU	Luna	   56.3638	   -0.5137	C	R	1970 Sep 12 1325:53	1970 Oct?	-	    0.000 	-	Post-mission orbit decay
-D00342	1970-095A	Luna-17 (E-8 No. 203)	IKI	SU	Luna	  -35.0016	   38.2376	L	L	1970 Nov 10 1444:01	1970 Nov 17 0347	1970 Nov 17?	    0.500 	-	Rover transport lander
-D00344	1970-095	Lunokhod-1	IKI	SU	Luna	  -35.0081	   38.3151	RO	LC	1970 Nov 10 1444:01	1970 Nov 17 0347	1971 Oct	  318.000 	-	First robot rover
-D00332	1970-060	Venera-7 SA cap	IKI	SU	Venus	  351	   -5	C	I	1970 Aug 17 0538:22	1970 Dec 15 0520?	1970 Dec 15	    0.000 	-	Component
-D00329	1970-060A	Venera-7	IKI	SU	Venus	  351	   -5	C	I	1970 Aug 17 0538:22	1970 Dec 15 0534:09	1970 Dec 15 0500	    0.000 	-	Service module
-D00331	1970-060	SA Veneri-7	IKI	SU	Venus	  351	   -5	LP	L	1970 Aug 17 0538:22	1970 Dec 15 0534:09	1970 Dec 15 0600:01	    0.018 	-	First Venus landing
-D00345	1970-095	Sbrasivaemiy otsek	IKI	SU	Luna	        -	        -	C	R	1970 Nov 10 1444:01	1971?	-	    0.000 	-	Post-mission orbit decay
-D00346	1970-095	Sbrasivaemiy otsek	IKI	SU	Luna	        -	        -	C	R	1970 Nov 10 1444:01	1971?	-	    0.000 	-	Post-mission orbit decay
-D00358	1971-008B	Saturn S-IVB-509	MSFC	US	Luna	  -26.0305	   -8.1810	R	I	1971 Jan 31 2103:02	1971 Feb  4 0740:54	1971 Feb  1 0607:12	    0.000 	-	Apollo 14 rocket stage, targeted impact
-D00359	1971-008	S-IU-509	MSFC	US	Luna	  -26.0305	   -8.1810	C	IC	1971 Jan 31 2103:02	1971 Feb  4 0740:54	1971 Feb  1 0607:12	    0.000 	-	Attached to S-IVB
-D00356	1971-008	LM 8 DS	MSC	US	Luna	  -17.4719	   -3.6459	L	L	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	Fra Mauro Base	Apollo 14 lander
-D00348	1971-008C	Antares	MSC	US	Luna	  -17.4719	   -3.6459	AV	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	-	Cabin and ascent vehicle, Apollo 14
-D00350	1971-008	A7L-090	MSC	US	Luna	  -17.4719	   -3.6459	H	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	-	A. Shepard
-D00351	1971-008	A7L-073	MSC	US	Luna	  -17.4719	   -3.6459	H	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	-	E. Mitchell
-D00352	1971-008	A7L-090 PLSS	MSC	US	Luna	  -17.4719	   -3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	-	Spacesuit backpack
-D00353	1971-008	A7L-073 PLSS	MSC	US	Luna	  -17.4719	   -3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	    1.396 	-	Spacesuit backpack
-D00354	1971-008	Apollo 14 ALSEP	MSC	US	Luna	  -17.4777	   -3.6442	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1977 Sep 30	 2428.000 	-	Experiment package
-D00355	1971-008	MET	MSC	US	Luna	  -17.4719	   -3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  5 0918:12	    0.000 	-	Equipment cart
-D01060	1971-U01	Antares	MSC	US	Luna	  -19.27	   -3.50	AV	I	1971 Feb  6 1848	1971 Feb  7 0045:25	1971 Feb  7 0045:25	    0.000 	-	Empty ascent vehicle, deorbited
-D00399	1971-063B	Saturn S-IVB-510	MSFC	US	Luna	  -11.8245	   -1.2896	R	I	1971 Jul 26 1334:00	1971 Jul 29 2058:42	1971 Jul 26 2334:01	    0.000 	-	Apollo 15 rocket stage, targeted impact
-D00400	1971-063	S-IU-510	MSFC	US	Luna	  -11.8245	   -1.2896	C	IC	1971 Jul 26 1334:00	1971 Jul 29 2058:42	1971 Jul 26 2334:01	    0.000 	-	Attached to S-IVB
-D00388	1971-063	LM 10 DS	MSC	US	Luna	    3.6333	   26.1233	L	L	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	Hadley Base	Apollo 15 lander
-D00385	1971-063C	Falcon	MSC	US	Luna	    3.6333	   26.1233	AV	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	Cabin and ascent vehicle, Apollo 15
-D00389	1971-063	A7LB-315	MSC	US	Luna	    3.6333	   26.1233	H	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	D. Scott
-D00390	1971-063	A7LB-320	MSC	US	Luna	    3.6333	   26.1233	H	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	J. Irwin
-D00392	1971-063	A7LB-320 PLSS	MSC	US	Luna	    3.6333	   26.1233	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	Spacesuit backpack
-D00391	1971-063	A7LB-315 PLSS	MSC	US	Luna	    3.6333	   26.1233	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	Spacesuit backpack
-D00393	1971-063	Apollo 15 ALSEP	MSC	US	Luna	    3.6285	   26.1341	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1977 Sep 30	 2253.000 	-	Experiment package
-D00394	1971-063	LRV-1	MSC	US	Luna	    3.6333	   26.1233	RO	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	    2.788 	-	Lunar Roving Vehicle
-D01063	1971-U02	Falcon	MSC	US	Luna	    0.267	   26.327	AV	I	1971 Aug  2 1711:23	1971 Aug  3 0303:36	1971 Aug  3 0303:36	    0.000 	-	Empty ascent vehicle, deorbited
-D00405	1971-073A	Luna-18 KT (E-8-5 No. 407)	IKI	SU	Luna	   56.50	    3.57	L	I	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	    0.000 	-	Sample return mission, crashed.
-D00409	1971-073A	Luna-18 VA	IKI	SU	Luna	   56.50	    3.57	AV	LC	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	    0.000 	-	Return vehicle, attached to Luna-18
-D00410	1971-073	Luna-18 VS	IKI	SU	Luna	   56.50	    3.57	AV	LC	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	    0.000 	-	Return capsule, attached to Luna-18
-D00369	1971-045D	SA Marsa-2	IKI	SU	Mars	 -313.2	  -44.2	LP	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	    0.000 	-	Mars lander
-D00371	1971-045	TDU Marsa-2	IKI	SU	Mars	 -313.2	  -44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 1608?	    0.000 	-	Motor
-D00372	1971-045	Teplovoy Ekran	IKI	SU	Mars	 -313.2	  -44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022?	1971 Nov 27 2019?	    0.000 	-	Heat shield
-D00373	1971-045	DMP	IKI	SU	Mars	 -313.2	  -44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	    0.000 	-	Motor
-D00374	1971-045	PROP-M	IKI	SU	Mars	 -313.2	  -44.2	RO	IC	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	    0.000 	-	Hopper rover
-D00407	1971-073	Sbrasivaemiy otsek	IKI	SU	Luna	 -	-	C	I	1971 Sep  2 1340:40	1971 Dec?	1971 Sep 11 0742	    0.000 	-	Component
-D00408	1971-073	Sbrasivaemiy otsek	IKI	SU	Luna	 -	-	C	I	1971 Sep  2 1340:40	1971 Dec?	1971 Sep 11 0742	    0.000 	-	Component
-D00376	1971-049E	SA Marsa-3	IKI	SU	Mars	 -157.977	  -45.045	LP	L	1971 May 28 1526:30	1971 Dec  2 1347	1971 Dec  2 1350:55	    0.001 	-	Mars lander, transmitted 110s
-D00378	1971-049	TDU Marsa-3	IKI	SU	Mars	 -157.977	  -45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	    0.000 	-	Motor
-D00379	1971-049	Teplovoy Ekran	IKI	SU	Mars	 -157.977	  -45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	    0.000 	-	Heat shield
-D00380	1971-049	DMP	IKI	SU	Mars	 -157.977	  -45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	    0.000 	-	Motor
-D00381	1971-049	PROP-M	IKI	SU	Mars	 -157.977	  -45.045	RO	LC	1971 May 28 1526:30	1971 Dec  2 1347	1971 Dec  2 1347	    0.000 	-	Hopper rover
-D00427	1972-007E	Luna-20 KT (E-8-5 No. 408)	IKI	SU	Luna	   56.6242	    3.7863	L	L	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	    1.152 	-	Sample return lander
-D00430	1972-007	Luna-20 VS	IKI	SU	Luna	   56.6242	    3.7863	AV	LC	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	    1.152 	-	Ascent stage
-D00425	1972-007	Luna-20 VA	IKI	SU	Luna	   56.6242	    3.7863	AV	LC	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	    1.152 	-	Return capsule
-D00428	1972-007	Sbrasivaemiy otsek	IKI	SU	Luna	-	 -	C	R	1972 Feb 14 0327:59	1972 Mar?	1972 Feb 21 1913	    0.000 	-	Component
-D00429	1972-007	Sbrasivaemiy otsek	IKI	SU	Luna	-	 -	C	R	1972 Feb 14 0327:59	1972 Mar?	1972 Feb 21 1913	    0.000 	-	Component
-D00441	1972-031B	Saturn S-IVB-511	MSFC	US	Luna	  -22.1	    2.1	R	I	1972 Apr 16 1754:00	1972 Apr 19 2102:04	1972 Apr 16 2334	    0.000 	-	Apollo 16 rocket stage
-D00444	1972-031	S-IU-511	MSFC	US	Luna	  -22.1	    2.1	C	IC	1972 Apr 16 1754:00	1972 Apr 19 2102:04	1972 Apr 16 2334	    0.000 	-	Attached to S-IVB
-D00450	1972-031	LM 11 DS	MSC	US	Luna	   15.5011	   -8.9734	L	L	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	Descartes Base	Apollo 16 lander
-D00442	1972-031C	Orion	MSC	US	Luna	   15.5011	   -8.9734	AV	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	Cabin and ascent vehicle, Apollo 16
-D00451	1972-031	A7LB-322	MSC	US	Luna	   15.5011	   -8.9734	H	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	J. Young
-D00452	1972-031	A7LB-327	MSC	US	Luna	   15.5011	   -8.9734	H	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	C. Duke
-D00453	1972-031	A7LB-322 PLSS	MSC	US	Luna	   15.5011	   -8.9734	C	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	Spacesuit backpack
-D00454	1972-031	A7LB-327 PLSS	MSC	US	Luna	   15.5011	   -8.9734	C	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	Spacesuit backpack
-D00456	1972-031	Apollo 16 ALSEP	MSC	US	Luna	   15.4986	   -8.9759	C	LC	1972 Apr 16 1754:00	1972 Apr 21 1815	1977 Sep 30	 1988.000 	-	Experiment package
-D00455	1972-031	LRV-2	MSC	US	Luna	   15.5011	   -8.9734	RO	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	    2.960 	-	Rover
-D00457	1972-031	Mass spectrometer boom	MSC	US	Luna	    0.000	    0.000	C	R	1972 Apr 16 1754:00	1972 May?	1972 Apr 24 2117	    0.000 	-	Component
-D00443	1972-031D	Apollo 16 Subsatellite	MSC	US	Luna	    0.000	    0.000	O	R	1972 Apr 16 1754:00	1972 May 29 2200?	1972 May 29	    0.000 	-	Orbiter; post-mission orbital decay
-D00434	1972-021A	Venera-8	IKI	SU	Venus	  335.25	  -10.70	C	I	1972 Mar 27 0415:01	1972 Jul 22 0837	1972 Jul 22 0837	    0.000 	-	Service module
-D00436	1972-021A	SA Veneri-8	IKI	SU	Venus	  335.25	  -10.70	LP	L	1972 Mar 27 0415:01	1972 Jul 22 0929	1972 Jul 22 1019	    0.035 	-	Venus lander
-D00437	1972-021A	Venera-8 SA cap	IKI	SU	Venus	  335.25	  -10.70	C	I	1972 Mar 27 0415:01	1972 Jul 22 0915?	1972 Jul 22 0840?	    0.000 	-	Component
-D00475	1972-096B	Saturn S-IVB-512	MSFC	US	Luna	  -12.3307	   -4.1681	R	I	1972 Dec  7 0533:00	1972 Dec 10 2312:40	1972 Dec  7 1630?	    0.000 	-	Apollo 17 rocket stage
-D00476	1972-096	S-IU-512	MSFC	US	Luna	  -12.3307	   -4.1681	C	IC	1972 Dec  7 0533:00	1972 Dec 10 2312:40	1972 Dec  7 1630?	    0.000 	-	Attached to S-IVB
-D00465	1972-096	LM 12	MSC	US	Luna	   30.7723	   20.1911	L	L	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	Taurus-Littrow Base	Apollo 17 lander
-D00464	1972-096C	Challenger	MSC	US	Luna	   30.7723	   20.1911	AV	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	Cabin and ascent stage, Apollo 17
-D00466	1972-096	A7LB-328	MSC	US	Luna	   30.7723	   20.1911	H	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	E. Cernan
-D00467	1972-096	A7LB-329	MSC	US	Luna	   30.7723	   20.1911	H	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	H. Schmitt
-D00468	1972-096	A7LB-328 PLSS	MSC	US	Luna	   30.7723	   20.1911	C	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	Spacesuit bakckpack
-D00469	1972-096	A7LB-329 PLSS	MSC	US	Luna	   30.7723	   20.1911	C	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	Spacesuit bakckpack
-D00470	1972-096	LRV-3	MSC	US	Luna	   30.7723	   20.1911	RO	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	    3.125 	-	Rover
-D00471	1972-096	Apollo 17 ALSEP	MSC	US	Luna	   30.7655	   20.1923	C	LC	1972 Dec  7 0533:00	1972 Dec 12 0340	1977 Sep 30	 1753.000 	-	Experiment package
-D01071	1972-U03	Challenger	MSC	US	Luna	   30.4897	   19.9661	AV	I	1972 Dec 14 2254:37	1972 Dec 15 0650	1972 Dec 15 0650	    0.000 	-	Empty ascent vehicle, deorbited
-D01068	1972-U02	Orion	MSC	US	Luna	-	-	AV	R	1972 Apr 24 0125:48	1973?	1972 Apr 25 1200?	    0.000 	-	Post-mission orbital decay
-D00482	1973-001A	Luna-21 (E-8 No. 204)	IKI	SU	Luna	   30.4077	   25.9994	L	L	1973 Jan  8 0655:38	1973 Jan 15 2235	1973 Jan 16 0114	    0.110 	-	Rover transport lander
-D00486	1973-001	Lunokhod-2	IKI	SU	Luna	   30.9221	   25.8323	RO	LC	1973 Jan  8 0655:38	1973 Jan 15 2235	1973 Jun  3	  138.000 	-	Rover
-D00484	1973-001	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1973 Jan  8 0655:38	1973 Feb?	1973 Jan 15 2219	    0.000 	-	Component
-D00485	1973-001	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1973 Jan  8 0655:38	1973 Feb?	1973 Jan 15 2219	    0.000 	-	Component
-D00411	1971-082A	Luna-19	IKI	SU	Luna	-	-	O	R	1971 Sep 28 1000:22	1974?	1972 Oct 20	    0.000 	-	Lunar orbiter; post-mission orbital decay
-D00413	1971-082	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1971 Sep 28 1000:22	1974?	1972 Oct 20	    0.000 	-	Component, attached to Luna-19
-D00414	1971-082	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1971 Sep 28 1000:22	1974?	1972 Oct 20	    0.000 	-	Component, attached to Luna-19
-D00386	1971-063D	Apollo 15 Subsatellite	MSC	US	Luna	-	-	O	R	1971 Jul 26 1334:00	1974?	1973 Aug 23	    0.000 	-	Post-mission orbital decay
-D00502	1973-052D	SA Marsa-6	IKI	SU	Mars	   19.5	  -23.9	LP	L	1973 Aug  5 1745:48	1974 Mar 12 0858:24	1974 Mar 12 0858:24	    0.000 	-	Mars lander, contact lost on landing
-D00504	1973-052	TDU Marsa-6	IKI	SU	Mars	   19.5	  -23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0830?	1974 Mar 12 0855	    0.000 	-	Motor
-D00505	1973-052	Teplovoy Ekran	IKI	SU	Mars	   19.5	  -23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0858?	1974 Mar 12 0855	    0.000 	-	Heat shield
-D00506	1973-052	DMP	IKI	SU	Mars	   19.5	  -23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0858?	1974 Mar 12 0855	    0.000 	-	Motor
-D00522	1974-084A	Luna-23 KT (E-8-5M No. 410)	IKI	SU	Luna	   62.1511	   12.6669	L	L	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	    3.000 	-	Sample return attempt, lander damaged on touchdown
-D00526	1974-084	Luna-23 VS	IKI	SU	Luna	   62.1511	   12.6669	AV	LC	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	    3.000 	-	Return vehicle
-D00527	1974-084	Luna-23 VA	IKI	SU	Luna	   62.1511	   12.6669	AV	LC	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	    3.000 	-	Sample capsule
-D00524	1974-084	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1974 Oct 28 1430:32	1975?	1974 Nov  6 0530	    0.000 	-	Component
-D00525	1974-084	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1974 Oct 28 1430:32	1975?	1974 Nov  6 0530	    0.000 	-	Component
-D00535	1975-050D	SA Veneri-9	IKI	SU	Venus	  290.83	   31.70	LP	L	1975 Jun  8 0238:00	1975 Oct 22 0508:23	1975 Oct 22 0601	    0.037 	-	Venus lander
-D00537	1975-050	Teplozashchitniy korpus	IKI	SU	Venus	  290.83	   31.70	C	I	1975 Jun  8 0238:00	1975 Oct 22 0430?	1975 Oct 22 0430?	    0.000 	-	Heat shield
-D00538	1975-050	Teplozashchitniy korpus	IKI	SU	Venus	  290.83	   31.70	C	I	1975 Jun  8 0238:00	1975 Oct 22 0430?	1975 Oct 22 0430?	    0.000 	-	Heat shield
-D00540	1975-054D	SA Veneri-10	IKI	SU	Venus	  291.00	   16.03	LP	L	1975 Jun 14 0300:31	1975 Oct 25 0512:11	1975 Oct 25 0617	    0.045 	-	Venus lander
-D00542	1975-054	Teplozashchitniy korpus	IKI	SU	Venus	  291.00	   16.03	C	I	1975 Jun 14 0300:31	1975 Oct 25 0430?	1975 Oct 25 0430?	    0.000 	-	Heat shield
-D00543	1975-054	Teplozashchitniy korpus	IKI	SU	Venus	  291.00	   16.03	C	I	1975 Jun 14 0300:31	1975 Oct 25 0430?	1975 Oct 25 0430?	    0.000 	-	Heat shield
-D00520	1974-037A	Luna-22 (E-8LS No. 206)	IKI	SU	Luna	-	-	O	R	1974 May 29 0856:51	1976?	1975 Nov	    0.000 	-	Orbiter; post-mission orbital decay
-D00518	1974-037	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1974 May 29 0856:51	1976?	1975 Nov	    0.000 	-	Component
-D00519	1974-037	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1974 May 29 0856:51	1976?	1975 Nov	    0.000 	-	Component
-D00545	1975-075	Viking Lander 1	LARCN	US	Mars	  312.050	   22.67	L	L	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1982 Nov 20	 2313.000 	Mutch Memorial Station	Mars lander
-D00547	1975-075	Viking 1 Aeroshell	LARCN	US	Mars	  312.050	   22.697	C	I	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1976 Jul 20 1151	    0.000 	-	Component
-D00548	1975-075	Viking 1 Aeroshell Cover	LARCN	US	Mars	  312.050	   22.697	C	I	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1976 Jul 20 1151	    0.000 	-	Component
-D00566	1976-081A	Luna-24 KT (E-8-5M No. 413)	IKI	SU	Luna	   62.2129	   12.7145	L	L	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	    0.951 	-	Sample return lander
-D00571	1976-081	Luna-24 VS	IKI	SU	Luna	   62.2129	   12.7145	AV	LC	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	    0.951 	-	Ascent vehicle
-D00567	1976-081E	Luna-24 VA	IKI	SU	Luna	   62.2129	   12.7145	AV	LC	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	    0.951 	-	Sample capsule
-D00552	1975-083	Viking Lander 2	LARCN	US	Mars	  134.2809	   47.6673	L	L	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1980 Apr 12	 1316.000 	-	Mars lander
-D00554	1975-083	Viking 2 Aeroshell	LARCN	US	Mars	  134.2809	   47.6673	C	I	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1976 Sep  3 2236	    0.000 	-	Component
-D00555	1975-083	Viking 2 Aeroshell Cover	LARCN	US	Mars	  134.2809	   47.6673	C	I	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1976 Sep  3 2236	    0.000 	-	Component
-D00569	1976-081	Sbrasivaemiy otsek	IKI	SU	Luna	 -	 -	C	R	1976 Aug  9 1504:12	1976 Oct?	1976 Aug 18 0630	    0.000 	-	Component
-D00570	1976-081	Sbrasivaemiy otsek	IKI	SU	Luna	 -	 -	C	R	1976 Aug  9 1504:12	1976 Oct?	1976 Aug 18 0630	    0.000 	-	Component
-D00596	1978-078	Small Probe 1 despin weight	ARC	US	Venus	   60.1	    4.4	C	I	1978 Aug  8 0733	1978 Dec  9 1849	1978 Dec  9 1847	    0.000 	-	Component
-D00597	1978-078	Small Probe 1 despin weight	ARC	US	Venus	   60.1	    4.4	C	I	1978 Aug  8 0733	1978 Dec  9 1849	1978 Dec  9 1847	    0.000 	-	Component
-D00599	1978-078	Small Probe 2 despin weight	ARC	US	Venus	  318.4	  -32.4	C	I	1978 Aug  8 0733	1978 Dec  9 1852	1978 Dec  9 1847	    0.000 	-	Component
-D00600	1978-078	Small Probe 2 despin weight	ARC	US	Venus	  318.4	  -32.4	C	I	1978 Aug  8 0733	1978 Dec  9 1852	1978 Dec  9 1847	    0.000 	-	Component
-D00602	1978-078	Small Probe 3 despin weight	ARC	US	Venus	   56.7	  -27.4	C	I	1978 Aug  8 0733	1978 Dec  9 1856	1978 Dec  9 1851	    0.000 	-	Component
-D00603	1978-078	Small Probe 3 despin weight	ARC	US	Venus	   56.7	  -27.4	C	I	1978 Aug  8 0733	1978 Dec  9 1856	1978 Dec  9 1851	    0.000 	-	Component
-D00595	1978-078	Sounder Probe Aft Cover	ARC	US	Venus	  304.0	    4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1930?	1978 Dec  9 1846	    0.000 	-	Component
-D00598	1978-078	Sounder Deceleration Module	ARC	US	Venus	  304.0	    4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1930?	1978 Dec  9 1847	    0.000 	-	Component
-D00590	1978-078D	Sounder Probe	ARC	US	Venus	  304.0	    4.0	LP	I	1978 Aug  8 0733	1978 Dec  9 1939:53	1978 Dec  9 1939:53	    0.000 	-	LOS at touchdown
-D00601	1978-078	LNMS cap	ARC	US	Venus	  304.0	    4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1940?	1978 Dec  9 1847?	    0.000 	-	Component
-D00591	1978-078E	North Probe	ARC	US	Venus	   60.1	    4.4	LI	I	1978 Aug  8 0733	1978 Dec  9 1942:40	1978 Dec  9 1942:40	    0.000 	-	LOS at touchdown
-D00592	1978-078F	Day Probe	ARC	US	Venus	  318.4	  -32.4	LI	L	1978 Aug  8 0733	1978 Dec  9 1947:59	1978 Dec  9 2055:34	    0.047 	-	Venus probe
-D00593	1978-078G	Night Probe	ARC	US	Venus	   56.7	  -27.4	LI	I	1978 Aug  8 0733	1978 Dec  9 1952:05	1978 Dec  9 1952:05	    0.000 	-	LOS at touchdown
-D00594	1978-078	BNMS cap	ARC	US	Venus	-	-	C	I	1978 Aug  8 0733	1978 Dec  9 2022?	1978 Dec  9 1500?	    0.000 	-	Component
-D00588	1978-078A	Pioneer Venus Multiprobe	ARC	US	Venus	  284.1	  -41.2	C	R	1978 Aug  8 0733	1978 Dec  9 2023?	1978 Dec  9 2022:55	    0.000 	-	Released entry probes
-D00616	1978-086	Teplozashchitniy korpus	IKI	SU	Venus	  294	   -7	C	I	1978 Sep 14 0225:13	1978 Dec 21 0300?	1978 Dec 21 0230	    0.000 	-	Heat shield
-D00617	1978-086	Teplozashchitniy korpus	IKI	SU	Venus	  294	   -7	C	I	1978 Sep 14 0225:13	1978 Dec 21 0300?	1978 Dec 21 0230	    0.000 	-	Heat shield
-D00614	1978-086C	SA Veneri-12	IKI	SU	Venus	  294	   -7	LP	L	1978 Sep 14 0225:13	1978 Dec 21 0330:30	1978 Dec 21 0520	    0.076 	-	Venus lander
-D00611	1978-084	Teplozashchitniy korpus	IKI	SU	Venus	  299	  -14	C	I	1978 Sep  9 0325:39	1978 Dec 25 0300?	1978 Dec 25 0222	    0.000 	-	Heat shield
-D00612	1978-084	Teplozashchitniy korpus	IKI	SU	Venus	  299	  -14	C	I	1978 Sep  9 0325:39	1978 Dec 25 0300?	1978 Dec 25 0222	    0.000 	-	Heat shield
-D00609	1978-084C	SA Veneri-11	IKI	SU	Venus	  299	  -14	LP	L	1978 Sep  9 0325:39	1978 Dec 25 0324:25	1978 Dec 25 0500	    0.066 	-	Venus lander
-D00627	1981-106	Teplozashchitniy korpus	IKI	SU	Venus	  303.1	   -7.5	C	I	1981 Oct 30 0604:22	1982 Mar  1 0330?	1982 Mar  1 0256	    0.000 	-	Heat shield
-D00628	1981-106	Teplozashchitniy korpus	IKI	SU	Venus	  303.1	   -7.5	C	I	1981 Oct 30 0604:22	1982 Mar  1 0330?	1982 Mar  1 0256	    0.000 	-	Heat shield
-D00625	1981-106D	SA Veneri-13	IKI	SU	Venus	  303.1	   -7.5	LP	L	1981 Oct 30 0604:22	1982 Mar  1 0357:21	1982 Mar  1 0604	    0.088 	-	Venus lander
-D00632	1981-110	Teplozashchitniy korpus	IKI	SU	Venus	  310.15	  -13.25	C	I	1981 Nov  4 0531:16	1982 Mar  5 0330?	1982 Mar  5 0253	    0.000 	-	Heat shield
-D00633	1981-110	Teplozashchitniy korpus	IKI	SU	Venus	  310.15	  -13.25	C	I	1981 Nov  4 0531:16	1982 Mar  5 0330?	1982 Mar  5 0253	    0.000 	-	Heat shield
-D00630	1981-110D	SA Veneri-14	IKI	SU	Venus	  310.15	  -13.25	LP	L	1981 Nov  4 0531:16	1982 Mar  5 0356:15	1982 Mar  5 0453	    0.040 	-	Venus lander
-D00654	1984-125	Teplozashchitniy korpus	IKI	SU	Venus	  177.80	    7.18	C	I	1984 Dec 15 0916:24	1985 Jun 11 0230?	1985 Jun 11 0200	    0.000 	-	Heat shield
-D00655	1984-125	Teplozashchitniy korpus	IKI	SU	Venus	  177.80	    7.18	C	I	1984 Dec 15 0916:24	1985 Jun 11 0230?	1985 Jun 11 0200	    0.000 	-	Heat shield
-D00652	1984-125E	SA Vega-1	IKI	SU	Venus	  177.80	    7.18	LP	L	1984 Dec 15 0916:24	1985 Jun 11 0302	1985 Jun 11 0324	    0.014 	-	Venus lander
-D00653	1984-125F	AZ Vega-1	IKI	SU	Venus	   68.8	    8.1	AX	I	1984 Dec 15 0916:24	1985 Jun 13 0100?	1985 Jun 14 0038	    0.000 	-	Venus balloon
-D00660	1984-128	Teplozashchitniy korpus	IKI	SU	Venus	  181.08	   -6.45	C	I	1984 Dec 21 0913:52	1985 Jun 15 0230?	1985 Jun 15 0200	    0.000 	-	Heat shield
-D00661	1984-128	Teplozashchitniy korpus	IKI	SU	Venus	  181.08	   -6.45	C	I	1984 Dec 21 0913:52	1985 Jun 15 0230?	1985 Jun 15 0200	    0.000 	-	Heat shield
-D00658	1984-128E	SA Vega-2	IKI	SU	Venus	  181.08	   -6.45	LP	L	1984 Dec 21 0913:52	1985 Jun 15 0300:50	1985 Jun 15 0322	    0.015 	-	Venus lander
-D00659	1984-128F	AZ Vega-2	IKI	SU	Venus	   76.3	   -7.5	AX	I	1984 Dec 21 0913:52	1985 Jun 17 0100?	1985 Jun 17 0038	    0.000 	-	Venus balloon
-D00584	1978-051A	Pioneer Venus Orbiter	ARC	US	Venus	 -	-	O	R	1978 May 20 1313:00	1992 Oct 22	1992 Oct 22	    0.000 	-	Orbit lowered to reentry
-D00586	1978-051	Star 24	ARC	US	Venus	-	-	C	IC	1978 May 20 1313:00	1992 Oct 22	1978 Dec  4 1600?	    0.000 	-	Attached to PVO
-D00693	1990-007A	Hiten	ISASS	J	Luna	   55.3	  -34.0	O	R	1990 Jan 24 1146:00	1993 Apr 10 1803:25	1993 Apr 10 1803:25	    0.000 	-	Orbital decay
-D00677	1989-033B	Magellan	JPL	US	Venus	 -	-	O	R	1989 May  4 1846:59	1994 Oct 12 1800	1994 Oct 12 1002	    0.000 	-	Deorbited at end of mission
-D00683	1989-084	Galileo Probe	ARC	US	Jupiter	   -4.9	    6.5	P	I	1989 Oct 18 1653:40	1995 Dec  8 2204	1995 Dec  7 2302	    0.000 	-	Entry probe
-D00684	1989-084	Deceleration Module	ARC	US	Jupiter	   -4.9	    6.5	C	I	1989 Oct 18 1653:40	1995 Dec  7 2210	1995 Dec  7 2206	    0.000 	-	Component
-D00685	1989-084	Galileo Probe aft cover	ARC	US	Jupiter	   -4.9	    6.5	C	I	1989 Oct 18 1653:40	1995 Dec  7 2210?	1995 Dec  7 2205	    0.000 	-	Component
-D00727	1996-068A	Sagan Memorial Station	JPL	US	Mars	  -33.55	   19.33	LA	L	1996 Dec  4 0658:07	1997 Jul  4 1656:55	1997 Oct  7	   94.000 	Sagan Memorial Station	Mars lander, delivered rover
-D00734	1996-068	Sojourner	JPL	US	Mars	  -33.55	   19.33	RO	LC	1996 Dec  4 0658:07	1997 Jul  4 1656:55	1997 Oct  7	   94.000 	-	Rover
-D00729	1996-068	MPF Cruise Stage	JPL	US	Mars	  -33.55	   19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1655?	1997 Jul  4 1622	    0.000 	-	Component
-D00732	1996-068	MPF Aeroshell	JPL	US	Mars	  -33.55	   19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1656	1997 Jul  4 1655	    0.000 	-	Component
-D00733	1996-068	MPF Backshell	JPL	US	Mars	  -33.55	   19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1657	1997 Jul  4 1656	    0.000 	-	Component
-D00747	1998-001A	Lunar Prospector	ARC	US	Luna	   42.1	  -87.7	O	I	1998 Jan  7 0228:44	1999 Jul 31 0952:00	1999 Jul 31 0952:00	    0.000 	-	Deorbit at end of mission
-D00748	1998-001A	Celestis-02	SSICE	US	Luna	   42.1	  -87.7	C	IC	1998 Jan  7 0228:44	1999 Jul 31 0952	1998 Jan  7 0228:44	    0.000 	-	Attached to LP
-D00757	1998-073A	Mars Climate Orbiter	JPL	US	Mars	  -	  -	O	I	1998 Dec 11 1845:52	1999 Sep 23 0900?	1999 Sep 23 0900?	    0.000 	-	Orbit insertion failed, destroyed in atmosphere?
-D00763	1999-001A	MPL Cruise Stage	JPL	US	Mars	 -195.3	  -76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1956	1999 Dec  3 1956	    0.000 	-	Component
-D00768	1999-001	MPL Heat Shield	JPL	US	Mars	 -195.3	  -76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1958	    0.000 	-	Component
-D00769	1999-001	MPL Backshell	JPL	US	Mars	 -195.3	  -76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1958	    0.000 	-	Component
-D00766	1999-001	DS2 Scott Probe	JPL	US	Mars	 -210	  -73	LI	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1959	    0.000 	-	Penetrator probe
-D00767	1999-001	DS2 Amundsen Probe	JPL	US	Mars	 -210	  -73	LI	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1959	    0.000 	-	Penetrator probe
-D00761	1999-001A	Mars Polar Lander	JPL	US	Mars	 -195.3	  -76.1	L	I	1999 Jan  3 2021:10	1999 Dec  3 2001	1999 Dec  3 2001	    0.000 	-	Lander, crashed
-D00719	1996-008A	NEAR Shoemaker	APL/GSFC	US	Eros	 -279	  -35	LO	L	1996 Feb 17 2043:27	2001 Feb 12 1944	2001 Mar  1 0000	   16.180 	-	Eros orbiter, not designed for landng
-D00680	1989-084B	Galileo	JPL	US	Jupiter	  193	   -0.3	O	I	1989 Oct 18 1653:40	2003 Sep 21 1857	2003 Sep 21 1857	    0.000 	-	Deorbited at end of mission
-D00804	2003-022	Beagle 2	ESA	UK	Mars	   90.4295	   11.5265	LA	I	2003 Jun  2 1745:26	2003 Dec 25 0254	2003 Dec 25 0250	    0.000 	-	No contact during entry
-D00805	2003-022	Beagle 2 Heat Shield	ESA	UK	Mars	   90.43	   11.53	C	I	2003 Jun  2 1745:26	2003 Dec 25 0252?	2003 Dec 25 0250	    0.000 	-	Component
-D00806	2003-022	Beagle 2 Backshell	ESA	UK	Mars	   90.43	   11.53	C	I	2003 Jun  2 1745:26	2003 Dec 25 0252?	2003 Dec 25 0250	    0.000 	-	Component
-D00809	2003-027	MER-A Cruise Stage	JPL	US	Mars	  175	  -14	C	I	2003 Jun 10 1758:47	2004 Jan  4 0420	2004 Jan  4 0419	    0.000 	-	Component
-D00812	2003-027	Columbia Memorial Station	JPL	US	Mars	  175.4785	  -14.5719	LA	L	2003 Jun 10 1758:47	2004 Jan  4 0425:48	2004 Jan  5?	    1.000 	Columbia Memorial Station	Lander delivered rover to surface
-D00807	2003-027A	Spirit Rover	JPL	US	Mars	  175.4785	  -14.5719	RO	LC	2003 Jun 10 1758:47	2004 Jan  4 0425:48	2010 Mar 30	 2277.000 	-	Mars rover
-D00813	2003-027	MER-A Backshell	JPL	US	Mars	  175.48	  -14.57	C	I	2003 Jun 10 1758:47	2004 Jan  4 0426	2004 Jan  4 0426	    0.000 	-	Component
-D00814	2003-027	MER-A Heat Shield	JPL	US	Mars	  175.4835	  -14.5649	C	I	2003 Jun 10 1758:47	2004 Jan  4 0426	2004 Jan  4 0426	    0.000 	-	Component
-D00817	2003-032	MER-B Cruise Stage	JPL	US	Mars	  354.47	   -1.95	C	I	2003 Jul  8 0318:15	2004 Jan 25 0448	2004 Jan 25 0448	    0.000 	-	Component
-D00820	2003-032	Challenger Memorial Station	JPL	US	Mars	  354.4742	   -1.9483	LA	L	2003 Jul  8 0318:15	2004 Jan 25 0454:33	2004 Jan 26?	    1.000 	Challenger Memorial Station	ander delivered rover to surface
-D00815	2003-032A	Opportunity Rover	JPL	US	Mars	  354.4742	   -1.9483	RO	LC	2003 Jul  8 0318:15	2004 Jan 25 0454:33	2018 Jun 10	 5249.000 	-	Mars rover
-D00821	2003-032	MER-B Heat Shield	JPL	US	Mars	  354.4863	   -1.9553	C	I	2003 Jul  8 0318:15	2004 Jan 25 0454	2004 Jan 25 0453	    0.000 	-	Component
-D00822	2003-032	MER-B Backshell	JPL	US	Mars	  354.47	   -1.95	C	I	2003 Jul  8 0318:15	2004 Jan 25 0454	2004 Jan 25 0453	    0.000 	-	Component
-D00743	1997-061	Huygens	ESA	I-ESA	Titan	 -192.3	  -10.3	LP	L	1997 Oct 15 0843:01	2005 Jan 14 1138:11	2005 Jan 14 1510	    0.147 	-	Titan lander
-D00744	1997-061	Huygens Aft Cover	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0910	    0.000 	-	Component
-D00745	1997-061	Huygens Front Shield	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0910	    0.000 	-	Component
-D00746	1997-061	Huygens Main Chute	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	    0.000 	-	Component
-D00987	1997-061	Huygens GCMS inlet cap	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	    0.000 	-	Component
-D00988	1997-061	Huygens GCMS outlet cap	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	    0.000 	-	Component
-D00989	1997-061	Huygens DISR cover	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	    0.000 	-	Component
-D00990	1997-061	Huygens ACP inlet cap	ESA	I-ESA	Titan	 -192.3	  -10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	    0.000 	-	Component
-D00838	2005-001	DI Impactor	NASA	US	9P/Tempel 1	    -	     -	I	I	2005 Jan 12 1847:08	2005 Jul  4 0546:02	2005 Jul  4 0546:02	    0.000 	-	Comet impact experiment
-D00796	2003-019	MUSES-C TM 1	ISASJ	J	Itokawa	   -	     -	C	I	2003 May  9 0429:25	2005 Nov 10?	2005 Nov  9	    0.000 	-	Component
-D00797	2003-019	Minerva	ISASJ	J	Itokawa	   -	     -	RO	LC	2003 May  9 0429:25	2005 Nov 15?	2005 Nov 13	    0.000 	-	Hopper lander, contact lost, may have impacted
-D00800	2003-019	MUSES-C TM 2	ISASJ	J	Itokawa	   -	     -	C	I	2003 May  9 0429:25	2005 Nov 19 2036	2005 Nov 19 2028	    0.000 	-	Component
-D00799	2003-019	MUSES-C TM 3	ISASJ	J	Itokawa	   -	     -	C	LC	2003 May  9 0429:25	2005 Nov 19 2036	2005 Nov  9	    0.000 	-	Component, attached to Hayabusa
-D00793	2003-019A	Hayabusa	ISASJ	J	Itokawa	   -	     -	L	L	2003 May  9 0429:25	2005 Nov 19 2110	2005 Nov 19 2205	    0.038 	-	Sampling touchdown, took off
-D00793	2003-019A	Hayabusa	ISASJ	J	Itokawa	   -	     -	L	L	2003 May  9 0429:25	2005 Nov 25 2207	2005 Nov 25 2207	    0.000 	-	Sampling touch-and-go
-D00801	2003-019	Hayabusa Return Capsule	ISASJ	J	Itokawa	   -	     -	C	LC	2003 May  9 0429:25	2005 Nov 19 2110	2005 Nov 19 2205	    0.038 	-	Attached to Hayabusa
-D00798	2003-019	Minerva cover	ISASJ	J	Itokawa	   -	     -	C	LC	2003 May  9 0429:25	2005 Dec?	2005 Nov 12 0620	    0.000 	-	Component, probably impacted
-D00829	2003-043C	SMART-1	ESA	I-ESA	Luna	  -46.193	  -34.262	O	I	2003 Sep 27 2314:46	2006 Sep  3 0542:20	2006 Sep  3 0542:20	    0.000 	-	Deorbited at end of mission
-D00857	2007-034	Phoenix Cruise Stage	JPL	US	Mars	  234.3	   68.2	C	I	2007 Aug  4 0926:34	2008 May 25 2331	2008 May 25 2323	    0.000 	-	Component
-D00858	2007-034	Phoenix Heat Shield	JPL	US	Mars	  234.25	   68.22	C	I	2007 Aug  4 0926:34	2008 May 25 2338	2008 May 25 2335	    0.000 	-	Component
-D00859	2007-034	Phoenix Backshell	JPL	US	Mars	  234.25	   68.22	C	I	2007 Aug  4 0926:34	2008 May 25 2338	2008 May 25 2338	    0.000 	-	Component
-D00853	2007-034A	Phoenix	JPL	US	Mars	  234.248	   68.219	L	L	2007 Aug  4 0926:34	2008 May 25 2338:39	2008 Nov  2	  160.000 	-	Mars lander
-D00873	2008-052	MIP	ISRO	IN	Luna	 -122.93	  -89.55	I	I	2008 Oct 22 0052:11	2008 Nov 14 1501:31	2008 Nov 14 1501:31	    0.000 	-	Impactor ejected from Ch1 orbiter
-D00861	2007-039B	Okina	JAXA	J	Luna	 -159.033	   28.213	O	I	2007 Sep 14 0131:01	2009 Feb 12 1046	2009 Feb 12 1046	    0.000 	-	Orbital decay at end of mission
-D00869	2007-051A	Chang'e-1	CASC	CN	Luna	   52.36	   -1.50	O	I	2007 Oct 24 1005:04	2009 Mar  1 0813	2009 Mar  1 0813	    0.000 	-	Deorbited at end of mission
-D00860	2007-039A	Kaguya	JAXA	J	Luna	   80.4	  -65.5	O	I	2007 Sep 14 0131:01	2009 Jun 10 1825	2009 Jun 10 1825	    0.000 	-	Deorbited at end of mission
-D00887	2009-031C	LCROSS EDUS	ARC	US	Luna	  -48.7093	  -84.6796	I	I	2009 Jun 18 2132:00	2009 Oct  9 1131:19	2009 Oct  9 1131:19	    0.000 	-	Impactor mission, Centaur stage
-D00886	2009-031B	LCROSS Shepherding S/C	ARC	US	Luna	  -49.360	  -84.729	I	I	2009 Jun 18 2132:00	2009 Oct  9 1135:45	2009 Oct  9 1135:45	    0.000 	-	Impactor mission
-D00862	2007-039C	Ouna	JAXA	J	Luna	-	-	O	I	2007 Sep 14 0131:01	2010?	2009 Jun 29 1208	    0.000 	-	Orbital decay after end of mission
-D00912	2011-070A	MSL Cruise Stage	JPL	US	Mars	  136	   -4.4	C	I	2011 Nov 26 1502:00	2012 Aug  6 0512	2012 Aug  6 0500	    0.000 	-	Component
-D00913	2011-070A	CBMD 1	JPL	US	Mars	  136	   -4.4	C	I	2011 Nov 26 1502:00	2012 Aug  6 0514?	2012 Aug  6 0505	    0.000 	-	Component
-D00914	2011-070A	CBMD 2	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0514?	2012 Aug  6 0505	    0.000 	-	Component
-D00915	2011-070A	EBMD 1	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00916	2011-070A	EBMD 2	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00917	2011-070A	EBMD 3	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00918	2011-070A	EBMD 4	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00919	2011-070A	EBMD 5	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00920	2011-070A	EBMD 6	JPL	US	Mars	  137.64	   -4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	    0.000 	-	Component
-D00921	2011-070A	MSL Heat Shield	JPL	US	Mars	  137.44	   -4.59	C	I	2011 Nov 26 1502:00	2012 Aug  6 0516:51	2012 Aug  6 0515:25	    0.000 	-	Heat shield
-D00922	2011-070A	MSL Backshell	JPL	US	Mars	  137.44	   -4.59	C	I	2011 Nov 26 1502:00	2012 Aug  6 0517?	2012 Aug  6 0516:40	    0.000 	-	Component
-D00923	2011-070A	MSL Descent stage	JPL	US	Mars	  137.4417	   -4.5895	L	L	2011 Nov 26 1502:00	2012 Aug  6 0517:57	2012 Aug  6 0517:57	    0.000 	-	Touch-and-go Skycrane landing
-D00911	2011-070A	Curiosity	JPL	US	Mars	  137.4417	   -4.5895	RO	LC	2011 Nov 26 1502:00	2012 Aug  6 0517:57	*	 4619.000 	Bradbury Landing	Rover, still active
-D00909	2011-046A	Ebb	GSFC	US	Luna	  -26.63	   75.62	O	I	2011 Sep 10 1308:52	2012 Dec 17 2228:51	2012 Dec 17 2228:51	    0.000 	Sally K Ride Impact Site	Deorbited at end of mission
-D00910	2011-046B	Flow	GSFC	US	Luna	  -26.63	   75.62	O	I	2011 Sep 10 1308:52	2012 Dec 17 2229:21	2012 Dec 17 2229:21	    0.000 	Sally K Ride Impact Site	Deorbited at end of mission
-D00934	2013-070A	Chang'e-3	CASC	CN	Luna	  -19.5116	   44.1214	L	L	2013 Dec  1 1730:00	2013 Dec 14 1311:18	2020 Sep?	 2460.000 	Statio Guang Han Gong	Lander
-D00936	2013-070	Yutu	CASC	CN	Luna	  -19.5116	   44.1214	RO	LC	2013 Dec  1 1730:00	2013 Dec 14 1311:18	2015 Mar?	  450.000 	-	Rover
-D00926	2013-047A	LADEE	ARC	US	Luna	  -93.2	   12.0	O	I	2013 Sep  7 0327:00	2014 Apr 18 0431:47	2014 Apr 18 0430	    0.000 	-	Deorbited at end of mission
-D00828	2004-006	Philae	ESA	I-ESA	67P/	   -	     -	LI	L	2004 Mar  2 0717:44	2014 Nov 12 1534	2014 Nov 12 1534	    0.000 	Agilkia	Landed on comet 67P, bounced
-D00828	2004-006	Philae	ESA	I-ESA	67P/	   -	     -	LI	L	2004 Mar  2 0717:44	2014 Nov 12 1732	2015 Jul  9	  239.000 	Abydos	Landed on comet 67P
-D00842	2005-045A	Venus Express	ESA	I-ESA	Venus	   -	     -	O	R	2005 Nov  9 0333:34	2015 Q2?	2015 Jan 19	    0.000 	-	Orbital decay after end of mission
-D00830	2004-030A	Messenger	APL	US	Mercury	  210.1	   54.4	O	I	2004 Aug  3 0615:57	2015 Apr 30 1926:02	2015 Apr 30 1926:02	    0.000 	-	Deorbited at end of mission
-D00826	2004-006A	Rosetta	ESA	I-ESA	67P/	   -	     -	LO	L	2004 Mar  2 0717:44	2016 Sep 30 1039:34	2016 Sep 30 1119	    0.027 	Sais	Descent to 67P at end of mission
-D00972	2016-017	EXM-EDM Front Shield	ESA	I-ESA	Mars	  353.79	   -2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2016 Oct 19 1446	    0.000 	-	Component
-D00973	2016-017	EXM-EDM Back Cover	ESA	I-ESA	Mars	  353.79	   -2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2019 Oct 19 1446	    0.000 	-	Component
-D00974	2016-017	EXM-EDM Parachute	ESA	I-ESA	Mars	  353.79	   -2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2019 Oct 19 1446	    0.000 	-	Component
-D00971	2016-017	Schiaparelli	ESA	I-ESA	Mars	  353.79	   -2.07	L	I	2016 Mar 14 0931:42	2016 Oct 19 1447:28	2016 Oct 19 1447:28	    0.000 	-	Mars lander, crashed
-D00738	1997-061A	Cassini	JPL	US	Saturn	  308?	    2?	O	I	1997 Oct 15 0843:01	2017 Sep 15 1045:48	2017 Sep 15 1032:16	    0.000 	-	Deorbited at end of mission
-D00953	2014-076	Minerva II-1 Rover 1A	ISASJ	J	Ryugu	   -	     -	LR	L	2014 Dec  3 0422:04	2018 Sep 21 0425?	2019 Nov  9 1000:01	  414.233 	-	Hopper rover
-D00954	2014-076	Minerva II-1 Rover 1B	ISASJ	J	Ryugu	   -	     -	LR	L	2014 Dec  3 0422:04	2018 Sep 21 0425?	2019 Nov  9 1000:01	  414.233 	-	Hopper rover
-D00951	2014-076	Minerva II-1 canister	ISASJ	J	Ryugu	   -	     -	C	I	2014 Dec  3 0422:04	2018 Sep 21 0430?	2018 Sep 21 0406?	    0.000 	-	Component
-D00956	2014-076	MASCOT	DLR	D	Ryugu	  317.16	  -22.32	LI	L	2014 Dec  3 0422:04	2018 Oct  3 0203	2018 Oct  3 1904	    0.709 	-	Lander
-D00960	2014-076	Target Marker B	ISASJ	J	Ryugu	  206.01	    4.04	C	I	2014 Dec  3 0422:04	2018 Oct 25 0243?	2018 Oct 25 0237	    0.000 	-	Component
-D01000	2018-042A	Mars InSight Cruise Stage	JPL	US	Mars	  135.6	    4.6	C	I	2018 May  5 1105:01	2018 Nov 26 1939?	2018 Nov 26 1931	    0.000 	-	Component
-D01002	2018-042	Mars InSight Heat Shield	JPL	US	Mars	  135.6295	    4.5580	C	I	2018 May  5 1105:01	2018 Nov 26 1943?	2018 Nov 26 1942	    0.000 	-	Component
-D00997	2018-042A	Mars InSight Lander	JPL	US	Mars	  135.6180	    4.5520	L	L	2018 May  5 1105:01	2018 Nov 26 1944:52	2022 Dec 15	 1480.000 	-	Mars lander
-D01003	2018-042	Mars InSight Parachute	JPL	US	Mars	  135.6227	    4.5434	C	I	2018 May  5 1105:01	2018 Nov 26 1945?	2018 Nov 26 1943	    0.000 	-	Component
-D01001	2018-042	Mars InSight Back Shell	JPL	US	Mars	  135.6224	    4.5436	C	I	2018 May  5 1105:01	2018 Nov 26 1945?	2018 Nov 26 1943	    0.000 	-	Component
-D01017	2018-103A	Chang'e-4	CASC	CN	Luna	  177.589	  -45.457	L	L	2018 Dec  7 1823	2019 Jan  3 0226	*	 2278.000 	Statio Tianhe	Lander, delivered rover
-D01019	2018-103	Yutu-2	CASC	CN	Luna	  177.589	  -45.457	RO	LC	2018 Dec  7 1823	2019 Jan  3 0226	*	 2278.000 	-	Rover
-D00945	2014-076	Hayabusa-2	ISASJ	J	Ryugu	  206.47	    4.30	L	L	2014 Dec  3 0422:04	2019 Feb 21 2229:10	2019 Feb 21 2229:11	    0.000 	-	Touch-and-go sampling landing
-D00957	2014-076	SCI	ISASJ	J	Ryugu	  301.3	    7.9	I	I	2014 Dec  3 0422:04	2019 Apr  5 0236	2019 Apr  5 0236	    0.000 	-	Impactor
-D00958	2014-076	DCAM-3	ISASJ	J	Ryugu	   -	     -	C	I	2014 Dec  3 0422:04	2019 Apr  6?	2019 Apr  5 0739	    0.000 	-	Component
-D01020	2019-009B	B'reshit	SPAIL	IL	Luna	   19.3496	   32.5956	L	I	2019 Feb 22 0145	2019 Apr 11 1923	2019 Apr 11 1923	    0.000 	-	Lander, crashed
-D00959	2014-076	Target Marker A	ISASJ	J	Ryugu	  300.889	   10.233	C	I	2014 Dec  3 0422:04	2019 May 30 0220:22	2019 May 30 0218:54	    0.000 	-	Component
-D00945	2014-076	Hayabusa-2	ISASJ	J	Ryugu	  300.595	   10.130	L	L	2014 Dec  3 0422:04	2019 Jul 11 0106:18	2019 Jul 11 0106:19	    0.000 	-	Touch-and-go sampling landing
-D01007	2018-045C	Longjiang 2	CASC	CN	Luna	  157.5	   15.5	O	I	2018 May 20 2128:50	2019 Jul 31 1420?	2019 Jul 31 1400?	    0.000 	-	Orbital decay after end of mission
-D00185	2019-042	Vikram	ISRO	IN	Luna	   22.7840	  -70.8810	L	I	2019 Jul 22 0913	2019 Sep  6 2023	2019 Sep  6 2022	    0.000 	-	Lander, crashed
-D00186	2019-042	Pragyan	ISRO	IN	Luna	   22.7840	  -70.8810	RO	IC	2019 Jul 22 0913	2019 Sep  6 2023	2019 Sep  6 2022	    0.000 	-	Rover, destroyed aboard Vikram
-D00961	2014-076	Target Marker C	ISASJ	J	Ryugu	    -	      -	C	I	2014 Dec  3 0422:04	2019 Sep 23?	2019 Sep 16 1624	    0.000 	-	Component
-D00963	2014-076	Target Marker E	ISASJ	J	Ryugu	    -	      -	C	I	2014 Dec  3 0422:04	2019 Sep 23?	2019 Sep 16 1617	    0.000 	-	Component
-D00952	2014-076	Minerva II-2 canister	ISASJ	J	Ryugu	    -	      -	C	I	2014 Dec  3 0422:04	2019 Oct  8?	2019 Oct  2 1557	    0.000 	-	Component
-D00955	2014-076	Minerva II-2 Rover 2	ISASJ	J	Ryugu	    -	      -	LR	I	2014 Dec  3 0422:04	2019 Oct  8?	2019 Oct  8?	    0.000 	-	Hopper rover, failed?
-D00975	2016-055A	OSIRIS-REx	GSFC	US	Bennu	   43	   56	L	L	2016 Sep  8 2305	2020 Oct 20 2153	2020 Oct 20 2154	    0.000 	Nightingale	Sample return touch-and-go
-D00977	2016-055	OSIRIS-REx SRC	GSFC	US	Bennu	   43	   56	C	LC	2016 Sep  8 2305	2020 Oct 20 2153	2020 Oct 20 2154	    0.000 	-	Sample return capsule, attached to O-REx
-D01047	2020-087	Chang'e-5 Zhuolu Qi	LDSE	CN	Luna	  -51.9161	   43.0576	L	L	2020 Nov 23 2030:22	2020 Dec  1 1511:21	2020 Dec  5?	    4.000 	Statio Tianchuan	Lander for sample return
-D01048	2020-087	Chang'e-5 Shangsheng Qi	LDSE	CN	Luna	  -51.9161	   43.0567	AV	LC	2020 Nov 23 2030:22	2020 Dec  1 1511:21	2020 Dec  3 1510:21	    1.999 	-	Sample return ascent vehicle
-D01076	2020-U02	Chang'e-5 Shangsheng Qi	LDSE	CN	Luna	    0	  -30	AV	I	2020 Dec  3 1510:21	2020 Dec  7 2330	2020 Dec  7 2330	    0.000 	-	Deorbited at end of mission
-D01051	2020-087	Jiaohui duijie jigou	LDSE	CN	Luna	    0	  -30	C	IC	2020 Nov 23 2030:22	2020 Dec  7 2330	2020 Dec  6 0435	    0.000 	-	Component attached to ascent vehicle
-D01036	2020-052	Mars 2020 Cruise Stage	JPL	US	Mars	  77.4	   18.5	C	I	2020 Jul 30 1150:00	2021 Feb 18 2037	2021 Feb 18 2026	    0.000 	-	Component
-D01041	2020-052A	Mars 2020 Parachute	JPL	US	Mars	  77.4320	   18.4519	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2040	    0.000 	-	Component
-D01038	2020-052A	Perseverance	JPL	US	Mars	  77.4508	   18.4446	RO	LC	2020 Jul 30 1150:00	2021 Feb 18 2043	*	 1501.000 	Octavia E. Butler Landing	Lander
-D01039	2020-052A	Mars 2020 Heat Shield	JPL	US	Mars	  77.4741	   18.4553	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2041	    0.000 	-	Component
-D01040	2020-052A	Mars 2020 Backshell	JPL	US	Mars	  77.4318	   18.4516	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2042	    0.000 	-	Component
-D01037	2020-052A	Mars 2020 Descent stage	JPL	US	Mars	  77.4419	   18.4522	L	L	2020 Jul 30 1150:00	2021 Feb 18 2044	2021 Feb 18 2044	    0.000 	-	Touch-and-go Skycrane landing
-D01077	2020-052A	CBMD 1	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2028	    0.000 	-	Component
-D01078	2020-052A	CBMD 2	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2028	    0.000 	-	Component
-D01079	2020-052A	EBMD 1	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01080	2020-052A	EBMD 2	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01081	2020-052A	EBMD 3	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01082	2020-052A	EBMD 4	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01083	2020-052A	EBMD 5	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01084	2020-052A	EBMD 6	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	    0.000 	-	Component
-D01085	2020-052A	Ejectable Belly Pan	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Mar 13 0900?	2021 Mar 13 0900?	    0.000 	-	Component
-D01042	2020-052A	MHDS Cover	JPL	US	Mars	  77.45	   18.45	C	I	2020 Jul 30 1150:00	2021 Mar 21	2021 Mar 21	    0.000 	-	Component
-D01030	2020-049	Tianwen-1 Aeroshell Base	CAST	CN	Mars	  109.925	   25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317	2021 May 14 2314	    0.000 	-	Component
-D01033	2020-049	Tianwen-1 Backshell	CAST	CN	Mars	  109.925	   25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317	2021 May 14 2315	    0.000 	-	Component
-D01034	2020-049	Tianwen-1 Parachute	CAST	CN	Mars	  109.925	   25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317:15	2021 May 14 2315	    0.000 	-	Component
-D01031	2020-049	Tianwen-1 Lander	LDSE	CN	Mars	  109.925	   25.066	L	L	2020 Jul 23 0441:12	2021 May 14 2317:51	2021 Jun?	   16.000 	-	Lander
-D01032	2020-049	Zhurong	LDSE	CN	Mars	  109.925	   25.066	RO	LC	2020 Jul 23 0441:12	2021 May 14 2317:51	2022 May 20	  371.000 	-	Rover
-D01086	2020-049	Fenli xiangi	LDSE	CN	Mars	  109.925	   25.066	C	LC	2020 Jul 23 0441:12	2021 Jun 10?	2021 Jun 11?	    1.000 	-	Camera package
-D00942	2014-065B	CZ-3C Y12 Stage 3	CASC	CN	Luna	 -125.281	    5.316	R	R	2014 Oct 23 1800:04	2022 Mar  4 1225:58	2014 Oct 23 1818	    0.000 	-	Rocket stage impacted Moon from chaotic cislunar orbit
-D01089	2021-110A	DART	APL	US	Didymos	  264.3	   -8.84	I	I	2021 Nov 24 0621:02	2022 Sep 26 2314	2022 Sep 26 2314	    0.000 	-	Impact mission
-D01116	2022-168A	Hakuto-R M1	ISPACE	J	Luna	   44.094	   47.581	L	I	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	    0.000 	-	Lander, crashed
-D01119	2022-168	Rashid	MBRSC	UAE	Luna	   44.094	   47.581	RO	IC	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	    0.000 	-	Rover, destroyed at impact
-D01120	2022-168	SORA-Q	ISASJ	J	Luna	   44.094	   47.581	RO	IC	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	    0.000 	-	Roller rover, destroyed at impact
-D01128	2023-118A	Luna-25	IKI	RU	Luna	   60.360	  -57.865	L	I	2023 Aug 10 2310:57	2023 Aug 19 1157	2023 Aug 19 1157	    0.000 	-	Lander, accidental deorbit
-D01126	2023-098A	Chandrayaan-3 Vikram Lander	ISRO	IN	Luna	   32.3189	  -69.3733	L	L	2023 Jul 14 0905:17	2023 Aug 23 1232:50	2023 Sep  4 0230	   11.581 	Statio Shiv Shakti	Lander
-D01127	2023-098	Pragyan	ISRO	IN	Luna	   32.3189	  -69.3733	RO	LC	2023 Jul 14 0905:17	2023 Aug 23 1232:50	2023 Sep  4 0230	   11.581 	-	Rover
-D01131	2023-137D	SLIM	JAXA	J	Luna	   25.2508	  -13.3154	L	L	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Apr 29	  100.000 	-	Lander
-D01132	2023-137	LEV-1	ISASJ	J	Luna	   25.2508	  -13.3154	RO	LC	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Jan 19 1710	    0.076 	-	Hopper rover
-D01133	2023-137	LEV-2	ISASJ	J	Luna	   25.2508	  -13.3154	RO	LC	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Jan 19 1757?	    0.109 	-	Roller rover
-D01149	2024-030A	IM-1	INTMA	US	Luna	    1.44	  -80.13	L	L	2024 Feb 15 0605:37	2024 Feb 22 2323	2024 Feb 29	    6.000 	-	Lander, toppled
-D01151	2024-030C	EagleCam	ERAU	US	Luna	    1.44	  -80.13	C	LC	2024 Feb 15 0605:37	2024 Feb 22 2323	2024 Feb 28	    0.000 	-	Ejected from lander, no data
-D01159	2024-083	Chang'e-6 Zhuolu Qi	LDSE	CN	Luna	 -153.9852	  -41.6385	L	L	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  4?	    2.100 	Statio Tianjiang	Lander
-D01160	2024-083	Chang'e-6 Shangsheng Qi	LDSE	CN	Luna	 -153.9852	  -41.6385	AV	LC	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  3 2338	    2.052 	-	Sample return ascent vehicle
-D01165	2024-083	Chang'e-6 Yidong Xiangji	LDSE	CN	Luna	 -153.9852	  -41.6385	C	LC	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  4?	    2.000 	-	Ejected camera package
-D01166	2024-U02	Chang'e-6 Shangsheng Qi	LDSE	CN	Luna	  180	  -40	AV	I	2024 Jun  3 2338	2024 Jun  8?	2024 Jun  8	    0.000 	-	Deorbited at end of mission
-D01163	2024-083	Jiaohui duijie jigou	LDSE	CN	Luna	  180	  -40	C	IC	2024 May  3 0927:29	2024 Jun  8?	2024 Jun  7	    0.000 	-	Attached to ascent vehicle
-D01180	2025-038A	IM-2 Athena	INTMA	US	Luna	  -29.1957	  -84.7906	L	L	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	    0.510 	-	Lander, toppled
-D01186	2025-038	GRACE	INTMA	US	Luna	  -29.1957	  -84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	    0.510 	-	Rover, not deployed
-D01187	2025-038	MAPP	LOUT	US	Luna	  -29.1957	  -84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	    0.510 	-	Rover, not deployed
-D01188	2025-038	Yaoki	DYMON	J	Luna	  -29.1957	  -84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	    0.510 	-	Rover, not deployed
-D01178	2025-010A	Blue Ghost	FFLY	US	Luna	   61.8103	   18.5623	L	L	2025 Jan 15 0611	2025 Mar  2 0834	2025 Mar 16 2315	   14.612 	-	Lander
-F00040	1958-F15	AMS E-1 No. 1	OKB1	SU	Luna	-	-	I	F	1958 Sep 23 0903:23	-	1958 Sep 23 0904:55	    0.000 	-	Lunar impact probe, launch failure
-F00044	1958-F17	AMS E-1 No. 2	OKB1	SU	Luna	-	-	I	F	1958 Oct 11 2341:58	-	1958 Oct 11 2343:42	    0.000 	-	Lunar impact probe, launch failure
-F00054	1958-F20	AMS E-1 No. 3	OKB1	SU	Luna	-	-	I	F	1958 Dec  4 1818:45	-	1958 Dec  4 1825	    0.000 	-	Lunar impact probe, launch failure
-D00002	1959 MU 1	AMS E-1 No. 4 (Luna-1)	OKB1	SU	Luna	-	-	I	F	1959 Jan  2 1641:25	-	1959 Jan  5	    0.000 	-	Lunar impact probe, missed Moon
-F00064	1959-F06	AMS E-1A No. 5	OKB1	SU	Luna	-	-	I	F	1959 Jun 18 0808	-	1959 Jun 18 0810	    0.000 	-	Lunar impact probe, launch failure
-D00022	1962 ALP	Ranger Capsule 12	JPL	US	Luna	-	-	LI	O	1962 Jan 26 2030:11	-	1962 Feb  2	    0.000 	-	Ranger 3 capsule, missed Moon
-D00021	1962 ALP	BE-3	JPL	US	Luna	-	-	C	OC	1962 Jan 26 2030:11	-	1962 Jan 28 1729	    0.000 	-	Ranger 3 retro
-D00019	1962 ALP 1	Ranger 3	JPL	US	Luna	-	-	C	OC	1962 Jan 26 2030:11	-	1962 Feb  2	    0.000 	-	Ranger 3 service module
-A00250	1962 A PI	2MV-1 No. 1	OKB1	SU	Venus	-	-	LP	F	1962 Aug 25 0218:45	-	1962 Aug 25 0319	    0.000 	-	Venus lander, failed to leave parking orbit
-A00257	1962 A TAU	2MV-1 No. 2	OKB1	SU	Venus	-	-	LP	F	1962 Sep  1 0212:30	-	1962 Sep  1 0314	    0.000 	-	Venus lander, failed to leave parking orbit
-D00032	1962 B ETA	Ranger Capsule 18	JPL	US	Luna	-	-	LI	O	1962 Oct 18 1659:07	-	1962 Oct 29	    0.000 	-	Ranger 5 capsule, missed Moon
-D00031	1962 B ETA	BE-3	JPL	US	Luna	-	-	C	OC	1962 Oct 18 1659:07	-	1962 Oct 29	    0.000 	-	Ranger 5 retro
-D00030	1962 B ETA	Ranger 5	JPL	US	Luna	-	-	C	OC	1962 Oct 18 1659:07	-	1962 Oct 29	    0.000 	-	Ranger 5 service module
-A00295	1962 B XI	2MV-3 No. 1	OKB1	SU	Mars	-	-	LP	F	1962 Nov  4 1535:15	-	1962 Nov  4 1636	    0.000 	-	Mars lander, failed to leave parking orbit
-A00318	1963-001	E-6 No. 2 SA	OKB1	SU	Luna	-	-	LA	F	1963 Jan  4 0849	-	1963 Jan  4 1000?	    0.000 	-	Lunar lander, failed to leave parking orbit
-F00221	1963-F01	E-6 No. 3 SA	OKB1	SU	Luna	-	-	LA	F	1963 Feb  3 0929:14	-	1963 Feb  3 0934	    0.000 	-	Lunar lander, launch failure
-D00037	1963-008	E-6 No. 4 SA (Luna-4)	OKB1	SU	Luna	-	-	LA	O	1963 Apr  2 0816	-	1963 Apr 15	    0.000 	-	Lunar lander, missed Moon
-F00287	1964-F03	E-6 No. 6 SA	OKB1	SU	Luna	-	-	LA	F	1964 Mar 21 0815:35	-	1964 Mar 21 0823:41	    0.000 	-	Lunar lander, launch failure
-A00452	1964-014A	3MV-1 No. 3 (Kosmos-27)	OKB1	SU	Venus	-	-	LP	F	1964 Mar 27 0324:42	-	1964 Mar 27 0400?	    0.000 	-	Venus lander, failed to leave parking orbit
-F00302	1964-F05	E-6 No. 5 SA	OKB1	SU	Luna	-	-	LA	F	1964 Apr 20 0808:28	-	1964 Apr 20 0818	    0.000 	-	Lunar lander, launch failure
-A00645	1965-018	E-6 No. 9 SA (Kosmos-60)	OKB1	SU	Luna	-	-	LA	F	1965 Mar 12 0930	-	1965 Mar 30	    0.000 	-	Lunar lander, failed to leave parking orbit
-F00341	1965-F05	E-6 No. 8 SA	OKB1	SU	Luna	-	-	LA	F	1965 Apr 10 0839:01	-	1965 Apr 10 0844	    0.000 	-	Lunar lander, launch failure
-D00075	1965-044	E-6 No. 7 SA	OKB1	SU	Luna	-	-	LA	O	1965 Jun  8 0740	-	1965 Jun 10	    0.000 	-	Lunar lander, missed Moon
-S02852	1967-063A	4V-1 No. 311 (Kosmos-167)	IKI	SU	Venus	-	-	LP	F	1967 Jun 17 0236:38	-	1967 Jun 17 0402?	    0.000 	-	Venus lander, failed to leave parking orbit
-S04501	1970-065A	4V-1 No. 631 (Kosmos-359)	IKI	SU	Venus	-	-	LP	F	1970 Aug 22 0506:09	-	1970 Aug 22 0631?	    0.000 	-	Venus lander, failed to leave parking orbit
-S05919	1972-023A	4V-1 No. 671 (Kosmos-482)	IKI	SU	Venus	-	-	LP	F	1972 Mar 31 0402:33	-	1972 Mar 31 0507	    0.000 	-	Venus lander, failed to leave parking orbit
-F00518	1969-F04	E-8 No. 201	IKI	SU	Luna	-	-	L	F	1969 Feb 19 0648:16	-	1969 Feb 19 0649?	    0.000 	-	Lunar lander, launch failure
-F00519	1969-F04	8EL No. 201 (Lunokhod)	IKI	SU	Luna	-	-	RO	FC	1969 Feb 19 0648:16	-	1969 Feb 19 0649?	    0.000 	-	Lunar rover, launch failure
-F00540	1969-F08	E-8-5 No. 402	IKI	SU	Luna	-	-	L	F	1969 Jun 14 0400:47	-	1969 Jun 14 0425	    0.000 	-	Sample return mission, launch failure
-F00541	1969-F08	E-8-5 No. 402 VA	IKI	SU	Luna	-	-	AV	FC	1969 Jun 14 0400:47	-	1969 Jun 14 0425	    0.000 	-	Ascent vehicle, launch failure
-S04104	1969-080	E-8-5 No. 403	IKI	SU	Luna	-	-	L	F	1969 Sep 23 1407:36	-	1969 Sep 23 1530?	    0.000 	-	Sample return mission, failed to leave parking orbit
-A01674	1969-080	E-8-5 No. 403 VA	IKI	SU	Luna	-	-	AV	FC	1969 Sep 23 1407:36	-	1969 Sep 23 1530?	    0.000 	-	Ascent vehicle, failed to leave parking orbit
-A01694	1969-092	E-8-5 No. 404	IKI	SU	Luna	-	-	L	F	1969 Oct 22 1409:59	-	1969 Oct 22 1615	    0.000 	-	Sample return mission, failed to leave parking orbit
-A01695	1969-092	E-8-5 No. 404 VA	IKI	SU	Luna	-	-	AV	FC	1969 Oct 22 1409:59	-	1969 Oct 22 1615	    0.000 	-	Ascent vehicle, failed to leave parking orbit
-F00575	1969-092	E-8-5 No. 405	IKI	SU	Luna	-	-	L	F	1970 Feb  6 0416:06	-	1970 Feb  6 0418:13	    0.000 	-	Sample return mission, launch failure
-F00577	1969-092	E-8-5 No. 405 VA	IKI	SU	Luna	-	-	AV	FC	1970 Feb  6 0416:06	-	1970 Feb  6 0418:13	    0.000 	-	Ascent vehicle, launch failure
-F00744	1975-F05	E-8-5M No. 412	IKI	SU	Luna	-	-	L	F	1975 Oct 16 0404:56	-	1975 Oct 16 0418	    0.000 	-	Sample return mission, launch failure
-F00746	1975-F05	E-8-5M No. 412 VA	IKI	SU	Luna	-	-	AV	FC	1975 Oct 16 0404:56	-	1975 Oct 16 0418	    0.000 	-	Ascent vehicle, launch failure
-D00672	1988-058	Fobos-1 DAS	IKI	SU	Phobos	 -	-	LI	F	1988 Jul  7 1738:04	-	1988 Aug 28	    0.000 	-	Phobos lander, carrier missed Mars system
-D00675	1988-059	Fobos-2 DAS	IKI	SU	Phobos	 -	-	LI	F	1988 Jul 12 1701:43	-	1989 Mar 27	    0.000 	-	Phobos lander, carrier failed in Mars orbit
-D00676	1988-059	Fobos-2 PROP-FP	IKI	SU	Phobos	 -	-	RO	FC	1988 Jul 12 1701:43	-	1989 Mar 27	    0.000 	-	Phobos lander, carrier failed in Mars orbit
-A05838	1996-064	Mars-96 MAS 1	IKI	RU	Mars	 -	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	    0.000 	-	Mars lander, failed to leave parking orbit
-A05839	1996-064	Mars-96 MAS 2	IKI	RU	Mars	 -	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	    0.000 	-	Mars lander, failed to leave parking orbit
-A05840	1996-064	Mars-96 Penetrator 1	IKI	RU	Mars	 -	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	    0.000 	-	Mars lander, failed to leave parking orbit
-A05841	1996-064	Mars-96 Penetrator 2	IKI	RU	Mars	 -	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	    0.000 	-	Mars lander, failed to leave parking orbit
-S37872	2011-065A	Fobos-Grunt SA	IKI	RU	Phobos	 -	-	L	F	2011 Nov  8 2016:03	-	2011 Nov  8 2027:28	    0.000 	-	Phobos lander, failed to leave parking orbit
-A07893	2011-065	Fobos-Grunt VA	IKI	RU	Phobos	 -	-	AV	FC	2011 Nov  8 2016:03	-	2011 Nov  8 2027:28	    0.000 	-	Phobos sample return vehicle, failed to leave parking orbit
-D01107	2022-156	OMOTENASHI	JAXA	J	Luna	 -	-	LI	O	2022 Nov 16 0647:44	-	2022 Nov 22	    0.000 	-	Lunar lander, failed en route, no landing
-D01139	2024-006A	Peregrine Mission 1	ASTBT	US	Luna	 -	-	L	F	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Lunar lander, missed Moon
-D01142	2024-006	Colmena 1	AEMX/UNAM	MX	Luna	 -	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Robot swarm, missed Moon
-D01143	2024-006	Colmena 2	AEMX/UNAM	MX	Luna	 -	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Robot swarm, missed Moon
-D01144	2024-006	Colmena 3	AEMX/UNAM	MX	Luna	 -	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Robot swarm, missed Moon
-D01145	2024-006	Colmena 4	AEMX/UNAM	MX	Luna	 -	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Robot swarm, missed Moon
-D01146	2024-006	Colmena 5	AEMX/UNAM	MX	Luna	 -	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	    0.000 	-	Robot swarm, missed Moon
-D01176	2025-010B	Resilience	ISPACE	J	Luna	 -	-	L	*	2025 Jan 15 0611	-	*	-	-	En route
+D00007	1959 XI 1	AMS E-1A No. 7 (Luna-2)	OKB1	SU	Luna	0.0	30.0	I	I	1959 Sep 12 0639:42	1959 Sep 13 2102	1959 Sep 13 2102	0.000	Sinus Lunicus	Lunar impact probe
+D00008	1959 XI	8K72E No. I1-7B (Luna-2 R/B)	NII88	SU	Luna	-	-	R	I	1959 Sep 12 0639:42	1959 Sep 13 2100?	1959 Sep 13 2100?	0.000	-	Rocket stage, probably hit Moon
+D00026	1962 MU	Ranger Capsule 13	JPL	US	Luna	-130.50	-15.50	LI	I	1962 Apr 23 2050	1962 Apr 26 1249	1962 Apr 26 1250	0.000	-	Ranger 4 capsule, off course and hit farside
+D00025	1962 MU	BE-3	JPL	US	Luna	-130.50	-15.50	C	I	1962 Apr 23 2050	1962 Apr 26 1249	1962 Apr 26 1250	0.000	-	Retromotor
+D00024	1962 MU 1	Ranger 4	JPL	US	Luna	-130.50	-15.50	C	I	1962 Apr 23 2050	1962 Apr 26 1250	1962 Apr 26 1250	0.000	-	Service module
+D00044	1964-007A	Ranger 6	JPL	US	Luna	21.4806	9.3866	I	I	1964 Jan 30 1549:09	1964 Feb  2 0924:33	1964 Feb  2 0924:33	0.000	-	Lunar impact probe, no data
+D00050	1964-041A	Ranger 7	JPL	US	Luna	-20.6771	-10.6340	I	I	1964 Jul 28 1650:07	1964 Jul 31 1325:49	1964 Jul 31 1325:49	0.000	Mare Cognitum	Lunar impact probe, returned images
+D00061	1965-010A	Ranger 8	JPL	US	Luna	24.7881	2.6377	I	I	1965 Feb 17 1705:00	1965 Feb 20 0957:37	1965 Feb 20 0957:37	0.000	-	Lunar impact probe, returned images
+D00063	1965-023A	Ranger 9	JPL	US	Luna	-2.3884	-12.8281	I	I	1965 Mar 21 2137:02	1965 Mar 24 1408:21	1965 Mar 24 1408:21	0.000	-	Lunar impact probe, returned images
+D00066	1965-036	E-6 No 10 SA (Luna-5)	OKB1	SU	Luna	-8	-31	LA	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1913	0.000	-	Lost attitude, crashed
+D00065	1965-036A	Luna-5	OKB1	SU	Luna	-8	-31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1913	0.000	-	Service module
+D00067	1965-036	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	-8	-31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1910	0.000	-	Component
+D00068	1965-036	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	-8	-31	C	I	1965 May  9 0749:37	1965 May 12 1913	1965 May 12 1910	0.000	-	Component
+D00083	1965-077A	Luna-7	OKB1	SU	Luna	-49	9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	0.000	-	Service module
+D00084	1965-077A	ALS Luna-7	OKB1	SU	Luna	-49	9	LA	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	0.000	-	No retro burn, crashed
+D00085	1965-077	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	-49	9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	0.000	-	Component
+D00086	1965-077	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	-49	9	C	I	1965 Oct  4 0736:48	1965 Oct  7 2208	1965 Oct  7 2208	0.000	-	Component
+D00093	1965-099A	Luna-8	OKB1	SU	Luna	-63.30	9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	0.000	-	Service module
+D00094	1965-099A	ALS Luna-8	OKB1	SU	Luna	-63.30	9.13	LA	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	0.000	-	Retro burn late, crashed
+D00095	1965-099	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	-63.30	9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151:30	1965 Dec  6 2151:30	0.000	-	Component
+D00096	1965-099	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	-63.30	9.13	C	I	1965 Dec  3 1046:14	1965 Dec  6 2151	1965 Dec  6 2151:30	0.000	-	Component
+D00100	1966-006A	Luna-9	IKI	SU	Luna	-64.37	7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	0.000	-	Service module
+D00101	1966-006A	ALS Luna-9	OKB1	SU	Luna	-64.37	7.13	LA	L	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  6 2255	3.174	-	First survivable landing
+D00102	1966-006	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	-64.37	7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	0.000	-	Component
+D00103	1966-006	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	-64.37	7.13	C	I	1966 Jan 31 1141:37	1966 Feb  3 1845	1966 Feb  3 1845	0.000	-	Component
+D00090	1965-092A	Venera-3	OKB1	SU	Venus	-	-	C	I	1965 Nov 16 0413:35	1966 Mar  1 0656	1966 Jan?	0.000	-	Service module, attached to SA Veneri-3
+D00091	1965-092	Spuskaemiy apparat Veneri-3	OKB1	SU	Venus	-	-	LP	I	1965 Nov 16 0413:35	1966 Mar  1 0656	1966 Jan?	0.000	-	Contact lost before arrival, crashed
+D00110	1966-045A	Surveyor 1	JPL	US	Luna	-43.3398	2.4745	L	L	1966 May 30 1441:01	1966 Jun  2 0617	1967 Jan  7 0730	219.051	-	First thruster landing
+D00111	1966-045	Surveyor 1 radar	JPL	US	Luna	-43.3398	2.4745	C	I	1966 May 30 1441:01	1966 Jun  2 0615	1966 Jun  2 0615	0.000	-	Component
+D00112	1966-045	Star 37 S/N A21-26	JPL	US	Luna	-43.3398	2.4745	C	I	1966 May 30 1441:01	1966 Jun  2 0616?	1966 Jun  2 0615	0.000	-	Component
+D00128	1966-084A	Surveyor 2	JPL	US	Luna	-11	4	L	I	1966 Sep 20 1232:00	1966 Sep 23 0318	1966 Sep 22 0935	0.000	-	Propulsion failure, contact lost
+D00129	1966-084	Star 37 S/N A21-27	JPL	US	Luna	-11	4	C	I	1966 Sep 20 1232:00	1966 Sep 23 0315?	1966 Sep 22 0935	0.000	-	Propulsion failure, contact lost
+D00130	1966-084	Surveyor 2 Radar	JPL	US	Luna	-11	4	C	I	1966 Sep 20 1232:00	1966 Sep 23 0315?	1966 Sep 22 0935	0.000	-	Propulsion failure, contact lost
+D00119	1966-073A	Lunar Orbiter I	LARCN	US	Luna	162.0	6.7	O	I	1966 Aug 10 1926:00	1966 Oct 29 1330	1966 Oct 29 1330	0.000	-	Deorbited at end of mission
+D00140	1966-116A	Luna-13	IKI	SU	Luna	-62.05	18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801	1966 Dec 24 1801	0.000	-	Service module
+D00141	1966-116	Otdelyaemiy otsek No. 1	OKB1	SU	Luna	-62.05	18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801?	1966 Dec 24 1801	0.000	-	Component
+D00142	1966-116	Otdelyaemiy otsek No. 2	OKB1	SU	Luna	-62.05	18.87	C	I	1966 Dec 21 1017:08	1966 Dec 24 1801?	1966 Dec 24 1801	0.000	-	Component
+D00143	1966-116A	Luna-13 ALS	OKB1	SU	Luna	-62.05	18.87	LA	L	1966 Dec 21 1017:08	1966 Dec 24 1801	1966 Dec 28 0613	3.508	-	Airbag lander
+D00150	1967-035A	Surveyor 3	JPL	US	Luna	-23.418	-3.0163	L	L	1967 Apr 17 0705:01	1967 Apr 20 0004	1967 May  4 0004	14.000	Surveyor Base	Visited later by Apollo 12
+D00151	1967-035	Surveyor 3 Radar	JPL	US	Luna	-23.418	-3.0163	C	I	1967 Apr 17 0705:01	1967 Apr 20 0002	1967 Apr 20 0002	0.000	-	Component
+D00152	1967-035	Star 37 S/N A22-8	JPL	US	Luna	-23.418	-3.0163	C	I	1967 Apr 17 0705:01	1967 Apr 20 0003	1967 Apr 20 0002	0.000	-	Component
+D00166	1967-068A	Surveyor 4	JPL	US	Luna	-1.44	0.47	L	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	0.000	-	Retro motor exploded
+D00167	1967-068	Star 37 S/N A22-9	JPL	US	Luna	-1.44	0.47	C	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	0.000	-	Component
+D00168	1967-068	Surveyor 4 Radar	JPL	US	Luna	-1.44	0.47	C	I	1967 Jul 14 1153:29	1967 Jul 17 0203:25	1967 Jul 17 0202:40	0.000	-	Component
+D00180	1967-084A	Surveyor 5	JPL	US	Luna	23.1944	1.4550	L	L	1967 Sep  8 0757:01	1967 Sep 11 0046	1967 Dec 17 0430	97.155	-	Successful
+D00177	1967-084	Surveyor 5 Radar	JPL	US	Luna	23.1944	1.4550	C	I	1967 Sep  8 0757:01	1967 Sep 11 0045	1967 Sep 11 0045	0.000	-	Component
+D00178	1967-084	Star 37 S/N A21-28	JPL	US	Luna	23.1944	1.4550	C	I	1967 Sep  8 0757:01	1967 Sep 11 0045	1967 Sep 11 0045	0.000	-	Component
+D00145	1967-008A	Lunar Orbiter 3	LARCN	US	Luna	-92.70	14.32	O	I	1967 Feb  5 0117:01	1967 Oct  9 1027:11	1967 Oct  9 1027:11	0.000	-	Deorbited at end of mission
+D00138	1966-100A	Lunar Orbiter 2	LARCN	US	Luna	119.13	2.96	O	I	1966 Nov  6 2321:00	1967 Oct 11 0712	1967 Oct 11 0712	0.000	-	Deorbited at end of mission
+D00161	1967-058A	Venera-4	IKI	SU	Venus	38	19	C	I	1967 Jun 12 0239:45	1967 Oct 18 0435	1967 Oct 18 0435	0.000	-	Service module
+D00162	1967-058	Spuskaemiy apparat Veneri-4	IKI	SU	Venus	38	19	LP	I	1967 Jun 12 0239:45	1967 Oct 18 0614	1967 Oct 18 0614	0.000	-	Crushed during descent in atmosphere
+D00155	1967-041A	Lunar Orbiter 4	LARCN	US	Luna	-26	-3	O	I	1967 May  4 2225:00	1967 Oct 31?	1967 Jul 17	0.000	-	Post-mission orbit decay
+D00182	1967-112A	Surveyor 6	JPL	US	Luna	-1.4275	0.4743	L	L	1967 Nov  7 0739:01	1967 Nov 10 0101:04	1967 Dec 14 1914	34.579	-	Successful; made 3 m hop on Nov 17
+D00183	1967-112	Star 37 S/N A21-29	JPL	US	Luna	-1.4275	0.4743	C	I	1967 Nov  7 0739:01	1967 Nov 10 0100	1967 Nov 10 0058	0.000	-	Component
+D00184	1967-112	Surveyor 6 Radar	JPL	US	Luna	-1.4275	0.4743	C	I	1967 Nov  7 0739:01	1967 Nov 10 0100	1967 Nov 10 0058	0.000	-	Component
+D00125	1966-078A	Luna-11	IKI	SU	Luna	-	-	O	R	1966 Aug 24 0803:21	1968?	1966 Oct  1 0203	0.000	-	Post-mission orbit decay
+D00190	1968-001A	Surveyor 7	JPL	US	Luna	-11.5127	-40.9811	L	L	1968 Jan  7 0630:00	1968 Jan 10 0105:36	1968 Feb 21 0024	41.971	-	Successful
+D00192	1968-001	Star 37 S/N A22-14	JPL	US	Luna	-11.5127	-40.9811	C	I	1968 Jan  7 0630:00	1968 Jan 10 0105?	1968 Jan 10 0103	0.000	-	Component
+D00191	1968-001	Surveyor 7 Radar	JPL	US	Luna	-11.5127	-40.9811	C	I	1968 Jan  7 0630:00	1968 Jan 10 0105?	1968 Jan 10 0103	0.000	-	Component
+D00176	1967-075A	Lunar Orbiter 5	LARCN	US	Luna	-83.04	-2.79	O	I	1967 Aug  1 2233:00	1968 Jan 31 0758	1968 Jan 31 0758	0.000	-	Deorbited at end of mission
+D00230	1969-001A	Venera-5	IKI	SU	Venus	18	-3	C	I	1969 Jan  5 0628:08	1969 May 16 0700?	1969 May 16 0601?	0.000	-	Service module
+D00231	1969-001	SA Veneri-5	IKI	SU	Venus	18	-3	LP	I	1969 Jan  5 0628:08	1969 May 16 0700?	1969 May 16 0654:56	0.000	-	Crushed during descent in atmosphere
+D00233	1969-002A	Venera-6	IKI	SU	Venus	23	-5	C	I	1969 Jan 10 0551:52	1969 May 17 0700?	1969 May 17 0605?	0.000	-	Service module
+D00234	1969-002	SA Veneri-6	IKI	SU	Venus	23	-5	LP	I	1969 Jan 10 0551:52	1969 May 17 0700?	1969 May 17 0658:04	0.000	-	Crushed during descent in atmosphere
+D00243	1969-043C	LM 4 DS	MSC	US	Luna	-	-	C	R	1969 May 18 1649:00	1969 Jun?	1969 May 22 2334:17	0.000	-	Post-mission orbit decay
+D00271	1969-059	LM 5 DS	MSC	US	Luna	23.4333	0.6875	L	L	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	Statio Tranquillitatis	First human-carrying lander, Tranquility Base
+D00274	1969-059C	Eagle	MSC	US	Luna	23.4333	0.6875	AV	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	-	Cabin and ascent vehicle, Apollo 11
+D00265	1969-059	A7L-056	MSC	US	Luna	23.4333	0.6875	H	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	-	N. Armstrong
+D00266	1969-059	A7L-077	MSC	US	Luna	23.4333	0.6875	H	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	-	E. Aldrin
+D00267	1969-059	A7L-056 PLSS	MSC	US	Luna	23.4333	0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	-	Spacesuit backpack
+D00268	1969-059	A7L-077 PLSS	MSC	US	Luna	23.4333	0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 21 1754:01	0.901	-	Spacesuit backpack
+D00269	1969-059	EASEP PSEP	MSC	US	Luna	23.4333	0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Aug 27	37.000	-	Experiment package
+D00270	1969-059	EASEP LRRR	MSC	US	Luna	23.4333	0.6875	C	LC	1969 Jul 16 1332:00	1969 Jul 20 2017:40	1969 Jul 20 2017:40	0.000	-	Passive experiment
+D00259	1969-058A	Luna-15 KT (E-8-5 No. 401)	IKI	SU	Luna	60	17	L	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	0.000	-	Late ignition, crashed
+D00262	1969-058A	Luna-15 VA	IKI	SU	Luna	60	17	AV	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	0.000	-	Attached to Luna-15
+D00263	1969-058A	Luna-15 VS	IKI	SU	Luna	60	17	AV	I	1969 Jul 13 0254:42	1969 Jul 21 1552	1969 Jul 21 1552	0.000	-	Attached to Luna-15
+D00300	1969-099	LM 6 DS	MSC	US	Luna	-23.4216	-3.0124	L	L	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	Surveyor Base	Apollo 12 lander
+D00293	1969-099C	Intrepid	MSC	US	Luna	-23.4216	-3.0124	AV	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	-	Cabin and ascent vehicle, Apollo 12
+D00295	1969-099	A7L-065	MSC	US	Luna	-23.4216	-3.0124	H	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	-	C. Conrad
+D00296	1969-099	A7L-067	MSC	US	Luna	-23.4216	-3.0124	H	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	-	A. Bean
+D00297	1969-099	A7L-065 PLSS	MSC	US	Luna	-23.4216	-3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	-	Spacesuit backpack
+D00298	1969-099	A7L-067 PLSS	MSC	US	Luna	-23.4216	-3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1969 Nov 20 1425:56	1.313	-	Spacesuit backpack
+D00299	1969-099	Apollo 12 ALSEP	MSC	US	Luna	-23.4216	-3.0124	C	LC	1969 Nov 14 1622:00	1969 Nov 19 0654:44	1977 Sep 30	2872.000	-	Experiment package
+D01055	1969-U02	Intrepid	MSC	US	Luna	-21.20	-3.94	AV	I	1969 Nov 20 1425:56	1969 Nov 20 2217:25	1969 Nov 20 2217:25	0.000	-	Empty ascent vehicle, deorbited
+D00260	1969-058	Sbrasivaemiy otsek	IKI	SU	Luna	60	17	C	R	1969 Jul 13 0254:42	1970?	1969 Jul 21 1545	0.000	-	Post-mission orbit decay
+D00261	1969-058	Sbrasivaemiy otsek	IKI	SU	Luna	60	17	C	R	1969 Jul 13 0254:42	1970?	1969 Jul 21 1545	0.000	-	Post-mission orbit decay
+D01052	1969-U01	Eagle	MSC	US	Luna	-	-	AV	R	1969 Jul 21 1754:01	1970?	1969 Jul 21 2342	0.000	-	May still be in lunar orbit?
+D00105	1966-027A	Luna-10	IKI	SU	Luna	-	-	O	R	1966 Mar 31 1046:59	1970s?	1966 May 29	0.000	-	Post-mission orbit decay
+D00108	1966-027	Luna-10 DU	IKI	SU	Luna	-	-	C	R	1966 Mar 31 1046:59	1970s?	1966 Apr  3 1845	0.000	-	Post-mission orbit decay
+D00199	1968-027A	Luna-14	IKI	SU	Luna	-	-	O	R	1968 Apr  7 1009:32	1970s?	1968 Jun 24	0.000	-	Post-mission orbit decay
+D00323	1970-029B	Saturn S-IVB-508	MSFC	US	Luna	-27.8873	-2.5550	R	I	1970 Apr 11 1913:03	1970 Apr 15 0109:40	1970 Apr 12 0116:36	0.000	-	Apollo 13 rocket stage
+D00324	1970-029	S-IU-508	MSFC	US	Luna	-27.8873	-2.5550	C	IC	1970 Apr 11 1913:03	1970 Apr 15 0109:40	1970 Apr 12 0116:36	0.000	-	Attached to S-IVB
+D00334	1970-072A	Luna-16 KT (E-8-5 No. 406)	IKI	SU	Luna	56.3638	-0.5137	L	L	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	1.101	-	Lander for sample return craft
+D00338	1970-072	Luna-16 VS	IKI	SU	Luna	56.3638	-0.5137	AV	LC	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	1.101	-	Returned samples to Earth
+D00337	1970-072A	Luna-16 VA	IKI	SU	Luna	56.3638	-0.5137	AV	LC	1970 Sep 12 1325:53	1970 Sep 20 0517:51	1970 Sep 21 0743:21	1.101	-	Returned samples to Earth
+D00335	1970-072	Sbrasivaemiy otsek	IKI	SU	Luna	56.3638	-0.5137	C	R	1970 Sep 12 1325:53	1970 Oct?	-	0.000	-	Post-mission orbit decay
+D00336	1970-072	Sbrasivaemiy otsek	IKI	SU	Luna	56.3638	-0.5137	C	R	1970 Sep 12 1325:53	1970 Oct?	-	0.000	-	Post-mission orbit decay
+D00342	1970-095A	Luna-17 (E-8 No. 203)	IKI	SU	Luna	-35.0016	38.2376	L	L	1970 Nov 10 1444:01	1970 Nov 17 0347	1970 Nov 17?	0.500	-	Rover transport lander
+D00344	1970-095	Lunokhod-1	IKI	SU	Luna	-35.0081	38.3151	RO	LC	1970 Nov 10 1444:01	1970 Nov 17 0347	1971 Oct	318.000	-	First robot rover
+D00332	1970-060	Venera-7 SA cap	IKI	SU	Venus	351	-5	C	I	1970 Aug 17 0538:22	1970 Dec 15 0520?	1970 Dec 15	0.000	-	Component
+D00329	1970-060A	Venera-7	IKI	SU	Venus	351	-5	C	I	1970 Aug 17 0538:22	1970 Dec 15 0534:09	1970 Dec 15 0500	0.000	-	Service module
+D00331	1970-060	SA Veneri-7	IKI	SU	Venus	351	-5	LP	L	1970 Aug 17 0538:22	1970 Dec 15 0534:09	1970 Dec 15 0600:01	0.018	-	First Venus landing
+D00345	1970-095	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1970 Nov 10 1444:01	1971?	-	0.000	-	Post-mission orbit decay
+D00346	1970-095	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1970 Nov 10 1444:01	1971?	-	0.000	-	Post-mission orbit decay
+D00358	1971-008B	Saturn S-IVB-509	MSFC	US	Luna	-26.0305	-8.1810	R	I	1971 Jan 31 2103:02	1971 Feb  4 0740:54	1971 Feb  1 0607:12	0.000	-	Apollo 14 rocket stage, targeted impact
+D00359	1971-008	S-IU-509	MSFC	US	Luna	-26.0305	-8.1810	C	IC	1971 Jan 31 2103:02	1971 Feb  4 0740:54	1971 Feb  1 0607:12	0.000	-	Attached to S-IVB
+D00356	1971-008	LM 8 DS	MSC	US	Luna	-17.4719	-3.6459	L	L	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	Fra Mauro Base	Apollo 14 lander
+D00348	1971-008C	Antares	MSC	US	Luna	-17.4719	-3.6459	AV	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	-	Cabin and ascent vehicle, Apollo 14
+D00350	1971-008	A7L-090	MSC	US	Luna	-17.4719	-3.6459	H	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	-	A. Shepard
+D00351	1971-008	A7L-073	MSC	US	Luna	-17.4719	-3.6459	H	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	-	E. Mitchell
+D00352	1971-008	A7L-090 PLSS	MSC	US	Luna	-17.4719	-3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	-	Spacesuit backpack
+D00353	1971-008	A7L-073 PLSS	MSC	US	Luna	-17.4719	-3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  6 1848:41	1.396	-	Spacesuit backpack
+D00354	1971-008	Apollo 14 ALSEP	MSC	US	Luna	-17.4777	-3.6442	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1977 Sep 30	2428.000	-	Experiment package
+D00355	1971-008	MET	MSC	US	Luna	-17.4719	-3.6459	C	LC	1971 Jan 31 2103:02	1971 Feb  5 0918:12	1971 Feb  5 0918:12	0.000	-	Equipment cart
+D01060	1971-U01	Antares	MSC	US	Luna	-19.27	-3.50	AV	I	1971 Feb  6 1848	1971 Feb  7 0045:25	1971 Feb  7 0045:25	0.000	-	Empty ascent vehicle, deorbited
+D00399	1971-063B	Saturn S-IVB-510	MSFC	US	Luna	-11.8245	-1.2896	R	I	1971 Jul 26 1334:00	1971 Jul 29 2058:42	1971 Jul 26 2334:01	0.000	-	Apollo 15 rocket stage, targeted impact
+D00400	1971-063	S-IU-510	MSFC	US	Luna	-11.8245	-1.2896	C	IC	1971 Jul 26 1334:00	1971 Jul 29 2058:42	1971 Jul 26 2334:01	0.000	-	Attached to S-IVB
+D00388	1971-063	LM 10 DS	MSC	US	Luna	3.6333	26.1233	L	L	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	Hadley Base	Apollo 15 lander
+D00385	1971-063C	Falcon	MSC	US	Luna	3.6333	26.1233	AV	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	Cabin and ascent vehicle, Apollo 15
+D00389	1971-063	A7LB-315	MSC	US	Luna	3.6333	26.1233	H	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	D. Scott
+D00390	1971-063	A7LB-320	MSC	US	Luna	3.6333	26.1233	H	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	J. Irwin
+D00392	1971-063	A7LB-320 PLSS	MSC	US	Luna	3.6333	26.1233	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	Spacesuit backpack
+D00391	1971-063	A7LB-315 PLSS	MSC	US	Luna	3.6333	26.1233	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	Spacesuit backpack
+D00393	1971-063	Apollo 15 ALSEP	MSC	US	Luna	3.6285	26.1341	C	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1977 Sep 30	2253.000	-	Experiment package
+D00394	1971-063	LRV-1	MSC	US	Luna	3.6333	26.1233	RO	LC	1971 Jul 26 1334:00	1971 Jul 30 2216:29	1971 Aug  2 1711:23	2.788	-	Lunar Roving Vehicle
+D01063	1971-U02	Falcon	MSC	US	Luna	0.267	26.327	AV	I	1971 Aug  2 1711:23	1971 Aug  3 0303:36	1971 Aug  3 0303:36	0.000	-	Empty ascent vehicle, deorbited
+D00405	1971-073A	Luna-18 KT (E-8-5 No. 407)	IKI	SU	Luna	56.50	3.57	L	I	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	0.000	-	Sample return mission, crashed.
+D00409	1971-073A	Luna-18 VA	IKI	SU	Luna	56.50	3.57	AV	LC	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	0.000	-	Return vehicle, attached to Luna-18
+D00410	1971-073	Luna-18 VS	IKI	SU	Luna	56.50	3.57	AV	LC	1971 Sep  2 1340:40	1971 Sep 11 0747:16	1971 Sep 11 0747:16	0.000	-	Return capsule, attached to Luna-18
+D00369	1971-045D	SA Marsa-2	IKI	SU	Mars	-313.2	-44.2	LP	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	0.000	-	Mars lander
+D00371	1971-045	TDU Marsa-2	IKI	SU	Mars	-313.2	-44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 1608?	0.000	-	Motor
+D00372	1971-045	Teplovoy Ekran	IKI	SU	Mars	-313.2	-44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022?	1971 Nov 27 2019?	0.000	-	Heat shield
+D00373	1971-045	DMP	IKI	SU	Mars	-313.2	-44.2	C	I	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	0.000	-	Motor
+D00374	1971-045	PROP-M	IKI	SU	Mars	-313.2	-44.2	RO	IC	1971 May 19 1622:44	1971 Nov 27 2022	1971 Nov 27 2022	0.000	-	Hopper rover
+D00407	1971-073	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	I	1971 Sep  2 1340:40	1971 Dec?	1971 Sep 11 0742	0.000	-	Component
+D00408	1971-073	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	I	1971 Sep  2 1340:40	1971 Dec?	1971 Sep 11 0742	0.000	-	Component
+D00376	1971-049E	SA Marsa-3	IKI	SU	Mars	-157.977	-45.045	LP	L	1971 May 28 1526:30	1971 Dec  2 1347	1971 Dec  2 1350:55	0.001	-	Mars lander, transmitted 110s
+D00378	1971-049	TDU Marsa-3	IKI	SU	Mars	-157.977	-45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	0.000	-	Motor
+D00379	1971-049	Teplovoy Ekran	IKI	SU	Mars	-157.977	-45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	0.000	-	Heat shield
+D00380	1971-049	DMP	IKI	SU	Mars	-157.977	-45.045	C	I	1971 May 28 1526:30	1971 Dec  2 1347?	1971 Dec  2 1347	0.000	-	Motor
+D00381	1971-049	PROP-M	IKI	SU	Mars	-157.977	-45.045	RO	LC	1971 May 28 1526:30	1971 Dec  2 1347	1971 Dec  2 1347	0.000	-	Hopper rover
+D00427	1972-007E	Luna-20 KT (E-8-5 No. 408)	IKI	SU	Luna	56.6242	3.7863	L	L	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	1.152	-	Sample return lander
+D00430	1972-007	Luna-20 VS	IKI	SU	Luna	56.6242	3.7863	AV	LC	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	1.152	-	Ascent stage
+D00425	1972-007	Luna-20 VA	IKI	SU	Luna	56.6242	3.7863	AV	LC	1972 Feb 14 0327:59	1972 Feb 21 1918:55	1972 Feb 22 2258:14	1.152	-	Return capsule
+D00428	1972-007	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1972 Feb 14 0327:59	1972 Mar?	1972 Feb 21 1913	0.000	-	Component
+D00429	1972-007	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1972 Feb 14 0327:59	1972 Mar?	1972 Feb 21 1913	0.000	-	Component
+D00441	1972-031B	Saturn S-IVB-511	MSFC	US	Luna	-22.1	2.1	R	I	1972 Apr 16 1754:00	1972 Apr 19 2102:04	1972 Apr 16 2334	0.000	-	Apollo 16 rocket stage
+D00444	1972-031	S-IU-511	MSFC	US	Luna	-22.1	2.1	C	IC	1972 Apr 16 1754:00	1972 Apr 19 2102:04	1972 Apr 16 2334	0.000	-	Attached to S-IVB
+D00450	1972-031	LM 11 DS	MSC	US	Luna	15.5011	-8.9734	L	L	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	Descartes Base	Apollo 16 lander
+D00442	1972-031C	Orion	MSC	US	Luna	15.5011	-8.9734	AV	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	Cabin and ascent vehicle, Apollo 16
+D00451	1972-031	A7LB-322	MSC	US	Luna	15.5011	-8.9734	H	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	J. Young
+D00452	1972-031	A7LB-327	MSC	US	Luna	15.5011	-8.9734	H	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	C. Duke
+D00453	1972-031	A7LB-322 PLSS	MSC	US	Luna	15.5011	-8.9734	C	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	Spacesuit backpack
+D00454	1972-031	A7LB-327 PLSS	MSC	US	Luna	15.5011	-8.9734	C	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	Spacesuit backpack
+D00456	1972-031	Apollo 16 ALSEP	MSC	US	Luna	15.4986	-8.9759	C	LC	1972 Apr 16 1754:00	1972 Apr 21 1815	1977 Sep 30	1988.000	-	Experiment package
+D00455	1972-031	LRV-2	MSC	US	Luna	15.5011	-8.9734	RO	LC	1972 Apr 16 1754:00	1972 Apr 21 0223:35	1972 Apr 24 0125:48	2.960	-	Rover
+D00457	1972-031	Mass spectrometer boom	MSC	US	Luna	0.000	0.000	C	R	1972 Apr 16 1754:00	1972 May?	1972 Apr 24 2117	0.000	-	Component
+D00443	1972-031D	Apollo 16 Subsatellite	MSC	US	Luna	0.000	0.000	O	R	1972 Apr 16 1754:00	1972 May 29 2200?	1972 May 29	0.000	-	Orbiter; post-mission orbital decay
+D00434	1972-021A	Venera-8	IKI	SU	Venus	335.25	-10.70	C	I	1972 Mar 27 0415:01	1972 Jul 22 0837	1972 Jul 22 0837	0.000	-	Service module
+D00436	1972-021A	SA Veneri-8	IKI	SU	Venus	335.25	-10.70	LP	L	1972 Mar 27 0415:01	1972 Jul 22 0929	1972 Jul 22 1019	0.035	-	Venus lander
+D00437	1972-021A	Venera-8 SA cap	IKI	SU	Venus	335.25	-10.70	C	I	1972 Mar 27 0415:01	1972 Jul 22 0915?	1972 Jul 22 0840?	0.000	-	Component
+D00475	1972-096B	Saturn S-IVB-512	MSFC	US	Luna	-12.3307	-4.1681	R	I	1972 Dec  7 0533:00	1972 Dec 10 2312:40	1972 Dec  7 1630?	0.000	-	Apollo 17 rocket stage
+D00476	1972-096	S-IU-512	MSFC	US	Luna	-12.3307	-4.1681	C	IC	1972 Dec  7 0533:00	1972 Dec 10 2312:40	1972 Dec  7 1630?	0.000	-	Attached to S-IVB
+D00465	1972-096	LM 12	MSC	US	Luna	30.7723	20.1911	L	L	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	Taurus-Littrow Base	Apollo 17 lander
+D00464	1972-096C	Challenger	MSC	US	Luna	30.7723	20.1911	AV	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	Cabin and ascent stage, Apollo 17
+D00466	1972-096	A7LB-328	MSC	US	Luna	30.7723	20.1911	H	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	E. Cernan
+D00467	1972-096	A7LB-329	MSC	US	Luna	30.7723	20.1911	H	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	H. Schmitt
+D00468	1972-096	A7LB-328 PLSS	MSC	US	Luna	30.7723	20.1911	C	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	Spacesuit bakckpack
+D00469	1972-096	A7LB-329 PLSS	MSC	US	Luna	30.7723	20.1911	C	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	Spacesuit bakckpack
+D00470	1972-096	LRV-3	MSC	US	Luna	30.7723	20.1911	RO	LC	1972 Dec  7 0533:00	1972 Dec 11 1954:57	1972 Dec 14 2254:37	3.125	-	Rover
+D00471	1972-096	Apollo 17 ALSEP	MSC	US	Luna	30.7655	20.1923	C	LC	1972 Dec  7 0533:00	1972 Dec 12 0340	1977 Sep 30	1753.000	-	Experiment package
+D01071	1972-U03	Challenger	MSC	US	Luna	30.4897	19.9661	AV	I	1972 Dec 14 2254:37	1972 Dec 15 0650	1972 Dec 15 0650	0.000	-	Empty ascent vehicle, deorbited
+D01068	1972-U02	Orion	MSC	US	Luna	-	-	AV	R	1972 Apr 24 0125:48	1973?	1972 Apr 25 1200?	0.000	-	Post-mission orbital decay
+D00482	1973-001A	Luna-21 (E-8 No. 204)	IKI	SU	Luna	30.4077	25.9994	L	L	1973 Jan  8 0655:38	1973 Jan 15 2235	1973 Jan 16 0114	0.110	-	Rover transport lander
+D00486	1973-001	Lunokhod-2	IKI	SU	Luna	30.9221	25.8323	RO	LC	1973 Jan  8 0655:38	1973 Jan 15 2235	1973 Jun  3	138.000	-	Rover
+D00484	1973-001	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1973 Jan  8 0655:38	1973 Feb?	1973 Jan 15 2219	0.000	-	Component
+D00485	1973-001	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1973 Jan  8 0655:38	1973 Feb?	1973 Jan 15 2219	0.000	-	Component
+D00411	1971-082A	Luna-19	IKI	SU	Luna	-	-	O	R	1971 Sep 28 1000:22	1974?	1972 Oct 20	0.000	-	Lunar orbiter; post-mission orbital decay
+D00413	1971-082	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1971 Sep 28 1000:22	1974?	1972 Oct 20	0.000	-	Component, attached to Luna-19
+D00414	1971-082	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1971 Sep 28 1000:22	1974?	1972 Oct 20	0.000	-	Component, attached to Luna-19
+D00386	1971-063D	Apollo 15 Subsatellite	MSC	US	Luna	-	-	O	R	1971 Jul 26 1334:00	1974?	1973 Aug 23	0.000	-	Post-mission orbital decay
+D00502	1973-052D	SA Marsa-6	IKI	SU	Mars	19.5	-23.9	LP	L	1973 Aug  5 1745:48	1974 Mar 12 0858:24	1974 Mar 12 0858:24	0.000	-	Mars lander, contact lost on landing
+D00504	1973-052	TDU Marsa-6	IKI	SU	Mars	19.5	-23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0830?	1974 Mar 12 0855	0.000	-	Motor
+D00505	1973-052	Teplovoy Ekran	IKI	SU	Mars	19.5	-23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0858?	1974 Mar 12 0855	0.000	-	Heat shield
+D00506	1973-052	DMP	IKI	SU	Mars	19.5	-23.9	C	I	1973 Aug  5 1745:48	1974 Mar 12 0858?	1974 Mar 12 0855	0.000	-	Motor
+D00522	1974-084A	Luna-23 KT (E-8-5M No. 410)	IKI	SU	Luna	62.1511	12.6669	L	L	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	3.000	-	Sample return attempt, lander damaged on touchdown
+D00526	1974-084	Luna-23 VS	IKI	SU	Luna	62.1511	12.6669	AV	LC	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	3.000	-	Return vehicle
+D00527	1974-084	Luna-23 VA	IKI	SU	Luna	62.1511	12.6669	AV	LC	1974 Oct 28 1430:32	1974 Nov  6 0537	1974 Nov  9	3.000	-	Sample capsule
+D00524	1974-084	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1974 Oct 28 1430:32	1975?	1974 Nov  6 0530	0.000	-	Component
+D00525	1974-084	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1974 Oct 28 1430:32	1975?	1974 Nov  6 0530	0.000	-	Component
+D00535	1975-050D	SA Veneri-9	IKI	SU	Venus	290.83	31.70	LP	L	1975 Jun  8 0238:00	1975 Oct 22 0508:23	1975 Oct 22 0601	0.037	-	Venus lander
+D00537	1975-050	Teplozashchitniy korpus	IKI	SU	Venus	290.83	31.70	C	I	1975 Jun  8 0238:00	1975 Oct 22 0430?	1975 Oct 22 0430?	0.000	-	Heat shield
+D00538	1975-050	Teplozashchitniy korpus	IKI	SU	Venus	290.83	31.70	C	I	1975 Jun  8 0238:00	1975 Oct 22 0430?	1975 Oct 22 0430?	0.000	-	Heat shield
+D00540	1975-054D	SA Veneri-10	IKI	SU	Venus	291.00	16.03	LP	L	1975 Jun 14 0300:31	1975 Oct 25 0512:11	1975 Oct 25 0617	0.045	-	Venus lander
+D00542	1975-054	Teplozashchitniy korpus	IKI	SU	Venus	291.00	16.03	C	I	1975 Jun 14 0300:31	1975 Oct 25 0430?	1975 Oct 25 0430?	0.000	-	Heat shield
+D00543	1975-054	Teplozashchitniy korpus	IKI	SU	Venus	291.00	16.03	C	I	1975 Jun 14 0300:31	1975 Oct 25 0430?	1975 Oct 25 0430?	0.000	-	Heat shield
+D00520	1974-037A	Luna-22 (E-8LS No. 206)	IKI	SU	Luna	-	-	O	R	1974 May 29 0856:51	1976?	1975 Nov	0.000	-	Orbiter; post-mission orbital decay
+D00518	1974-037	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1974 May 29 0856:51	1976?	1975 Nov	0.000	-	Component
+D00519	1974-037	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	IC	1974 May 29 0856:51	1976?	1975 Nov	0.000	-	Component
+D00545	1975-075	Viking Lander 1	LARCN	US	Mars	312.050	22.67	L	L	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1982 Nov 20	2313.000	Mutch Memorial Station	Mars lander
+D00547	1975-075	Viking 1 Aeroshell	LARCN	US	Mars	312.050	22.697	C	I	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1976 Jul 20 1151	0.000	-	Component
+D00548	1975-075	Viking 1 Aeroshell Cover	LARCN	US	Mars	312.050	22.697	C	I	1975 Aug 20 2122:00	1976 Jul 20 1153:05	1976 Jul 20 1151	0.000	-	Component
+D00566	1976-081A	Luna-24 KT (E-8-5M No. 413)	IKI	SU	Luna	62.2129	12.7145	L	L	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	0.951	-	Sample return lander
+D00571	1976-081	Luna-24 VS	IKI	SU	Luna	62.2129	12.7145	AV	LC	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	0.951	-	Ascent vehicle
+D00567	1976-081E	Luna-24 VA	IKI	SU	Luna	62.2129	12.7145	AV	LC	1976 Aug  9 1504:12	1976 Aug 18 0636	1976 Aug 19 0525	0.951	-	Sample capsule
+D00552	1975-083	Viking Lander 2	LARCN	US	Mars	134.2809	47.6673	L	L	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1980 Apr 12	1316.000	-	Mars lander
+D00554	1975-083	Viking 2 Aeroshell	LARCN	US	Mars	134.2809	47.6673	C	I	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1976 Sep  3 2236	0.000	-	Component
+D00555	1975-083	Viking 2 Aeroshell Cover	LARCN	US	Mars	134.2809	47.6673	C	I	1975 Sep  9 1839:00	1976 Sep  3 2237:50	1976 Sep  3 2236	0.000	-	Component
+D00569	1976-081	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1976 Aug  9 1504:12	1976 Oct?	1976 Aug 18 0630	0.000	-	Component
+D00570	1976-081	Sbrasivaemiy otsek	IKI	SU	Luna	-	-	C	R	1976 Aug  9 1504:12	1976 Oct?	1976 Aug 18 0630	0.000	-	Component
+D00596	1978-078	Small Probe 1 despin weight	ARC	US	Venus	60.1	4.4	C	I	1978 Aug  8 0733	1978 Dec  9 1849	1978 Dec  9 1847	0.000	-	Component
+D00597	1978-078	Small Probe 1 despin weight	ARC	US	Venus	60.1	4.4	C	I	1978 Aug  8 0733	1978 Dec  9 1849	1978 Dec  9 1847	0.000	-	Component
+D00599	1978-078	Small Probe 2 despin weight	ARC	US	Venus	318.4	-32.4	C	I	1978 Aug  8 0733	1978 Dec  9 1852	1978 Dec  9 1847	0.000	-	Component
+D00600	1978-078	Small Probe 2 despin weight	ARC	US	Venus	318.4	-32.4	C	I	1978 Aug  8 0733	1978 Dec  9 1852	1978 Dec  9 1847	0.000	-	Component
+D00602	1978-078	Small Probe 3 despin weight	ARC	US	Venus	56.7	-27.4	C	I	1978 Aug  8 0733	1978 Dec  9 1856	1978 Dec  9 1851	0.000	-	Component
+D00603	1978-078	Small Probe 3 despin weight	ARC	US	Venus	56.7	-27.4	C	I	1978 Aug  8 0733	1978 Dec  9 1856	1978 Dec  9 1851	0.000	-	Component
+D00595	1978-078	Sounder Probe Aft Cover	ARC	US	Venus	304.0	4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1930?	1978 Dec  9 1846	0.000	-	Component
+D00598	1978-078	Sounder Deceleration Module	ARC	US	Venus	304.0	4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1930?	1978 Dec  9 1847	0.000	-	Component
+D00590	1978-078D	Sounder Probe	ARC	US	Venus	304.0	4.0	LP	I	1978 Aug  8 0733	1978 Dec  9 1939:53	1978 Dec  9 1939:53	0.000	-	LOS at touchdown
+D00601	1978-078	LNMS cap	ARC	US	Venus	304.0	4.0	C	I	1978 Aug  8 0733	1978 Dec  9 1940?	1978 Dec  9 1847?	0.000	-	Component
+D00591	1978-078E	North Probe	ARC	US	Venus	60.1	4.4	LI	I	1978 Aug  8 0733	1978 Dec  9 1942:40	1978 Dec  9 1942:40	0.000	-	LOS at touchdown
+D00592	1978-078F	Day Probe	ARC	US	Venus	318.4	-32.4	LI	L	1978 Aug  8 0733	1978 Dec  9 1947:59	1978 Dec  9 2055:34	0.047	-	Venus probe
+D00593	1978-078G	Night Probe	ARC	US	Venus	56.7	-27.4	LI	I	1978 Aug  8 0733	1978 Dec  9 1952:05	1978 Dec  9 1952:05	0.000	-	LOS at touchdown
+D00594	1978-078	BNMS cap	ARC	US	Venus	-	-	C	I	1978 Aug  8 0733	1978 Dec  9 2022?	1978 Dec  9 1500?	0.000	-	Component
+D00588	1978-078A	Pioneer Venus Multiprobe	ARC	US	Venus	284.1	-41.2	C	R	1978 Aug  8 0733	1978 Dec  9 2023?	1978 Dec  9 2022:55	0.000	-	Released entry probes
+D00616	1978-086	Teplozashchitniy korpus	IKI	SU	Venus	294	-7	C	I	1978 Sep 14 0225:13	1978 Dec 21 0300?	1978 Dec 21 0230	0.000	-	Heat shield
+D00617	1978-086	Teplozashchitniy korpus	IKI	SU	Venus	294	-7	C	I	1978 Sep 14 0225:13	1978 Dec 21 0300?	1978 Dec 21 0230	0.000	-	Heat shield
+D00614	1978-086C	SA Veneri-12	IKI	SU	Venus	294	-7	LP	L	1978 Sep 14 0225:13	1978 Dec 21 0330:30	1978 Dec 21 0520	0.076	-	Venus lander
+D00611	1978-084	Teplozashchitniy korpus	IKI	SU	Venus	299	-14	C	I	1978 Sep  9 0325:39	1978 Dec 25 0300?	1978 Dec 25 0222	0.000	-	Heat shield
+D00612	1978-084	Teplozashchitniy korpus	IKI	SU	Venus	299	-14	C	I	1978 Sep  9 0325:39	1978 Dec 25 0300?	1978 Dec 25 0222	0.000	-	Heat shield
+D00609	1978-084C	SA Veneri-11	IKI	SU	Venus	299	-14	LP	L	1978 Sep  9 0325:39	1978 Dec 25 0324:25	1978 Dec 25 0500	0.066	-	Venus lander
+D00627	1981-106	Teplozashchitniy korpus	IKI	SU	Venus	303.1	-7.5	C	I	1981 Oct 30 0604:22	1982 Mar  1 0330?	1982 Mar  1 0256	0.000	-	Heat shield
+D00628	1981-106	Teplozashchitniy korpus	IKI	SU	Venus	303.1	-7.5	C	I	1981 Oct 30 0604:22	1982 Mar  1 0330?	1982 Mar  1 0256	0.000	-	Heat shield
+D00625	1981-106D	SA Veneri-13	IKI	SU	Venus	303.1	-7.5	LP	L	1981 Oct 30 0604:22	1982 Mar  1 0357:21	1982 Mar  1 0604	0.088	-	Venus lander
+D00632	1981-110	Teplozashchitniy korpus	IKI	SU	Venus	310.15	-13.25	C	I	1981 Nov  4 0531:16	1982 Mar  5 0330?	1982 Mar  5 0253	0.000	-	Heat shield
+D00633	1981-110	Teplozashchitniy korpus	IKI	SU	Venus	310.15	-13.25	C	I	1981 Nov  4 0531:16	1982 Mar  5 0330?	1982 Mar  5 0253	0.000	-	Heat shield
+D00630	1981-110D	SA Veneri-14	IKI	SU	Venus	310.15	-13.25	LP	L	1981 Nov  4 0531:16	1982 Mar  5 0356:15	1982 Mar  5 0453	0.040	-	Venus lander
+D00654	1984-125	Teplozashchitniy korpus	IKI	SU	Venus	177.80	7.18	C	I	1984 Dec 15 0916:24	1985 Jun 11 0230?	1985 Jun 11 0200	0.000	-	Heat shield
+D00655	1984-125	Teplozashchitniy korpus	IKI	SU	Venus	177.80	7.18	C	I	1984 Dec 15 0916:24	1985 Jun 11 0230?	1985 Jun 11 0200	0.000	-	Heat shield
+D00652	1984-125E	SA Vega-1	IKI	SU	Venus	177.80	7.18	LP	L	1984 Dec 15 0916:24	1985 Jun 11 0302	1985 Jun 11 0324	0.014	-	Venus lander
+D00653	1984-125F	AZ Vega-1	IKI	SU	Venus	68.8	8.1	AX	I	1984 Dec 15 0916:24	1985 Jun 13 0100?	1985 Jun 14 0038	0.000	-	Venus balloon
+D00660	1984-128	Teplozashchitniy korpus	IKI	SU	Venus	181.08	-6.45	C	I	1984 Dec 21 0913:52	1985 Jun 15 0230?	1985 Jun 15 0200	0.000	-	Heat shield
+D00661	1984-128	Teplozashchitniy korpus	IKI	SU	Venus	181.08	-6.45	C	I	1984 Dec 21 0913:52	1985 Jun 15 0230?	1985 Jun 15 0200	0.000	-	Heat shield
+D00658	1984-128E	SA Vega-2	IKI	SU	Venus	181.08	-6.45	LP	L	1984 Dec 21 0913:52	1985 Jun 15 0300:50	1985 Jun 15 0322	0.015	-	Venus lander
+D00659	1984-128F	AZ Vega-2	IKI	SU	Venus	76.3	-7.5	AX	I	1984 Dec 21 0913:52	1985 Jun 17 0100?	1985 Jun 17 0038	0.000	-	Venus balloon
+D00584	1978-051A	Pioneer Venus Orbiter	ARC	US	Venus	-	-	O	R	1978 May 20 1313:00	1992 Oct 22	1992 Oct 22	0.000	-	Orbit lowered to reentry
+D00586	1978-051	Star 24	ARC	US	Venus	-	-	C	IC	1978 May 20 1313:00	1992 Oct 22	1978 Dec  4 1600?	0.000	-	Attached to PVO
+D00693	1990-007A	Hiten	ISASS	J	Luna	55.3	-34.0	O	R	1990 Jan 24 1146:00	1993 Apr 10 1803:25	1993 Apr 10 1803:25	0.000	-	Orbital decay
+D00677	1989-033B	Magellan	JPL	US	Venus	-	-	O	R	1989 May  4 1846:59	1994 Oct 12 1800	1994 Oct 12 1002	0.000	-	Deorbited at end of mission
+D00683	1989-084	Galileo Probe	ARC	US	Jupiter	-4.9	6.5	P	I	1989 Oct 18 1653:40	1995 Dec  8 2204	1995 Dec  7 2302	0.000	-	Entry probe
+D00684	1989-084	Deceleration Module	ARC	US	Jupiter	-4.9	6.5	C	I	1989 Oct 18 1653:40	1995 Dec  7 2210	1995 Dec  7 2206	0.000	-	Component
+D00685	1989-084	Galileo Probe aft cover	ARC	US	Jupiter	-4.9	6.5	C	I	1989 Oct 18 1653:40	1995 Dec  7 2210?	1995 Dec  7 2205	0.000	-	Component
+D00727	1996-068A	Sagan Memorial Station	JPL	US	Mars	-33.55	19.33	LA	L	1996 Dec  4 0658:07	1997 Jul  4 1656:55	1997 Oct  7	94.000	Sagan Memorial Station	Mars lander, delivered rover
+D00734	1996-068	Sojourner	JPL	US	Mars	-33.55	19.33	RO	LC	1996 Dec  4 0658:07	1997 Jul  4 1656:55	1997 Oct  7	94.000	-	Rover
+D00729	1996-068	MPF Cruise Stage	JPL	US	Mars	-33.55	19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1655?	1997 Jul  4 1622	0.000	-	Component
+D00732	1996-068	MPF Aeroshell	JPL	US	Mars	-33.55	19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1656	1997 Jul  4 1655	0.000	-	Component
+D00733	1996-068	MPF Backshell	JPL	US	Mars	-33.55	19.33	C	I	1996 Dec  4 0658:07	1997 Jul  4 1657	1997 Jul  4 1656	0.000	-	Component
+D00747	1998-001A	Lunar Prospector	ARC	US	Luna	42.1	-87.7	O	I	1998 Jan  7 0228:44	1999 Jul 31 0952:00	1999 Jul 31 0952:00	0.000	-	Deorbit at end of mission
+D00748	1998-001A	Celestis-02	SSICE	US	Luna	42.1	-87.7	C	IC	1998 Jan  7 0228:44	1999 Jul 31 0952	1998 Jan  7 0228:44	0.000	-	Attached to LP
+D00757	1998-073A	Mars Climate Orbiter	JPL	US	Mars	-	-	O	I	1998 Dec 11 1845:52	1999 Sep 23 0900?	1999 Sep 23 0900?	0.000	-	Orbit insertion failed, destroyed in atmosphere?
+D00763	1999-001A	MPL Cruise Stage	JPL	US	Mars	-195.3	-76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1956	1999 Dec  3 1956	0.000	-	Component
+D00768	1999-001	MPL Heat Shield	JPL	US	Mars	-195.3	-76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1958	0.000	-	Component
+D00769	1999-001	MPL Backshell	JPL	US	Mars	-195.3	-76.1	C	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1958	0.000	-	Component
+D00766	1999-001	DS2 Scott Probe	JPL	US	Mars	-210	-73	LI	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1959	0.000	-	Penetrator probe
+D00767	1999-001	DS2 Amundsen Probe	JPL	US	Mars	-210	-73	LI	I	1999 Jan  3 2021:10	1999 Dec  3 1959	1999 Dec  3 1959	0.000	-	Penetrator probe
+D00761	1999-001A	Mars Polar Lander	JPL	US	Mars	-195.3	-76.1	L	I	1999 Jan  3 2021:10	1999 Dec  3 2001	1999 Dec  3 2001	0.000	-	Lander, crashed
+D00719	1996-008A	NEAR Shoemaker	APL/GSFC	US	Eros	-279	-35	LO	L	1996 Feb 17 2043:27	2001 Feb 12 1944	2001 Mar  1 0000	16.180	-	Eros orbiter, not designed for landng
+D00680	1989-084B	Galileo	JPL	US	Jupiter	193	-0.3	O	I	1989 Oct 18 1653:40	2003 Sep 21 1857	2003 Sep 21 1857	0.000	-	Deorbited at end of mission
+D00804	2003-022	Beagle 2	ESA	UK	Mars	90.4295	11.5265	LA	I	2003 Jun  2 1745:26	2003 Dec 25 0254	2003 Dec 25 0250	0.000	-	No contact during entry
+D00805	2003-022	Beagle 2 Heat Shield	ESA	UK	Mars	90.43	11.53	C	I	2003 Jun  2 1745:26	2003 Dec 25 0252?	2003 Dec 25 0250	0.000	-	Component
+D00806	2003-022	Beagle 2 Backshell	ESA	UK	Mars	90.43	11.53	C	I	2003 Jun  2 1745:26	2003 Dec 25 0252?	2003 Dec 25 0250	0.000	-	Component
+D00809	2003-027	MER-A Cruise Stage	JPL	US	Mars	175	-14	C	I	2003 Jun 10 1758:47	2004 Jan  4 0420	2004 Jan  4 0419	0.000	-	Component
+D00812	2003-027	Columbia Memorial Station	JPL	US	Mars	175.4785	-14.5719	LA	L	2003 Jun 10 1758:47	2004 Jan  4 0425:48	2004 Jan  5?	1.000	Columbia Memorial Station	Lander delivered rover to surface
+D00807	2003-027A	Spirit Rover	JPL	US	Mars	175.4785	-14.5719	RO	LC	2003 Jun 10 1758:47	2004 Jan  4 0425:48	2010 Mar 30	2277.000	-	Mars rover
+D00813	2003-027	MER-A Backshell	JPL	US	Mars	175.48	-14.57	C	I	2003 Jun 10 1758:47	2004 Jan  4 0426	2004 Jan  4 0426	0.000	-	Component
+D00814	2003-027	MER-A Heat Shield	JPL	US	Mars	175.4835	-14.5649	C	I	2003 Jun 10 1758:47	2004 Jan  4 0426	2004 Jan  4 0426	0.000	-	Component
+D00817	2003-032	MER-B Cruise Stage	JPL	US	Mars	354.47	-1.95	C	I	2003 Jul  8 0318:15	2004 Jan 25 0448	2004 Jan 25 0448	0.000	-	Component
+D00820	2003-032	Challenger Memorial Station	JPL	US	Mars	354.4742	-1.9483	LA	L	2003 Jul  8 0318:15	2004 Jan 25 0454:33	2004 Jan 26?	1.000	Challenger Memorial Station	ander delivered rover to surface
+D00815	2003-032A	Opportunity Rover	JPL	US	Mars	354.4742	-1.9483	RO	LC	2003 Jul  8 0318:15	2004 Jan 25 0454:33	2018 Jun 10	5249.000	-	Mars rover
+D00821	2003-032	MER-B Heat Shield	JPL	US	Mars	354.4863	-1.9553	C	I	2003 Jul  8 0318:15	2004 Jan 25 0454	2004 Jan 25 0453	0.000	-	Component
+D00822	2003-032	MER-B Backshell	JPL	US	Mars	354.47	-1.95	C	I	2003 Jul  8 0318:15	2004 Jan 25 0454	2004 Jan 25 0453	0.000	-	Component
+D00743	1997-061	Huygens	ESA	I-ESA	Titan	-192.3	-10.3	LP	L	1997 Oct 15 0843:01	2005 Jan 14 1138:11	2005 Jan 14 1510	0.147	-	Titan lander
+D00744	1997-061	Huygens Aft Cover	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0910	0.000	-	Component
+D00745	1997-061	Huygens Front Shield	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0910	0.000	-	Component
+D00746	1997-061	Huygens Main Chute	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	0.000	-	Component
+D00987	1997-061	Huygens GCMS inlet cap	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	0.000	-	Component
+D00988	1997-061	Huygens GCMS outlet cap	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	0.000	-	Component
+D00989	1997-061	Huygens DISR cover	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	0.000	-	Component
+D00990	1997-061	Huygens ACP inlet cap	ESA	I-ESA	Titan	-192.3	-10.3	C	I	1997 Oct 15 0843:01	2005 Jan 14 0930?	2005 Jan 14 0925	0.000	-	Component
+D00838	2005-001	DI Impactor	NASA	US	9P/Tempel 1	-	-	I	I	2005 Jan 12 1847:08	2005 Jul  4 0546:02	2005 Jul  4 0546:02	0.000	-	Comet impact experiment
+D00796	2003-019	MUSES-C TM 1	ISASJ	J	Itokawa	-	-	C	I	2003 May  9 0429:25	2005 Nov 10?	2005 Nov  9	0.000	-	Component
+D00797	2003-019	Minerva	ISASJ	J	Itokawa	-	-	RO	LC	2003 May  9 0429:25	2005 Nov 15?	2005 Nov 13	0.000	-	Hopper lander, contact lost, may have impacted
+D00800	2003-019	MUSES-C TM 2	ISASJ	J	Itokawa	-	-	C	I	2003 May  9 0429:25	2005 Nov 19 2036	2005 Nov 19 2028	0.000	-	Component
+D00799	2003-019	MUSES-C TM 3	ISASJ	J	Itokawa	-	-	C	LC	2003 May  9 0429:25	2005 Nov 19 2036	2005 Nov  9	0.000	-	Component, attached to Hayabusa
+D00793	2003-019A	Hayabusa	ISASJ	J	Itokawa	-	-	L	L	2003 May  9 0429:25	2005 Nov 19 2110	2005 Nov 19 2205	0.038	-	Sampling touchdown, took off
+D00793	2003-019A	Hayabusa	ISASJ	J	Itokawa	-	-	L	L	2003 May  9 0429:25	2005 Nov 25 2207	2005 Nov 25 2207	0.000	-	Sampling touch-and-go
+D00801	2003-019	Hayabusa Return Capsule	ISASJ	J	Itokawa	-	-	C	LC	2003 May  9 0429:25	2005 Nov 19 2110	2005 Nov 19 2205	0.038	-	Attached to Hayabusa
+D00798	2003-019	Minerva cover	ISASJ	J	Itokawa	-	-	C	LC	2003 May  9 0429:25	2005 Dec?	2005 Nov 12 0620	0.000	-	Component, probably impacted
+D00829	2003-043C	SMART-1	ESA	I-ESA	Luna	-46.193	-34.262	O	I	2003 Sep 27 2314:46	2006 Sep  3 0542:20	2006 Sep  3 0542:20	0.000	-	Deorbited at end of mission
+D00857	2007-034	Phoenix Cruise Stage	JPL	US	Mars	234.3	68.2	C	I	2007 Aug  4 0926:34	2008 May 25 2331	2008 May 25 2323	0.000	-	Component
+D00858	2007-034	Phoenix Heat Shield	JPL	US	Mars	234.25	68.22	C	I	2007 Aug  4 0926:34	2008 May 25 2338	2008 May 25 2335	0.000	-	Component
+D00859	2007-034	Phoenix Backshell	JPL	US	Mars	234.25	68.22	C	I	2007 Aug  4 0926:34	2008 May 25 2338	2008 May 25 2338	0.000	-	Component
+D00853	2007-034A	Phoenix	JPL	US	Mars	234.248	68.219	L	L	2007 Aug  4 0926:34	2008 May 25 2338:39	2008 Nov  2	160.000	-	Mars lander
+D00873	2008-052	MIP	ISRO	IN	Luna	-122.93	-89.55	I	I	2008 Oct 22 0052:11	2008 Nov 14 1501:31	2008 Nov 14 1501:31	0.000	-	Impactor ejected from Ch1 orbiter
+D00861	2007-039B	Okina	JAXA	J	Luna	-159.033	28.213	O	I	2007 Sep 14 0131:01	2009 Feb 12 1046	2009 Feb 12 1046	0.000	-	Orbital decay at end of mission
+D00869	2007-051A	Chang'e-1	CASC	CN	Luna	52.36	-1.50	O	I	2007 Oct 24 1005:04	2009 Mar  1 0813	2009 Mar  1 0813	0.000	-	Deorbited at end of mission
+D00860	2007-039A	Kaguya	JAXA	J	Luna	80.4	-65.5	O	I	2007 Sep 14 0131:01	2009 Jun 10 1825	2009 Jun 10 1825	0.000	-	Deorbited at end of mission
+D00887	2009-031C	LCROSS EDUS	ARC	US	Luna	-48.7093	-84.6796	I	I	2009 Jun 18 2132:00	2009 Oct  9 1131:19	2009 Oct  9 1131:19	0.000	-	Impactor mission, Centaur stage
+D00886	2009-031B	LCROSS Shepherding S/C	ARC	US	Luna	-49.360	-84.729	I	I	2009 Jun 18 2132:00	2009 Oct  9 1135:45	2009 Oct  9 1135:45	0.000	-	Impactor mission
+D00862	2007-039C	Ouna	JAXA	J	Luna	-	-	O	I	2007 Sep 14 0131:01	2010?	2009 Jun 29 1208	0.000	-	Orbital decay after end of mission
+D00912	2011-070A	MSL Cruise Stage	JPL	US	Mars	136	-4.4	C	I	2011 Nov 26 1502:00	2012 Aug  6 0512	2012 Aug  6 0500	0.000	-	Component
+D00913	2011-070A	CBMD 1	JPL	US	Mars	136	-4.4	C	I	2011 Nov 26 1502:00	2012 Aug  6 0514?	2012 Aug  6 0505	0.000	-	Component
+D00914	2011-070A	CBMD 2	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0514?	2012 Aug  6 0505	0.000	-	Component
+D00915	2011-070A	EBMD 1	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00916	2011-070A	EBMD 2	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00917	2011-070A	EBMD 3	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00918	2011-070A	EBMD 4	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00919	2011-070A	EBMD 5	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00920	2011-070A	EBMD 6	JPL	US	Mars	137.64	-4.62	C	I	2011 Nov 26 1502:00	2012 Aug  6 0515?	2012 Aug  6 0514	0.000	-	Component
+D00921	2011-070A	MSL Heat Shield	JPL	US	Mars	137.44	-4.59	C	I	2011 Nov 26 1502:00	2012 Aug  6 0516:51	2012 Aug  6 0515:25	0.000	-	Heat shield
+D00922	2011-070A	MSL Backshell	JPL	US	Mars	137.44	-4.59	C	I	2011 Nov 26 1502:00	2012 Aug  6 0517?	2012 Aug  6 0516:40	0.000	-	Component
+D00923	2011-070A	MSL Descent stage	JPL	US	Mars	137.4417	-4.5895	L	L	2011 Nov 26 1502:00	2012 Aug  6 0517:57	2012 Aug  6 0517:57	0.000	-	Touch-and-go Skycrane landing
+D00911	2011-070A	Curiosity	JPL	US	Mars	137.4417	-4.5895	RO	LC	2011 Nov 26 1502:00	2012 Aug  6 0517:57	*	4619.000	Bradbury Landing	Rover, still active
+D00909	2011-046A	Ebb	GSFC	US	Luna	-26.63	75.62	O	I	2011 Sep 10 1308:52	2012 Dec 17 2228:51	2012 Dec 17 2228:51	0.000	Sally K Ride Impact Site	Deorbited at end of mission
+D00910	2011-046B	Flow	GSFC	US	Luna	-26.63	75.62	O	I	2011 Sep 10 1308:52	2012 Dec 17 2229:21	2012 Dec 17 2229:21	0.000	Sally K Ride Impact Site	Deorbited at end of mission
+D00934	2013-070A	Chang'e-3	CASC	CN	Luna	-19.5116	44.1214	L	L	2013 Dec  1 1730:00	2013 Dec 14 1311:18	2020 Sep?	2460.000	Statio Guang Han Gong	Lander
+D00936	2013-070	Yutu	CASC	CN	Luna	-19.5116	44.1214	RO	LC	2013 Dec  1 1730:00	2013 Dec 14 1311:18	2015 Mar?	450.000	-	Rover
+D00926	2013-047A	LADEE	ARC	US	Luna	-93.2	12.0	O	I	2013 Sep  7 0327:00	2014 Apr 18 0431:47	2014 Apr 18 0430	0.000	-	Deorbited at end of mission
+D00828	2004-006	Philae	ESA	I-ESA	67P/	-	-	LI	L	2004 Mar  2 0717:44	2014 Nov 12 1534	2014 Nov 12 1534	0.000	Agilkia	Landed on comet 67P, bounced
+D00828	2004-006	Philae	ESA	I-ESA	67P/	-	-	LI	L	2004 Mar  2 0717:44	2014 Nov 12 1732	2015 Jul  9	239.000	Abydos	Landed on comet 67P
+D00842	2005-045A	Venus Express	ESA	I-ESA	Venus	-	-	O	R	2005 Nov  9 0333:34	2015 Q2?	2015 Jan 19	0.000	-	Orbital decay after end of mission
+D00830	2004-030A	Messenger	APL	US	Mercury	210.1	54.4	O	I	2004 Aug  3 0615:57	2015 Apr 30 1926:02	2015 Apr 30 1926:02	0.000	-	Deorbited at end of mission
+D00826	2004-006A	Rosetta	ESA	I-ESA	67P/	-	-	LO	L	2004 Mar  2 0717:44	2016 Sep 30 1039:34	2016 Sep 30 1119	0.027	Sais	Descent to 67P at end of mission
+D00972	2016-017	EXM-EDM Front Shield	ESA	I-ESA	Mars	353.79	-2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2016 Oct 19 1446	0.000	-	Component
+D00973	2016-017	EXM-EDM Back Cover	ESA	I-ESA	Mars	353.79	-2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2019 Oct 19 1446	0.000	-	Component
+D00974	2016-017	EXM-EDM Parachute	ESA	I-ESA	Mars	353.79	-2.07	C	I	2016 Mar 14 0931:42	2016 Oct 19 1447	2019 Oct 19 1446	0.000	-	Component
+D00971	2016-017	Schiaparelli	ESA	I-ESA	Mars	353.79	-2.07	L	I	2016 Mar 14 0931:42	2016 Oct 19 1447:28	2016 Oct 19 1447:28	0.000	-	Mars lander, crashed
+D00738	1997-061A	Cassini	JPL	US	Saturn	308?	2?	O	I	1997 Oct 15 0843:01	2017 Sep 15 1045:48	2017 Sep 15 1032:16	0.000	-	Deorbited at end of mission
+D00953	2014-076	Minerva II-1 Rover 1A	ISASJ	J	Ryugu	-	-	LR	L	2014 Dec  3 0422:04	2018 Sep 21 0425?	2019 Nov  9 1000:01	414.233	-	Hopper rover
+D00954	2014-076	Minerva II-1 Rover 1B	ISASJ	J	Ryugu	-	-	LR	L	2014 Dec  3 0422:04	2018 Sep 21 0425?	2019 Nov  9 1000:01	414.233	-	Hopper rover
+D00951	2014-076	Minerva II-1 canister	ISASJ	J	Ryugu	-	-	C	I	2014 Dec  3 0422:04	2018 Sep 21 0430?	2018 Sep 21 0406?	0.000	-	Component
+D00956	2014-076	MASCOT	DLR	D	Ryugu	317.16	-22.32	LI	L	2014 Dec  3 0422:04	2018 Oct  3 0203	2018 Oct  3 1904	0.709	-	Lander
+D00960	2014-076	Target Marker B	ISASJ	J	Ryugu	206.01	4.04	C	I	2014 Dec  3 0422:04	2018 Oct 25 0243?	2018 Oct 25 0237	0.000	-	Component
+D01000	2018-042A	Mars InSight Cruise Stage	JPL	US	Mars	135.6	4.6	C	I	2018 May  5 1105:01	2018 Nov 26 1939?	2018 Nov 26 1931	0.000	-	Component
+D01002	2018-042	Mars InSight Heat Shield	JPL	US	Mars	135.6295	4.5580	C	I	2018 May  5 1105:01	2018 Nov 26 1943?	2018 Nov 26 1942	0.000	-	Component
+D00997	2018-042A	Mars InSight Lander	JPL	US	Mars	135.6180	4.5520	L	L	2018 May  5 1105:01	2018 Nov 26 1944:52	2022 Dec 15	1480.000	-	Mars lander
+D01003	2018-042	Mars InSight Parachute	JPL	US	Mars	135.6227	4.5434	C	I	2018 May  5 1105:01	2018 Nov 26 1945?	2018 Nov 26 1943	0.000	-	Component
+D01001	2018-042	Mars InSight Back Shell	JPL	US	Mars	135.6224	4.5436	C	I	2018 May  5 1105:01	2018 Nov 26 1945?	2018 Nov 26 1943	0.000	-	Component
+D01017	2018-103A	Chang'e-4	CASC	CN	Luna	177.589	-45.457	L	L	2018 Dec  7 1823	2019 Jan  3 0226	*	2278.000	Statio Tianhe	Lander, delivered rover
+D01019	2018-103	Yutu-2	CASC	CN	Luna	177.589	-45.457	RO	LC	2018 Dec  7 1823	2019 Jan  3 0226	*	2278.000	-	Rover
+D00945	2014-076	Hayabusa-2	ISASJ	J	Ryugu	206.47	4.30	L	L	2014 Dec  3 0422:04	2019 Feb 21 2229:10	2019 Feb 21 2229:11	0.000	-	Touch-and-go sampling landing
+D00957	2014-076	SCI	ISASJ	J	Ryugu	301.3	7.9	I	I	2014 Dec  3 0422:04	2019 Apr  5 0236	2019 Apr  5 0236	0.000	-	Impactor
+D00958	2014-076	DCAM-3	ISASJ	J	Ryugu	-	-	C	I	2014 Dec  3 0422:04	2019 Apr  6?	2019 Apr  5 0739	0.000	-	Component
+D01020	2019-009B	B'reshit	SPAIL	IL	Luna	19.3496	32.5956	L	I	2019 Feb 22 0145	2019 Apr 11 1923	2019 Apr 11 1923	0.000	-	Lander, crashed
+D00959	2014-076	Target Marker A	ISASJ	J	Ryugu	300.889	10.233	C	I	2014 Dec  3 0422:04	2019 May 30 0220:22	2019 May 30 0218:54	0.000	-	Component
+D00945	2014-076	Hayabusa-2	ISASJ	J	Ryugu	300.595	10.130	L	L	2014 Dec  3 0422:04	2019 Jul 11 0106:18	2019 Jul 11 0106:19	0.000	-	Touch-and-go sampling landing
+D01007	2018-045C	Longjiang 2	CASC	CN	Luna	157.5	15.5	O	I	2018 May 20 2128:50	2019 Jul 31 1420?	2019 Jul 31 1400?	0.000	-	Orbital decay after end of mission
+D00185	2019-042	Vikram	ISRO	IN	Luna	22.7840	-70.8810	L	I	2019 Jul 22 0913	2019 Sep  6 2023	2019 Sep  6 2022	0.000	-	Lander, crashed
+D00186	2019-042	Pragyan	ISRO	IN	Luna	22.7840	-70.8810	RO	IC	2019 Jul 22 0913	2019 Sep  6 2023	2019 Sep  6 2022	0.000	-	Rover, destroyed aboard Vikram
+D00961	2014-076	Target Marker C	ISASJ	J	Ryugu	-	-	C	I	2014 Dec  3 0422:04	2019 Sep 23?	2019 Sep 16 1624	0.000	-	Component
+D00963	2014-076	Target Marker E	ISASJ	J	Ryugu	-	-	C	I	2014 Dec  3 0422:04	2019 Sep 23?	2019 Sep 16 1617	0.000	-	Component
+D00952	2014-076	Minerva II-2 canister	ISASJ	J	Ryugu	-	-	C	I	2014 Dec  3 0422:04	2019 Oct  8?	2019 Oct  2 1557	0.000	-	Component
+D00955	2014-076	Minerva II-2 Rover 2	ISASJ	J	Ryugu	-	-	LR	I	2014 Dec  3 0422:04	2019 Oct  8?	2019 Oct  8?	0.000	-	Hopper rover, failed?
+D00975	2016-055A	OSIRIS-REx	GSFC	US	Bennu	43	56	L	L	2016 Sep  8 2305	2020 Oct 20 2153	2020 Oct 20 2154	0.000	Nightingale	Sample return touch-and-go
+D00977	2016-055	OSIRIS-REx SRC	GSFC	US	Bennu	43	56	C	LC	2016 Sep  8 2305	2020 Oct 20 2153	2020 Oct 20 2154	0.000	-	Sample return capsule, attached to O-REx
+D01047	2020-087	Chang'e-5 Zhuolu Qi	LDSE	CN	Luna	-51.9161	43.0576	L	L	2020 Nov 23 2030:22	2020 Dec  1 1511:21	2020 Dec  5?	4.000	Statio Tianchuan	Lander for sample return
+D01048	2020-087	Chang'e-5 Shangsheng Qi	LDSE	CN	Luna	-51.9161	43.0567	AV	LC	2020 Nov 23 2030:22	2020 Dec  1 1511:21	2020 Dec  3 1510:21	1.999	-	Sample return ascent vehicle
+D01076	2020-U02	Chang'e-5 Shangsheng Qi	LDSE	CN	Luna	0	-30	AV	I	2020 Dec  3 1510:21	2020 Dec  7 2330	2020 Dec  7 2330	0.000	-	Deorbited at end of mission
+D01051	2020-087	Jiaohui duijie jigou	LDSE	CN	Luna	0	-30	C	IC	2020 Nov 23 2030:22	2020 Dec  7 2330	2020 Dec  6 0435	0.000	-	Component attached to ascent vehicle
+D01036	2020-052	Mars 2020 Cruise Stage	JPL	US	Mars	77.4	18.5	C	I	2020 Jul 30 1150:00	2021 Feb 18 2037	2021 Feb 18 2026	0.000	-	Component
+D01041	2020-052A	Mars 2020 Parachute	JPL	US	Mars	77.4320	18.4519	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2040	0.000	-	Component
+D01038	2020-052A	Perseverance	JPL	US	Mars	77.4508	18.4446	RO	LC	2020 Jul 30 1150:00	2021 Feb 18 2043	*	1501.000	Octavia E. Butler Landing	Lander
+D01039	2020-052A	Mars 2020 Heat Shield	JPL	US	Mars	77.4741	18.4553	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2041	0.000	-	Component
+D01040	2020-052A	Mars 2020 Backshell	JPL	US	Mars	77.4318	18.4516	C	I	2020 Jul 30 1150:00	2021 Feb 18 2043	2021 Feb 18 2042	0.000	-	Component
+D01037	2020-052A	Mars 2020 Descent stage	JPL	US	Mars	77.4419	18.4522	L	L	2020 Jul 30 1150:00	2021 Feb 18 2044	2021 Feb 18 2044	0.000	-	Touch-and-go Skycrane landing
+D01077	2020-052A	CBMD 1	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2028	0.000	-	Component
+D01078	2020-052A	CBMD 2	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2028	0.000	-	Component
+D01079	2020-052A	EBMD 1	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01080	2020-052A	EBMD 2	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01081	2020-052A	EBMD 3	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01082	2020-052A	EBMD 4	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01083	2020-052A	EBMD 5	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01084	2020-052A	EBMD 6	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Feb 18 2044?	2021 Feb 18 2040	0.000	-	Component
+D01085	2020-052A	Ejectable Belly Pan	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Mar 13 0900?	2021 Mar 13 0900?	0.000	-	Component
+D01042	2020-052A	MHDS Cover	JPL	US	Mars	77.45	18.45	C	I	2020 Jul 30 1150:00	2021 Mar 21	2021 Mar 21	0.000	-	Component
+D01030	2020-049	Tianwen-1 Aeroshell Base	CAST	CN	Mars	109.925	25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317	2021 May 14 2314	0.000	-	Component
+D01033	2020-049	Tianwen-1 Backshell	CAST	CN	Mars	109.925	25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317	2021 May 14 2315	0.000	-	Component
+D01034	2020-049	Tianwen-1 Parachute	CAST	CN	Mars	109.925	25.066	C	I	2020 Jul 23 0441:12	2021 May 14 2317:15	2021 May 14 2315	0.000	-	Component
+D01031	2020-049	Tianwen-1 Lander	LDSE	CN	Mars	109.925	25.066	L	L	2020 Jul 23 0441:12	2021 May 14 2317:51	2021 Jun?	16.000	-	Lander
+D01032	2020-049	Zhurong	LDSE	CN	Mars	109.925	25.066	RO	LC	2020 Jul 23 0441:12	2021 May 14 2317:51	2022 May 20	371.000	-	Rover
+D01086	2020-049	Fenli xiangi	LDSE	CN	Mars	109.925	25.066	C	LC	2020 Jul 23 0441:12	2021 Jun 10?	2021 Jun 11?	1.000	-	Camera package
+D00942	2014-065B	CZ-3C Y12 Stage 3	CASC	CN	Luna	-125.281	5.316	R	R	2014 Oct 23 1800:04	2022 Mar  4 1225:58	2014 Oct 23 1818	0.000	-	Rocket stage impacted Moon from chaotic cislunar orbit
+D01089	2021-110A	DART	APL	US	Didymos	264.3	-8.84	I	I	2021 Nov 24 0621:02	2022 Sep 26 2314	2022 Sep 26 2314	0.000	-	Impact mission
+D01116	2022-168A	Hakuto-R M1	ISPACE	J	Luna	44.094	47.581	L	I	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	0.000	-	Lander, crashed
+D01119	2022-168	Rashid	MBRSC	UAE	Luna	44.094	47.581	RO	IC	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	0.000	-	Rover, destroyed at impact
+D01120	2022-168	SORA-Q	ISASJ	J	Luna	44.094	47.581	RO	IC	2022 Dec 11 0738:13	2023 Apr 25 1640?	2023 Apr 25 1640	0.000	-	Roller rover, destroyed at impact
+D01128	2023-118A	Luna-25	IKI	RU	Luna	60.360	-57.865	L	I	2023 Aug 10 2310:57	2023 Aug 19 1157	2023 Aug 19 1157	0.000	-	Lander, accidental deorbit
+D01126	2023-098A	Chandrayaan-3 Vikram Lander	ISRO	IN	Luna	32.3189	-69.3733	L	L	2023 Jul 14 0905:17	2023 Aug 23 1232:50	2023 Sep  4 0230	11.581	Statio Shiv Shakti	Lander
+D01127	2023-098	Pragyan	ISRO	IN	Luna	32.3189	-69.3733	RO	LC	2023 Jul 14 0905:17	2023 Aug 23 1232:50	2023 Sep  4 0230	11.581	-	Rover
+D01131	2023-137D	SLIM	JAXA	J	Luna	25.2508	-13.3154	L	L	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Apr 29	100.000	-	Lander
+D01132	2023-137	LEV-1	ISASJ	J	Luna	25.2508	-13.3154	RO	LC	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Jan 19 1710	0.076	-	Hopper rover
+D01133	2023-137	LEV-2	ISASJ	J	Luna	25.2508	-13.3154	RO	LC	2023 Sep  6 2342:11	2024 Jan 19 1519:52	2024 Jan 19 1757?	0.109	-	Roller rover
+D01149	2024-030A	IM-1	INTMA	US	Luna	1.44	-80.13	L	L	2024 Feb 15 0605:37	2024 Feb 22 2323	2024 Feb 29	6.000	-	Lander, toppled
+D01151	2024-030C	EagleCam	ERAU	US	Luna	1.44	-80.13	C	LC	2024 Feb 15 0605:37	2024 Feb 22 2323	2024 Feb 28	0.000	-	Ejected from lander, no data
+D01159	2024-083	Chang'e-6 Zhuolu Qi	LDSE	CN	Luna	-153.9852	-41.6385	L	L	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  4?	2.100	Statio Tianjiang	Lander
+D01160	2024-083	Chang'e-6 Shangsheng Qi	LDSE	CN	Luna	-153.9852	-41.6385	AV	LC	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  3 2338	2.052	-	Sample return ascent vehicle
+D01165	2024-083	Chang'e-6 Yidong Xiangji	LDSE	CN	Luna	-153.9852	-41.6385	C	LC	2024 May  3 0927:29	2024 Jun  1 2223:16	2024 Jun  4?	2.000	-	Ejected camera package
+D01166	2024-U02	Chang'e-6 Shangsheng Qi	LDSE	CN	Luna	180	-40	AV	I	2024 Jun  3 2338	2024 Jun  8?	2024 Jun  8	0.000	-	Deorbited at end of mission
+D01163	2024-083	Jiaohui duijie jigou	LDSE	CN	Luna	180	-40	C	IC	2024 May  3 0927:29	2024 Jun  8?	2024 Jun  7	0.000	-	Attached to ascent vehicle
+D01180	2025-038A	IM-2 Athena	INTMA	US	Luna	-29.1957	-84.7906	L	L	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	0.510	-	Lander, toppled
+D01186	2025-038	GRACE	INTMA	US	Luna	-29.1957	-84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	0.510	-	Rover, not deployed
+D01187	2025-038	MAPP	LOUT	US	Luna	-29.1957	-84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	0.510	-	Rover, not deployed
+D01188	2025-038	Yaoki	DYMON	J	Luna	-29.1957	-84.7906	RO	LC	2025 Feb 27 0016:30	2025 Mar  6 1728:50	2025 Mar  7 0543	0.510	-	Rover, not deployed
+D01178	2025-010A	Blue Ghost	FFLY	US	Luna	61.8103	18.5623	L	L	2025 Jan 15 0611	2025 Mar  2 0834	2025 Mar 16 2315	14.612	-	Lander
+F00040	1958-F15	AMS E-1 No. 1	OKB1	SU	Luna	-	-	I	F	1958 Sep 23 0903:23	-	1958 Sep 23 0904:55	0.000	-	Lunar impact probe, launch failure
+F00044	1958-F17	AMS E-1 No. 2	OKB1	SU	Luna	-	-	I	F	1958 Oct 11 2341:58	-	1958 Oct 11 2343:42	0.000	-	Lunar impact probe, launch failure
+F00054	1958-F20	AMS E-1 No. 3	OKB1	SU	Luna	-	-	I	F	1958 Dec  4 1818:45	-	1958 Dec  4 1825	0.000	-	Lunar impact probe, launch failure
+D00002	1959 MU 1	AMS E-1 No. 4 (Luna-1)	OKB1	SU	Luna	-	-	I	F	1959 Jan  2 1641:25	-	1959 Jan  5	0.000	-	Lunar impact probe, missed Moon
+F00064	1959-F06	AMS E-1A No. 5	OKB1	SU	Luna	-	-	I	F	1959 Jun 18 0808	-	1959 Jun 18 0810	0.000	-	Lunar impact probe, launch failure
+D00022	1962 ALP	Ranger Capsule 12	JPL	US	Luna	-	-	LI	O	1962 Jan 26 2030:11	-	1962 Feb  2	0.000	-	Ranger 3 capsule, missed Moon
+D00021	1962 ALP	BE-3	JPL	US	Luna	-	-	C	OC	1962 Jan 26 2030:11	-	1962 Jan 28 1729	0.000	-	Ranger 3 retro
+D00019	1962 ALP 1	Ranger 3	JPL	US	Luna	-	-	C	OC	1962 Jan 26 2030:11	-	1962 Feb  2	0.000	-	Ranger 3 service module
+A00250	1962 A PI	2MV-1 No. 1	OKB1	SU	Venus	-	-	LP	F	1962 Aug 25 0218:45	-	1962 Aug 25 0319	0.000	-	Venus lander, failed to leave parking orbit
+A00257	1962 A TAU	2MV-1 No. 2	OKB1	SU	Venus	-	-	LP	F	1962 Sep  1 0212:30	-	1962 Sep  1 0314	0.000	-	Venus lander, failed to leave parking orbit
+D00032	1962 B ETA	Ranger Capsule 18	JPL	US	Luna	-	-	LI	O	1962 Oct 18 1659:07	-	1962 Oct 29	0.000	-	Ranger 5 capsule, missed Moon
+D00031	1962 B ETA	BE-3	JPL	US	Luna	-	-	C	OC	1962 Oct 18 1659:07	-	1962 Oct 29	0.000	-	Ranger 5 retro
+D00030	1962 B ETA	Ranger 5	JPL	US	Luna	-	-	C	OC	1962 Oct 18 1659:07	-	1962 Oct 29	0.000	-	Ranger 5 service module
+A00295	1962 B XI	2MV-3 No. 1	OKB1	SU	Mars	-	-	LP	F	1962 Nov  4 1535:15	-	1962 Nov  4 1636	0.000	-	Mars lander, failed to leave parking orbit
+A00318	1963-001	E-6 No. 2 SA	OKB1	SU	Luna	-	-	LA	F	1963 Jan  4 0849	-	1963 Jan  4 1000?	0.000	-	Lunar lander, failed to leave parking orbit
+F00221	1963-F01	E-6 No. 3 SA	OKB1	SU	Luna	-	-	LA	F	1963 Feb  3 0929:14	-	1963 Feb  3 0934	0.000	-	Lunar lander, launch failure
+D00037	1963-008	E-6 No. 4 SA (Luna-4)	OKB1	SU	Luna	-	-	LA	O	1963 Apr  2 0816	-	1963 Apr 15	0.000	-	Lunar lander, missed Moon
+F00287	1964-F03	E-6 No. 6 SA	OKB1	SU	Luna	-	-	LA	F	1964 Mar 21 0815:35	-	1964 Mar 21 0823:41	0.000	-	Lunar lander, launch failure
+A00452	1964-014A	3MV-1 No. 3 (Kosmos-27)	OKB1	SU	Venus	-	-	LP	F	1964 Mar 27 0324:42	-	1964 Mar 27 0400?	0.000	-	Venus lander, failed to leave parking orbit
+F00302	1964-F05	E-6 No. 5 SA	OKB1	SU	Luna	-	-	LA	F	1964 Apr 20 0808:28	-	1964 Apr 20 0818	0.000	-	Lunar lander, launch failure
+A00645	1965-018	E-6 No. 9 SA (Kosmos-60)	OKB1	SU	Luna	-	-	LA	F	1965 Mar 12 0930	-	1965 Mar 30	0.000	-	Lunar lander, failed to leave parking orbit
+F00341	1965-F05	E-6 No. 8 SA	OKB1	SU	Luna	-	-	LA	F	1965 Apr 10 0839:01	-	1965 Apr 10 0844	0.000	-	Lunar lander, launch failure
+D00075	1965-044	E-6 No. 7 SA	OKB1	SU	Luna	-	-	LA	O	1965 Jun  8 0740	-	1965 Jun 10	0.000	-	Lunar lander, missed Moon
+S02852	1967-063A	4V-1 No. 311 (Kosmos-167)	IKI	SU	Venus	-	-	LP	F	1967 Jun 17 0236:38	-	1967 Jun 17 0402?	0.000	-	Venus lander, failed to leave parking orbit
+S04501	1970-065A	4V-1 No. 631 (Kosmos-359)	IKI	SU	Venus	-	-	LP	F	1970 Aug 22 0506:09	-	1970 Aug 22 0631?	0.000	-	Venus lander, failed to leave parking orbit
+S05919	1972-023A	4V-1 No. 671 (Kosmos-482)	IKI	SU	Venus	-	-	LP	F	1972 Mar 31 0402:33	-	1972 Mar 31 0507	0.000	-	Venus lander, failed to leave parking orbit
+F00518	1969-F04	E-8 No. 201	IKI	SU	Luna	-	-	L	F	1969 Feb 19 0648:16	-	1969 Feb 19 0649?	0.000	-	Lunar lander, launch failure
+F00519	1969-F04	8EL No. 201 (Lunokhod)	IKI	SU	Luna	-	-	RO	FC	1969 Feb 19 0648:16	-	1969 Feb 19 0649?	0.000	-	Lunar rover, launch failure
+F00540	1969-F08	E-8-5 No. 402	IKI	SU	Luna	-	-	L	F	1969 Jun 14 0400:47	-	1969 Jun 14 0425	0.000	-	Sample return mission, launch failure
+F00541	1969-F08	E-8-5 No. 402 VA	IKI	SU	Luna	-	-	AV	FC	1969 Jun 14 0400:47	-	1969 Jun 14 0425	0.000	-	Ascent vehicle, launch failure
+S04104	1969-080	E-8-5 No. 403	IKI	SU	Luna	-	-	L	F	1969 Sep 23 1407:36	-	1969 Sep 23 1530?	0.000	-	Sample return mission, failed to leave parking orbit
+A01674	1969-080	E-8-5 No. 403 VA	IKI	SU	Luna	-	-	AV	FC	1969 Sep 23 1407:36	-	1969 Sep 23 1530?	0.000	-	Ascent vehicle, failed to leave parking orbit
+A01694	1969-092	E-8-5 No. 404	IKI	SU	Luna	-	-	L	F	1969 Oct 22 1409:59	-	1969 Oct 22 1615	0.000	-	Sample return mission, failed to leave parking orbit
+A01695	1969-092	E-8-5 No. 404 VA	IKI	SU	Luna	-	-	AV	FC	1969 Oct 22 1409:59	-	1969 Oct 22 1615	0.000	-	Ascent vehicle, failed to leave parking orbit
+F00575	1969-092	E-8-5 No. 405	IKI	SU	Luna	-	-	L	F	1970 Feb  6 0416:06	-	1970 Feb  6 0418:13	0.000	-	Sample return mission, launch failure
+F00577	1969-092	E-8-5 No. 405 VA	IKI	SU	Luna	-	-	AV	FC	1970 Feb  6 0416:06	-	1970 Feb  6 0418:13	0.000	-	Ascent vehicle, launch failure
+F00744	1975-F05	E-8-5M No. 412	IKI	SU	Luna	-	-	L	F	1975 Oct 16 0404:56	-	1975 Oct 16 0418	0.000	-	Sample return mission, launch failure
+F00746	1975-F05	E-8-5M No. 412 VA	IKI	SU	Luna	-	-	AV	FC	1975 Oct 16 0404:56	-	1975 Oct 16 0418	0.000	-	Ascent vehicle, launch failure
+D00672	1988-058	Fobos-1 DAS	IKI	SU	Phobos	-	-	LI	F	1988 Jul  7 1738:04	-	1988 Aug 28	0.000	-	Phobos lander, carrier missed Mars system
+D00675	1988-059	Fobos-2 DAS	IKI	SU	Phobos	-	-	LI	F	1988 Jul 12 1701:43	-	1989 Mar 27	0.000	-	Phobos lander, carrier failed in Mars orbit
+D00676	1988-059	Fobos-2 PROP-FP	IKI	SU	Phobos	-	-	RO	FC	1988 Jul 12 1701:43	-	1989 Mar 27	0.000	-	Phobos lander, carrier failed in Mars orbit
+A05838	1996-064	Mars-96 MAS 1	IKI	RU	Mars	-	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	0.000	-	Mars lander, failed to leave parking orbit
+A05839	1996-064	Mars-96 MAS 2	IKI	RU	Mars	-	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	0.000	-	Mars lander, failed to leave parking orbit
+A05840	1996-064	Mars-96 Penetrator 1	IKI	RU	Mars	-	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	0.000	-	Mars lander, failed to leave parking orbit
+A05841	1996-064	Mars-96 Penetrator 2	IKI	RU	Mars	-	-	LI	F	1996 Nov 16 2048:53	-	1996 Nov 16 2211	0.000	-	Mars lander, failed to leave parking orbit
+S37872	2011-065A	Fobos-Grunt SA	IKI	RU	Phobos	-	-	L	F	2011 Nov  8 2016:03	-	2011 Nov  8 2027:28	0.000	-	Phobos lander, failed to leave parking orbit
+A07893	2011-065	Fobos-Grunt VA	IKI	RU	Phobos	-	-	AV	FC	2011 Nov  8 2016:03	-	2011 Nov  8 2027:28	0.000	-	Phobos sample return vehicle, failed to leave parking orbit
+D01107	2022-156	OMOTENASHI	JAXA	J	Luna	-	-	LI	O	2022 Nov 16 0647:44	-	2022 Nov 22	0.000	-	Lunar lander, failed en route, no landing
+D01139	2024-006A	Peregrine Mission 1	ASTBT	US	Luna	-	-	L	F	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Lunar lander, missed Moon
+D01142	2024-006	Colmena 1	AEMX/UNAM	MX	Luna	-	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Robot swarm, missed Moon
+D01143	2024-006	Colmena 2	AEMX/UNAM	MX	Luna	-	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Robot swarm, missed Moon
+D01144	2024-006	Colmena 3	AEMX/UNAM	MX	Luna	-	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Robot swarm, missed Moon
+D01145	2024-006	Colmena 4	AEMX/UNAM	MX	Luna	-	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Robot swarm, missed Moon
+D01146	2024-006	Colmena 5	AEMX/UNAM	MX	Luna	-	-	RO	FC	2024 Jan  8 0718	-	2024 Jan 18 2059	0.000	-	Robot swarm, missed Moon
+D01176	2025-010B	Resilience	ISPACE	J	Luna	-	-	L	*	2025 Jan 15 0611	-	*		-	En route
