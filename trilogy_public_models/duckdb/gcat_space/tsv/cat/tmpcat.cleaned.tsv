@@ -1,24 +1,24 @@
 JCAT	Satcat	Launch_Tag	Piece	Type	Name	PLName	LDate	Parent	SDate	Primary	DDate	Status	Dest	Owner	State	Manufacturer	Bus	Motor	Mass	MassFlag	DryMass	DryFlag	TotMass	TotFlag	Length	LFlag	Diameter	DFlag	Span	SpanFlag	Shape	ODate	Perigee	PF	Apogee	AF	Inc	IF	OpOrbit	OQUAL	AltNames
-T00001	NNA	2025-135	2025-135	P       ?   	Lemur-2	Lacunasat	2025 Jun 23	A11555	2025 Jul 15	Earth	-	O	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	       5 	 	      5 	 	       5 	 	   0.4 	 	  0.1 	 	    0.4 	 	Box	2025 Jul 17	     586	 	     595	 	 97.75 	 	LLEO/S	-	-
-T00002	NNA	2025-038	2025-038	P   D       	Cubesat	Cubesat	2025 Feb 27	S63102	2025 Feb 27 0105	Earth	-	AO	-	UNKUS	US	SPINV	Cubesat 16U	-	      20 	?	     20 	?	      20 	?	   0.4 	 	  0.4 	 	    0.4 	 	Box	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00003	NNA	2025-135	2025-135	P       ?   	Good Ancestor Kilakila	Emergency Comms Sat	2025 Jun 23	A11534	2025 Jun 23 2220	Earth	-	O	-	GAF	US	GAF	Cubesat 2U	-	       2 	 	      2 	 	       2 	 	   0.2 	 	  0.1 	 	    0.2 	 	Box	2025 Jul 19	     512	 	     517	 	 97.45 	 	LLEO/S	-	-
-T00004	NNA	2025-180	2025-180G	P       ?   	ThumbSat-1	TS-1	2025 Aug 19	S65264	2025 Aug 19 0755?	Earth	-	O	-	THUMB/HAIWS	MX	THUMB	Thumbsat	-	       0.100	 	      0.100	 	       0.100	 	   0.020	 	  0.048	 	    0.048	 	Box+ boom	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00005	NNA	2025-180	2025-180H	P       ?   	ThumbSat-2	TS-2	2025 Aug 19	S65264	2025 Aug 19 0755?	Earth	-	O	-	THUMB/HAIWS	MX	THUMB	Thumbsat	-	       0.100	 	      0.100	 	       0.100	 	   0.020	 	  0.048	 	    0.048	 	Box+ boom	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00006	NNA	2025-052	2025-052BS	P       ?   	Tevel 2-6	Tevel 2-6	2025 Mar 15	A11437	2025 Mar 15 0739	Earth	-	O	-	TAU/ISA	IL	ISA/TAU	Cubesat 1U	-	       1 	 	      1 	 	       1 	 	   0.1 	 	  0.1 	 	    0.1 	 	Box	2025 Mar 28	     512	 	     517	 	 97.45 	 	LLEO/S	-	-
-T00007	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00008	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00009	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00010	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00011	NNA	2025-052	2025-052	P       ?   	Tevel 2-5	Tevel 2-5	2025 Mar 15	A11437	2025 Mar 15 0739	Earth	-	O	-	TAU/ISA	IL	ISA/TAU	Cubesat 1U	-	       1 	 	      1 	 	       1 	 	   0.1 	 	  0.1 	 	    0.1 	 	Box	2025 Mar 28	     511	 	     517	 	 97.45 	 	LLEO/S	-	-
-T00012	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00013	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00014	NNA	2025-082	2025-082	CP T T      	Shenzhou 20 Guidao Cang	Shenzhou 20 orbital module	2025 Apr 24	S63632	2025 Apr 24 0927:07	Earth	-	AO	-	CMSEO	CN	CAST	Shenzhou OM	-	    1842 	?	   1500 	?	    1842 	?	   2.3 	 	  2.8 	 	    4.3 	 	Cyl + 2 pan	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00015	NNA	1998-067	1998-067	P  D    ?   	ASC	Atsushi Space Challenge	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	ASC24	J	ASC24	Cubesat 1U	-	       1 	 	      1 	 	       1 	 	   0.1 	 	  0.1 	 	    0.1 	 	Box	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00016	NNA	1998-067	1998-067	P  D    ?   	Hamorun	RSP-03	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	RSP	J	RSP	Cubesat 1U	-	       1 	 	      1 	 	       1 	 	   0.1 	 	  0.1 	 	    0.1 	 	Box	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00017	NNA	1998-067	1998-067	P  D    ?   	GHS-01	GHS-01	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	GIFU/GIDAI	J	GIDAI	Cubesat 2U	-	       2 	 	      2 	 	       2 	 	   0.2 	 	  0.1 	 	    0.2 	 	Box	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00018	NNA	1998-067	1998-067	P  D    ?   	Horai	STARS-Me2	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	SHIZ	J	SHIZ	Cubesat 1U	-	       1 	 	      1 	 	       1 	 	   0.1 	 	  0.1 	 	   10.0 	 	Box+tether	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00019	NNA	1998-067	1998-067	P  D    ?   	Dragonfly	BIRDS-X	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	KYUT	J	KYUT	Cubesat 2U	-	       2 	 	      2 	 	       2 	 	   0.2 	 	  0.1 	 	    0.2 	 	Box	-	       0	 	       0	 	  0.00 	 	-	-	-
-T00020	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00021	71304	2025-009	2025-009DU	P       ?   	Flock 4g-19	Dove 24d4	2025 Jan 14	A11398	2025 Jan 14 2003:57	Earth	-	O	-	PLAN	US	PLAN	Cubesat 3U	-	       5.700	 	      5.700	 	       5.700	 	   0.3 	 	  0.1 	 	    0.3 	 	Box+2 pan	2025 Jan 19	     512	 	     520	 	 97.44 	 	LLEO/S	-	-
-T00022	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-T00023	NNA	2024-043	2024-043	P       ?   	Gluon	Gluon	2024 Mar  4	S59119	2024 Mar  4 2318:43	Earth	-	AO	-	ATOMOS	US	ATOMOS	Atomos	-	     100 	?	    100 	?	     100 	?	   0.5 	 	  1.0 	 	    1.0 	 	Box + 2 pan	-	       0	 	       0	 	  0.00 	 	-	-	-
+T00001	NNA	2025-135	2025-135	P       ?	Lemur-2	Lacunasat	2025 Jun 23	A11555	2025 Jul 15	Earth	-	O	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	2025 Jul 17	586		595		97.75		LLEO/S	-	-
+T00002	NNA	2025-038	2025-038	P   D	Cubesat	Cubesat	2025 Feb 27	S63102	2025 Feb 27 0105	Earth	-	AO	-	UNKUS	US	SPINV	Cubesat 16U	-	20	?	20	?	20	?	0.4		0.4		0.4		Box	-	0		0		0.00		-	-	-
+T00003	NNA	2025-135	2025-135	P       ?	Good Ancestor Kilakila	Emergency Comms Sat	2025 Jun 23	A11534	2025 Jun 23 2220	Earth	-	O	-	GAF	US	GAF	Cubesat 2U	-	2		2		2		0.2		0.1		0.2		Box	2025 Jul 19	512		517		97.45		LLEO/S	-	-
+T00004	NNA	2025-180	2025-180G	P       ?	ThumbSat-1	TS-1	2025 Aug 19	S65264	2025 Aug 19 0755?	Earth	-	O	-	THUMB/HAIWS	MX	THUMB	Thumbsat	-	0.100		0.100		0.100		0.020		0.048		0.048		Box+ boom	-	0		0		0.00		-	-	-
+T00005	NNA	2025-180	2025-180H	P       ?	ThumbSat-2	TS-2	2025 Aug 19	S65264	2025 Aug 19 0755?	Earth	-	O	-	THUMB/HAIWS	MX	THUMB	Thumbsat	-	0.100		0.100		0.100		0.020		0.048		0.048		Box+ boom	-	0		0		0.00		-	-	-
+T00006	NNA	2025-052	2025-052BS	P       ?	Tevel 2-6	Tevel 2-6	2025 Mar 15	A11437	2025 Mar 15 0739	Earth	-	O	-	TAU/ISA	IL	ISA/TAU	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	2025 Mar 28	512		517		97.45		LLEO/S	-	-
+T00007	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00008	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00009	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00010	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00011	NNA	2025-052	2025-052	P       ?	Tevel 2-5	Tevel 2-5	2025 Mar 15	A11437	2025 Mar 15 0739	Earth	-	O	-	TAU/ISA	IL	ISA/TAU	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	2025 Mar 28	511		517		97.45		LLEO/S	-	-
+T00012	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00013	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00014	NNA	2025-082	2025-082	CP T T	Shenzhou 20 Guidao Cang	Shenzhou 20 orbital module	2025 Apr 24	S63632	2025 Apr 24 0927:07	Earth	-	AO	-	CMSEO	CN	CAST	Shenzhou OM	-	1842	?	1500	?	1842	?	2.3		2.8		4.3		Cyl + 2 pan	-	0		0		0.00		-	-	-
+T00015	NNA	1998-067	1998-067	P  D    ?	ASC	Atsushi Space Challenge	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	ASC24	J	ASC24	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	-	0		0		0.00		-	-	-
+T00016	NNA	1998-067	1998-067	P  D    ?	Hamorun	RSP-03	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	RSP	J	RSP	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	-	0		0		0.00		-	-	-
+T00017	NNA	1998-067	1998-067	P  D    ?	GHS-01	GHS-01	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	GIFU/GIDAI	J	GIDAI	Cubesat 2U	-	2		2		2		0.2		0.1		0.2		Box	-	0		0		0.00		-	-	-
+T00018	NNA	1998-067	1998-067	P  D    ?	Horai	STARS-Me2	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	SHIZ	J	SHIZ	Cubesat 1U	-	1		1		1		0.1		0.1		10.0		Box+tether	-	0		0		0.00		-	-	-
+T00019	NNA	1998-067	1998-067	P  D    ?	Dragonfly	BIRDS-X	2025 Aug 24	A11600	2025 Aug 24 0655	Earth	-	AO IN	-	KYUT	J	KYUT	Cubesat 2U	-	2		2		2		0.2		0.1		0.2		Box	-	0		0		0.00		-	-	-
+T00020	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00021	71304	2025-009	2025-009DU	P       ?	Flock 4g-19	Dove 24d4	2025 Jan 14	A11398	2025 Jan 14 2003:57	Earth	-	O	-	PLAN	US	PLAN	Cubesat 3U	-	5.700		5.700		5.700		0.3		0.1		0.3		Box+2 pan	2025 Jan 19	512		520		97.44		LLEO/S	-	-
+T00022	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00023	NNA	2024-043	2024-043	P       ?	Gluon	Gluon	2024 Mar  4	S59119	2024 Mar  4 2318:43	Earth	-	AO	-	ATOMOS	US	ATOMOS	Atomos	-	100	?	100	?	100	?	0.5		1.0		1.0		Box + 2 pan	-	0		0		0.00		-	-	-

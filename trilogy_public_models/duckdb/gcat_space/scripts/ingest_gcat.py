@@ -1,6 +1,8 @@
 # ingest_gcat_whitelist.py
 import asyncio
+import csv
 import httpx
+import io
 from pathlib import Path
 from typing import List
 
@@ -60,41 +62,113 @@ DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 ENCODING = "utf-8"
 
 
-def strip_comment_line(tsv_path: Path) -> Path:
+def clean_and_process_tsv(tsv_path: Path) -> Path:
     """
-    Remove all rows that start with '#' (comment lines) except the first line.
-    Always writes the first line as header with '#' stripped if present.
-    Creates a temporary cleaned file and returns its path.
+    Clean TSV file by:
+    1. Removing comment lines (lines starting with #) except the first line
+    2. Stripping trailing/leading spaces from all fields
+    3. Converting '-' to empty string in numeric columns
     """
     cleaned_path = tsv_path.with_suffix(".cleaned.tsv")
     
-    with open(tsv_path, "rb") as infile, open(cleaned_path, "wb") as outfile:
-        lines = infile.readlines()
+    try:
+        # Read the raw file to handle comments manually
+        with open(tsv_path, "r", encoding=ENCODING, errors='replace') as infile:
+            lines = infile.readlines()
         
         if not lines:
             return cleaned_path
         
-        # Always write the first line as header, stripping # if present
-        outfile.write(lines[0].lstrip(b"#").lstrip())
+        # Process header - always use first line, strip # if present
+        header_line = lines[0].lstrip("#").strip()
         
-        # Write remaining lines, but skip any that start with #
-        non_comment_lines = []
+        # Collect non-comment data lines
+        data_lines = []
         comment_count = 0
         
         for line in lines[1:]:
-            if line.strip().startswith(b"#"):
+            if line.strip().startswith("#"):
                 comment_count += 1
             else:
-                non_comment_lines.append(line)
-        
-        outfile.writelines(non_comment_lines)
+                data_lines.append(line.strip())
         
         if comment_count > 0:
             print(f"Stripped {comment_count} comment line(s) from {tsv_path.name}")
-        else:
-            print(f"No comment lines to strip from {tsv_path.name}")
+        
+        # Parse with CSV reader to handle fields properly
+        all_rows = []
+        
+        # Parse header
+        header_reader = csv.reader(io.StringIO(header_line), delimiter='\t')
+        headers = [col.strip() for col in next(header_reader)]
+        all_rows.append(headers)
+        
+        # Parse data rows and strip whitespace
+        for line in data_lines:
+            if line:  # Skip empty lines
+                row_reader = csv.reader(io.StringIO(line), delimiter='\t')
+                row = [field.strip() for field in next(row_reader)]
+                all_rows.append(row)
+        
+        if len(all_rows) <= 1:  # Only header, no data
+            with open(cleaned_path, "w", encoding=ENCODING, newline='') as outfile:
+                writer = csv.writer(outfile, delimiter='\t')
+                writer.writerows(all_rows)
+            return cleaned_path
+        
+        # Identify numeric columns (columns where all non-'-' values can be converted to float)
+        numeric_columns = set()
+        for col_idx, header in enumerate(headers):
+            non_dash_values = []
+            for row in all_rows[1:]:  # Skip header
+                if col_idx < len(row) and row[col_idx] != '-' and row[col_idx] != '':
+                    non_dash_values.append(row[col_idx])
+            
+            if non_dash_values:  # Only check if there are non-dash values
+                try:
+                    # Try to convert all non-dash values to float
+                    for val in non_dash_values:
+                        float(val)
+                    numeric_columns.add(col_idx)
+                    print(f"Converting '-' to empty in numeric column: {header}")
+                except ValueError:
+                    # Not a numeric column
+                    pass
+        
+        # Replace '-' with empty string in numeric columns
+        for row in all_rows[1:]:  # Skip header
+            for col_idx in numeric_columns:
+                if col_idx < len(row) and row[col_idx] == '-':
+                    row[col_idx] = ''
+        
+        # Write cleaned TSV
+        with open(cleaned_path, "w", encoding=ENCODING, newline='') as outfile:
+            writer = csv.writer(outfile, delimiter='\t')
+            writer.writerows(all_rows)
+        
+        print(f"Processed and cleaned: {tsv_path.name} -> {cleaned_path.name}")
+        
+    except Exception as e:
+        print(f"Error processing {tsv_path.name}: {e}")
+        # Fallback to simple cleaning
+        with open(tsv_path, "r", encoding=ENCODING, errors='replace') as infile:
+            lines = infile.readlines()
+        
+        with open(cleaned_path, "w", encoding=ENCODING) as outfile:
+            if lines:
+                # Write header
+                header = lines[0].lstrip("#").strip()
+                outfile.write(header + "\n")
+                
+                # Write data lines, stripping whitespace from fields
+                for line in lines[1:]:
+                    if not line.strip().startswith("#") and line.strip():
+                        # Split, strip each field, rejoin
+                        fields = [field.strip() for field in line.strip().split('\t')]
+                        outfile.write('\t'.join(fields) + "\n")
     
     return cleaned_path
+
 
 async def fetch_and_save(
     client: httpx.AsyncClient, rel_path: str, sem: asyncio.Semaphore
@@ -120,11 +194,13 @@ async def fetch_and_save(
                         async for chunk in resp.aiter_bytes(chunk_size=CHUNK_SIZE):
                             fd.write(chunk)
                 print(f"Saved: {out_path}")
-                strip_comment_line(out_path)
+                
+                # Clean and process the downloaded file
+                cleaned_path = clean_and_process_tsv(out_path)
+                
+                # Remove the original raw file to save space
                 out_path.unlink()
-                parquet_path = out_path.with_suffix(".parquet")
-                if parquet_path.exists():
-                    parquet_path.unlink()
+                
                 return
             except Exception as e:
                 # remove partial file if any
