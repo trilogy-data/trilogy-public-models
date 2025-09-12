@@ -4,9 +4,6 @@ import launch_sites as site;
 import organizations as org;
 import satcat as payload;
 
-
-
-
 key launch_tag string; # Each rocket launch in the database is labelled with a unique designation. For successful orbital launches, we use the International Designation (also called the COSPAR designation, after the Committee on Space Research which adopted the system.) For other launches, I use a variation on that scheme of my own design. I introduce the generalized concept of `launch designation' to include the International/COSPAR designation and other similar schemes. The term `piece designation' is also introduced to generalize the per-piece (per-cataloged-object) international designation. 
 property <launch_tag>.launch_jd string; # float of launch date on julian calendar
 # property <launch_tag>.launch_date string; 
@@ -24,6 +21,7 @@ property <launch_tag>.range string; # the range in km measured along the curved 
 property <launch_tag>.range_flag string;
 property <launch_tag>.dest string;
 property <launch_tag>.orb_pay float; # payload in tonnes delivered to orbit
+property <launch_tag>.agency string;
 key _launch_code string; 
 property <launch_tag>.fail_code string;
 # property <launch_tag>.group string;
@@ -31,11 +29,17 @@ property <launch_tag>.category string;
 property <launch_tag>.lt_cite string;
 property <launch_tag>.cite string;
 property <launch_tag>.notes string;
+property <launch_tag>.orgs string;
+
+auto _split_orgs <-split(orgs, '/');
+
+auto first_org <- _split_orgs[1];
 
 
 
 # file merges
 merge payload.launch_tag into ~launch_tag;
+merge first_org into ~org.code;
 
 auto launch_date <- date_add('1900-01-01'::date, day, (launch_jd::float - 2415021)::int);
 
@@ -47,13 +51,15 @@ end; # F|E|O for most cases; F is failure. E is pad issue.
 
 auto was_complete_success <- case when success_flag = 'S' THEN True else False END; #whether the mission was a complete sucess
 
+
 auto launch_type_code <- case
-  when  _launch_code = '' then null
+  when _launch_code is null or _launch_code = '' then null
   else substring(_launch_code, 1, 1) END; # O | M | T | A | S | D | H | R | X | Y - see launch_type_label for details
 
 # interpret the first letter of the existing launch_code into a readable label
 # Kept as launch_code_label to avoid shadowing the original launch_code property
 auto launch_type_label <- case
+  when launch_type_code is null then null
   when launch_type_code = 'O' then 'Orbital'
   when launch_type_code = 'M' then 'Military Missile'
   when launch_type_code = 'T' then 'Test Rocket'
@@ -106,7 +112,8 @@ datasource launch_info (
 	RangeFlag:range_flag,
 	Dest:dest,
 	OrbPay:orb_pay,
-	Agency:~org.code,
+	Agency:orgs,
+    FirstAgency:first_org,
 	LaunchCode:_launch_code,
 	FailCode:?fail_code,
 	# Group,
