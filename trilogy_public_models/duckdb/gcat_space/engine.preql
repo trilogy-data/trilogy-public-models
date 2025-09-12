@@ -11,7 +11,7 @@ property name.mass float;
 property name.mflag string;
 property name.impulse int;
 property name.impflag string;
-property name.thrust float;
+property name.thrust numeric::kn;
 property name.tflag string;
 property name.isp float;
 property name.ispflag string;
@@ -39,7 +39,7 @@ datasource engines (
     IspFlag: ?ispflag,
     Duration: ?duration,
     DurFlag: ?durflag,
-    Chambers: chambers,
+    Chambers: ?chambers,
     Date: date,
     Usage: usage,
     Group: group

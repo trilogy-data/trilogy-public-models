@@ -1,7 +1,8 @@
-# auto-generated datasource from table/view platform_info
+import std.geography;
+
 key code string;
 property code.u_code string;
-property code.state_code string;
+property code.state_code string::country_code;
 property code.type string;
 property code.class string;
 property code.t_start string;
@@ -9,8 +10,8 @@ property code.t_stop string;
 property code.short_name string;
 property code.name string;
 property code.location string;
-property code.longitude string;
-property code.latitude string;
+property code.longitude string::longitude;
+property code.latitude string::latitude;
 property code.error float;
 property code.parent string;
 property code.short_e_name string;

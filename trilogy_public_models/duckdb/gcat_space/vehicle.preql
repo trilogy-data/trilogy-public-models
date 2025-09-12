@@ -1,4 +1,5 @@
 #auto-generated datasource from table/view lv_info
+import stage as stage;
 
 key name string;
 key variant string;
