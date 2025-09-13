@@ -1,4 +1,5 @@
 from trilogy.core.validation.fix import validate_and_rewrite
+from trilogy.core.validation.environment import validate_environment
 from pathlib import Path
 from trilogy import Dialects, Environment
 
@@ -21,8 +22,12 @@ def process_model(file_path: Path):
             continue
         print(f"Processing {file}")
         engine.environment = Environment(working_path=file.parent)
+        engine.parse_file(file)
+        
         try:
+            validate_environment(engine.environment, exec=engine)
             validate_and_rewrite(file, engine)
+            print('No validation errors found')
         except Exception as e:
             raise e
             print(f"Failed to process {file} with error: {e}")
