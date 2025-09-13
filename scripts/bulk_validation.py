@@ -29,7 +29,6 @@ def process_model(file_path: Path):
             validate_and_rewrite(file, engine)
             print('No validation errors found')
         except Exception as e:
-            raise e
             print(f"Failed to process {file} with error: {e}")
 
 
