@@ -57,10 +57,6 @@ FILES_TO_DOWNLOAD: List[str] = [
     "tsv/cat/xtlcat.tsv",
 ]
 
-FILES_TO_DOWNLOAD = [
-    "tsv/tables/platforms.tsv",
-]
-
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 ENCODING = "utf-8"
