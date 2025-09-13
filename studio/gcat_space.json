@@ -1,11 +1,25 @@
 {
   "components": [
     {
+      "alias": "engine",
+      "name": "engine",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/engine.preql"
+    },
+    {
       "alias": "entrypoint",
       "name": "entrypoint",
       "purpose": "entrypoint",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/entrypoint.preql"
+    },
+    {
+      "alias": "fuel_dashboard",
+      "name": "fuel_dashboard",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/fuel_dashboard.preql"
     },
     {
       "alias": "launch",
@@ -61,6 +75,13 @@
       "purpose": "setup",
       "type": "sql",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/setup.sql"
+    },
+    {
+      "alias": "stage",
+      "name": "stage",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/stage.preql"
     },
     {
       "alias": "vehicle",

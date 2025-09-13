@@ -119,19 +119,28 @@ def clean_and_process_tsv(tsv_path: Path) -> Path:
         # Identify numeric columns (columns where all non-'-' values can be converted to float)
         numeric_columns = set()
         for col_idx, header in enumerate(headers):
+            printFlag = False
+            if header == "Latitude":
+                printFlag = True
+            if printFlag:
+                print(f"Checking column: {header}")
             non_dash_values = []
             for row in all_rows[1:]:  # Skip header
                 if col_idx < len(row) and row[col_idx] != "-" and row[col_idx] != "":
                     non_dash_values.append(row[col_idx])
-
+            if printFlag:
+                print(f"Non-dash values for {header}: {non_dash_values}")
             if non_dash_values:  # Only check if there are non-dash values
                 try:
                     # Try to convert all non-dash values to float
                     for val in non_dash_values:
                         float(val)
                     numeric_columns.add(col_idx)
+
                     print(f"Converting '-' to empty in numeric column: {header}")
-                except ValueError:
+                except ValueError as e:
+                    if printFlag:
+                        print(f"Column '{header}' is not numeric: {e}")
                     # Not a numeric column
                     pass
 

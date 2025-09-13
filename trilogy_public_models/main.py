@@ -1,6 +1,7 @@
 from trilogy import Executor, Dialects
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
+from pathlib import Path
 
 
 def get_executor(
@@ -30,7 +31,11 @@ def get_executor(
     if run_setup:
         for x in queries:
             if x.type == QueryType.SQL:
-                z = executor.execute_raw_sql(x.query)
+                localized_query = x.query.replace(
+                    "https://trilogy-data.github.io/trilogy-public-models",
+                    str(Path(__file__).parent.parent),
+                )
+                z = executor.execute_raw_sql(localized_query)
                 z.fetchall()
             elif x.type == QueryType.TRILOGY:
                 z2 = executor.execute_query(x.query)
