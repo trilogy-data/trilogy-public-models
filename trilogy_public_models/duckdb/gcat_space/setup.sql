@@ -25,8 +25,9 @@ SELECT
     Dest,
     OrbPay::float OrbPay,
     Agency,
+    split(Agency, '/')[1] FirstAgency,
     LaunchCode,
-    case when FailCode= '-' then null else FailCode End FailCode,
+    FailCode,
     "Group",
     Category,
     LTCite,
@@ -41,18 +42,39 @@ from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy
 sample_size=-1);
 
 CREATE OR REPLACE TABLE lv_info as
-SELECT * EXCLUDE (LEO_Capacity, GTO_Capacity, LV_FAMILY),
+SELECT * 
 
-trim(lv_family) as LV_Family,
-cast(case when LEO_Capacity = '-' then null else LEO_Capacity END as float) LEO_Capacity, cast(case when GTO_Capacity='-' then null else GTO_CAPACITY END as float) GTO_Capacity
 from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/lv.cleaned.tsv',
 sample_size=-1);
 
-CREATE OR REPLACE TABLE launch_sites as
-SELECT * EXCLUDE(latitude, longitude), cast(case when latitude='-' then null else latitude end as float) latitude, cast(case when longitude='-' then null else longitude end as float) longitude
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
+CREATE OR REPLACE TABLE lvs_info as
+SELECT * 
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/lvs.cleaned.tsv',
 sample_size=-1);
 
+CREATE OR REPLACE TABLE stages as
+SELECT * 
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/stages.cleaned.tsv',
+sample_size=-1);
+
+CREATE OR REPLACE TABLE engines AS
+SELECT 
+    * EXCLUDE (Fuel, isp), 
+    CASE 
+        WHEN name = 'Raptor SL'  and isp is null    THEN 350.0
+        WHEN name = 'Raptor 2 Vac' and isp is null THEN 380.0
+        WHEN name = 'Raptor 3 SL'  and isp is null    THEN 350.0
+        WHEN name = 'Raptor 3 Vac' and isp is null THEN 380.0
+        ELSE isp
+    END AS isp,
+    COALESCE(Fuel, 'Unspecified') AS Fuel
+FROM read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/engines.cleaned.tsv',
+sample_size=-1);
+
+CREATE OR REPLACE TABLE launch_sites as
+SELECT * 
+from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
+sample_size=-1);
 
 CREATE OR REPLACE TABLE organizations as
 SELECT *
@@ -63,3 +85,4 @@ CREATE OR REPLACE TABLE satcat as
 SELECT *
 from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
 sample_size=-1);
+

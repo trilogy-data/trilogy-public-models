@@ -87,16 +87,16 @@
         "query": "SELECT launch_count, count(site.state_code) as countries, date_diff(min(launch_date), current_date(), year) as launch_days, min(launch_date) as min_date;"
       },
       "name": "Overview & instructions",
-      "width": 807,
+      "width": 716,
       "height": 115,
       "allowCrossFilter": true,
       "parameters": {}
     },
     "1": {
       "type": "chart",
-      "content": "import launch;\n\nwhere\n  launch_date between date_add( current_date(), YEAR, -100) and current_date()\nselect\n  launch_year,\n\n    sum(orb_pay) as total_payload_tons,\n  launch_count,\n\n  # avg(count(launch.id)) over order by year rows between 4 preceding and current row as launch_count_5yr_ma,\n  # avg(sum(payload.mass_kg)) over order by year rows between 4 preceding and current row as mass_5yr_ma,\n  # sum(count(launch.id)) over order by year asc as launch_count_cumulative,\n  # sum(sum(payload.mass_kg)) over order by year asc as total_payload_mass_kg_cumulative\norder by\n  launch_year asc\nlimit 2000;\n",
+      "content": "\nwhere\n  launch_date between date_add( current_date(), YEAR, -100) and current_date()\nselect\n  launch_year,\n\n    sum(orb_pay) as total_payload_tons,\n  launch_count,\n\n  # avg(count(launch.id)) over order by year rows between 4 preceding and current row as launch_count_5yr_ma,\n  # avg(sum(payload.mass_kg)) over order by year rows between 4 preceding and current row as mass_5yr_ma,\n  # sum(count(launch.id)) over order by year asc as launch_count_cumulative,\n  # sum(sum(payload.mass_kg)) over order by year asc as total_payload_mass_kg_cumulative\norder by\n  launch_year asc\nlimit 2000;\n",
       "name": "Annual launches and payload mass (dual axis)",
-      "width": 807,
+      "width": 716,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -119,7 +119,7 @@
       "type": "chart",
       "content": "\nwhere\n  launch_date >= date_add(current_date(), year, -100)\nselect\n  # site.code,\n  site.name,\n  site.latitude as lat,\n  site.longitude as lon,\n  site.state_code,\n\n  sum(orb_pay) as payload_tons,\n  launch_count,\n  min(launch_date) as first_launch_date,\n  max(launch_date) as last_launch_date\norder by\n  launch_count desc\nlimit 1000;\n",
       "name": "Launch sites map — mass and counts",
-      "width": 457,
+      "width": 405,
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -142,7 +142,7 @@
       "type": "chart",
       "content": "# generate a breakdown of mass to orby by rocket family\nwhere orb_pay is not null\nselect\n  vehicle_label,\n  launch_count_by_label,\n  tonnes_by_label,\n  vehicle.leo_capacity,\n round(case\n    when launch_count = 0 then null\n    else (sum(orb_pay)) / launch_count\n  end*100)/100 as avg_launch_tons\nhaving\n   vehicle.leo_capacity>0\n   and tonnes_by_label>0\norder by\ntonnes_by_label desc\n limit 40\n;",
       "name": "By rocket: launch (attempts) and mass",
-      "width": 341,
+      "width": 302,
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -167,7 +167,7 @@
       "type": "chart",
       "content": "where orb_pay is not null\nselect\n  site.state_code,\n  # site.name as launch_site,\n  -- sum(orb_pay)::int as total_payload,\n  log(CASE WHEN total_payload = 0 then 1 else total_payload END, 10) as log_scale_orbital_tons,\n  launch_count\norder by\n  log_scale_orbital_tons desc\nlimit 15;",
       "name": "Launch Site Country - Mass and Count",
-      "width": 341,
+      "width": 302,
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -190,7 +190,7 @@
       "type": "table",
       "content": "where orb_pay is not null\r\nselect\r\n  site.state_code,\r\n  site.name,\r\n  total_orbital_payload_tonnes,\r\n  launch_count\r\norder by\r\n  total_orbital_payload_tonnes desc\r\nlimit 15;",
       "name": "Table 7",
-      "width": 457,
+      "width": 405,
       "height": 435,
       "allowCrossFilter": true,
       "parameters": {}
@@ -199,7 +199,7 @@
       "type": "chart",
       "content": "\r\n\r\nselect\r\nlaunch_filter,\r\n#launch_count\r\norder by launch_filter asc\r\n;",
       "name": "Launch Type Filter (Shift-click for multiple)",
-      "width": 399,
+      "width": 354,
       "height": 35,
       "allowCrossFilter": false,
       "chartConfig": {
@@ -221,20 +221,20 @@
     "10": {
       "type": "markdown",
       "content": {
-        "markdown": "# {vehicle_label} ({vehicle_family})\nThe top launcher by mass of {all_vehicles} in filter set with {total_mass} tons to {launch_targets} in {launch_count} ({successful_launches} successful) launch attempts.\n\n## Stats\n- **Length**: {vehicle_length} meters\n- **Diameter**: {vehicle_diameter} meters\n- **LEO Capacity**: {vehicle_leo_capacity} Kgs\n- **Launch Mass**: {vehicle_launch_mass} tonnes\n- **Launch Thrust**: {vehicle_to_thrust} kN\n\nSpecial Orbit Codes:\n- LSS - non ISS space station\n\n",
+        "markdown": "# {vehicle_label} ({vehicle_family})\nTop orbital launcher by mass (out of {all_vehicles} in filter set) with {total_mass} tons to {launch_targets} in {launch_count} ({successful_launches} successful) launch attempts.\n\n## Stats\n- **Length**: {vehicle_length} meters\n- **Diameter**: {vehicle_diameter} meters\n- **LEO Capacity**: {vehicle_leo_capacity} Kgs\n- **Launch Mass**: {vehicle_launch_mass} tonnes\n- **Launch Thrust**: {vehicle_to_thrust} kN\n\nSpecial Orbit Codes:\n- LSS - non ISS space station\n\n",
         "query": "SELECT\n    vehicle.name,\n    vehicle.class,\n    vehicle.variant,\n    vehicle.length,\n    vehicle.leo_capacity,\n    vehicle_label,\n    launch_count,\n    count(filter launch_tag where was_complete_success is not null) -> successful_launches,\n    count(filter launch_tag where success_flag = 'E') -> pad_aborts,\n    count(vehicle.family) by __preql_internal.all_rows -> all_vehicles,\n    vehicle.family,\n    vehicle.launch_mass,\n    vehicle.to_thrust,\n    vehicle.diameter,\n    round(sum(orb_pay),2) -> total_mass,\n    array_to_string(array_distinct(array_agg(launch_filter)),', ') -> launch_targets,\nORDER BY\n    total_mass desc\nLIMIT 1\n;"
       },
       "name": "Overview & instructions",
-      "width": 341,
+      "width": 302,
       "height": 355,
       "allowCrossFilter": true,
       "parameters": {}
     },
     "11": {
       "type": "chart",
-      "content": "\r\n\r\nselect\r\nlaunch_state_flag,\r\n#launch_count\r\norder by launch_state_flag asc\r\n;",
+      "content": "SELECT\n    org.flag,\nORDER BY\n    org.flag asc\n;",
       "name": "Launch Org (click title to clear)",
-      "width": 399,
+      "width": 354,
       "height": 35,
       "allowCrossFilter": false,
       "chartConfig": {
@@ -255,9 +255,9 @@
     },
     "12": {
       "type": "chart",
-      "content": "select \r\n\r\n   payload_label,\r\n      --  vehicle.name,\r\n    orbit_code,\r\n    payload.jcat.count as payload_count,\r\n    --rank vehicle.name order by sum(orb_pay) by vehicle.name desc  as vehicle_rank\r\nhaving\r\n    vehicle_rank = 1\r\nlimit 50;\r\n",
+      "content": "select \r\n\r\n   payload_label,\r\n      --  vehicle_label,\r\n    orbit_code,\r\n    payload.jcat.count as payload_count,\r\n    --rank vehicle.name order by sum(orb_pay) by vehicle.name desc  as vehicle_rank\r\nhaving\r\n    vehicle_rank = 1\r\nlimit 50;\r\n",
       "name": "Launcher Top 50 Payloads",
-      "width": 341,
+      "width": 302,
       "height": 995,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -283,7 +283,7 @@
         "query": ""
       },
       "name": "Note 14",
-      "width": 341,
+      "width": 302,
       "height": 35,
       "allowCrossFilter": true,
       "parameters": {}
@@ -291,8 +291,8 @@
   },
   "nextId": 15,
   "createdAt": "2025-08-10T16:05:55.017Z",
-  "updatedAt": "2025-09-05T11:57:43.928Z",
-  "filter": null,
+  "updatedAt": "2025-09-13T14:11:52.501Z",
+  "filter": "",
   "imports": [
     {
       "name": "launch_dashboard",
