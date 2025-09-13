@@ -24,6 +24,7 @@ def process_model(file_path: Path):
         try:
             validate_and_rewrite(file, engine)
         except Exception as e:
+            raise e
             print(f"Failed to process {file} with error: {e}")
 
 

@@ -10,8 +10,10 @@ property code.t_stop string;
 property code.short_name string;
 property code.name string;
 property code.location string;
-property code.longitude string::longitude;
-property code.latitude string::latitude;
+# these are all null
+# excluding from model for the moment
+# property code.longitude float::longitude; 
+# property code.latitude float::latitude;
 property code.error float;
 property code.parent string;
 property code.short_e_name string;
@@ -32,8 +34,8 @@ datasource platform_info (
     ShortName: short_name,
     Name: name,
     Location: location,
-    Longitude: longitude,
-    Latitude: latitude,
+    # Longitude: longitude,
+    # Latitude: latitude,
     Error: ?error,
     Parent: parent,
     ShortEName: short_e_name,

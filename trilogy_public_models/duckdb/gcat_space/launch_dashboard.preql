@@ -1,25 +1,26 @@
 import std.net;
 import launch;
 
-auto launch_year <- year(launch_date);
-
-property launch_filter <- CASE WHEN launch_type_code = 'O' then "Earth Orbit"
-WHEN launch_type_code = 'D' then 'Deep Space'
-ELSE 'Other' END;
-
-auto launch_state_flag <- case when org.state_code in ('SU', 'RU') then 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
-when org.state_code = 'US' then 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_the_United_States_%283-2_aspect_ratio%29.svg'
-when org.state_code = 'CN' then 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2880px-Flag_of_the_People%27s_Republic_of_China.svg.png'
-else 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/2880px-Flag_of_the_United_Nations.svg.png'
-end::string::url_image;
-
-auto  total_orbital_payload_tonnes <-round(sum(orb_pay),2);
-
-auto payload_label <- case when payload.bus ='-' then payload.name else payload.bus end;
-
-auto  vehicle_label <-  CASE WHEN vehicle.variant != '-' THEN concat(vehicle.name,'-',vehicle.variant)
-ELSE vehicle.name
+property launch_year <- year(launch_date);
+property launch_filter <- CASE
+	WHEN launch_type_code = 'O' THEN 'Earth Orbit'
+	WHEN launch_type_code = 'D' THEN 'Deep Space'
+	ELSE 'Other'
 END;
-
-auto launch_count_by_label <- group launch_count by vehicle_label;
-auto tonnes_by_label <- group total_orbital_payload_tonnes by vehicle_label;
+property launch_state_flag <- CAST(CASE
+	WHEN org.state_code in ('SU', 'RU') THEN 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
+	WHEN org.state_code = 'US' THEN 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_the_United_States_%283-2_aspect_ratio%29.svg'
+	WHEN org.state_code = 'CN' THEN 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2880px-Flag_of_the_People%27s_Republic_of_China.svg.png'
+	ELSE 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/2880px-Flag_of_the_United_Nations.svg.png'
+END AS string::url_image);
+metric total_orbital_payload_tonnes <- round(sum(orb_pay),2);
+property payload_label <- CASE
+	WHEN payload.bus = '-' THEN payload.name
+	ELSE payload.bus
+END;
+property vehicle_label <- CASE
+	WHEN vehicle.variant != '-' THEN concat(vehicle.name,'-',vehicle.variant)
+	ELSE vehicle.name
+END;
+property launch_count_by_label <- group(launch_count) by vehicle_label;
+property tonnes_by_label <- group(total_orbital_payload_tonnes) by vehicle_label;
