@@ -12,9 +12,9 @@ property code.t_stop string;
 property code.short_name string;
 property code.name string;
 property code.location string;
-property code.longitude string;
-property code.latitude string;
-property code.error string;
+property code.longitude float;
+property code.latitude float;
+property code.error float;
 property code.parent string;
 property code.short_e_name string;
 property code.e_name string;
@@ -37,8 +37,8 @@ datasource organizations (
     ShortName: short_name,
     Name: name,
     Location: location,
-    Longitude: longitude,
-    Latitude: latitude,
+Longitude: ?longitude,
+    Latitude: ?latitude,
     Error: error,
     Parent: parent,
     ShortEName: short_e_name,
