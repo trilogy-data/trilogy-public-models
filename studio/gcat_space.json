@@ -22,6 +22,12 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/fuel_dashboard.preql"
     },
     {
+      "name": "fuel_stats",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/fuel_stats.json"
+    },
+    {
       "alias": "launch",
       "name": "launch",
       "purpose": "source",
