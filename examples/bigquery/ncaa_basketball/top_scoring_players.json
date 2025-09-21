@@ -86,7 +86,7 @@
     },
     "1": {
       "type": "chart",
-      "content": "select\n    player.full_name,\n    # shot_type,\n    total_points/game_count as points_per_game,\n    coalesce(sum(points_scored),0) as total_points,\n    --count(game.id) as game_count,\n    --player_rank,\nhaving\n    player_rank<100\norder by\n    player_rank asc\n\n",
+      "content": "select\n    player.full_name,\n    # shot_type,\n    total_points/game_count as points_per_game,\n    coalesce(sum(points_scored),0) as total_points,\n    --count(game.id) as game_count,\n    --player_rank,\nhaving\n    player_rank<100\norder by\n    player_rank asc;\n\n",
       "name": "Top Scoring Players and Shot Types",
       "width": 18,
       "height": 1435,

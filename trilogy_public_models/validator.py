@@ -13,6 +13,7 @@ from trilogy.parser import parse_text
 from trilogy.core.internal import INTERNAL_NAMESPACE
 from trilogy.core.models.build import BuildConcept
 from pathlib import Path
+from json import loads
 
 example_path = Path(__file__).parent.parent / "examples"
 
@@ -104,8 +105,20 @@ def get_example_queries(key: str) -> list[str]:
     for query in queries:
         with open(query, "r") as f:
             final.append(f.read())
-    return final
+    dashboards = example_dir.glob("*.json")
+    for dashboard in dashboards:
+        with open(dashboard, "r") as f:
+            content: dict = loads(f.read())
+            imports = content.get("imports", [])
+            imp_prefix = " ".join([f"import {x['name']};" for x in imports])
+            for k, v in content["gridItems"].items():
+                content = v.get("content", None)
+                if content and isinstance(content, dict) and content.get("query", None):
+                    final.append(imp_prefix + " " + content["query"])
+                elif v.get("type") in ["chart", "table"] and v.get("content", None):
+                    final.append(imp_prefix + " " + v["content"])
 
+    return final
 
 def validate_concept(concept: BuildConcept, history: History, env, graph):
     if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
