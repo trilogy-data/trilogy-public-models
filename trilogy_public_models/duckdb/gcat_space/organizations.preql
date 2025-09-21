@@ -1,6 +1,6 @@
 import std.geography;
 import std.net;
-import std.color;
+import std.display;
 
 key code string;
 property code.u_code string;
@@ -43,8 +43,7 @@ datasource organizations (
     Parent: parent,
     ShortEName: short_e_name,
     EName: e_name,
-    UName: u_name,
-    hex_code:hex,
+    UName: u_name
     )
 grain (code)
 address organizations;
