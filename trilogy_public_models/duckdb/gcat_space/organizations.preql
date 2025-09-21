@@ -1,6 +1,6 @@
 import std.geography;
 import std.net;
-import std.display;
+import std.color;
 
 key code string;
 property code.u_code string;
