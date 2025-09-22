@@ -1,0 +1,115 @@
+{
+  "name": "iris-basic",
+  "layout": [
+    {
+      "x": 0,
+      "y": 4,
+      "w": 5,
+      "h": 13,
+      "i": "0"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "w": 15,
+      "h": 13,
+      "i": "2"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 20,
+      "h": 4,
+      "i": "3"
+    },
+    {
+      "x": 0,
+      "y": 17,
+      "w": 20,
+      "h": 6,
+      "i": "4"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "chart",
+      "content": "select climate_zone, sample_id.count;",
+      "name": "Climate Zones",
+      "width": 512,
+      "height": 475,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "barh",
+        "xField": "sample_id_count",
+        "yField": "climate_zone",
+        "yField2": "",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "parameters": {}
+    },
+    "2": {
+      "type": "chart",
+      "content": "select species, sample_id.count, latitude, longitude, mean_annual_temp_C;",
+      "name": "Geography",
+      "width": 1553,
+      "height": 475,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "usa-map",
+        "xField": "longitude",
+        "yField": "latitude",
+        "yField2": "",
+        "colorField": "mean_annual_temp_C",
+        "sizeField": "sample_id_count",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "parameters": {}
+    },
+    "3": {
+      "type": "markdown",
+      "content": {
+        "markdown": "# {species_count} Species\n\n{species_list} of the world. \n",
+        "query": "def initcap(x) ->  UPPER(SUBSTRING(x, 1, 1)) || SUBSTRING(x, 2, len(x)) ;\r\n\r\n\r\nSELECT species.count, \r\n       array_to_string(array_transform(array_agg(species), @initcap), ', ') as species_list;\r\n"
+      },
+      "name": "Note 3",
+      "width": 2073,
+      "height": 115,
+      "allowCrossFilter": true,
+      "parameters": {}
+    },
+    "4": {
+      "type": "table",
+      "content": "select country, region, species",
+      "name": "Table 4",
+      "width": 2073,
+      "height": 195,
+      "allowCrossFilter": true,
+      "parameters": {}
+    }
+  },
+  "nextId": 5,
+  "createdAt": "2025-08-07T01:16:13.265Z",
+  "updatedAt": "2025-09-22T12:50:18.897Z",
+  "filter": "",
+  "imports": [
+    {
+      "name": "genus_info",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": ""
+}

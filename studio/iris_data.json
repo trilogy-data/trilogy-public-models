@@ -27,6 +27,12 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/iris_data/example/geography.preql"
     },
     {
+      "name": "overview",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/iris_data/overview.json"
+    },
+    {
       "alias": "setup",
       "name": "setup",
       "purpose": "setup",
