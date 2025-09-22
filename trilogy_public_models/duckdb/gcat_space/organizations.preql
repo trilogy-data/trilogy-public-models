@@ -37,13 +37,14 @@ datasource organizations (
     ShortName: short_name,
     Name: name,
     Location: location,
-Longitude: ?longitude,
+    Longitude: ?longitude,
     Latitude: ?latitude,
     Error: error,
     Parent: parent,
     ShortEName: short_e_name,
     EName: e_name,
-    UName: u_name
+    UName: u_name,
+    hex_code: hex,
     )
 grain (code)
 address organizations;
