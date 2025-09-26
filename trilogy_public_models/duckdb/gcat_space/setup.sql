@@ -478,8 +478,8 @@ CREATE OR REPLACE TABLE fuel_dashboard_agg as
 SELECT
     "launch_info".Launch_Tag as launch_tag,
     "launch_info"."OrbPay" as "orb_pay",
-    "launch_info"."LV_Type" as lv_type,
-    "launch_info"."Variant" as lv_variant,
+    "vehicle_lvs_info"."LV_Name" as lv_type,
+    "vehicle_lvs_info"."LV_Variant" as lv_variant,
     "launch_info"."LaunchCode" as launch_code,
     "org_organizations".code as org_code,
     "org_organizations"."StateCode" as "org_state_code",
@@ -494,8 +494,9 @@ SELECT
     launch_jd
 FROM
     "launch_info"
-    LEFT OUTER JOIN "organizations" as "org_organizations" on "launch_info"."FirstAgency" = "org_organizations"."Code"
-    INNER JOIN "lvs_info" as "vehicle_lvs_info" on "launch_info"."LV_Type" = "vehicle_lvs_info"."LV_Name" AND "launch_info"."Variant" = "vehicle_lvs_info"."LV_Variant"
+    INNER JOIN "organizations" as "org_organizations" on "launch_info"."FirstAgency" = "org_organizations"."Code"
+    FULL JOIN "lvs_info" as "vehicle_lvs_info" on "launch_info"."LV_Type" = "vehicle_lvs_info"."LV_Name" AND "launch_info"."Variant" = "vehicle_lvs_info"."LV_Variant"
     LEFT OUTER JOIN "stages" as "vehicle_stage_stages" on "vehicle_lvs_info"."Stage_Name" = "vehicle_stage_stages"."Stage_Name"
-    INNER JOIN "engines" as "vehicle_stage_engine_engines" on "vehicle_stage_stages"."Engine" = "vehicle_stage_engine_engines"."Name"
+    FULL JOIN "engines" as "vehicle_stage_engine_engines" on "vehicle_stage_stages"."Engine" = "vehicle_stage_engine_engines"."Name"
 ;
+
