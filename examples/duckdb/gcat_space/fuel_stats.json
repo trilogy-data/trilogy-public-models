@@ -308,7 +308,7 @@
     },
     "12": {
       "type": "chart",
-      "content": "WHERE\r\n    (vehicle.stage_no = '1')\r\nSELECT\r\n    vehicle.stage.engine.group,\r\n    vehicle.stage.engine.name,\r\n    vehicle.stage.engine.isp,\r\n    vehicle.stage.engine.thrust,\r\n    vehicle.stage.engine.group_hex,\r\n    launch_count,\r\nhaving \r\n    cast(vehicle.stage.engine.isp as int)>30 \r\norder by launch_count desc\r\nlimit 150;",
+      "content": "WHERE\r\n    (vehicle.stage_no in ('0','1'))\r\nSELECT\r\n    vehicle.stage.engine.group,\r\n    vehicle.stage.engine.name,\r\n    vehicle.stage.engine.isp,\r\n    vehicle.stage.engine.thrust,\r\n    vehicle.stage.engine.group_hex,\r\n    launch_count,\r\nhaving \r\n    cast(vehicle.stage.engine.isp as int)>30 \r\norder by launch_count desc\r\nlimit 150;",
       "name": "By Engine: ISP vs Thrust",
       "width": 973,
       "height": 355,
