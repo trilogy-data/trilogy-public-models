@@ -133,7 +133,7 @@
       "type": "chart",
       "content": "WHERE\n    (vehicle.stage_no = '1' or vehicle.stage_no = '0')\nSELECT\n    vehicle.stage.engine.group,\n    vehicle.stage.engine.group_hex,\n    launch_date.year,\n    --sum(orb_pay) as fuel_contribution,\n    (fuel_contribution /  sum(sum(orb_pay) by launch_date.year, vehicle.stage.engine.group) by launch_date.year)*100 -> percent_orbital_payload,\nHAVING\n    fuel_contribution > 0\n;",
       "name": "% of Year's Payload to Orbit (tonnes) by First Stage Fuel",
-      "width": 973,
+      "width": 1231,
       "height": 235,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -156,7 +156,7 @@
       "type": "chart",
       "content": "WHERE\n        vehicle.stage_no in ('0', '1')\nSELECT\n    stage_identifier,\n    org.state_code,\n    org.hex,\n    sum(orb_pay)-> orbital_payload,\nORDER BY\n    orbital_payload desc\nLIMIT 10\n;",
       "name": "Top First Stage Launchers",
-      "width": 482,
+      "width": 611,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -183,7 +183,7 @@
         "query": ""
       },
       "name": "Note 3",
-      "width": 973,
+      "width": 1231,
       "height": 235,
       "allowCrossFilter": true,
       "parameters": {}
@@ -195,7 +195,7 @@
         "query": "\nimport std.display;\nWHERE\n    vehicle.stage_no in ('0', '1')\nSELECT\n    launch_count,\n    sum(orb_pay) as payload_to_orbit,\n    count(vehicle.full_name) as rockets,\n    round(avg(group(vehicle.stage.engine.isp) by launch_tag),2) -> average_isp,\n    array_sort(array_agg(\n        struct(\n        round(coalesce(sum(orb_pay) by vehicle.stage.engine.fuel,0),3)  ->payload , \n        vehicle.stage.engine.fuel  ->fuel,\n        count(launch_tag) by vehicle.stage.engine.fuel -> launches,\n        @calc_percent(\n            (count(launch_tag ? was_complete_success ) by vehicle.stage.engine.fuel), \n            (count(launch_tag) by vehicle.stage.engine.fuel)\n            , 2\n         )*100 ->success_rate \n       \n         )\n    ), desc) as fuel_payloads\n;\n"
       },
       "name": "Note 3",
-      "width": 973,
+      "width": 1231,
       "height": 195,
       "allowCrossFilter": true,
       "parameters": {}
@@ -207,7 +207,7 @@
         "query": "\nimport std.display;\nWHERE\n    vehicle.stage_no in ('2', '3', '4')\nSELECT\n    launch_count,\n    sum(orb_pay) as payload_to_orbit,\n    count(vehicle.full_name) as rockets,\n    round(avg(group(vehicle.stage.engine.isp) by launch_tag),2) -> average_isp,\n    array_sort(array_agg(\n        struct(\n        round(coalesce(sum(orb_pay) by vehicle.stage.engine.fuel,0),3)  ->payload , \n        vehicle.stage.engine.fuel  ->fuel,\n        count(launch_tag) by vehicle.stage.engine.fuel -> launches,\n        @calc_percent(\n            (count(launch_tag ? was_complete_success ) by vehicle.stage.engine.fuel), \n            (count(launch_tag) by vehicle.stage.engine.fuel)\n            , 2\n         )*100 ->success_rate \n       \n         )\n    ), desc) as fuel_payloads\n;\n"
       },
       "name": "Note 3",
-      "width": 973,
+      "width": 1231,
       "height": 195,
       "allowCrossFilter": true,
       "parameters": {}
@@ -216,7 +216,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('2', '3', '4')\n    and vehicle.stage.engine.group is not null\nSELECT\n    vehicle.stage.engine.group,\n    vehicle.stage.engine.group_hex,\n    launch_date.year,\n    --sum(orb_pay) as fuel_contribution,\n    (fuel_contribution /  sum(sum(orb_pay) by launch_date.year, vehicle.stage.engine.group) by launch_date.year)*100 -> percent_orbital_payload,\n\nhaving fuel_contribution>0;",
       "name": "% of Year's Payload to Orbit (tonnes) by Upper Stage Fuel",
-      "width": 973,
+      "width": 1231,
       "height": 235,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -239,7 +239,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('2', '3', '4')\nSELECT\n    stage_identifier,\n    org.state_code,\n    org.hex,\n    sum(orb_pay) -> orbital_payload,\nORDER BY\n    orbital_payload desc\nLIMIT 10\n;",
       "name": "Top Upper Stage Launchers",
-      "width": 482,
+      "width": 611,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -262,7 +262,7 @@
       "type": "chart",
       "content": "SELECT\n    org.flag,\nORDER BY\n    org.flag asc\n;",
       "name": "National Grouping (Click to filter, click title to clear)",
-      "width": 482,
+      "width": 611,
       "height": 115,
       "allowCrossFilter": false,
       "chartConfig": {
@@ -285,7 +285,7 @@
       "type": "chart",
       "content": "SELECT\n    vehicle.stage.engine.group,\n    vehicle.stage.engine.fuel,\n    vehicle.stage.engine.fuel_hex,\n    sum(orb_pay) -> payload_to_orbit,\n    count(launch_tag ? orb_pay >0) as orbital_launches,\nhaving\n    vehicle.stage.engine.fuel is not null\nORDER BY\n    orbital_launches desc\nLIMIT 30\n;",
       "name": "Fuel Groups",
-      "width": 973,
+      "width": 1231,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -308,9 +308,9 @@
     },
     "12": {
       "type": "chart",
-      "content": "WHERE\r\n    (vehicle.stage_no in ('0','1'))\r\nSELECT\r\n    vehicle.stage.engine.group,\r\n    vehicle.stage.engine.name,\r\n    vehicle.stage.engine.isp,\r\n    vehicle.stage.engine.thrust,\r\n    vehicle.stage.engine.group_hex,\r\n    launch_count,\r\nhaving \r\n    cast(vehicle.stage.engine.isp as int)>30 \r\norder by launch_count desc\r\nlimit 150;",
+      "content": "\r\nauto upper_stage_engines <- vehicle.stage.engine.name ? vehicle.stage_no in ('2', '3', '4', '5');\r\n\r\nWHERE\r\n    vehicle.stage_no  in ('0','1')\r\n    and vehicle.stage.engine.name not in upper_stage_engines\r\n    \r\nSELECT\r\n    vehicle.stage.engine.group,\r\n    vehicle.stage.engine.name,\r\n    vehicle.stage.engine.isp,\r\n    vehicle.stage.engine.thrust,\r\n    vehicle.stage.engine.group_hex,\r\n    launch_count,\r\nhaving \r\n    cast(vehicle.stage.engine.isp as int)>30 and cast(vehicle.stage.engine.isp as int)< 350\r\norder by launch_count desc\r\nlimit 150;",
       "name": "By Engine: ISP vs Thrust",
-      "width": 973,
+      "width": 1231,
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -335,7 +335,7 @@
       "type": "chart",
       "content": "WHERE\r\n    vehicle.stage_no in ('2', '3', '4')\r\nSELECT\r\n    vehicle.stage.engine.group,\r\n    vehicle.stage.engine.name,\r\n    vehicle.stage.engine.isp,\r\n    vehicle.stage.engine.thrust,\r\n    vehicle.stage.engine.group_hex,\r\n    launch_count\r\nhaving \r\n    cast(vehicle.stage.engine.isp as int)>30\r\norder by\r\n    launch_count desc\r\nlimit 150;",
       "name": "Upper Stage Engines: ISP vs Thrust",
-      "width": 973,
+      "width": 1231,
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -360,7 +360,7 @@
       "type": "chart",
       "content": "SELECT\n    era\nORDER BY\n    era asc\n\n;",
       "name": "Space Era (Click to filter, click title to clear)",
-      "width": 482,
+      "width": 611,
       "height": 115,
       "allowCrossFilter": false,
       "chartConfig": {
@@ -383,7 +383,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('2', '3', '4')\nSELECT\n    launch_date.year,\n    sum(orb_pay) as payload_to_orbit,\n    launch_count;",
       "name": "Total Upper Stage Payload",
-      "width": 973,
+      "width": 1231,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -407,7 +407,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('0', '1')\nSELECT\n    launch_date.year,\n    sum(orb_pay) as payload_to_orbit,\n    launch_count;",
       "name": "Total First Stage Payload to Orbit",
-      "width": 973,
+      "width": 1231,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -434,7 +434,7 @@
         "query": "SELECT\n    count(vehicle.stage.engine.group) -> group_count,\n    count(vehicle.stage.engine.fuel) -> fuel_count,\n;"
       },
       "name": "Note 3",
-      "width": 973,
+      "width": 1231,
       "height": 115,
       "allowCrossFilter": true,
       "parameters": {}
@@ -443,7 +443,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('0', '1')\nSELECT\n    vehicle.stage.engine.name,\n    org.state_code,\n    org.hex,\n    sum(orb_pay)-> orbital_payload,\nORDER BY\n    orbital_payload desc\nLIMIT 10\n;",
       "name": "Top First Stage Engines",
-      "width": 482,
+      "width": 611,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -467,7 +467,7 @@
       "type": "chart",
       "content": "WHERE\n    vehicle.stage_no in ('2', '3', '4')\nSELECT\n    vehicle.stage.engine.name,\n    org.state_code,\n    org.hex,\n    sum(orb_pay) -> orbital_payload,\nORDER BY\n    orbital_payload desc\nLIMIT 10\n;",
       "name": "Top Upper Stage Engines",
-      "width": 482,
+      "width": 611,
       "height": 155,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -490,7 +490,7 @@
       "type": "chart",
       "content": "SELECT\n    vehicle.stage.engine.oxidizer,\n    vehicle.stage.engine.fuel,\n\n    --sum(orb_pay) as orb_payload,\n    log(vehicle.stage.engine.name.count) as log_engine_count,\n    vehicle.stage.engine.name.count\nhaving\n    vehicle.stage.engine.fuel is not null and\n    orb_payload>1\n;",
       "name": "Fuel Group Popularity by Engine Count",
-      "width": 973,
+      "width": 1231,
       "height": 435,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -514,7 +514,7 @@
   },
   "nextId": 24,
   "createdAt": "2025-09-06T00:32:39.918Z",
-  "updatedAt": "2025-09-27T16:21:59.965Z",
+  "updatedAt": "2025-09-27T17:43:01.770Z",
   "filter": "",
   "imports": [
     {
@@ -523,6 +523,6 @@
     }
   ],
   "version": 1,
-  "state": "published",
+  "state": "editing",
   "description": ""
 }
