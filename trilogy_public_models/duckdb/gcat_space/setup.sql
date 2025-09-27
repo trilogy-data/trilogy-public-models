@@ -57,6 +57,7 @@ SELECT *
 from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/stages.cleaned.tsv',
 sample_size=-1);
 
+
 CREATE OR REPLACE TABLE engines AS
 SELECT 
     * EXCLUDE (Fuel, isp, oxidizer), 
@@ -77,6 +78,7 @@ SELECT
     WHEN 'PBAN'                     THEN '#6B361E'
     WHEN 'HTPB'                     THEN '#7A421F'
     WHEN 'Solid'                    THEN '#8C5A2B'
+    WHEN 'Solid?'                   THEN '#8C5A2B'
     WHEN 'HTPB-2013'                THEN '#9B6A35'
     WHEN 'HTPB BP-204J'             THEN '#AB7740'
     WHEN 'CTPB'                     THEN '#BB844B'
@@ -93,6 +95,7 @@ SELECT
     WHEN 'HTPB BP-201J'             THEN '#7A675D'
     WHEN 'NEPE Polyethane'          THEN '#4B372E'
     WHEN 'Polyurethane'             THEN '#5A463C'
+    WHEN 'Polyurethane?'            THEN '#5A463C'
     WHEN 'PBHL/AP/Al'               THEN '#6D584D'
     WHEN 'Solid DB/AP'              THEN '#7F6458'
     WHEN 'Polysulfide'              THEN '#88905C'
@@ -104,7 +107,7 @@ SELECT
     WHEN 'Plastolane'               THEN '#8E69B7'
     WHEN 'HTPB 1813'                THEN '#A082C6'
     WHEN 'HTPB/AP/Al TP-H-334'      THEN '#B49AD6'
-    WHEN 'Solid?'                   THEN '#C2ACDF'
+
     WHEN 'AP/Al/Polyurethane'       THEN '#D0BEE8'
     WHEN 'SP Polysulphide'          THEN '#DECEF0'
     WHEN 'UP Polyurethane'          THEN '#E7DBF5'
@@ -115,7 +118,7 @@ SELECT
     WHEN 'PB'                       THEN '#FEFBFA'
     WHEN 'CTPB 16.12'               THEN '#FFF9F5'
     WHEN 'HEF-20'                   THEN '#F0E68C'  -- khaki-ish (kept as a small neutral)
-    WHEN 'Polyurethane?'            THEN '#D2C38A'
+
     WHEN 'Solid TP-H 1205C'         THEN '#F9F0C9'
     WHEN 'E107M polyurethane'       THEN '#FAF3D2'
     WHEN 'Solid PBAA'               THEN '#FFFADF'
@@ -170,7 +173,7 @@ SELECT
     WHEN 'Xylidiene/Trieth.'        THEN '#F04848'
     
     -- Hydrocarbon Fuels (amber → gold → pale ramp)
-    WHEN 'Kerosene?'                THEN '#B8860B'
+    WHEN 'Kerosene?'                THEN '#C28710'
     WHEN 'Kerosene'                 THEN '#C28710'
     WHEN 'Kerosene JP-4'            THEN '#CFAA1E'
     WHEN 'JPX (JP-4/UDMH)'          THEN '#D9B33A'
@@ -180,6 +183,7 @@ SELECT
     WHEN 'Diesel oil'               THEN '#FAE9B2'
     WHEN 'Turpentine'               THEN '#FCF1C9'
     WHEN 'Kero'                     THEN '#E4CE6F'
+    WHEN 'Kero?'                    THEN '#E4CE6F'
     WHEN 'Kero Sintin'              THEN '#E9D488'
     WHEN 'Kerosene RP-1'            THEN '#F0E1A0'
     WHEN 'Kero RP-1'                THEN '#F4E8B6'
@@ -188,15 +192,15 @@ SELECT
     WHEN 'Kero RG-1'                THEN '#FEFBF2'
     WHEN 'Kero RJ-1'                THEN '#FFFDF6'
     WHEN 'Kero T-1'                 THEN '#FFFEFA'
-    WHEN 'Kero?'                    THEN '#FFFFFE'
+
     
     -- Hypergolic/Hydrazine Compounds (dark → pale red/pink ramp)
     WHEN 'UDMH'                     THEN '#5A0E0E'
-    WHEN 'UDMH?'                    THEN '#640F0F'
+    WHEN 'UDMH?'                    THEN '#5A0E0E'
     WHEN 'UDMH USO'                 THEN '#6E1111'
     WHEN 'Hydrazine'                THEN '#7A1515'
-    WHEN 'Hydrazine?'               THEN '#8A1A1A'
-    WHEN 'MMH?'                     THEN '#9A2323'
+    WHEN 'Hydrazine?'               THEN '#7A1515'
+    WHEN 'MMH?'                     THEN '#AD2E2E'
     WHEN 'MMH'                      THEN '#AD2E2E'
     WHEN 'N2H4'                     THEN '#C03F3F'
     WHEN 'N2H4/MMH'                 THEN '#D16666'
@@ -230,34 +234,35 @@ SELECT
             64 + abs(hash(fuel) % 160)  -- B
         )
     END AS fuel_hex_color,
-CASE COALESCE("group", 'Unspecified')
-WHEN 'Hybrid' THEN '#7E57C2' -- purple (mixed-cycle / hybrid)
-WHEN 'N2' THEN '#9E9E9E' -- neutral gray (inert / pressurization)
-WHEN 'NA/AA' THEN '#A51C1C' -- deep maroon (nitric acid + aromatic amine)
-WHEN 'NA/Amine' THEN '#C62828' -- red (nitric acid + amine family)
-WHEN 'NA/Kero' THEN '#BF6B00' -- burnt orange (nitric acid + kerosene mix)
-WHEN 'NA/Turps' THEN '#D97704' -- orange (nitric acid + turpentine)
-WHEN 'NA/UDMH' THEN '#8B0000' -- dark crimson (nitric acid + UDMH)
-WHEN 'MonoHyd' THEN '#880E4F' -- deep magenta (monopropellant / hydrazine-like)
-WHEN 'NTO/Hyd' THEN '#D84315' -- reddish-orange (NTO + hydrazine family)
-WHEN 'NTO/UDMH' THEN '#BF360C' -- brick red (NTO + UDMH)
-WHEN 'H2O2/Kero' THEN '#FFB300' -- amber (hydrogen peroxide + kerosene)
-WHEN 'LOX/Alcohol' THEN '#42A5F5' -- light blue (LOX + alcohol)
-WHEN 'LOX/UDMH' THEN '#1E88E5' -- medium blue (LOX + UDMH)
-WHEN 'LOX/NH3' THEN '#26C6DA' -- cyan (LOX + ammonia)
-WHEN 'LOX/Kero' THEN '#1976D2' -- royal blue (LOX + kerosene)
-WHEN 'LOX/Methane' THEN '#0288D1' -- blue-cyan (LOX + methane)
-WHEN 'LOX/Propane' THEN '#039BE5' -- sky blue (LOX + propane)
-WHEN 'LOX/LH2' THEN '#0D47A1' -- deep navy (LOX + liquid hydrogen)
-WHEN 'Green' THEN '#2E7D32' -- forest green (green propellants)
-WHEN 'EP' THEN '#009688' -- teal (electric / electric-propulsion)
--- Fallback: deterministic but distinct hashed color
-ELSE printf(
-'#%02x%02x%02x',
-48 + abs(hash(COALESCE("group", 'Unspecified')) % 200), -- R
-48 + abs(hash(COALESCE("group", 'Unspecified')) % 200), -- G
-48 + abs((hash(COALESCE("group", 'Unspecified')) + 97) % 200) -- B (offset for variation)
-)
+CASE 
+COALESCE("group", 'Unspecified')
+    WHEN 'Hybrid' THEN '#7E57C2' -- purple (mixed-cycle / hybrid)
+    WHEN 'N2' THEN '#9E9E9E' -- neutral gray (inert / pressurization)
+    WHEN 'NA/AA' THEN '#A51C1C' -- deep maroon (nitric acid + aromatic amine)
+    WHEN 'NA/Amine' THEN '#C62828' -- red (nitric acid + amine family)
+    WHEN 'NA/Kero' THEN '#BF6B00' -- burnt orange (nitric acid + kerosene mix)
+    WHEN 'NA/Turps' THEN '#D97704' -- orange (nitric acid + turpentine)
+    WHEN 'NA/UDMH' THEN '#8B0000' -- dark crimson (nitric acid + UDMH)
+    WHEN 'MonoHyd' THEN '#880E4F' -- deep magenta (monopropellant / hydrazine-like)
+    WHEN 'NTO/Hyd' THEN '#D84315' -- reddish-orange (NTO + hydrazine family)
+    WHEN 'NTO/UDMH' THEN '#BF360C' -- brick red (NTO + UDMH)
+    WHEN 'H2O2/Kero' THEN '#FFB300' -- amber (hydrogen peroxide + kerosene)
+    WHEN 'LOX/Alcohol' THEN '#42A5F5' -- light blue (LOX + alcohol)
+    WHEN 'LOX/UDMH' THEN '#1E88E5' -- medium blue (LOX + UDMH)
+    WHEN 'LOX/NH3' THEN '#26C6DA' -- cyan (LOX + ammonia)
+    WHEN 'LOX/Kero' THEN '#1976D2' -- royal blue (LOX + kerosene)
+    WHEN 'LOX/Methane' THEN '#0288D1' -- blue-cyan (LOX + methane)
+    WHEN 'LOX/Propane' THEN '#039BE5' -- sky blue (LOX + propane)
+    WHEN 'LOX/LH2' THEN '#0D47A1' -- deep navy (LOX + liquid hydrogen)
+    WHEN 'Green' THEN '#2E7D32' -- forest green (green propellants)
+    WHEN 'EP' THEN '#009688' -- teal (electric / electric-propulsion)
+    -- Fallback: deterministic but distinct hashed color
+    ELSE printf(
+    '#%02x%02x%02x',
+    48 + abs(hash(COALESCE("group", 'Unspecified')) % 200), -- R
+    48 + abs(hash(COALESCE("group", 'Unspecified')) % 200), -- G
+    48 + abs((hash(COALESCE("group", 'Unspecified')) + 97) % 200) -- B (offset for variation)
+    )
 END AS group_hex_color
 FROM read_csv_auto(
   'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/engines.cleaned.tsv',
