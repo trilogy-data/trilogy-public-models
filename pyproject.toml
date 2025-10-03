@@ -1,17 +1,40 @@
 [project]
 name = "trilogy-public-models"
-dynamic = ["version"]
+dynamic = ["version", "description", "dependencies"]
+readme = {file = "README.md", content-type = "text/markdown"}
+description = "Rich set of open data models for use with Trilogy"
+authors = [
+    {email = "preql-community@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = ""
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = {find = {exclude = ["dist", "build", "*.tests", "*.tests.*", "tests.*", "tests", "docs", ".github", "examples"]}}
+
+[tool.setuptools.package-data]
+"*" = ["*.preql", "py.typed"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+version = {attr = "trilogy_public_models.__version__"}
 
 [tool.mypy]
 disable_error_code = ["import-untyped"]
 
-
 [[tool.mypy.overrides]]
 module = ["trilogy_public_models.*"]
 ignore_missing_imports = true
-
-[tool.setuptools.dynamic]
-description = {file = ["DESCRIPTION.txt"]}  # or just set it directly below
-readme = {file = ["README.md"], content-type = "text/markdown"}
-dependencies = {file = ["requirements.txt"]}
-version = {attr = "trilogy_public_models.__version__"}
