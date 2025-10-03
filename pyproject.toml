@@ -1,17 +1,16 @@
 [project]
 name = "trilogy-public-models"
-dynamic = ["version"]
+dynamic = ["version", "description", "dependencies"]
+readme = {file = "README.md", content-type = "text/markdown"}
+description = "Rich set of open data models for use with Trilogy"
 
 [tool.mypy]
 disable_error_code = ["import-untyped"]
-
 
 [[tool.mypy.overrides]]
 module = ["trilogy_public_models.*"]
 ignore_missing_imports = true
 
 [tool.setuptools.dynamic]
-description = {file = ["DESCRIPTION.txt"]}  # or just set it directly below
-readme = {file = ["README.md"], content-type = "text/markdown"}
 dependencies = {file = ["requirements.txt"]}
 version = {attr = "trilogy_public_models.__version__"}
