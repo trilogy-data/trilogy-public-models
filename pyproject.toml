@@ -1,6 +1,6 @@
 [project]
 name = "trilogy-public-models"
-dynamic = ["version", "description", "dependencies"]
+dynamic = ["version", "dependencies"]
 readme = {file = "README.md", content-type = "text/markdown"}
 description = "Rich set of open data models for use with Trilogy"
 authors = [
@@ -16,7 +16,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = ""
+Homepage = "https://trilogydata.dev/"
+Repository = "https://github.com/trilogy-data/trilogy-public-models"
 
 [build-system]
 requires = ["setuptools>=45", "wheel"]
@@ -26,7 +27,7 @@ build-backend = "setuptools.build_meta"
 packages = {find = {exclude = ["dist", "build", "*.tests", "*.tests.*", "tests.*", "tests", "docs", ".github", "examples"]}}
 
 [tool.setuptools.package-data]
-"*" = ["*.preql", "py.typed"]
+"*" = ["*.sql", "*.preql", "py.typed"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
