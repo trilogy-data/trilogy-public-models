@@ -26,7 +26,7 @@ build-backend = "setuptools.build_meta"
 packages = {find = {exclude = ["dist", "build", "*.tests", "*.tests.*", "tests.*", "tests", "docs", ".github", "examples"]}}
 
 [tool.setuptools.package-data]
-"*" = ["*.preql", "py.typed"]
+"*" = ["*.sql", "*.preql", "py.typed"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
