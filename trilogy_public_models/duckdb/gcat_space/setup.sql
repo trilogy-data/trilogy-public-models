@@ -471,7 +471,24 @@ from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy
 sample_size=-1);
 
 CREATE OR REPLACE TABLE satcat as
-SELECT *
+SELECT 
+* exclude (ldate, ddate),
+TRY(STRPTIME(
+        TRIM(REGEXP_EXTRACT(
+            REPLACE(ldate, '?', ''),
+            '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})',
+            1
+        )),
+        '%Y %b %d'
+    ))::date as ldate,
+TRY(STRPTIME(
+        TRIM(REGEXP_EXTRACT(
+            REPLACE(ddate, '?', ''),
+            '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})',
+            1
+        )),
+        '%Y %b %d'
+    ))::date as ddate
 from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
 sample_size=-1);
 
