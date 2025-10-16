@@ -3,14 +3,14 @@
   "layout": [
     {
       "x": 2,
-      "y": 8,
+      "y": 9,
       "w": 16,
       "h": 8,
       "i": "1"
     },
     {
       "x": 2,
-      "y": 24,
+      "y": 25,
       "w": 8,
       "h": 8,
       "i": "2"
@@ -19,19 +19,19 @@
       "x": 2,
       "y": 1,
       "w": 16,
-      "h": 7,
+      "h": 8,
       "i": "4"
     },
     {
       "x": 2,
-      "y": 16,
+      "y": 17,
       "w": 16,
       "h": 8,
       "i": "6"
     },
     {
       "x": 10,
-      "y": 24,
+      "y": 25,
       "w": 8,
       "h": 8,
       "i": "7"
@@ -49,7 +49,7 @@
       "type": "chart",
       "content": "where decom_date is null and base_category='P'\nSELECT\n    op_orbit,\n    # apogee,\n    # perigee,\n    bus,\n    --name,\n    jcat,\n    owner.name,\n    --state.name,\n    length*span as length_x_span ,\n    # base_category,\n    # heat_color,\nlimit 10000;\n",
       "name": "Active Constellation View (max size - 10000)",
-      "width": 1568,
+      "width": 1684,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -66,13 +66,22 @@
         "hideLegend": false,
         "showTitle": true
       },
-      "parameters": {}
+      "parameters": {},
+      "conceptFilters": [
+        {
+          "source": "9",
+          "value": {
+            "owner.u_code": "COSMOG"
+          }
+        }
+      ],
+      "chartFilters": []
     },
     "2": {
       "type": "chart",
       "content": "SELECT\n    launch.site.latitude,\n    launch.site.longitude,\n    launch.org.name,\n    jcat.count -> satellites_launched,\nHAVING\n    launch.site.latitude is not null\n\n;",
       "name": "Launch Locations",
-      "width": 779,
+      "width": 488,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -89,32 +98,48 @@
         "hideLegend": false,
         "showTitle": true
       },
-      "parameters": {}
+      "parameters": {},
+      "conceptFilters": [
+        {
+          "source": "9",
+          "value": {
+            "owner.u_code": "COSMOG"
+          }
+        }
+      ]
     },
     "4": {
       "type": "markdown",
       "content": {
-        "markdown": "# {headline_name} \n\n*Located in: {headline_location}*\n\n## Satellite Inventory\n\nActive satellites: {total_satellites} ({decommed_satellites} decommed), first launch on {first_launch} and last launch {last_launch}.\n\n### Satellite Buses\n{{#each per_bus_counts}}\n- {bus_name}: {bus_count}\n{{/each}}",
-        "query": "def sort(x)-> x.bus_count;\r\n\r\ndef filter(x) -> x.bus_count >0;\r\n\r\nselect\r\n    case \r\n        when count(owner.name)>1 then 'Many (' || count(owner.name)::string || ')' \r\n        else any(owner.name) \r\n        end as \r\n    headline_name,\r\n    case \r\n        when count(owner.name)>1 then 'N/A'\r\n        else any(owner.location) \r\n        end as \r\n    headline_location,\r\n    count(jcat ? decom_date is null and base_category = 'P') as total_satellites,\r\n    count(jcat ? decom_date is not null and base_category = 'P') as decommed_satellites,\r\n    array_sort(array_filter(array_agg( struct(\r\n        bus -> bus_name, count(jcat ? base_category = 'P') by bus ->bus_count\r\n    )), @filter),desc) as per_bus_counts,\r\n    min(launch_date)::string as first_launch,\r\n    max(launch_date)::string as last_launch\r\n\r\n;"
+        "markdown": "# {headline_name} \n\n*Locations: {headline_location}*\n\n## Satellite Inventory\n\nActive satellites: {total_satellites} ({decommed_satellites} decommed), first launch on {first_launch} and last launch {last_launch}.\n\n### Satellite Buses\n{{#each per_bus_counts}}\n- {bus_name}: {bus_count}\n{{/each}}",
+        "query": "def sort(x)-> x.bus_count;\r\n\r\ndef filter(x) -> x.bus_count >0;\r\n\r\nselect\r\n    case \r\n        when count(owner.name)>4 then 'Many (' || count(owner.name)::string || ')' \r\n        else array_to_string(array_agg(owner.name), ', ')\r\n        end as \r\n    headline_name,\r\n    case \r\n        when count(owner.name)>4 then 'N/A'\r\n        else any(owner.location)\r\n        end as \r\n    headline_location,\r\n    count(jcat ? decom_date is null and base_category = 'P') as total_satellites,\r\n    count(jcat ? decom_date is not null and base_category = 'P') as decommed_satellites,\r\n    array_sort(array_filter(array_agg( struct(\r\n        bus -> bus_name, count(jcat ? base_category = 'P') by bus ->bus_count\r\n    )), @filter),desc) as per_bus_counts,\r\n    min(launch_date)::string as first_launch,\r\n    max(launch_date)::string as last_launch\r\n\r\n;"
       },
       "name": "Note 4",
-      "width": 1568,
-      "height": 235,
+      "width": 985,
+      "height": 275,
       "allowCrossFilter": true,
-      "parameters": {}
+      "parameters": {},
+      "conceptFilters": [
+        {
+          "source": "9",
+          "value": {
+            "owner.u_code": "COSMOG"
+          }
+        }
+      ]
     },
     "6": {
       "type": "chart",
-      "content": "\r\n\r\nauto launches <- count(jcat ? base_category = 'P') by launch_date;\r\nauto decoms <- count(jcat ? decom_date is not null and base_category = 'P'  ) by decom_date;\r\n\r\n\r\nselect\r\n    launch_date,\r\n    sum launches order by launch_date asc as cumulative_launches,\r\nhaving\r\n    cumulative_launches >=1\r\nmerge\r\nselect\r\n    decom_date,\r\n    sum decoms order by decom_date asc as cumulative_decoms,\r\nhaving cumulative_decoms >=1\r\n# merge\r\n# select\r\n#     display_spine\r\nalign date:launch_date, decom_date;",
+      "content": "\r\n\r\nauto launches <- count(jcat ? base_category = 'P') by launch_date;\r\nauto decoms <- count(jcat ? decom_date is not null and base_category = 'P'  ) by decom_date;\r\n\r\n\r\nselect\r\n    launch_date,\r\n    sum launches order by launch_date asc as cumulative_launches,\r\nhaving\r\n    cumulative_launches >=1\r\nmerge\r\nselect\r\n    decom_date,\r\n    sum decoms order by decom_date asc as cumulative_decoms,\r\nhaving cumulative_decoms >=1\r\nmerge\r\nselect\r\n    current_date() as today,\r\n    count(jcat ? base_category = 'P') as final_size,\r\n    count(jcat ? decom_date is not null and base_category = 'P'  ) as final_decom\r\n\r\n# merge\r\n# select\r\n#     display_spine\r\nalign date:launch_date, decom_date, today\r\nderive coalesce(final_size, cumulative_launches)->launch_display,\r\ncoalesce(final_decom, cumulative_decoms)->decom_display;",
       "name": "Constellation Churn",
-      "width": 1568,
+      "width": 985,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
         "chartType": "line",
         "xField": "date",
-        "yField": "cumulative_launches",
-        "yField2": "cumulative_decoms",
+        "yField": "launch_display",
+        "yField2": "decom_display",
         "colorField": "",
         "sizeField": "",
         "groupField": "",
@@ -125,13 +150,21 @@
         "showTitle": true,
         "linkY2": true
       },
-      "parameters": {}
+      "parameters": {},
+      "conceptFilters": [
+        {
+          "source": "9",
+          "value": {
+            "owner.u_code": "COSMOG"
+          }
+        }
+      ]
     },
     "7": {
       "type": "chart",
-      "content": "SELECT\n    launch.org.name,\n    jcat.count -> satellites_launched,\n;",
+      "content": "SELECT\n    launch.org.name,\n    jcat.count -> satellites_launched,\n    jcat.count/ launch.launch_tag.count as satellites_per_launch\n;",
       "name": "Launch Providers",
-      "width": 779,
+      "width": 488,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -139,7 +172,7 @@
         "xField": "satellites_launched",
         "yField": "launch_org_name",
         "yField2": "",
-        "colorField": "",
+        "colorField": "satellites_per_launch",
         "sizeField": "satellites_launched",
         "groupField": "",
         "trellisField": "",
@@ -148,21 +181,35 @@
         "hideLegend": false,
         "showTitle": true
       },
-      "parameters": {}
+      "parameters": {},
+      "conceptFilters": [
+        {
+          "source": "9",
+          "value": {
+            "owner.u_code": "COSMOG"
+          }
+        }
+      ]
     },
     "9": {
       "type": "filter",
-      "content": "select\n    concat(owner.name, ' (', active_satellites::string, ' active satellites)') as label,\n    owner.code,\n    count(jcat ? decom_date is null) as active_satellites\nhaving\nactive_satellites>0;",
+      "content": "select\n    concat(array_to_string(array_agg(owner.name), ', '), ' (', active_satellites::string, ' active satellites)') as label,\n    owner.u_code,\n    --count(jcat ? decom_date is null) as active_satellites\nhaving\nactive_satellites>0;",
       "name": "Note 9",
-      "width": 1568,
+      "width": 985,
       "height": -5,
       "allowCrossFilter": true,
-      "parameters": {}
+      "parameters": {},
+      "chartFilters": [
+        {
+          "source": "9"
+        }
+      ],
+      "conceptFilters": []
     }
   },
   "nextId": 10,
   "createdAt": "2025-10-10T18:52:02.708Z",
-  "updatedAt": "2025-10-15T12:46:06.438Z",
+  "updatedAt": "2025-10-16T12:34:08.072Z",
   "filter": null,
   "imports": [
     {
