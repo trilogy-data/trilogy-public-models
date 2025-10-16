@@ -12,7 +12,7 @@
       "x": 2,
       "y": 24,
       "w": 8,
-      "h": 6,
+      "h": 8,
       "i": "2"
     },
     {
@@ -33,7 +33,7 @@
       "x": 10,
       "y": 24,
       "w": 8,
-      "h": 6,
+      "h": 8,
       "i": "7"
     },
     {
@@ -49,7 +49,7 @@
       "type": "chart",
       "content": "where decom_date is null and base_category='P'\nSELECT\n    op_orbit,\n    # apogee,\n    # perigee,\n    bus,\n    --name,\n    jcat,\n    owner.name,\n    --state.name,\n    length*span as length_x_span ,\n    # base_category,\n    # heat_color,\nlimit 10000;\n",
       "name": "Active Constellation View (max size - 10000)",
-      "width": 985,
+      "width": 1568,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -72,8 +72,8 @@
       "type": "chart",
       "content": "SELECT\n    launch.site.latitude,\n    launch.site.longitude,\n    launch.org.name,\n    jcat.count -> satellites_launched,\nHAVING\n    launch.site.latitude is not null\n\n;",
       "name": "Launch Locations",
-      "width": 488,
-      "height": 195,
+      "width": 779,
+      "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
         "chartType": "usa-map",
@@ -98,16 +98,16 @@
         "query": "def sort(x)-> x.bus_count;\r\n\r\ndef filter(x) -> x.bus_count >0;\r\n\r\nselect\r\n    case \r\n        when count(owner.name)>1 then 'Many (' || count(owner.name)::string || ')' \r\n        else any(owner.name) \r\n        end as \r\n    headline_name,\r\n    case \r\n        when count(owner.name)>1 then 'N/A'\r\n        else any(owner.location) \r\n        end as \r\n    headline_location,\r\n    count(jcat ? decom_date is null and base_category = 'P') as total_satellites,\r\n    count(jcat ? decom_date is not null and base_category = 'P') as decommed_satellites,\r\n    array_sort(array_filter(array_agg( struct(\r\n        bus -> bus_name, count(jcat ? base_category = 'P') by bus ->bus_count\r\n    )), @filter),desc) as per_bus_counts,\r\n    min(launch_date)::string as first_launch,\r\n    max(launch_date)::string as last_launch\r\n\r\n;"
       },
       "name": "Note 4",
-      "width": 985,
+      "width": 1568,
       "height": 235,
       "allowCrossFilter": true,
       "parameters": {}
     },
     "6": {
       "type": "chart",
-      "content": "\r\n\r\nauto launches <- count(jcat ? base_category = 'P') by launch_date;\r\nauto decoms <- count(jcat ? decom_date is not null and base_category = 'P'  ) by decom_date;\r\n\r\nkey launch_spine <- date_spine(date_add(current_date(), day, -60000), current_date());\r\nkey decom_spine <- date_spine(date_add(current_date(), day, -60000), current_date());\r\n\r\n\r\nmerge launch_date into ~launch_spine;\r\nmerge decom_date into ~decom_spine;\r\n\r\n\r\nselect\r\n    launch_spine,\r\n    sum launches order by launch_spine asc as cumulative_launches,\r\nhaving\r\n    cumulative_launches >=1\r\nmerge\r\nselect\r\n    decom_spine,\r\n    sum decoms order by decom_spine asc as cumulative_decoms,\r\nhaving cumulative_decoms >=1\r\n# merge\r\n# select\r\n#     display_spine\r\nalign date:launch_spine, decom_spine;",
+      "content": "\r\n\r\nauto launches <- count(jcat ? base_category = 'P') by launch_date;\r\nauto decoms <- count(jcat ? decom_date is not null and base_category = 'P'  ) by decom_date;\r\n\r\n\r\nselect\r\n    launch_date,\r\n    sum launches order by launch_date asc as cumulative_launches,\r\nhaving\r\n    cumulative_launches >=1\r\nmerge\r\nselect\r\n    decom_date,\r\n    sum decoms order by decom_date asc as cumulative_decoms,\r\nhaving cumulative_decoms >=1\r\n# merge\r\n# select\r\n#     display_spine\r\nalign date:launch_date, decom_date;",
       "name": "Constellation Churn",
-      "width": 985,
+      "width": 1568,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -131,8 +131,8 @@
       "type": "chart",
       "content": "SELECT\n    launch.org.name,\n    jcat.count -> satellites_launched,\n;",
       "name": "Launch Providers",
-      "width": 488,
-      "height": 195,
+      "width": 779,
+      "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
         "chartType": "barh",
@@ -154,7 +154,7 @@
       "type": "filter",
       "content": "select\n    concat(owner.name, ' (', active_satellites::string, ' active satellites)') as label,\n    owner.code,\n    count(jcat ? decom_date is null) as active_satellites\nhaving\nactive_satellites>0;",
       "name": "Note 9",
-      "width": 985,
+      "width": 1568,
       "height": -5,
       "allowCrossFilter": true,
       "parameters": {}
@@ -162,11 +162,11 @@
   },
   "nextId": 10,
   "createdAt": "2025-10-10T18:52:02.708Z",
-  "updatedAt": "2025-10-15T02:29:55.571Z",
+  "updatedAt": "2025-10-15T12:46:06.438Z",
   "filter": null,
   "imports": [
     {
-      "name": "satcat_dashboard",
+      "name": "satcat",
       "alias": ""
     }
   ],

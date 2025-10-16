@@ -470,27 +470,32 @@ END as hex_code
 from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/orgs.cleaned.tsv',
 sample_size=-1);
 
-CREATE OR REPLACE TABLE satcat as
-SELECT 
-* exclude (ldate, ddate),
-TRY(STRPTIME(
-        TRIM(REGEXP_EXTRACT(
-            REPLACE(ldate, '?', ''),
-            '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})',
-            1
-        )),
-        '%Y %b %d'
-    ))::date as ldate,
-TRY(STRPTIME(
-        TRIM(REGEXP_EXTRACT(
-            REPLACE(ddate, '?', ''),
-            '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})',
-            1
-        )),
-        '%Y %b %d'
-    ))::date as ddate
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
-sample_size=-1);
+CREATE OR REPLACE TABLE satcat AS
+SELECT
+    * EXCLUDE (ldate, ddate),
+    CASE 
+        WHEN TRIM(REGEXP_EXTRACT(REPLACE(ldate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)) IS NOT NULL 
+             AND LENGTH(TRIM(REGEXP_EXTRACT(REPLACE(ldate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1))) > 0
+        THEN STRPTIME(
+            TRIM(REGEXP_EXTRACT(REPLACE(ldate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)),
+            '%Y %b %d'
+        )
+        ELSE NULL
+    END::date AS ldate,
+    CASE 
+        WHEN TRIM(REGEXP_EXTRACT(REPLACE(ddate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)) IS NOT NULL 
+             AND LENGTH(TRIM(REGEXP_EXTRACT(REPLACE(ddate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1))) > 0
+        THEN STRPTIME(
+            TRIM(REGEXP_EXTRACT(REPLACE(ddate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)),
+            '%Y %b %d'
+        )
+        ELSE NULL
+    END::date AS ddate
+FROM read_csv_auto(
+    'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
+    sample_size=-1
+);
+
 
 
 -- OPTIMIZATION
@@ -516,9 +521,9 @@ SELECT
     launch_jd
 FROM
     "launch_info"
-    INNER JOIN "organizations" as "org_organizations" on "launch_info"."FirstAgency" = "org_organizations"."Code"
+    FULL JOIN "organizations" as "org_organizations" on "launch_info"."FirstAgency" = "org_organizations"."Code"
     FULL JOIN "lvs_info" as "vehicle_lvs_info" on "launch_info"."LV_Type" = "vehicle_lvs_info"."LV_Name" AND "launch_info"."Variant" = "vehicle_lvs_info"."LV_Variant"
-    LEFT OUTER JOIN "stages" as "vehicle_stage_stages" on "vehicle_lvs_info"."Stage_Name" = "vehicle_stage_stages"."Stage_Name"
+    FULL JOIN "stages" as "vehicle_stage_stages" on "vehicle_lvs_info"."Stage_Name" = "vehicle_stage_stages"."Stage_Name"
     FULL JOIN "engines" as "vehicle_stage_engine_engines" on "vehicle_stage_stages"."Engine" = "vehicle_stage_engine_engines"."Name"
 ;
 

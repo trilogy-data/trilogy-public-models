@@ -22,7 +22,6 @@ property jcat.primary string; # Central body for the current phase; usually Eart
 
 property jcat.status string; # Event that ends the current phase.
 property jcat.dest string; # Destination of the current phase, could be a reentry location or JCAT identifier of a new parent.
-property jcat.owner string; # OrgCode for the owner/operator of the object.
 # property jcat.state string; # OrgCode for the country/state of the owner/operator.
 
 key bus string; # Spacecraft bus type; indicates chassis type or standardization.
@@ -50,9 +49,11 @@ property jcat.if string; # Orbit inclination estimation; '?' means it's an estim
 property jcat.op_orbit string; # Orbit type of the canonical orbit.
 property jcat.oqual string; # Orbit Quality Note; where the orbit data was sourced from.
 property jcat.alt_names string; # Comma-delimited list of alternative names for the space object.
-property jcat.is_decommed bool;
+
 
 auto base_category <- substring(split(type, ' ')[1],1,1); #P	Payload (for orbital attempt)
+
+# auto is_decommed <- decom_date is not null;
 #C	Component
 #R	Launch vehicle stage
 #D	Fragmentation debris
