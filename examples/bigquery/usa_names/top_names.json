@@ -112,7 +112,7 @@
     },
     "3": {
       "type": "chart",
-      "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    total_births,\r\n    --rank name by group total_births by name desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
+      "content": "\r\n\r\nselect\r\n    year,\r\n    name,\r\n    total_births,\r\n    --rank name by (group total_births by name) desc as name_rank\r\nhaving \r\n    name_rank <6\r\norder by\r\n    year asc\r\n;",
       "name": "Chart 3",
       "width": 1481,
       "height": 235,
