@@ -1,5 +1,5 @@
 {
-  "name": "LEO Satellites",
+  "name": "Satellites by Owner",
   "layout": [
     {
       "x": 2,
@@ -11,8 +11,8 @@
     {
       "x": 2,
       "y": 25,
-      "w": 8,
-      "h": 8,
+      "w": 16,
+      "h": 10,
       "i": "2"
     },
     {
@@ -30,9 +30,9 @@
       "i": "6"
     },
     {
-      "x": 10,
-      "y": 25,
-      "w": 8,
+      "x": 2,
+      "y": 35,
+      "w": 16,
       "h": 8,
       "i": "7"
     },
@@ -49,7 +49,7 @@
       "type": "chart",
       "content": "where decom_date is null and base_category='P'\nSELECT\n    op_orbit,\n    # apogee,\n    # perigee,\n    bus,\n    --name,\n    jcat,\n    owner.name,\n    --state.name,\n    length*span as length_x_span ,\n    # base_category,\n    # heat_color,\nlimit 10000;\n",
       "name": "Active Constellation View (max size - 10000)",
-      "width": 1684,
+      "width": 985,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -81,8 +81,8 @@
       "type": "chart",
       "content": "SELECT\n    launch.site.latitude,\n    launch.site.longitude,\n    launch.org.name,\n    jcat.count -> satellites_launched,\nHAVING\n    launch.site.latitude is not null\n\n;",
       "name": "Launch Locations",
-      "width": 488,
-      "height": 275,
+      "width": 985,
+      "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
         "chartType": "usa-map",
@@ -158,13 +158,14 @@
             "owner.u_code": "COSMOG"
           }
         }
-      ]
+      ],
+      "chartFilters": []
     },
     "7": {
       "type": "chart",
       "content": "SELECT\n    launch.org.name,\n    jcat.count -> satellites_launched,\n    jcat.count/ launch.launch_tag.count as satellites_per_launch\n;",
       "name": "Launch Providers",
-      "width": 488,
+      "width": 985,
       "height": 275,
       "allowCrossFilter": true,
       "chartConfig": {
@@ -193,7 +194,7 @@
     },
     "9": {
       "type": "filter",
-      "content": "select\n    concat(array_to_string(array_agg(owner.name), ', '), ' (', active_satellites::string, ' active satellites)') as label,\n    owner.u_code,\n    --count(jcat ? decom_date is null) as active_satellites\nhaving\nactive_satellites>0;",
+      "content": "select\n    concat(array_to_string(array_agg(owner.name), ', '), ' (', active_satellites::string, ' active satellites)') as satellite_owner,\n    owner.u_code,\n    --count(jcat ? decom_date is null) as active_satellites\nhaving\nactive_satellites>0;",
       "name": "Note 9",
       "width": 985,
       "height": -5,
@@ -209,7 +210,7 @@
   },
   "nextId": 10,
   "createdAt": "2025-10-10T18:52:02.708Z",
-  "updatedAt": "2025-10-16T12:34:08.072Z",
+  "updatedAt": "2025-10-17T00:59:36.662Z",
   "filter": null,
   "imports": [
     {
