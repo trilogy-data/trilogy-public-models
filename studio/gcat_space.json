@@ -35,6 +35,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch.preql"
     },
     {
+      "alias": "launch_base",
+      "name": "launch_base",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_base.preql"
+    },
+    {
       "alias": "launch_dashboard",
       "name": "launch_dashboard",
       "purpose": "source",
@@ -74,6 +81,19 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satcat.preql"
+    },
+    {
+      "alias": "satcat_dashboard",
+      "name": "satcat_dashboard",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satcat_dashboard.preql"
+    },
+    {
+      "name": "satellite_dashboard",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/satellite_dashboard.json"
     },
     {
       "alias": "setup",
