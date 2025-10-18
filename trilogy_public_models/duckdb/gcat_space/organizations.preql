@@ -2,29 +2,32 @@ import std.geography;
 import std.net;
 import std.color;
 
-key code string;
-property code.u_code string;
-property code.state_code string;
-property code.type string;
-property code.class string;
-property code.t_start string;
-property code.t_stop string;
-property code.short_name string;
-property code.name string;
-property code.location string;
-property code.longitude float;
-property code.latitude float;
-property code.error float;
-property code.parent string;
-property code.short_e_name string;
-property code.e_name string;
-property code.u_name string;
-property code.hex string::hex;
-property flag <- CAST(CASE WHEN state_code in ('SU', 'RU') THEN 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
-WHEN state_code = 'US' THEN 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_the_United_States_%283-2_aspect_ratio%29.svg'
-WHEN state_code = 'CN' THEN 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2880px-Flag_of_the_People%27s_Republic_of_China.svg.png'
-ELSE 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/2880px-Flag_of_the_United_Nations.svg.png'
-END AS string::url_image);
+key code string; # unique identifier of an org row
+
+property code.u_code string; # `unified' Org Code for organization across all time periods
+property code.state_code string; # OrgCode for organization's host state.
+property code.type string; # Organization roles: a slash-separated set of types.
+property code.class string; # Organization class: A, B, C, or D (Nonprofit, commercial, civil or defense)
+property code.t_start string; # Calendar date of phase start - e.g. when the org was founded
+property code.t_stop string; # Calendar date of phase end - e.g. when the org was closed or renamed
+property code.short_name string; # Short name of organization (ASCII, host language)
+property code.name string; # Full name of organization (ASCII, host language)
+property code.location string; # Approximate location (e.g. city)
+property code.longitude float; # Longitude of location, deg E
+property code.latitude float; # Latitude of location, deg N
+property code.error float; # Error in lon/lat, deg
+property code.parent string; # OrgCode of organization of which this org is a part
+property code.short_e_name string; # Short name of organization (ASCII, English)
+property code.e_name string; # Full name of organization (ASCII, English)
+property code.u_name string; # Full name of organization (Unicode, host language)
+property code.hex string::hex; # Hexadecimal code associated with the organization
+property flag <- CAST(
+    CASE 
+        WHEN state_code in ('SU', 'RU') THEN 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
+        WHEN state_code = 'US' THEN 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_the_United_States_%283-2_aspect_ratio%29.svg'
+        WHEN state_code = 'CN' THEN 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2880px-Flag_of_the_People%27s_Republic_of_China.svg.png'
+        ELSE 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/2880px-Flag_of_the_United_Nations.svg.png'
+    END AS string::url_image); # URL for the flag image based on the state code
 
 datasource organizations (
     Code: code,
@@ -45,6 +48,6 @@ datasource organizations (
     EName: e_name,
     UName: u_name,
     hex_code: hex,
-    )
+)
 grain (code)
 address organizations;
