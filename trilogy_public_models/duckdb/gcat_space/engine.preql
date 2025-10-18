@@ -2,28 +2,28 @@
 import std.metric;
 import std.color;
 
-key name string;
-property name.manufacturer string;
-property name.family string;
-property name.alt_name string;
-key oxidizer string;
-key fuel string;
-property name.mass float;
-property name.mflag string;
-property name.impulse int;
-property name.impflag string;
-property name.thrust numeric::kn;
-property name.tflag string;
-property name.isp float;
-property name.ispflag string;
-property name.duration float;
-property name.durflag string;
-property name.chambers int;
-property name.date string;
-property name.usage string;
-property fuel.fuel_hex string::hex;
-key group string;
-property group.group_hex string::hex;
+key name string; # name of engine
+property name.manufacturer string; # manufacturer of the engine
+property name.family string; # engine family, a loosely defined grouping
+property name.alt_name string; # alternative name of the engine
+key oxidizer string; # type of oxidizer used
+key fuel string; # type of fuel used
+property name.mass float; # mass in kg, loaded for solids only
+property name.mflag string; # mass flag for additional information
+property name.impulse int; # total impulse in kNs, mostly for solids
+property name.impflag string; # impulse flag for additional information
+property name.thrust numeric::kn; # typical thrust in kilonewtons (kN)
+property name.tflag string; # thrust flag for additional information
+property name.isp float; # typical specific impulse in seconds, vacuum Isp where available
+property name.ispflag string; # isp flag for additional information
+property name.duration float; # typical burn duration in seconds
+property name.durflag string; # duration flag for additional information
+property name.chambers int; # number of engine chambers per engine
+property name.date string; # date of first flight
+property name.usage string; # example of usage, includes stage number in brackets
+property fuel.fuel_hex string::hex; # hexadecimal color representation for fuel
+key group string; # general grouping of engines
+property group.group_hex string::hex; # hexadecimal color representation for group
 
 datasource engines (
     Name: name,
