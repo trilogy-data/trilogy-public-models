@@ -1850,6 +1850,7 @@ HHAI	LP1	-	LP	-	2019	-	Huang Hai	Launch Point 1, Huang Hai CZ-11 launch zone	-	1
 HHAI	LP2	-	LP	-	2019	-	Huang Hai	Launch Point 2, Huang Hai CZ-11 launch zone	-	123.7611	34.3117	0.0003	CALT	-	-	-
 HHAI	LP3	-	LP	-	2019	-	Huang Hai	Launch Point 3, Huang Hai CZ-11 launch zone	-	123.8000	32.1900	0.0003	CALT	-	-	-
 HHAI	LP4	-	LP	-	2019	-	Huang Hai	Launch Point 4, Huang Hai CZ-11 launch zone	-	121.1983	36.6310	0.0002	CALT	-	-	-
+HHAI	LP4A	-	LP	-	2019	-	Huang Hai	Launch Point 4A, Huang Hai YL-1 launch zone	-	121.2083	36.6411	0.0001	CALT	-	-	-
 HHAI	LP5	-	LP	-	2019	-	Huang Hai	Launch Point 5, Huang Hai JL-3 launch zone	-	123.7115	37.3395	0.0010	CZHJ	-	-	-
 HHAI	LP6	-	LP	-	2019	-	Huang Hai	Launch Point 6, Huang Hai GSX-1 launch zone (Rizhao)	-	119.5986	35.3916	0.0010	CZHJ	-	-	-
 HHAI	LP7	-	LP	-	2019	-	Huang Hai	Launch Point 7, Huang Hai GSX-1 launch zone	-	123.2000	36.4200	0.0010	CZHJ	-	-	-
@@ -2462,7 +2463,7 @@ USN57A	LP6	-	LP	-	1957	1958	USN57ALP6	IGY Rockoon Launch Site 1, Atlantic Ocean 
 USN57A	LP7	-	LP	-	1957	1958	USN57ALP7	IGY Rockoon Launch Site 1, Atlantic Ocean LP7	-	-63.3200	75.2000	0.0200	USN	-	-	-
 USN57A	LP8	-	LP	-	1957	1958	USN57ALP8	IGY Rockoon Launch Site 1, Atlantic Ocean LP8	-	-63.5700	74.3000	0.0200	USN	-	-	-
 USN57A	LP9	-	LP	-	1957	1958	USN57ALP9	IGY Rockoon Launch Site 1, Atlantic Ocean LP9	-	-58.3300	72.0700	0.0200	USN	-	-	-
-USN57B	LP1	US	LP	-	1957 Sep 23	1957 Nov 10	USN57B-	1957 NRL USS Glacier cruise, Atlantic and Pacific Oceans	-	-0.9900	0.8300	0.0200	USN	-	-	-
+USN57B	LP1	-	LP	-	1957 Sep 23	1957 Nov 10	USN57B-	1957 NRL USS Glacier cruise, Atlantic and Pacific Oceans	-	-0.9900	0.8300	0.0200	USN	-	-	-
 USN57B	LP10	-	LP	-	1957	1958	IGY11 -	IGY Rockoon Launch Site 11, Pacific Ocean	-	-158.0120	3.3800	0.0200	USN	-	-	-
 USN57B	LP11	-	LP	-	1957	1958	IGY12 -	IGY Rockoon Launch Site 12, Pacific Ocean	-	-159.9200	1.8700	0.0200	USN	-	-	-
 USN57B	LP12	-	LP	-	1957	1958	IGY13 -	IGY Rockoon Launch Site 13, Pacific Ocean	-	-160.5300	0.8000	0.0200	USN	-	-	-
@@ -2584,8 +2585,8 @@ V	LF25	-	LP	-	1966 Feb 16	1976 Mar  6	V     LF25	Launch Facility 25, Vandenberg 
 V	LF26	-	LP	-	1966 Jan 18	*	V     LF26	Launch Facility 26, Vandenberg AFB	-	-120.6369	34.8883	0.0001	USAF	-	-	-
 V	LF7632	-	LP	-	2002 Nov	2002 Dec	V     LF7632	Launch Facility 7632, Vandenberg AFB	-	-120.5468	34.8125	0.0001	USAF	-	-	-
 V	OSTF	-	LP	-	1960 Dec  3	1963 Jul 26	V     OSTF	Operational Silo Test Facility, Vandenberg AFB	-	-120.5428	34.8046	0.0001	USAF	-	-	-
-V	OSTF1	576-F	LP	-	1960 Dec  3	1963 Jul 26	V     OSTF1	Operational Silo Test Facility 1, Vandenberg AFB	-	-120.5890	34.7960	0.0001	USAF	-	-	-
-V	OSTF2	576-G	LP	-	1962 Aug 10	1963 Dec 18	V     OSTF2	Operational Silo Test Facility 2, Vandenberg AFB	-	-120.5614	34.8222	0.0001	USAF	-	-	-
+V	OSTF1	576F	LP	-	1960 Dec  3	1963 Jul 26	V     OSTF1	Operational Silo Test Facility 1, Vandenberg AFB	-	-120.5890	34.7960	0.0001	USAF	-	-	-
+V	OSTF2	576G	LP	-	1962 Aug 10	1963 Dec 18	V     OSTF2	Operational Silo Test Facility 2, Vandenberg AFB	-	-120.5614	34.8222	0.0001	USAF	-	-	-
 V	RW12	-	LP	-	1990	*	V     RW12	RW12,    Vandenberg AFB, California	-	-120.6010	34.7519	0.0001	USAF	-	-	-
 V	RW30	-	LP	-	1990	*	V     RW30	RW30,    Vandenberg AFB, California	-	-120.5676	34.7227	0.0001	USAF	-	-	-
 V	RW30/12	-	LP	-	1990	*	V     RW30/12	RW30/12, Vandenberg AFB, California	-	-120.5658	34.7321	0.0001	USAF	-	-	-
@@ -2621,6 +2622,7 @@ VS	SLC4W	LC2-3	LP	-	1966 Jul 29	2015 Feb	V     SLC4W	Space Launch Complex 4-West
 VS	SLC5	LC-D	LP	-	1966 Aug  4	1994 May  9	V     SLC5	Space Launch Complex 5, Vandenberg AFB	-	-120.6242	34.6078	0.0002	NASA	-	-	-
 VS	SLC6	-	LP	-	1966	*	V     SLC6	Space Launch Complex 6, Vandenberg AFB	-	-120.6269	34.5813	0.0001	USAF	-	-	-
 VS	SLC8	-	LP	-	1999 Dec	*	V     SLC8	Commercial Space Launch Facility, California Spaceport, Vandenberg AFB	-	-120.6324	34.5764	0.0001	SSI	-	-	-
+VS	SLC9	-	LP	-	2025	*	V     SLC9	Space Launch Complex 9, Vandenberg AFB	-	-120.5906	34.6576	0.0001	SSI	-	-	-
 WAKE	T	-	LP	-	2015	*	WAKE  -	THAAD Launcher, Wake Island	-	166.6539	19.2728	0.0001	USAF	-	-	-
 WAKE	LP1	-	LP	-	2012	-	POR25 -	Pacific Ocean Launch Site N of Wake Island	Pacific Ocean	167.0000	21.0000	1.5000	USN	-	-	-
 WAKE	LP2	-	LP	-	2012	-	POR25 -	Pacific Ocean Launch Site SE of Wake Island	Pacific Ocean	168.0000	17.0000	1.5000	USN	-	-	-
@@ -2692,6 +2694,7 @@ WS	ALA2	-	LP	-	1946	1960?	WS    ALA2	Army Launch Area 2, WSMR	-	-106.3800	32.400
 WS	ALA3	-	LP	-	1958	1960?	WS    ALA3	Army Launch Area 3, WSPG	-	-106.3215	32.4179	0.0010	SMDC	-	-	-
 WS	ALA4	-	LP	-	1946	1960?	WS    LC32	Launch Complex 32, WSMR	-	-106.4067	32.4066	0.0001	SMDC	-	-	-
 WS	ALA5	-	LP	-	1946	1960?	WS    ALA5	Army Launch Area 5, WSPG	-	-106.2800	32.4100	0.0500	SMDC	-	-	-
+WS	ALA5 Pit 207	-	LP	-	1946	1960?	WS    ALA5	Army Launch Area 5, WSPG	-	-106.2800	32.4100	0.0500	SMDC	-	-	-
 WS	FIX	-	LP	-	1990	*	WS    FIX	Launch Complex 94 (FIX), WSMR	-	-106.4589	34.2049	0.0001	SMDC	-	-	-
 WS	HARP5	-	LP	-	-	-	WS    5IN	HARP 5-inch gun, WSMR	-			0.0000	USN	-	-	-
 WS	LC31	-	LP	-	1960?	*	WS    LC31	Launch Complex 31, WSMR	-	-106.4067	32.4066	0.0001	SMDC	-	-	-
@@ -2749,8 +2752,9 @@ WTR	LP9	-	LP	-	1960	1974	PM Sea Range	Launch Point 9, Point Mugu Sea Range, Paci
 WTR	LP10	-	LP	-	2010	2013	PM Sea Range	Launch Point 10, Point Mugu Sea Range, Pacific Ocean	Pacific Ocean	-119.2000	34.0000	0.5000	USN	-	-	-
 WTR	LP11	-	LP	-	1985	1987	ASAT Drop Zone	F-15/ASAT launch point, Western Test Range	Pacific Ocean	-121.0000	34.5000	0.5000	USN	-	-	-
 WTR	LP12	-	LP	-	1974	1974	WTR	C-5A Drop Zone, Western Test Range, Pacific Ocean	Pacific Ocean, 24 km off VAFB	-120.9000	34.7000	0.2000	USAF	-	-	-
-WTR	LP13	WTR-A	LP	-	1974	*	WTR   -	SLBM Launch Area, Western Test Range, Pacific Ocean	-	-117.7500	32.2500	0.2000	USN	-	-	-
-WTR	LP14	WTR-B	LP	-	1974	*	WTR   -	SLBM Launch Area, Western Test Range, Pacific Ocean	-	-123.2000	34.7500	0.2000	USN	-	-	-
+WTR	LP13	-	LP	-	1974	*	WTR-A -	SLBM Launch Area, Western Test Range, Pacific Ocean	-	-117.7500	32.2500	0.2000	USN	-	-	-
+WTR	LP14	-	LP	-	1974	*	WTR-B -	SLBM Launch Area, Western Test Range, Pacific Ocean	-	-123.2000	34.7500	0.2000	USN	-	-	-
+WTR	LP14B	-	LP	-	1974	*	WTR-B1	SLBM Launch Area, Western Test Range, Pacific Ocean	-	-123.6000	34.9000	0.2000	USN	-	-	-
 WTR	LP15	-	LP	-	2020	-	VORB	Virgin Orbit Drop Point 1	Pacific Ocean	-119.8300	33.1400	0.1000	VORB	-	-	-
 WTR	LP16	-	LP	-	2020	-	VORB	Virgin Orbit Drop Point 2	Pacific Ocean	-120.1000	33.2000	0.1000	VORB	-	-	-
 WTR	LP17 A	-	LP	-	2020	-	VORB	Virgin Orbit Drop Point 3	Pacific Ocean	-120.7800	32.3400	0.0200	VORB	-	-	-
