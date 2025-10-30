@@ -235,6 +235,9 @@ H3-22L	-	2	H3 Stage 2	-	-	1		300	200	-
 H3-24L	-	0	H3 SRB-3	-	-	4		50	-6000	-
 H3-24L	-	1	H3 Stage 1 2E	-	-	1		100	-6000	-
 H3-24L	-	2	H3 Stage 2	-	-	1		300	200	-
+H3-24W	-	0	H3 SRB-3	-	-	4		50	-6000	-
+H3-24W	-	1	H3 Stage 1 2E	-	-	1		100	-6000	-
+H3-24W	-	2	H3 Stage 2	-	-	1		300	200	-
 H-IIB	-	0	H-II SRB-A3	-	-	4		50	-6378	-
 H-IIB	-	1	H-IIB Stage 1	-	-	1		100	-6000	-
 H-IIB	-	2	H-IIA Stage 2	-	-	1		300	200	-
@@ -296,6 +299,8 @@ Delta 4M+(5,2)	A	2	Delta D4SS-5	-	-	1		200	200	?
 Delta 4M+(5,2)	A	F	Fairing	-	-	2		200	-4900	?
 DC-XA	-	1	DC-XA	-	-	1		2	-6378	-
 DC-X	-	1	DC-X	-	-	1		2	-6378	-
+Zhuque-3	-	1	ZQ-3 Stage 1	-	-	1		100	-6300	-
+Zhuque-3	-	2	ZQ-3 Stage 2	-	-	1		500	500	-
 H-II	-	0	H-II SRB	-	-	2	291400.0	60	-6260	?
 H-II	-	1	H-II Stage 1	-	-	1	373680.0	300	-4600	?
 H-II	-	2	H-II Stage 2	-	-	1	73200.0	400	400	-
@@ -2515,6 +2520,10 @@ Mu-3S-II	-	1	M-13	-	-	1		120	-6000	?
 Mu-3S-II	-	2	M-23	-	-	1		240	-4900	-
 Mu-3S-II	-	3	M-3B	-	-	1		400	200	-
 Mu-3S-II	-	F	Fairing	-	-	2		240	-4900	?
+HANBIT-NANO	H	1	HANBIT-NANO S1	-	-	1		150	-6370	?
+HANBIT-NANO	H	2	HANBIT-NANO S2H	-	-	1		200	200	-
+HANBIT-NANO	L	1	HANBIT-NANO S1	-	-	1		150	-6370	?
+HANBIT-NANO	L	2	HANBIT-NANO S2L	-	-	1		200	200	-
 Emeraude VE121	-	1	Emeraude	-	-	1		200	-6370	?
 Saphir VE231	-	1	Emeraude	-	-	1		50	-6300	?
 Saphir VE231	-	2	Topaze	-	-	1		1000	-5000	?
@@ -3091,6 +3100,7 @@ Hwasong-11Ka	-	1	KN-23	-	-	1		20	-6378	-
 Hwasong-11Da	-	1	KN-23	-	-	1		20	-6378	-
 Hwasong-11Da-4.5	-	1	KN-23	-	-	1		20	-6378	-
 Hwasong-11Ra	-	1	KN-23X	-	-	1		20	-6378	-
+Hwasong-11E	-	1	KN-23X	-	-	1		20	-6378	-
 Iskander-M	-	1	Iskander-M	-	-	1		150	-6378	-
 Iskander-E	-	1	Iskander-E	-	-	1		150	-6378	-
 Falstaff	-	1	Stonechat II	-	-	1		150	-6370	?
@@ -3126,6 +3136,7 @@ Shahab 2	-	1	Hwasong 6	-	-	1		200	-6250	?
 Qiam-1	-	1	Hwasong 6	-	-	1		200	-6250	?
 Scud B	-	1	Scud B	-	-	1		100	-6200	?
 R-17	-	1	R-17	-	-	1		200	-6250	?
+R-17E	-	1	R-17	-	-	1		200	-6250	?
 R-17VTO	-	1	R-17	-	-	1		200	-6250	?
 Al Abbas	-	1	Al Abbas	-	-	1		100	-6200	?
 Al Hussein	-	1	Al Hussein	-	-	1		100	-6200	?
@@ -3624,6 +3635,8 @@ VS-31/IM	-	2	Imp Malemute	-	-	1		400	-6300	?
 Red Kite	-	1	Red Kite	-	-	1		70	-6378	?
 Red Kite/IM	-	1	Red Kite	-	-	1		70	-6378	?
 Red Kite/IM	-	2	Imp Malemute	-	-	1		400	-6300	?
+Red Kite/BB5	-	1	Red Kite	-	-	1		70	-6378	?
+Red Kite/BB5	-	2	Black Brant Mk4	-	-	1		400	-6300	?
 ATV	-	1	RH-ATV	-	-	1		60	-6370	?
 ATV	-	2	RH-ATV	-	-	1		400	-6370	?
 RH-560/300 Mk II	-	1	RH-560	-	-	1		60	-6370	?

@@ -1766,7 +1766,6 @@ A07854	2011-031A	LMC	2011 Jul  8	2011 Jul 21	2011 Jul 21	2011 Jul 21	-	MPESS	-	-
 A07869	2011-028	Spuskaemaya Kapsula	2011 Jun 27	2011 Jun 27	2011 Aug  7?	2011 Aug  7?	-	SpK	-	-	D	D	RV	S	-	-	-	-					2011 Aug  7	-644	230	81.39	-
 A07870	2011-044H	BPA-2	2011 Aug 17	2011 Aug 17	2011 Aug 17	2011 Aug 17	-	BPA	-	-	-	C	TECH	S	-	-	[UA]	-					2011 Aug 19	691	1295	98.22	-
 A07874	2011-028	Spuskaemaya Kapsula	2011 Jun 27	2011 Jun 27	2011 Sep 16?	2011 Sep 16?	-	SpK	-	-	D	D	RV	S	-	-	-	-					2011 Sep 16	-719	237	81.37	-
-A07885	2011-061F	M-Cubed	2011 Oct 28	2023 Jan?	2024 Jun?	2024 Jun?	-	UMI	-	-	-	A	TECH	F	-	-	[US]	-					2011 Oct 31	456	816	101.70	-
 A07892	2011-065	Fobos-Grunt SA	2011 Nov  8	2011 Nov  8	2011 Nov  8	2011 Nov  8	-	FG SA	-	-	-	C	PLAN	F	-	-	-	-					-	0	0	0.00	-
 A07895	2011-065	Yinghuo-1	2011 Nov  8	2011 Nov  8	2011 Nov  8	2011 Nov  8	-	Yinghuo	-	-	-	C	PLAN	F	-	-	-	-					-	0	0	0.00	-
 A07927	2012-027B	Celestis-11	2012 May 22	2012 May 22	2012 May 22	2012 May 22	-	CPAC	-	-	-	B	MISC	S	-	-	-	-					2012 May 24	270	328	51.67	Burial
@@ -2029,10 +2028,10 @@ A09238	2018-101	RRM-3	2018 Dec  5	2024 Jan  9	2024 Jan  9	2024 Jan  9 1922	-	ISS
 A09243	2018-104E	CubeSail LSat	2018 Dec 16	2018 Dec 17	2018 Dec 17	2018 Dec 17	-	UIUC	-	-	-	B	TECH	F	-	-	-	-					-	0	0	0.00	-
 A09257	2018-099C	Elysium Star 2	2018 Dec  3	2018 Dec  3	2018 Dec  3	2018 Dec  3	-	Elysium	-	-	-	B	TECH	S	-	-	[US]	-					2018 Dec  5	573	590	97.77	-
 A09260	2018-101	UbiquitiLink	2018 Dec  5	2019 Feb 25	2019 Feb 25	2019 Feb 25	-	Lynk	1	-	-	B	TECH	S	-	-	[US]	-					2019 Feb 24	300	315	51.64	-
-A09268	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb	-	-	-	B	TECH	F	-	-	-	-					2019 Feb 28	46	1008	87.77	-
-A09269	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb	-	-	-	B	TECH	F	-	-	-	-					2019 Feb 28	46	1008	87.77	-
-A09270	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb	-	-	-	B	TECH	F	-	-	-	-					2019 Feb 28	46	1008	87.77	-
-A09271	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb	-	-	-	B	TECH	F	-	-	-	-					2019 Feb 28	46	1008	87.77	-
+A09268	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb Sim	1	-	-	B	TECH	S	-	-	-	-					2019 Feb 28	46	1008	87.77	-
+A09269	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb Sim	1	-	-	B	TECH	S	-	-	-	-					2019 Feb 28	46	1008	87.77	-
+A09270	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb Sim	1	-	-	B	TECH	S	-	-	-	-					2019 Feb 28	46	1008	87.77	-
+A09271	2019-010	MFS 1	2019 Feb 27	2019 Feb 27	2019 Feb 27	2019 Feb 27	-	OneWeb Sim	1	-	-	B	TECH	S	-	-	-	-					2019 Feb 28	46	1008	87.77	-
 A09278	1963-030A	West Ford 4 deployer	1963 Jul 19	1963 Jul 19	1963 Jul 19	1963 Jul 19	-	Westford	-	-	-	D	COM	S	-	-	-	-					-	0	0	0.00	-
 A09283	2018-092H	Sprite (00,01)	2018 Nov 17	2019 Mar 19	2019 Mar 23?	2019 Mar 23?	-	Kicksat	-	-	-	A	TECH	S	-	-	[US]	-					-	0	0	0.00	-
 A09284	2018-092J	Sprite (02,03)	2018 Nov 17	2019 Mar 19	2019 Mar 23?	2019 Mar 23?	-	Kicksat	-	-	-	A	TECH	S	-	-	[US]	-					-	0	0	0.00	-
@@ -2471,3 +2470,20 @@ A11594	2025-U03	Starlink Simulator 27	2025 Aug 26	2025 Aug 26	2025 Aug 26	2025 A
 A11595	2025-U03	Starlink Simulator 28	2025 Aug 26	2025 Aug 26	2025 Aug 26	2025 Aug 26 2353:18	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 A11596	2025-U03	Starlink Simulator 29	2025 Aug 26	2025 Aug 26	2025 Aug 26	2025 Aug 26 2354:24	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 A11597	2025-U03	Starlink Simulator 30	2025 Aug 26	2025 Aug 26	2025 Aug 26	2025 Aug 26 2355:00	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11621	2025-180G	ThumbSat-1	2025 Aug 19	2025 Aug 19	2025 Aug 25?	2025 Aug 25?	-	ThumbSat	-	-	-	B	TECH	S	-	-	[MX]	-					-	0	0	0.00	-
+A11622	2025-180H	ThumbSat-2	2025 Aug 19	2025 Aug 19	2025 Aug 25?	2025 Aug 25?	-	ThumbSat	-	-	-	B	EDU	S	-	-	[MX]	-					-	0	0	0.00	-
+A11624	2024-043	Gluon	2024 Mar  4	2024 Mar  4	2024 May?	2024 May?	-	Atomos	-	P	M	B	TECH	F	-	-	[US]	-					-	0	0	0.00	-
+A11625	2025-052BS	Tevel 2-6	2025 Mar 15	2025 Mar 15	*	*	-	Herzliya	-	-	-	A	COM	S	-	-	[IL]	-					-	0	0	0.00	-
+A11626	2025-052	Tevel 2-5	2025 Mar 15	2025 Mar 15	*	*	-	Herzliya	-	-	-	A	COM	S	-	-	[IL]	-					-	0	0	0.00	-
+A11627	2025-038	Unk Cubesat?	2025 Feb 27	2025 Feb 27	*	*	-	Space Inv	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
+A11628	2025-135	Lemur-2	2025 Jun 23	2025 Jun 23	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-					-	0	0	0.00	-
+A11643	2025-009DU	Flock 4g-19	2025 Jan 14	2025 Apr  3	2025 Apr  3	2025 Apr  3	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-					-	0	0	0.00	-
+A11645	2025-U04	Starship FT-11	2025 Oct 13	2025 Oct 14	2025 Oct 14	2024 Oct 14 0029:57	-	Starship FT	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
+A11646	2025-U04	Starlink Simulator 31	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11647	2025-U04	Starlink Simulator 32	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11648	2025-U04	Starlink Simulator 33	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11649	2025-U04	Starlink Simulator 34	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11650	2025-U04	Starlink Simulator 35	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11651	2025-U04	Starlink Simulator 36	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11652	2025-U04	Starlink Simulator 37	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
+A11653	2025-U04	Starlink Simulator 38	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 Oct 13 2345	-	Starlink V3Sim	-	-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-

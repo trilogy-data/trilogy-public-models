@@ -1,24 +1,59 @@
+
+import std.display;
+import std.ranking;
+import std.semantic;
+import std.money;
+
+type letter_grade string;
+
 key id int;
-property id.age float;
-property id.survived int; # 1 if survived, 0 if not
-property id.name string;
-property id.class int; # Integer classes; 1st, 2nd, 3rd
-property id.fare float; # Cost of fare, as float
-property id.cabin string;
-property id.embarked string;
-property id.ticket string;
+property id.age float; # Age in years
+property id.survived int::flag; # Survival: 0 = No, 1 = Yes
+property id.name string; # Passenger name
+property id.class int::grade; # Ticket class: 1 = 1st, 2 = 2nd, 3 = 3rd
+property id.fare float::usd; # Passenger fare (USD)
+property id.cabin string; # Cabin number
+property id.embarked string; # Port of Embarkation: C = Cherbourg, Q = Queenstown, S = Southampton
+property id.ticket string; # Ticket number
+property id.sex string; # Sex
+property id.sibsp string; # # of siblings / spouses aboard the Titanic
+property id.parch string; # # of parents / children aboard the Titanic
 metric survived_count <- sum(survived); # Number of survivors
-property last_name <- split(name,',')[1];
+property last_name <- split(name,',')[1]; # Last name (extracted from full name)
+
+auto survival_rate <- (survived_count / id.count)::float::percent; # metric; ratio of survivors to passengers in set
+
+auto cabin_deck<- substring(cabin, 1, 1)::string::letter_grade; # first letter of cabin
+
+auto age_bucket <- case
+    when age <= 12 then 'child'
+    when age between 13 and 19 then 'teenager'
+    when age between 20 and 35 then 'young adult'
+    when age between 36 and 59 then 'adult'
+    when age >= 60 then 'elderly'
+    else 'unknown'
+  end;
+
+auto is_boy <- CASE
+WHEN sex = 'male' and age <12 then True
+WHEN sex = 'male' and strpos(name, 'Master.') > 0 THEN true
+ELSE false
+END; # 'Male' | 'Female' | 'Unknown' ; inferred from name/title
+
+
 datasource raw_data (
     passengerid: id,
     age: ?age,
-    survived: survived,
+    survived,
     pclass: class,
-    name: name,
-    fare: fare,
+    name,
+    fare,
+    sex: ?sex,
     cabin: ?cabin,
     embarked: ?embarked,
-    ticket: ticket
+    ticket,
+    sibsp,
+    parch: ?parch
     )
 grain (id)
 address raw_titanic;

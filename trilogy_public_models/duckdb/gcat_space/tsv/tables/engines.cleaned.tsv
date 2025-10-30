@@ -304,6 +304,7 @@ Star 48	THKE	-	TE-M-711-3	-	HTPB	2113.0				67.20		286.0		88.0		1	1980	Star 48	So
 RSA-3-3	HOUW	-	-	-	Solid	2048.0				59.00		298.0		94.0		1	1988	RSA-3	Solid
 GF-02	BWYIC	-	-	-	Solid	2050.0		4500		29.00		253.9		38.0		1	1970	CZ-1 [3]	Solid
 M57A1	HERC	M57	M57A1	-	CMDB	2030.0		4485		76.00		276.0		59.0		4	1961 Feb  1	Minuteman 1A [3]	Solid
+JL3-4	ARMT	-	-	-	HTPB	2000.0	?			78.00						1	2022	JL-3[4]	Solid
 ADD-SLV-3	ADD	-	-	-	Solid	2000.0	?									1	-	-	Solid
 Salman	IRGC	-	-	-	Solid	2000.0	?									1	-	Qased [2]	Solid
 ARRW Booster	AJSP	-	-	-	Solid	2000.0	?	0								1	-	ARRW	Solid
@@ -884,12 +885,14 @@ HyLIGHT	HYEND	-	-	N2O	HTPB	120.0	?	267		10.00		224.0				1	2023	N2ORTH	Hybrid
 Lelien 1B	TISPACE	-	-	N2O	SBR			1028		19.60						1	2019	Hapith V [2]	Hybrid
 HTR	NAMMO	-	-	LOX	Solid			520	?	26.00		202.0		20.0		1	2007	HTR	Hybrid
 FWUM	NAMMO	-	-	H2O2	HTPB					30.00				35.0		1	2018	Nucleus	Hybrid
+Hyper	INNOSP	-	-	LOX	Paraffin			0		0.00		325.0		270.0		1	2025	Hanbit NANO	Hybrid
 HyPLOX75	HYIMP	-	-	LOX	Paraffin					75.00		321.0		72.0		1	2023	SR75	Hybrid
 RM-1	SCAL/SPDEV	-	-	N2O	HTPB			7200	?	90.00	?			80.0		1	2003	SS1	Hybrid
 Sirius	GILM	-	-	H2O2	Polyethylene					110.00				100.0		1	2024	Eris[1]	Hybrid
 Lelien 1C	TISPACE	-	-	N2O?	HTPB					127.00						1	2019	Hapith V	Hybrid
 HyPER-15	INNOSP	-	-	LOX	Paraffin			0		0.00						1	2022	Hanbit-TLV	Hybrid
 Dolphin	STST	-	-	LOX	PB	7500.0				155.00						1	1984	Dolphin	Hybrid
+HANBIT S1	INNOSP	-	-	LOX	Paraffin					245.00		292.0		150.0		1	2025	HANBIT Nano	Hybrid
 HYSR	LMMI	-	-	LOX	HTPB			8000	?	270.00		290.0		33.4		1	2003	HYSR	Hybrid
 RM-2 (1)	SIENV	-	-	N2O	HTPB			16000	?	270.00				60.0	?	1	2007	SS2	Hybrid
 RM-2	SCAL/SPDEV	-	-	N2O	Polyamide			16000	?	310.00		250.0		60.0	?	1	2007	SS2	Hybrid
@@ -1057,7 +1060,6 @@ Super Draco	SPXTX	-	-	N2O4	MMH					71.00		235.0		25.0		1	2014	Dragon2	NTO/Hyd
 ESM OMS	AJGC	-	-	N2O4	UDMH					26.60						1	-	Orion ESM	NTO/UDMH
 CL1-2	NADA	-	-	N2O4?	UDMH?											1	2023	CL-1	NTO/UDMH
 CL1-3	NADA	-	-	N2O4?	UDMH?											1	2023	CL-1	NTO/UDMH
-JL3-4	ARMT	-	-	N2O4?	UDMH?											1	-	-	NTO/UDMH
 DST-100	KHMM?	DST-100	-	N2O4	UDMH					0.10		276.0				1	-	-	NTO/UDMH
 DST-100A	KHMM?	DST-100	-	N2O4	UDMH					0.10		304.0				1	-	-	NTO/UDMH
 RDMT-100	NIIM	RDMT-100	-	N2O4	UDMH					0.10		260.0				1	-	-	NTO/UDMH
@@ -1371,6 +1373,7 @@ ROKETSAN-SR-0.1	ROKSN	-	-	LOX?	Kero?												2020	SR 0.1 [2]	LOX/Kero
 BW1-2	PERI	-	-	LOX	Methane LNG							348.0	?			1	2020	Blue Whale 1 [2]	LOX/Methane
 BW1-1	PERI	-	-	LOX	Methane LNG							348.0		150.0		1	2020	Blue Whale 1 [1]	LOX/Methane
 PWR35M	PWRD	-	-	LOX	Methane											1	2009	Taurus 2 Alt-2	LOX/Methane
+LiMER	INNOSP	-	-	LOX	Methane			0		0.00		350.0		300.0		1	2025	Hanbit NANO	LOX/Methane
 Aeon 1	RELSP	-	-	LOX	Methane					102.00						1	2023	Terran-1 [1]	LOX/Methane
 AeonVac	RELSP	-	-	LOX	Methane					126.00						1	2023	Terran-1 [2]	LOX/Methane
 JD-1	XJRY	-	-	LOX	Methane LNG					150.00		355.0				1	2020	SQ2	LOX/Methane
@@ -1379,7 +1382,7 @@ Archimedes	RLABU	-	-	LOX	Methane LNG					730.00		329.0				1	2025	Neutron	LOX/Met
 Longyun	JZYJ	-	-	LOX	Methane					770.00		350.0	0			1	2025	YXZ-1	LOX/Methane
 TQ-12	LANDSP	-	-	LOX	Methane					800.00		350.0				1	2019	ZQ-2	LOX/Methane
 TQ-12A	LANDSP	-	-	LOX	Methane					810.00		354.0				1	2024	ZQ-2	LOX/Methane
-TQ-15A	LANDSP	-	-	LOX	Methane					836.00		350.0				1	2024	ZQ-2	LOX/Methane
+TQ-15A	LANDSP	-	-	LOX	Methane					944.00		350.0				1	2024	ZQ-2	LOX/Methane
 Archimedes Vac	RLABU	-	-	LOX	Methane LNG					890.00		367.0				1	2025	Neutron	LOX/Methane
 JD-2	XJRY	-	-	LOX	Methane LNG					1000.00		300.0				1	2020	SQ2	LOX/Methane
 Raptor SL	SPX	-	-	LOX	Methane					1950.00						1	2019	Starship	LOX/Methane

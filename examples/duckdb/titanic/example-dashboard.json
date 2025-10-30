@@ -1,0 +1,217 @@
+{
+  "name": "Basic Titanic",
+  "layout": [
+    {
+      "x": 0,
+      "y": 6,
+      "w": 7,
+      "h": 7,
+      "i": "0"
+    },
+    {
+      "x": 0,
+      "y": 21,
+      "w": 20,
+      "h": 10,
+      "i": "2"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "w": 20,
+      "h": 3,
+      "i": "3"
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "w": 7,
+      "h": 7,
+      "i": "4"
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "w": 20,
+      "h": 8,
+      "i": "5"
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "w": 6,
+      "h": 7,
+      "i": "6"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 20,
+      "h": 3,
+      "i": "7"
+    }
+  ],
+  "gridItems": {
+    "0": {
+      "type": "chart",
+      "content": "import entrypoint;\n\n\nSELECT\n    passenger.class,\n    passenger.id.count,\n    passenger.survival_rate,\n;",
+      "name": "Class Breakdown",
+      "width": 773,
+      "height": 235,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "passenger_class",
+        "yField": "passenger_id_count",
+        "yField2": "",
+        "colorField": "passenger_survival_rate",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": []
+    },
+    "2": {
+      "type": "table",
+      "content": "SELECT\n    passenger.name,\n    passenger.fare,\n    passenger.age,\n    passenger.survived,\n    passenger.sibsp,\n    passenger.ticket,\n    passenger.embarked\n;",
+      "name": "Table 2",
+      "width": 2225,
+      "height": 355,
+      "allowCrossFilter": true,
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "3": {
+      "type": "chart",
+      "content": "SELECT passenger.id.count, sum(passenger.survived) as survivors, passenger.survival_rate;",
+      "name": "Summary",
+      "width": 2225,
+      "height": 75,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "headline",
+        "xField": "passenger_id_count",
+        "yField": "",
+        "yField2": "",
+        "colorField": "",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": []
+    },
+    "4": {
+      "type": "chart",
+      "content": "import entrypoint;\n\nWHERE\n    passenger.age is not null\nSELECT\n    passenger.age_bucket,\n    passenger.id.count -> count_passengers,\n    passenger.survival_rate,\nORDER BY\n    count_passengers desc\nLIMIT 10\n;",
+      "name": "Chart 4",
+      "width": 773,
+      "height": 235,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "passenger_age_bucket",
+        "yField": "count_passengers",
+        "yField2": "",
+        "colorField": "passenger_survival_rate",
+        "sizeField": "passenger_survival_rate",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "5": {
+      "type": "chart",
+      "content": "select passenger.cabin_deck, passenger.id.count, passenger.survival_rate;",
+      "name": "Chart 5",
+      "width": 2225,
+      "height": 275,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "passenger_cabin_deck",
+        "yField": "passenger_id_count",
+        "yField2": "",
+        "colorField": "passenger_survival_rate",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "conceptFilters": [],
+      "filters": [],
+      "chartFilters": []
+    },
+    "6": {
+      "type": "chart",
+      "content": "import entrypoint;\n\n\nSELECT\n    passenger.gender,\n    passenger.id.count,\n    passenger.survival_rate,\n;",
+      "name": "Class Breakdown",
+      "width": 661,
+      "height": 235,
+      "allowCrossFilter": true,
+      "chartConfig": {
+        "chartType": "bar",
+        "xField": "passenger_gender",
+        "yField": "passenger_id_count",
+        "yField2": "",
+        "colorField": "passenger_survival_rate",
+        "sizeField": "",
+        "groupField": "",
+        "trellisField": "",
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": false,
+        "showTitle": true
+      },
+      "chartFilters": [],
+      "filters": [],
+      "conceptFilters": []
+    },
+    "7": {
+      "type": "markdown",
+      "content": {
+        "markdown": "# Women and children first?\n\nFamous motto of the Titanic - but was it true? Explore this dataset to answer that question.",
+        "query": ""
+      },
+      "name": "Note 7",
+      "width": 2225,
+      "height": 75,
+      "allowCrossFilter": true,
+      "conceptFilters": [],
+      "filters": []
+    }
+  },
+  "nextId": 8,
+  "createdAt": "2025-10-27T14:16:31.394Z",
+  "updatedAt": "2025-10-29T23:38:19.313Z",
+  "filter": null,
+  "imports": [
+    {
+      "name": "entrypoint",
+      "alias": ""
+    }
+  ],
+  "version": 1,
+  "state": "editing",
+  "description": ""
+}

@@ -17,7 +17,7 @@ ALNASR	-	ALNASR	LS	SY	1992 Jul	*	Al Nasriyah	Al Nasriyah missile base, Syria	-	3
 ALSAFIR	-	ALSAFIR	LS	SY	1992 Jul	*	Minak	Syrian missile base, Al Safir, Aleppo, Syria (Base at Al Safir)	-	37.3508	36.0339	0.0010	SYMC	-	-	-	Syrian missile base, Al Safir, Aleppo, Syria (Base at Al Safir)
 ALSULAY	-	ALSULAY	LS	SA	-	-	Al Sulayil	Al Sulayil missile base, Saudi Arabia	al-Sulayil, Sauid Arabia	45.5836	20.7186	0.0010	SA	-	-	-	Al Sulayil missile base, Saudi Arabia
 ALT	-	ALT	LS	US	-	-	Altus AFB	Altus AFB	Atlus, Oklahoma	-99.2743	34.6630	0.1000	SAC	-	-	-	Altus AFB
-AMAR	-	AMAR	LS	IQ	1985	1990	Al 'Amarah	Al 'Amarah missile launch site	Al 'Amarah, Iraq	47.1500	31.8300	0.1000	IQ	-	-	-	Al 'Amarah missile launch site
+AMAR	-	AMAR	LS	IQ	1985	1990	Al 'Amarah	Al 'Amarah (Al-Fakkah) missile launch site	Al 'Amarah, Iraq	47.1500	31.8300	0.1000	IQ	-	-	-	Al 'Amarah missile launch site
 AMX	-	AMX	LS	AM	2020	-	Armenia	Unknown Iskander launch site, Armenia	Armenia	44.5100	40.1800	0.0200	AMAD	-	-	-	Unknown Iskander launch site, Armenia
 ANBAR	-	ANBAR	LS	IQ	1989 Dec  1	1990 Jan	Al-Anbar	Al-Anbar base, Al-Anbar province, Iraq	Al-Anbar, Iraq	42.3000	32.1000	0.2000	IQ	-	-	-	Al-Anbar base, Al-Anbar province, Iraq
 AND	-	AND	LS	N	1962 Aug 18	*	Andoya	Andoya Rocket Range, Andoy, Nordland, Norge	Andoya, Nordland	16.0207	69.2943	0.0020	ARR	-	-	-	Andoya Rocket Range, Andoy, Nordland, Norge
@@ -180,7 +180,7 @@ INSP	-	INSP	LS	US	1957	-	Indian Springs	Indian Springs Air Force Base, Nevada	In
 IQ160	-	IQ160	LS	IQ	1991	1991	Km 160	Kilometer 160, Ar Ramadi, Al Ambar, Iraq	Ar Ramadi, Al Anbar, Iraq	43.1000	33.4000	0.5000	IQ	-	-	-	Kilometer 160, Ar Ramadi, Al Ambar, Iraq
 IQAN	-	IQAN	LS	IQ	1991	1991	Al Nikheb	Al Nikheb (Al Nuqaub)	Al Nikheb, Al Anbar, Iraq	42.2600	32.0300	0.0100	IQ	-	-	-	Al Nikheb (Al Nuqaub)
 IQBA	-	IQBA	LS	IQ	2003	2003	Basra	Mobile launchers in Basra region	Basra, Iraq	47.8000	30.5000	0.2000	IQ	-	-	-	Mobile launchers in Basra region
-IQH3	-	IQH3	LS	IQ	2003	2003	H3 Airbase	H3 Airbase, Al Anbar	Al Anbar, Iraq	39.7400	32.9300	0.0100	IQ	-	-	-	H3 Airbase, Al Anbar
+IQH3	-	IQH3	LS	IQ	2003	2003	H3 Airbase	H3 (al-Wallid) Airbase, Al Anbar	Al Anbar, Iraq	39.7400	32.9300	0.0100	IQ	-	-	-	H3 Airbase, Al Anbar
 IQKK	-	IQKK	LS	IQ	2003	2003	Kirkuk	Kirkuk region, Iraq	Kirkuk, Iraq	44.4000	35.4700	0.2000	IQ	-	-	-	Kirkuk region, Iraq
 IQNJ	-	IQNJ	LS	IQ	2003	2003	An Najaf	Mobile launcher, S of An Najaf	An Najaf, Iraq	44.1000	31.0000	0.2000	IQ	-	-	-	Mobile launcher, S of An Najaf
 IQSA	-	IQSA	LS	IQ	2003	2003	Al Qayyarah	Saddam Air Base	Al Qayyarah, Iraq	43.1200	35.7600	0.0100	IQ	-	-	-	Saddam Air Base
