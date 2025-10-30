@@ -11,7 +11,7 @@ Bigquery datasets, equivalent to [this lab](https://www.cloudskillsboost.google/
 
 ## Find out which events happen most often?
 
-Lab
+SQL
 ```sql
 #standardSQL
 SELECT
@@ -22,8 +22,9 @@ GROUP BY 1
 ORDER BY event_count DESC;
 ```
 
-Preql
-```sql  
+Trilogy
+```trilogy 
+import game_event as game_event;
 select 
     game_event.type,
     game_event.count
@@ -34,7 +35,7 @@ game_event.count
 
 ### Games with the most 3 points made?
 
-Lab
+SQL
 ```sql
 #standardSQL
 #most three points made
@@ -61,32 +62,36 @@ LIMIT 5;
 ```
 
 
-PreQL
-```sql
+Trilogy
+```trilogy
+import game_wide as game;
 
+import game_wide as game;
 
+where game.home_team.name = 'Golden Flashes' and game.season > 2010
 SELECT
-  game.id,
+  --game.id,
   game.scheduled_date,
   game.season,
+  case when game.away_points> game.home_points then game.away_points-game.home_points else game.home_points-game.away_points end -> point_difference,
+  game.home_points,
+  game.away_points,
+  game.attendance,
   game.home_team.name,
   game.home_market,
   game.home_alias,
   game.home_three_points_att,
   game.home_three_points_made,
-  game.home_three_points_pct,
   game.away_team.name,
   game.away_market,
   game.away_alias,
   game.away_three_points_att,
   game.away_three_points_made,
   game.away_three_points_pct,
-  game.total_three_points_made
-where game.season > 2010
-
+  game.total_three_points_made,
 ORDER BY 
     game.total_three_points_made desc
-LIMIT 5
+
 ;
 
 ```
