@@ -58,7 +58,7 @@
       ]
     },
     {
-      "description": "# GCAT: General Catalog of Artificial Space Objects\n\nUpdated through: Sept 3, 2025\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects, Release 1.7.3 , https://planet4589.org/space/gcat",
+      "description": "# GCAT: General Catalog of Artificial Space Objects\n\nUpdated through: 2025 Oct 28\n\nFull open source satellite database, plus ancillary catalogs.\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects, Release 1.7.3, https://planet4589.org/space/gcat",
       "engine": "duckdb",
       "filename": "gcat_space.json",
       "name": "gcat_space",
@@ -213,5 +213,5 @@
       ]
     }
   ],
-  "updated_at": "2025-10-16T21:16:36.191817"
+  "updated_at": "2025-10-29T20:35:07.550827"
 }

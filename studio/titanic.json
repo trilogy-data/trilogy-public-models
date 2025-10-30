@@ -8,6 +8,12 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/entrypoint.preql"
     },
     {
+      "name": "example-dashboard",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/titanic/example-dashboard.json"
+    },
+    {
       "alias": "passenger",
       "name": "passenger",
       "purpose": "source",
