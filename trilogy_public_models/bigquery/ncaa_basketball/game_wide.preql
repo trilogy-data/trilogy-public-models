@@ -1,3 +1,4 @@
+
 import team as home_team;
 import team as away_team;
 import std.date;
@@ -24,26 +25,170 @@ property id.home_alias string; # [Home Team data] Home team school alias (unique
 property id.away_market string; # [Away Team data] Away team school name
 property id.away_alias string; # [Away Team data] Away team school alias
 
+# --- Per-game scalar fields (home and away) using game_home_XYZ / game_away_XYZ naming ---
+property id.game_home_field_goals_made int;
+property id.game_home_field_goals_att int;
+property id.game_home_three_points_att int;
+property id.game_home_three_points_made int;
+property id.game_home_two_points_made int;
+property id.game_home_two_points_att int;
+property id.game_home_blocked_att int;
+property id.game_home_free_throws_made int;
+property id.game_home_free_throws_att int;
+property id.game_home_offensive_rebounds int;
+property id.game_home_defensive_rebounds int;
+property id.game_home_rebounds int;
+property id.game_home_assists int;
+property id.game_home_turnovers int;
+property id.game_home_steals int;
+property id.game_home_blocks int;
+property id.game_home_assists_turnover_ratio float;
+property id.game_home_personal_fouls int;
+property id.game_home_ejections int;
+property id.game_home_foulouts int;
+property id.game_home_points int;
 
-property id._home_three_points_att int; #  [Home Team data] Three point Attempts
-metric home_three_points_att <- sum(_home_three_points_att); # [Home Team data] Three point Attempts
-property id._home_three_points_made int; #  [Home Team data] Three points made
-metric home_three_points_made <- sum(_home_three_points_made); #  [Home Team data] Three points made
-auto home_three_points_pct <- home_three_points_made / home_three_points_att *100; #[Home Team data] Three point percent
+property id.game_away_field_goals_made int;
+property id.game_away_field_goals_att int;
+property id.game_away_three_points_att int;
+property id.game_away_three_points_made int;
+property id.game_away_two_points_made int;
+property id.game_away_two_points_att int;
+property id.game_away_blocked_att int;
+property id.game_away_free_throws_made int;
+property id.game_away_free_throws_att int;
+property id.game_away_offensive_rebounds int;
+property id.game_away_defensive_rebounds int;
+property id.game_away_rebounds int;
+property id.game_away_assists int;
+property id.game_away_turnovers int;
+property id.game_away_steals int;
+property id.game_away_blocks int;
+property id.game_away_assists_turnover_ratio float;
+property id.game_away_personal_fouls int;
+property id.game_away_ejections int;
+property id.game_away_foulouts int;
+property id.game_away_points int;
 
-property id._away_three_points_att int; #  [Away Team data] Three point Attempts
-metric away_three_points_att <- sum(_away_three_points_att); #  [Away Team data] Three point Attempts
-property id._away_three_points_made int; #  [Away Team data] Three points made
-metric away_three_points_made <- sum(_away_three_points_made); #  [Away Team data] Three points made
+# --- Home metrics (sum of per-game home scalars) ---
+metric home_field_goals_made <- sum(game_home_field_goals_made);
+metric home_field_goals_att <- sum(game_home_field_goals_att);
+metric home_three_points_att <- sum(game_home_three_points_att);
+metric home_three_points_made <- sum(game_home_three_points_made);
+metric home_two_points_made <- sum(game_home_two_points_made);
+metric home_two_points_att <- sum(game_home_two_points_att);
+metric home_blocked_att <- sum(game_home_blocked_att);
+metric home_free_throws_made <- sum(game_home_free_throws_made);
+metric home_free_throws_att <- sum(game_home_free_throws_att);
+metric home_offensive_rebounds <- sum(game_home_offensive_rebounds);
+metric home_defensive_rebounds <- sum(game_home_defensive_rebounds);
+metric home_rebounds <- sum(game_home_rebounds);
+metric home_assists <- sum(game_home_assists);
+metric home_turnovers <- sum(game_home_turnovers);
+metric home_steals <- sum(game_home_steals);
+metric home_blocks <- sum(game_home_blocks);
+metric home_assists_turnover_ratio <- sum(game_home_assists_turnover_ratio);
+metric home_personal_fouls <- sum(game_home_personal_fouls);
+metric home_ejections <- sum(game_home_ejections);
+metric home_foulouts <- sum(game_home_foulouts);
+metric home_points <- sum(game_home_points);
 
-auto away_three_points_pct <- away_three_points_made / away_three_points_att *100; #[Away Team data] Three point percent
+auto home_field_goals_pct <- home_field_goals_made / home_field_goals_att * 100;
+auto home_three_points_pct <- home_three_points_made / home_three_points_att * 100;
+auto home_two_points_pct <- home_two_points_made / home_two_points_att * 100;
+auto home_free_throws_pct <- home_free_throws_made / home_free_throws_att * 100;
 
+# --- Away metrics (sum of per-game away scalars) ---
+metric away_field_goals_made <- sum(game_away_field_goals_made);
+metric away_field_goals_att <- sum(game_away_field_goals_att);
+metric away_three_points_att <- sum(game_away_three_points_att);
+metric away_three_points_made <- sum(game_away_three_points_made);
+metric away_two_points_made <- sum(game_away_two_points_made);
+metric away_two_points_att <- sum(game_away_two_points_att);
+metric away_blocked_att <- sum(game_away_blocked_att);
+metric away_free_throws_made <- sum(game_away_free_throws_made);
+metric away_free_throws_att <- sum(game_away_free_throws_att);
+metric away_offensive_rebounds <- sum(game_away_offensive_rebounds);
+metric away_defensive_rebounds <- sum(game_away_defensive_rebounds);
+metric away_rebounds <- sum(game_away_rebounds);
+metric away_assists <- sum(game_away_assists);
+metric away_turnovers <- sum(game_away_turnovers);
+metric away_steals <- sum(game_away_steals);
+metric away_blocks <- sum(game_away_blocks);
+metric away_assists_turnover_ratio <- sum(game_away_assists_turnover_ratio);
+metric away_personal_fouls <- sum(game_away_personal_fouls);
+metric away_ejections <- sum(game_away_ejections);
+metric away_foulouts <- sum(game_away_foulouts);
+metric away_points <- sum(game_away_points);
 
-property id._total_three_points_att <- _away_three_points_att + _home_three_points_att;
+auto away_field_goals_pct <- away_field_goals_made / away_field_goals_att * 100;
+auto away_three_points_pct <- away_three_points_made / away_three_points_att * 100;
+auto away_two_points_pct <- away_two_points_made / away_two_points_att * 100;
+auto away_free_throws_pct <- away_free_throws_made / away_free_throws_att * 100;
+
+# --- Totals across both teams (per-game sum -> metric totals) ---
+property id._total_field_goals_made <- game_away_field_goals_made + game_home_field_goals_made;
+metric total_field_goals_made <- sum(_total_field_goals_made);
+
+property id._total_field_goals_att <- game_away_field_goals_att + game_home_field_goals_att;
+metric total_field_goals_att <- sum(_total_field_goals_att);
+
+property id._total_three_points_att <- game_away_three_points_att + game_home_three_points_att;
 metric total_three_points_att <- sum(_total_three_points_att);
 
-property id._total_three_points_made <- _away_three_points_made + _home_three_points_made;
+property id._total_three_points_made <- game_away_three_points_made + game_home_three_points_made;
 metric total_three_points_made <- sum(_total_three_points_made);
+
+property id._total_two_points_made <- game_away_two_points_made + game_home_two_points_made;
+metric total_two_points_made <- sum(_total_two_points_made);
+
+property id._total_two_points_att <- game_away_two_points_att + game_home_two_points_att;
+metric total_two_points_att <- sum(_total_two_points_att);
+
+property id._total_blocked_att <- game_away_blocked_att + game_home_blocked_att;
+metric total_blocked_att <- sum(_total_blocked_att);
+
+property id._total_free_throws_made <- game_away_free_throws_made + game_home_free_throws_made;
+metric total_free_throws_made <- sum(_total_free_throws_made);
+
+property id._total_free_throws_att <- game_away_free_throws_att + game_home_free_throws_att;
+metric total_free_throws_att <- sum(_total_free_throws_att);
+
+property id._total_offensive_rebounds <- game_away_offensive_rebounds + game_home_offensive_rebounds;
+metric total_offensive_rebounds <- sum(_total_offensive_rebounds);
+
+property id._total_defensive_rebounds <- game_away_defensive_rebounds + game_home_defensive_rebounds;
+metric total_defensive_rebounds <- sum(_total_defensive_rebounds);
+
+property id._total_rebounds <- game_away_rebounds + game_home_rebounds;
+metric total_rebounds <- sum(_total_rebounds);
+
+property id._total_assists <- game_away_assists + game_home_assists;
+metric total_assists <- sum(_total_assists);
+
+property id._total_turnovers <- game_away_turnovers + game_home_turnovers;
+metric total_turnovers <- sum(_total_turnovers);
+
+property id._total_steals <- game_away_steals + game_home_steals;
+metric total_steals <- sum(_total_steals);
+
+property id._total_blocks <- game_away_blocks + game_home_blocks;
+metric total_blocks <- sum(_total_blocks);
+
+property id._total_assists_turnover_ratio <- game_away_assists_turnover_ratio + game_home_assists_turnover_ratio;
+metric total_assists_turnover_ratio <- sum(_total_assists_turnover_ratio);
+
+property id._total_personal_fouls <- game_away_personal_fouls + game_home_personal_fouls;
+metric total_personal_fouls <- sum(_total_personal_fouls);
+
+property id._total_ejections <- game_away_ejections + game_home_ejections;
+metric total_ejections <- sum(_total_ejections);
+
+property id._total_foulouts <- game_away_foulouts + game_home_foulouts;
+metric total_foulouts <- sum(_total_foulouts);
+
+property id._total_points <- game_away_points + game_home_points;
+metric total_points <- sum(_total_points);
 
 # metrics
 metric count <- count_distinct(id); # count of games
@@ -60,10 +205,61 @@ datasource games_sr (
     h_alias: home_alias,
     a_market: away_market,
     a_alias:away_alias,
-    h_three_points_att:_home_three_points_att,
-    a_three_points_att: _away_three_points_att,
-    h_three_points_made: _home_three_points_made,
-    a_three_points_made: _away_three_points_made,
+
+    # home per-game scalars (mapped from source h_* columns)
+    h_field_goals_made: game_home_field_goals_made,
+    h_field_goals_att: game_home_field_goals_att,
+    h_field_goals_pct: game_home_field_goals_made, # pct computed via auto field; still map a scalar column if present
+    h_three_points_att: game_home_three_points_att,
+    h_three_points_made: game_home_three_points_made,
+    h_three_points_pct: game_home_three_points_made, # pct computed via auto
+    h_two_points_made: game_home_two_points_made,
+    h_two_points_att: game_home_two_points_att,
+    h_two_points_pct: game_home_two_points_made, # pct computed via auto
+    h_blocked_att: game_home_blocked_att,
+    h_free_throws_made: game_home_free_throws_made,
+    h_free_throws_att: game_home_free_throws_att,
+    h_free_throws_pct: game_home_free_throws_made, # pct computed via auto
+    h_offensive_rebounds: game_home_offensive_rebounds,
+    h_defensive_rebounds: game_home_defensive_rebounds,
+    h_rebounds: game_home_rebounds,
+    h_assists: game_home_assists,
+    h_turnovers: game_home_turnovers,
+    h_steals: game_home_steals,
+    h_blocks: game_home_blocks,
+    h_assists_turnover_ratio: game_home_assists_turnover_ratio,
+    h_personal_fouls: game_home_personal_fouls,
+    h_ejections: game_home_ejections,
+    h_foulouts: game_home_foulouts,
+    h_points: game_home_points,
+
+    # away per-game scalars (mapped from source a_* columns)
+    a_field_goals_made: game_away_field_goals_made,
+    a_field_goals_att: game_away_field_goals_att,
+    a_field_goals_pct: game_away_field_goals_made, # pct computed via auto
+    a_three_points_att: game_away_three_points_att,
+    a_three_points_made: game_away_three_points_made,
+    a_three_points_pct: game_away_three_points_made, # pct computed via auto
+    a_two_points_made: game_away_two_points_made,
+    a_two_points_att: game_away_two_points_att,
+    a_two_points_pct: game_away_two_points_made, # pct computed via auto
+    a_blocked_att: game_away_blocked_att,
+    a_free_throws_made: game_away_free_throws_made,
+    a_free_throws_att: game_away_free_throws_att,
+    a_free_throws_pct: game_away_free_throws_made, # pct computed via auto
+    a_offensive_rebounds: game_away_offensive_rebounds,
+    a_defensive_rebounds: game_away_defensive_rebounds,
+    a_rebounds: game_away_rebounds,
+    a_assists: game_away_assists,
+    a_turnovers: game_away_turnovers,
+    a_steals: game_away_steals,
+    a_blocks: game_away_blocks,
+    a_assists_turnover_ratio: game_away_assists_turnover_ratio,
+    a_personal_fouls: game_away_personal_fouls,
+    a_ejections: game_away_ejections,
+    a_foulouts: game_away_foulouts,
+    a_points: game_away_points,
+
     conference_game:conference_game,
     tournament:tournament,
     tournament_type:tournament_type,
@@ -79,4 +275,3 @@ datasource games_sr (
 grain (id)
 address `bigquery-public-data.ncaa_basketball.mbb_games_sr`
 ;
-
