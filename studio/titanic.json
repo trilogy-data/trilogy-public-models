@@ -54,7 +54,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/titanic/wealth_dive.preql"
     }
   ],
-  "description": "### Titanic Dataset\n\nDataset from demo. use 'setup_environment.py' to build an executor with the csv files imported.",
+  "description": "### Titanic Dataset\n\nBasic titanic dataset, same data as the popular Kaggle example.",
   "engine": "duckdb",
   "link": "",
   "name": "titanic",

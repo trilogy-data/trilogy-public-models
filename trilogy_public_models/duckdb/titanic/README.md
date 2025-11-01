@@ -1,3 +1,3 @@
 ### Titanic Dataset
 
-Dataset from demo. use 'setup_environment.py' to build an executor with the csv files imported. 
+Basic titanic dataset, same data as the popular Kaggle example. 

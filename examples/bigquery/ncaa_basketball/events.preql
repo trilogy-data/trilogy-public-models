@@ -1,0 +1,7 @@
+import game_event as game_event;
+select 
+    game_event.type,
+    game_event.count
+order by 
+game_event.count
+    desc;

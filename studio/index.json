@@ -112,7 +112,7 @@
       ]
     },
     {
-      "description": "# NCAA Basketball Dataset\n\n\n\n## Examples\nThis example shows some basic NCAA Men's Basketball game analysis, using the public\nBigquery datasets, equivalent to [this lab](https://www.cloudskillsboost.google/focuses/624?parent=catalog)\n\n\n## Find out which events happen most often?\n\nLab\n```sql\n#standardSQL\nSELECT\n  event_type,\n  COUNT(*) AS event_count\nFROM `bigquery-public-data.ncaa_basketball.mbb_pbp_sr`\nGROUP BY 1\nORDER BY event_count DESC;\n```\n\nPreql\n```sql  \nselect \n    game_event.type,\n    game_event.count\norder by \ngame_event.count\n    desc;\n```\n\n### Games with the most 3 points made?\n\nLab\n```sql\n#standardSQL\n#most three points made\nSELECT\n  scheduled_date,\n  name,\n  market,\n  alias,\n  three_points_att,\n  three_points_made,\n  three_points_pct,\n  opp_name,\n  opp_market,\n  opp_alias,\n  opp_three_points_att,\n  opp_three_points_made,\n  opp_three_points_pct,\n  (three_points_made + opp_three_points_made) AS total_threes\nFROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`\nWHERE season > 2010\nORDER BY total_threes DESC\nLIMIT 5;\n\n```\n\n\nPreQL\n```sql\n\n\nSELECT\n  game.id,\n  game.scheduled_date,\n  game.season,\n  game.home_team.name,\n  game.home_market,\n  game.home_alias,\n  game.home_three_points_att,\n  game.home_three_points_made,\n  game.home_three_points_pct,\n  game.away_team.name,\n  game.away_market,\n  game.away_alias,\n  game.away_three_points_att,\n  game.away_three_points_made,\n  game.away_three_points_pct,\n  game.total_three_points_made\nwhere game.season > 2010\n\nORDER BY \n    game.total_three_points_made desc\nLIMIT 5\n;\n\n```",
+      "description": "# NCAA Basketball Dataset\n\n\n\n## Examples\nThis example shows some basic NCAA Men's Basketball game analysis, using the public\nBigquery datasets, equivalent to [this lab](https://www.cloudskillsboost.google/focuses/624?parent=catalog)\n\n\n## Find out which events happen most often?\n\nSQL\n```sql\n#standardSQL\nSELECT\n  event_type,\n  COUNT(*) AS event_count\nFROM `bigquery-public-data.ncaa_basketball.mbb_pbp_sr`\nGROUP BY 1\nORDER BY event_count DESC;\n```\n\nTrilogy\n```trilogy \nimport game_event as game_event;\nselect \n    game_event.type,\n    game_event.count\norder by \ngame_event.count\n    desc;\n```\n\n### Games with the most 3 points made?\n\nSQL\n```sql\n#standardSQL\n#most three points made\nSELECT\n  scheduled_date,\n  name,\n  market,\n  alias,\n  three_points_att,\n  three_points_made,\n  three_points_pct,\n  opp_name,\n  opp_market,\n  opp_alias,\n  opp_three_points_att,\n  opp_three_points_made,\n  opp_three_points_pct,\n  (three_points_made + opp_three_points_made) AS total_threes\nFROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`\nWHERE season > 2010\nORDER BY total_threes DESC\nLIMIT 5;\n\n```\n\n\nTrilogy\n```trilogy\nimport game_wide as game;\n\nimport game_wide as game;\n\nwhere game.home_team.name = 'Golden Flashes' and game.season > 2010\nSELECT\n  --game.id,\n  game.scheduled_date,\n  game.season,\n  case when game.away_points> game.home_points then game.away_points-game.home_points else game.home_points-game.away_points end -> point_difference,\n  game.home_points,\n  game.away_points,\n  game.attendance,\n  game.home_team.name,\n  game.home_market,\n  game.home_alias,\n  game.home_three_points_att,\n  game.home_three_points_made,\n  game.away_team.name,\n  game.away_market,\n  game.away_alias,\n  game.away_three_points_att,\n  game.away_three_points_made,\n  game.away_three_points_pct,\n  game.total_three_points_made,\nORDER BY \n    game.total_three_points_made desc\n\n;\n\n```",
       "engine": "bigquery",
       "filename": "ncaa_basketball.json",
       "name": "ncaa_basketball",
@@ -175,7 +175,7 @@
       ]
     },
     {
-      "description": "### Titanic Dataset\n\nDataset from demo. use 'setup_environment.py' to build an executor with the csv files imported.",
+      "description": "### Titanic Dataset\n\nBasic titanic dataset, same data as the popular Kaggle example.",
       "engine": "duckdb",
       "filename": "titanic.json",
       "name": "titanic",
@@ -213,5 +213,5 @@
       ]
     }
   ],
-  "updated_at": "2025-10-29T20:35:07.550827"
+  "updated_at": "2025-10-30T09:00:04.300947"
 }

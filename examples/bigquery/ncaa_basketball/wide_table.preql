@@ -1,0 +1,26 @@
+import game_wide as game;
+
+where game.home_team.name = 'Golden Flashes' and game.season > 2010
+SELECT
+  --game.id,
+  game.scheduled_date,
+  game.season,
+  case when game.away_points> game.home_points then game.away_points-game.home_points else game.home_points-game.away_points end -> point_difference,
+  game.home_points,
+  game.away_points,
+  game.attendance,
+  game.home_team.name,
+  game.home_market,
+  game.home_alias,
+  game.home_three_points_att,
+  game.home_three_points_made,
+  game.away_team.name,
+  game.away_market,
+  game.away_alias,
+  game.away_three_points_att,
+  game.away_three_points_made,
+  game.away_three_points_pct,
+  game.total_three_points_made,
+ORDER BY 
+    game.total_three_points_made desc
+;
