@@ -1,51 +1,51 @@
 {
-  "name": "example-dashboard",
+  "name": "Trilogy Demo Dashboard",
   "layout": [
     {
       "x": 0,
       "y": 0,
       "w": 20,
-      "h": 3,
+      "h": 5,
       "i": "0"
     },
     {
       "x": 0,
-      "y": 3,
+      "y": 5,
       "w": 20,
       "h": 3,
       "i": "1"
     },
     {
       "x": 0,
-      "y": 19,
+      "y": 21,
       "w": 11,
       "h": 8,
       "i": "5"
     },
     {
       "x": 11,
-      "y": 19,
+      "y": 21,
       "w": 9,
       "h": 8,
       "i": "6"
     },
     {
       "x": 0,
-      "y": 6,
+      "y": 8,
       "w": 20,
       "h": 7,
       "i": "7"
     },
     {
       "x": 0,
-      "y": 27,
+      "y": 29,
       "w": 20,
       "h": 8,
       "i": "8"
     },
     {
       "x": 0,
-      "y": 13,
+      "y": 15,
       "w": 20,
       "h": 6,
       "i": "9"
@@ -54,20 +54,24 @@
   "gridItems": {
     "0": {
       "type": "markdown",
-      "content": "## Supplier Location Overview\n\nFor part suppliers, explore where sales are coming from, top products, and where customers are. Click any chart to cross-filter.",
+      "content": {
+        "markdown": "## Trilogy Studio Demo Dashboard\n\nTrilogy Studio a SQL-ish-centric analytics tool w/ a custom language - [Trilogy](https://trilogydata.dev/). This dashboard is based on a demo model - using a TPC model - to show off some features. \n\nNote: You may have landed on this in fullscreen mode; Click 'Edit' in the top right to escape into the general IDE if so inclined. You can then access a general tutorial.\n\nBut first, some charts: we're looking at {order_id_count} orders from customers in {order_customer_nation_id_count} countries, ordering parts from suppliers in {part_supplier_nation_id_count} nations.\n\nClick around a little and have some fun! See if you can successfully edit the dashboard; apply a global filter; maybe find the model store and import some other fun datasets to explore.",
+        "query": "select order.id.count, order.customer.nation.id.count,part.supplier.nation.id.count;"
+      },
       "name": "Note 0",
-      "width": 1481,
-      "height": 75,
+      "width": 2208,
+      "height": 155,
       "conceptFilters": [],
       "filters": [],
       "chartFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "1": {
       "type": "chart",
       "content": "\r\n \r\n# Selecting total revenue\r\n# Total revenue is based on the extended price minus discount\r\nselect \r\n    local.total_revenue,\r\n    sum(quantity) as total_items_sold,\r\n    count(order.id) as total_orders,\r\n    count(order.customer.id) as total_customers  ;",
-      "name": "Chart 1",
-      "width": 1481,
+      "name": "Headline Metrics",
+      "width": 2208,
       "height": 75,
       "chartConfig": {
         "chartType": "headline",
@@ -79,19 +83,19 @@
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": "",
-        "showDebug": false
+        "geoField": ""
       },
       "filters": [],
       "chartFilters": [],
       "conceptFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "5": {
       "type": "chart",
       "content": "\n# Selecting the best selling products based on total revenue\nselect \n    part.id as product_id, \n    part.name, \n    total_revenue \nhaving \n    total_revenue > 0 \norder by \n    total_revenue desc\nlimit 15;\n",
       "name": "Chart 5",
-      "width": 811,
+      "width": 1210,
       "height": 275,
       "conceptFilters": [],
       "filters": [],
@@ -105,17 +109,17 @@
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": "",
-        "showDebug": false
+        "geoField": ""
       },
       "chartFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "6": {
       "type": "chart",
       "content": " \n# This query selects the count of local.id \n# for each country, representing items sold to each country. \n\nselect \n    order.customer.nation.name, \n    sum(quantity) as items_sold \nhaving \n    items_sold > 0;\n\n",
       "name": "Sales By Country",
-      "width": 662,
+      "width": 989,
       "height": 275,
       "conceptFilters": [],
       "filters": [],
@@ -130,16 +134,16 @@
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": "order_customer_nation_name",
-        "showDebug": false
+        "geoField": "order_customer_nation_name"
       },
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "7": {
       "type": "chart",
       "content": " \n# Query to get total sales by supplier \n# Total sales is calculated as the extended price minus discount\n\nselect \n    part.supplier.nation.name, \n    count(part.supplier.id) as nation_supplier_count,\n    total_revenue\nhaving total_revenue > 0 \norder by\n    total_revenue desc\n; \n",
-      "name": "Chart 7",
-      "width": 1481,
+      "name": "Supplier Info",
+      "width": 2208,
       "height": 235,
       "chartFilters": [],
       "chartConfig": {
@@ -150,13 +154,14 @@
       },
       "filters": [],
       "conceptFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "8": {
       "type": "chart",
       "content": "select \n    order.customer.nation.region.id as region_id,\n    order.customer.nation.region.name,\n    count(order.id) as order_count,\n    sum(order.total_price) as total_sales \nwhere \n    order.customer.nation.region.id is not null;\n",
       "name": "Chart 8",
-      "width": 1481,
+      "width": 2208,
       "height": 275,
       "chartConfig": {
         "chartType": "barh",
@@ -168,19 +173,19 @@
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": "",
-        "showDebug": false
+        "geoField": ""
       },
       "conceptFilters": [],
       "filters": [],
       "chartFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     },
     "9": {
       "type": "chart",
       "content": "select\n  order.date.month_start,\n  part.supplier.nation.name,\n  sum(local.revenue) as monthly_revenue;\n",
-      "name": "Chart 9",
-      "width": 1481,
+      "name": "Revenue Trends",
+      "width": 2208,
       "height": 195,
       "chartConfig": {
         "chartType": "area",
@@ -191,12 +196,13 @@
       "chartFilters": [],
       "filters": [],
       "conceptFilters": [],
-      "parameters": {}
+      "parameters": {},
+      "allowCrossFilter": true
     }
   },
   "nextId": 10,
-  "createdAt": "2025-04-19T13:09:49.195Z",
-  "updatedAt": "2025-07-01T12:17:03.161Z",
+  "createdAt": "2025-11-02T21:04:47.192Z",
+  "updatedAt": "2025-11-02T21:12:19.840Z",
   "filter": "",
   "imports": [
     {
