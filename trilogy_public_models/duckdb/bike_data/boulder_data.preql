@@ -1,0 +1,25 @@
+import std.geography;
+
+key id string;
+property <id>.tag string;
+property <id,timestamp>.nuid string;
+property <id>.name string;
+property <id>.latitude float::latitude;
+property <id>.longitude float::longitude;
+property <id,timestamp>.bikes int;
+property <id,timestamp>.free int;
+key timestamp datetime;
+
+datasource t_202501_boulder_stats (
+	tag,
+	id,
+	nuid,
+	name,
+	latitude,
+	longitude,
+	bikes,
+	free,
+	timestamp,
+)
+grain (id, timestamp)
+address t_202501_boulder_stats;

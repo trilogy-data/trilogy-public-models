@@ -179,7 +179,11 @@ def get_wikipedia_summary_and_image(species_name: str) -> Dict:
             if infobox:
                 img_tag = infobox.find("img")  # type: ignore
                 if img_tag and img_tag.has_attr("src"):
-                    result["image_url"] = "https:" + img_tag["src"] if isinstance(img_tag["src"], str) else None
+                    result["image_url"] = (
+                        "https:" + img_tag["src"]
+                        if isinstance(img_tag["src"], str)
+                        else None
+                    )
 
     except Exception as e:
         result["error"] = str(e)

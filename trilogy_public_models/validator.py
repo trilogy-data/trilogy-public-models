@@ -120,6 +120,7 @@ def get_example_queries(key: str) -> list[str]:
 
     return final
 
+
 def validate_concept(concept: BuildConcept, history: History, env, graph):
     if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
         return

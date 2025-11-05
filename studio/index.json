@@ -1,5 +1,5 @@
 {
-  "count": 23,
+  "count": 24,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -8,6 +8,15 @@
       "name": "age_of_empires_2",
       "tags": [
         "bigquery"
+      ]
+    },
+    {
+      "description": "## CityBikes data\n\nCityBikes contributors. (2025) Bike-share data retrieved from https://data.citybik.es.",
+      "engine": "duckdb",
+      "filename": "bike_data.json",
+      "name": "bike_data",
+      "tags": [
+        "duckdb"
       ]
     },
     {
@@ -213,5 +222,5 @@
       ]
     }
   ],
-  "updated_at": "2025-11-02T16:13:11.060990"
+  "updated_at": "2025-11-05T09:24:56.157419"
 }
