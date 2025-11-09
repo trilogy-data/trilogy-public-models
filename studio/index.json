@@ -1,5 +1,5 @@
 {
-  "count": 24,
+  "count": 25,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "description": "## CityBikes data\n\nCityBikes contributors. (2025) Bike-share data retrieved from https://data.citybik.es.",
+      "description": "## CityBikes data\n\nCityBikes contributors. (2025) Bike-share data retrieved from https://data.citybik.es. \n\nCurrently just has a Boulder, CO dataset. Plan to expand to other areas.",
       "engine": "duckdb",
       "filename": "bike_data.json",
       "name": "bike_data",
@@ -121,6 +121,15 @@
       ]
     },
     {
+      "description": "# WIP CDC Wonder Data\n\nSome CDC Wonder data. Needs a model pass.",
+      "engine": "duckdb",
+      "filename": "mortality.json",
+      "name": "mortality",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
       "description": "# NCAA Basketball Dataset\n\n\n\n## Examples\nThis example shows some basic NCAA Men's Basketball game analysis, using the public\nBigquery datasets, equivalent to [this lab](https://www.cloudskillsboost.google/focuses/624?parent=catalog)\n\n\n## Find out which events happen most often?\n\nSQL\n```sql\n#standardSQL\nSELECT\n  event_type,\n  COUNT(*) AS event_count\nFROM `bigquery-public-data.ncaa_basketball.mbb_pbp_sr`\nGROUP BY 1\nORDER BY event_count DESC;\n```\n\nTrilogy\n```trilogy \nimport game_event as game_event;\nselect \n    game_event.type,\n    game_event.count\norder by \ngame_event.count\n    desc;\n```\n\n### Games with the most 3 points made?\n\nSQL\n```sql\n#standardSQL\n#most three points made\nSELECT\n  scheduled_date,\n  name,\n  market,\n  alias,\n  three_points_att,\n  three_points_made,\n  three_points_pct,\n  opp_name,\n  opp_market,\n  opp_alias,\n  opp_three_points_att,\n  opp_three_points_made,\n  opp_three_points_pct,\n  (three_points_made + opp_three_points_made) AS total_threes\nFROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`\nWHERE season > 2010\nORDER BY total_threes DESC\nLIMIT 5;\n\n```\n\n\nTrilogy\n```trilogy\nimport game_wide as game;\n\nimport game_wide as game;\n\nwhere game.home_team.name = 'Golden Flashes' and game.season > 2010\nSELECT\n  --game.id,\n  game.scheduled_date,\n  game.season,\n  case when game.away_points> game.home_points then game.away_points-game.home_points else game.home_points-game.away_points end -> point_difference,\n  game.home_points,\n  game.away_points,\n  game.attendance,\n  game.home_team.name,\n  game.home_market,\n  game.home_alias,\n  game.home_three_points_att,\n  game.home_three_points_made,\n  game.away_team.name,\n  game.away_market,\n  game.away_alias,\n  game.away_three_points_att,\n  game.away_three_points_made,\n  game.away_three_points_pct,\n  game.total_three_points_made,\nORDER BY \n    game.total_three_points_made desc\n\n;\n\n```",
       "engine": "bigquery",
       "filename": "ncaa_basketball.json",
@@ -222,5 +231,5 @@
       ]
     }
   ],
-  "updated_at": "2025-11-05T09:24:56.157419"
+  "updated_at": "2025-11-09T16:13:55.417579"
 }
