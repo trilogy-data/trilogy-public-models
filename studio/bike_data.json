@@ -22,7 +22,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/bike_data/setup.sql"
     }
   ],
-  "description": "## CityBikes data\n\nCityBikes contributors. (2025) Bike-share data retrieved from https://data.citybik.es.",
+  "description": "## CityBikes data\n\nCityBikes contributors. (2025) Bike-share data retrieved from https://data.citybik.es. \n\nCurrently just has a Boulder, CO dataset. Plan to expand to other areas.",
   "engine": "duckdb",
   "link": "",
   "name": "bike_data",

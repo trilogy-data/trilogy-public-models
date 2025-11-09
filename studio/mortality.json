@@ -1,0 +1,32 @@
+{
+  "components": [
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mortality/entrypoint.preql"
+    },
+    {
+      "alias": "mortality_data_cleaned",
+      "name": "mortality_data_cleaned",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mortality/mortality_data_cleaned.csv"
+    },
+    {
+      "alias": "mortality_vermont_compressed_1996_2016",
+      "name": "mortality_vermont_compressed_1996_2016",
+      "purpose": "data",
+      "type": "csv",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mortality/mortality_vermont_compressed_1996_2016.csv"
+    }
+  ],
+  "description": "# WIP CDC Wonder Data\n\nSome CDC Wonder data. Needs a model pass.",
+  "engine": "duckdb",
+  "link": "",
+  "name": "mortality",
+  "tags": [
+    "duckdb"
+  ]
+}

@@ -16,9 +16,9 @@
       "i": "1"
     },
     {
-      "x": 0,
+      "x": 12,
       "y": 28,
-      "w": 10,
+      "w": 8,
       "h": 8,
       "i": "5"
     },
@@ -37,9 +37,9 @@
       "i": "7"
     },
     {
-      "x": 10,
-      "y": 36,
-      "w": 10,
+      "x": 6,
+      "y": 28,
+      "w": 6,
       "h": 8,
       "i": "8"
     },
@@ -79,22 +79,29 @@
       "i": "13"
     },
     {
-      "x": 10,
+      "x": 0,
       "y": 28,
-      "w": 10,
+      "w": 6,
       "h": 8,
       "i": "14"
+    },
+    {
+      "x": 10,
+      "y": 36,
+      "w": 10,
+      "h": 8,
+      "i": "15"
     }
   ],
   "gridItems": {
     "0": {
       "type": "markdown",
       "content": {
-        "markdown": "## Trilogy Studio Demo Dashboard\n\nTrilogy Studio a SQL-ish-centric analytics tool with a custom SQL flavor- [Trilogy](https://trilogydata.dev/). This dashboard is based on a demo model - using a TPC model - to show off some of the analytic features this enables. It should be relatively usable on mobile as well, though some features (like drilldown) may not work. \n\nNote: You may have landed on this in fullscreen mode; click 'Edit Mode' in the top right to escape into the general IDE if so inclined. You can then access more features/tutorials. Dashboards are harder to use in edit mode, so you can also finish going through this dashboard first. \n\nBut first, some charts: we're looking at {order_id_count} orders from customers in {order_customer_nation_id_count} countries, ordering parts from suppliers in {part_supplier_nation_id_count} nations. Each of these views is a simple SQL query + some lightweight chart configuration - and they can all freely cross-filter and interact. \n\nWe'll start with some basic headline metrics and a bar chart. ",
+        "markdown": "## Trilogy Studio Demo Dashboard\n\n[Trilogy Studio](https://github.com/trilogy-data/trilogy-studio-core) a SQL-ish-centric analytics tool based on a custom SQL variant - [Trilogy](https://trilogydata.dev/). Trilogy can be used standalone, but the Studio is similar to mashup of Bigquery Studio and Looker Studio - or Redash - and is designed to make exploring, modeling, and presenting data easy. Trilogy centralizes semantic and modeling in the language layer, making it perfect for data consumption work with fast feedback and iteration loops, composability, and reuse.  \n\nThis dashboard is based on a demo model (the common TPC-H dataset) and runs using DuckDB WASM in your browser. Dashboards should work well on desktop or mobile, though drilldown is not supported on mobile. If you want to play around with more interesting data, the 'share & explore' option on the sidebar has a list of public datasets you can import from BigQuery, DuckDB, and Snowflake. You can also directly query data through the 'editors' on the top left of the left-hand nav. \n\nNote: This dashboard is in view mode by default; click the mode dropdown in the top right to change to edit or fullscreen. We'd recommend staying in view mode to scan the dashboard, then trying to edit. Feel free to destroy the dashboard - it's local to you. \n\nBut first, some charts: we're looking at {order_id_count} orders from customers in {order_customer_nation_id_count} countries, ordering parts from suppliers in {part_supplier_nation_id_count} nations. Each of these views is a simple SQL query + some lightweight chart configuration - and they can all freely cross-filter and interact. We'll explains some features as you scroll down. \n\nWe'll start with some basic headline metrics and a bar chart. ",
         "query": "select order.id.count, order.customer.nation.id.count,part.supplier.nation.id.count;"
       },
       "name": "Note 0",
-      "width": 1591,
+      "width": 1957,
       "height": 235,
       "conceptFilters": [],
       "filters": [],
@@ -106,7 +113,7 @@
       "type": "chart",
       "content": "\r\n \r\n# Selecting total revenue\r\n# Total revenue is based on the extended price minus discount\r\nselect \r\n    local.total_revenue,\r\n    sum(quantity) as total_items_sold,\r\n    count(order.id) as total_orders,\r\n    count(order.customer.id) as total_customers  ;",
       "name": "Headline Metrics",
-      "width": 1591,
+      "width": 1957,
       "height": 75,
       "chartConfig": {
         "chartType": "headline",
@@ -128,9 +135,9 @@
     },
     "5": {
       "type": "chart",
-      "content": "import lineitem;\n\n\nSELECT\n    part.type,\n    total_revenue,\n    avg(discount) as avg_discount\nHAVING\n    total_revenue > 0\n\nORDER BY\n    total_revenue desc\nLIMIT 15\n;",
-      "name": "Chart 5",
-      "width": 791,
+      "content": "\nSELECT\n    part.type,\n    total_revenue,\n    avg(discount) as avg_discount\nHAVING\n    total_revenue > 0\n\nORDER BY\n    total_revenue desc\nLIMIT 15\n;",
+      "name": "Top 15 Parts By Sales",
+      "width": 777,
       "height": 275,
       "conceptFilters": [],
       "filters": [],
@@ -157,7 +164,7 @@
       "type": "chart",
       "content": " \n# This query selects the count of local.id \n# for each country, representing items sold to each country. \n\nselect \n    order.customer.nation.name, \n    sum(quantity) as items_sold \nhaving \n    items_sold > 0;\n\n",
       "name": "Sales By Country",
-      "width": 791,
+      "width": 974,
       "height": 275,
       "conceptFilters": [],
       "filters": [],
@@ -181,7 +188,7 @@
       "type": "chart",
       "content": " \n# Query to get total sales by supplier \n# Total sales is calculated as the extended price minus discount\n\nselect \n    part.supplier.nation.name, \n    count(part.supplier.id) as nation_supplier_count,\n    total_revenue\nhaving total_revenue > 0 \norder by\n    total_revenue desc\n; \n",
       "name": "Supplier Info",
-      "width": 1591,
+      "width": 1957,
       "height": 235,
       "chartFilters": [],
       "chartConfig": {
@@ -198,20 +205,23 @@
     "8": {
       "type": "chart",
       "content": "select \n    order.customer.nation.region.id as region_id,\n    order.customer.nation.region.name,\n    count(order.id) as order_count,\n    sum(order.total_price) as total_sales \nwhere \n    order.customer.nation.region.id is not null;\n",
-      "name": "Chart 8",
-      "width": 791,
+      "name": "Regional Sales",
+      "width": 581,
       "height": 275,
       "chartConfig": {
         "chartType": "barh",
         "xField": "order_count",
         "yField": "order_customer_nation_region_name",
         "yField2": "",
-        "yAggregation": "sum",
-        "colorField": "order_customer_nation_region_name",
+        "colorField": "total_sales",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
-        "geoField": ""
+        "geoField": "",
+        "annotationField": "",
+        "hideLegend": true,
+        "showTitle": true,
+        "yAggregation": "sum"
       },
       "conceptFilters": [],
       "filters": [],
@@ -223,7 +233,7 @@
       "type": "chart",
       "content": "select\n  order.date.month_start,\n  part.supplier.nation.name,\n  sum(local.revenue) as monthly_revenue;\n",
       "name": "Revenue Trends",
-      "width": 1591,
+      "width": 1957,
       "height": 195,
       "chartConfig": {
         "chartType": "area",
@@ -240,11 +250,11 @@
     "10": {
       "type": "markdown",
       "content": {
-        "markdown": "# Filtering\nYou can click on one of the countries above to filter by a supplier. Try shift-clicking to select a few. You can also add more traditional filters, like these widgets to the right/bottom (if you're on mobile). There's a global dashboard filter bar at top too, which is most useful if you have an LLM hooked up. \n\nOn the time chart below, you can do a classic click-drag to filter to a range.",
-        "query": ""
+        "markdown": "# Filtering\nYou can click on one of the countries above to filter by suppliers located in it. Try shift-clicking to select a few. (currently selected: {part_supplier_id_count} suppliers, {nation_count} countries.) Click on chart background to clear. You can also add more traditional filters, like these widgets to the right/bottom (if you're on mobile). There's a global dashboard filter bar at top too, which is most useful if you have an LLM hooked up. \n\nOn the time chart below, you can do a classic click-drag to filter to a range.",
+        "query": "SELECT part.supplier.id.count, part.supplier.nation.id.count as nation_count;"
       },
       "name": "Note 10",
-      "width": 791,
+      "width": 974,
       "height": 155,
       "allowCrossFilter": true,
       "conceptFilters": [],
@@ -254,7 +264,7 @@
       "type": "filter",
       "content": "select \nline_status",
       "name": "Note 11",
-      "width": 791,
+      "width": 974,
       "height": -5,
       "allowCrossFilter": true,
       "conceptFilters": [],
@@ -265,7 +275,7 @@
       "type": "filter",
       "content": "select \nship_mode",
       "name": "Note 11",
-      "width": 791,
+      "width": 974,
       "height": -5,
       "allowCrossFilter": true,
       "conceptFilters": [],
@@ -275,11 +285,11 @@
     "13": {
       "type": "markdown",
       "content": {
-        "markdown": "### Basic Filters\nAre pretty basic. We probably need to add some multi-select, at least. ",
+        "markdown": "### Basic Filters\n\nAre currently quite basic; date support/multi-select and others should come soon.",
         "query": ""
       },
       "name": "Note 13",
-      "width": 791,
+      "width": 974,
       "height": 75,
       "allowCrossFilter": true,
       "conceptFilters": [],
@@ -288,20 +298,33 @@
     "14": {
       "type": "markdown",
       "content": {
-        "markdown": "# Drilldowns\n\nCtrl-click to drill down into a value, which will let you select any drilldown value to split the chart by after filtering to the selected value. Try drilling down the part types to the left into a part name or something else fun, like a customer.\n\n## Geography\nTo get a geographic chart, just add something with lat/long or a country name in the select. You can use an import from std.geography to get the right types - example from the source below Of course, you can click to cross-filter here too. \n\n```trilogy\nimport std.geography; # access the country type\nproperty id.name string::country; # capitalized; eg UNITED STATES or FRANCE or CANADA\n```",
+        "markdown": "# Drilldowns\n\nCtrl-click to drill down into a value, which will let you select any drilldown value to split the chart by after filtering to the selected value. Try drilling down in any of the charts. Drilldowns can be infinitely nested. \n\nYou can revert a drilldown through a button available on the right on mouse-over, which will return the chart to an original view. Drilldowns are also available when just running queries in the IDE.",
         "query": ""
       },
       "name": "Note 14",
-      "width": 791,
+      "width": 581,
+      "height": 275,
+      "allowCrossFilter": true,
+      "conceptFilters": [],
+      "filters": []
+    },
+    "15": {
+      "type": "markdown",
+      "content": {
+        "markdown": "# Configuring Charts\n\nThe studio attempts to pick the right visual by default. For example, a field that is a lat/long or a country name in the select will default to a map view. How to display fields is inferred up from \"traits\" associated in the semantic model. Trilogy handles appropriately passing these traits through transformations and clients can optionally consume these, as the Studio does. You can further customize the visuals - the perfect visual can't always be inferred - but if you can fix the display by fixing the model, that's the best for reuse. \n\n```trilogy\nimport std.geography; # access the country type\nproperty id.name string::country; # capitalized; eg UNITED STATES or FRANCE or CANADA\n```\n\n",
+        "query": ""
+      },
+      "name": "Note 15",
+      "width": 974,
       "height": 275,
       "allowCrossFilter": true,
       "conceptFilters": [],
       "filters": []
     }
   },
-  "nextId": 15,
+  "nextId": 16,
   "createdAt": "2025-11-02T21:04:47.192Z",
-  "updatedAt": "2025-11-03T03:41:49.712Z",
+  "updatedAt": "2025-11-09T20:53:16.822Z",
   "filter": "",
   "imports": [
     {
