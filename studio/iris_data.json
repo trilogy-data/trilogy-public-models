@@ -22,8 +22,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/iris_data/genus_info.preql"
     },
     {
+      "alias": "geography",
       "name": "geography",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/iris_data/example/geography.preql"
     },
     {

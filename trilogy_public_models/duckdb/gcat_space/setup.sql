@@ -276,7 +276,8 @@ from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy
 sample_size=-1);
 
 CREATE OR REPLACE TABLE organizations as
-SELECT *,
+SELECT * exclude (ename),
+case when ename = '-' then null else ename end ename,
 CASE statecode
     WHEN 'EARTH' THEN '#1E90FF'
     WHEN 'LUNA' THEN '#C0C0C0'
@@ -495,5 +496,3 @@ FROM read_csv_auto(
     'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
     sample_size=-1
 );
-
-

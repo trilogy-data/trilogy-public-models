@@ -17,7 +17,7 @@ property code.latitude float;
 property code.error float;
 property code.parent string;
 property code.short_e_name string;
-property code._e_name string; #englihs ane
+property code._e_name string; #english name
 property code.u_name string;
 property code.hex string::hex;
 property flag <- CAST(CASE WHEN state_code in ('SU', 'RU') THEN 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
@@ -44,7 +44,7 @@ datasource organizations (
     Error: error,
     Parent: parent,
     ShortEName: short_e_name,
-    EName: _e_name,
+    EName: ?_e_name,
     UName: u_name,
     hex_code: hex,
     )

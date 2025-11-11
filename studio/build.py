@@ -138,8 +138,10 @@ def generate_json_files(check: bool):
                                 github_path = f"https://trilogy-data.github.io/trilogy-public-models/examples/{engine_dir}/{dataset_dir}/{file_name}.preql"
                             component = {
                                 "name": file_name,
+                                "alias": file_name,
                                 "url": github_path,
                                 "purpose": "example",
+                                "type": "trilogy",
                             }
                             json_data["components"].append(component)
                         dashboard_files = glob.glob(

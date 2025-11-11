@@ -1,8 +1,10 @@
 {
   "components": [
     {
+      "alias": "day_of_week_analysis",
       "name": "day_of_week_analysis",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/day_of_week_analysis.preql"
     },
     {
@@ -34,28 +36,38 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/post.preql"
     },
     {
+      "alias": "worst_show_days",
       "name": "worst_show_days",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_days.preql"
     },
     {
+      "alias": "worst_show_git_language",
       "name": "worst_show_git_language",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_git_language.preql"
     },
     {
+      "alias": "worst_show_git_license",
       "name": "worst_show_git_license",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_git_license.preql"
     },
     {
+      "alias": "worst_show_post_size",
       "name": "worst_show_post_size",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_post_size.preql"
     },
     {
+      "alias": "worst_show_time_of_day",
       "name": "worst_show_time_of_day",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/hacker_news/worst_show_time_of_day.preql"
     }
   ],

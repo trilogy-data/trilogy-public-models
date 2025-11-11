@@ -70,18 +70,24 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/supplier.preql"
     },
     {
+      "alias": "tutorial_one_basic",
       "name": "tutorial_one_basic",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/tutorial_one_basic.preql"
     },
     {
+      "alias": "tutorial_three_function_agg",
       "name": "tutorial_three_function_agg",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/tutorial_three_function_agg.preql"
     },
     {
+      "alias": "tutorial_two_aggregate",
       "name": "tutorial_two_aggregate",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/tpc_h/tutorial_two_aggregate.preql"
     }
   ],

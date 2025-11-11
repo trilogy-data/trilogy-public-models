@@ -1,8 +1,10 @@
 {
   "components": [
     {
+      "alias": "city_cancellations",
       "name": "city_cancellations",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/thelook_ecommerce/city_cancellations.preql"
     },
     {
@@ -55,8 +57,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/thelook_ecommerce/products.preql"
     },
     {
+      "alias": "top_customers_avg_price",
       "name": "top_customers_avg_price",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/thelook_ecommerce/top_customers_avg_price.preql"
     },
     {
