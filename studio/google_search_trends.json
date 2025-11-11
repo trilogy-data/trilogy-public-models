@@ -8,8 +8,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/entrypoint.preql"
     },
     {
+      "alias": "football",
       "name": "football",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/google_search_trends/football.preql"
     },
     {

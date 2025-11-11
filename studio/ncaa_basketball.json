@@ -22,8 +22,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/ncaa_basketball/entrypoint.preql"
     },
     {
+      "alias": "events",
       "name": "events",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/events.preql"
     },
     {
@@ -62,8 +64,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/ncaa_basketball/player.preql"
     },
     {
+      "alias": "script",
       "name": "script",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/script.preql"
     },
     {
@@ -87,8 +91,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/top_scoring_players.json"
     },
     {
+      "alias": "wide_table",
       "name": "wide_table",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/wide_table.preql"
     }
   ],

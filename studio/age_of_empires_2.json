@@ -1,8 +1,10 @@
 {
   "components": [
     {
+      "alias": "basic_example",
       "name": "basic_example",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/age_of_empires_2/basic_example.preql"
     },
     {

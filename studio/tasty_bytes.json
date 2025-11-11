@@ -15,8 +15,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/snowflake/tasty_bytes/menu.preql"
     },
     {
+      "alias": "truck_comparison",
       "name": "truck_comparison",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/snowflake/tasty_bytes/truck_comparison.preql"
     }
   ],

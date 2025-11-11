@@ -49,8 +49,10 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/titanic/wealth.preql"
     },
     {
+      "alias": "wealth_dive",
       "name": "wealth_dive",
       "purpose": "example",
+      "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/titanic/wealth_dive.preql"
     }
   ],
