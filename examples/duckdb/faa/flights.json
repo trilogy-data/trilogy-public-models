@@ -47,7 +47,7 @@
   "gridItems": {
     "0": {
       "type": "chart",
-      "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count\r\norder by count desc\r\nlimit 15;",
+      "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count,\r\norder by count desc\r\nlimit 15;",
       "name": "Chart 0",
       "width": 427,
       "height": 395,
@@ -70,7 +70,7 @@
     },
     "1": {
       "type": "chart",
-      "content": "select \r\n    destination.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
+      "content": "select \r\n    destination.state,\r\n    count,\r\n    order by count desc\r\n;",
       "name": "Destination",
       "width": 427,
       "height": 155,
@@ -82,7 +82,7 @@
         "yField": "",
         "yField2": "",
         "yAggregation": "sum",
-        "colorField": "flight_count",
+        "colorField": "count",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
@@ -103,13 +103,13 @@
     },
     "3": {
       "type": "chart",
-      "content": "select count as flight_count,\r\nsum(\r\n    group(aircraft.model.seats) \r\nby id2) as seats_flown,\r\ncount(carrier.name) as carrier_count,\r\ncount(\r\n    aircraft.model.model) as model_count",
+      "content": "select count,\r\nsum(\r\n    group(aircraft.model.seats) \r\nby id2) as seats_flown,\r\ncount(carrier.name) as carrier_count,\r\ncount(\r\n    aircraft.model.model) as model_count",
       "name": "Chart 3",
       "width": 863,
       "height": 75,
       "chartConfig": {
         "chartType": "headline",
-        "xField": "flight_count",
+        "xField": "count",
         "yField": "",
         "yField2": "",
         "yAggregation": "sum",
@@ -126,7 +126,7 @@
     },
     "4": {
       "type": "chart",
-      "content": "SELECT\r\n    dep_time.month_start,\r\n    carrier.name,\r\n    count\r\norder by dep_time.month_start asc",
+      "content": "SELECT\r\n    dep_time.month_start,\r\n    carrier.name,\r\n    count,\r\norder by dep_time.month_start asc",
       "name": "Chart 4",
       "width": 863,
       "height": 195,
@@ -149,7 +149,7 @@
     },
     "8": {
       "type": "chart",
-      "content": "select \r\n    origin.state,\r\n    count as flight_count\r\n    order by flight_count desc\r\n;",
+      "content": "select \r\n    origin.state,\r\n    count,\r\n    order by count desc\r\n;",
       "name": "Origin",
       "width": 427,
       "height": 195,
@@ -161,7 +161,7 @@
         "yField": "",
         "yField2": "",
         "yAggregation": "sum",
-        "colorField": "flight_count",
+        "colorField": "count",
         "sizeField": "",
         "groupField": "",
         "trellisField": "",
