@@ -102,10 +102,10 @@ class LazyEnvironment(Environment):
         self.functions = env.functions
         self.data_types = env.data_types
         self.cte_name_map = env.cte_name_map
-        
+
     def __getattr__(self, name):
         return self.__getattribute__(name)
-    
+
     def __getattribute__(self, name):
         if name not in (
             "datasources",
