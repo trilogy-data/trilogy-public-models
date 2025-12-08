@@ -32,6 +32,7 @@ CZ-11-1	SLREC	-	-	-	Solid	40000.0						248.0				1	2016	CZ-11 [1]	Solid
 D-5-1	THKU/HERC	-	-	-	Solid	39100.0								64.0		1	-	Trident II [1]	Solid
 M-25	NISST	Mu	-	-	HTPB BP-204J	38000.0				1240.00		288.0	?	71.0		1	1995	Mu V [2]	Solid
 Zefiro-40C	AVIO	-	-	-	HTPB-2013	39270.0		103600		1120.00		293.5		92.9		1	2017	Vega-C [2]	Solid
+Ceres-2 M1	XIDO	-	-	-	HTPB	38000.0	?									1	-	GSX2 [1]	Solid
 CZ-6A Booster	ARMT?	-	-	-	Solid	35000.0	?			1200.00	?					1	2020	Chang Zheng 6A	Solid
 DF-31-1	ARMT	-	-	-	Solid	35000.0	?									1	-	DF-31 [1]	Solid
 DF-41-1	ARMT	-	-	-	Solid	35000.0	?									1	-	DF-31 [1]	Solid
@@ -76,6 +77,7 @@ SEP 902	SEP	P-16	P-10	-	Isolane	16000.0				540.00						4	1968 Dec 21	SSBS S2 [1]
 3D17	PERM	-	-	-	Solid	16000.0	?			579.00				84.0		1	1973	R-31 [1]	Solid
 H-II SSB (A)	NISST	NASDA	-	-	HTPB	15500.0				745.00		282.0		60.0		1	-	H2A SSB	Solid
 RT-23-3	YUZH	-	-	-	Solid	15000.0	?			206.00						1	-	RT-23 [3]	Solid
+Ceres-2 M2	XIDO	-	-	-	HTPB	15000.0	?									1	-	GSX2 [2]	Solid
 CZ-11-2	CALT	-	-	-	Solid	15000.0	?									1	-	CZ-11 [2]	Solid
 5S47	KAZSOY	-	-	-	Solid	15000.0	?							5.0		1	1968	A-350Zh booster	Solid
 Agni P S1	DRDO	-	-	-	Solid	15000.0	?									1	2021	Agni P[1]	Solid
@@ -162,6 +164,7 @@ PS3	VSSC	PS3	-	-	HTPB	8400.0		28000		324.00		294.0		83.0		1	1993	PSLV PS3	Solid
 A1P-1	AJSP	-	-	-	Polyurethane/AP	8330.0										1	1960	Polaris A1 [1]	Solid
 C4-2	HERC	-	-	-	Solid	8000.0										1	-	Trident C-4 [1]	Solid
 Ceres-1 M2	XIDO	-	-	-	HTPB	8000.0	?			274.00		285.8		70.0		1	2020	GS-1 [2]	Solid
+Ceres-2 M3	XIDO	-	-	-	HTPB	8000.0	?									1	-	GS2-3 [1]	Solid
 SR120	HERC	MX Stage 3	-	-	NEPE Polyethane	7983.0				329.00		306.0		62.0		1	1983 Jun 17	Peacekeeper [3]	Solid
 S7	ISRO	-	-	-	HTPB	7700.0				250.00				121.0		1	2021	SSLV [2]	Solid
 ST-735-1	ISAS	-	-	-	Solid	7400.0				250.00				49.0		1	-	ST-735 [1]	Solid
@@ -884,6 +887,7 @@ MT 27	SNECMA	-	-	NA/N2O4	Solid	75.0		200	?	10.00		200.0		20.0		1	1964	Lex	Hybrid
 HyLIGHT	HYEND	-	-	N2O	HTPB	120.0	?	267		10.00		224.0				1	2023	N2ORTH	Hybrid
 Lelien 1B	TISPACE	-	-	N2O	SBR			1028		19.60						1	2019	Hapith V [2]	Hybrid
 HTR	NAMMO	-	-	LOX	Solid			520	?	26.00		202.0		20.0		1	2007	HTR	Hybrid
+SF-1000	SPFOR	-	-	N2O	Paraffin			1100		28.00	?	211.5		39.0		1	2026	PERUN	Hybrid
 FWUM	NAMMO	-	-	H2O2	HTPB					30.00				35.0		1	2018	Nucleus	Hybrid
 Hyper	INNOSP	-	-	LOX	Paraffin			0		0.00		325.0		270.0		1	2025	Hanbit NANO	Hybrid
 HyPLOX75	HYIMP	-	-	LOX	Paraffin					75.00		321.0		72.0		1	2023	SR75	Hybrid
@@ -1046,11 +1050,11 @@ RS-2101A	RDYNE	-	-	N2O4	MMH					1.33		283.0				1	1971	Mariner 9	NTO/Hyd
 RS-2101C	RDYNE	-	-	N2O4	MMH					1.33		294.0				1	1975	Viking	NTO/Hyd
 RS-14	RDYNE	-	-	N2O4	MMH					1.40		287.8				1	1968	Min 3 PBS	NTO/Hyd
 UPS	IHI/NASDA	-	-	N2O4	N2H4					1.70		321.4				1	1998	COMETS LAE	NTO/Hyd
-Edge	XIDO	-	-	N2O4?	Hydrazine?					2.00				655.0		1	2020	GS-1 [4]	NTO/Hyd
 SICBM4	RDYNE?	-	-	N2O4	MMH					2.00	?					1	1989	SICBM PBS	NTO/Hyd
 SSQ Engine	ARMT	-	-	N2O4	UDMH					3.00		308.0		360.0		1	-	CE-5 SSQ	NTO/Hyd
 LVS	VSSC	LVS	-	MON-3	MMH			3200		7.40		308.0				1	1993	PSLV PS4 x 2	NTO/Hyd
 LR101-NA-7	RDYNE	-	-	N2O4	MMH					5.20		251.0				1	1980?	Upper stage vernier	NTO/Hyd
+Edge	XIDO	-	-	N2O4?	Hydrazine?					10.00				655.0		1	2020	GS-1 [4]	NTO/Hyd
 RS-34	RDYNE	-	-	N2O4	MMH					11.80		308.0		168.0		1	1983	Peacekeeper [4]	NTO/Hyd
 AJ10-190	AJGC	Orbiter OME	-	N2O4	MMH					27.00		316.0		150.0		1	1981	STS OMS	NTO/Hyd
 Aestus	ASTO	Aestus	-	N2O4	MMH					29.00		324.0				1	1996	Ariane 5 EPS	NTO/Hyd
@@ -1390,6 +1394,7 @@ Raptor 2 Vac	SPX	-	-	LOX	Methane					2500.00						1	2020	Starship	LOX/Methane
 Raptor 3 SL	SPX	-	-	LOX	Methane					2800.00						1	2019	Starship	LOX/Methane
 Raptor 3 Vac	SPX	-	-	LOX	Methane					2800.00						1	2020	Starship	LOX/Methane
 BE-4	BLORTX	-	-	LOX	Methane LNG					2447.00						1	2023	Vulcan	LOX/Methane
+BE-4 V2	BLORTX	-	-	LOX	Methane LNG					2846.00						1	2026	NG	LOX/Methane
 Aquila SL	ISAR	-	-	LOX	Propane					75.00						1	2025	Spectrum	LOX/Propane
 Aquila Vac	ISAR	-	-	LOX	Propane					94.00						1	2025	Spectrum	LOX/Propane
 Weka	NASCOM	-	-	LOX	Propane												2024	Weka	LOX/Propane
@@ -1424,7 +1429,8 @@ LE-5B-3	MHIME	LE-5	-	LOX	LH2					137.00		448.0		686.0		1	2023	H3 St2	LOX/LH2
 Vinci	SNECMA	-	-	LOX	LH2					180.00		457.0		300.0		1	2024	Ariane 6	LOX/LH2
 CE-20	VSSC	-	-	LOX	LH2					186.00		443.0		550.0		1	2009	C-25	LOX/LH2
 BE-3 (BLOR)	BLORH	-	-	LOX	LH2					490.00				145.0		1	-	New Shepard	LOX/LH2
-BE-3U	BLORH	-	-	LOX	LH2					770.00		445.0				1	-	New Glenn St 2	LOX/LH2
+BE-3U	BLORH	-	-	LOX	LH2					711.00		445.0				1	-	New Glenn St 2	LOX/LH2
+BE-3U v2	BLORH	-	-	LOX	LH2					890.00		445.0				1	-	New Glenn St 2	LOX/LH2
 YF-77	CALT	-	-	LOX	LH2					673.00	?	438.0		500.0	?	1	-	CZ-5	LOX/LH2
 J-2	RDYNE	J-2	-	LOX	LH2					1023.00		427.0				1	1966	Saturn IVB	LOX/LH2
 LE-7	MHIME	LE-5	-	LOX	LH2					1080.00		445.6		346.0		1	1994	H2 St1	LOX/LH2

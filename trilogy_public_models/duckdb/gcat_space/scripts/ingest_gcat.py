@@ -1,4 +1,3 @@
-# ingest_gcat_whitelist.py
 import asyncio
 import csv
 import httpx
@@ -12,7 +11,7 @@ CONCURRENCY = 6
 RETRIES = 3
 CHUNK_SIZE = 32_768  # bytes
 
-# Whitelist (real paths on the site). These preserve the server layout under tsv/
+# Allowlist (real paths on the site). These preserve the server layout under tsv/
 FILES_TO_DOWNLOAD: List[str] = [
     # Tables (organizations, sites, platforms, launch points, vehicles, engines, etc.)
     "tsv/tables/orgs.tsv",
@@ -60,6 +59,36 @@ FILES_TO_DOWNLOAD: List[str] = [
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 ENCODING = "utf-8"
+
+# Post-processing rules per file
+# Key: filename (without path), Value: function that takes (headers, all_rows) and modifies all_rows in place
+POST_PROCESSING_RULES = {}
+
+
+def apply_lvs_postprocessing(headers: List[str], all_rows: List[List[str]]):
+    """
+    Post-process lvs.cleaned.tsv to fix duplicate PKs:
+    - Any row where Stage_Name = 'LES' gets Stage_No changed to 'E' (instead of 'F')
+    """
+    try:
+        stage_name_idx = headers.index("Stage_Name")
+        stage_no_idx = headers.index("Stage_No")
+    except ValueError as e:
+        print(f"Warning: Could not find required column for lvs post-processing: {e}")
+        return
+
+    modified_count = 0
+    for row in all_rows[1:]:  # Skip header
+        if len(row) > stage_name_idx and row[stage_name_idx] == "LES":
+            if len(row) > stage_no_idx:
+                row[stage_no_idx] = "E"
+                modified_count += 1
+
+    if modified_count > 0:
+        print(f"Applied lvs post-processing: Changed Stage_No to 'E' for {modified_count} LES rows")
+
+
+POST_PROCESSING_RULES["lvs.cleaned.tsv"] = apply_lvs_postprocessing
 
 
 def clean_and_process_tsv(tsv_path: Path) -> Path:
@@ -149,6 +178,11 @@ def clean_and_process_tsv(tsv_path: Path) -> Path:
             for col_idx in numeric_columns:
                 if col_idx < len(row) and row[col_idx] == "-":
                     row[col_idx] = ""
+
+        # Apply file-specific post-processing rules
+        filename = cleaned_path.name
+        if filename in POST_PROCESSING_RULES:
+            POST_PROCESSING_RULES[filename](headers, all_rows)
 
         # Write cleaned TSV
         with open(cleaned_path, "w", encoding=ENCODING, newline="") as outfile:

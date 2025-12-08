@@ -6,10 +6,21 @@ T00004	1998-067XU	EagleSat-2	2025 Sep 14	2025 Sep 14	*	*	-	ERAU	-	-	-	A	TECH	S	-
 T00005	1998-067XV	CU Alpha	2025 Sep 14	2025 Sep 14	*	*	-	Cornell	-	-	-	A	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
 T00006	1998-067XW	CU Alpha LightSail	1998 Nov 20	2025 Sep 14	*	*	-	Cornell	-	-	-	A	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
 T00007	1998-067XX	DUPLEX	2025 Sep 14	2025 Sep 14	*	*	-	CUA	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
-T00008	1998-067	HMU-SAT2	1998 Nov 20	2026 Oct 26	*	*	-	HUS	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
-T00009	1998-067	CORAL	1998 Nov 20	2026 Oct 26	*	*	-	ROSAP	-	-	-	A	TECH	S	-	-	[I]	-	-	-	-	-	-	0	0	0.00	-
-T00010	1998-067	LEOPARD	1998 Nov 20	2026 Oct 26	*	*	-	Kyutech	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
-T00011	1998-067	Gxiba-1	1998 Nov 20	2026 Oct 26	*	*	-	Puebla	-	-	-	A	TECH	S	-	-	[MX]	-	-	-	-	-	-	0	0	0.00	-
-T00012	1998-067	KNACKSAT-2	1998 Nov 20	2026 Oct 26	*	*	-	Kyutech	-	-	-	A	TECH	S	-	-	[T]	-	-	-	-	-	-	0	0	0.00	-
-T00013	1998-067	UiTMSAT-2	1998 Nov 20	2026 Oct 26	*	*	-	UITM	-	-	-	A	TECH	S	-	-	[MY]	-	-	-	-	-	-	0	0	0.00	-
-T00015	1998-067	Tenkoh-2	1998 Nov 20	2026 Oct 26	*	*	-	Nihon	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
+T00008	1998-067	HMU-SAT2	2025 Oct 26	2025 Oct 26	*	*	-	HUS	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
+T00009	1998-067	CORAL	2025 Oct 26	2025 Oct 26	*	*	-	ROSAP	-	-	-	A	TECH	S	-	-	[I]	-	-	-	-	-	-	0	0	0.00	-
+T00010	1998-067	LEOPARD	2025 Oct 26	2025 Oct 26	*	*	-	Kyutech	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
+T00011	1998-067	Gxiba-1	2025 Oct 26	2025 Oct 26	*	*	-	Puebla	-	-	-	A	TECH	S	-	-	[MX]	-	-	-	-	-	-	0	0	0.00	-
+T00012	1998-067	KNACKSAT-2	2025 Oct 26	2025 Oct 26	*	*	-	Kyutech	-	-	-	A	TECH	S	-	-	[T]	-	-	-	-	-	-	0	0	0.00	-
+T00013	1998-067	UiTMSAT-2	2025 Oct 26	2025 Oct 26	*	*	-	UITM	-	-	-	A	TECH	S	-	-	[MY]	-	-	-	-	-	-	0	0	0.00	-
+T00015	1998-067	Tenkoh-2	2025 Oct 26	2025 Oct 26	*	*	-	Nihon	-	-	-	A	TECH	S	-	-	[J]	-	-	-	-	-	-	0	0	0.00	-
+T00017	2025-274Q	Duri	2025 Nov 26	2025 Nov 26	*	*	-	SNU	-	-	-	A	TECH	S	-	-	[KR]	-	-	-	-	-	-	0	0	0.00	-
+T00018	2025-248M	Semi-1	2025 Nov  2	2025 Nov  2	*	*	-	Unk	-	-	-	B	COM	S	-	-	[UNK]	-	-	-	-	-	-	0	0	0.00	-
+T00019	1998-067	Foras Promineo	2025 Sep 14	2025 Sep 14	*	*	-	PerkinsHS	-	-	-	A	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
+T00020	2025-276DW	WISESAT-5	2025 Nov 28	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	-	0	0	0.00	-
+T00021	2025-276DX	WISESAT-6	2025 Nov 28	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	-	0	0	0.00	-
+T00022	2025-276DY	WISESAT-7	2025 Nov 28	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	-	0	0	0.00	-
+T00023	2025-276DZ	Foresail-1 Prime	2025 Nov 28	2025 Nov 28	*	*	-	Aalto	-	-	-	A	TECH	S	-	-	[FI]	-	-	-	-	-	-	0	0	0.00	-
+T00024	2025-276EA	Lemur-2 Lacunasat	2025 Nov 28	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
+T00025	2025-276EB	Lemur-2 Lacunasat	2025 Nov 28	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
+T00026	2025-276EC	Lemur-2 Lacunasat	2025 Nov 28	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-
+T00027	2025-276ED	Lemur-2 Lacunasat	2025 Nov 28	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	-	0	0	0.00	-

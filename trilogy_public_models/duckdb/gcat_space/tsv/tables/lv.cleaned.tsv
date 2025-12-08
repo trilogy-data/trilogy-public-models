@@ -34,7 +34,9 @@ Proton-K/17S40	Proton	KHRU	DM-5	-	1	6	57.2		7.40		691.5		5000	4350	9500	O	40000
 Proton-K/Briz-M	Proton	KHRU	-	-	1	4	53.0		7.40		700.0	?	21000	4500	9500	O	40000	
 Proton-M/Briz-M	Proton	KHRU	-	-	1	4	53.0		7.40		712.8		21000	4500	10000	O	40000	
 Neutron	Neutron	RLABU	-	-	1	2	42.8		7.00		480.0				6570	O	40000	
-New Glenn	NewGlenn	BLORCC	-	-	1	2	98.0		7.00		1050.0	?			17150	O	500	
+New Glenn 7x2	NewGlenn	BLORCC	1	-	1	2	98.0		7.00		1050.0	?			17219	O	500	
+New Glenn 7x2	NewGlenn	BLORCC	2	-	1	2	98.0		7.00		1050.0	?			19928	O	500	
+New Glenn 9x4	NewGlenn	BLORCC	-	-	1	2	125.0	?	7.00		1200.0	?			25622	O	500	
 Saturn C-1	Saturn	MSFC	-	-	1	3	49.6		6.60		420.0		9000	0	5768	O	200	
 Saturn I	Saturn	MSFC	-	-	1	3	50.4		6.60		420.0		9000	0	5768	O	200	
 Saturn I	Saturn	MSFC	Blk2	-	1	2	58.0		6.53		508.0	?	9000	0	5768	O	200	
@@ -291,7 +293,7 @@ Atlas IIAS	Atlas	LMA	-	-	-1	2	47.4		3.05		237.2		8618	3719	3000	O	400000
 Atlas 3A	Atlas	LMA	-	-	1	2	52.8		3.05		225.0		8620	4060	3827	O	40000	
 Atlas 3B	Atlas	LMA	SEC	-	1	2	53.6		3.05		225.0		8620	4060	3827	O	40000	
 Atlas 3B	Atlas	LMA	DEC	-	1	2	53.6		3.05		225.0		8620	4060	3827	O	40000	
-New Shepard	NewShepard	BLOR	-	-	1	1	15.0		3.00		75.0		0	0	1020	O	100	
+New Shepard	NewShepard	BLOR	-	-	1	1	15.0		3.00		35.0		0	0	1020	O	100	
 Vega	Vega	ELV	-	-	1	4	30.1		3.00		136.7		1500		2974	O	1000	
 Vega	Vega	ELV	1	-	1	4	30.1		3.00		136.7		1500		2974	O	1000	
 YGCS	YGCS	CALT	-	-	1	1	20.0	?	3.00	?	100.0	?	0	0		M	200	
@@ -534,6 +536,7 @@ Vertikal' K65UP	R-14	POL	-	-	1	1	27.6		2.40		90.0	?	0	0	1485	X	1500
 K65M-R	R-14	POL	-	-	1	2	32.4		2.40		109.0	?	0	0	1485	M	500	
 K65M-RB	R-14	POL	-	-	1	2	32.4		2.40		109.0	?	1500	0	1485	O	250	
 Burya	Burya	OKB23	-	-	1	2	22.0	?	2.40		120.0	?	0	0	1530	C	50	
+Gushenxing-2	GSX2	XIDO	-	-	1	4	26.0		2.35		100.0		1600	0		O	250	
 ICBM-T3	MX	OSCC	-	-	1	3	17.6		2.35		50.0	?	0	0		M	1000	
 ARPA Taurus	MX	OSCC	-	-	1	4	27.2		2.35		73.0		1320	0	1711	O	1000	
 Taurus 2110	MX	OSCC	-	-	1	4	27.9		2.35		73.0		1380	0	1711	O	1000	
@@ -1209,6 +1212,7 @@ VS-30/Orion	Sonda3	INPE	-	-	1	2	7.0	?	0.56		1.8	?	0	0	102	R	320
 VS-31/Orion	Sonda3	IAE	-	-	1	2	8.0	?	0.56		1.8	?	0	0	102	R	400	
 VS-31/IM	Sonda3	IAE	-	-	1	2	8.0	?	0.56		2.7		0	0	102	R	400	
 Red Kite	RedKite	DLR/BAYCH	-	-	1	1	3.3		0.56		1.1		0	0	226	R	70	
+Red Kite/Red Kite	RedKite	DLR/BAYCH	-	-	1	2	13.4		0.56		1.1		0	0	226	R	70	
 Red Kite/IM	RedKite	DLR/BAYCH	-	-	1	2	8.0	?	0.56		1.1		0	0	226	R	70	
 Red Kite/BB5	RedKite	DLR/BAYCH	-	-	1	2	13.4		0.56		1.1		0	0	226	R	70	
 ATV	Stromboli	VSSC	-	-	1	2	10.3		0.56		3.0		0	0	120	R	400	
@@ -1330,6 +1334,7 @@ SRAM	SRAM	BOUT	-	-	1	1	4.3		0.46		1.0		0	0		C	10	180
 ASAT	SRAM	LTV	-	-	1	2	5.4		0.46		1.2		0	0		M	1000	
 Farside	Recruit	AENUT	-	-	1	4	7.3		0.46	?	0.9		0	0	667	R	4500	
 NATIV	RTV	NAAD	-	-	1	1	4.1		0.46		0.6		0	0	12	T	19	50
+PERUN	PERUN	SPFOR	-	-	1	1	11.5		0.45		1.0		0	0	28	R	150	
 MR-12	MR-12	TAIFUN	-	-	1	1	8.8		0.45		1.4		0	0	100	R	150	
 MR-20	MR-12	TAIFUN	-	-	1	1	9.0		0.45		1.6		0	0	100	R	240	
 MR-25	MR-12	TAIFUN	-	-	1	1	9.0		0.45		1.6		0	0	100	R	240	
