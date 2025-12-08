@@ -85,7 +85,9 @@ def apply_lvs_postprocessing(headers: List[str], all_rows: List[List[str]]):
                 modified_count += 1
 
     if modified_count > 0:
-        print(f"Applied lvs post-processing: Changed Stage_No to 'E' for {modified_count} LES rows")
+        print(
+            f"Applied lvs post-processing: Changed Stage_No to 'E' for {modified_count} LES rows"
+        )
 
 
 POST_PROCESSING_RULES["lvs.cleaned.tsv"] = apply_lvs_postprocessing
