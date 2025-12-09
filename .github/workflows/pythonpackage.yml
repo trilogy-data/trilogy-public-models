@@ -62,6 +62,9 @@ jobs:
           pip install pytest-cov
           pytest --ignore=docs_src/ --cov=./
           codecov --token=${{ secrets.CODECOV_TOKEN }}
+      - name: Model specific tests
+        run: |
+            trilogy integration trilogy_public_models/duckdb/gcat_space duckdb --config trilogy_public_models/duckdb/gcat_space/trilogy_dev.toml
       - name: Check studio interface was updated
         run: |
           python studio/build.py --check
