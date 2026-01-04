@@ -1766,6 +1766,7 @@ A07854	2011-031A	LMC	2011 Jul  8	2011 Jul 21	2011 Jul 21	2011 Jul 21	-	MPESS	-	-
 A07869	2011-028	Spuskaemaya Kapsula	2011 Jun 27	2011 Jun 27	2011 Aug  7?	2011 Aug  7?	-	SpK	-	-	D	D	RV	S	-	-	-	-					2011 Aug  7	-644	230	81.39	-
 A07870	2011-044H	BPA-2	2011 Aug 17	2011 Aug 17	2011 Aug 17	2011 Aug 17	-	BPA	-	-	-	C	TECH	S	-	-	[UA]	-					2011 Aug 19	691	1295	98.22	-
 A07874	2011-028	Spuskaemaya Kapsula	2011 Jun 27	2011 Jun 27	2011 Sep 16?	2011 Sep 16?	-	SpK	-	-	D	D	RV	S	-	-	-	-					2011 Sep 16	-719	237	81.37	-
+A07885	2011-061F	M-Cubed	2011 Oct 28	2011 Nov?	2011 Nov?	2011 Nov?	-	UMI	-	-	-	A	TECH	F	-	-	-	-					-	0	0	0.00	-
 A07892	2011-065	Fobos-Grunt SA	2011 Nov  8	2011 Nov  8	2011 Nov  8	2011 Nov  8	-	FG SA	-	-	-	C	PLAN	F	-	-	-	-					-	0	0	0.00	-
 A07895	2011-065	Yinghuo-1	2011 Nov  8	2011 Nov  8	2011 Nov  8	2011 Nov  8	-	Yinghuo	-	-	-	C	PLAN	F	-	-	-	-					-	0	0	0.00	-
 A07927	2012-027B	Celestis-11	2012 May 22	2012 May 22	2012 May 22	2012 May 22	-	CPAC	-	-	-	B	MISC	S	-	-	-	-					2012 May 24	270	328	51.67	Burial
@@ -1779,7 +1780,7 @@ A08009	2013-U01	Kunpeng-7	2013 May 13	2013 May 13	2013 May 13	2013 May 13	-	KP7	
 A08031	2013-040	UTA	2013 Aug  3	2013 Aug 25	*	*	-	ISS ORU	-	-	-	C	TECH	S	-	-	-	-					2024 Oct 12	411	423	51.64	-
 A08032	2013-040	MBSU 7	2013 Aug  3	2013 Aug 25	*	*	-	ISS ORU	-	-	-	C	TECH	S	-	-	-	-					2024 Oct 12	411	423	51.64	-
 A08033	2013-040	STP-H4	2013 Aug  3	2015 Sep 29	2015 Sep 29	2015 Sep 29	-	STPH	-	-	-	D	TECH	U	-	-	-	-					2015 Sep 29	395	404	51.65	-
-A08043	2013-055G	CUSAT Top	2013 Sep 29	2013 Oct 16	2013 Oct 16	2013 Oct 16	-	Cornell	-	-	-	A	TECH	S	-	-	[US]	-					2013 Oct  4	319	1489	81.01	-
+A08043	2013-055G	CUSAT 2/Falcon 9	2013 Sep 29	2013 Oct 16	2013 Oct 16	2013 Oct 16	-	Cornell	-	-	-	A	TECH	S	-	-	US	ST/SG/SER.E/1287					2013 Oct  4	319	1489	81.01	-
 A08063	2013-066AJ	BPA-3	2013 Nov 21	2013 Dec?	2013 Dec?	2013 Dec?	-	BPA	-	-	-	B	TECH	S	-	-	[UA]	-					2013 Nov 23	591	1609	97.70	-
 A08071	2013-070	Yutu	2013 Dec  1	2017 Jan  1	2015 Mar	2017?	-	Yutu	-	-	-	C	PLAN	S	-	-	-	-					-	0	0	0.00	-
 A08085	2014-009H	STARS-2 Daughter	2014 Feb 27	2014 Apr 26	2014 Apr 26	2014 Apr 26	-	STARS	-	-	-	C	TECH	S	-	-	-	-					2014 Mar  2	383	395	65.01	-
@@ -2475,7 +2476,7 @@ A11622	2025-180H	ThumbSat-2	2025 Aug 19	2025 Aug 19	2025 Aug 25?	2025 Aug 25?	-	
 A11624	2024-043	Gluon	2024 Mar  4	2024 Mar  4	2024 May?	2024 May?	-	Atomos	-	P	M	B	TECH	F	-	-	[US]	-					-	0	0	0.00	-
 A11625	2025-052BS	Tevel 2-6	2025 Mar 15	2025 Mar 15	*	*	-	Herzliya	-	-	-	A	COM	S	-	-	[IL]	-					-	0	0	0.00	-
 A11626	2025-052	Tevel 2-5	2025 Mar 15	2025 Mar 15	*	*	-	Herzliya	-	-	-	A	COM	S	-	-	[IL]	-					-	0	0	0.00	-
-A11627	2025-038	Unk Cubesat?	2025 Feb 27	2025 Feb 27	*	*	-	Space Inv	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
+A11627	2025-038	Orbit Guard 2	2025 Feb 27	2025 Feb 27	2025 Aug?	2025 Aug?	-	InfOrb	-	-	-	B	TECH	N	-	-	[F]	-					-	0	0	0.00	-
 A11628	2025-135	Lemur-2	2025 Jun 23	2025 Jun 23	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-					-	0	0	0.00	-
 A11643	2025-009DU	Flock 4g-19	2025 Jan 14	2025 Apr  3	2025 Apr  3	2025 Apr  3	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-					-	0	0	0.00	-
 A11645	2025-U04	Starship FT-11	2025 Oct 13	2025 Oct 14	2025 Oct 14	2024 Oct 14 0029:57	-	Starship FT	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
@@ -2490,3 +2491,5 @@ A11653	2025-U04	Starlink Simulator 38	2025 Oct 13	2025 Oct 13	2025 Oct 13	2024 O
 A11675	2025-248	Bandwagon-4	2025 Nov  2	2025 Nov  2	2025 Nov  2	2025 Nov  2	-	Transporter	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
 A11695	2025-276	Transporter-15	2025 Nov 28	2025 Nov 28	2025 Nov 28	2025 Nov 28	-	Transporter	-	-	-	B	TECH	S	-	-	[US]	-					-	0	0	0.00	-
 A11697	2025-276DV	R5-S7	2025 Nov 28	2025 Nov 28	2025 Nov 28	2025 Nov 28	-	JSC Cube	-	-	-	C	TECH	S	-	-	[US]	-					-	0	0	0.00	-
+A11715	2025-296	Dier-5 RV	2025 Dec 13	2025 Dec 13	*	*	-	DEAR RV	-	-	D	B	MGRAV	S	-	-	[CN]	-					-	0	0	0.00	-
+A11722	2025-U06	Michibiki-5	2025 Dec 22	2025 Dec 22	2025 Dec 22	2025 Dec 22 0250?	-	QZSS	-	-	M	C	NAV/COM	F	-	-	[J]	-					-	0	0	0.00	-

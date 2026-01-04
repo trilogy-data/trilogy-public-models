@@ -592,6 +592,8 @@ Tianlong-3 S1	-	1	Tianlong-3 Stage 1	-	-	1		0	0	-
 Longxing-2	-	1	Longxing-2 St 1	-	-	1		0	0	-
 Chang Zheng 12	-	1	CZ-12 Stage 1	-	-	1		0	0	-
 Chang Zheng 12	-	2	CZ-12 Stage 2	-	-	1		0	0	-
+Chang Zheng 12A	-	1	CZ-12A Stage 1	-	-	1		0	0	-
+Chang Zheng 12A	-	2	CZ-12A Stage 2	-	-	1		0	0	-
 Ares I-X	-	1	Ares I-X	-	-	1		45	-6200	-
 LM AS	-	1	LM AS	-	-	1		0	0	-
 Dragon V2	-	1	Dragon V2	-	-	1		1	-6300	?
@@ -3462,6 +3464,7 @@ Arrow 3	-	1	Arrow 3	-	-	1		10	-6378	?
 Arrow 3	-	2	Arrow 3 Stage 2	-	-	1		80	-6378	?
 Miura 1	-	1	Miura 1	-	-	1		150	-6378	-
 Skylark L	-	1	Skylark L	-	-	1		30	-6378	-
+SyLEx	-	1	SyLEx	-	-	1		100	-6378	-
 HIMES Rockoon	-	0	Balloon	-	-	1		18	-6378	-
 HIMES Rockoon	-	1	KM Rockoon	-	-	1		70	-6378	-
 Zulfiqar	-	1	Zulfiqar	-	-	1		60	-6378	-

@@ -1,11 +1,11 @@
 JCAT	Satcat	Launch_Tag	Piece	Type	Name	PLName	LDate	Parent	SDate	Primary	DDate	Status	Dest	Owner	State	Manufacturer	Bus	Motor	Mass	MassFlag	DryMass	DryFlag	TotMass	TotFlag	Length	LFlag	Diameter	DFlag	Span	SpanFlag	Shape	ODate	Perigee	PF	Apogee	AF	Inc	IF	OpOrbit	OQUAL	AltNames
-T00001	NNA	1998-067	1998-067XR	P  D    ?	ContentCube	ContentCube	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	VAP	US	VAP	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	-	0		0		0.00		-	-	-
-T00002	NNA	1998-067	1998-067XS	P  D    ?	RHOK-SAT	RHOK-SAT	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	RHODES	US	RHODES	Cubesat 1U	-	1.600		1.600		1.600		0.1		0.1		0.5		Box+antenna	-	0		0		0.00		-	-	-
-T00003	NNA	1998-067	1998-067XT	P  D    ?	SilverSat	SilverSat	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	SILVER	US	SILVER	Cubesat 1U	-	0.880		0.880		0.880		0.1		0.1		0.4		Box+antenna	-	0		0		0.00		-	-	-
-T00004	NNA	1998-067	1998-067XU	P  D    ?	EagleSat-2	EagleSat-2	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	ERAU	US	ERAU	Cubesat 3U	-	5	?	5	?	5	?	0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
-T00005	NNA	1998-067	1998-067XV	P  D    ?	CU Alpha	CU Alpha	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	CORN	US	CORN	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	-	0		0		0.00		-	-	-
-T00006	NNA	1998-067	1998-067XW	P  D    ?	CU Alpha LightSail	Alpha LightSail	2025 Sep 14	T00005	2025 Sep 14	Earth	-	AO IN	-	CORN	US	CORN	LightSail	-	0.100		0.100		0.100		0.004		0.1		0.6		Sail	-	0		0		0.00		-	-	-
-T00007	NNA	1998-067	1998-067XX	P  D    ?	DUPLEX	DUPLEX	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	CUA	US	CUA	Cubesat 6U	-	10	?	10	?	10	?	0.3		0.2		0.3		Box	-	0		0		0.00		-	-	-
+T00001	NNA A	2025-315	2025-315C	P	Shi Jian 29B	Shi Jian 29 B xing	2025 Dec 30	S67303	2025 Dec 30 2306?	Earth	-	O	-	ZLZB	CN	SECM	SJ29	-	1000	?	600	?	1000	?	1.0	?	1.5	?	5.0	?	Box + 2 Pan	-	0		0		0.00		-	-	-
+T00002	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00003	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00004	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00005	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00006	NNA	1998-067	1998-067XZ	P  D    ?	CU Alpha LightSail	Alpha LightSail	2025 Sep 14	S66911*	2025 Dec  4 0147?	Earth	-	O	-	CORN	US	CORN	LightSail	-	0.100		0.100		0.100		0.004		0.1		0.6		Sail	-	0		0		0.00		-	-	-
+T00007	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
 T00008	NNA A	1998-067	1998-067	P   D	HMU-SAT2	HMU-SAT2	2025 Oct 26	A11668*	2025 Oct 26 0015	Earth	-	AO IN	-	HUS	J	HUS	Cubesat 1U	-	1		1		1		0.1		0.1		0.1		Box	-	0		0		0.00		-	-	-
 T00009	NNA A	1998-067	1998-067	P   D	CORAL	CORAL	2025 Oct 26	A11668*	2025 Oct 26 0015	Earth	-	AO IN	-	ROSAP	I	ROSAP	Cubesat 2U	-	2		2		2		0.2		0.1		0.2		Box	-	0		0		0.00		-	-	-
 T00010	NNA A	1998-067	1998-067	P   D	LEOPARD	LEOPARD	2025 Oct 26	A11668*	2025 Oct 26 0015	Earth	-	AO IN	-	KYUT	J	KYUT	Cubesat 3U	-	3		3		3		0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
@@ -15,14 +15,17 @@ T00013	NNA A	1998-067	1998-067	P   D	UiTMSAT-2	UiTMSAT-2	2025 Oct 26	A11668*	202
 T00014	NNA	2025-082	2025-082	CP T T	Shenzhou 20 Guidao Cang	Shenzhou 20 orbital module	2025 Apr 24	S63632	2025 Apr 24 0927:07	Earth	-	AO	-	CMSEO	CN	CAST	Shenzhou OM	-	1842	?	1500	?	1842	?	2.3		2.8		4.3		Cyl + 2 pan	-	0		0		0.00		-	-	-
 T00015	NNA A	1998-067	1998-067	P   D	Tenkoh-2	Tenkoh-2	2025 Oct 26	A11667*	2025 Oct 26 0015	Earth	-	AO IN	-	NIHON	J	NIHON	Cubesat 6U	-	10	?	10	?	10	?	0.3		0.2		0.3		Box	-	0		0		0.00		-	-	-
 T00016	NNA	2025-272	2025-272	CP T T	Shenzhou 22 Guidao Cang	Shenzhou 22 orbital module	2025 Nov 25	S66645	2025 Nov 25 0421	Earth	-	AO	-	CMSEO	CN	CAST	Shenzhou OM	-	1842	?	1500	?	1842	?	2.3		2.8		4.3		Cyl + 2 pan	-	0		0		0.00		-	-	-
-T00017	NNA	2025-274	2025-274Q	P       ?	Duri	SNUGLITE-III	2025 Nov 26	S66662	2025 Dec  4?	Earth	-	AO	-	SNU	KR	SNU	Cubesat 3U	-	3.600		3.600		3.600		0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
-T00018	NNA	2025-248	2025-248M	P       ?	Semi-1	Baryon-1L	2025 Nov  2	A11675	2025 Nov  2 0621	Earth	-	O	-	UNK	UNK	UNK	Cubesat 6U?	-	12		12		12		0.3		0.2		0.3		Box	-	0		0		0.00		-	-	-
-T00019	NNA	1998-067	1998-067	P  D    ?	Foras Promineo	Foras Promineo	2025 Sep 14	A11620*	2025 Sep 14	Earth	-	AO IN	-	PERKHS	US	PERKHS	Cubesat 3U	-	5	?	5	?	5	?	0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
-T00020	NNA	2025-276	2025-276DW	P       ?	WISESAT-5	FOSSASAT	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
-T00021	NNA	2025-276	2025-276DX	P       ?	WISESAT-6	FOSSASAT	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
-T00022	NNA	2025-276	2025-276DY	P       ?	WISESAT-7	FOSSASAT	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
+T00017	NNA	2025-274	2025-274Q	P       ?	Duri	SNUGLITE-III	2025 Nov 26	S66661	2025 Dec  4?	Earth	-	AO	-	SNU	KR	SNU	Cubesat 3U	-	3.600		3.600		3.600		0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
+T00018	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00019	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-		-		-		-		-		-		-	-	-		-		-		-	-	-	-
+T00020	NNA	2025-276	2025-276DW	P       ?	WISESAT-5	FOSSASAT	2025 Nov 28	A11701	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
+T00021	NNA	2025-276	2025-276DX	P       ?	WISESAT-6	FOSSASAT	2025 Nov 28	A11701	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
+T00022	NNA	2025-276	2025-276DY	P       ?	WISESAT-7	FOSSASAT	2025 Nov 28	A11701	2025 Nov 28 2130	Earth	-	AO	-	WISEK/FOSSA	CH	FOSSA	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box + 2 pan	-	0		0		0.00		-	-	-
 T00023	NNA	2025-276	2025-276DZ	P       ?	Foresail-1 Prime	Foresail-1 Prime	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	AALTO	FI	AALTO	Cubesat 3U	-	4		4		4		0.3		0.1		0.3		Box	-	0		0		0.00		-	-	-
-T00024	NNA	2025-276	2025-276EA	P       ?	Lemur-2	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
-T00025	NNA	2025-276	2025-276EB	P       ?	Lemur-2	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
-T00026	NNA	2025-276	2025-276EC	P       ?	Lemur-2	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
-T00027	NNA	2025-276	2025-276ED	P       ?	Lemur-2	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
+T00024	NNA	2025-276	2025-276EA	P       ?	Lacuna-3	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
+T00025	NNA	2025-276	2025-276EB	P       ?	Lacuna-4	Lacunasat	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
+T00026	NNA	2025-276	2025-276EC	P       ?	Lacuna-5	Lacunasat	2025 Nov 28	A11699	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
+T00027	NNA	2025-276	2025-276ED	P       ?	Lacuna-6	Lacunasat	2025 Nov 28	A11699	2025 Nov 28 2130	Earth	-	AO	-	SPIRE/LACU	US	SPIREG	Cubesat 4U	-	5		5		5		0.4		0.1		0.4		Box	-	0		0		0.00		-	-	-
+T00028	NNA	2025-276	2025-276EE	P       ?	Lemur-2 Starlight	Lemur-2	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE	US	SPIREG	Cubesat 3U	-	7.600		7.600		7.600		0.3		0.1		1.0		Box+ 2 pan	-	0		0		0.00		-	-	-
+T00029	NNA	2025-276	2025-276EF	P       ?	Lemur-2 Tartiflette	Lemur-2	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE	US	SPIREG	Cubesat 3U	-	7.600		7.600		7.600		0.3		0.1		1.0		Box+ 2 pan	-	0		0		0.00		-	-	-
+T00030	NNA	2025-276	2025-276EG	P       ?	Lemur-2 Hotspur-Tom	Lemur-2	2025 Nov 28	A11698	2025 Nov 28 2130	Earth	-	AO	-	SPIRE	US	SPIREG	Cubesat 3U	-	7.600		7.600		7.600		0.3		0.1		1.0		Box+ 2 pan	-	0		0		0.00		-	-	-

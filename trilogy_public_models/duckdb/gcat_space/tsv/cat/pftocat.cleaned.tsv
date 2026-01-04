@@ -846,7 +846,7 @@ F01728	2025-F01	Starlink Simulator 7	2025 Jan 16	2025 Jan 16	2025 Jan 16	2025 Ja
 F01729	2025-F01	Starlink Simulator 8	2025 Jan 16	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 F01730	2025-F01	Starlink Simulator 9	2025 Jan 16	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 F01731	2025-F01	Starlink Simulator 10	2025 Jan 16	2025 Jan 16	2025 Jan 16	2025 Jan 16 2249?	-	Starlink V3Sim		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
-F01733	2025-F02	Unk Payload	2025 Mar  1	2025 Mar  1	2025 Mar  1	2025 Mar  1 1001?	-	Unk CN		-	-	B	TECH	N	-	-	[CN]	-					-	0	0	0.00	-
+F01733	2025-E01	Unk Payload	2025 Mar  1	2025 Mar  1	2025 Mar  1	2025 Mar  1 1001?	-	Unk CN		-	-	B	TECH	N	-	-	[CN]	-					-	0	0	0.00	-
 F01734	2025-F03	Starship FT-8	2025 Mar  6	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starship FT		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 F01735	2025-F03	Starlink Simulator 11	2025 Mar  6	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
 F01736	2025-F03	Starlink Simulator 12	2025 Mar  6	2025 Mar  6	2025 Mar  6	2025 Mar  6 2340	-	Starlink V3Sim		-	-	B	TECH	N	-	-	[US]	-					-	0	0	0.00	-
@@ -862,6 +862,11 @@ F01750	2025-F07	Hulianwang Jishu Shiyan	2025 Aug 15	2025 Aug 15	2025 Aug 15	2025
 F01751	2025-F07	Hulianwang Jishu Shiyan	2025 Aug 15	2025 Aug 15	2025 Aug 15	2025 Aug 15 0130?	-	RSW		-	-	B	COM	N	-	-	[CN]	-					-	0	0	0.00	-
 F01752	2025-F07	Hulianwang Jishu Shiyan	2025 Aug 15	2025 Aug 15	2025 Aug 15	2025 Aug 15 0130?	-	RSW		-	-	B	COM	N	-	-	[CN]	-					-	0	0	0.00	-
 F01754	2025-F08	Zoljanah test payload	2025 Sep 18	2025 Sep 18	2025 Sep 18	2025 Sep 18 1105?	-	IRGC		-	-	D	TECH	N	-	-	[IR]	-					-	0	0	0.00	-
-F01756	2025-U05	Jilin-1 GaoFen 04C	2025 Nov 10	2025 Nov 10	2025 Nov 10	2025 Nov 10 0503?	-	Jilin-1 GF	1	P	-	B	IMG	S	-	-	[CN]	-					-	0	0	0.00	-
-F01757	2025-U05	Jilin-1 Pingtai A0204	2025 Nov 10	2025 Nov 10	2025 Nov 10	2025 Nov 10 0503?	-	Jilin-1 PT	1	P	-	B	IMG	S	-	-	[CN]	-					-	0	0	0.00	-
+F01756	2025-U05	Jilin-1 GaoFen 04C	2025 Nov 10	2025 Nov 10	2025 Nov 10	2025 Nov 10 0503?	-	Jilin-1 GF	1	P	-	B	IMG	N	-	-	[CN]	-					-	0	0	0.00	-
+F01757	2025-U05	Jilin-1 Pingtai A0204	2025 Nov 10	2025 Nov 10	2025 Nov 10	2025 Nov 10 0503?	-	Jilin-1 PT	1	P	-	B	IMG	N	-	-	[CN]	-					-	0	0	0.00	-
 F01758	2025-U05	Zhongbei Daxue 1	2025 Nov 10	2025 Nov 10	2025 Nov 10	2025 Nov 10 0503?	-	NUC		-	-	A	TECH	N	-	-	[CN]	-					-	0	0	0.00	-
+F01760	2025-F09	FloripaSat-2a	2025 Dec 23	2025 Dec 23	2025 Dec 23	2025 Dec 23 0114?	-	UFSC		-	-	A	TECH	N	-	-	[BR]	-					-	0	0	0.00	-
+F01761	2025-F09	Floripasat-2b	2025 Dec 23	2025 Dec 23	2025 Dec 23	2025 Dec 23 0114?	-	UFSC		-	-	A	TECH	N	-	-	[BR]	-					-	0	0	0.00	-
+F01762	2025-F09	Solaras-S2	2025 Dec 23	2025 Dec 23	2025 Dec 23	2025 Dec 23 0114?	-	Grahaa		-	-	B	TECH	N	-	-	[IN]	-					-	0	0	0.00	-
+F01763	2025-F09	Pion-BR2	2025 Dec 23	2025 Dec 23	2025 Dec 23	2025 Dec 23 0114?	-	Pion Labs		-	-	B	TECH	N	-	-	[BR]	-					-	0	0	0.00	-
+F01764	2025-F09	Jussara-K	2025 Dec 23	2025 Dec 23	2025 Dec 23	2025 Dec 23 0114?	-	UFMA		-	-	A	TECH	N	-	-	[BR]	-					-	0	0	0.00	-

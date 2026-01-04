@@ -1,0 +1,5 @@
+import raw.tree_info;
+
+select tree_id.count, q_legal_status;
+
+show select tree_id.count;
