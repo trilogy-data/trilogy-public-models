@@ -15,4 +15,4 @@ enable_python_datasources = true
 # Startup scripts to run before execution
 [setup]
 # startup_trilogy = []
-sql = ['setup/setup_dev.sql']
+# sql = ['setup/setup_dev.sql']
