@@ -69,5 +69,5 @@ datasource tree_info (
     data_updated_through
 )
 grain (tree_id)
-file `gcs://trilogy_public_models/duckdb/sf_trees/tree_info.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/sf_trees/tree_info.parquet`:`gcs://trilogy_public_models/duckdb/sf_trees/tree_info.parquet`
 freshness by data_updated_through;

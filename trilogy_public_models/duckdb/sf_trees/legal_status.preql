@@ -1,0 +1,3 @@
+import data.tree_info;
+
+select tree_id.count, q_legal_status, round(latitude,3) as rounded_lat, round(longitude,3) as rounded_long;
