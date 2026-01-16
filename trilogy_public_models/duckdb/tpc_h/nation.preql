@@ -13,6 +13,6 @@ datasource nation (
     n_regionkey:region.id,
     n_comment:comment
 )
-# table has dupes
-# grain(id)
+
+grain(id)
 address memory.nation;
