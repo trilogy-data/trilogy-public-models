@@ -91,7 +91,7 @@
       "height": 355,
       "allowCrossFilter": true,
       "chartConfig": {
-        "chartType": "usa-map",
+        "chartType": "geo-map",
         "xField": "launch_site_longitude",
         "yField": "launch_site_latitude",
         "yField2": "",
