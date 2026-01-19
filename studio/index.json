@@ -1,5 +1,5 @@
 {
-  "count": 25,
+  "count": 26,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -166,6 +166,15 @@
       ]
     },
     {
+      "description": "# San Francisco Street Tree List\n\n## Overview\n\nThis dataset is the official **Street Tree List** maintained by the **San Francisco Public Works Department (DPW)**. It catalogs individual street trees in the city of San Francisco, including **species**, **planting dates**, **locations**, **size metrics**, and other attributes used for urban forest management. The data supports analysis of tree distribution, species diversity, growth, and infrastructure planning. {index=0}\n\n**Source:**  \n- City of San Francisco Open Data Portal (DataSF) \u2013 *City Infrastructure* category  \n- Dataset identifier: `tkzw-k3nq`  \n- License: PDDL 1.0 (Public Domain) \n\nThis dataset is updated periodically.\n\n\n## Key Fields (Typical Columns)\n\nBelow is a representative set of fields commonly included. \n\n| Field Name       | Description |\n|------------------|-------------|\n| `TreeID`         | Unique identifier for the tree record |\n| `qLegalStatus`   | Legal/administrative status of the tree |\n| `qSpecies`       | Scientific and common species name |\n| `qAddress`       | Address where the tree is planted |\n| `SiteOrder`      | Internal ordering for site location |\n| `qSiteInfo`      | Contextual site attributes (e.g., median, sidewalk) |\n| `PlantType`      | Type of planting (e.g., Tree vs. other flora) |\n| `qCaretaker`     | Entity responsible for tree maintenance |\n| `qCareAssistant` | Secondary caretaker (if any) |\n| `PlantDate`      | Date the tree was planted |\n| `DBH`            | Diameter at Breast Height (a size indicator) |\n| `PlotSize`       | Plot area where the tree sits |\n| `PermitNotes`    | Notes regarding permits or planting conditions |\n| `XCoord`, `YCoord` | Internal grid coordinates |\n| `Latitude`, `Longitude` | Geographic coordinates for mapping |\n\n\n\n## Geographic Context\n\nEach tree record is tied to a **latitude/longitude coordinate**, allowing for spatial analyses such as canopy distribution mapping and proximity studies relative to urban infrastructure.\n\n## Use Cases\n\n- **Urban forestry analysis** \u2014 species distribution, age composition, growth patterns  \n- **Environmental planning** \u2014 tree canopy coverage, biodiversity goals  \n- **Maintenance scheduling** \u2014 pruning cycles and condition tracking  \n- **Community and research** \u2014 citizen science, coursework, tree census comparisons  \n\n## Notes and Limitations\n\n- Data may be updated periodically; refer to the dataset\u2019s metadata for the last modified date. \n- Some fields like DBH or planting dates may have `NULL/NA` values where measurements are not available.  \n- The dataset reflects **DPW-maintained** street trees\u2014not private-land trees.  \n- Species naming conventions may combine scientific and common names in the same field (e.g., \u201c*Platanus x hispanica :: Sycamore: London Plane*\u201d). \n\n## Additional Resources\n\n- **Official DataSF portal landing page:** https://data.sfgov.org/d/tkzw-k3nq  \n- **SF Street Tree Map (interactive):** Provided by SF Public Works\u2019 Bureau of Urban Forestry for tree lookup and details  \n- **Urban Forest Plan & Species Recommendations:** City guidance on recommended plantings and urban canopy goals",
+      "engine": "duckdb",
+      "filename": "sf_trees.json",
+      "name": "sf_trees",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
       "description": "## Stack Overflow Data\n\nContext in this [blog post](https://cloud.google.com/blog/topics/public-datasets/google-bigquery-public-datasets-now-include-stack-overflow-q-a)",
       "engine": "bigquery",
       "filename": "stack_overflow.json",
@@ -231,5 +240,5 @@
       ]
     }
   ],
-  "updated_at": "2025-12-08T23:02:22.132963"
+  "updated_at": "2026-01-18T20:09:25.633239"
 }

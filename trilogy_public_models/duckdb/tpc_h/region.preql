@@ -7,5 +7,6 @@ datasource region (
     r_name:name ,
     r_comment:comment
 )
+
 grain(id)
 address memory.region;

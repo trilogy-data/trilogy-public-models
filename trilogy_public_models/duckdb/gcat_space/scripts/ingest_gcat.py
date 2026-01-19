@@ -10,7 +10,7 @@ DOWNLOAD_DIR = Path(__file__).parent.parent
 CONCURRENCY = 6
 RETRIES = 3
 CHUNK_SIZE = 32_768  # bytes
-
+# https://planet4589.org/space/gcat/tsv/launch/launch.tsv
 # Allowlist (real paths on the site). These preserve the server layout under tsv/
 FILES_TO_DOWNLOAD: List[str] = [
     # Tables (organizations, sites, platforms, launch points, vehicles, engines, etc.)
@@ -24,6 +24,7 @@ FILES_TO_DOWNLOAD: List[str] = [
     "tsv/tables/lvs.tsv",
     "tsv/tables/refs.tsv",
     "tsv/tables/stages.tsv",
+    "tsv/launch/launch.tsv",
     # Derived (full catalogs & logs)
     "tsv/derived/currentcat.tsv",
     "tsv/derived/launchlog.tsv",

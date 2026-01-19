@@ -67,6 +67,7 @@ CR	CR	CR	CY	C	1838	-	Costa Rica	Republica de Costa Rica	San Jose	-84.0800	9.9300
 CSFR	CZ	CZ	CY	C	1990 Jan  1	1993 Jan  1	CSFR	Ceska a Slovenska federativni republica	Praha	14.4200	50.0800	0.0200	-	Czechoslovakia	Czech and Slovak Federal Republic	Česká a Slovenská Federativní Republika
 CSSR	CZ	CZ	CY	C	1940 Jan  1	1990 Jan  1	Ceskoslovensko	Ceskoslovenska socialisticka republica	Praha	14.4200	50.0800	0.0200	-	Czechoslovakia	Czechoslovak Socialist Republic	Československá socialistická republika
 CU	CU	CU	CY	C	1959	*	Cuba	Republica de Cuba	Havana	-82.3800	23.1300	0.0200	-	Cuba	Republic of Cuba	República de Cuba
+CY	CY	CY	CY	C	1959	*	Cyprus	Kupriake Demokratia	Nicosia	33.3600	35.1700	0.0200	-	Cyprus	Republic of Cyprus	Κυπριακή Δημοκρατία
 CYM	CYM	CYM	CY	C	1962	*	Cayman Islands	Cayman Islands British Overseas Territory	Georgetown	-81.3900	19.3000	0.0200	UK	Cayman Is.	Cayman Islands BOT	Cayman Islands British Overseas Territory
 CYMRU	CYMRU	UK	CYP	C	1057	-	Cymru	Cymru	Caerdydd	-3.1800	51.4800	0.0200	UK	Wales	-	Cymru
 CZ	CZ	CZ	CY	C	1993 Jan  1	*	Ceska Rep.	Ceska Republika	Praha	14.4200	50.0800	0.0200	-	Czech Republic	Czech Republic	Česká republika
@@ -155,6 +156,7 @@ LY	LY	LY	CY	C	1951 Dec 24	-	Al Libiyyah	Al-Jamahiriyyah al-Arabiyyah al-Libiyyah
 MA	MA	MA	CY	C	1956 Mar  2	-	Al Maghrib	Al Mamlakah al Maghribiyah	Al-Ribat	-6.8400	34.0200	0.0200	-	Morocco	Morocco (al Maghrib), Kingdom of	المملكة المغربية
 MC	MC	MC	CY	C	1297	-	Monaco	Principaute de Monaco	Monaco	7.4200	43.7300	0.0200	-	Monaco	Monaco, Principality of	Principauté de Monaco
 MD	MD	MD	CY	C	1991	-	Moldova	Republica Moldova	Chisinau	28.8400	47.0200	0.0200	-	Moldova	Moldova, Republic of	Republica Moldova
+ME	ME	ME	CY	C	2006 May 21	-	Montenegro	Crna Gora	Podgorica	19.2600	42.4400	0.0200	-	Montenegro	Montenegro	Crna Gora
 MH	MH	MH	CY	C	1979	-	Marshall Is.	Republic of the Marshall Islands	Majuro, Marshall Is.	171.3800	7.0800	0.0200	-	Marshall Is.	Marshall Islands, Republic of	Republic of the Marshall Islands
 MN	MN	MN	CY	C	1911	-	Mongol	Mongol uls	Ulaanbaatar	106.9200	47.9200	0.0200	-	Mongolia	Mongolia	Монгол Улс
 MOCN	MOCN	MOCN	CYP	C	1999	-	Macao	Regiao Administrativa Especial de Macau da Republica Popular da China	Macau	113.5500	22.1700	0.0200	CN	Macau	Macao Special Administrative Region	Região Administrativa Especial de Macau da República Popular da China
@@ -553,6 +555,7 @@ APGC	APGC	US	O/LA/PL/S	D	1957 Dec	1968 Aug  1	APGC	US Air Force Air Proving Grou
 APL	APL	US	O/LA/LV/PL/LS/S	C	1953	-	APL	JHU-Applied Physics Lab	Laurel, Maryland	-76.9000	39.1700	0.0200	-	-	-	JHU-Applied Physics Lab
 APLS	APLS	US	PL	D	1942	1977	APL	JHU-Applied Physics Lab (Silver Spring)	DC:Silver Spring, Maryland	-77.0300	39.0000	0.0200	-	-	-	JHU-Applied Physics Lab (Silver Spring)
 APMT	APMT	CN	O	C	1998 Mar	-	Zhongguo yatai	Zhongguo Yatai yidongtongxing weixing youxianzerengognsi	Beijing	116.3800	39.9200	0.0200	CALT	APMT	China Asia Pacific Mobile Telecom. Satellite Co. (APMT)	中国亚太移动通信卫星有限责任公司
+APN	APN	NP	O/PL	A	2024?	-	Antarikchya	Antarikchya Pratisthan Nepal	Kathmandu	85.3200	27.6500	0.0200	-	-	Space Academy Nepal	अन्तरिक्ष प्रतिष्ठान नेपाल (एपीएन)
 APOGEO	GPAP	I	PL	B	2023	-	Apogeo Space	Apogeo Space	Gussago, Brescia	10.1500	45.6000	0.0200	-	-	-	Apogeo Space
 APPL	RSRS	UK	-	C	1974	1979	Appleton Lab	Appleton Laboratory	Ditton Park, Buckinghamshire	-0.5700	51.4800	0.0200	SERC	-	-	Appleton Laboratory
 APRZ	APRZ	US	O	B	2001 May	-	Aprize	Aprize Satellite Inc.	Fairfax, Virginia	-77.3000	38.8500	0.0200	SPQ	-	-	Aprize Satellite Inc.
@@ -612,14 +615,16 @@ ASTBT	ASTBT	US	PL	B	2007	-	Astrobotic	Astrobotic Technology Inc.	Pittsburgh, Pen
 ASTD	ERNO	D	O/LA/LV/PL/S	B	2000 Jul 10	2003 Jun 16	Astrium	Astrium (D), Bremen	Bremen	8.3000	53.0800	0.0200	-	-	-	Astrium (D), Bremen
 ASTDF	DORN	D	PL	B	2000 Jul 10	2003 Jun 16	Astrium-Frh.	Astrium (D), Friedrichshafen	Friedrichsafen	9.4800	47.6500	0.0200	-	-	-	Astrium (D), Friedrichshafen
 ASTDYN	PHILR	US	E	B	1958	1959 Sep 30	Astrodyne	Astrodyne Inc.   (Phillips/NAA)	McGregor, Texas	-97.4200	31.4300	0.0200	-	-	-	Astrodyne Inc.   (Phillips/NAA)
-ASTRAN	ASTRAN	US	O/PL	B	2015	-	Astranis	Astranis Space Technologies Corp.	San Francisco, California	-122.4200	37.7800	0.0200	-	-	-	Astranis Space Technologies Corp.
 ASTFN	ASTFN	D	PL	B	2009	-	AstroFein	Astro-und-Feinwerktechnik Adlershof GmbH (Astrofein Technik)	Berlin	13.3900	52.5200	0.0200	-	-	-	Astro-und-Feinwerktechnik Adlershof GmbH (Astrofein Technik)
 ASTL	ASTL	D	E	B	1996	2014 Jan  1	Astrium/Lamp.	Astrium (D), Lampoldshausen	Lampoldshausen	9.4000	49.2700	0.0200	-	-	-	Astrium (D), Lampoldshausen
 ASTM	CASA	E	PL	B	2006 Jul	2014 Jan  1	Astrium Barajas	EADS Astrium Satellites/Barajas  (CASA Espacio)	Madrid:Barajas	-3.5900	40.4700	0.0200	EADS	-	-	EADS Astrium Satellites/Barajas  (CASA Espacio)
 ASTNA	ADSNA	US	O/PL	B	2000?	2014 Jan  1	Astrium N America	Astrium North America	Houston:Webster, Texas	-95.1200	29.5400	0.0200	ADS	-	-	Astrium North America
 ASTO	BOLK	D	PL/E	B	2006 Jul	2014 Jan  1	Astrium/Ottobrunn	Astrium Space Propulsion/Ottobrunn	Munchen:Ottobrunn	11.6700	48.0700	0.0200	-	-	-	Astrium Space Propulsion/Ottobrunn
 ASTRA	ASTRA	US	O/S	B	2007	2022 Feb  1	Astra LLC	Atmospheric and Space Technology Research Associates LLC	Boulder, Colorado	-105.2700	40.0100	0.0200	-	-	-	Atmospheric and Space Technology Research Associates LLC
+ASTRAN	ASTRAN	US	O/PL	B	2015	-	Astranis	Astranis Space Technologies Corp.	San Francisco, California	-122.4200	37.7800	0.0200	-	-	-	Astranis Space Technologies Corp.
+ASTRB	ASTRB	BM	O/PL	B	2015	-	Astranis Bermuda	Astranis Bermuda Ltd	Hamilton, Bermuda	-64.7800	32.9300	0.0200	ASTRAN	-	-	Astranis Bermuda Ltd
 ASTRIX	ASTRIX	NZ	O	B	2021 Feb	-	Astrix	Astrix Astronautics	Auckland, New Zealand	174.7700	36.8500	0.0200	-	-	-	Astrix Astronautics
+ASTRU	ASTRU	UK	O	B	2025	-	Astranis UK	Astranis UK Ltd	Manchester:Altrincham	-2.3500	53.3800	0.0200	ASTRAN	-	-	Astranis UK Ltd
 ASTRV	VENT	US	LA/LV/E	B	2016	-	Astra	Astra Space	Alameda, California	-122.2700	37.7600	0.0200	-	-	-	Astra Space
 ASTS	ASTS	US	O	B	2019	-	AST & Science	Avellan Space Technology and Science	Midland, Texas	-102.2100	31.9400	0.0200	-	-	-	Avellan Space Technology and Science
 ASTSC	ASTSC	J	O/PL	B	2015	-	Astroscale	Astroscale Japan Inc.	Tokyo	139.6800	35.6800	0.0200	-	-	-	Astroscale Japan Inc.
@@ -1182,6 +1187,7 @@ DUCOMM	MILTEC	US	PL	B	2012?	2016 May	Duocomm Miltec	Miltec Missiles and Space Co
 DUTH	DUTH	GR	O/PL	A	1973	-	DUTH	Demoktriteio Panepistemio Thrakes	Xanthi	24.8800	41.1300	0.0200	-	-	Democritus University of Thrace	Δημοκρίτειο Πανεπιστήμιο Θράκης
 DUTCH	FOKKS	NL	PL	B	2002	2014?	Dutch Space	Dutch Space, an EADS Astrium Company	Amsterdam	4.9000	52.3700	0.0200	ASTD	-	-	Dutch Space, an EADS Astrium Company
 DUTEC	DUTEC	NL	PL	B	1996	-	Delta-UTEC	Delta-UTEC Space Research	Leiden	4.4800	52.1700	0.0200	-	-	-	Delta-UTEC Space Research
+DVFU	DVFU	RU	O	A	1899	-	DVFU	Dal'nevostochniy federal'niy universitet	Vladivostok	131.8900	43.0200	0.0200	-	-	Far Eastern Federal Univ.	Дальневосточный федеральный университет
 DVNG	DVNG	SU	LS	C	1950	-	DVNIGMI	Dal'nevostochniy regional'niy nauchno-issledovatel'skiy gidrometeol. institut	Vladivostok	131.9000	43.1333	0.0200	GMS	-	Far East Regional Science Research Hydrometeorological Inst	Дальневосточный региональный научно - исследовательский гидрометеорологический институт
 DVST	DVST	TR	LV	D	2017	-	Delta V	Delta V Space Technologies Inc.	Istanbul	28.9600	41.0100	0.0200	-	-	-	Delta V Space Technologies Inc.
 DYMON	DYMON	J	PL	B	2012	-	Dymon	Dymon Co., Ltd.	Tokyo:Ota-ku	139.7200	35.5600	0.0200	-	-	-	株式会社ダイモン
@@ -1261,7 +1267,7 @@ ERNOF	ERNO	D	LV	B	1969 Jan  1	1980	ERNO	ERNO-VFW Fokker (Entwicklungsring Nord)	
 ERNOV	ERNO	D	-	B	1980	1981	ERNO	ERNO-VFW (Entwicklungsring Nord)	Bremen	8.3000	53.0800	0.0200	VFW	-	-	ERNO-VFW (Entwicklungsring Nord)
 ERTU	ERTU	EG	P	C	1960	-	ERTU	Ittihad al-Idha'ah wal-Tilifzyun al-Misri	6th of October City	30.9100	29.9400	0.0200	EG	-	Egyptian Radio and Television Union	اتحاد الاذاعة و التليفزيون المصري‎
 ESA	ESRO	I-ESA	O/LA/PL/S	C	1975 Apr 30	-	ESA	European Space Agency	Paris	2.3000	48.8600	0.0200	-	-	-	European Space Agency
-ESHAIL	ESHAIL	QA	O	B	2010	-	Es'hailsat	Es'hailsat, Qatar Satellite Company	Doha	51.5300	25.2900	0.0200	ICTQ	-	-	Es'hailsat, Qatar Satellite Compnay
+ESHAIL	ESHAIL	QA	O	B	2010	-	Es'hailsat	Es'hailsat, Qatar Satellite Company	Doha	51.5300	25.2900	0.0200	ICTQ	-	-	Es'hailsat, Qatar Satellite Company
 ESIE	ESIE	F	O/PL	A	1990?	-	ESIEESPACE	ESIEESPACE, Ecole Sup. d'Ingenieurs en Electron. et Electrotechnique	Paris	2.3000	48.8600	0.0200	TARTU	-	-	ESIEESPACE, École Supérieure d'Ingénieurs en Électronique et Électrotechnique
 ESL	ESL	US	PL	B	1964	1969	ESL	Electromagnetic Systems Laboratory, Inc	Palo Alto, California	-122.1400	37.4300	0.0200	-	-	-	Electronic Systems Lab. Inc.
 ESL1	ESL	US	PL	B	1969	1978	ESL	Electromagnetic Systems Laboratory, Inc	Sunnyvale, California	-122.0400	37.3700	0.0200	-	-	-	Electronic Systems Lab. Inc.
@@ -1583,6 +1589,7 @@ HHI	IKF	DD	O	C	1956	1973	HHI	Heinrich-Hertz-Institut	Berlin:Adlershof	13.5300	52
 HHJ	HHJ	CN	PL	B	2017?	-	Hangtian Henxing	Hangtian henxing jishu youxian gongsi	Beijing:Haidian	116.3000	39.9600	0.0200	-	-	Space Star Technology Ltd	航天恒星技术有限公司
 HIBER	HIBER	NL	O	B	2015?	2022 Jun	Hiber	Hiber	Delft	4.3600	52.0100	0.0200	-	-	-	Hiber
 HIBERA	HIBER	NL	O	B	2022 Jun	-	Hiber/Astrocadst	Astrocast Hiber	Delft	4.3600	52.0100	0.0200	ACAST	-	-	Astrocast Hiber
+HICAL	HICAL	CN	O	B	2022	-	HICAL	Hainan guoji shangye hangtian fashe YG	Wenchang	110.9308	19.5968	0.0001	-	-	Hainan International Commercial Aerospace Launch Co., Ltd.	海南国际商业航天发射有限公司
 HIN	HIN	N	O/PL	A	1994 Aug	-	HiN Narvik	Hogskolen i Narvik	Narvik	17.4300	68.4400	0.0200	-	-	Narvik University College	Høgskolen i Narvik
 HIROG	HIROG	J	O	A	-	-	Hiroo Gakuen	Hiroo Gakuen School	Tokyo:Minato	139.7200	35.6500	0.0200	-	-	Hiroo Gakuen Junior and Senior School	ラグラポ、広尾学園
 HISD	HISD	E	O	B	2001 Jul 17	-	Hisdesat	Hisdesat Servicios Estrategicos SA	Madrid	-3.7200	40.3800	0.0200	HISP	-	-	Hisdesat Servicios Estratégicos S.A
@@ -1731,6 +1738,7 @@ INDOO	SINDO	ID	O	B	2015 Nov 19	-	Indosat Ooredoo	Indosat Ooredoo	Jakarta	106.820
 INETI	INETI	P	O	A	1970s?	-	INETI	Instituto Nacional de Engenharia, Tecnologia e Inova\,cao	Lisboa:Alfragide, Portugal	-9.2200	38.7300	0.0200	-	-	-	Instituto Nacional de Engenharia, Tecnologia e Inovação
 INFER	INFER	US	O/PL	B	-	-	Interfer	Interferometrics Inc	Chantilly, Virginia	-77.4000	38.8800	0.0200	-	-	-	Interferometrics Inc
 INFOC	INFOC	US	O/PL	B	2015	-	InFocus	InFocus, Edgewood, New Mexico (40 Blanco Drive)	Edgewood, New Mexico	-106.1900	35.0700	0.0200	-	-	-	InFocus, Edgewood, New Mexico (40 Blanco Drive)
+INFORB	INFORB	F	O/PL	B	2017	-	Infinite Orbits	Infinite Orbits SAS	Toulouse	1.4700	43.5600	0.0200	-	-	-	Infinite Orbits SAS
 INFK	INFK	RU	O	B	1993 Feb 12	2006 Oct 26	AO Informkosmos	AO Informkosmos	Moskva	37.6200	55.7500	0.0200	NPOPM	-	-	`ИНФОРМКОСМОС` АО
 INHA	INHA	KR	O	A	1954	-	Inha U.	Inha Daehakgyo	Incheon	126.6500	37.4500	0.0200	-	-	Inha University	인하대학교
 INMAR	INMAR	I-INM	O	C	-	1999 Apr 15	INMARSAT	International Maritime Satellite Organization	London	-0.1000	51.5400	0.0200	I-INM	-	-	International Maritime Satellite Organization
@@ -1872,6 +1880,7 @@ KAI	KAI	SU	PL	B	1942	1967	KAI	Kuibyshevskiy Aviatsionniy Institut	Kubyshev (Sama
 KAIK	KAI	SU	O/PL	B	1967	1992	KAI	Kuibyshevskiy Aviatsionniy Institut im. S.P. Korolev	Samara (Kubyshev)	50.1400	53.2000	0.0200	-	-	Korolev Aviation Institute	Куйбышевский Авиационный Институт Им. С.П. Королева
 KAIFW	KAIFW	US	PL	B	1943	-	Kaiser-Fleetwings	Kaiser-Fleetwings	Bristol, Pennsylvania	-74.8500	40.1000	0.0200	-	-	-	Kaiser-Fleetwings
 KAIRSP	KAIRSP	KR	O/PL	B	-	-	KairoSpace	Kairo Space	Seongnam	127.1700	37.4300	0.0200	-	-	Kairo Space	Kairo Space
+KAIS	KAIS	RU	O	B	2022	-	Kaisant	NPO Kaisant	Moskva	37.4900	55.6900	0.0200	-	-	-	НПО Кайсант
 KAISR	KAISR	KR	PL	C	1989 Aug	1999	KAIST SatRec	Hanguk gwahag gisul-won Ingong-wiseong yeongusenteo	Daejeon	127.3900	36.3500	0.0200	KAIST	-	KAIST Satellite Research Center (SatRec)	한국과학기술원 인공위성연구센터
 KAIST	KAIST	KR	O/PL	A	1971	-	KAIST	Hanguk gwahag gisul-won	Daejeon	127.3900	36.3500	0.0200	-	-	Korea Advanced Institute for Space Technology	한국과학기술원
 KAIT	KAIT	J	S	A	1975	-	KAIT	Kanagawa koka daigaku	Atsugi, Kanagawa	139.3700	35.4300	0.0200	-	-	Kanagawa Institute of Technology	神奈川工科大学
@@ -2057,6 +2066,7 @@ LMT	LMT	US	PL	B	1995?	2001?	LMT/Sunnyvale	Lockheed Martin Telecommunications	Sun
 LMTEW	RCA	US	PL	B	1995?	1998	LMT/EW	Lockheed Martin Telecommunications/East Windsor	East Windsor, New Jersey	-74.5300	40.2600	0.0200	LM	-	-	Lockheed Martin Telecommunications/East Windsor
 LMV	LTV	US	-	B	1996	1999	LM Vought	Lockheed Martin Vought	Dallas:Grand Prairie, Texas	-97.0200	32.7200	0.0200	-	-	-	Lockheed Martin Vought
 LMVF	GEVF	US	PL	B	1995	-	LM/Valley Forge	Lockheed Martin Space Systems/Valley Forge	Valley Forge, Penn.	-75.4700	40.1000	0.0200	LM	-	-	Lockheed Martin Space Systems/Valley Forge
+LOBU	LOBU	RU	O/PL	A	1916	-	Lobachevskiy UNN	Nizhegorodskiy natsional'niy issledovatel'skiy gos. univ. im. N.I. Lobacheskovo	Nizhniy Novgorod	43.9800	56.3000	0.0200	-	-	Natl. State Research U. of Nizhny Novgorod Lobachevskiy	Нижегородский государственный университет имени Н. И. Лобачевского
 LOFT	LOFT	US	O/PL	B	2016	-	Loft Orbital	Loft Orbital	San Francisco, California	-122.4200	37.7800	0.0200	-	-	-	Loft Orbital
 LOR	FORDA	US	O/PL	B	1990 Oct	2012 Nov	SS/Loral	SS/Loral	Palo Alto, California	-122.1400	37.4300	0.0200	LORC	-	-	SS/Loral
 LORC	LORC	US	P	B	1948	1996	Loral Corp	Loral Corporation	New York, New York	-74.0100	40.7100	0.0200	-	-	-	Loral Corporation
@@ -2116,6 +2126,7 @@ MAIMD	MAIMD	US	PL	B	2004	-	MD Aero	Maryland Aerospace	Crofton, Maryland	-76.6800
 MAIO	MAIO	SU	O/PL	A	1933	-	MAI Moskva	Moskovskiy aviatsionniy institut im. S. Ordzhonikidze - SKB Iskra	Moskva	37.6200	55.7500	0.0200	-	-	Moscow Aviation Institute, Student KB Iskra	Московский авиационный институт им. Серго Орджоникидзе, СКБ «Искра»
 MAK	SKB385	RU	O/LA/LV/PL/E	C	1993	-	Makeev	FGUP GRTs Makeev KB (SKB-385)	Miass, Chelyabinsk	60.1000	55.0000	0.0200	-	-	Makeev Design Bureau	Государственный ракетный центр имени академика В.П. Макеева
 MANU	MANU	UK	O/PL	A	2004	-	U Man	University of Manchester	Manchester	-2.2400	53.4600	0.0200	-	-	-	University of Manchester
+MANYA	MANYA	RU	O	A	-	-	Sakha MAN	Malaya Akademia Nauk Repspubliki Sakha (Yakutiya)	Oktyomtsy, Sakha Republic	129.3900	61.6600	0.0200	-	-	Junior Academy of Sciences, Sakha Republic	Малая академия наук Республики Саха (Якутия)
 MAOW	MAOW	CN	O	B	2016?	-	Maowang	Maowang shouyinji	Beijing?	116.3800	39.9200	0.0200	-	-	Elvis Radio	猫王收音机
 MARCO	MARCO	UK	PL	B	-	-	Marconi	Marconi	Portsmouth	-1.0800	50.8200	0.0200	-	-	-	Marconi
 MARINT	MARINT	UAE	O/PL	B	-	-	Marshall Intech	Marshall Intech (UAE Bin Ghalib Group)	Dubai	55.3000	25.2600	0.0200	-	-	-	Marshall Intech (UAE Bin Ghalib Group)
@@ -2299,6 +2310,7 @@ MSCI	DYN	CA	O/PL	B	2009	-	MSCI	Microsat Systems Canada Inc	Toronto:Mississauga, 
 MSE	MOL	US	O	D	1978	1988	MSE	Manned Spaceflight Engineer corps, Los Angeles AFB	El Segundo, California	-118.4100	33.9200	0.0200	AFSD	-	-	Manned Spaceflight Engineer corps, Los Angeles AFB
 MSFC	MSFC	US	O/LA/LV/PL/E/S	C	1960	-	NASA MSFC	NASA Marshall Space Flight Center	Huntsville, Alabama	-86.6500	34.6800	0.0200	NASA	-	-	NASA Marshall Space Flight Center
 MSGC	MSGC	US	O	A	2010?	-	Montana SGC	Montana Space Grant Consortium, Montana State University, Bozeman	Bozeman, Montana	-111.0500	45.6700	0.0200	MSU	-	-	Montana Space Grant Consortium, Montana State University, Bozeman
+MSR	MSR	ME	O	B	2022	-	Montenegro SR	Montenegro Space Research	Podgorica	19.2600	42.4400	0.0200	-	-	-	Montenegro Space Research
 MSSL	MSSL	UK	PL/S	A	1966	-	MSSL	Mullard Space Science Laboratory	Dorking, Surrey	-0.3300	51.2300	0.0200	UCL	-	-	Mullard Space Science Laboratory
 MSTIU	MSTIU	UG	O	C	2016	-	MSTI Uganda	Ministry of Science, Technology and Innovation	Kampala	32.6100	0.3500	0.0200	-	-	-	Ministry of Science, Technology and Innovation
 MSU	MSU	US	O/PL/S	A	1893	-	MSU	Montana State University, Bozeman	Bozeman, Montana	-111.0500	45.6700	0.0200	-	-	-	Montana State University, Bozeman
@@ -2618,6 +2630,7 @@ OKB52	OKB52	SU	O/LV/PL	D	1954	1966 Mar	OKB-52	OKB-52 (Chelomey)	Moskva:Reutov	37
 OKB52F1	OKB23	SU	-	D	1960	1981	OKB-52 Fil. 1	OKB-52 Fil. 1 (Chelomey)	Moskva:Fili	37.5000	55.7500	0.0200	-	-	-	филиал № 1 ОКБ-52
 OKB586	YUZH	SU	O/LV/PL	D	1954	1965	OKB-586	OKB-586 (KB M. K. Yangel)	Dnepropetrovsk	34.9800	48.4500	0.0200	-	-	Yangel KB	ОКБ-586
 OKB586F1	POL	SU	-	D	1961	1965	OKB-586 Fil. 1	OKB-586 Filial No. 1	Omsk	73.3700	54.9800	0.0200	-	-	-	филиал № 1 ОКБ-586
+OKB5P	OKB5P	RU	O	B	2013	-	OKB 5 Pok.	OKB Pyatoye Pokoloniye (OKB5)	Novosibirsk:Akademgorodok	3.0900	54.8500	0.0200	-	-	Experimental and Design Bureau (OKB) Fifth Generation	Опытно-конструкторское бюро «Пятое поколение»
 OKB9	OKB9	SU	LV	D	1942	1970?	OKB-9	OKB-9 (V.F. Petrov) of Uralmashzavod	Sverdlovsk (Ekaterinburg)	60.5800	56.8300	0.0200	-	-	-	ОКБ-9
 OKBZ154	KBKHA	SU	E	B	1946 Apr	1957	OKB Zav 154	OKB zavoda N154	Voronezh	39.2100	51.6700	0.0200	-	-	Factory No. 154 Design Bureau	ОКБ завода №154
 OKSU	OKSU	US	S	A	1890	-	OkSU	Oklahoma State University	Stillwater, Oklahoma	-97.0600	36.1200	0.0200	-	-	-	Oklahoma State University
@@ -2811,6 +2824,7 @@ PWCSD	UTC	US	LV/PL/E	B	1996?	2004	PW CSD	UTC Pratt and Whitney Space Propulsion 
 PWFL	PWFL	US	E	B	1958	2013 Jun	Pratt&Whitney	Pratt & Whitney Florida Research and Development Center	West Palm Beach, Florida	-80.0600	26.7100	0.0200	UAC	-	-	Pratt & Whitney Florida Research and Development Center
 PWRD	RDYNE	US	PL/E	B	2005 Aug	2013 Jun	PW/Rocketdyne	Pratt & Whitney Rocketdyne Inc	Canoga Park, California	-118.6000	34.2000	0.0200	UTC2	-	-	Pratt & Whitney Rocketdyne Inc
 PYRAS	PYRAS	TW	PL	B	2013	-	Pyras Tech	Pyras Technology Inc	New Taipei City	121.6400	25.0600	0.0200	-	-	-	Pyras Technology Inc.
+QAU	QAU	QA	O	A	1973	-	Jami'at Qatar	Jami'at Qatar	Doha	51.4900	25.3800	0.0200	-	-	Qatar University	جامعة قطر
 QB50	QB50	B	O	A	2012	-	QB50	QB50 Consortium	Brussel/Sint-Genesius-Rode, Brabant	4.3500	50.7500	0.0200	-	-	-	QB50 Consortium
 QBUS	QBUS	US	O	A	2014	-	QBUS	QBUS Consortium (Stanford/APL/UC Boulder/U MIch/U del Turabo)	Laurel, Maryland	-76.9000	39.1700	0.0200	-	-	-	QBUS Consortium
 QIANC	QIANC	CN	O/PL	B	2018?	-	Qiandao Tansuo	Beijing Qiancheng Tansuo Keji YG	Beijing	116.3000	39.9600	0.0200	-	-	Beijing Qiansheng Exploration Tech Co Ltd.	北京千乘探索科技有限公司
@@ -2933,6 +2947,7 @@ RUAG	SAAB	S	PL	B	2008 Sep	-	RUAG Sweden	RUAG Aerospace Sweden AB, Limkoping fact
 RUAGZ	CONTR	CH	PL	B	2009 Jul	2017	RUAG Zurich	RUAG Space, Zurich	Zurich	8.5500	47.3700	0.0200	RUAG	-	-	RUAG Space, Zurich
 RUAGD	RUAGD	US	PL	B	2019	-	RUAG Decatur	RUAG Space, Decatur	Decatur, Alabama	-86.9800	34.6100	0.0200	RUAG	-	-	RUAG Space, Decatur
 RUL	RAL	UK	-	C	1957	1957	Rutherford	Rutherford Laboratory	Chilton, Oxfordshire	-1.2900	51.5700	0.0200	SERC	-	-	Rutherford Laboratory
+RUVDS	RUVDS	RU	O	B	2016	-	RUVDS	RUVDS (MT Finance LLC)	Mosvka:Korolev	37.8200	55.9300	0.0200	-	-	-	RUVDS
 RVA	RVA	RU	O/LA	D	-	-	Rak. Voisk	Rakentiya Voiska i Artilleriyu	Moskva	37.6200	55.7500	0.0200	-	-	Rocket Forces and Artillery, Russia	ракетные войска и артиллерию
 RVSN	RVSN	SU	O/LA/PL/LS	D	1959 Dec 17	1991 Dec	RVSN	Rakentiye Voiska Strategicheskogo Naznacheniye	Mosvka?	37.6200	55.7500	0.0200	MO	-	Strategic Rocket Forces	Ракетные войска стратегического назначения
 RVSNR	RVSN	RU	O/LA/PL	D	1991 Dec	-	RVSN RF	Rakentiye Voiska Strategicheskogo Naznacheniye (Rossisk. Fed.)	Mosvka?	37.6200	55.7500	0.0200	MORF	-	Russian Strategic Rocket Forces	Ракетные войска стратегического назначения Российской Федерации
@@ -3037,6 +3052,7 @@ SECM	SECM	CN	O/PL	A	2003	-	SECM	Shanghai weixiao weixing gongcheng zhongxin	Shan
 SECT	SECT	F	LA/W/S	D	-	-	SECT	Service d'Equipement de Champs de Tir	Paris?	2.3000	48.8600	0.0200	-	-	-	Service des Équipements des Champs de Tir
 SEDENA	SEDENA	MX	O	D	1934	-	SEDENA	Secreteria de la Defensa Nacional	Ciudad de Mexico	-99.1300	19.4300	0.0200	-	-	Mexico Secretariat of National Defense	Secretaría de la Defensa Nacional
 SEDSH	SEDSH	US	O/PL	A	-	-	SEDS-HSV	Students for the Exploration and Development of Space (HSV)	Huntsville, Alabama	-86.5900	34.7300	0.0200	-	-	-	Students for the Exploration and Development of Space (HSV)
+SEIREN	SEIREN	J	O/PL	B	1889	-	Seiren	Seiren KK	Sakai:Mikuni, Fukui	136.1500	36.2200	0.0200	-	-	Seiren Co. Ltd.	セーレン株式会社
 SEJU	SEJU	KR	O	A	1940	-	Sejong U.	Sejong Daehakgyo	Seoul	127.0700	37.5500	0.0200	-	-	Sejong University	세종대학교
 SEL	SEL	US	PL	B	1958	1969	SEL	Stanford Electronics Laboratory	Palo Alto, California	-122.1400	37.4300	0.0200	-	-	-	Stanford Electronics Laboratory
 SELEN	SELEN	I	PL	B	1968?	1990	Selenia Spazio	Selenia Spazio SpA	Roma	12.4900	41.8900	0.0200	-	-	-	Selenia Spazio SpA
@@ -3228,6 +3244,7 @@ SPFL	SPFL	US	LA/LV/LS/S	C	1989	2000	SPFLA	Spaceport Florida Authority	Cape Canav
 SPFOR	SPFOR	PL	LV	B	-	-	SpaceForest	SpaceForest sp z o.o	Gdynia	18.5300	54.5200	0.0200	-	-	-	SpaceForest sp z o.o.
 SPFORG	SPFORG	UK	O/PL	B	2018	-	Space Forge	Space Forge	Cardiff, Wales	-3.1200	51.5000	0.0200	-	-	-	Space Forge
 SPG	SPG	US	PL	B	1961	-	Space General	Space General Div, Aerojet-General Corp.	El Monte, California	-118.0300	34.0700	0.0200	AJ	-	-	Space General Div, Aerojet-General Corp.
+SPGUK	SPGUK	UK	O	B	2023	-	Spacing Guild UK	Spacing Guild UK Ltd	Manchester:Altrincham	-2.3500	53.3800	0.0200	ASTRAN	-	-	Spacing Guild UK Ltd.
 SPHARM	SPHARM	IL	O/PL	B	2012	-	Space Pharma	SpacePharma R&D group	Herzliya	34.8500	32.1700	0.0200	SPHARS	-	-	SpacePharma R&D group, Israel
 SPHARS	SPHARS	CL	PL	B	2012	-	Space Pharma	SpacePharma	Basel:Courgenay	7.1300	47.4000	0.0200	-	-	-	SpacePharma
 SPIND	SPIND	D	PL	B	2015	-	Space Prod.Inn.	Space Products and Innovation GmbH	Darmstadt	8.6500	49.8700	0.0200	SPINI	-	-	Space Products and Innovation GmbH
@@ -3544,6 +3561,7 @@ U9900	U9900	IL	O	D	-	-	Yachiyd 9900	Yachiyd 9900, IDF	Tel Aviv	34.8200	32.0800	0
 UAB	UAB	US	O	A	1969	-	UAB	University of Alabama at Birmingham	Birmingham, Alabama	-86.8100	33.5200	0.0200	-	-	-	University of Alabama at Birmingham
 UAC	UAC	US	P	B	1934	1975 May  1	United Aircraft	United Aircraft Corp.	Hartford, Connecticut	-72.6700	41.7600	0.0200	-	-	-	United Aircraft Corp.
 UAEAF	UAEAF	UAE	O	D	1951	-	UAE AF	Al-Quwwat al-Musallaha li-Dawlat al-'Imarat al-'Arabiyyah al-Muttahidah	Abu Dhabi	54.3700	24.4700	0.0200	-	-	United Arab Emirates Armed Forces	القوات المسلحة لدولة الإمارات العربية المتحدة
+UAESA	UAESA	UAE	O	C	2014	-	UAESA	Wikalat al-Imarat I-lifada	Abu Dhabi	54.3700	24.4700	0.0200	-	-	United Arab Emirates Space Agency	وكالة الإمارات للفضاء
 UAEU	UAEU	UAE	O	A	1976 Jul	-	UAE University	UAE University NSSTC	Al Ain, Abu Dhabi	55.7500	24.2300	0.0200	-	-	-	جامعة الإمارات العربية المتحدة
 UAF	UAF	US	O/LA/PL/S	A	1917	-	Alaska	U. Alaska Fairbanks	Fairbanks, Alaska	-147.8400	64.8600	0.0200	-	-	-	U. Alaska Fairbanks
 UAH	UAH	US	O/PL/S	A	1969	-	UAH	University of Alabama-Huntsville	Huntsville, Alabama	-86.6400	34.7300	0.0200	-	-	-	University of Alabama-Huntsville
@@ -3869,6 +3887,7 @@ XCORC	XCOR	US	-	B	2013	2017	XCOR (Mojave)	XCOR Aerospace (California)	Mojave, Ca
 XCORT	XCORT	US	P	B	2013	2017	XCOR	XCOR Aerospace (Texas)	Midland, Texas	-102.1000	32.0000	0.0200	-	-	-	XCOR Aerospace (Texas)
 XCYS	XCYS	CN	O/PL	C	2017	-	Xi'an Survey	Xi'an cehui yanjiu suo	Xi'an, Shaanxi	108.9500	34.2700	0.0200	-	-	Xian Bureau of Surveying and Mapping	西安测绘研究所
 XDLINX	XDLINX	IN	O/PL	B	2024	-	XDLINX	XDLINX Space Labs	Hyderabad	78.4700	17.3600	0.0200	-	-	-	XDLINX Space Labs
+XGCM	XGCM	CN	O	B	2023	-	Xinghu Chuanming	Xinghuo Chuanming (Beijing) Jishu YG	Beijing	116.3800	39.9200	0.0200	-	-	Xinghuo Chuanming (Beijing) Tech Co Ltd	星火传明（北京）技术有限公司
 XGZD	XGZD	CN	O	A	1963	-	Xianggang Zhongda	Xianggang Zhongwen Daxue	Hong Kong	114.2600	22.3400	0.0200	-	-	Chinese Univ. of Hong Kong	香港中文大學
 XHT	XHT	CN	O/PL	B	2018 Oct	-	Xi'an Hangtou	Xi'an hangkong hangtian touzi gufen YG	Xi'an, Shaanxi	108.9500	34.2700	0.0200	-	-	Xi'an Aerospace Investment Co Ltd.	西安航空航天投资股份有限公司
 XIAM	XIAM	CN	O	A	1921	-	Xiamen Daxue	Xiamen Daxue	Xiamen, Fujian	118.0900	24.4400	0.0200	-	-	Xiamen University	厦门大学
@@ -3901,6 +3920,7 @@ YINGSH	YINGSH	CN	O	B	-	-	Yingshiruida	Beijing Yingshiruida Keji Gufen YG	Beijing
 YINHE	YINHE	CN	O/PL	B	2018	-	Yinhe	Yinhe hangtian	Beijing-Haidian	116.3800	39.9200	0.0200	-	-	Galaxy Aerospace	银河航天
 YINNT	YINNT	CN	O/PL	B	2018	-	Yinhe	Yinhe hangtian Nantong weixing zhihui gongchang	Nantong, Jiangsu	120.9600	31.8900	0.0100	-	-	Galaxy Aerospace Nantong Satellite Smart Factory	银河航天南通卫星智慧工厂
 YIX	YIX	CN	O	B	-	-	Yixing Kong.Ji.	Yixing Kongjian Jiaoyu Keji YG	Beijing	116.3800	39.9200	0.0200	-	-	Yixing Space Education Technology Co Ltd	北京一颗星空间教育科技有限公司
+YKSA	YKSA	RU	O	B	2022	-	YKSA	Yakutskie Kosmicheskiye Sistemi	Yakutsk	129.7400	62.0600	0.0200	-	YKSA	Sakha Aerospace Systems LLC	ООО ««Якутские Космические Системы»
 YLYZ	YLYZ	CN	O	A	-	-	Yi Ling Yi	Yi Ling Li Zhongxue	Beijing	116.3800	39.9200	0.0200	-	-	One Zero One Middle School	一零一中学
 YKVZ	YKVZ	RU	E	C	1758	-	YKVZ	Ust'-Katavskiy Vagonostroitel'niy Zavod	Ust'-Katav (Chelyabinsk)	58.1800	54.9300	0.0200	-	-	Ust-Katav Carriage Works	Усть-Катавский вагоностроительный завод
 YONA	YONA	J	O	A	1964	-	Yonago Kosen	Yonago Kogyo Kotosen Mongakko	Yonago, Tottori	133.3300	35.4300	0.0200	-	-	Yonago National College of Technology	米子工業高等専門学校

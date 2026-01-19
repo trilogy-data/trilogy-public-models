@@ -16,8 +16,8 @@ property id.cabin string; # Cabin number
 property id.embarked string; # Port of Embarkation: C = Cherbourg, Q = Queenstown, S = Southampton
 property id.ticket string; # Ticket number
 property id.sex string; # Sex
-property id.sibsp string; # # of siblings / spouses aboard the Titanic
-property id.parch string; # # of parents / children aboard the Titanic
+property id.sibsp int; # # of siblings / spouses aboard the Titanic
+property id.parch int; # # of parents / children aboard the Titanic
 metric survived_count <- sum(survived); # Number of survivors
 property last_name <- split(name,',')[1]; # Last name (extracted from full name)
 

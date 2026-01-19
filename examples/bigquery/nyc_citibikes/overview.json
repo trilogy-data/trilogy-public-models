@@ -147,7 +147,7 @@
       "width": 1481,
       "height": 435,
       "chartConfig": {
-        "chartType": "usa-map",
+        "chartType": "geo-map",
         "xField": "start_station_longitude",
         "yField": "start_station_latitude",
         "yField2": "",

@@ -69,7 +69,7 @@
       "width": 513,
       "height": 395,
       "chartConfig": {
-        "chartType": "usa-map",
+        "chartType": "geo-map",
         "xField": "",
         "yField": "",
         "yField2": "",

@@ -1,0 +1,18 @@
+# Trilogy Configuration File
+# Learn more at: https://github.com/trilogy-data/pytrilogy
+
+[engine]
+# Default dialect for execution
+dialect = "duck_db"
+
+# Parallelism level for directory execution
+# parallelism = 2
+
+[engine.config]
+enable_gcs = true
+enable_python_datasources = true
+
+# Startup scripts to run before execution
+[setup]
+# startup_trilogy = []
+# sql = ['setup/setup_dev.sql']

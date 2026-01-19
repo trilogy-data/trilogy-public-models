@@ -1947,10 +1947,12 @@ JQ	LC43/95A	-	LP	-	2008	*	JQ    SLS-E	KZ-1 pad, South Launch Site-East, Jiuquan 
 JQ	LC43/95B	-	LP	-	2008	*	JQ    SLS-E	SQ-1 pad, South Launch Site-East, Jiuquan Space Center	-	100.3440	40.9690	0.0100	CN	-	-	-
 JQ	LC43/96	-	LP	-	2022	-	JQ LC43/96	Area 43/96, Jiuquan Space Center	-	100.2456	40.9149	0.0002	CN	-	-	-
 JQ	LC43/96A	-	LP	-	2022	-	JQ LC43/96A	Area 43/96A, Jiuquan Space Center	-	100.2456	40.9149	0.0002	CN	-	-	-
+JQ	LC43/96B	-	LP	-	2025	-	JQ LC43/96B	Area 43/96B, Jiuquan Space Center	-	100.2513	40.9203	0.0002	CN	-	-	-
 JQ	LC120	-	LP	-	2022	*	JQ    LC120	Pad 120 (TL-2)  Jiuquan Space Center	-	100.1992	40.8556	0.0002	CN	-	-	-
 JQ	LC130	-	LP	-	2022	*	JQ    LC130	Pad 130 (ZK-1A) Jiuquan Space Center	-	100.2242	40.8184	0.0002	CN	-	-	-
 JQ	LC140	-	LP	-	2022	*	JQ    LC140	Pad 140 (Lijian-2) Jiuquan Space Center	-	100.2194	40.8174	0.0002	CN	-	-	-
 JQ	LC-TL3	-	LP	-	2022	*	JQ    LCTL3	TL-3 pad, Jiuquan Space Center	-	100.1368	40.8071	0.0002	CN	-	-	-
+JQ	LC-CZ12A	-	LP	-	2025	*	JQ LC CZ12A	CZ-12a pad, Jiuquan Space Center	-	100.2200	40.8910	0.0020	CN	-	-	中国商火酒泉研试发射工位
 KANSK	LC1	-	LP	-	1988	1989	KANSK	LC1, Kansk, Krasnoyarsk region	-	95.7000	56.2000	0.1000	RVSN	-	-	-
 KARK	L1	-	LP	-	1965 May 25	1965 May 30	KARK  L1	Launcher 1, Cape Karikari, North Island, New Zealand	-	173.4053	-34.8250	0.0001	NASA	-	-	-
 KARK	L2	-	LP	-	1965 May 25	1965 May 30	KARK  L2	Launcher 2, Cape Karikari, North Island, New Zealand	-	173.4053	-34.8250	0.0001	NASA	-	-	-
@@ -2252,10 +2254,11 @@ SDQ	UNK1	-	LP	-	-	-	PISQ	Hawk missile site at Capo San Lorenzo, Salto di Quirra	
 SEM	IKSC	-	LP	-	2013	-	SEM   IKSC	Imam Khomeini Space Launch Center, Semnan, Iran	-	53.9522	35.2369	0.0002	IR	-	-	-
 SEM	SAF	-	LP	-	2013	-	SEM   SAF	Safir pad, Semnan, Iran	-	53.9210	35.2347	0.0002	IR	-	-	-
 SHAHR	LP1	-	LP	-	2020	*	SHAHR LP1	Qased pad, Imam Reza base, Damghan (Shahroud), Iran (Dasht-E-Kabir?)	-	55.3340	36.2006	0.0002	IR	-	-	-
-SHAR	FLP	-	LP	-	1990	*	SHAR  PSLV	PSLV pad, Sriharikota Range	-	80.2930	13.5760	0.0200	ISRO	-	-	-
-SHAR	RH	-	LP	-	1971 Oct  9	*	SHAR  RH	Sounding rocket complex, Sriharikota Range	-	80.3030	13.6210	0.0200	ISRO	-	-	-
-SHAR	SLP	-	LP	-	1990	*	SHAR  SLP	GSLV pad 2, Sriharikota Range	-	80.2930	13.5760	0.1000	ISRO	-	-	-
-SHAR	SLV	-	LP	-	1979 Aug	*	SHAR  SLV	SLV pad, Sriharikota Range	-	80.2990	13.5420	0.0200	ISRO	-	-	-
+SHAR	FLP	-	LP	-	1990	*	SHAR  PSLV	PSLV pad, Sriharikota Range	-	80.2348	13.7333	0.0001	ISRO	-	-	-
+SHAR	RH	-	LP	-	1971 Oct  9	*	SHAR  RH	Sounding rocket complex, Sriharikota Range	-	80.2327	13.6977	0.0001	ISRO	-	-	-
+SHAR	SLP	-	LP	-	1990	*	SHAR  SLP	GSLV pad 2, Sriharikota Range	-	80.2305	13.7200	0.0001	ISRO	-	-	-
+SHAR	SLV	-	LP	-	1979 Aug	*	SHAR  SLV	SLV pad, Sriharikota Range	-	80.2269	13.6650	0.0001	ISRO	-	-	-
+SHAR	TLP	-	LP	-	2026	*	SHAR  TLP	Third Launch Pad, Sriharikota Range	-	80.2265	13.6960	0.0200	ISRO	-	-	-
 SIL	A	-	LP	-	1959	1967	SIL   A	Silver Lake 1 drop zone, California	-	-115.8000	35.5300	0.1000	NASA/USAF	-	-	-
 SIL	B	-	LP	-	1959	1967	SIL   B	Silver Lake 2 drop zone, California	-	-115.9500	35.5800	0.1000	NASA/USAF	-	-	-
 SIL	C	-	LP	-	1959	1967	SIL   C	Silver Lake drop zone, California	-	-115.8500	35.1200	0.1000	NASA/USAF	-	-	-
@@ -2623,6 +2626,7 @@ VS	SLC5	LC-D	LP	-	1966 Aug  4	1994 May  9	V     SLC5	Space Launch Complex 5, Van
 VS	SLC6	-	LP	-	1966	*	V     SLC6	Space Launch Complex 6, Vandenberg AFB	-	-120.6269	34.5813	0.0001	USAF	-	-	-
 VS	SLC8	-	LP	-	1999 Dec	*	V     SLC8	Commercial Space Launch Facility, California Spaceport, Vandenberg AFB	-	-120.6324	34.5764	0.0001	SSI	-	-	-
 VS	SLC9	-	LP	-	2025	*	V     SLC9	Space Launch Complex 9, Vandenberg AFB	-	-120.5906	34.6576	0.0001	SSI	-	-	-
+VS	SLC14	-	LP	-	2026	*	V SLC14	Space Launch Complex 14, Vandenberg Space Force Base	-	-120.5710	34.5610	0.0010	USSF	-	-	-
 WAKE	T	-	LP	-	2015	*	WAKE  -	THAAD Launcher, Wake Island	-	166.6539	19.2728	0.0001	USAF	-	-	-
 WAKE	LP1	-	LP	-	2012	-	POR25 -	Pacific Ocean Launch Site N of Wake Island	Pacific Ocean	167.0000	21.0000	1.5000	USN	-	-	-
 WAKE	LP2	-	LP	-	2012	-	POR25 -	Pacific Ocean Launch Site SE of Wake Island	Pacific Ocean	168.0000	17.0000	1.5000	USN	-	-	-

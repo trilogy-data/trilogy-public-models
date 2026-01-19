@@ -77,7 +77,7 @@
       "conceptFilters": [],
       "filters": [],
       "chartConfig": {
-        "chartType": "usa-map",
+        "chartType": "geo-map",
         "xField": "",
         "yField": "",
         "yField2": "",
@@ -156,7 +156,7 @@
       "chartFilters": [],
       "filters": [],
       "chartConfig": {
-        "chartType": "usa-map",
+        "chartType": "geo-map",
         "xField": "",
         "yField": "",
         "yField2": "",

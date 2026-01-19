@@ -90,7 +90,9 @@ Tianlong-3 Stage 1	TL3	TIANB	-	43.0	3.80			7600.0		TH-12	9
 Tianlong-3 Stage 2	TL3	TIANB	-	14.3	3.80			1350.0		TH-12V	1
 Longxing-2 St 1	CZ12	SAST	-	30.0	3.80					YF-100K	4
 CZ-12 Stage 1	CZ12	SAST	-	39.0	3.80			5000.0		YF-100K	4
+CZ-12A Stage 1	CZ12	SAST	-	39.0	3.80			5495.0		Longyun-70	7
 CZ-12 Stage 2	CZ12	SAST	-	10.0	3.80			360.0		YF-115	2
+CZ-12A Stage 2	CZ12	SAST	-	10.0	3.80			940.0		YF-209V	1
 LM AS	LMAS	GRUM	-	2.5	3.76	4.9	2000	15.6	480.0	RS-18	1
 11S824	Blok-D	NPOE	Blok D	5.5	3.70	13.4	1800	85.0	600.0	11D58	1
 11S824M	Blok-D	NPOE	Blok D-1	5.5	3.70	17.3	2400	85.0	600.0	11D58	1
@@ -987,6 +989,7 @@ Orbus 1	Orbus1	UTC	-	1.2	0.70	0.5	50	88.0		Orbus 1	1
 Orbus 1A	Orbus1	ATKE	-	1.2	0.70	0.5	50	88.0		Orbus 1A	1
 Miura 1	Miura	PLDS	-	12.7	0.70	2.5		30.2	122.0	TEPREL-B	1
 Skylark L	SkylarkL	SKYR	-	10.0	0.70	2.5	50	35.0		Skylark L	1
+SyLEx	Sylex	ARIG	-	10.0	0.70	3.0		325.0		SPARK	1
 KM Rockoon	KM-D	NISST	-	1.3	0.70	0.3	50			KM-D	1
 Kestrel I Stage 2	Kestrel1.St2	TISPACE	-	2.0	0.70	0.5				Lelien 1A	1
 MX-775	Snark	ABL	-	5.1	0.69	1.2	0	580.0	4.0	N-25 Snark JATO	2

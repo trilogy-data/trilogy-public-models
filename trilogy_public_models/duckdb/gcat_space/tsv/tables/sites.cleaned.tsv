@@ -166,7 +166,7 @@ HAMI	-	HAMI	LS	CN	2021	-	Hami	Hami missile base, Xinjiang	-	92.4920	42.3275	0.10
 HAMJ	-	HAMJ	LS	KP	2021	-	Hamju	Hamju, S Hamyong Prov, North Korea	-	127.4372	39.8469	0.0001	KP	-	-	-	Hamhung, S Hamyong Prov, North Korea
 HAMNC	-	HAMNC	LS	US	1997	1997	Hampstead	Hampstead, North Carolina, 1 mi W of Topsail Beach	-	-77.6400	34.3600	0.0500	HAL5	-	-	-	Hampstead, North Carolina, 1 mi W of Topsail Beach
 HARBIN	-	HARBIN	LS	CN	1967	*	Harbin	Harbin missile test site, Heilongjiang, Manchuria, China	-	126.6800	45.7500	0.0200	CN	-	-	-	Harbin, Heilongjiang, Manchuria, China
-HCSLS	-	HCSLS	LS	CN	2024	*	Hainan CLS	Hainan Shangye Hangtian Fashe Chang (Hainan Commercial Space Launch Site)	Wenchang, Hainan	110.9308	19.5968	0.0001	CN	-	-	-	海南商业航天发射场
+HCSLS	-	HCSLS	LS	CN	2024	*	Hainan CLS	Hainan Shangye Hangtian Fashe Chang (Hainan Commercial Space Launch Site)	Wenchang, Hainan	110.9308	19.5968	0.0001	HICAL	-	-	-	海南商业航天发射场
 HHAI	-	HHAI	LS	CN	2019	-	Huang Hai	Huang Hai CZ-11 launch zone	-	121.1900	34.9000	0.0100	CALT	-	-	-	Huang Hai CZ-11 launch zone
 HICK	-	HICK	LS	US	-	-	Hickam AFB	Joint Base Pearl Harbor-Hickam, Honolulu	Pearl Harbor, Hawaii	-157.9483	21.3353	0.0100	USAF	-	-	-	Joint Base Pearl Harbor-Hickam, Honolulu
 HKR	-	HKR	LS	DR	1944	1945	Heidekraut	Heidekraut, Tucheler Heide, Deutschland (now Polska)	-	18.0000	53.6000	0.3000	WEHR	-	-	-	Heidekraut, Tucheler Heide, Deutschland (now Polska)

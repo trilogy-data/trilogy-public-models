@@ -1,4 +1,5 @@
 from trilogy import Executor, Dialects
+from trilogy.dialect import DuckDBConfig
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
 from pathlib import Path
@@ -7,18 +8,19 @@ from pathlib import Path
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
-
+    conf = None
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
         dialect = Dialects.DUCK_DB
+        conf = DuckDBConfig(enable_gcs=True, enable_python_datasources=True)
     elif "snowflake" in model:
         dialect = Dialects.SNOWFLAKE
     else:
         raise NotImplementedError(f"Model {model} not supported")
     loaded = data_models[model]
     if executor is None:
-        executor = dialect.default_executor(environment=loaded.environment)
+        executor = dialect.default_executor(environment=loaded.environment, conf=conf)
     else:
         executor.environment = loaded.environment
     if isinstance(loaded.environment, LazyEnvironment):

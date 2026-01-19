@@ -36,7 +36,7 @@ Proton-M/Briz-M	Proton	KHRU	-	-	1	4	53.0		7.40		712.8		21000	4500	10000	O	40000
 Neutron	Neutron	RLABU	-	-	1	2	42.8		7.00		480.0				6570	O	40000	
 New Glenn 7x2	NewGlenn	BLORCC	1	-	1	2	98.0		7.00		1050.0	?			17219	O	500	
 New Glenn 7x2	NewGlenn	BLORCC	2	-	1	2	98.0		7.00		1050.0	?			19928	O	500	
-New Glenn 9x4	NewGlenn	BLORCC	-	-	1	2	125.0	?	7.00		1200.0	?			25622	O	500	
+New Glenn 9x4	NewGlenn	BLORCC	-	-	1	2	122.0	?	7.00		1200.0	?			25622	O	500	
 Saturn C-1	Saturn	MSFC	-	-	1	3	49.6		6.60		420.0		9000	0	5768	O	200	
 Saturn I	Saturn	MSFC	-	-	1	3	50.4		6.60		420.0		9000	0	5768	O	200	
 Saturn I	Saturn	MSFC	Blk2	-	1	2	58.0		6.53		508.0	?	9000	0	5768	O	200	
@@ -79,7 +79,7 @@ Delta 4M+(5,4)	Delta4	BOHB	A	-	0	2	70.7		5.00		404.6		11700	6565	5860	O	40000
 Delta 4M+(5,2)	Delta4	BOHB	A	-	0	2	70.7		5.00		404.6		11700	6565	5860	O	40000	
 DC-XA	DC-X	MDAC	-	-	1	1	12.6		4.95		19.0		0	0	242	T	10	
 DC-X	DC-X	MDAC	-	-	1	1	12.6		4.95		18.8		0	0	242	T	10	
-Zhuque-3	ZQ-3	LANDSP	-	-	1	2	65.9		4.50		550.0		12000	0	7200	O	500	
+Zhuque-3	ZQ-3	LANDSP	-	-	1	2	66.1		4.50		560.0		12000	0	7542	O	500	
 H-II	H2	MHITO	-	-	0	2	49.0		4.00		260.0		10060	3930	3960	O	40000	
 H-II	H2	MHITO	(2S)	-	-1	2	49.0		4.00		281.0	?	10060	3930	4600	O	40000	
 H-IIA 202	H2	NASDA	-	-	0	2	53.0		4.00		285.0		10000	4100	5600	O	40000	
@@ -157,6 +157,7 @@ Tianlong-3	TL3	TIANB	-	-	1	2	71.0		3.80		590.0			17000	7600	O
 Tianlong-3 S1	TL3	TIANB	-	-	1	1	71.0		3.80		590.0			17000	7600	O		
 Longxing-2	CZ12	SAST	-	-	1	1	30.0	?	3.80					0	0	T		
 Chang Zheng 12	CZ12	SAST	-	-	1	2	62.0		3.80		433.0			6000	5000	O		
+Chang Zheng 12A	CZ12	SAST	-	-	1	2	69.0		3.80		433.0			6000	5000	O		
 Ares I-X	SRB	MSFC	-	-	1	1	100.0		3.77		834.0			0	0	T	45	
 LM AS	LMAS	GRUM	-	-	1	1	2.5		3.76		4.9		2000	0		D	100	
 Dragon V2	Dragon	SPX	-	-	1	1	6.1		3.70		4.2		0	0	584	X	1	
@@ -1123,6 +1124,7 @@ Pedro Recruit	Pedro	USAF	-	-	1	2	7.8		0.71				0	0	244	T	20
 Arrow 3	Arrow3	IAI	-	-	1	2	11.0	?	0.70	?	1.5	?	0	0		M	100	50
 Miura 1	Miura	PLDS	-	-	1	1	12.7		0.70		2.6		0	0	30	R	100	
 Skylark L	SkylarkL	SKYR	-	-	1	1	11.7		0.70		0.0		0	0		W	30	
+SyLEx	Sylex	ARIG	-	-	1	1	10.0		0.70		0.0		0	0		R	100	
 HIMES Rockoon	KM-D	NISST	-	-	0	1	3.5	?	0.70		0.5		0	0		T	70	
 Zulfiqar	Zulfiqar	IR	-	-	1	1	10.3		0.68		5.0	?	0	0	90	B	150	
 Zolfaghar	Zulfiqar	IRGC	-	-	1	1	10.3		0.68		5.0	?	0	0	90	B	150	

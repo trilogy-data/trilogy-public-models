@@ -3,3 +3,4 @@ import launch_base;
 import satcat as payload;
 
 MERGE payload.launch.launch_tag into ~launch_tag;
+

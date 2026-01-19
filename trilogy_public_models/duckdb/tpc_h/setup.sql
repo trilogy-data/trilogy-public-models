@@ -1,3 +1,11 @@
 INSTALL tpch;
 LOAD tpch;
+drop table if exists memory.region;
+drop table if exists memory.nation;
+drop table if exists memory.lineitem;
+drop table if exists memory.customer;
+drop table if exists memory.part;
+drop table if exists memory.supplier;
+drop table if exists memory."orders";
+drop table if exists memory."partsupp";
 CALL dbgen(sf=.01);
