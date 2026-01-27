@@ -103,13 +103,6 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/setup.sql"
     },
     {
-      "alias": "setup_dev",
-      "name": "setup_dev",
-      "purpose": "setup",
-      "type": "sql",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/setup_dev.sql"
-    },
-    {
       "alias": "stage",
       "name": "stage",
       "purpose": "source",

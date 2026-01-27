@@ -92,6 +92,8 @@ def generate_json_files(check: bool):
                             continue
                         if file_name.startswith("_"):
                             continue
+                        if file_name.endswith("_dev"):
+                            continue
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
 
                         component = {
