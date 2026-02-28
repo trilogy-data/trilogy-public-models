@@ -22,19 +22,19 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Refresh data
-        id: refresh_step
-        run: |
-          set +e
-          trilogy refresh trilogy_public_models/duckdb/sf_trees/data \
-            --env GOOGLE_HMAC_KEY=${{ secrets.GOOGLE_HMAC_KEY }} \
-            --env GOOGLE_HMAC_SECRET=${{ secrets.GOOGLE_HMAC_SECRET }}
-          status=$?
+      # - name: Refresh data
+      #   id: refresh_step
+      #   run: |
+      #     set +e
+      #     trilogy refresh trilogy_public_models/duckdb/sf_trees/data \
+      #       --env GOOGLE_HMAC_KEY=${{ secrets.GOOGLE_HMAC_KEY }} \
+      #       --env GOOGLE_HMAC_SECRET=${{ secrets.GOOGLE_HMAC_SECRET }}
+      #     status=$?
 
-          if [ "$status" -eq 2 ]; then
-            echo "Nothing to refresh. Exiting successfully."
-            exit 0
-          elif [ "$status" -ne 0 ]; then
-            echo "Refresh failed with exit code $status"
-            exit $status
-          fi
+      #     if [ "$status" -eq 2 ]; then
+      #       echo "Nothing to refresh. Exiting successfully."
+      #       exit 0
+      #     elif [ "$status" -ne 0 ]; then
+      #       echo "Refresh failed with exit code $status"
+      #       exit $status
+      #     fi
