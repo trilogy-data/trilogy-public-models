@@ -1,7 +1,8 @@
 from os.path import dirname
 from pathlib import Path
 import sys
-from trilogy_public_models.models import LazyEnvironment, ModelOutput, ModelDict
+from trilogy_public_models.models import ModelOutput, ModelDict
+from trilogy.core.models.environment import LazyEnvironment
 from collections import UserDict
 
 
