@@ -5,8 +5,8 @@ mypy
 google-cloud-bigquery
 duckdb
 fakesnow
-snowflake-sqlalchemy
 pandas
 pandas-stubs
 httpx
 wikipedia
+snowflake-sqlalchemy<1.9.0

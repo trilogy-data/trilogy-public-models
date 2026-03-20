@@ -29,7 +29,7 @@ class ModelOutput:
 
 
 class ModelDict(UserDict[str, ModelOutput]):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.not_exists: set[str] = set()
 
@@ -62,10 +62,12 @@ class LazyEnvironment(BaseLazyEnvironment):
 
     @property
     def setup_path(self) -> Path:
+        assert self.load_path
         return self.load_path.parent / "setup.preql"
 
     @property
     def setup_path_sql(self) -> Path:
+        assert self.load_path
         return self.load_path.parent / "setup.sql"
 
     def _load(self):
