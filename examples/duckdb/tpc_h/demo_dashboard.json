@@ -10,66 +10,52 @@
     },
     {
       "x": 0,
-      "y": 7,
+      "y": 8,
       "w": 20,
       "h": 3,
       "i": "1"
     },
     {
       "x": 12,
-      "y": 28,
+      "y": 31,
       "w": 8,
       "h": 8,
       "i": "5"
     },
     {
       "x": 0,
-      "y": 36,
+      "y": 40,
       "w": 10,
       "h": 8,
       "i": "6"
     },
     {
       "x": 0,
-      "y": 10,
+      "y": 11,
       "w": 20,
       "h": 7,
       "i": "7"
     },
     {
       "x": 6,
-      "y": 28,
+      "y": 31,
       "w": 6,
       "h": 8,
       "i": "8"
     },
     {
       "x": 0,
-      "y": 22,
+      "y": 24,
       "w": 20,
       "h": 6,
       "i": "9"
     },
     {
       "x": 0,
-      "y": 17,
+      "y": 19,
       "w": 10,
       "h": 5,
       "i": "10"
-    },
-    {
-      "x": 10,
-      "y": 17,
-      "w": 10,
-      "h": 1,
-      "i": "11"
-    },
-    {
-      "x": 10,
-      "y": 18,
-      "w": 10,
-      "h": 1,
-      "i": "12"
     },
     {
       "x": 10,
@@ -80,29 +66,64 @@
     },
     {
       "x": 0,
-      "y": 28,
+      "y": 31,
       "w": 6,
       "h": 8,
       "i": "14"
     },
     {
       "x": 10,
-      "y": 36,
+      "y": 40,
       "w": 10,
       "h": 8,
       "i": "15"
+    },
+    {
+      "x": 10,
+      "y": 22,
+      "w": 10,
+      "h": 2,
+      "i": "16"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "w": 20,
+      "h": 1,
+      "i": "17"
+    },
+    {
+      "x": 0,
+      "y": 18,
+      "w": 20,
+      "h": 1,
+      "i": "18"
+    },
+    {
+      "x": 0,
+      "y": 30,
+      "w": 20,
+      "h": 1,
+      "i": "19"
+    },
+    {
+      "x": 0,
+      "y": 39,
+      "w": 20,
+      "h": 1,
+      "i": "20"
     }
   ],
   "gridItems": {
     "0": {
       "type": "markdown",
       "content": {
-        "markdown": "## Trilogy Studio Demo Dashboard\n\n[Trilogy Studio](https://github.com/trilogy-data/trilogy-studio-core) a SQL-ish-centric analytics tool based on a custom SQL variant - [Trilogy](https://trilogydata.dev/). Trilogy can be used standalone, but the Studio is similar to mashup of Bigquery Studio and Looker Studio - or Redash - and is designed to make exploring, modeling, and presenting data easy. Trilogy centralizes semantic and modeling in the language layer, making it perfect for data consumption work with fast feedback and iteration loops, composability, and reuse.  \n\nThis dashboard is based on a demo model (the common TPC-H dataset) and runs using DuckDB WASM in your browser. Dashboards should work well on desktop or mobile, though drilldown is not supported on mobile. If you want to play around with more interesting data, the 'share & explore' option on the sidebar has a list of public datasets you can import from BigQuery, DuckDB, and Snowflake. (the [satellite dashboard](https://trilogydata.dev/trilogy-studio-core/#screen=dashboard-import&import=https%3A%2F%2Ftrilogy-data.github.io%2Ftrilogy-public-models%2Fstudio%2Fgcat_space.json&dashboard=satellite_dashboard&modelName=gcat_space&connection=duckdb) is a fun different view). You can also directly query data through the 'editors' on the top left of the left-hand nav. \n\nNote: This dashboard is in view mode by default; click the mode dropdown in the top right to change to edit or fullscreen. We'd recommend staying in view mode to scan the dashboard, then trying to edit. Feel free to destroy the dashboard - it's local to you. \n\nBut first, some charts: we're looking at {order_id_count} orders from customers in {order_customer_nation_id_count} countries, ordering parts from suppliers in {part_supplier_nation_id_count} nations. Each of these views is a simple SQL query + some lightweight chart configuration - and they can all freely cross-filter and interact. We'll explains some features as you scroll down. \n\nWe'll start with some basic headline metrics and a bar chart. ",
+        "markdown": "[Trilogy Studio](https://github.com/trilogy-data/trilogy-studio-core) a SQL-centric analytics tool based on a custom SQL variant - [Trilogy](https://trilogydata.dev/). Trilogy centralizes semantic and modeling in the language layer, making it perfect for data consumption work with fast feedback and iteration loops, composability, and reuse.  \n\nThis dashboard is based on the common TPC-H dataset - we {order_id_count} orders with current filters - and runs using DuckDB WASM in your browser. Dashboards should work well on both desktop and mobile - data shouldn't stop if you're on the go. You can also directly query data through the 'editors' on the top left of the left-hand nav. \n\n:::tip\nThis dashboard is in view mode by default; click the mode dropdown in the top right to change to edit or fullscreen. We'd recommend staying in view mode to scan the dashboard, then trying to edit. Feel free to destroy the dashboard - it's local to you. \n:::",
         "query": "select order.id.count, order.customer.nation.id.count,part.supplier.nation.id.count;"
       },
-      "name": "Note 0",
-      "width": 1957,
-      "height": 235,
+      "name": "# Overview",
+      "width": 1054,
+      "height": 234,
       "conceptFilters": [],
       "filters": [],
       "chartFilters": [],
@@ -112,9 +133,9 @@
     "1": {
       "type": "chart",
       "content": "\r\n \r\n# Selecting total revenue\r\n# Total revenue is based on the extended price minus discount\r\nselect \r\n    local.total_revenue,\r\n    sum(quantity) as total_items_sold,\r\n    count(order.id) as total_orders,\r\n    count(order.customer.id) as total_customers  ;",
-      "name": "Headline Metrics",
-      "width": 1957,
-      "height": 75,
+      "name": "## Headline Metrics",
+      "width": 1054,
+      "height": 74,
       "chartConfig": {
         "chartType": "headline",
         "xField": "total_revenue",
@@ -137,8 +158,8 @@
       "type": "chart",
       "content": "\nSELECT\n    part.type,\n    total_revenue,\n    avg(discount) as avg_discount\nHAVING\n    total_revenue > 0\n\nORDER BY\n    total_revenue desc\nLIMIT 15\n;",
       "name": "Top 15 Parts By Sales",
-      "width": 777,
-      "height": 275,
+      "width": 416,
+      "height": 274,
       "conceptFilters": [],
       "filters": [],
       "chartConfig": {
@@ -164,8 +185,8 @@
       "type": "chart",
       "content": " \n# This query selects the count of local.id \n# for each country, representing items sold to each country. \n\nselect \n    order.customer.nation.name, \n    sum(quantity) as items_sold \nhaving \n    items_sold > 0;\n\n",
       "name": "Sales By Country",
-      "width": 974,
-      "height": 275,
+      "width": 522,
+      "height": 274,
       "conceptFilters": [],
       "filters": [],
       "chartFilters": [],
@@ -187,9 +208,9 @@
     "7": {
       "type": "chart",
       "content": " \n# Query to get total sales by supplier \n# Total sales is calculated as the extended price minus discount\n\nselect \n    part.supplier.nation.name, \n    count(part.supplier.id) as nation_supplier_count,\n    total_revenue\nhaving total_revenue > 0 \norder by\n    total_revenue desc\n; \n",
-      "name": "Supplier Info",
-      "width": 1957,
-      "height": 235,
+      "name": "Supplier Analysis",
+      "width": 1054,
+      "height": 234,
       "chartFilters": [],
       "chartConfig": {
         "chartType": "bar",
@@ -204,10 +225,10 @@
     },
     "8": {
       "type": "chart",
-      "content": "select \n    order.customer.nation.region.id as region_id,\n    order.customer.nation.region.name,\n    count(order.id) as order_count,\n    sum(order.total_price) as total_sales \nwhere \n    order.customer.nation.region.id is not null;\n",
+      "content": "select \n    order.customer.nation.region.id,\n    order.customer.nation.region.name,\n    count(order.id) as order_count,\n    sum(order.total_price) as total_sales \nwhere \n    order.customer.nation.region.id is not null;\n",
       "name": "Regional Sales",
-      "width": 581,
-      "height": 275,
+      "width": 309,
+      "height": 274,
       "chartConfig": {
         "chartType": "barh",
         "xField": "order_count",
@@ -227,14 +248,15 @@
       "filters": [],
       "chartFilters": [],
       "parameters": {},
-      "allowCrossFilter": true
+      "allowCrossFilter": true,
+      "drilldown": null
     },
     "9": {
       "type": "chart",
       "content": "select\n  order.date.month_start,\n  part.supplier.nation.name,\n  sum(local.revenue) as monthly_revenue;\n",
       "name": "Revenue Trends",
-      "width": 1957,
-      "height": 195,
+      "width": 1054,
+      "height": 194,
       "chartConfig": {
         "chartType": "area",
         "xField": "order_date_month_start",
@@ -250,47 +272,25 @@
     "10": {
       "type": "markdown",
       "content": {
-        "markdown": "# Filtering\nYou can click on one of the countries above to filter by suppliers located in it. Try shift-clicking to select a few. (currently selected: {part_supplier_id_count} suppliers, {nation_count} countries.) Click on chart background to clear. You can also add more traditional filters, like these widgets to the right/bottom (if you're on mobile). There's a global dashboard filter bar at top too, which is most useful if you have an LLM hooked up. \n\nOn the time chart below, you can do a classic click-drag to filter to a range.",
+        "markdown": "You can click on one of the countries above to filter by suppliers located in it. Try shift-clicking to select a few. (currently selected: {part_supplier_id_count} suppliers, {nation_count} countries.) Click on chart background to clear. You can also add more traditional filters, like these widgets to the right/bottom (if you're on mobile). There's a global dashboard filter bar at top too, which is most useful if you have an LLM hooked up. \n\nOn the time chart below, you can do a classic click-drag to filter to a range.",
         "query": "SELECT part.supplier.id.count, part.supplier.nation.id.count as nation_count;"
       },
-      "name": "Note 10",
-      "width": 974,
-      "height": 155,
+      "name": "Cross-Filtering",
+      "width": 522,
+      "height": 154,
       "allowCrossFilter": true,
       "conceptFilters": [],
       "filters": []
     },
-    "11": {
-      "type": "filter",
-      "content": "select \nline_status",
-      "name": "Note 11",
-      "width": 974,
-      "height": -5,
-      "allowCrossFilter": true,
-      "conceptFilters": [],
-      "filters": [],
-      "chartFilters": []
-    },
-    "12": {
-      "type": "filter",
-      "content": "select \nship_mode",
-      "name": "Note 11",
-      "width": 974,
-      "height": -5,
-      "allowCrossFilter": true,
-      "conceptFilters": [],
-      "filters": [],
-      "chartFilters": []
-    },
     "13": {
       "type": "markdown",
       "content": {
-        "markdown": "### Basic Filters\n\nAre currently quite basic; date support/multi-select and others should come soon.",
+        "markdown": "Basic filters are widgets to render a select statement as a select, multi-select, or date selector. Use to create tailored filtering experiences to supplement the global filter bar.",
         "query": ""
       },
-      "name": "Note 13",
-      "width": 974,
-      "height": 75,
+      "name": "Basic Filters",
+      "width": 522,
+      "height": 74,
       "allowCrossFilter": true,
       "conceptFilters": [],
       "filters": []
@@ -298,12 +298,12 @@
     "14": {
       "type": "markdown",
       "content": {
-        "markdown": "# Drilldowns\n\nCtrl-click to drill down into a value, which will let you select any drilldown value to split the chart by after filtering to the selected value. Try drilling down in any of the charts. Drilldowns can be infinitely nested. \n\nYou can revert a drilldown through a button available on the right on mouse-over, which will return the chart to an original view. Drilldowns are also available when just running queries in the IDE.",
+        "markdown": "Ctrl-click to drill down into a value, which will let you select any drilldown value to split the chart by after filtering to the selected value. Try drilling down in any of the charts. Drilldowns can be infinitely nested. \n\nYou can revert a drilldown through a button available on the right on mouse-over, which will return the chart to an original view. Drilldowns are also available when just running queries in the IDE.",
         "query": ""
       },
-      "name": "Note 14",
-      "width": 581,
-      "height": 275,
+      "name": "Drilldowns",
+      "width": 309,
+      "height": 274,
       "allowCrossFilter": true,
       "conceptFilters": [],
       "filters": []
@@ -311,20 +311,66 @@
     "15": {
       "type": "markdown",
       "content": {
-        "markdown": "# Configuring Charts\n\nThe studio attempts to pick the right visual by default. For example, a field that is a lat/long or a country name in the select will default to a map view. How to display fields is inferred up from \"traits\" associated in the semantic model. Trilogy handles appropriately passing these traits through transformations and clients can optionally consume these, as the Studio does. You can further customize the visuals - the perfect visual can't always be inferred - but if you can fix the display by fixing the model, that's the best for reuse. \n\n```trilogy\nimport std.geography; # access the country type\nproperty id.name string::country; # capitalized; eg UNITED STATES or FRANCE or CANADA\n```\n\n",
+        "markdown": "The studio attempts to pick the right visual by default. For example, a field that is a lat/long or a country name in the select will default to a map view. How to display fields is inferred up from \"traits\" associated in the semantic model. Trilogy handles appropriately passing these traits through transformations and clients can optionally consume these, as the Studio does. You can further customize the visuals - the perfect visual can't always be inferred - but if you can fix the display by fixing the model, that's the best for reuse. \n\n```trilogy\nimport std.geography; # access the country type\nproperty id.name string::country; # capitalized; eg UNITED STATES or FRANCE or CANADA\n```\n\n",
         "query": ""
       },
-      "name": "Note 15",
-      "width": 974,
-      "height": 275,
+      "name": "Configuring Charts",
+      "width": 522,
+      "height": 274,
       "allowCrossFilter": true,
       "conceptFilters": [],
       "filters": []
+    },
+    "16": {
+      "type": "filter",
+      "content": "select line_status;",
+      "name": "Example Filter - Line Status",
+      "width": 522,
+      "height": 34,
+      "allowCrossFilter": true,
+      "conceptFilters": [],
+      "filters": []
+    },
+    "17": {
+      "type": "section-header",
+      "content": "",
+      "name": "### Basic Charts",
+      "width": 1054,
+      "height": 30,
+      "allowCrossFilter": false,
+      "conceptFilters": []
+    },
+    "18": {
+      "type": "section-header",
+      "content": "",
+      "name": "### Filtering",
+      "width": 1054,
+      "height": 30,
+      "allowCrossFilter": false,
+      "conceptFilters": []
+    },
+    "19": {
+      "type": "section-header",
+      "content": "",
+      "name": "### Drilldowns",
+      "width": 1054,
+      "height": 30,
+      "allowCrossFilter": false,
+      "conceptFilters": []
+    },
+    "20": {
+      "type": "section-header",
+      "content": "",
+      "name": "### Visuals",
+      "width": 1054,
+      "height": 30,
+      "allowCrossFilter": false,
+      "conceptFilters": []
     }
   },
-  "nextId": 16,
+  "nextId": 21,
   "createdAt": "2025-11-02T21:04:47.192Z",
-  "updatedAt": "2025-11-09T22:59:49.405Z",
+  "updatedAt": "2026-03-20T12:58:29.633Z",
   "filter": "",
   "imports": [
     {
@@ -333,6 +379,6 @@
     }
   ],
   "version": 1,
-  "state": "editing",
+  "state": "published",
   "description": ""
 }
