@@ -1,0 +1,27 @@
+import albums as albums;
+import genres as genres;
+import media_types as media_types;
+
+key id int;
+property id.name string;
+property id.composer string;
+property id.milliseconds int;
+property id.bytes int;
+property id.unit_price float;
+
+auto count <- count(id);
+auto total_duration_ms <- sum(milliseconds);
+
+datasource tracks (
+    TrackId:id,
+    Name:name,
+    AlbumId:albums.id,
+    MediaTypeId:media_types.id,
+    GenreId:genres.id,
+    Composer:?composer,
+    Milliseconds:milliseconds,
+    Bytes:?bytes,
+    UnitPrice:unit_price,
+)
+grain (id)
+address tracks;

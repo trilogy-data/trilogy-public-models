@@ -1,0 +1,102 @@
+{
+  "components": [
+    {
+      "alias": "albums",
+      "name": "albums",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/albums.preql"
+    },
+    {
+      "alias": "artists",
+      "name": "artists",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/artists.preql"
+    },
+    {
+      "alias": "customers",
+      "name": "customers",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/customers.preql"
+    },
+    {
+      "alias": "employee_hierarchy",
+      "name": "employee_hierarchy",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/employee_hierarchy.preql"
+    },
+    {
+      "alias": "employees",
+      "name": "employees",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/employees.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/entrypoint.preql"
+    },
+    {
+      "alias": "genres",
+      "name": "genres",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/genres.preql"
+    },
+    {
+      "alias": "invoice_items",
+      "name": "invoice_items",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/invoice_items.preql"
+    },
+    {
+      "alias": "invoices",
+      "name": "invoices",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/invoices.preql"
+    },
+    {
+      "alias": "media_types",
+      "name": "media_types",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/media_types.preql"
+    },
+    {
+      "alias": "playlist_track",
+      "name": "playlist_track",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/playlist_track.preql"
+    },
+    {
+      "alias": "playlists",
+      "name": "playlists",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/playlists.preql"
+    },
+    {
+      "alias": "tracks",
+      "name": "tracks",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/tracks.preql"
+    }
+  ],
+  "description": "chinook dataset for sqlite",
+  "engine": "sqlite",
+  "link": "",
+  "name": "chinook",
+  "tags": [
+    "sqlite"
+  ]
+}

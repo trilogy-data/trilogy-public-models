@@ -1,0 +1,14 @@
+import artists as artists;
+
+key id int;
+property id.title string;
+
+auto count <- count(id);
+
+datasource albums (
+    AlbumId:id,
+    Title:title,
+    ArtistId:artists.id,
+)
+grain (id)
+address albums;

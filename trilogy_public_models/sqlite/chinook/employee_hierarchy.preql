@@ -1,0 +1,8 @@
+import employees;
+import employees as root_manager;
+import employees as direct_manager;
+
+auto recursive_manager <- recurse_edge(id, reports_to);
+
+merge recursive_manager into root_manager.id;
+merge reports_to into direct_manager.id;

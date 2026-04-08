@@ -1,0 +1,27 @@
+import customers as customers;
+
+key id int;
+property id.invoice_date datetime;
+property id.billing_address string;
+property id.billing_city string;
+property id.billing_state string;
+property id.billing_country string;
+property id.billing_postal_code string;
+property id.total float;
+
+auto count <- count(id);
+auto total_revenue <- sum(total);
+
+datasource invoices (
+    InvoiceId:id,
+    CustomerId:customers.id,
+    InvoiceDate:invoice_date,
+    BillingAddress:?billing_address,
+    BillingCity:?billing_city,
+    BillingState:?billing_state,
+    BillingCountry:?billing_country,
+    BillingPostalCode:?billing_postal_code,
+    Total:total,
+)
+grain (id)
+address invoices;

@@ -1,0 +1,9 @@
+import playlists as playlists;
+import tracks as tracks;
+
+datasource playlist_track (
+    PlaylistId:playlists.id,
+    TrackId:tracks.id,
+)
+grain (playlists.id, tracks.id)
+address playlist_track;
