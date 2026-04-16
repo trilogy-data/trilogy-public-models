@@ -13,7 +13,7 @@ key _end_station_id int; # End Station ID
 key user_type string; # User Type (Customer = 24-hour pass or 7-day pass user, Subscriber = Annual Member)
 
 # picking an arbitrary row to count off of
-metric ride_count<-count(start_time);
+metric count<-count(start_time);
 
 metric total_duration <- sum(duration);
 

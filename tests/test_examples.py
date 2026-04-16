@@ -14,7 +14,6 @@ SKIPPED_MODELS = {"bigquery.age_of_empires_2", "duckdb.titanic"}
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {
     ("duckdb.faa", "flights.json#0"),
-    ("bigquery.new_york_citibike", "script.preql"),
 }
 
 
