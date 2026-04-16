@@ -19,6 +19,8 @@ key id2 int; # Unique identifier for the flight
 auto count <-count(id2);
 auto total_distance <-sum(distance);
 
+auto dep_time.month_start <- date_trunc(dep_time, month);
+
 datasource flight (
 	carrier:~carrier.code,
 	origin:origin.code,

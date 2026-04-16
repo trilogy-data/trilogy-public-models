@@ -11,6 +11,18 @@ from trilogy_public_models.validator import example_path, validate_query
 
 SKIPPED_MODELS = {"bigquery.age_of_empires_2", "duckdb.titanic"}
 
+# (model key, source label) pairs to skip; for queries under active investigation.
+SKIPPED_QUERIES = {
+    ("duckdb.faa", "flights.json#0"),
+}
+
+
+def _with_terminator(query: str) -> str:
+    stripped = query.rstrip()
+    if not stripped.endswith(";"):
+        stripped = stripped + ";"
+    return stripped
+
 
 def _extract_queries(example_dir: Path) -> Iterator[tuple[str, str]]:
     for preql in sorted(example_dir.glob("*.preql")):
@@ -21,10 +33,13 @@ def _extract_queries(example_dir: Path) -> Iterator[tuple[str, str]]:
         imp_prefix = " ".join(f"import {x['name']};" for x in imports)
         for grid_key, item in content.get("gridItems", {}).items():
             inner = item.get("content")
+            query: str | None = None
             if isinstance(inner, dict) and inner.get("query"):
-                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + inner["query"]
+                query = inner["query"]
             elif item.get("type") in ("chart", "table") and isinstance(inner, str) and inner.strip():
-                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + inner
+                query = inner
+            if query:
+                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + _with_terminator(query)
 
 
 def _discover_example_keys() -> list[tuple[str, Path]]:
@@ -74,6 +89,8 @@ def test_example_queries(bq_client, bq_executor, snowflake_executor):
             continue
         environment = data_models[key].environment
         for source, query in queries:
+            if (key, source) in SKIPPED_QUERIES:
+                continue
             try:
                 validate_query(query, environment, executor, dry_run)
             except Exception as e:

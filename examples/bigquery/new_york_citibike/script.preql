@@ -1,3 +1,4 @@
+import trips as trip;
 
 property trip.year<-year(trip.start_time);
 
