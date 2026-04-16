@@ -49,6 +49,12 @@ def test_models(bq_client, bq_executor, snowflake_executor):
                     single_model, key, model.environment, trilogy_executor, None
                 )
                 results.append(future)
+            elif "sqlite" in key:
+                trilogy_executor = get_executor(key)
+                future = executor.submit(
+                    single_model, key, model.environment, trilogy_executor, None
+                )
+                results.append(future)
             else:
                 raise NotImplementedError(f"Model {key} not supported")
     for future in results:

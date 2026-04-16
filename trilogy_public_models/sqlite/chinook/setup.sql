@@ -1,3 +1,0 @@
--- Chinook database is a pre-built SQLite database file (chinook.db)
--- included in the same directory. No setup required.
--- Connect using the chinook.db file as the SQLite database path.

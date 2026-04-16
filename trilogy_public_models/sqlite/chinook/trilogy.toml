@@ -1,5 +1,5 @@
 [engine]
 dialect = "sqlite"
 
-[setup]
-sql = ['setup.sql']
+[engine.config]
+path = "chinook.db"

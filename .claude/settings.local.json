@@ -3,7 +3,8 @@
     "allow": [
       "Bash(sqlite3 chinook.db \".tables\")",
       "Bash(python -c \"import sqlite3; conn=sqlite3.connect\\('trilogy_public_models/sqlite/chinook/chinook.db'\\); c=conn.cursor\\(\\); c.execute\\(\\\\\"SELECT sql FROM sqlite_master WHERE type='table'\\\\\"\\); [print\\(r[0]\\) for r in c.fetchall\\(\\) if r[0]]\")",
-      "Bash(python -c ':*)"
+      "Bash(python -c ':*)",
+      "Bash(python -c ' *)"
     ]
   }
 }
