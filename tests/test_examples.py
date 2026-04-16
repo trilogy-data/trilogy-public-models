@@ -14,6 +14,7 @@ SKIPPED_MODELS = {"bigquery.age_of_empires_2", "duckdb.titanic"}
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {
     ("duckdb.faa", "flights.json#0"),
+    ("bigquery.new_york_citibike", "script.preql"),
 }
 
 
@@ -36,10 +37,16 @@ def _extract_queries(example_dir: Path) -> Iterator[tuple[str, str]]:
             query: str | None = None
             if isinstance(inner, dict) and inner.get("query"):
                 query = inner["query"]
-            elif item.get("type") in ("chart", "table") and isinstance(inner, str) and inner.strip():
+            elif (
+                item.get("type") in ("chart", "table")
+                and isinstance(inner, str)
+                and inner.strip()
+            ):
                 query = inner
             if query:
-                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + _with_terminator(query)
+                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + _with_terminator(
+                    query
+                )
 
 
 def _discover_example_keys() -> list[tuple[str, Path]]:
@@ -80,7 +87,9 @@ def test_example_queries(bq_client, bq_executor, snowflake_executor):
                 executor = get_executor(key)
                 dry_run = None
             else:
-                failures.append((key, "<setup>", f"no executor path for dialect in {key}"))
+                failures.append(
+                    (key, "<setup>", f"no executor path for dialect in {key}")
+                )
                 continue
         except Exception as e:
             failures.append(

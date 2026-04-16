@@ -8,7 +8,7 @@ from pathlib import Path
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
-    conf = None
+    conf: DuckDBConfig | SQLiteConfig | None = None
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
