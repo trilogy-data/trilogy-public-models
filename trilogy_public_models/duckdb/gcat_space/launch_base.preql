@@ -94,7 +94,7 @@ datasource launch_info (
     Launch_Pad: launch_pad,
     Ascent_Site: ascent_site,
     Ascent_Pad: ascent_pad,
-    Apogee: apogee,
+    Apogee: ?apogee,
     Apoflag: apo_flag,
     Range: range,
     RangeFlag: range_flag,
