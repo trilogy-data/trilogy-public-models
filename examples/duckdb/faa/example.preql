@@ -7,6 +7,7 @@ auto flight_date <- flight.dep_time::date;
 auto flight_count <- count(id);
 
 # datasources can be read from or written to
+# use this to write to 
 datasource daily_airplane_usage (
     flight_date,
     flight.aircraft.model.name,
