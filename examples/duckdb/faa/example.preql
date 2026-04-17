@@ -13,5 +13,5 @@ datasource daily_airplane_usage (
     flight_count
 )
 grain(flight_date, flight.model.name)
-file `./daily_airplane_usage.parquet`
+address daily_airplane_usage
 ;
