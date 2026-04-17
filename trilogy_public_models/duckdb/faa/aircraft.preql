@@ -25,7 +25,8 @@ property id.fract_owner string; # fractional ownership flag; "Y" if aircraft is 
 property id.last_action_date date; # date of the most recent FAA registration action on this aircraft
 property id.cert_issue_date date; # date the current registration certificate was issued
 property id.air_worth_date date; # date of the current airworthiness certificate; null if never issued
-datasource aircraft (
+
+root datasource aircraft (
     id:id,
     tail_num:tail_num,
     aircraft_serial:serial,
@@ -54,7 +55,8 @@ datasource aircraft (
 )
 grain (id)
 address aircraft;
-datasource aircraft_tail_num (
+
+root datasource aircraft_tail_num (
     id:id,
     tail_num:tail_num,
     aircraft_serial:serial,

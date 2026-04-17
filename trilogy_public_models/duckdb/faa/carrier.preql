@@ -3,7 +3,7 @@ key code string; # two-letter IATA carrier code; eg UA (United), AA (American), 
 property code.name string; # full legal airline name; eg "United Airlines", "American Trans Air, Inc."
 property code.nickname string; # short/marketing name; eg "United", "USAir", "ATA"
 
-datasource carrier (
+root datasource carrier (
 	code:code,
 	name:name,
 	nickname:nickname,

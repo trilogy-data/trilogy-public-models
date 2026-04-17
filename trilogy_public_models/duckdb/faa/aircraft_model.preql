@@ -11,7 +11,7 @@ property code.seats int; # number of seats (including crew); 0-660, avg ~7
 property code.weight int; # max gross takeoff weight; all zeros in this dataset - not populated
 property code.speed int; # cruising speed in mph/knots; 0-1612, often 0 (not populated)
 
-datasource aircraft_model (
+root datasource aircraft_model (
 	aircraft_model_code:code,
 	manufacturer:manufacturer,
 	model:name,

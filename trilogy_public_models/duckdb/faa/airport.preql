@@ -28,7 +28,8 @@ property id.mil_rts string; # military landing rights flag: Y / N / null
 property id.cntl_twr string; # FAA air-traffic control tower on the field: Y / N (669 airports with towers)
 property id.major string; # major airport flag: Y / N; only 270 airports flagged as major in the dataset
 auto count <- count(id);
-datasource airport (
+
+root datasource airport (
     id:id,
     code:code,
     site_number:site_number,
