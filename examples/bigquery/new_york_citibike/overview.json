@@ -96,7 +96,7 @@
     },
     "2": {
       "type": "chart",
-      "content": "\nselect  \n    round(duration/60, 0) as duration_bucket,  \n    count(start_time) as trip_count  \nhaving trip_count>10\nand duration_bucket <120\norder by  \n    duration_bucket asc\n",
+      "content": "\nselect  \n    round(duration/60, 0) as duration_bucket,  \n    count(start_time) as trip_count  \nhaving trip_count>10\nand duration_bucket <120\norder by  \n    duration_bucket asc\n;",
       "name": "Trip Duration Distribution",
       "width": 736,
       "height": 235,
