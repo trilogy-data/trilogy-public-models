@@ -47,14 +47,14 @@
   "gridItems": {
     "0": {
       "type": "chart",
-      "content": "select \r\n    aircraft.model.model, \r\n    aircraft.model.manufacturer, \r\n    count,\r\norder by count desc\r\nlimit 15;",
+      "content": "select \r\n    aircraft.model.name, \r\n    aircraft.model.manufacturer, \r\n    count,\r\norder by count desc\r\nlimit 15;",
       "name": "Chart 0",
       "width": 427,
       "height": 395,
       "chartConfig": {
         "chartType": "barh",
         "xField": "count",
-        "yField": "aircraft_model_model",
+        "yField": "aircraft_model_name",
         "yField2": "",
         "yAggregation": "sum",
         "colorField": "aircraft_model_manufacturer",
@@ -93,7 +93,7 @@
     },
     "2": {
       "type": "table",
-      "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.model,\r\n    sum(group(aircraft.model.seats) by id ) as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
+      "content": "select\r\n    origin.full_name,\r\n    count,\r\n    aircraft.model.name,\r\n    sum(group(aircraft.model.seats) by id ) as total_seats,\r\n    aircraft.model.manufacturer,\r\n    carrier.name,\r\norder by \r\n    count desc",
       "name": "Table 2",
       "width": 863,
       "height": 275,
@@ -103,7 +103,7 @@
     },
     "3": {
       "type": "chart",
-      "content": "select count,\r\nsum(\r\n    group(aircraft.model.seats) \r\nby id) as seats_flown,\r\ncount(carrier.name) as carrier_count,\r\ncount(\r\n    aircraft.model.model) as model_count",
+      "content": "select count,\r\nsum(\r\n    group(aircraft.model.seats) \r\nby id) as seats_flown,\r\ncount(carrier.name) as carrier_count,\r\ncount(\r\n    aircraft.model.name) as model_count",
       "name": "Chart 3",
       "width": 863,
       "height": 75,
