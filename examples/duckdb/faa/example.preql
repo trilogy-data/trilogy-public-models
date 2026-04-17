@@ -9,9 +9,9 @@ auto flight_count <- count(id);
 # datasources can be read from or written to
 datasource daily_airplane_usage (
     flight_date,
-    flight.model.name,
+    flight.aircraft.model.name,
     flight_count
 )
-grain(flight_date, flight.model.name)
+grain(flight_date, flight.aircraft.model.name)
 address daily_airplane_usage
 ;
