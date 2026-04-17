@@ -1,5 +1,5 @@
 from trilogy import Executor, Dialects
-from trilogy.dialect import DuckDBConfig
+from trilogy.dialect import DuckDBConfig, SQLiteConfig
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
 from pathlib import Path
@@ -8,7 +8,7 @@ from pathlib import Path
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
-    conf = None
+    conf: DuckDBConfig | SQLiteConfig | None = None
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
@@ -16,6 +16,12 @@ def get_executor(
         conf = DuckDBConfig(enable_gcs=True, enable_python_datasources=True)
     elif "snowflake" in model:
         dialect = Dialects.SNOWFLAKE
+    elif "sqlite" in model:
+        dialect = Dialects.SQLITE
+        model_dir = Path(__file__).parent / model.replace(".", "/")
+        db_files = sorted(model_dir.glob("*.db"))
+        if db_files:
+            conf = SQLiteConfig(path=str(db_files[0]))
     else:
         raise NotImplementedError(f"Model {model} not supported")
     loaded = data_models[model]

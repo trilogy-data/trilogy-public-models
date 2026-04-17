@@ -1,0 +1,12 @@
+
+key id int;
+property id.name enum<string>['Alternative', 'Alternative & Punk', 'Blues', 'Bossa Nova', 'Classical', 'Comedy', 'Drama', 'Easy Listening', 'Electronica/Dance', 'Heavy Metal', 'Hip Hop/Rap', 'Jazz', 'Latin', 'Metal', 'Opera', 'Pop', 'R&B/Soul', 'Reggae', 'Rock', 'Rock And Roll', 'Sci Fi & Fantasy', 'Science Fiction', 'Soundtrack', 'TV Shows', 'World'];
+
+auto count <- count(id);
+
+datasource genres (
+    GenreId:id,
+    Name:name,
+)
+grain (id)
+address genres;

@@ -1,0 +1,34 @@
+import employees as support_rep;
+
+key id int;
+property id.first_name string;
+property id.last_name string;
+property id.company string;
+property id.address string;
+property id.city string;
+property id.state string;
+property id.country string;
+property id.postal_code string;
+property id.phone string;
+property id.fax string;
+property id.email string;
+
+auto count <- count(id);
+
+datasource customers (
+    CustomerId:id,
+    FirstName:first_name,
+    LastName:last_name,
+    Company:?company,
+    Address:?address,
+    City:?city,
+    State:?state,
+    Country:?country,
+    PostalCode:?postal_code,
+    Phone:?phone,
+    Fax:?fax,
+    Email:email,
+    SupportRepId:?support_rep.id,
+)
+grain (id)
+address customers;

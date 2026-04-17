@@ -1,0 +1,12 @@
+
+key id int;
+property id.name string;
+
+auto count <- count(id);
+
+datasource playlists (
+    PlaylistId:id,
+    Name:name,
+)
+grain (id)
+address playlists;

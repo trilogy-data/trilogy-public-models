@@ -1,0 +1,19 @@
+import invoices as invoices;
+import tracks as tracks;
+
+key id int;
+property id.unit_price float;
+property id.quantity int;
+
+auto count <- count(id);
+auto total_quantity <- sum(quantity);
+
+datasource invoice_items (
+    InvoiceLineId:id,
+    InvoiceId:invoices.id,
+    TrackId:tracks.id,
+    UnitPrice:unit_price,
+    Quantity:quantity,
+)
+grain (id)
+address invoice_items;

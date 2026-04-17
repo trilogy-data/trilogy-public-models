@@ -1,0 +1,10 @@
+
+key id int;
+property id.name enum<string>['AAC audio file', 'MPEG audio file', 'Protected AAC audio file', 'Protected MPEG-4 video file', 'Purchased AAC audio file'];
+
+datasource media_types (
+    MediaTypeId:id,
+    Name:name,
+)
+grain (id)
+address media_types;

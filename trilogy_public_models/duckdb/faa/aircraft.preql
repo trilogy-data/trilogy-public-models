@@ -1,31 +1,32 @@
 import std.geography;
 import std.date;
 import aircraft_model as model;
-key id int;
-property id.tail_num string;
-property id.serial string;
-property id.engine_code string;
-property id.year_built int::year;
-property id.type_id int;
-property id.engine_type_id int;
-property id.registrant_type_id int;
-property id.name string;
-property id.address1 string;
-property id.address2 string;
-property id.city string;
-property id.state string::us_state_short; # the state of the aricraft registration; unrelated to flights.
-property id.zip string;
-property id.region string;
-property id.county string;
-property id.country string::country; # the country of the aricraft registration; unrelated to flights.
-property id.certification string;
-property id.status_code string;
-property id.mode_s_code string;
-property id.fract_owner string;
-property id.last_action_date date;
-property id.cert_issue_date date;
-property id.air_worth_date date;
-datasource aircraft (
+key id int; # surrogate integer primary key for the aircraft registration record
+property id.tail_num string; # FAA N-number / tail number painted on the aircraft; eg "N10036"; joins to flight.tail_num
+property id.serial string; # manufacturer's aircraft serial number (MSN); uniquely identifies the airframe within a manufacturer
+property id.engine_code string; # FAA engine make/model code for the installed engine; often null
+property id.year_built int::year; # year the airframe was manufactured; 0 indicates unknown/unset, max 2005 for this dataset
+property id.type_id int; # FAA aircraft type code: 1=Glider, 2=Balloon, 3=Blimp, 4=Fixed-wing single-engine, 5=Fixed-wing multi-engine, 6=Rotorcraft, 8=Powered Parachute
+property id.engine_type_id int; # FAA engine type code: 0=None, 1=Reciprocating, 2=Turbo-prop, 3=Turbo-shaft, 4=Turbo-jet
+property id.registrant_type_id int; # registrant/owner type: 1=Individual, 2=Partnership, 3=Corporation, 4=Co-Owned, 5=Government, 7=LLC, 8=Non-Citizen Corp, 9=Non-Citizen Co-Owned
+property id.name string; # registrant name as filed with the FAA (individual or company); uppercase
+property id.address1 string; # registrant mailing street address line 1
+property id.address2 string; # registrant mailing street address line 2; usually null
+property id.city string; # registrant mailing city; uppercase
+property id.state string::us_state_short; # the state of the aircraft registration; unrelated to flights.
+property id.zip string; # registrant ZIP code (5 or ZIP+4 format)
+property id.region string; # FAA region code of the registrant (single character code, not the 3-letter airport faa_region)
+property id.county string; # registrant county (FIPS-style 3-digit county code; eg "013")
+property id.country string::country; # the country of the aircraft registration; unrelated to flights.
+property id.certification string; # FAA airworthiness certification classes held; concatenated code digits, eg "1N" (standard/normal), "1NU" (standard/normal+utility)
+property id.status_code string; # FAA registration status: A=Valid, V=Valid (registered), plus numeric/letter codes for expired, revoked, sold, deregistered, etc.
+property id.mode_s_code string; # Mode-S transponder ICAO 24-bit address in octal form; uniquely identifies the aircraft over the air
+property id.fract_owner string; # fractional ownership flag; "Y" if aircraft is fractionally owned (NetJets etc.), otherwise null
+property id.last_action_date date; # date of the most recent FAA registration action on this aircraft
+property id.cert_issue_date date; # date the current registration certificate was issued
+property id.air_worth_date date; # date of the current airworthiness certificate; null if never issued
+
+root datasource aircraft (
     id:id,
     tail_num:tail_num,
     aircraft_serial:serial,
@@ -54,7 +55,8 @@ datasource aircraft (
 )
 grain (id)
 address aircraft;
-datasource aircraft_tail_num (
+
+root datasource aircraft_tail_num (
     id:id,
     tail_num:tail_num,
     aircraft_serial:serial,

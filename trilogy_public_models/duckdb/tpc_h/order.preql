@@ -10,6 +10,8 @@ property id.clerk string;
 property id.ship_priority int; #enum, one of: 1-URGENT, 2-HIGH, 3-MEDIUM, 4-NOT SPECIFIED
 property id.comment string;
 
+auto date.month_start <- date_trunc(date, month);
+
 datasource orders (
     o_orderkey: id,
     o_custkey: ~customer.id,

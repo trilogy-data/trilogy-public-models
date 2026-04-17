@@ -1,0 +1,11 @@
+import trips as trip;
+
+auto trip.year<-year(trip.start_time);
+
+SELECT
+	trip.year,
+	trip.bike.count
+ORDER BY
+    trip.year asc
+limit 100;
+

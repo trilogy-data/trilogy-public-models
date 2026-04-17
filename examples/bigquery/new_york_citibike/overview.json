@@ -96,7 +96,7 @@
     },
     "2": {
       "type": "chart",
-      "content": "\nselect  \n    round(duration/60, 0) as duration_bucket,  \n    count(start_time) as trip_count  \nhaving trip_count>10\nand duration_bucket <120\norder by  \n    duration_bucket asc\n",
+      "content": "\nselect  \n    round(duration/60, 0) as duration_bucket,  \n    count(start_time) as trip_count  \nhaving trip_count>10\nand duration_bucket <120\norder by  \n    duration_bucket asc\n;",
       "name": "Trip Duration Distribution",
       "width": 736,
       "height": 235,
@@ -190,7 +190,7 @@
     },
     "7": {
       "type": "chart",
-      "content": "\nselect\n    start_time.day_of_week,\n    start_time.hour,\n    count(start_time) as total_ride_count\norder by\n    start_time.day_of_week asc,\n    start_time.hour asc\n",
+      "content": "\nselect\n    start_time.day_of_week,\n    start_time.hour,\n    count(start_time) as total_ride_count\norder by\n    start_time.day_of_week asc,\n    start_time.hour asc\n;",
       "name": "Ride Counts by Day of Week and Hour",
       "width": 736,
       "height": 195,

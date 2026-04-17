@@ -15,11 +15,24 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/new_york_citibike/entrypoint.preql"
     },
     {
+      "name": "overview",
+      "purpose": "example",
+      "type": "dashboard",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/new_york_citibike/overview.json"
+    },
+    {
       "alias": "riders",
       "name": "riders",
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/new_york_citibike/riders.preql"
+    },
+    {
+      "alias": "script",
+      "name": "script",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/new_york_citibike/script.preql"
     },
     {
       "alias": "stations",

@@ -1,0 +1,38 @@
+
+key id int;
+property id.last_name string;
+property id.first_name string;
+property id.title enum<string>['General Manager', 'IT Manager', 'IT Staff', 'Sales Manager', 'Sales Support Agent'];
+property id.birth_date datetime;
+property id.hire_date datetime;
+property id.address string;
+property id.city string;
+property id.state string;
+property id.country string;
+property id.postal_code string;
+property id.phone string;
+property id.fax string;
+property id.email string;
+property id.reports_to int;
+
+auto count <- count(id);
+
+datasource employees (
+    EmployeeId:id,
+    LastName:last_name,
+    FirstName:first_name,
+    Title:?title,
+    ReportsTo:?reports_to,
+    BirthDate:?birth_date,
+    HireDate:?hire_date,
+    Address:?address,
+    City:?city,
+    State:?state,
+    Country:?country,
+    PostalCode:?postal_code,
+    Phone:?phone,
+    Fax:?fax,
+    Email:?email,
+)
+grain (id)
+address employees;

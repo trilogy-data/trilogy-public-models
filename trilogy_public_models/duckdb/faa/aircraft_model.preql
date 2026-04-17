@@ -1,20 +1,20 @@
 
-key code string;
-property code.manufacturer string; # uppercase manufacturer
-property code.model string;
-property code.type_id int;
-property code.engine_type_id int;
-property code.category_id int;
-property code.amateur int;
-property code.engines int;
-property code.seats int;
-property code.weight int;
-property code.speed int;
+key code string; # FAA aircraft make/model code (aka "MFR MDL Code"); 7-char alphanumeric identifier joining aircraft registrations to model specs
+property code.manufacturer string; # manufacturer name, always uppercase; eg "BOEING", "CESSNA", "WILCOX H L/WILCOX C N"
+property code.name string; # manufacturer model designation; eg "737-800", "172", "CW"
+property code.type_id int; # FAA aircraft type code: 1=Glider, 2=Balloon, 3=Blimp/Dirigible, 4=Fixed-wing single-engine (most common), 5=Fixed-wing multi-engine, 6=Rotorcraft, 7=Weight-shift-control, 8=Powered Parachute, 9=Gyroplane
+property code.engine_type_id int; # FAA engine type code: 0=None, 1=Reciprocating (most common), 2=Turbo-prop, 3=Turbo-shaft, 4=Turbo-jet, 5=Turbo-fan, 6=Ramjet, 8=Electric, 9=Rotary
+property code.category_id int; # FAA aircraft category: 1=Land (most common), 2=Sea, 3=Amphibian
+property code.amateur int; # amateur-built flag: 0=factory-built, 1=amateur-built, 2=other/unknown
+property code.engines int; # number of engines; 0-8, typically 1 or 2
+property code.seats int; # number of seats (including crew); 0-660, avg ~7
+property code.weight int; # max gross takeoff weight; all zeros in this dataset - not populated
+property code.speed int; # cruising speed in mph/knots; 0-1612, often 0 (not populated)
 
-datasource aircraft_model (
+root datasource aircraft_model (
 	aircraft_model_code:code,
 	manufacturer:manufacturer,
-	model:model,
+	model:name,
 	aircraft_type_id:type_id,
 	aircraft_engine_type_id:engine_type_id,
 	aircraft_category_id:category_id,
