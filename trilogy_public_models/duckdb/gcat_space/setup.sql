@@ -18,7 +18,7 @@ SELECT
     Launch_Pad,
     Ascent_Site,
     Ascent_Pad,
-    Apogee,
+    Apogee::float as Apogee,
     Apoflag,
     Range,
     RangeFlag,
