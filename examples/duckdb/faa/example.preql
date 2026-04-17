@@ -1,0 +1,18 @@
+import flight as flight;
+
+# derive reusable concepts
+auto flight_date <- flight.dep_time::date;
+
+# this can be properties or metrics
+auto flight_count <- count(id);
+
+# datasources can be read from or written to
+# use this to write to 
+datasource daily_airplane_usage (
+    flight_date,
+    flight.aircraft.model.name,
+    flight_count
+)
+grain(flight_date, flight.aircraft.model.name)
+address daily_airplane_usage
+;

@@ -1,4 +1,5 @@
 import traceback
+from copy import deepcopy
 from json import loads
 from pathlib import Path
 from typing import Iterator
@@ -95,7 +96,7 @@ def test_example_queries(bq_client, bq_executor, snowflake_executor):
                 (key, "<setup>", f"{type(e).__name__}: {e}\n{traceback.format_exc()}")
             )
             continue
-        environment = data_models[key].environment
+        environment = deepcopy(data_models[key].environment)
         for source, query in queries:
             if (key, source) in SKIPPED_QUERIES:
                 continue
