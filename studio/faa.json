@@ -36,6 +36,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/entrypoint.preql"
     },
     {
+      "alias": "example",
+      "name": "example",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/example.preql"
+    },
+    {
       "alias": "flight",
       "name": "flight",
       "purpose": "source",
