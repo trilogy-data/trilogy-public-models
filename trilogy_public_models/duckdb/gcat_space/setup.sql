@@ -473,7 +473,7 @@ sample_size=-1);
 
 CREATE OR REPLACE TABLE satcat AS
 SELECT
-    * EXCLUDE (ldate, ddate),
+    * EXCLUDE (ldate, ddate, apogee),
     CASE 
         WHEN TRIM(REGEXP_EXTRACT(REPLACE(ldate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)) IS NOT NULL 
              AND LENGTH(TRIM(REGEXP_EXTRACT(REPLACE(ldate, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1))) > 0
@@ -491,7 +491,8 @@ SELECT
             '%Y %b %d'
         )
         ELSE NULL
-    END::date AS ddate
+    END::date AS ddate,
+    apogee::float AS apogee
 FROM read_csv_auto(
     'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
     sample_size=-1
