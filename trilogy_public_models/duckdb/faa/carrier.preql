@@ -1,7 +1,7 @@
 
-key code string; #short, two digit code for the airline - UA for United, for example.
-property code.name string;
-property code.nickname string;
+key code string; # two-letter IATA carrier code; eg UA (United), AA (American), DL (Delta). 21 US passenger airlines active 2000-2005.
+property code.name string; # full legal airline name; eg "United Airlines", "American Trans Air, Inc."
+property code.nickname string; # short/marketing name; eg "United", "USAir", "ATA"
 
 datasource carrier (
 	code:code,

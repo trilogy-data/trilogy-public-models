@@ -1,32 +1,32 @@
 import std.geography;
 
-key id int;
-property id.code string;
-property id.site_number string;
-property id.fac_type string;
-property id.fac_use string;
-property id.faa_region string; # capitalized, FAA region; eg ASO | AWP | AEA | ASW | AGL | ANM | ANE | AAL | ALP
-property id.faa_dist string;
+key id int; # surrogate integer primary key for the airport / facility record
+property id.code string; # 3-char FAA location identifier (LID); eg "JFK", "ORD", "1Q9"; joins to flight.origin and flight.destination
+property id.site_number string; # FAA site number, the authoritative identifier within the FAA Airport Master Record; eg "51518.6*A"
+property id.fac_type string; # facility type: AIRPORT (~14k), HELIPORT (~5k), SEAPLANE BASE, ULTRALIGHT, STOLPORT, GLIDERPORT, BALLOONPORT
+property id.fac_use string; # facility use: PU=Public-use, PR=Private-use (Private majority ~14k vs Public ~5k)
+property id.faa_region string; # capitalized 3-letter FAA region code; eg ASO | AWP | AEA | ASW | AGL | ANM | ANE | AAL | ACE
+property id.faa_dist string; # 3-letter FAA Airports District Office (ADO) code, eg "ATL", "NYC", "SFO"; "NONE" for unassigned
 property id.city string::city; # capitalized; eg NEW YORK or BURLIGNTON
-property id.county string;
+property id.county string; # county name where the airport is located (uppercase)
 property id.state string::us_state_short; # short state name; eg VT
-property id.full_name string;
-property id.own_type string;
-property id.longitude float::longitude;
-property id.latitude float::latitude;
-property id.elevation int;
-property id.aero_cht string;
-property id.cbd_dist int;
-property id.cbd_dir string;
-property id.act_date string;
-property id.cert string;
-property id.fed_agree string;
-property id.cust_intl string;
-property id.c_ldg_rts string;
-property id.joint_use string;
-property id.mil_rts string;
-property id.cntl_twr string;
-property id.major string;
+property id.full_name string; # full official facility name; eg "JOHN F KENNEDY INTL"
+property id.own_type string; # ownership type: PU=Publicly-owned, PR=Privately-owned, MA=Air Force, MN=Navy, MR=Army
+property id.longitude float::longitude; # longitude in decimal degrees (WGS84); east positive
+property id.latitude float::latitude; # latitude in decimal degrees (WGS84); north positive
+property id.elevation int; # field elevation of the highest point of the landing area, in feet above mean sea level; -210 to 12442
+property id.aero_cht string; # name of the VFR sectional aeronautical chart covering this airport; eg "NEW YORK", "CHICAGO"
+property id.cbd_dist int; # nautical-mile distance from the airport to the associated city's central business district; 0-73
+property id.cbd_dir string; # compass direction from the central business district to the airport; eg N, NW, SW, SSE
+property id.act_date string; # activation date in MM/YYYY string format; date the airport was first placed into operation
+property id.cert string; # FAR Part 139 airport operating certificate class and issue date; eg "AS 05/1973" (class AS, issued May 1973)
+property id.fed_agree string; # federal agreement codes held (concatenated letters); N=NPIAS, G=Grant agreement, P=Surplus property, R=Property released, S=Section 16/23, V=AIP, Y=Yes current, plus year digits
+property id.cust_intl string; # customs international airport designation: Y / N / null
+property id.c_ldg_rts string; # customs landing rights airport designation: Y / N / null
+property id.joint_use string; # joint-use civil/military agreement flag: Y / N / null
+property id.mil_rts string; # military landing rights flag: Y / N / null
+property id.cntl_twr string; # FAA air-traffic control tower on the field: Y / N (669 airports with towers)
+property id.major string; # major airport flag: Y / N; only 270 airports flagged as major in the dataset
 auto count <- count(id);
 datasource airport (
     id:id,
