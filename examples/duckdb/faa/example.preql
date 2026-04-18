@@ -1,4 +1,4 @@
-import ..flight as flight;
+import flight as flight;
 
 # derive reusable concepts
 auto flight_date <- flight.dep_time::date;
