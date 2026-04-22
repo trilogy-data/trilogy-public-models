@@ -5,6 +5,8 @@ import click
 from pathlib import Path
 from datetime import datetime
 
+from trilogy.execution.config import load_config_file
+
 
 @click.command()
 @click.option("--check", is_flag=True, help="Check if any files would be changed")
@@ -85,15 +87,13 @@ def generate_json_files(check: bool):
                                 "type": "trilogy",
                             }
                         json_data["components"].append(component)
-                    sql_files = glob.glob(os.path.join(dataset_path, "*.sql"))
-                    for sql_file in sorted(sql_files):
-                        file_name = os.path.basename(sql_file).replace(".sql", "")
-                        if file_name == "entrypoint":
-                            continue
-                        if file_name.startswith("_"):
-                            continue
-                        if file_name.endswith("_dev"):
-                            continue
+                    trilogy_toml_path = os.path.join(dataset_path, "trilogy.toml")
+                    setup_sql_files: list[Path] = []
+                    if os.path.exists(trilogy_toml_path):
+                        runtime_config = load_config_file(Path(trilogy_toml_path))
+                        setup_sql_files = runtime_config.startup_sql
+                    for sql_file in sorted(setup_sql_files, key=lambda p: p.name):
+                        file_name = sql_file.stem
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"
 
                         component = {
