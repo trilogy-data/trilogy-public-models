@@ -2,7 +2,7 @@ import std.geography;
 import std.date;
 import aircraft_model as model;
 key id int; # surrogate integer primary key for the aircraft registration record
-property id.tail_num string; # FAA N-number / tail number painted on the aircraft; eg "N10036"; joins to flight.tail_num
+unique property id.tail_num string; # FAA N-number / tail number painted on the aircraft; eg "N10036"; joins to flight.tail_num
 property id.serial string; # manufacturer's aircraft serial number (MSN); uniquely identifies the airframe within a manufacturer
 property id.engine_code string; # FAA engine make/model code for the installed engine; often null
 property id.year_built int::year; # year the airframe was manufactured; 0 indicates unknown/unset, max 2005 for this dataset
