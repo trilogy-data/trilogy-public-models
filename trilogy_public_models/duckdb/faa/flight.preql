@@ -3,6 +3,8 @@ import airport as origin;
 import airport as destination;
 import carrier as carrier;
 
+
+
 property id.flight_num string; # carrier-assigned flight number as a string (preserves leading zeros); eg "1692". Not unique over time - the same number is reused daily.
 property id.flight_time int; # actual airborne time in minutes (wheels-up to wheels-down); 0-1920, avg ~104
 property id.dep_time datetime; # actual departure timestamp (local wall time at the origin airport); dataset covers 2000-01-01 through 2005-12-31
@@ -12,8 +14,8 @@ property id.arr_delay int; # arrival delay in minutes vs scheduled (negative = e
 property id.taxi_out int; # taxi-out time in minutes from gate push-back to wheels-up; avg ~15
 property id.taxi_in int; # taxi-in time in minutes from wheels-down to gate arrival; avg ~7
 property id.distance int; # great-circle distance between origin and destination in statute miles; 21-4243
-property id.cancelled string; #capital string flag, Y or N
-property id.diverted string; #capital string flag, Y or N
+property id.cancelled enum<string>['Y', 'N']; #capital string flag, Y or N
+property id.diverted enum<string>['Y', 'N']; #capital string flag, Y or N
 key id int; # Unique identifier for the flight
 
 auto count <-count(id);
@@ -23,11 +25,11 @@ auto dep_time.month_start <- date_trunc(dep_time, month);
 
 root datasource flight (
 	carrier:~carrier.code,
-	origin:origin.code,
-	destination:destination.code,
+	origin:~origin.code,
+	destination:~destination.code,
 	flight_num:flight_num,
 	flight_time:flight_time,
-	tail_num:aircraft.tail_num,
+	tail_num:~aircraft.tail_num,
 	dep_time:dep_time,
 	arr_time:arr_time,
 	dep_delay:dep_delay,
