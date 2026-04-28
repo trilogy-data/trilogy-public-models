@@ -1,0 +1,10 @@
+import flight;
+
+where origin.code = 'SFO'
+  and flight_date >= '2025-01-01'::date
+select
+  destination.code,
+  aircraft.model.name,
+  count(id) as flight_count
+order by flight_count desc
+limit 10;

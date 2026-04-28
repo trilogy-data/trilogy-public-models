@@ -1,0 +1,32 @@
+import aircraft as aircraft;
+import airport as origin;
+import airport as destination;
+import carrier as carrier;
+import flight as flight;
+
+# Probe datasource: reads the parquet produced by ingest/refresh_flights.py
+# directly from the local filesystem. Use this to validate the output of the
+# refresh script before uploading to GCS. Production runs read the flight
+# parquet files directly from GCS.
+
+root datasource flight_local_probe (
+    carrier:~carrier.code,
+    origin:~origin.code,
+    destination:~destination.code,
+    flight_num:flight.flight_num,
+    flight_time:flight.flight_time,
+    tail_num:~aircraft.tail_num,
+    flight_date:flight.flight_date,
+    dep_time:flight.dep_time,
+    arr_time:flight.arr_time,
+    dep_delay:flight.dep_delay,
+    arr_delay:flight.arr_delay,
+    taxi_out:flight.taxi_out,
+    taxi_in:flight.taxi_in,
+    distance:flight.distance,
+    cancelled:flight.cancelled,
+    diverted:flight.diverted,
+    id2:flight.id,
+)
+grain (flight.id)
+file `./ingest/flights/flights_v2_*.parquet`;

@@ -1,5 +1,8 @@
 [engine]
 dialect = "duck_db"
 
-[setup]
-sql = ["setup.sql"]
+[engine.config]
+enable_gcs = true
+
+[serve]
+studio_url="http://localhost:5173/trilogy-studio-core/"

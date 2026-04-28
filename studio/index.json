@@ -58,7 +58,7 @@
       ]
     },
     {
-      "description": "## FAA Data - 2000 - 2005\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.",
+      "description": "## FAA Data\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.\n\nFlight data is derived from the BTS Reporting Carrier On-Time Performance dataset\n(<https://transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EFD>) and refreshed via\n`ingest/refresh_flights.py`. Carrier, aircraft, aircraft-model, and airport\ntables are sourced from the malloy-samples snapshot and reflect ~2000-2005; joins\nfrom modern flight rows to those tables are best-effort (IATA code / FAA airport\ncode / tail number).",
       "engine": "duckdb",
       "filename": "faa.json",
       "name": "faa",
@@ -249,5 +249,5 @@
       ]
     }
   ],
-  "updated_at": "2026-04-18T17:20:08.086472"
+  "updated_at": "2026-04-27T22:26:49.720204"
 }

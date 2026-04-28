@@ -1,0 +1,6 @@
+flights/
+flights.parquet
+_raw/
+_raw_dim/
+dimensions/
+watermark.parquet
