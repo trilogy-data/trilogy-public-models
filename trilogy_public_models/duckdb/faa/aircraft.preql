@@ -54,7 +54,7 @@ root datasource aircraft (
     air_worth_date:?air_worth_date,
 )
 grain (id)
-address aircraft;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`;
 
 root datasource aircraft_tail_num (
     id:id,
@@ -84,4 +84,4 @@ root datasource aircraft_tail_num (
     air_worth_date:?air_worth_date,
 )
 grain (tail_num)
-address aircraft;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`;

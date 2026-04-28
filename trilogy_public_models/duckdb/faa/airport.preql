@@ -59,4 +59,4 @@ root datasource airport (
     major:major,
 )
 grain(id)
-address airport;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/airports_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/airports_v2.parquet`;

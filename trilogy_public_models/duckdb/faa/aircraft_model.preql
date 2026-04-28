@@ -25,4 +25,4 @@ root datasource aircraft_model (
 	speed:speed,
 )
 grain (code)
-address aircraft_model;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_models_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/aircraft_models_v2.parquet`;

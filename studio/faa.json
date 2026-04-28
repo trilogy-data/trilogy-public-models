@@ -50,20 +50,27 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight.preql"
     },
     {
+      "alias": "flight_probe",
+      "name": "flight_probe",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_probe.preql"
+    },
+    {
       "name": "flights",
       "purpose": "example",
       "type": "dashboard",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/flights.json"
     },
     {
-      "alias": "setup",
-      "name": "setup",
-      "purpose": "setup",
-      "type": "sql",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/setup.sql"
+      "alias": "top_planes_out_of_SFO",
+      "name": "top_planes_out_of_SFO",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/top_planes_out_of_SFO.preql"
     }
   ],
-  "description": "## FAA Data - 2000 - 2005\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.",
+  "description": "## FAA Data\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.\n\nFlight data is derived from the BTS Reporting Carrier On-Time Performance dataset\n(<https://transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EFD>) and refreshed via\n`ingest/refresh_flights.py`. Carrier, aircraft, aircraft-model, and airport\ntables are sourced from the malloy-samples snapshot and reflect ~2000-2005; joins\nfrom modern flight rows to those tables are best-effort (IATA code / FAA airport\ncode / tail number).",
   "engine": "duckdb",
   "link": "",
   "name": "faa",
