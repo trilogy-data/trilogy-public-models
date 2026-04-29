@@ -50,6 +50,20 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight.preql"
     },
     {
+      "alias": "flight_all",
+      "name": "flight_all",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_all.preql"
+    },
+    {
+      "alias": "flight_common",
+      "name": "flight_common",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_common.preql"
+    },
+    {
       "alias": "flight_probe",
       "name": "flight_probe",
       "purpose": "source",
@@ -61,6 +75,20 @@
       "purpose": "example",
       "type": "dashboard",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/flights.json"
+    },
+    {
+      "alias": "new-editor-1777001684523",
+      "name": "new-editor-1777001684523",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/new-editor-1777001684523.preql"
+    },
+    {
+      "alias": "new-editor-1777381901516",
+      "name": "new-editor-1777381901516",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/new-editor-1777381901516.preql"
     },
     {
       "alias": "top_planes_out_of_SFO",

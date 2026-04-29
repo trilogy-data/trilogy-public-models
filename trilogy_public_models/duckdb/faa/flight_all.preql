@@ -1,0 +1,145 @@
+# full historical dataset
+import aircraft as aircraft;
+import airport as origin;
+import airport as destination;
+import carrier as carrier;
+import flight_common;
+
+# Abstract watermark concept: timestamp of the last successful refresh of the
+# flight data. Shared across the root watermark datasource and every derived
+# aggregate so freshness_by can compare "built at" vs "source current through".
+property <*>.data_through datetime;
+
+# Single-row parquet produced by ingest/refresh_flights.py holding the current
+# data_through value; aggregate datasources use it as their freshness root.
+root datasource flight_watermark (
+    data_through:data_through,
+)
+grain (data_through)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet`:`gcs://trilogy_public_models/duckdb/faa/watermark.parquet`;
+
+const FLIGHT_URLS <- [
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1987.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1988.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1989.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1990.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1991.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1992.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1993.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1994.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1995.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1996.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1997.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1998.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_1999.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2000.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2001.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2002.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2003.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2004.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2005.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2006.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2007.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2008.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2009.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2010.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2011.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2012.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2013.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2014.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2015.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2016.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2017.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2018.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2019.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2020.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2021.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2022.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2023.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2024.parquet',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2025.parquet',
+];
+
+root datasource flight (
+	carrier:~carrier.code,
+	origin:~origin.code,
+	destination:~destination.code,
+	flight_num:flight_num,
+	flight_time:flight_time,
+	tail_num:~aircraft.tail_num,
+	flight_date:flight_date,
+	dep_time:dep_time,
+	arr_time:arr_time,
+	dep_delay:dep_delay,
+	arr_delay:arr_delay,
+	taxi_out:taxi_out,
+	taxi_in:taxi_in,
+	distance:distance,
+	cancelled:cancelled,
+	diverted:diverted,
+	id2:id,
+)
+grain (id)
+file FLIGHT_URLS;
+
+
+# -----------------------------------------------------------------------------
+# Pre-computed aggregate datasources. Each points at a tiny parquet built by
+# ingest/build_aggregates.py; Trilogy can satisfy count-by-X queries from these
+# without scanning the full flights/*.parquet corpus (huge win in wasm).
+# -----------------------------------------------------------------------------
+
+datasource flight_count_total (
+    flight_count:count,
+    data_through:data_through,
+)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_total.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_total.parquet`
+freshness by data_through;
+
+datasource flight_count_by_year (
+    flight_year:flight_year,
+    flight_count:count,
+    data_through:data_through,
+)
+grain (flight_year)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_year.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_year.parquet`
+freshness by data_through;
+
+datasource flight_count_by_carrier (
+    carrier_code:~carrier.code,
+    flight_count:count,
+    data_through:data_through,
+)
+grain (carrier.code)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_carrier.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_carrier.parquet`
+freshness by data_through;
+
+datasource flight_count_by_origin (
+    origin_code:~origin.code,
+    flight_count:count,
+    data_through:data_through,
+)
+grain (origin.code)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_origin.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_origin.parquet`
+freshness by data_through;
+
+datasource flight_count_by_date (
+    flight_date:flight_date,
+    flight_count:count,
+    data_through:data_through,
+)
+grain (flight_date)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_date.parquet`
+freshness by data_through;
+
+
+datasource flight_count_by_source_dest_date (
+	origin_code:~origin.code,
+	destination_code:~destination.code,
+	flight_date:flight_date,
+	flight_count:count,
+	data_through:data_through,
+)
+grain (origin.code, destination.code, flight_date)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_source_dest_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_source_dest_date.parquet`
+freshness by data_through;

@@ -25,11 +25,15 @@ Notes on the legacy schema:
   * ``cert`` was a free-form "AS 05/1973"-style string. NFDC ships
     FAR_139_TYPE_CODE + ARFF_CERT_TYPE_DATE separately; we concatenate
     when both are present.
-  * ``fed_agree`` and ``major`` have no direct NFDC equivalent in the
-    APT_BASE table — left null. Hand-curate or join an overlay if you
-    care about preserving those flags.
-  * ``cntl_twr`` is set ``Y`` when ``TWR_TYPE_CODE`` is populated; the
-    legacy parquet stored ``Y``/``N`` strings.
+  * ``fed_agree`` is sourced from NFDC ``NASP_CODE`` — the concatenated
+    NPIAS/Grant/Surplus flag matches the legacy semantics.
+  * The legacy ``major`` flag (~270 hand-tagged airports) has no NFDC
+    equivalent; we drop the column rather than emit it all-null.
+  * ``cntl_twr`` is ``Y`` when TWR_TYPE_CODE starts with ``ATCT`` (any
+    controlled-tower variant), ``N`` for ``NON-ATCT``.
+  * The customs / landing-rights / joint-use / military-rights flags
+    are stored as ``Y``/``N`` or null (NFDC ships empty strings; we
+    coerce empty → null so the columns are clean two-value enums).
 """
 from __future__ import annotations
 
@@ -61,11 +65,13 @@ UA = {
     )
 }
 
-# NFDC SITE_TYPE_CODE → legacy fac_type word.
+# NFDC SITE_TYPE_CODE → legacy fac_type word. The FAA reassigned the
+# seaplane-base code from ``S`` to ``C`` at some point, so the canonical
+# legacy ``S`` would silently miss every seaplane base today.
 SITE_TYPE_MAP = {
     "A": "AIRPORT",
     "H": "HELIPORT",
-    "S": "SEAPLANE BASE",
+    "C": "SEAPLANE BASE",
     "U": "ULTRALIGHT",
     "G": "GLIDERPORT",
     "B": "BALLOONPORT",
@@ -146,6 +152,14 @@ def _strip(name: str) -> pl.Expr:
     return pl.col(name).cast(pl.Utf8).str.strip_chars()
 
 
+def _strip_yn(name: str) -> pl.Expr:
+    """Strip and treat empty as null. NFDC populates the customs/landing
+    /joint-use/military-rights flags as 'Y'/'N' or empty; converting empty
+    to null keeps the downstream column a clean two-value enum."""
+    s = pl.col(name).cast(pl.Utf8).str.strip_chars()
+    return pl.when(s == "").then(None).otherwise(s)
+
+
 def _to_int(name: str) -> pl.Expr:
     return (
         pl.col(name)
@@ -180,6 +194,7 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
     far_139_col = opt("FAR_139_TYPE_CODE")
     arff_date_col = opt("ARFF_CERT_TYPE_DATE")
     twr_col = opt("TWR_TYPE_CODE")
+    nasp_col = opt("NASP_CODE")
 
     # Build cert as "{FAR_139} {ARFF_DATE}" when both present, else either, else null.
     cert_expr: pl.Expr
@@ -202,12 +217,26 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
     else:
         cert_expr = pl.lit(None, dtype=pl.Utf8)
 
-    # cntl_twr: "Y" if TWR_TYPE_CODE is non-empty, else "N".
+    # cntl_twr: "Y" if a tower is on the field. NFDC populates
+    # TWR_TYPE_CODE for every record — "NON-ATCT" means no tower, while
+    # "ATCT", "ATCT-TRACON", "ATCT-RAPCON", "ATCT-A/C", "ATCT-RATCF" are
+    # the various controlled-tower variants. Match on the ATCT prefix.
     if twr_col:
         twr_clean = pl.col(twr_col).cast(pl.Utf8).str.strip_chars()
-        cntl_twr_expr = pl.when(twr_clean != "").then(pl.lit("Y")).otherwise(pl.lit("N"))
+        cntl_twr_expr = (
+            pl.when(twr_clean.str.starts_with("ATCT"))
+            .then(pl.lit("Y"))
+            .otherwise(pl.lit("N"))
+        )
     else:
         cntl_twr_expr = pl.lit("N")
+
+    # fed_agree comes from NFDC NASP_CODE — concatenated letters like
+    # "NGY"/"NGPY" carrying NPIAS/Grant/Surplus flags plus year digits,
+    # which matches the legacy fed_agree semantics one-for-one.
+    fed_agree_expr = (
+        _strip(nasp_col) if nasp_col else pl.lit(None, dtype=pl.Utf8)
+    )
 
     df = base.with_columns(
         [
@@ -232,13 +261,12 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
             _strip(need("DIRECTION_CODE")).alias("cbd_dir"),
             _strip(need("ACTIVATION_DATE")).alias("act_date"),
             cert_expr.alias("cert"),
-            pl.lit(None, dtype=pl.Utf8).alias("fed_agree"),
-            _strip(need("CUST_FLAG")).alias("cust_intl"),
-            _strip(need("LNDG_RIGHTS_FLAG")).alias("c_ldg_rts"),
-            _strip(need("JOINT_USE_FLAG")).alias("joint_use"),
-            _strip(need("MIL_LNDG_FLAG")).alias("mil_rts"),
+            fed_agree_expr.alias("fed_agree"),
+            _strip_yn(need("CUST_FLAG")).alias("cust_intl"),
+            _strip_yn(need("LNDG_RIGHTS_FLAG")).alias("c_ldg_rts"),
+            _strip_yn(need("JOINT_USE_FLAG")).alias("joint_use"),
+            _strip_yn(need("MIL_LNDG_FLAG")).alias("mil_rts"),
             cntl_twr_expr.alias("cntl_twr"),
-            pl.lit(None, dtype=pl.Utf8).alias("major"),
         ]
     ).filter(pl.col("code") != "")
 
@@ -272,7 +300,6 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
         "joint_use",
         "mil_rts",
         "cntl_twr",
-        "major",
     ).to_arrow()
 
 
