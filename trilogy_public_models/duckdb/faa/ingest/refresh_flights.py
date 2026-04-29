@@ -55,7 +55,9 @@ from bts_ondemand import ON_DEMAND_TO_PREZIP, download_month as download_ondeman
 HISTORY_START = (1987, 10)
 
 BASE_URL = "https://transtats.bts.gov/PREZIP"
-FILENAME = "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_{year}_{month}.zip"
+FILENAME = (
+    "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_{year}_{month}.zip"
+)
 
 INGEST_DIR = Path(__file__).parent
 RAW_DIR = INGEST_DIR / "_raw"
@@ -213,7 +215,9 @@ def download_zip(client: httpx.Client, key: MonthKey, dest: Path) -> Path:
 
     # PREZIP returned the HTML fallback. Fall back to the on-demand form.
     tmp.unlink(missing_ok=True)
-    print(f"  PREZIP returned non-zip; falling back to on-demand form for {key.year}-{key.month:02d}")
+    print(
+        f"  PREZIP returned non-zip; falling back to on-demand form for {key.year}-{key.month:02d}"
+    )
     download_ondemand(client, key.year, key.month, dest)
     return dest
 
@@ -268,12 +272,7 @@ def build_datetime(date_col: str, hhmm_col: str, out_col: str) -> pl.Expr:
     BTS encodes 2400 as midnight end-of-day; normalize to 0000 the next day.
     Returns null when the hhmm value is missing.
     """
-    hhmm = (
-        pl.col(hhmm_col)
-        .str.strip_chars()
-        .cast(pl.Int32, strict=False)
-        .fill_null(-1)
-    )
+    hhmm = pl.col(hhmm_col).str.strip_chars().cast(pl.Int32, strict=False).fill_null(-1)
     rolled = pl.when(hhmm == 2400).then(0).otherwise(hhmm)
     extra_days = pl.when(hhmm == 2400).then(1).otherwise(0)
     hours = (rolled // 100).cast(pl.Int32)
@@ -283,9 +282,7 @@ def build_datetime(date_col: str, hhmm_col: str, out_col: str) -> pl.Expr:
         pl.when(hhmm < 0)
         .then(None)
         .otherwise(
-            base.dt.offset_by(
-                (extra_days.cast(pl.Utf8) + "d")
-            ).cast(pl.Datetime("us"))
+            base.dt.offset_by((extra_days.cast(pl.Utf8) + "d")).cast(pl.Datetime("us"))
             + pl.duration(hours=hours, minutes=minutes)
         )
         .alias(out_col)
@@ -297,20 +294,22 @@ def transform(df: pl.DataFrame) -> pl.DataFrame:
     dep = build_datetime("FlightDate", "DepTime", "dep_time")
     arr = build_datetime("FlightDate", "ArrTime", "arr_time")
 
-    yn = lambda col: (
-        pl.when(pl.col(col).str.strip_chars() == "1.00")
-        .then(pl.lit("Y"))
-        .when(pl.col(col).str.strip_chars() == "1")
-        .then(pl.lit("Y"))
-        .otherwise(pl.lit("N"))
-    )
+    def yn(col):
+        return (
+            pl.when(pl.col(col).str.strip_chars() == "1.00")
+            .then(pl.lit("Y"))
+            .when(pl.col(col).str.strip_chars() == "1")
+            .then(pl.lit("Y"))
+            .otherwise(pl.lit("N"))
+        )
 
-    to_int = lambda col: (
-        pl.col(col)
-        .str.strip_chars()
-        .cast(pl.Float64, strict=False)
-        .cast(pl.Int32, strict=False)
-    )
+    def to_int(col):
+        return (
+            pl.col(col)
+            .str.strip_chars()
+            .cast(pl.Float64, strict=False)
+            .cast(pl.Int32, strict=False)
+        )
 
     out = df.with_columns(
         [
@@ -412,12 +411,16 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--start",
-        default=os.environ.get("BTS_START", f"{start_default.year}-{start_default.month:02d}"),
+        default=os.environ.get(
+            "BTS_START", f"{start_default.year}-{start_default.month:02d}"
+        ),
         help="first month to download, YYYY-MM",
     )
     parser.add_argument(
         "--end",
-        default=os.environ.get("BTS_END", f"{end_default.year}-{end_default.month:02d}"),
+        default=os.environ.get(
+            "BTS_END", f"{end_default.year}-{end_default.month:02d}"
+        ),
         help="last month to download, YYYY-MM",
     )
     parser.add_argument(
@@ -439,7 +442,9 @@ def main(argv: list[str] | None = None) -> int:
         start = parse_month(args.start)
         end = parse_month(args.end)
     months = list(iter_months(start, end))
-    print(f"processing {len(months)} month(s) from {start.year}-{start.month:02d} to {end.year}-{end.month:02d}")
+    print(
+        f"processing {len(months)} month(s) from {start.year}-{start.month:02d} to {end.year}-{end.month:02d}"
+    )
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     out_dir = Path(args.output_dir)
@@ -476,16 +481,24 @@ def main(argv: list[str] | None = None) -> int:
                 try:
                     download_zip(client, key, zip_path)
                 except httpx.HTTPError as exc:
-                    print(f"WARNING: failed to download {key.filename}: {exc}", file=sys.stderr)
+                    print(
+                        f"WARNING: failed to download {key.filename}: {exc}",
+                        file=sys.stderr,
+                    )
                     continue
                 try:
                     raw = read_month_csv(zip_path)
                 except Exception as exc:
-                    print(f"WARNING: failed to read {zip_path.name}: {exc}", file=sys.stderr)
+                    print(
+                        f"WARNING: failed to read {zip_path.name}: {exc}",
+                        file=sys.stderr,
+                    )
                     continue
 
                 frame = transform(raw)
-                ids = pl.Series("id2", range(next_id, next_id + frame.height), dtype=pl.Int64)
+                ids = pl.Series(
+                    "id2", range(next_id, next_id + frame.height), dtype=pl.Int64
+                )
                 frame = frame.with_columns(ids).select(
                     "id2",
                     "carrier",
@@ -521,7 +534,9 @@ def main(argv: list[str] | None = None) -> int:
                     table = table.cast(writer.schema, safe=False)
                 writer.write_table(table, row_group_size=ROW_GROUP_SIZE)
                 writer_rows += frame.height
-                print(f"  +{frame.height:>8,} rows from {key.year}-{key.month:02d} (running total {total_rows:,})")
+                print(
+                    f"  +{frame.height:>8,} rows from {key.year}-{key.month:02d} (running total {total_rows:,})"
+                )
     finally:
         close_writer()
 
@@ -538,7 +553,9 @@ def main(argv: list[str] | None = None) -> int:
     # Single-row watermark parquet: referenced by flight_watermark in
     # flight.preql and used by every aggregate's freshness_by check.
     now = datetime.now().replace(microsecond=0)
-    watermark_table = pa.table({"data_through": pa.array([now], type=pa.timestamp("us"))})
+    watermark_table = pa.table(
+        {"data_through": pa.array([now], type=pa.timestamp("us"))}
+    )
     pq.write_table(watermark_table, WATERMARK_PATH, compression="zstd")
     print(f"wrote watermark {WATERMARK_PATH} (data_through={now.isoformat()})")
     return 0

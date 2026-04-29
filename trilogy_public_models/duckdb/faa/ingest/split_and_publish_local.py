@@ -48,9 +48,7 @@ def split_by_year(source: Path, output_dir: Path) -> list[Path]:
 
     cols = {
         r[0]
-        for r in con.execute(
-            f"DESCRIBE SELECT * FROM read_parquet('{src}')"
-        ).fetchall()
+        for r in con.execute(f"DESCRIBE SELECT * FROM read_parquet('{src}')").fetchall()
     }
     if "flight_date" in cols:
         partition_col = "flight_date"
@@ -78,7 +76,9 @@ def split_by_year(source: Path, output_dir: Path) -> list[Path]:
             f"SELECT DISTINCT {year_expr} FROM read_parquet('{src}') ORDER BY 1"
         ).fetchall()
     ]
-    print(f"splitting {source} by {partition_col} into {len(years)} year file(s): {years}")
+    print(
+        f"splitting {source} by {partition_col} into {len(years)} year file(s): {years}"
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     out_files: list[Path] = []
     for year in years:

@@ -40,7 +40,6 @@ from __future__ import annotations
 import argparse
 import io
 import re
-import sys
 import zipfile
 from datetime import date, datetime
 from pathlib import Path
@@ -50,7 +49,9 @@ import polars as pl
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-INDEX_URL = "https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/"
+INDEX_URL = (
+    "https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/"
+)
 ZIP_URL_TEMPLATE = "https://nfdc.faa.gov/webContent/28DaySub/extra/{short}_APT_CSV.zip"
 
 INGEST_DIR = Path(__file__).parent
@@ -172,9 +173,7 @@ def _to_int(name: str) -> pl.Expr:
 
 
 def _to_float(name: str) -> pl.Expr:
-    return pl.col(name).cast(pl.Utf8).str.strip_chars().cast(
-        pl.Float64, strict=False
-    )
+    return pl.col(name).cast(pl.Utf8).str.strip_chars().cast(pl.Float64, strict=False)
 
 
 def build_airports(base: pl.DataFrame) -> pa.Table:
@@ -234,9 +233,7 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
     # fed_agree comes from NFDC NASP_CODE — concatenated letters like
     # "NGY"/"NGPY" carrying NPIAS/Grant/Surplus flags plus year digits,
     # which matches the legacy fed_agree semantics one-for-one.
-    fed_agree_expr = (
-        _strip(nasp_col) if nasp_col else pl.lit(None, dtype=pl.Utf8)
-    )
+    fed_agree_expr = _strip(nasp_col) if nasp_col else pl.lit(None, dtype=pl.Utf8)
 
     df = base.with_columns(
         [
@@ -314,7 +311,9 @@ def write_parquet(table: pa.Table, dest: Path) -> None:
         write_statistics=True,
     )
     tmp.replace(dest)
-    print(f"  wrote {dest} ({dest.stat().st_size / 1e6:.2f} MB, {table.num_rows:,} rows)")
+    print(
+        f"  wrote {dest} ({dest.stat().st_size / 1e6:.2f} MB, {table.num_rows:,} rows)"
+    )
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -9,6 +9,7 @@ PREZIP (snake_case uppercase) and a different FlightDate string format
 (``M/D/YYYY 12:00:00 AM``). ``refresh_flights.read_month_csv`` normalizes
 both, so downstream callers never need to care which source produced a zip.
 """
+
 from __future__ import annotations
 
 import re

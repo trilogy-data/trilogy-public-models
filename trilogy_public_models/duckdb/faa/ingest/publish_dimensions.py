@@ -85,9 +85,7 @@ def main(argv: list[str] | None = None) -> int:
     skipped = 0
     with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         futures = {
-            pool.submit(
-                upload_one, bucket, f, f"{prefix}/{f.name}", args.force
-            ): f
+            pool.submit(upload_one, bucket, f, f"{prefix}/{f.name}", args.force): f
             for f in files
         }
         for fut in as_completed(futures):
@@ -97,7 +95,9 @@ def main(argv: list[str] | None = None) -> int:
             if did_upload:
                 uploaded += 1
                 rate = mb / max(secs, 1e-9)
-                print(f"  uploaded {name} ({mb:,.2f} MB in {secs:,.1f}s, {rate:,.1f} MB/s)")
+                print(
+                    f"  uploaded {name} ({mb:,.2f} MB in {secs:,.1f}s, {rate:,.1f} MB/s)"
+                )
             else:
                 skipped += 1
                 print(f"  skipped {name} (size matches)")

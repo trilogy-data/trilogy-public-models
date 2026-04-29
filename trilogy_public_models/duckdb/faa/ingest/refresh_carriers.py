@@ -102,11 +102,7 @@ def carriers_from_flights(flights_glob: Path) -> list[str]:
         raise FileNotFoundError(
             f"no flight parquets matched {pattern}; refresh_flights.py first"
         )
-    df = (
-        pl.scan_parquet(pattern)
-        .select(pl.col("carrier").unique())
-        .collect()
-    )
+    df = pl.scan_parquet(pattern).select(pl.col("carrier").unique()).collect()
     codes = sorted({c for c in df["carrier"].to_list() if c})
     return codes
 
@@ -131,9 +127,7 @@ def load_manual(path: Path) -> dict[str, tuple[str, str]]:
     return out
 
 
-def build_carriers(
-    codes: list[str], overrides: dict[str, tuple[str, str]]
-) -> pa.Table:
+def build_carriers(codes: list[str], overrides: dict[str, tuple[str, str]]) -> pa.Table:
     rows = []
     unknown = []
     for code in codes:
@@ -152,7 +146,9 @@ def build_carriers(
             "  Add them to CARRIER_NAMES or pass --manual.",
             file=sys.stderr,
         )
-    df = pl.DataFrame(rows, schema={"code": pl.Utf8, "name": pl.Utf8, "nickname": pl.Utf8})
+    df = pl.DataFrame(
+        rows, schema={"code": pl.Utf8, "name": pl.Utf8, "nickname": pl.Utf8}
+    )
     return df.sort("code").to_arrow()
 
 
@@ -167,7 +163,9 @@ def write_parquet(table: pa.Table, dest: Path) -> None:
         write_statistics=True,
     )
     tmp.replace(dest)
-    print(f"  wrote {dest} ({dest.stat().st_size / 1e3:.1f} KB, {table.num_rows:,} rows)")
+    print(
+        f"  wrote {dest} ({dest.stat().st_size / 1e3:.1f} KB, {table.num_rows:,} rows)"
+    )
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -14,7 +14,9 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
-GCS_WATERMARK = "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet"
+GCS_WATERMARK = (
+    "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet"
+)
 BTS_URL = (
     "https://transtats.bts.gov/PREZIP/"
     "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_{year}_{month}.zip"

@@ -38,7 +38,6 @@ from __future__ import annotations
 
 import argparse
 import io
-import sys
 import zipfile
 from datetime import datetime
 from pathlib import Path
@@ -279,7 +278,9 @@ INT_FIELDS = {
 DATE_FIELDS = {"last_action_date", "cert_issue_date", "air_worth_date"}
 
 
-def _project_to_canonical(df: pl.DataFrame, mapping: dict[str, str | None]) -> pl.DataFrame:
+def _project_to_canonical(
+    df: pl.DataFrame, mapping: dict[str, str | None]
+) -> pl.DataFrame:
     """Return a DataFrame with the canonical AIRCRAFT_OUTPUT_COLUMNS, drawn
     from ``df`` via ``mapping``. Columns mapped to ``None`` get the right
     null/zero default.
@@ -342,26 +343,32 @@ def _stub_rows_for(missing: pl.DataFrame) -> pl.DataFrame:
     are populated — other fields are null/0 sentinels matching the
     canonical schema dtypes."""
     n = missing.height
-    return missing.select(
-        [
-            pl.col("tail_num"),
-            *[
-                (
-                    pl.lit(0, dtype=pl.Int64).alias(c)
-                    if c in INT_FIELDS
-                    else pl.lit(None, dtype=pl.Date).alias(c)
-                    if c in DATE_FIELDS
-                    else (
-                        pl.lit(INFERRED_STATUS_CODE, dtype=pl.Utf8).alias(c)
-                        if c == "status_code"
-                        else pl.lit(None, dtype=pl.Utf8).alias(c)
+    return (
+        missing.select(
+            [
+                pl.col("tail_num"),
+                *[
+                    (
+                        pl.lit(0, dtype=pl.Int64).alias(c)
+                        if c in INT_FIELDS
+                        else (
+                            pl.lit(None, dtype=pl.Date).alias(c)
+                            if c in DATE_FIELDS
+                            else (
+                                pl.lit(INFERRED_STATUS_CODE, dtype=pl.Utf8).alias(c)
+                                if c == "status_code"
+                                else pl.lit(None, dtype=pl.Utf8).alias(c)
+                            )
+                        )
                     )
-                )
-                for c in AIRCRAFT_OUTPUT_COLUMNS
-                if c != "tail_num"
-            ],
-        ]
-    ) if n else missing
+                    for c in AIRCRAFT_OUTPUT_COLUMNS
+                    if c != "tail_num"
+                ],
+            ]
+        )
+        if n
+        else missing
+    )
 
 
 def build_aircraft(
@@ -378,17 +385,14 @@ def build_aircraft(
         historic = _project_to_canonical(dereg, DEREG_COLUMN_MAP)
         # Within DEREG, multiple deregistrations can share an N-number
         # across decades. Keep the most recent by cert_issue_date.
-        historic = (
-            historic.sort("cert_issue_date", nulls_last=True)
-            .unique(subset=["tail_num"], keep="last")
+        historic = historic.sort("cert_issue_date", nulls_last=True).unique(
+            subset=["tail_num"], keep="last"
         )
         # Drop tail_nums that are already active in MASTER — the active
         # record is the right one for current and recent flights; flights
         # for the prior holder of a re-issued tail number will mismatch,
         # but the schema doesn't support multiple rows per tail_num.
-        historic = historic.join(
-            active.select("tail_num"), on="tail_num", how="anti"
-        )
+        historic = historic.join(active.select("tail_num"), on="tail_num", how="anti")
         print(f"  historic (DEREG, deduped, MASTER-anti): {historic.height:,} rows")
         combined = pl.concat([active, historic], how="vertical_relaxed")
 
@@ -405,8 +409,10 @@ def build_aircraft(
             combined = pl.concat([combined, stubs], how="vertical_relaxed")
 
     # Stable surrogate id, ordered by tail_num so re-runs are reproducible.
-    combined = combined.sort("tail_num").with_row_index(name="id").with_columns(
-        pl.col("id").cast(pl.Int64)
+    combined = (
+        combined.sort("tail_num")
+        .with_row_index(name="id")
+        .with_columns(pl.col("id").cast(pl.Int64))
     )
 
     return combined.select("id", *AIRCRAFT_OUTPUT_COLUMNS).to_arrow()
@@ -468,7 +474,9 @@ def write_parquet(table: pa.Table, dest: Path) -> None:
         write_statistics=True,
     )
     tmp.replace(dest)
-    print(f"  wrote {dest} ({dest.stat().st_size / 1e6:.2f} MB, {table.num_rows:,} rows)")
+    print(
+        f"  wrote {dest} ({dest.stat().st_size / 1e6:.2f} MB, {table.num_rows:,} rows)"
+    )
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -522,9 +530,7 @@ def main(argv: list[str] | None = None) -> int:
     if not args.no_backfill_from_flights:
         flight_tails = _flight_tail_nums(args.flights_glob)
         if flight_tails is None:
-            print(
-                f"  no flight parquets at {args.flights_glob}; skipping backfill"
-            )
+            print(f"  no flight parquets at {args.flights_glob}; skipping backfill")
         else:
             print(
                 f"flights tail_nums: {flight_tails.height:,} distinct "

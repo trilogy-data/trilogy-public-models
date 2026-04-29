@@ -312,7 +312,6 @@ def clean_csv(
             # Process header
             try:
                 header = next(reader)
-                original_header = header.copy()
 
                 if fix_headers:
                     # Fix duplicate column names

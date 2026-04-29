@@ -12,7 +12,9 @@ from datetime import datetime
 from email.utils import parsedate_to_datetime
 
 GCS_CARRIERS = "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/carriers_v2.parquet"
-GCS_WATERMARK = "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet"
+GCS_WATERMARK = (
+    "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet"
+)
 UA = {"User-Agent": "trilogy-faa-probe/1.0"}
 
 
