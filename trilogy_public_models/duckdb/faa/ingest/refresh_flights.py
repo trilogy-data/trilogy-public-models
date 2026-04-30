@@ -49,7 +49,11 @@ import polars as pl
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from bts_ondemand import ON_DEMAND_TO_PREZIP, download_month as download_ondemand
+from bts_ondemand import (
+    BTSOnDemandError,
+    ON_DEMAND_TO_PREZIP,
+    download_month as download_ondemand,
+)
 
 # BTS on-time data begins in October 1987.
 HISTORY_START = (1987, 10)
@@ -108,6 +112,21 @@ DICT_COLUMNS = (
     "diverted",
 )
 COLUMN_ENCODING = {"id2": "DELTA_BINARY_PACKED"}
+
+# Sentinel values that exist as dedicated rows in the corresponding dim
+# parquets (see refresh_carriers / refresh_airports / refresh_aircraft).
+# Coalescing the FK columns to these keeps the count-by-X aggregates from
+# silently dropping rows where BTS left the field blank, and lets the
+# datasource declare these columns as non-nullable.
+UNKNOWN_CARRIER_CODE = "ZZ"
+UNKNOWN_AIRPORT_CODE = "UNK"
+UNKNOWN_TAIL_NUM = "UNKNOWN"
+
+# Natural identity of a BTS flight row: one scheduled operation per carrier,
+# flight number, date, origin, destination. PREZIP and on-demand pulls
+# occasionally emit the same row twice (BTS reprocessing), which would
+# otherwise produce duplicate id2s downstream.
+NATURAL_KEY = ["carrier", "flight_num", "flight_date", "origin", "destination"]
 
 # Subset of BTS columns we actually need for the flight datasource.
 NEEDED_COLUMNS = [
@@ -311,18 +330,31 @@ def transform(df: pl.DataFrame) -> pl.DataFrame:
             .cast(pl.Int32, strict=False)
         )
 
+    # Empty strings count as nulls for FK coalescing — BTS sometimes emits "" or
+    # whitespace where it means "missing", and we need a real key value so the
+    # aggregate count-by-X parquets don't drop the row.
+    def nullify_blank(name: str) -> pl.Expr:
+        s = pl.col(name).str.strip_chars()
+        return pl.when(s == "").then(None).otherwise(s)
+
+    def fk(expr: pl.Expr, sentinel: str) -> pl.Expr:
+        return pl.when(expr.is_null()).then(pl.lit(sentinel)).otherwise(expr)
+
     out = df.with_columns(
         [
-            pl.coalesce(
-                pl.col("IATA_CODE_Reporting_Airline").str.strip_chars(),
-                pl.col("Reporting_Airline").str.strip_chars(),
+            fk(
+                pl.coalesce(
+                    nullify_blank("IATA_CODE_Reporting_Airline"),
+                    nullify_blank("Reporting_Airline"),
+                ),
+                UNKNOWN_CARRIER_CODE,
             ).alias("carrier"),
-            pl.col("Origin").str.strip_chars().alias("origin"),
-            pl.col("Dest").str.strip_chars().alias("destination"),
+            fk(nullify_blank("Origin"), UNKNOWN_AIRPORT_CODE).alias("origin"),
+            fk(nullify_blank("Dest"), UNKNOWN_AIRPORT_CODE).alias("destination"),
             pl.col("Flight_Number_Reporting_Airline")
             .str.strip_chars()
             .alias("flight_num"),
-            pl.col("Tail_Number").str.strip_chars().alias("tail_num"),
+            fk(nullify_blank("Tail_Number"), UNKNOWN_TAIL_NUM).alias("tail_num"),
             to_int("AirTime").fill_null(0).alias("flight_time"),
             to_int("DepDelay").fill_null(0).alias("dep_delay"),
             to_int("ArrDelay").fill_null(0).alias("arr_delay"),
@@ -480,7 +512,11 @@ def main(argv: list[str] | None = None) -> int:
                 zip_path = RAW_DIR / key.filename
                 try:
                     download_zip(client, key, zip_path)
-                except httpx.HTTPError as exc:
+                except (httpx.HTTPError, BTSOnDemandError) as exc:
+                    # BTSOnDemandError covers the on-demand fallback's
+                    # non-zip path, which BTS hits for months it hasn't
+                    # posted yet (eg. when --full-history walks past the
+                    # latest published cycle).
                     print(
                         f"WARNING: failed to download {key.filename}: {exc}",
                         file=sys.stderr,
@@ -496,6 +532,18 @@ def main(argv: list[str] | None = None) -> int:
                     continue
 
                 frame = transform(raw)
+                # BTS has been observed to emit the same flight row twice
+                # within a month (e.g. when a carrier resubmits actuals), which
+                # would assign two distinct id2 values to the same operation
+                # and break the (id) grain in flight_all. Dedupe on the
+                # natural key so id2 stays unique to a real flight.
+                before = frame.height
+                frame = frame.unique(subset=NATURAL_KEY, keep="first")
+                if frame.height < before:
+                    print(
+                        f"  deduped {before - frame.height:,} duplicate row(s) "
+                        f"for {key.year}-{key.month:02d}"
+                    )
                 ids = pl.Series(
                     "id2", range(next_id, next_id + frame.height), dtype=pl.Int64
                 )

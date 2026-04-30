@@ -62,6 +62,12 @@ FLIGHTS_GLOB = INGEST_DIR / "flights" / "flights_v2_*.parquet"
 # truth without losing the join coverage.
 INFERRED_STATUS_CODE = "U"
 
+# Sentinel rows appended to the dim parquets so flight facts can coalesce null
+# tail_num / aircraft_model_code to a real key. Neither value collides with the
+# FAA-issued formats (N-number tail, 7-char model code).
+UNKNOWN_TAIL_NUM = "UNKNOWN"
+UNKNOWN_MODEL_CODE = "UNKNOWN"
+
 AIRCRAFT_PARQUET = OUT_DIR / "aircraft_v2.parquet"
 AIRCRAFT_MODELS_PARQUET = OUT_DIR / "aircraft_models_v2.parquet"
 
@@ -371,6 +377,12 @@ def _stub_rows_for(missing: pl.DataFrame) -> pl.DataFrame:
     )
 
 
+def _unknown_aircraft_row() -> pl.DataFrame:
+    """Single sentinel row used as the coalesce target for null tail_num in
+    the flight fact. Status code matches the inferred-stub convention."""
+    return _stub_rows_for(pl.DataFrame({"tail_num": [UNKNOWN_TAIL_NUM]}))
+
+
 def build_aircraft(
     master: pl.DataFrame,
     dereg: pl.DataFrame | None,
@@ -407,6 +419,14 @@ def build_aircraft(
                 f"{stubs.height:,} rows"
             )
             combined = pl.concat([combined, stubs], how="vertical_relaxed")
+
+    # Append the UNKNOWN sentinel only if we didn't already pick it up via
+    # the flights-backfill path (which kicks in for tail_nums coalesced from
+    # null in refresh_flights.py).
+    if combined.filter(pl.col("tail_num") == UNKNOWN_TAIL_NUM).height == 0:
+        combined = pl.concat(
+            [combined, _unknown_aircraft_row()], how="vertical_relaxed"
+        )
 
     # Stable surrogate id, ordered by tail_num so re-runs are reproducible.
     combined = (
@@ -445,10 +465,7 @@ def build_aircraft_models(acftref: pl.DataFrame) -> pa.Table:
         ]
     )
     df = df.filter(pl.col("aircraft_model_code") != "")
-    df = df.unique(subset=["aircraft_model_code"], keep="first").sort(
-        "aircraft_model_code"
-    )
-    return df.select(
+    df = df.unique(subset=["aircraft_model_code"], keep="first").select(
         "aircraft_model_code",
         "manufacturer",
         "model",
@@ -460,7 +477,34 @@ def build_aircraft_models(acftref: pl.DataFrame) -> pa.Table:
         "seats",
         "weight",
         "speed",
-    ).to_arrow()
+    )
+    df = pl.concat([df, _unknown_model_row(df.schema)], how="vertical_relaxed")
+    df = df.sort("aircraft_model_code")
+    return df.to_arrow()
+
+
+def _unknown_model_row(schema: dict) -> pl.DataFrame:
+    """Single sentinel row used as the coalesce target for null
+    aircraft_model_code on aircraft. category_id=1 (Land) satisfies the
+    enum<int>[1,2,3] constraint declared in aircraft_model.preql."""
+    return pl.DataFrame(
+        [
+            {
+                "aircraft_model_code": UNKNOWN_MODEL_CODE,
+                "manufacturer": "UNKNOWN",
+                "model": "UNKNOWN",
+                "aircraft_type_id": 0,
+                "aircraft_engine_type_id": 0,
+                "aircraft_category_id": 1,
+                "amateur": 2,
+                "engines": 0,
+                "seats": 0,
+                "weight": 0,
+                "speed": 0,
+            }
+        ],
+        schema=schema,
+    )
 
 
 def write_parquet(table: pa.Table, dest: Path) -> None:

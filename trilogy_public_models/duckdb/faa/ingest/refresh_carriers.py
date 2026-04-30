@@ -42,6 +42,11 @@ OUT_DIR = INGEST_DIR / "dimensions"
 FLIGHTS_GLOB = INGEST_DIR / "flights" / "flights_v2_*.parquet"
 CARRIERS_PARQUET = OUT_DIR / "carriers_v2.parquet"
 
+# Sentinel carrier row appended to the dim so flight facts can coalesce null
+# carrier codes to a real key. ZZ is unassigned in IATA and never appears in
+# the BTS feed.
+UNKNOWN_CARRIER_CODE = "ZZ"
+
 # Sourced from BTS L_UNIQUE_CARRIERS history. Keys are the ``Reporting_Airline``
 # / IATA code that BTS persists in the flight feed. Values are
 # (legal_name, short_nickname). Add to this map when refreshing — BTS
@@ -145,6 +150,10 @@ def build_carriers(codes: list[str], overrides: dict[str, tuple[str, str]]) -> p
             f"(stored as code-only): {unknown}\n"
             "  Add them to CARRIER_NAMES or pass --manual.",
             file=sys.stderr,
+        )
+    if all(r["code"] != UNKNOWN_CARRIER_CODE for r in rows):
+        rows.append(
+            {"code": UNKNOWN_CARRIER_CODE, "name": "Unknown", "nickname": "Unknown"}
         )
     df = pl.DataFrame(
         rows, schema={"code": pl.Utf8, "name": pl.Utf8, "nickname": pl.Utf8}

@@ -53,8 +53,7 @@ refresh `./ingest/refresh_and_publish_flights.py`;
 
 # -----------------------------------------------------------------------------
 # Pre-computed aggregate datasources. Each points at a tiny parquet built by
-# ingest/build_aggregates.py; Trilogy can satisfy count-by-X queries from these
-# without scanning the full flights/*.parquet corpus (huge win in wasm).
+# ingest/build_aggregates.py; Trilogy can satisfy count-by-X queries from these.
 # -----------------------------------------------------------------------------
 
 datasource flight_count_total (
@@ -74,7 +73,7 @@ file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates
 freshness by data_through;
 
 datasource flight_count_by_carrier (
-    carrier_code:~carrier.code,
+    carrier_code:carrier.code,
     flight_count:count,
     data_through:data_through,
 )
@@ -83,7 +82,7 @@ file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates
 freshness by data_through;
 
 datasource flight_count_by_origin (
-    origin_code:~origin.code,
+    origin_code:origin.code,
     flight_count:count,
     data_through:data_through,
 )
@@ -102,9 +101,9 @@ freshness by data_through;
 
 
 datasource flight_count_by_source_dest_date (
-	origin_code:~origin.code,
-	destination_code:~destination.code,
-	flight_date:flight_date,
+	origin_code:?origin.code,
+	destination_code:?destination.code,
+	flight_date:?flight_date,
 	flight_count:count,
 	data_through:data_through,
 )

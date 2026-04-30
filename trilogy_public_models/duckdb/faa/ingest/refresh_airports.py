@@ -80,6 +80,75 @@ SITE_TYPE_MAP = {
 
 CYCLE_LINK_RE = re.compile(r"NASR_Subscription/(\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 
+# Sentinel airport row appended to the dim so flight facts can coalesce null
+# origin/destination codes to a real key. NFDC never emits "UNK" so we own it.
+UNKNOWN_AIRPORT_CODE = "UNK"
+
+# BTS records origin/destination using IATA codes; NFDC publishes by FAA LID.
+# For most US airports the two match, but ~15 commercially-active airports
+# diverge — without this overlay, count_by_origin/by_source_dest_date drop
+# every flight to/from these (~360k rows). We rewrite the LID-keyed NFDC row
+# to use the IATA code so the flight-side join lines up.
+IATA_TO_FAA_LID: dict[str, str] = {
+    "AZA": "IWA",  # Phoenix-Mesa Gateway, AZ
+    "FCA": "GPI",  # Glacier Park Intl, Kalispell MT
+    "YUM": "NYL",  # Yuma Intl (joint civilian/MCAS Yuma)
+    "CLD": "CRQ",  # McClellan-Palomar, Carlsbad CA
+    "MQT": "SAW",  # Sawyer Intl, Marquette MI
+    "SCE": "UNV",  # State College Rgnl, PA
+    "HHH": "HXD",  # Hilton Head Island, SC
+    "SPN": "GSN",  # Saipan Intl, Northern Mariana Islands
+    "USA": "JQF",  # Concord-Padgett Rgnl, Concord NC
+    "BKG": "BBG",  # Branson, MO
+    "ROP": "GRO",  # Rota Intl, Northern Mariana Islands
+    "YAP": "T11",  # Yap Intl, Federated States of Micronesia
+    "UST": "SGJ",  # Northeast Florida Rgnl, St Augustine
+    "GUF": "JKA",  # Jack Edwards/Gulf Shores Intl, AL
+    "UTM": "UTA",  # Tunica Muni, MS
+}
+
+# Airports BTS still references in historical years but NFDC has dropped from
+# the active dataset (closed/decommissioned). Hand-rolled stub rows so the
+# flight join lines up; lat/lon/elevation are best-known approximations.
+HISTORICAL_AIRPORT_STUBS: list[dict] = [
+    # Panama City-Bay County Intl, FL — closed 2010-05 when ECP opened.
+    {
+        "code": "PFN", "site_number": "PFN-CLOSED",
+        "fac_type": "AIRPORT", "fac_use": "PU", "faa_region": None,
+        "faa_dist": "ATL", "city": "PANAMA CITY", "county": "BAY",
+        "state": "FL", "full_name": "PANAMA CITY-BAY COUNTY INTL (CLOSED 2010)",
+        "own_type": "PU", "longitude": -85.6828, "latitude": 30.2121,
+        "elevation": 21, "aero_cht": "JACKSONVILLE", "cbd_dist": 3,
+        "cbd_dir": "NW", "act_date": None, "cert": None, "fed_agree": None,
+        "cust_intl": None, "c_ldg_rts": None, "joint_use": None,
+        "mil_rts": None, "cntl_twr": "Y",
+    },
+    # Sloulin Field Intl, Williston ND — closed 2019-10 when XWA opened.
+    {
+        "code": "ISN", "site_number": "ISN-CLOSED",
+        "fac_type": "AIRPORT", "fac_use": "PU", "faa_region": None,
+        "faa_dist": "BIS", "city": "WILLISTON", "county": "WILLIAMS",
+        "state": "ND", "full_name": "SLOULIN FLD INTL (CLOSED 2019)",
+        "own_type": "PU", "longitude": -103.6422, "latitude": 48.1779,
+        "elevation": 1982, "aero_cht": "GREAT FALLS", "cbd_dist": 1,
+        "cbd_dir": "NW", "act_date": None, "cert": None, "fed_agree": None,
+        "cust_intl": None, "c_ldg_rts": None, "joint_use": None,
+        "mil_rts": None, "cntl_twr": "N",
+    },
+    # Oneida County, Utica NY — closed 2007-01.
+    {
+        "code": "UCA", "site_number": "UCA-CLOSED",
+        "fac_type": "AIRPORT", "fac_use": "PU", "faa_region": None,
+        "faa_dist": "NYC", "city": "UTICA", "county": "ONEIDA",
+        "state": "NY", "full_name": "ONEIDA COUNTY (CLOSED 2007)",
+        "own_type": "PU", "longitude": -75.3835, "latitude": 43.1455,
+        "elevation": 745, "aero_cht": "NEW YORK", "cbd_dist": 6,
+        "cbd_dir": "SW", "act_date": None, "cert": None, "fed_agree": None,
+        "cust_intl": None, "c_ldg_rts": None, "joint_use": None,
+        "mil_rts": None, "cntl_twr": "N",
+    },
+]
+
 
 def discover_latest_cycle(client: httpx.Client) -> str:
     """Return latest cycle date (YYYY-MM-DD) ≤ today from the NASR index."""
@@ -176,6 +245,65 @@ def _to_float(name: str) -> pl.Expr:
     return pl.col(name).cast(pl.Utf8).str.strip_chars().cast(pl.Float64, strict=False)
 
 
+def _apply_iata_overlay(df: pl.DataFrame) -> pl.DataFrame:
+    """Rewrite NFDC LID-keyed rows to use BTS IATA codes, then append stub
+    rows for closed airports BTS still references in historical years."""
+    lid_to_iata = {lid: iata for iata, lid in IATA_TO_FAA_LID.items()}
+    aliased = set(df.filter(pl.col("code").is_in(list(lid_to_iata)))["code"].to_list())
+    missing = sorted(set(lid_to_iata) - aliased)
+    if missing:
+        print(
+            f"  warning: {len(missing)} IATA-alias LID(s) not found in NFDC, "
+            f"flights to these will still drop: {missing}"
+        )
+    df = df.with_columns(pl.col("code").replace(lid_to_iata).alias("code"))
+
+    stubs = pl.DataFrame(HISTORICAL_AIRPORT_STUBS, schema=df.schema)
+    print(
+        f"  IATA overlay: {len(aliased)} LID->IATA rewrites, "
+        f"{stubs.height} historical stubs"
+    )
+    return pl.concat([df, stubs], how="vertical_relaxed")
+
+
+def _unknown_airport_row(schema: dict) -> pl.DataFrame:
+    """Single sentinel row used as the coalesce target for null origin/destination
+    in the flight fact. fac_type uses 'AIRPORT' to satisfy the enum constraint
+    declared in airport.preql."""
+    return pl.DataFrame(
+        [
+            {
+                "code": UNKNOWN_AIRPORT_CODE,
+                "site_number": "UNK",
+                "fac_type": "AIRPORT",
+                "fac_use": "PU",
+                "faa_region": None,
+                "faa_dist": "UNK",
+                "city": "UNKNOWN",
+                "county": "UNKNOWN",
+                "state": None,
+                "full_name": "UNKNOWN",
+                "own_type": "PU",
+                "longitude": 0.0,
+                "latitude": 0.0,
+                "elevation": 0,
+                "aero_cht": "UNKNOWN",
+                "cbd_dist": 0,
+                "cbd_dir": None,
+                "act_date": None,
+                "cert": None,
+                "fed_agree": None,
+                "cust_intl": None,
+                "c_ldg_rts": None,
+                "joint_use": None,
+                "mil_rts": None,
+                "cntl_twr": "N",
+            }
+        ],
+        schema=schema,
+    )
+
+
 def build_airports(base: pl.DataFrame) -> pa.Table:
     cols = {c.strip().upper(): c for c in base.columns}
 
@@ -267,7 +395,36 @@ def build_airports(base: pl.DataFrame) -> pa.Table:
         ]
     ).filter(pl.col("code") != "")
 
-    df = df.unique(subset=["code"], keep="first").sort("code")
+    df = df.unique(subset=["code"], keep="first").select(
+        "code",
+        "site_number",
+        "fac_type",
+        "fac_use",
+        "faa_region",
+        "faa_dist",
+        "city",
+        "county",
+        "state",
+        "full_name",
+        "own_type",
+        "longitude",
+        "latitude",
+        "elevation",
+        "aero_cht",
+        "cbd_dist",
+        "cbd_dir",
+        "act_date",
+        "cert",
+        "fed_agree",
+        "cust_intl",
+        "c_ldg_rts",
+        "joint_use",
+        "mil_rts",
+        "cntl_twr",
+    )
+    df = _apply_iata_overlay(df)
+    df = pl.concat([df, _unknown_airport_row(df.schema)], how="vertical_relaxed")
+    df = df.sort("code")
     df = df.with_row_index(name="id").with_columns(pl.col("id").cast(pl.Int64))
 
     return df.select(

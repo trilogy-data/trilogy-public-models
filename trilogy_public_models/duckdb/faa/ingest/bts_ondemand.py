@@ -24,6 +24,12 @@ FORM_URL = (
     "?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr"
 )
 
+
+class BTSOnDemandError(Exception):
+    """Raised when the on-demand fallback can't return a zip — typically
+    because BTS hasn't posted the requested month yet (HTML fallback) or
+    the form layout changed under us."""
+
 # Checkbox names to request in the on-demand form. Mirror the columns
 # NEEDED_COLUMNS in refresh_flights.py, using the on-demand naming.
 FIELDS: tuple[str, ...] = (
@@ -83,7 +89,7 @@ def _extract_hidden(html: str, name: str) -> str:
     pattern = rf"<input[^>]*name=\"?{re.escape(name)}\"?[^>]*value=\"([^\"]*)\""
     m = re.search(pattern, html, re.IGNORECASE)
     if not m:
-        raise RuntimeError(f"hidden field {name!r} not found on form")
+        raise BTSOnDemandError(f"hidden field {name!r} not found on form")
     return unescape(m.group(1))
 
 
@@ -121,7 +127,7 @@ def download_month(client: httpx.Client, year: int, month: int, dest: Path) -> N
     resp.raise_for_status()
     if resp.content[:2] != b"PK":
         ct = resp.headers.get("content-type", "?")
-        raise RuntimeError(
+        raise BTSOnDemandError(
             f"on-demand {year}-{month:02d} returned non-zip "
             f"(content-type={ct}, {len(resp.content):,} bytes)"
         )

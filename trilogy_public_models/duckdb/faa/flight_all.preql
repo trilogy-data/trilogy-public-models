@@ -60,7 +60,7 @@ const FLIGHT_URLS <- [
     'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2025.parquet',
 ];
 
-root datasource flight (
+root datasource flight_all (
 	carrier:~carrier.code,
 	origin:~origin.code,
 	destination:~destination.code,
@@ -85,61 +85,60 @@ file FLIGHT_URLS;
 
 # -----------------------------------------------------------------------------
 # Pre-computed aggregate datasources. Each points at a tiny parquet built by
-# ingest/build_aggregates.py; Trilogy can satisfy count-by-X queries from these
-# without scanning the full flights/*.parquet corpus (huge win in wasm).
+# ingest/build_aggregates.py; Trilogy can satisfy count-by-X queries from these.
 # -----------------------------------------------------------------------------
 
-datasource flight_count_total (
+datasource flight_all_count_total (
     flight_count:count,
     data_through:data_through,
 )
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_total.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_total.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_total.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_total.parquet`
 freshness by data_through;
 
-datasource flight_count_by_year (
+datasource flight_all_count_by_year (
     flight_year:flight_year,
     flight_count:count,
     data_through:data_through,
 )
 grain (flight_year)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_year.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_year.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_year.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_year.parquet`
 freshness by data_through;
 
-datasource flight_count_by_carrier (
-    carrier_code:~carrier.code,
+datasource flight_all_count_by_carrier (
+    carrier_code:carrier.code,
     flight_count:count,
     data_through:data_through,
 )
 grain (carrier.code)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_carrier.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_carrier.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_carrier.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_carrier.parquet`
 freshness by data_through;
 
-datasource flight_count_by_origin (
-    origin_code:~origin.code,
+datasource flight_all_count_by_origin (
+    origin_code:origin.code,
     flight_count:count,
     data_through:data_through,
 )
 grain (origin.code)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_origin.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_origin.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_origin.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_origin.parquet`
 freshness by data_through;
 
-datasource flight_count_by_date (
+datasource flight_all_count_by_date (
     flight_date:flight_date,
     flight_count:count,
     data_through:data_through,
 )
 grain (flight_date)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_date.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_date.parquet`
 freshness by data_through;
 
 
-datasource flight_count_by_source_dest_date (
-	origin_code:~origin.code,
-	destination_code:~destination.code,
-	flight_date:flight_date,
+datasource flight_all_count_by_source_dest_date (
+	origin_code:?origin.code,
+	destination_code:?destination.code,
+	flight_date:?flight_date,
 	flight_count:count,
 	data_through:data_through,
 )
 grain (origin.code, destination.code, flight_date)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/flight_count_by_source_dest_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/flight_count_by_source_dest_date.parquet`
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_source_dest_date.parquet`:`gcs://trilogy_public_models/duckdb/faa/aggregates/all_flight_count_by_source_dest_date.parquet`
 freshness by data_through;

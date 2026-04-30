@@ -131,18 +131,18 @@ def main(argv: list[str] | None = None) -> int:
 
     # When publishing the main flights set (default prefix), also push the
     # watermark file so every refresh of the yearly parquets bumps the freshness
-    # signal that the aggregate datasources check.
+    # signal that the aggregate datasources check. Always force the watermark:
+    # the parquet is ~543 bytes and the same byte-size routinely round-trips
+    # for different data_through timestamps, so the size-equality skip would
+    # silently leave the GCS watermark stale.
     if prefix == DEFAULT_PREFIX.rstrip("/") and WATERMARK_PATH.exists():
         wm_name, wm_secs, wm_did = upload_one(
-            bucket, WATERMARK_PATH, WATERMARK_OBJECT, args.force
+            bucket, WATERMARK_PATH, WATERMARK_OBJECT, force=True
         )
-        if wm_did:
-            print(
-                f"  uploaded {wm_name} ({WATERMARK_PATH.stat().st_size / 1e3:,.1f} KB "
-                f"in {wm_secs:,.1f}s)"
-            )
-        else:
-            print(f"  skipped {wm_name} (size matches)")
+        print(
+            f"  uploaded {wm_name} ({WATERMARK_PATH.stat().st_size / 1e3:,.1f} KB "
+            f"in {wm_secs:,.1f}s)"
+        )
     return 0
 
 
