@@ -23,3 +23,15 @@ auto total_distance <-sum(distance);
 
 auto dep_time.month_start <- date_trunc(dep_time, month);
 auto flight_year <- year(flight_date);
+
+property <*>.data_through datetime;
+
+# Single-row parquet produced by ingest/refresh_flights.py holding the current
+# data_through value; aggregate datasources use it as their freshness root.
+root datasource flight_watermark (
+    data_through:data_through,
+)
+grain (data_through)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet`:`gcs://trilogy_public_models/duckdb/faa/watermark.parquet`
+freshness by `./probes/flight_probe.py`
+refresh `./ingest/refresh_and_publish_flights.py`;

@@ -6,20 +6,6 @@ import carrier as carrier;
 import flight_common;
 
 
-# Abstract watermark concept: timestamp of the last successful refresh of the
-# flight data. Shared across the root watermark datasource and every derived
-# aggregate so freshness_by can compare "built at" vs "source current through".
-property <*>.data_through datetime;
-
-# Single-row parquet produced by ingest/refresh_flights.py holding the current
-# data_through value; aggregate datasources use it as their freshness root.
-root datasource flight_watermark (
-    data_through:data_through,
-)
-grain (data_through)
-file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/watermark.parquet`:`gcs://trilogy_public_models/duckdb/faa/watermark.parquet`
-freshness by `./probes/flight_probe.py`
-refresh `./ingest/refresh_and_publish_flights.py`;
 
 const FLIGHT_URLS <- [
     'https://storage.googleapis.com/trilogy_public_models/duckdb/faa/flights/flights_v2_2024.parquet',
