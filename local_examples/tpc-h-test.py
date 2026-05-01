@@ -1,14 +1,13 @@
+from datetime import datetime
 from os.path import dirname
+from sys import path
 
 nb_path = __file__
 root_path = dirname(dirname(nb_path))
-from sys import path
-from os.path import dirname
 
 path.insert(0, root_path)
 print(root_path)
-from trilogy_public_models import get_executor
-from datetime import datetime
+from trilogy_public_models import get_executor  # noqa: E402
 
 start = datetime.now()
 executor = get_executor("duckdb.tpc_h")

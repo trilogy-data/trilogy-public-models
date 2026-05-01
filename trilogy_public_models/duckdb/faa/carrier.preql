@@ -9,4 +9,6 @@ root datasource carrier (
 	nickname:nickname,
 )
 grain (code)
-address carrier;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/carriers_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/carriers_v2.parquet`
+freshness by `./probes/carrier_probe.py`
+refresh `./ingest/refresh_and_publish_carriers.py`;

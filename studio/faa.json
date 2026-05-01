@@ -50,20 +50,41 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight.preql"
     },
     {
+      "alias": "flight_all",
+      "name": "flight_all",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_all.preql"
+    },
+    {
+      "alias": "flight_common",
+      "name": "flight_common",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_common.preql"
+    },
+    {
+      "alias": "flight_probe",
+      "name": "flight_probe",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/flight_probe.preql"
+    },
+    {
       "name": "flights",
       "purpose": "example",
       "type": "dashboard",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/flights.json"
     },
     {
-      "alias": "setup",
-      "name": "setup",
-      "purpose": "setup",
-      "type": "sql",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/faa/setup.sql"
+      "alias": "top_planes_out_of_SFO",
+      "name": "top_planes_out_of_SFO",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/faa/top_planes_out_of_SFO.preql"
     }
   ],
-  "description": "## FAA Data - 2000 - 2005\n\nFor DuckDB. Parquet files. USA only. Normalized and contains high level flight, carrier, aircraft, model, and airport information.",
+  "description": "## FAA Data\n\nNormalized US-domestic flight, carrier, aircraft, model, and airport data,\ndistributed as parquet for DuckDB. Two flight entrypoints share the same\ndimensions:\n\n- `flight.preql` \u2014 the last two complete calendar years (~14M rows). The\n  default for interactive use.\n- `flight_all.preql` \u2014 the full BTS history, October 1987 through the most\n  recent complete month (~200M rows across ~40 yearly files).\n\n### Entities\n\n| Entity           | Grain                                 | Source                                                       |\n| ---------------- | ------------------------------------- | ------------------------------------------------------------ |\n| `flight`         | one row per scheduled flight (`id`)   | BTS Reporting Carrier On-Time Performance                    |\n| `carrier`        | 2-letter IATA code                    | distinct codes from `flight`, names from in-script lookup    |\n| `aircraft`       | FAA registration record (`id`)        | FAA Releasable Aircraft Database \u2014 MASTER + DEREG            |\n| `aircraft_tail_num` | tail number (`tail_num`)           | same as `aircraft`, exposed at the join key                  |\n| `aircraft_model` | FAA make/model code                   | FAA Releasable Aircraft Database \u2014 ACFTREF                   |\n| `airport`        | 3-char FAA location identifier (LID)  | FAA NFDC NASR 28-day airport subscription                    |\n\n### Joins\n\n```\nflight.carrier      \u2192 carrier.code\nflight.origin       \u2192 airport.code\nflight.destination  \u2192 airport.code\nflight.tail_num     \u2192 aircraft.tail_num   (best-effort; BTS may omit)\naircraft.aircraft_model_code \u2192 aircraft_model.code\n```\n\n`aircraft` includes the FAA DEREG (deregistration) history back to ~1945,\nwhich is what makes the tail-number join useful against historical flight\nyears \u2014 without it, retired N-numbers wouldn't match.\n\n### Notable measures and properties\n\n- `flight`: `dep_delay`, `arr_delay`, `taxi_in`, `taxi_out`, `flight_time`,\n  `distance`, `cancelled`, `diverted`, plus `flight_date` (always\n  populated, including for cancelled rows \u2014 natural partition key).\n- `flight.preql` ships pre-computed aggregate parquets next to the row-level\n  fact (counts by year, carrier, origin, date, etc.) so common count\n  queries skip scanning the full files.\n- `airport`: lat/lon, elevation, ATCT presence, FAA region/district, owner\n  type. ~13k AIRPORT facilities plus heliports, seaplane bases, etc.\n- `aircraft_model`: manufacturer, model, engines, seats, type/engine\n  category. `weight` and `speed` are present in the FAA feed but largely\n  unpopulated.\n\n### Freshness\n\nEach root datasource declares a `freshness by` probe (under `probes/`) and\na `refresh` script (under `ingest/`). The flight model also publishes a\nsingle-row `flight_watermark` parquet recording `data_through` \u2014 the last\nmonth included in the build \u2014 which the pre-aggregated datasources use as\ntheir freshness root.\n\n## Architecture\n\nEvery entity is published as a parquet under\n`gs://trilogy_public_models/duckdb/faa/` and read directly from GCS by the\n`*.preql` datasources, so consumers don't need a database \u2014 DuckDB reads\nthe parquets in place. Refresh is driven by the per-entity scripts under\n`ingest/`; see `ingest/README.md` for run instructions, source-fallback\nbehavior (BTS PREZIP vs on-demand CSV), and publish details.",
   "engine": "duckdb",
   "link": "",
   "name": "faa",

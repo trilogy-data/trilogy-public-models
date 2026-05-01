@@ -89,7 +89,13 @@ def minimize_species_row(row):
 if __name__ == "__main__":
 
     target = Path(__file__).parent.parent / "genus_data.csv"
-    processed = Path(__file__).parent.parent / "genus_data_processed.csv"
+    processed = (
+        Path(__file__).resolve().parents[4]
+        / "data"
+        / "duckdb"
+        / "mobs"
+        / "genus_data_processed.csv"
+    )
     outputs = []
     if target.exists():
         existing_data: set[str] = set()

@@ -6,9 +6,9 @@ unique property id.tail_num string; # FAA N-number / tail number painted on the 
 property id.serial string; # manufacturer's aircraft serial number (MSN); uniquely identifies the airframe within a manufacturer
 property id.engine_code string; # FAA engine make/model code for the installed engine; often null
 property id.year_built int::year; # year the airframe was manufactured; 0 indicates unknown/unset, max 2005 for this dataset
-property id.type_id int; # FAA aircraft type code: 1=Glider, 2=Balloon, 3=Blimp, 4=Fixed-wing single-engine, 5=Fixed-wing multi-engine, 6=Rotorcraft, 8=Powered Parachute
-property id.engine_type_id int; # FAA engine type code: 0=None, 1=Reciprocating, 2=Turbo-prop, 3=Turbo-shaft, 4=Turbo-jet
-property id.registrant_type_id int; # registrant/owner type: 1=Individual, 2=Partnership, 3=Corporation, 4=Co-Owned, 5=Government, 7=LLC, 8=Non-Citizen Corp, 9=Non-Citizen Co-Owned
+property id.type_id enum<int>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; # FAA aircraft type code: 1=Glider, 2=Balloon, 3=Blimp/Dirigible, 4=Fixed-wing single-engine, 5=Fixed-wing multi-engine, 6=Rotorcraft, 7=Weight-shift-control, 8=Powered Parachute, 9=Gyroplane. 0 is the unknown sentinel for DEREG and inferred-stub rows.
+property id.engine_type_id enum<int>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; # FAA engine type code: 0=None, 1=Reciprocating, 2=Turbo-prop, 3=Turbo-shaft, 4=Turbo-jet, 5=Turbo-fan, 6=Ramjet, 7=2 Cycle, 8=Electric, 9=Rotary, 10=Hybrid Reciprocating, 11=Hybrid Turbine
+property id.registrant_type_id enum<int>[0, 1, 2, 3, 4, 5, 7, 8, 9]; # registrant/owner type: 1=Individual, 2=Partnership, 3=Corporation, 4=Co-Owned, 5=Government, 7=LLC, 8=Non-Citizen Corp, 9=Non-Citizen Co-Owned. 0 is the unknown sentinel for DEREG and inferred-stub rows.
 property id.name string; # registrant name as filed with the FAA (individual or company); uppercase
 property id.address1 string; # registrant mailing street address line 1
 property id.address2 string; # registrant mailing street address line 2; usually null
@@ -29,8 +29,8 @@ property id.air_worth_date date; # date of the current airworthiness certificate
 root datasource aircraft (
     id:id,
     tail_num:tail_num,
-    aircraft_serial:serial,
-    aircraft_model_code:~model.code,
+    aircraft_serial:?serial,
+    aircraft_model_code:~?model.code,
     aircraft_engine_code:?engine_code,
     year_built:year_built,
     aircraft_type_id:type_id,
@@ -47,20 +47,22 @@ root datasource aircraft (
     country:?country,
     certification:?certification,
     status_code:status_code,
-    mode_s_code:mode_s_code,
+    mode_s_code:?mode_s_code,
     fract_owner:?fract_owner,
-    last_action_date:last_action_date,
+    last_action_date:?last_action_date,
     cert_issue_date:?cert_issue_date,
     air_worth_date:?air_worth_date,
 )
 grain (id)
-address aircraft;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`
+freshness by `./probes/aircraft_probe.py`
+refresh `./ingest/refresh_and_publish_aircraft.py`;
 
 root datasource aircraft_tail_num (
     id:id,
     tail_num:tail_num,
-    aircraft_serial:serial,
-    aircraft_model_code:~model.code,
+    aircraft_serial:?serial,
+    aircraft_model_code:~?model.code,
     aircraft_engine_code:?engine_code,
     year_built:year_built,
     aircraft_type_id:type_id,
@@ -77,11 +79,13 @@ root datasource aircraft_tail_num (
     country:?country,
     certification:?certification,
     status_code:status_code,
-    mode_s_code:mode_s_code,
+    mode_s_code:?mode_s_code,
     fract_owner:?fract_owner,
-    last_action_date:last_action_date,
+    last_action_date:?last_action_date,
     cert_issue_date:?cert_issue_date,
     air_worth_date:?air_worth_date,
 )
 grain (tail_num)
-address aircraft;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`:`gcs://trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet`
+freshness by `./probes/aircraft_probe.py`
+refresh `./ingest/refresh_and_publish_aircraft.py`;

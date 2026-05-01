@@ -18,3 +18,4 @@ build/
 .pytest_cache
 .ruff_cache
 .env
+scheduled_tasks.lock

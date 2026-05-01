@@ -29,13 +29,6 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/genus_data.csv"
     },
     {
-      "alias": "genus_data_processed",
-      "name": "genus_data_processed",
-      "purpose": "data",
-      "type": "csv",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mobs/genus_data_processed.csv"
-    },
-    {
       "name": "oceanic-animals-sizes",
       "purpose": "example",
       "type": "dashboard",

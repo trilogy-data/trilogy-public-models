@@ -33,28 +33,28 @@ SELECT
     LTCite,
     Cite,
     Notes
-FROM read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/launch_cleaned.tsv',
+FROM read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/launch_cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE platform_info as
 SELECT * 
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/platforms.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/platforms.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE lv_info as
 SELECT * 
 
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/lv.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/lv.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE lvs_info as
 SELECT * 
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/lvs.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/lvs.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE stages as
 SELECT * 
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/stages.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/stages.cleaned.tsv',
 sample_size=-1);
 
 
@@ -265,14 +265,14 @@ COALESCE("group", 'Unspecified')
     )
 END AS group_hex_color
 FROM read_csv_auto(
-  'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/engines.cleaned.tsv',
+  'https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/engines.cleaned.tsv',
   sample_size=-1
 );
 
 
 CREATE OR REPLACE TABLE launch_sites as
 SELECT * 
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/sites.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE organizations as
@@ -468,7 +468,7 @@ CASE statecode
     WHEN 'CSSR' THEN '#11457E'
     ELSE '#808080'
 END as hex_code
-from read_csv_auto('https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/tables/orgs.cleaned.tsv',
+from read_csv_auto('https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/tables/orgs.cleaned.tsv',
 sample_size=-1);
 
 CREATE OR REPLACE TABLE satcat AS
@@ -494,6 +494,6 @@ SELECT
     END::date AS ddate,
     apogee::float AS apogee
 FROM read_csv_auto(
-    'https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
+    'https://storage.googleapis.com/trilogy_public_models/duckdb/gcat_space/tsv/cat/satcat.cleaned.tsv',
     sample_size=-1
 );
