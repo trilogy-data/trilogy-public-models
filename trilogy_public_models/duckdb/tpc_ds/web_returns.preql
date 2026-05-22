@@ -1,3 +1,5 @@
+import std.money;
+
 import web_sales as web_sales;
 import item as item;
 import date as return_date;
@@ -5,7 +7,7 @@ import time as time;
 import customer as customer;
 import address as return_address;
 
-property <item.id,web_sales.order_number>.return_amount float;
+property <item.id,web_sales.order_number>.return_amount numeric::usd;
 
 datasource web_returns (
     WR_RETURNED_DATE_SK: ~?return_date.id,

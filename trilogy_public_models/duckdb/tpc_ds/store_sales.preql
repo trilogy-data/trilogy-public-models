@@ -1,3 +1,5 @@
+import std.money;
+
 import item as item;
 import date as date;
 import date as return_date;
@@ -12,18 +14,18 @@ import store as return_store;
 
 key ticket_number int;
 property <item.id,ticket_number>.quantity int;
-property <item.id,ticket_number>.sales_price float;
-property <item.id,ticket_number>.list_price float;
-property <item.id,ticket_number>.ext_sales_price float;
-property <item.id,ticket_number>.ext_wholesale_cost float;
-property <item.id,ticket_number>.ext_list_price float;
-property <item.id,ticket_number>.ext_discount_amount float;
-property <item.id,ticket_number>.coupon_amt float;
-property <item.id,ticket_number>.net_profit float;
+property <item.id,ticket_number>.sales_price numeric::usd;
+property <item.id,ticket_number>.list_price numeric::usd;
+property <item.id,ticket_number>.ext_sales_price numeric::usd;
+property <item.id,ticket_number>.ext_wholesale_cost numeric::usd;
+property <item.id,ticket_number>.ext_list_price numeric::usd;
+property <item.id,ticket_number>.ext_discount_amount numeric::usd;
+property <item.id,ticket_number>.coupon_amt numeric::usd;
+property <item.id,ticket_number>.net_profit numeric::usd;
 property <item.id,ticket_number>.is_returned bool;
-property <item.id,ticket_number>.net_paid float;
-property <item.id,ticket_number>.return_amount float;
-property <item.id,ticket_number>.return_net_loss float;
+property <item.id,ticket_number>.net_paid numeric::usd;
+property <item.id,ticket_number>.return_amount numeric::usd;
+property <item.id,ticket_number>.return_net_loss numeric::usd;
 property profit <- ext_list_price - ext_wholesale_cost - ext_discount_amount + ext_sales_price;
 
 datasource store_sales (

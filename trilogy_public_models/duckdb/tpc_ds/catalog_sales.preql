@@ -1,3 +1,5 @@
+import std.money;
+
 import item as item;
 import date as date;
 import date as ship_date;
@@ -12,15 +14,15 @@ import promotion as promotion;
 
 key order_number int;
 property <item.id,order_number>.quantity int;
-property <item.id,order_number>.sales_price float;
-property <item.id,order_number>.list_price float;
-property <item.id,order_number>.wholesale_cost float;
-property <item.id,order_number>.discount_amount float;
-property <item.id,order_number>.extra_sales_price float;
-property <item.id,order_number>.extra_ship_cost float;
-property <item.id,order_number>.extra_wholesale_cost float;
-property <item.id,order_number>.net_profit float;
-property <item.id,order_number>.coupon_amt float;
+property <item.id,order_number>.sales_price numeric::usd;
+property <item.id,order_number>.list_price numeric::usd;
+property <item.id,order_number>.wholesale_cost numeric::usd;
+property <item.id,order_number>.discount_amount numeric::usd;
+property <item.id,order_number>.extra_sales_price numeric::usd;
+property <item.id,order_number>.extra_ship_cost numeric::usd;
+property <item.id,order_number>.extra_wholesale_cost numeric::usd;
+property <item.id,order_number>.net_profit numeric::usd;
+property <item.id,order_number>.coupon_amt numeric::usd;
 property profit <- list_price - wholesale_cost - discount_amount + extra_sales_price;
 
 datasource catalog_sales (
