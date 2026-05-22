@@ -1,10 +1,12 @@
+import std.money;
+
 import catalog_sales as sales;
 import item as item;
 import date as date;
 import time as time;
 
 key order_number int;
-property <item.id,order_number>.net_loss float;
+property <item.id,order_number>.net_loss numeric::usd;
 
 datasource catalog_returns (
     CR_RETURNED_DATE_SK: ~date.id,

@@ -1,9 +1,11 @@
+import std.money;
+
 key id int;
 property id.string_id string;
 property id.channel_email string;
 property id.channel_catalog string;
 property id.channel_event string;
-property id.cost float;
+property id.cost numeric::usd;
 
 datasource promotion (
     P_PROMO_SK: id,

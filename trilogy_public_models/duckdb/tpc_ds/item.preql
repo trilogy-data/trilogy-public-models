@@ -1,10 +1,12 @@
+import std.money;
+
 key id int;
 property id.name string;
 property id.brand_id int;
 property id.brand_name string;
 property id.manufacturer_id int;
 property id.category string;
-property id.current_price float;
+property id.current_price numeric::usd;
 property id.class string;
 property id.desc string;
 property id.color string;
