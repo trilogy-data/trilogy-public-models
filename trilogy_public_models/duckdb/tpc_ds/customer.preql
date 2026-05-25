@@ -3,66 +3,71 @@ import std.geography;
 import std.date;
 import date as review_date;
 
-key id int;
-property id.text_id string;
-property id.last_name string;
-property id.first_name string;
-property id.preferred_cust_flag string;
-property id.birth_day int::day;
-property id.birth_month int::month;
-property id.birth_year int::year;
-property id.birth_country string;
-property id.salutation string;
-property id.email_address string;
-property id.login string;
+key id int; # Surrogate key uniquely identifying a customer.
 
-key address_id int;
-property address_id.street string;
-property address_id.city string;
-property address_id.state string::us_state_short?;
-property address_id.zip string;
-property address_id.county string;
-property address_id.country string::country;
+properties id (
+    text_id string, # Stable natural/business customer ID (16-char alphanumeric in TPC-DS).
+    last_name string?, # Customer's last (family) name.
+    first_name string?, # Customer's first (given) name.
+    preferred_cust_flag enum<string>['Y', 'N']?, # 'Y' if the customer is flagged as a preferred customer, 'N' otherwise.
+    birth_day int::day?, # Day-of-month component of date of birth (1-31).
+    birth_month int::month?, # Month component of date of birth (1-12).
+    birth_year int::year?, # Four-digit year of birth.
+    birth_country string?, # Country of birth (free-form name).
+    salutation string?, # Title/salutation (e.g. 'Mr.', 'Ms.', 'Dr.').
+    email_address string?, # Customer's email address.
+    login string?, # Customer's login/username.
+);
 
-property id.full_name <- concat(salutation, ' ', first_name, ' ', last_name);
+key address_id int; # Surrogate key uniquely identifying the customer's current address.
+
+properties address_id (
+    street string?, # Street name portion of the current address.
+    city string?, # City of the current address.
+    state string::us_state_short?, # Two-letter US state code for the current address.
+    zip string?, # ZIP/postal code of the current address.
+    county string?, # County of the current address.
+    country string::country?, # Country of the current address.
+);
+
+property id.full_name <- concat(salutation, ' ', first_name, ' ', last_name); # Derived full display name (salutation first last).
 
 property id.birth_date <- cast(
-    concat(cast(birth_year as string), 
-        '/', cast(birth_month as string), 
+    concat(cast(birth_year as string),
+        '/', cast(birth_month as string),
         '/', cast(birth_day as string)
     ) as date
-);
+); # Derived calendar birth date assembled from birth year, month, and day components.
 
 datasource customers (
     C_CUSTOMER_SK: id,
     C_CUSTOMER_ID: text_id,
-    C_LAST_NAME: ?last_name,
-    C_FIRST_NAME: ?first_name,
-    C_CURRENT_ADDR_SK: ~?address_id,
-    C_CURRENT_CDEMO_SK: ~?demographics.id,
-    C_PREFERRED_CUST_FLAG: ?preferred_cust_flag,
-    C_BIRTH_COUNTRY: ?birth_country,
-    C_SALUTATION: ?salutation,
-    C_EMAIL_ADDRESS: ?email_address,
-    C_BIRTH_DAY: ?birth_day,
-    C_BIRTH_MONTH: ?birth_month,
-    C_BIRTH_YEAR: ?birth_year,
-    C_LOGIN: ?login,
-    C_LAST_REVIEW_DATE_SK: ~?review_date.id
+    C_LAST_NAME: last_name,
+    C_FIRST_NAME: first_name,
+    C_CURRENT_ADDR_SK: ~?address_id, # FK to the customer's current address (customer_address.ca_address_sk).
+    C_CURRENT_CDEMO_SK: ~?demographics.id, # FK to the customer's current demographic profile.
+    C_PREFERRED_CUST_FLAG: preferred_cust_flag,
+    C_BIRTH_COUNTRY: birth_country,
+    C_SALUTATION: salutation,
+    C_EMAIL_ADDRESS: email_address,
+    C_BIRTH_DAY: birth_day,
+    C_BIRTH_MONTH: birth_month,
+    C_BIRTH_YEAR: birth_year,
+    C_LOGIN: login,
+    C_LAST_REVIEW_DATE_SK: ~?review_date.id # FK to the date of the customer's last review (optional).
 )
 grain (id)
 address memory.customer;
 
 
-datasource customer_address(
+datasource customer_address (
     CA_ADDRESS_SK: address_id,
-    CA_STREET_NAME: ?street,
-    CA_CITY: ?city,
-    CA_STATE: ?state, #Two character state code; eg. CA for California, MA for Massachusetts
-    CA_ZIP: ?zip,
-    CA_COUNTY: ?county,
-    CA_COUNTRY: ?country,
+    CA_STREET_NAME: street,
+    CA_CITY: city,
+    CA_STATE: state,
+    CA_ZIP: zip,
+    CA_COUNTY: county,
+    CA_COUNTRY: country,
 )
 grain (address_id)
 address memory.customer_address;
-

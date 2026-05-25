@@ -1,27 +1,30 @@
 import date as date;
 import std.geography;
 
-key id int;
-property id.text_id string;
-property id.name string;
-property id.employees int;
-property id.floor_space int;
-property id.hours string;
-property id.manager string;
-property id.market_id int;
-property id.geography_class string;
-property id.market_manager string;
-property id.tax_percentage float;
-property id.county string;
-property id.state string::us_state_short;
-property id.city string;
-property id.zip string;
-property id.market int;
+key id int; # Surrogate key uniquely identifying a store.
+
+properties id (
+    text_id string, # Stable business identifier for the store (16-char alphanumeric).
+    name string, # Store display name.
+    employees int, # Number of employees working at the store.
+    floor_space int, # Floor space of the store in square feet.
+    hours string, # Operating hours descriptor (free-form, e.g. '8AM-12AM').
+    manager string, # Name of the store manager.
+    market_id int, # Numeric ID of the market the store belongs to.
+    geography_class string, # Geographic classification (free-form category).
+    market_manager string, # Name of the manager responsible for the store's market.
+    tax_percentage float, # Local sales-tax rate applied at the store (decimal fraction, e.g. 0.06 = 6%).
+    county string, # County in which the store is located.
+    state string::us_state_short, # Two-letter US state code where the store is located.
+    city string, # City where the store is located.
+    zip string, # Postal/ZIP code of the store address.
+    market int, # Duplicate of market_id sourced from the same column for convenience.
+);
 
 datasource store (
     S_STORE_SK: id,
     S_STORE_ID: text_id,
-    S_CLOSED_DATE_SK: ~?date.id,
+    S_CLOSED_DATE_SK: ~?date.id, # FK to the date the store was closed (null if still open).
     S_STORE_NAME: name,
     S_NUMBER_EMPLOYEES: employees,
     S_FLOOR_SPACE: floor_space,
@@ -32,7 +35,7 @@ datasource store (
     S_MARKET_MANAGER: market_manager,
     S_TAX_PERCENTAGE: tax_percentage,
     S_CITY: city,
-    S_STATE: state, #Two character state code; eg. CA for California, MA for Massachusetts
+    S_STATE: state,
     S_COUNTY: county,
     S_ZIP: zip,
     S_MARKET_ID: market,

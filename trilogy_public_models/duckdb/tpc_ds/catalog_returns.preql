@@ -5,16 +5,19 @@ import item as item;
 import date as date;
 import time as time;
 
-key order_number int;
-property <item.id,order_number>.net_loss numeric::usd;
+key order_number int; # Catalog order number that links the return back to the originating catalog sale.
+
+properties <item.id, order_number> (
+    net_loss numeric::usd?, # Net financial loss on the return in USD (refund plus handling costs minus any restocked value).
+);
 
 datasource catalog_returns (
-    CR_RETURNED_DATE_SK: ~date.id,
-    CR_RETURNED_TIME_SK: ~?time.id,
-    CR_ITEM_SK: ~item.id,
-    CR_ORDER_NUMBER: ~sales.order_number,
+    CR_RETURNED_DATE_SK: ~date.id, # Date the item was returned (FK to date dimension).
+    CR_RETURNED_TIME_SK: ~?time.id, # Time-of-day the item was returned (FK to time dimension; optional).
+    CR_ITEM_SK: ~item.id, # Returned item (FK to item dimension).
+    CR_ORDER_NUMBER: ~sales.order_number, # Original catalog sales order this return is associated with.
     CR_ORDER_NUMBER: order_number,
-    CR_NET_LOSS: ?net_loss
-    )
-grain (item.id,order_number)
+    CR_NET_LOSS: net_loss
+)
+grain (item.id, order_number)
 address memory.catalog_returns;

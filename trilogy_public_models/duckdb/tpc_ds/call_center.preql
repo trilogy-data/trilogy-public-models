@@ -1,12 +1,12 @@
+key id int; # Surrogate key uniquely identifying a call center.
 
+properties id (
+    county string, # County in which the call center is physically located.
+);
 
-key id int;
-property id.county string;
-
-datasource call_center(
+datasource call_center (
     CC_CALL_CENTER_SK: id,
     CC_COUNTY: county,
 )
-
 grain (id)
 address memory.call_center;

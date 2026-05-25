@@ -1,3 +1,5 @@
+parallelism = 1
+
 [engine]
 dialect = "duck_db"
 

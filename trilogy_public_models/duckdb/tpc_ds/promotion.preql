@@ -1,19 +1,22 @@
 import std.money;
 
-key id int;
-property id.string_id string;
-property id.channel_email string;
-property id.channel_catalog string;
-property id.channel_event string;
-property id.cost numeric::usd;
+key id int; # Surrogate key uniquely identifying a promotion.
+
+properties id (
+    string_id string, # Stable business identifier for the promotion (16-char alphanumeric).
+    channel_email enum<string>['Y', 'N']?, # 'Y' if the promotion was delivered via email, else 'N'.
+    channel_catalog enum<string>['Y', 'N']?, # 'Y' if the promotion was delivered via printed catalog, else 'N'.
+    channel_event enum<string>['Y', 'N']?, # 'Y' if the promotion was delivered via in-person event, else 'N'.
+    cost numeric::usd?, # Total cost of running the promotion in USD.
+);
 
 datasource promotion (
     P_PROMO_SK: id,
     P_PROMO_ID: string_id,
-    P_COST: ?cost,
-    P_CHANNEL_EMAIL: ?channel_email,
-    P_CHANNEL_EVENT: ?channel_event,
-    P_CHANNEL_CATALOG: ?channel_catalog,
+    P_COST: cost,
+    P_CHANNEL_EMAIL: channel_email,
+    P_CHANNEL_EVENT: channel_event,
+    P_CHANNEL_CATALOG: channel_catalog,
 )
 grain (id)
 address memory.promotion;

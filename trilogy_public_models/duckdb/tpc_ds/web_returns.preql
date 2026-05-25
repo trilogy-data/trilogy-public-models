@@ -7,16 +7,18 @@ import time as time;
 import customer as customer;
 import address as return_address;
 
-property <item.id,web_sales.order_number>.return_amount numeric::usd;
+properties <item.id, web_sales.order_number> (
+    return_amount numeric::usd?, # Dollar amount refunded for the returned web-sale item (USD).
+);
 
 datasource web_returns (
-    WR_RETURNED_DATE_SK: ~?return_date.id,
-    WR_RETURNED_TIME_SK: ~?time.id,
-    WR_ITEM_SK: ~item.id,
-    WR_RETURNING_CUSTOMER_SK: ~?customer.id,
-    WR_RETURNING_ADDR_SK: ~?return_address.id,
-    WR_RETURN_AMT: ?return_amount,
-    WR_ORDER_NUMBER: ~web_sales.order_number
-    )
-grain (item.id,web_sales.order_number)
+    WR_RETURNED_DATE_SK: ~?return_date.id, # FK to the date the item was returned.
+    WR_RETURNED_TIME_SK: ~?time.id, # FK to the time-of-day the return was processed.
+    WR_ITEM_SK: ~item.id, # FK to the returned item.
+    WR_RETURNING_CUSTOMER_SK: ~?customer.id, # FK to the customer initiating the return.
+    WR_RETURNING_ADDR_SK: ~?return_address.id, # FK to the address the return originated from.
+    WR_RETURN_AMT: return_amount,
+    WR_ORDER_NUMBER: ~web_sales.order_number # FK to the originating web sales order.
+)
+grain (item.id, web_sales.order_number)
 address memory.web_returns;

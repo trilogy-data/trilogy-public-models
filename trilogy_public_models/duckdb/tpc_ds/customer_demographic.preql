@@ -1,12 +1,15 @@
-key id int;
-property id.gender string;
-property id.marital_status string;
-property id.education_status string;
-property id.purchase_estimate int;
-property id.credit_rating string;
-property id.dependent_count int;
-property id.employed_dependent_count int;
-property id.college_dependent_count int;
+key id int; # Surrogate key uniquely identifying a customer demographic profile.
+
+properties id (
+    gender enum<string>['M', 'F'], # Customer gender code: 'M' male, 'F' female.
+    marital_status enum<string>['M', 'S', 'D', 'W', 'U'], # Marital status: M=married, S=single, D=divorced, W=widowed, U=unknown.
+    education_status enum<string>['Primary', 'Secondary', 'College', '2 yr Degree', '4 yr Degree', 'Advanced Degree', 'Unknown'], # Highest education level attained.
+    purchase_estimate int, # Modelled annual purchase amount estimate (dollars).
+    credit_rating enum<string>['Low Risk', 'Good', 'High Risk', 'Unknown'], # Categorical credit-risk rating.
+    dependent_count int, # Total number of dependents in the customer household.
+    employed_dependent_count int, # Number of dependents that are currently employed.
+    college_dependent_count int, # Number of dependents currently enrolled in college.
+);
 
 datasource customer_demographics (
     CD_DEMO_SK: id,
@@ -18,6 +21,6 @@ datasource customer_demographics (
     CD_DEP_COUNT: dependent_count,
     CD_DEP_EMPLOYED_COUNT: employed_dependent_count,
     CD_DEP_COLLEGE_COUNT: college_dependent_count
-    )
+)
 grain (id)
 address memory.customer_demographics;
