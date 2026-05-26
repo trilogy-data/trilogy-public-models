@@ -7,16 +7,18 @@ import date as return_date;
 import time as time;
 import customer as customer;
 
-property <item.id,store_sales.ticket_number>.return_amount numeric::usd;
+properties <item.id, store_sales.ticket_number> (
+    return_amount numeric::usd?, # Dollar amount refunded to the customer for the returned item (USD).
+);
 
 datasource store_returns (
-    SR_RETURNED_DATE_SK: ?~return_date.id,
-    SR_RETURN_TIME_SK: ?~time.id,
-    SR_ITEM_SK: ~item.id,
-    SR_CUSTOMER_SK: ?~customer.id,
-    SR_RETURN_AMT: ?return_amount,
-    SR_TICKET_NUMBER: ~store_sales.ticket_number,
-    SR_STORE_SK: ?~store.id
-    )
-grain (item.id,store_sales.ticket_number)
+    SR_RETURNED_DATE_SK: ?~return_date.id, # FK to the date the item was returned.
+    SR_RETURN_TIME_SK: ?~time.id, # FK to the time-of-day the return was processed.
+    SR_ITEM_SK: ~item.id, # FK to the returned item.
+    SR_CUSTOMER_SK: ?~customer.id, # FK to the customer initiating the return (optional).
+    SR_RETURN_AMT: return_amount,
+    SR_TICKET_NUMBER: ~store_sales.ticket_number, # FK to the original store-sale ticket the return is associated with.
+    SR_STORE_SK: ?~store.id # FK to the store the return was processed at (optional).
+)
+grain (item.id, store_sales.ticket_number)
 address memory.store_returns;

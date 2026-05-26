@@ -1,14 +1,14 @@
+key id int; # Surrogate key uniquely identifying a web site.
 
-key id int;
-property id.string_id string;
-property id.company_name string;
-
+properties id (
+    string_id string, # Stable business identifier for the web site (16-char alphanumeric).
+    company_name string, # Operating company name for the web site.
+);
 
 datasource web_site (
-web_site_sk: id,
-web_site_id: string_id,
-web_company_name: company_name
+    web_site_sk: id,
+    web_site_id: string_id,
+    web_company_name: company_name
 )
-grain(id)
-address memory.web_site
-;
+grain (id)
+address memory.web_site;

@@ -1,20 +1,24 @@
 import std.geography;
-key id int;
 
-property id.street string;
-property id.city string;
-property id.state string::us_state_short;
-property id.zip string; #Two character state code; eg. CA for California, MA for Massachusetts
-property id.county string;
-property id.country string;
+key id int; # Surrogate key uniquely identifying a customer address row.
+
+properties id (
+    street string?, # Street name portion of the address (excludes house number).
+    city string?, # City name.
+    state string::us_state_short?, # Two-letter US state code (e.g. 'CA', 'NY').
+    zip string?, # Postal/ZIP code as a string to preserve leading zeros.
+    county string?, # County name within the state.
+    country string?, # Country name (free-form string, typically 'United States').
+);
+
 datasource customer_address (
     CA_ADDRESS_SK: id,
-    CA_STREET_NAME: ?street,
-    CA_CITY: ?city,
-    CA_STATE: ?state,
-    CA_ZIP: ?zip,
-    CA_COUNTY: ?county,
-    CA_COUNTRY: ?country
-    )
+    CA_STREET_NAME: street,
+    CA_CITY: city,
+    CA_STATE: state,
+    CA_ZIP: zip,
+    CA_COUNTY: county,
+    CA_COUNTRY: country
+)
 grain (id)
 address memory.customer_address;

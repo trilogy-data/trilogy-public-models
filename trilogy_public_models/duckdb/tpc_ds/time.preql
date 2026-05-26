@@ -1,10 +1,9 @@
+key id int; # Surrogate key uniquely identifying a time-of-day row.
 
-
-
-key id int;
-property id.time_string string;
-property id.time int;
-
+properties id (
+    time_string string, # Stable textual time-of-day identifier (16-char alphanumeric in TPC-DS).
+    time int, # Seconds elapsed since midnight (0 - 86399).
+);
 
 datasource date (
     T_TIME_SK: id,

@@ -12,43 +12,47 @@ import warehouse as warehouse;
 import customer_demographic as bill_customer_demographic;
 import promotion as promotion;
 
-key order_number int;
-property <item.id,order_number>.quantity int;
-property <item.id,order_number>.sales_price numeric::usd;
-property <item.id,order_number>.list_price numeric::usd;
-property <item.id,order_number>.wholesale_cost numeric::usd;
-property <item.id,order_number>.discount_amount numeric::usd;
-property <item.id,order_number>.extra_sales_price numeric::usd;
-property <item.id,order_number>.extra_ship_cost numeric::usd;
-property <item.id,order_number>.extra_wholesale_cost numeric::usd;
-property <item.id,order_number>.net_profit numeric::usd;
-property <item.id,order_number>.coupon_amt numeric::usd;
-property profit <- list_price - wholesale_cost - discount_amount + extra_sales_price;
+key order_number int; # Catalog order number identifying a single catalog sales transaction.
+
+properties <item.id, order_number> (
+    quantity int?, # Number of units of the item purchased on this order line.
+    sales_price numeric::usd?, # Per-unit sales price (USD) actually charged on this line.
+    list_price numeric::usd?, # Per-unit catalog list price (USD) before discounts.
+    wholesale_cost numeric::usd?, # Per-unit wholesale cost paid by the retailer (USD).
+    discount_amount numeric::usd?, # Extended (line-level) discount amount applied to the order line (USD).
+    extra_sales_price numeric::usd?, # Extended sales price (sales_price * quantity, USD).
+    extra_ship_cost numeric::usd?, # Extended shipping cost charged on the line (USD).
+    extra_wholesale_cost numeric::usd?, # Extended wholesale cost (wholesale_cost * quantity, USD).
+    net_profit numeric::usd?, # Net profit reported for the line (USD).
+    coupon_amt numeric::usd?, # Coupon/credit amount applied to the order line (USD).
+);
+
+property profit <- list_price - wholesale_cost - discount_amount + extra_sales_price; # Derived profit per line: list_price − wholesale_cost − discount_amount + extra_sales_price.
 
 datasource catalog_sales (
-    CS_SOLD_DATE_SK: ~?date.id,
-    CS_SOLD_DATE_SK: ~?sold_date.id,
-    CS_SOLD_TIME_SK: ~?time.id,
-    CS_SHIP_DATE_SK: ~?ship_date.id,
-    CS_SHIP_CUSTOMER_SK: ~?customer.id,
-    CS_SHIP_ADDR_SK: ~?customer.address_id,
-    CS_BILL_CUSTOMER_SK: ~?bill_customer.id,
-    CS_BILL_CDEMO_SK: ~?bill_customer_demographic.id,
-    CS_ITEM_SK: item.id,
-    CS_QUANTITY: ?quantity,
-    CS_LIST_PRICE: ?list_price,
-    CS_SALES_PRICE: ?sales_price,
+    CS_SOLD_DATE_SK: ~?date.id, # Date the order was sold (FK to date dimension; optional).
+    CS_SOLD_DATE_SK: ~?sold_date.id, # Alias of the sold date for queries that need a distinct role-named date.
+    CS_SOLD_TIME_SK: ~?time.id, # Time-of-day the order was placed (FK to time dimension; optional).
+    CS_SHIP_DATE_SK: ~?ship_date.id, # Date the order shipped (FK to date dimension; optional).
+    CS_SHIP_CUSTOMER_SK: ~?customer.id, # Customer the order was shipped to (FK to customer).
+    CS_SHIP_ADDR_SK: ~?customer.address_id, # Address the order was shipped to (FK to customer address).
+    CS_BILL_CUSTOMER_SK: ~?bill_customer.id, # Customer billed for the order (FK to customer).
+    CS_BILL_CDEMO_SK: ~?bill_customer_demographic.id, # Demographic profile of the billed customer at order time (FK to customer_demographic).
+    CS_ITEM_SK: item.id, # Item ordered (FK to item).
+    CS_QUANTITY: quantity,
+    CS_LIST_PRICE: list_price,
+    CS_SALES_PRICE: sales_price,
     CS_ORDER_NUMBER: order_number,
-    CS_WHOLESALE_COST: ?wholesale_cost,
-    CS_EXT_WHOLESALE_COST: ?extra_wholesale_cost,
-    CS_EXT_DISCOUNT_AMT: ?discount_amount,
-    CS_CALL_CENTER_SK: ?~call_center.id,
-    CS_EXT_SHIP_COST: ?extra_ship_cost,
-    CS_EXT_SALES_PRICE: ?extra_sales_price,
-    CS_NET_PROFIT: ?net_profit,
-    CS_COUPON_AMT: ?coupon_amt,
-    CS_WAREHOUSE_SK: ?warehouse.id,
-    CS_PROMO_SK: ~?promotion.id
-    )
-grain (item.id,order_number)
+    CS_WHOLESALE_COST: wholesale_cost,
+    CS_EXT_WHOLESALE_COST: extra_wholesale_cost,
+    CS_EXT_DISCOUNT_AMT: discount_amount,
+    CS_CALL_CENTER_SK: ?~call_center.id, # Call center that took the order (FK to call_center).
+    CS_EXT_SHIP_COST: extra_ship_cost,
+    CS_EXT_SALES_PRICE: extra_sales_price,
+    CS_NET_PROFIT: net_profit,
+    CS_COUPON_AMT: coupon_amt,
+    CS_WAREHOUSE_SK: ?warehouse.id, # Warehouse the order shipped from (FK to warehouse).
+    CS_PROMO_SK: ~?promotion.id # Promotion applied to the order line, if any (FK to promotion).
+)
+grain (item.id, order_number)
 address memory.catalog_sales;

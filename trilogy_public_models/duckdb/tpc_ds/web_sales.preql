@@ -13,44 +13,47 @@ import web_site as web_site;
 import warehouse as warehouse;
 import address as ship_address;
 
-key order_number int;
+key order_number int; # Web order number identifying a single web sales transaction.
 
-property <item.id,order_number>.quantity int;
-property <item.id,order_number>.sales_price numeric::usd;
-property <item.id,order_number>.net_profit numeric::usd;
-property <item.id,order_number>.extra_sales_price numeric::usd;
-property <item.id,order_number>.extra_ship_cost numeric::usd;
-property <item.id,order_number>.return_amount numeric::usd;
-property <item.id,order_number>.is_returned int;
+properties <item.id, order_number> (
+    quantity int?, # Number of units of the item ordered on this line.
+    sales_price numeric::usd?, # Per-unit sales price actually charged (USD).
+    net_profit numeric::usd, # Net profit reported for the line (USD).
+    extra_sales_price numeric::usd?, # Extended sales price (sales_price * quantity, USD).
+    extra_ship_cost numeric::usd?, # Extended shipping cost charged on the line (USD).
+    return_amount numeric::usd?, # Refund amount if the item was returned (USD).
+    is_returned enum<int>[0, 1], # 1 if the line was returned, 0 otherwise (derived from web_returns).
+);
 
 datasource web_sales (
-    WS_SOLD_DATE_SK: ~?date.id,
-    WS_SOLD_TIME_SK: ~?time.id,
-    WS_SHIP_DATE_SK: ~?ship_date.id,
-    WS_BILL_CUSTOMER_SK: ~?customer.id,
+    WS_SOLD_DATE_SK: ~?date.id, # FK to the date the order was sold.
+    WS_SOLD_TIME_SK: ~?time.id, # FK to the time-of-day the order was placed.
+    WS_SHIP_DATE_SK: ~?ship_date.id, # FK to the date the order shipped.
+    WS_BILL_CUSTOMER_SK: ~?customer.id, # FK to the customer billed for the order.
     WS_ORDER_NUMBER: order_number,
-    WS_ITEM_SK: item.id,
-    WS_SALES_PRICE: ?sales_price,
-    WS_EXT_SALES_PRICE: ?extra_sales_price,
-    WS_EXT_SHIP_COST: ?extra_ship_cost,
+    WS_ITEM_SK: item.id, # FK to the item ordered.
+    WS_SALES_PRICE: sales_price,
+    WS_EXT_SALES_PRICE: extra_sales_price,
+    WS_EXT_SHIP_COST: extra_ship_cost,
     WS_NET_PROFIT: net_profit,
-    WS_WEB_SITE_SK: ?web_site.id,
-    WS_WAREHOUSE_SK: ?warehouse.id,
-    WS_SHIP_ADDR_SK: ~?ship_address.id,
-    WS_QUANTITY: ?quantity
-    )
-grain (item.id,order_number)
+    WS_WEB_SITE_SK: ?web_site.id, # FK to the web site the order was placed through.
+    WS_WAREHOUSE_SK: ?warehouse.id, # FK to the warehouse fulfilling the order.
+    WS_SHIP_ADDR_SK: ~?ship_address.id, # FK to the shipping address.
+    WS_QUANTITY: quantity
+)
+grain (item.id, order_number)
 address memory.web_sales;
+
 datasource web_returns (
-    WR_RETURNED_DATE_SK: ?~return_date.id,
-    WR_RETURNED_TIME_SK: ?~return_time.id,
+    WR_RETURNED_DATE_SK: ?~return_date.id, # FK to the date the return occurred.
+    WR_RETURNED_TIME_SK: ?~return_time.id, # FK to the time-of-day the return was processed.
     WR_ITEM_SK: ~item.id,
-    WR_RETURNING_CUSTOMER_SK: ?~return_customer.id,
-    WR_REFUNDED_CUSTOMER_SK: ?~return_refund_customer.id,
+    WR_RETURNING_CUSTOMER_SK: ?~return_customer.id, # FK to the customer returning the item.
+    WR_REFUNDED_CUSTOMER_SK: ?~return_refund_customer.id, # FK to the customer receiving the refund (may differ from returning customer).
     WR_ORDER_NUMBER: ~order_number,
-    WR_RETURN_AMT: ?return_amount,
-    raw('''CASE WHEN WR_ORDER_NUMBER IS NOT NULL THEN 1 else 0 END'''): is_returned
-    )
-grain (item.id,order_number)
+    WR_RETURN_AMT: return_amount,
+    raw('''CASE WHEN WR_ORDER_NUMBER IS NOT NULL THEN 1 else 0 END'''): is_returned # Derived 0/1 flag indicating whether a return row exists for the order line.
+)
+grain (item.id, order_number)
 complete where is_returned is True
 address memory.web_returns;
