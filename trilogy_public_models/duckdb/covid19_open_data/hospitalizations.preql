@@ -5,11 +5,13 @@ import dates as dates;
 # `hospitalizations` table. Grain is one row per location per day. `new_*` are
 # daily admissions, `current_*` are the census (patients in care that day).
 
-property <location.location_key, dates.date>.new_hospitalized_patients int?; # new COVID-19 hospital admissions that day
-property <location.location_key, dates.date>.cumulative_hospitalized_patients int?; # running total of hospital admissions
-property <location.location_key, dates.date>.current_hospitalized_patients int?; # COVID-19 patients hospitalized that day (census)
-property <location.location_key, dates.date>.new_intensive_care_patients int?; # new ICU admissions that day
-property <location.location_key, dates.date>.current_intensive_care_patients int?; # COVID-19 patients in the ICU that day (census)
+properties <location.location_key, dates.date> (
+	new_hospitalized_patients int?, # new COVID-19 hospital admissions that day
+	cumulative_hospitalized_patients int?, # running total of hospital admissions
+	current_hospitalized_patients int?, # COVID-19 patients hospitalized that day (census)
+	new_intensive_care_patients int?, # new ICU admissions that day
+	current_intensive_care_patients int?, # COVID-19 patients in the ICU that day (census)
+);
 
 datasource hospitalizations (
 	date:dates.date,

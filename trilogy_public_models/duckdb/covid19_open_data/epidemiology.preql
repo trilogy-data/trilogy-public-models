@@ -5,14 +5,16 @@ import dates as dates;
 # table. Grain is one row per location per day. `new_*` columns are the daily
 # delta; `cumulative_*` columns are the running total reported to date.
 
-property <location.location_key, dates.date>.new_confirmed int?; # newly confirmed cases reported that day
-property <location.location_key, dates.date>.new_deceased int?; # new deaths reported that day
-property <location.location_key, dates.date>.new_recovered int?; # new recoveries reported that day
-property <location.location_key, dates.date>.new_tested int?; # new tests reported that day
-property <location.location_key, dates.date>.cumulative_confirmed int?; # running total confirmed cases
-property <location.location_key, dates.date>.cumulative_deceased int?; # running total deaths
-property <location.location_key, dates.date>.cumulative_recovered int?; # running total recoveries
-property <location.location_key, dates.date>.cumulative_tested int?; # running total tests
+properties <location.location_key, dates.date> (
+	new_confirmed int?, # newly confirmed cases reported that day
+	new_deceased int?, # new deaths reported that day
+	new_recovered int?, # new recoveries reported that day
+	new_tested int?, # new tests reported that day
+	cumulative_confirmed int?, # running total confirmed cases
+	cumulative_deceased int?, # running total deaths
+	cumulative_recovered int?, # running total recoveries
+	cumulative_tested int?, # running total tests
+);
 
 auto total_new_confirmed <- sum(new_confirmed); # summed daily new cases
 auto total_new_deceased <- sum(new_deceased); # summed daily new deaths

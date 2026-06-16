@@ -3,38 +3,44 @@ import std.geography;
 # Location dimension. Combines the 1:1-per-location tables from COVID-19 Open
 # Data — `index` + `geography` (identity & shape), `demographics` (population),
 # and `health` (health-system indicators) — into a single location entity keyed
-# on location_key. One row per location at country (aggregation_level 0) or
-# state / province (aggregation_level 1) granularity.
+# on location_key. One row per location at country (aggregation_level 0),
+# state / province (1), county / admin-2 (2) or locality (3) granularity.
 
 key location_key string; # unique location id; a country code or country_subregion code, eg 'US', 'US_CA', 'FR', 'JP_13'
 
 # ---- index + geography (identity & shape) -----------------------------------
-property location_key.country_code string; # ISO 3166-1 alpha-2 country code; eg 'US'
-property location_key.country_name string::country; # country display name; eg 'United States of America'
-property location_key.subregion1_code string?; # first-level subdivision (state / province) code; null for country rows
-property location_key.subregion1_name string?; # first-level subdivision name; eg 'California'
-property location_key.subregion2_code string?; # second-level subdivision (county / admin-2) code; null above county level
-property location_key.subregion2_name string?; # second-level subdivision name; eg 'Los Angeles County'
-property location_key.iso_3166_1_alpha_3 string?; # ISO 3166-1 alpha-3 country code; eg 'USA'
-property location_key.aggregation_level int; # geographic granularity: 0 = country, 1 = state / province
-property location_key.latitude float::latitude?; # location centroid latitude
-property location_key.longitude float::longitude?; # location centroid longitude
-property location_key.area_sq_km int?; # land area in square kilometers
+properties location_key (
+	country_code string, # ISO 3166-1 alpha-2 country code; eg 'US'
+	country_name string::country, # country display name; eg 'United States of America'
+	subregion1_code string?, # first-level subdivision (state / province) code; null for country rows
+	subregion1_name string?, # first-level subdivision name; eg 'California'
+	subregion2_code string?, # second-level subdivision (county / admin-2) code; null above county level
+	subregion2_name string?, # second-level subdivision name; eg 'Los Angeles County'
+	iso_3166_1_alpha_3 string?, # ISO 3166-1 alpha-3 country code; eg 'USA'
+	aggregation_level int, # geographic granularity: 0 = country, 1 = state / province, 2 = county, 3 = locality
+	latitude float::latitude?, # location centroid latitude
+	longitude float::longitude?, # location centroid longitude
+	area_sq_km int?, # land area in square kilometers
+);
 
 # ---- demographics -----------------------------------------------------------
-property location_key.population int?; # total resident population
-property location_key.population_male int?; # male population
-property location_key.population_female int?; # female population
-property location_key.population_density float?; # residents per square kilometer
-property location_key.human_development_index float?; # UN Human Development Index, 0-1 (higher = more developed)
+properties location_key (
+	population int?, # total resident population
+	population_male int?, # male population
+	population_female int?, # female population
+	population_density float?, # residents per square kilometer
+	human_development_index float?, # UN Human Development Index, 0-1 (higher = more developed)
+);
 
 # ---- health -----------------------------------------------------------------
-property location_key.life_expectancy float?; # life expectancy at birth, years
-property location_key.smoking_prevalence float?; # percent of adults who smoke
-property location_key.diabetes_prevalence float?; # percent of adults with diabetes
-property location_key.hospital_beds_per_1000 float?; # hospital beds per 1,000 people
-property location_key.physicians_per_1000 float?; # physicians per 1,000 people
-property location_key.health_expenditure_usd float?; # annual health expenditure per capita, USD
+properties location_key (
+	life_expectancy float?, # life expectancy at birth, years
+	smoking_prevalence float?, # percent of adults who smoke
+	diabetes_prevalence float?, # percent of adults with diabetes
+	hospital_beds_per_1000 float?, # hospital beds per 1,000 people
+	physicians_per_1000 float?, # physicians per 1,000 people
+	health_expenditure_usd float?, # annual health expenditure per capita, USD
+);
 
 auto location_count <- count(location_key); # number of distinct locations
 
