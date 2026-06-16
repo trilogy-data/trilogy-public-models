@@ -1,0 +1,75 @@
+import std.geography;
+
+# Location dimension. Combines the 1:1-per-location tables from COVID-19 Open
+# Data — `index` + `geography` (identity & shape), `demographics` (population),
+# and `health` (health-system indicators) — into a single location entity keyed
+# on location_key. One row per location at country (aggregation_level 0) or
+# state / province (aggregation_level 1) granularity.
+
+key location_key string; # unique location id; a country code or country_subregion code, eg 'US', 'US_CA', 'FR', 'JP_13'
+
+# ---- index + geography (identity & shape) -----------------------------------
+property location_key.country_code string; # ISO 3166-1 alpha-2 country code; eg 'US'
+property location_key.country_name string::country; # country display name; eg 'United States of America'
+property location_key.subregion1_code string?; # first-level subdivision (state / province) code; null for country rows
+property location_key.subregion1_name string?; # first-level subdivision name; eg 'California'
+property location_key.iso_3166_1_alpha_3 string?; # ISO 3166-1 alpha-3 country code; eg 'USA'
+property location_key.aggregation_level int; # geographic granularity: 0 = country, 1 = state / province
+property location_key.latitude float::latitude?; # location centroid latitude
+property location_key.longitude float::longitude?; # location centroid longitude
+property location_key.area_sq_km int?; # land area in square kilometers
+
+# ---- demographics -----------------------------------------------------------
+property location_key.population int?; # total resident population
+property location_key.population_male int?; # male population
+property location_key.population_female int?; # female population
+property location_key.population_density float?; # residents per square kilometer
+property location_key.human_development_index float?; # UN Human Development Index, 0-1 (higher = more developed)
+
+# ---- health -----------------------------------------------------------------
+property location_key.life_expectancy float?; # life expectancy at birth, years
+property location_key.smoking_prevalence float?; # percent of adults who smoke
+property location_key.diabetes_prevalence float?; # percent of adults with diabetes
+property location_key.hospital_beds_per_1000 float?; # hospital beds per 1,000 people
+property location_key.physicians_per_1000 float?; # physicians per 1,000 people
+property location_key.health_expenditure_usd float?; # annual health expenditure per capita, USD
+
+auto location_count <- count(location_key); # number of distinct locations
+
+datasource location (
+	location_key,
+	country_code,
+	country_name,
+	subregion1_code,
+	subregion1_name,
+	iso_3166_1_alpha_3,
+	aggregation_level,
+	latitude,
+	longitude,
+	area_sq_km,
+)
+grain (location_key)
+address location;
+
+datasource demographics (
+	location_key:~location_key,
+	population,
+	population_male,
+	population_female,
+	population_density,
+	human_development_index,
+)
+grain (location_key)
+address demographics;
+
+datasource health (
+	location_key:~location_key,
+	life_expectancy,
+	smoking_prevalence,
+	diabetes_prevalence,
+	hospital_beds_per_1000,
+	physicians_per_1000,
+	health_expenditure_usd,
+)
+grain (location_key)
+address health;

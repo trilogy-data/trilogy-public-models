@@ -1,0 +1,15 @@
+# Highest COVID-19 deaths per 100k population, among countries with > 5M people.
+# Joins the epidemiology fact to the location dimension's population attribute.
+import epidemiology as epidemiology;
+
+SELECT
+    epidemiology.location.country_name,
+    sum(epidemiology.new_deceased) -> total_deaths,
+    epidemiology.location.population,
+    round(sum(epidemiology.new_deceased) * 100000.0 / epidemiology.location.population, 1) -> deaths_per_100k
+WHERE
+    epidemiology.location.aggregation_level = 0
+    and epidemiology.location.population > 5000000
+ORDER BY
+    deaths_per_100k desc
+LIMIT 10;

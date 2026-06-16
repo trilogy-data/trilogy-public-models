@@ -1,0 +1,29 @@
+import location as location;
+import dates as dates;
+
+# Daily vaccination fact table from the COVID-19 Open Data `vaccinations`
+# table. Grain is one row per location per day. `persons_vaccinated` counts
+# people with at least one dose; `persons_fully_vaccinated` counts people who
+# completed the initial protocol; `vaccine_doses_administered` counts doses.
+
+property <location.location_key, dates.date>.new_persons_vaccinated int?; # new people receiving their first dose that day
+property <location.location_key, dates.date>.cumulative_persons_vaccinated int?; # running total of people with >= 1 dose
+property <location.location_key, dates.date>.new_persons_fully_vaccinated int?; # new people completing the protocol that day
+property <location.location_key, dates.date>.cumulative_persons_fully_vaccinated int?; # running total of fully vaccinated people
+property <location.location_key, dates.date>.new_vaccine_doses_administered int?; # new doses administered that day
+property <location.location_key, dates.date>.cumulative_vaccine_doses_administered int?; # running total of doses administered
+
+auto total_new_doses_administered <- sum(new_vaccine_doses_administered); # summed daily doses administered
+
+datasource vaccinations (
+	date:dates.date,
+	location_key:~location.location_key,
+	new_persons_vaccinated,
+	cumulative_persons_vaccinated,
+	new_persons_fully_vaccinated,
+	cumulative_persons_fully_vaccinated,
+	new_vaccine_doses_administered,
+	cumulative_vaccine_doses_administered,
+)
+grain (location.location_key, dates.date)
+address vaccinations;

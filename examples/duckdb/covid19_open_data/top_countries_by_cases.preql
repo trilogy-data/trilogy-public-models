@@ -1,0 +1,11 @@
+# Top 10 countries by total confirmed COVID-19 cases.
+import epidemiology as epidemiology;
+
+SELECT
+    epidemiology.location.country_name,
+    sum(epidemiology.new_confirmed) -> total_confirmed
+WHERE
+    epidemiology.location.aggregation_level = 0
+ORDER BY
+    total_confirmed desc
+LIMIT 10;
