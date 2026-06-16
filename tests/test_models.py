@@ -6,7 +6,15 @@ import traceback
 from pydantic.errors import PydanticUserError
 
 
-SKIPPED_KEYS = ["bigquery.age_of_empires_2", "duckdb.titanic"]
+# duckdb.covid19_open_data reads its parquet tiles from GCS (not committed to
+# git); they are published by the Refresh Data workflow on merge to main. It is
+# validated in CI by a dedicated build + `trilogy integration` step against
+# locally-built tiles (see .github/workflows/pythonpackage.yml).
+SKIPPED_KEYS = [
+    "bigquery.age_of_empires_2",
+    "duckdb.titanic",
+    "duckdb.covid19_open_data",
+]
 
 
 def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = False):

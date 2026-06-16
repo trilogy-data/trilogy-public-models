@@ -7,22 +7,28 @@ countries and their first-level subdivisions worldwide.
 
 ## Engine
 
-DuckDB. The model reads compact parquet extracts committed alongside it; no
-external warehouse credentials are required.
+DuckDB. The model reads compact zstd-parquet extracts of the upstream tables
+hosted at `gs://trilogy_public_models/duckdb/covid19_open_data/`; no external
+warehouse credentials are required to query it.
 
 ## Scope
 
-The upstream per-table CSVs include county / locality detail and run to many
-hundreds of MB each. This model keeps the **country (aggregation_level 0)** and
-**state / province (aggregation_level 1)** rows, which covers every national and
-sub-national trend while keeping the extracts to ~13 MB total. The data spans the
-pandemic period (2020 through the dataset's final 2022 refresh).
+Every aggregation level is included — **country (0)**, **state / province (1)**,
+**county / admin-2 (2)** and **locality (3)** — across ~23,000 locations
+(epidemiology alone is 12.5M daily rows). The verbose upstream CSVs are hundreds
+of MB each; recompressed to parquet the whole model is ~74 MB. A curated set of
+the most-used columns is kept per table. The data spans the pandemic period
+(2020 through the dataset's final 2022 refresh).
+
+The parquet tiles are **not committed to git** — they are built from the live
+upstream CSVs and published to GCS by the ingest scripts (wired into the Refresh
+Data CI workflow on merge to main).
 
 ## Structure
 
 | File | Source table(s) | Grain | Description |
 |------|-----------------|-------|-------------|
-| `location.preql` | `index` + `geography` + `demographics` + `health` | `location_key` | Location dimension: identity, geography, population and health-system indicators |
+| `location.preql` | `index` + `geography` + `demographics` + `health` | `location_key` | Location dimension: identity (country / subregion1 / subregion2), geography, population and health-system indicators |
 | `epidemiology.preql` | `epidemiology` | `location_key` × `date` | Daily new / cumulative confirmed, deceased, recovered, tested |
 | `vaccinations.preql` | `vaccinations` | `location_key` × `date` | Daily new / cumulative persons vaccinated and doses administered |
 | `hospitalizations.preql` | `hospitalizations` | `location_key` × `date` | Daily admissions and current hospital / ICU census |
@@ -56,13 +62,26 @@ for row in results[0].fetchall():
 
 See `examples/duckdb/covid19_open_data/` for more queries.
 
-## Rebuilding the extracts
+## Rebuilding & publishing the tiles
 
-The parquet files are produced from the live COVID-19 Open Data CSVs by
-`ingest/build_extract.py`:
+`ingest/build_extract.py` downloads the live COVID-19 Open Data CSVs and writes
+the parquet tiles into this directory (git-ignored). `ingest/publish_extract.py`
+uploads them to GCS. `ingest/refresh_and_publish.py` runs both and is the entry
+point used by the Refresh Data workflow.
 
 ```bash
+# build locally (no credentials needed)
 uv run trilogy_public_models/duckdb/covid19_open_data/ingest/build_extract.py
+
+# build + publish to GCS (needs GCS write credentials / ADC)
+uv run trilogy_public_models/duckdb/covid19_open_data/ingest/refresh_and_publish.py
+```
+
+To query the model locally without GCS, build the tiles and use the dev config,
+which reads them from the checkout:
+
+```bash
+trilogy run query.preql duck_db --config trilogy_public_models/duckdb/covid19_open_data/trilogy_dev.toml
 ```
 
 ## License

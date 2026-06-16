@@ -10,20 +10,16 @@
 Source: https://github.com/GoogleCloudPlatform/covid-19-open-data
         (published CSVs under https://storage.googleapis.com/covid19-open-data/v3/)
 
-The upstream per-table CSVs are large (epidemiology alone is ~520MB, weather
-~1.7GB) because they include county / locality level rows. For a public demo
-model we keep:
+The upstream per-table CSVs are large (epidemiology alone is ~520MB) mostly
+because the rows are stored as verbose CSV; recompressed to zstd parquet the
+whole model is well under 100MB. We keep every aggregation level — country (0),
+state / province (1), county / admin-2 (2) and locality (3) — and a curated set
+of the most-used columns per table.
 
-  * static dimension tables (index, demographics, health, geography) for every
-    location, joined into a single ``location`` table; and
-  * the daily time-series tables (epidemiology, vaccinations, hospitalizations)
-    filtered to aggregation_level <= 1 — i.e. country (0) and
-    state / province (1). This drops the high-cardinality county / locality
-    rows while keeping every national and sub-national trend.
-
-Output parquet files land next to the model's ``setup.sql`` and are committed
-to the repo; ``setup.sql`` reads them back via the github.io published path
-(rewritten to the local checkout by ``trilogy_public_models.main``).
+Output parquet files are written next to the model's setup. They are NOT
+committed to git (see ../.gitignore); ingest/publish_extract.py uploads them to
+gs://trilogy_public_models/duckdb/covid19_open_data/, which the prod setup.sql
+reads back. setup_dev.sql reads the same files from the local checkout.
 
 Run with:  uv run build_extract.py
 """
@@ -35,8 +31,6 @@ import duckdb
 
 BASE = "https://storage.googleapis.com/covid19-open-data/v3/"
 OUT_DIR = Path(__file__).resolve().parent.parent
-# country (0) + state / province (1); 2 = county, 3 = locality are dropped.
-MAX_LEVEL = 1
 
 
 def src(table: str) -> str:
@@ -52,11 +46,10 @@ def main() -> None:
         f"""
         CREATE TABLE idx AS
         SELECT * FROM {src('index')}
-        WHERE aggregation_level <= {MAX_LEVEL}
         """
     )
     n_loc = con.execute("SELECT count(*) FROM idx").fetchone()[0]
-    print(f"  {n_loc} locations at aggregation_level <= {MAX_LEVEL}")
+    print(f"  {n_loc} locations (all aggregation levels)")
 
     # ---- location: index + geography + a few static attributes -------------
     print("Building location.parquet (index + geography)...")

@@ -13,6 +13,8 @@ property location_key.country_code string; # ISO 3166-1 alpha-2 country code; eg
 property location_key.country_name string::country; # country display name; eg 'United States of America'
 property location_key.subregion1_code string?; # first-level subdivision (state / province) code; null for country rows
 property location_key.subregion1_name string?; # first-level subdivision name; eg 'California'
+property location_key.subregion2_code string?; # second-level subdivision (county / admin-2) code; null above county level
+property location_key.subregion2_name string?; # second-level subdivision name; eg 'Los Angeles County'
 property location_key.iso_3166_1_alpha_3 string?; # ISO 3166-1 alpha-3 country code; eg 'USA'
 property location_key.aggregation_level int; # geographic granularity: 0 = country, 1 = state / province
 property location_key.latitude float::latitude?; # location centroid latitude
@@ -42,6 +44,8 @@ datasource location (
 	country_name,
 	subregion1_code,
 	subregion1_name,
+	subregion2_code,
+	subregion2_name,
 	iso_3166_1_alpha_3,
 	aggregation_level,
 	latitude,
