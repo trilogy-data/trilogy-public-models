@@ -35,10 +35,14 @@ version = {attr = "trilogy_public_models.__version__"}
 
 [tool.mypy]
 disable_error_code = ["import-untyped"]
-# FAA ingest scripts are PEP 723 standalone scripts run via `uv run` — they
-# self-declare deps (polars, google-cloud-storage, httpx) that aren't in
-# requirements.txt, and import each other as siblings rather than as a package.
-exclude = ["trilogy_public_models/duckdb/faa/ingest/"]
+# FAA and COVID ingest scripts are PEP 723 standalone scripts run via `uv run`
+# — they self-declare deps (duckdb, polars, google-cloud-storage, httpx) that
+# aren't in requirements.txt, and import each other as siblings rather than as a
+# package.
+exclude = [
+    "trilogy_public_models/duckdb/faa/ingest/",
+    "trilogy_public_models/duckdb/covid19_open_data/ingest/",
+]
 
 [[tool.mypy.overrides]]
 module = ["trilogy_public_models.*"]
