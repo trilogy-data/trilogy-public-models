@@ -1,0 +1,13 @@
+# US states ranked by their peak single-day COVID-19 ICU census.
+import hospitalizations as hospitalizations;
+
+SELECT
+    hospitalizations.location.subregion1_name,
+    max(hospitalizations.current_intensive_care_patients) -> peak_icu_patients
+WHERE
+    hospitalizations.location.country_code = 'US'
+    and hospitalizations.location.aggregation_level = 1
+    and hospitalizations.location.subregion1_name is not null
+ORDER BY
+    peak_icu_patients desc
+LIMIT 10;

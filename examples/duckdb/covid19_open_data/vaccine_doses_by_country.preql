@@ -1,0 +1,11 @@
+# Top 10 countries by total COVID-19 vaccine doses administered.
+import vaccinations as vaccinations;
+
+SELECT
+    vaccinations.location.country_name,
+    max(vaccinations.cumulative_vaccine_doses_administered) -> doses_administered
+WHERE
+    vaccinations.location.aggregation_level = 0
+ORDER BY
+    doses_administered desc
+LIMIT 10;

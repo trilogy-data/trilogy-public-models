@@ -1,0 +1,3 @@
+# Data tiles are built by ingest/build_extract.py and published to GCS by
+# ingest/publish_extract.py; they are not tracked in git.
+*.parquet

@@ -1,0 +1,26 @@
+import location as location;
+import dates as dates;
+
+# Daily hospitalization fact table from the COVID-19 Open Data
+# `hospitalizations` table. Grain is one row per location per day. `new_*` are
+# daily admissions, `current_*` are the census (patients in care that day).
+
+properties <location.location_key, dates.date> (
+	new_hospitalized_patients int?, # new COVID-19 hospital admissions that day
+	cumulative_hospitalized_patients int?, # running total of hospital admissions
+	current_hospitalized_patients int?, # COVID-19 patients hospitalized that day (census)
+	new_intensive_care_patients int?, # new ICU admissions that day
+	current_intensive_care_patients int?, # COVID-19 patients in the ICU that day (census)
+);
+
+datasource hospitalizations (
+	date:dates.date,
+	location_key:~location.location_key,
+	new_hospitalized_patients,
+	cumulative_hospitalized_patients,
+	current_hospitalized_patients,
+	new_intensive_care_patients,
+	current_intensive_care_patients,
+)
+grain (location.location_key, dates.date)
+address hospitalizations;

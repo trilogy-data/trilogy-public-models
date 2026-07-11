@@ -1,0 +1,11 @@
+# United States confirmed cases and deaths by calendar year.
+import epidemiology as epidemiology;
+
+SELECT
+    epidemiology.dates.observation_year,
+    sum(epidemiology.new_confirmed) -> confirmed,
+    sum(epidemiology.new_deceased)  -> deaths
+WHERE
+    epidemiology.location.location_key = 'US'
+ORDER BY
+    epidemiology.dates.observation_year asc;

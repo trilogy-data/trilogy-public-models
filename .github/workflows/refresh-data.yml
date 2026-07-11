@@ -4,8 +4,41 @@ on:
   schedule:
     - cron: '0 6 * * *'  # Daily at 6 AM UTC
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'trilogy_public_models/duckdb/covid19_open_data/ingest/**'
 
 jobs:
+  # Rebuild the COVID-19 Open Data parquet tiles from the upstream CSVs and
+  # publish them to gs://trilogy_public_models/duckdb/covid19_open_data/, which
+  # the model's prod setup.sql reads from. The tiles are not committed to git.
+  refresh-covid-data:
+    # On merge to main (ingest changes) and manual dispatch; skip the daily
+    # cron since the upstream dataset is static (final refresh 2022).
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment: refresh
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: 'projects/734709568634/locations/global/workloadIdentityPools/github/providers/trilogy-public-models'
+          project_id: 'preqldata'
+      - name: Refresh + publish COVID-19 Open Data tiles
+        run: |
+          uv run trilogy_public_models/duckdb/covid19_open_data/ingest/refresh_and_publish.py
+
   refresh-tree-data:
     runs-on: ubuntu-latest
     environment: refresh

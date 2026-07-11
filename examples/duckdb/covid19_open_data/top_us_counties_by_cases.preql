@@ -1,0 +1,14 @@
+# Top 10 US counties by total confirmed COVID-19 cases.
+# Uses county (admin-2) granularity (aggregation_level = 2).
+import epidemiology as epidemiology;
+
+SELECT
+    epidemiology.location.subregion2_name -> county,
+    epidemiology.location.subregion1_name -> state,
+    sum(epidemiology.new_confirmed) -> total_confirmed
+WHERE
+    epidemiology.location.country_code = 'US'
+    and epidemiology.location.aggregation_level = 2
+ORDER BY
+    total_confirmed desc
+LIMIT 10;

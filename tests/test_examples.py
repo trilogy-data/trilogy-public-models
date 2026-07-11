@@ -10,7 +10,13 @@ from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import example_path, validate_query
 
 
-SKIPPED_MODELS = {"bigquery.age_of_empires_2", "duckdb.titanic"}
+# duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
+# a dedicated build + `trilogy integration` step instead. See test_models.py.
+SKIPPED_MODELS = {
+    "bigquery.age_of_empires_2",
+    "duckdb.titanic",
+    "duckdb.covid19_open_data",
+}
 
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {

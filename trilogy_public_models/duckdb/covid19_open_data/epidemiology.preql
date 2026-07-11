@@ -1,0 +1,36 @@
+import location as location;
+import dates as dates;
+
+# Daily epidemiology fact table from the COVID-19 Open Data `epidemiology`
+# table. Grain is one row per location per day. `new_*` columns are the daily
+# delta; `cumulative_*` columns are the running total reported to date.
+
+properties <location.location_key, dates.date> (
+	new_confirmed int?, # newly confirmed cases reported that day
+	new_deceased int?, # new deaths reported that day
+	new_recovered int?, # new recoveries reported that day
+	new_tested int?, # new tests reported that day
+	cumulative_confirmed int?, # running total confirmed cases
+	cumulative_deceased int?, # running total deaths
+	cumulative_recovered int?, # running total recoveries
+	cumulative_tested int?, # running total tests
+);
+
+auto total_new_confirmed <- sum(new_confirmed); # summed daily new cases
+auto total_new_deceased <- sum(new_deceased); # summed daily new deaths
+auto total_new_tested <- sum(new_tested); # summed daily new tests
+
+datasource epidemiology (
+	date:dates.date,
+	location_key:~location.location_key,
+	new_confirmed,
+	new_deceased,
+	new_recovered,
+	new_tested,
+	cumulative_confirmed,
+	cumulative_deceased,
+	cumulative_recovered,
+	cumulative_tested,
+)
+grain (location.location_key, dates.date)
+address epidemiology;

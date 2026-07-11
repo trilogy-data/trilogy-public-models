@@ -1,0 +1,8 @@
+# Shared observation-date concept used by every daily fact table
+# (epidemiology, vaccinations, hospitalizations) so they align on a common
+# calendar for cross-table time series queries.
+
+key date date; # observation date (calendar day)
+
+auto observation_year <- year(date); # calendar year of the observation
+auto observation_month_start <- date_trunc(date, month); # first day of the observation month

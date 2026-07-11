@@ -1,0 +1,12 @@
+# Trilogy Configuration File
+# Learn more at: https://github.com/trilogy-data/pytrilogy
+
+[engine]
+dialect = "duck_db"
+
+[engine.config]
+enable_gcs = true
+enable_python_datasources = true
+
+[setup]
+sql = ["setup.sql"]
