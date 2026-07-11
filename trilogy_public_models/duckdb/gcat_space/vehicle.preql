@@ -1,23 +1,23 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
 #auto-generated datasource from table/view lv_info
 import stage as stage;
+import organization as manufacturer;
+import std.metric;
+import etl;
 
 key name string;
-key variant string;
-property <name,variant>.family string;
-property <name,variant>.manufacturer string;
-property <name,variant>.alias string;
-property <name,variant>.min_stage int;
-property <name,variant>.max_stage int;
-property <name,variant>.length float;
-property <name,variant>.lflag string;
-property <name,variant>.diameter float;
-property <name,variant>.dflag string;
-property <name,variant>.launch_mass float;
-property <name,variant>.mflag string;
-property <name,variant>.leo_capacity float;
-property <name,variant>.gto_capacity float;
+key variant string; # extra distinguishing field when two vehicles have same name; example H-1 variants.
+property <name,variant>.family string; # the family this launch vehicle belongs to; e.g. Atlas, Delta, Titan, Long March, etc.
+property <name,variant>.alias string; # An entry in this field indicates that the vehicle mentioned as an alias is an alternate name for this vehicle. For instance, the Taurus 1110 has the alias `ARPA Taurus', indicating that the separate entry for ARPA Taurus actually refers to the same vehicle as the Taurus 1110; the vehicle was simply renamed. I have chosen in my launch listings to use the vehicle name in use by the launch agency at the time of launch. The Saturn IB, for example, was known for a while as the Uprated Saturn I, and has identical entries under each name.
+property <name,variant>.min_stage int; # the lowest stage number on the rocket; typically 1, but can be 0 or -1 for strapons.
+property <name,variant>.max_stage int; # the highest stage number on the rocket; typically >=1.
+property <name,variant>.length float::m; # Approximate; will vary with fairings and other configuration.
+property <name,variant>.diameter float::m;
+property <name,variant>.launch_mass float::tonne;
+property <name,variant>.leo_capacity float::kg; # in kg, approximate; only provided for some of the orbital vehicles. Values in these fields are especially tentative.
+property <name,variant>.gto_capacity float::kg; # in kg, approximate; only provided for some of the orbital vehicles. Values in these fields are especially tentative.
 property <name,variant>.to_thrust int;
-property <name,variant>.class string;
+property <name,variant>.class string; # Class code of launch vehicle; D=Deep Space, M=Missile, O=Orbital, R=Research, V=Reentry Test, X=Exoatmospheric Test, Y=Exoatmospheric Weather, A=Endoatmospheric Missile, C=Cruise Missile, Q=Endoatmospheric reentry test, T=Endoatmospheric test/research, W=Endoatmospheric weather rocket
 property <name,variant>.apogee int;
 property <name,variant>.range int;
 property class_name <- CASE
@@ -34,35 +34,42 @@ property class_name <- CASE
 	WHEN class = 'T' THEN 'Endoatmospheric test/research'
 	WHEN class = 'W' THEN 'Endoatmospheric weather rocket'
 	ELSE 'Unknown'
-END;
+END; # Class of the launc vehicle, interpreted into a readable label.
+
 property full_name <- CASE
 	WHEN variant != '-' THEN concat(name,' ',variant)
 	ELSE name
-END;
+END; # Full name of the launch vehicle, including variant if applicable.
+
 
 datasource lv_info (
-    LV_Name: name,
-    LV_Family: family,
-    LV_Manufacturer: manufacturer,
-    LV_Variant: variant,
-    LV_Alias: alias,
-    LV_Min_Stage: min_stage,
-    LV_Max_Stage: max_stage,
-    Length: ?length,
-    LFlag: ?lflag,
-    Diameter: diameter,
-    DFlag: ?dflag,
-    Launch_Mass: ?launch_mass,
-    MFlag: ?mflag,
-    LEO_Capacity: ?leo_capacity,
-    GTO_Capacity: ?gto_capacity,
-    TO_Thrust: ?to_thrust,
-    Class: class,
-    Apogee: ?apogee,
-    Range: ?range
+    name,
+    family,
+    manufacturer: ~manufacturer.code,
+    variant,
+    alias,
+    min_stage,
+    max_stage,
+    ?length,
+    diameter,
+    ?launch_mass,
+    ?leo_capacity,
+    ?gto_capacity,
+    ?to_thrust,
+    class,
+    ?apogee,
+    ?range,
+    data_updated_through
     )
 grain (name,variant)
-address lv_info;
+# filtered query rather than direct file binding: the parquet retains rows from
+# a prior load with a null timestamp that would duplicate the (name, variant) grain
+query '''
+select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lv_info.parquet')
+where data_updated_through is not null
+'''
+freshness by data_updated_through;
+
 
 key stage_no string; # (which can be -1 or 0 for strapons, and F for fairing)
 property <name,stage_no,variant>.qualifier string;
@@ -73,18 +80,26 @@ property <name,stage_no,variant>.stage_apogee int;
 property <name,stage_no,variant>.stage_perigee int;
 property <name,stage_no,variant>.perigee_qual string;
 
+
 datasource lvs_info (
-    LV_Name: name,
-    LV_Variant: variant,
-    Stage_No: stage_no,
-    Stage_Name: ~stage.name,
-    Qualifier: qualifier,
-    Dummy: dummy,
-    Multiplicity: multiplicity,
-    Stage_Impulse: ?stage_impulse,
-    Stage_Apogee: stage_apogee,
-    Stage_Perigee: stage_perigee,
-    Perigee_Qual: perigee_qual
+    ~name,
+    variant,
+    stage_no,
+    ~stage.name,
+    ?qualifier,
+    ?dummy,
+    ?multiplicity,
+    ?stage_impulse,
+    ?stage_apogee,
+    ?stage_perigee,
+    ?perigee_qual,
+    data_updated_through
     )
 grain (name,stage_no,variant)
-address lvs_info;
+# filtered query rather than direct file binding: the parquet retains rows from
+# a prior load with a null timestamp that would duplicate the (name, stage_no, variant) grain
+query '''
+select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lvs_info.parquet')
+where name is not null and data_updated_through is not null
+'''
+freshness by data_updated_through;

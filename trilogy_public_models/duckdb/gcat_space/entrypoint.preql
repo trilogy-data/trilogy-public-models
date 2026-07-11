@@ -1,1 +1,4 @@
 import launch;
+import satellite as satellite;
+
+MERGE satellite.launch.id into ~id;

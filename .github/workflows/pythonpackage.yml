@@ -66,7 +66,7 @@ jobs:
           codecov --token=${{ secrets.CODECOV_TOKEN }}
       - name: Model specific tests
         run: |
-            trilogy integration trilogy_public_models/duckdb/gcat_space duckdb --config trilogy_public_models/duckdb/gcat_space/trilogy_dev.toml
+            trilogy integration trilogy_public_models/duckdb/gcat_space duckdb --config trilogy_public_models/duckdb/gcat_space/trilogy.toml
       - name: COVID-19 Open Data integration test
         # Tiles are not committed to git, so build them from the upstream CSVs
         # and validate the model against the local (dev) config.

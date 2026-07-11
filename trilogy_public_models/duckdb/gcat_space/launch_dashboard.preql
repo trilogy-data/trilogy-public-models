@@ -1,5 +1,8 @@
 import std.net;
 import launch;
+import satellite as payload;
+
+MERGE payload.launch.id into ~id;
 
 property launch_year <- year(launch_date);
 property launch_filter <- CASE

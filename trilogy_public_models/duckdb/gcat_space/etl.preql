@@ -1,0 +1,17 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting,
+# which ingests GCAT (https://planet4589.org/space/gcat) and publishes the
+# parquet files this model reads. Data refreshes automatically when those
+# files are republished.
+
+# shared concepts
+property <*>.data_updated_through datetime; # date when the data was last updated
+
+def extract_date(col)-> CASE
+        WHEN TRIM(REGEXP_EXTRACT(REPLACE(col, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)) IS NOT NULL
+             AND LEN(TRIM(REGEXP_EXTRACT(REPLACE(col, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1))) > 0
+        THEN parse_time(
+            TRIM(REGEXP_EXTRACT(REPLACE(col, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)),
+            '%Y %b %d'
+        )
+        ELSE NULL
+    END::date;

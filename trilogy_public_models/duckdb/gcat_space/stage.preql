@@ -1,6 +1,8 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
 import std.metric;
 import std.date;
 import engine as engine;
+import etl;
 
 key name string;
 property name.family string;
@@ -15,18 +17,25 @@ property name.duration numeric::second;
 property name.engine_count int;
 
 datasource stages (
-    Stage_Name: name,
-    Stage_Family: family,
-    Stage_Manufacturer: stage_manufacturer,
-    Stage_Alt_Name: stage_alt_name,
-    Length: ?length,
-    Diameter: ?diameter,
-    Launch_Mass: ?launch_mass,
-    Dry_Mass: ?dry_mass,
-    Thrust: ?thrust,
-    Duration: ?duration,
-    Engine: ~engine.name,
-    NEng: ?engine_count
+    name,
+    ?family,
+    ?stage_manufacturer,
+    ?stage_alt_name,
+    ?length,
+    ?diameter,
+    ?launch_mass,
+    ?dry_mass,
+    ?thrust,
+    ?duration,
+    ~engine.name,
+    ?engine_count,
+    data_updated_through
     )
 grain (name)
-address stages;
+# filtered query rather than direct file binding: the parquet contains rows
+# with a null stage name that would violate the (name) grain
+query '''
+select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/stages.parquet')
+where name is not null
+'''
+freshness by data_updated_through;

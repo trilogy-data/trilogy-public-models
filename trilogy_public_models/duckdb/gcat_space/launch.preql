@@ -1,6 +1,249 @@
-# merge the launch base with satcat data
-import launch_base;
-import satcat as payload;
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
+import etl;
 
-MERGE payload.launch.launch_tag into ~launch_tag;
+key id string; # Each rocket launch in the database is labelled with a unique designation. For successful orbital launches, we use the International Designation (also called the COSPAR designation, after the Committee on Space Research which adopted the system.) For other launches, I use a variation on that scheme of my own design. I introduce the generalized concept of `launch designation' to include the International/COSPAR designation and other similar schemes. The term `piece designation' is also introduced to generalize the per-piece (per-cataloged-object) international designation.
 
+# restrict imports in the launch namespacespace to those that have had launches
+import platform as platform;
+import vehicle as vehicle;
+import sites as site;
+import organization as org;
+import organization as state;
+
+merge org.state_code into state.code;
+
+property id._launch_jd float; # float of launch date on julian calendar
+# property <id>.launch_date string;
+property id.flight_id string; #  an identifier for the particular launch, for example the serial number of the launch vehicle or the mission number or name assigned by the launch agency.
+property id.flight string; #  additional identifers for the launch. For orbital flights, at least one flight/mission/flightode is usually the name of the payload. Some launches have a lot of different designations. I haven't been fully consistent about which name goes in which of the Flight, Mission, FlightCode fields, although usually names in a specific series are in the same column.
+property id.mission string; #  additional identifers for the launch. For orbital flights, at least one flight/mission/flightode is usually the name of the payload. Some launches have a lot of different designations. I haven't been fully consistent about which name goes in which of the Flight, Mission, FlightCode fields, although usually names in a specific series are in the same column.
+property id.flight_code string; #  additional identifers for the launch. For orbital flights, at least one flight/mission/flightode is usually the name of the payload. Some launches have a lot of different designations. I haven't been fully consistent about which name goes in which of the Flight, Mission, FlightCode fields, although usually names in a specific series are in the same column.
+# property <id>.launch_site string;
+property id.launch_pad string;
+property id.ascent_site string;
+property id.ascent_pad string;
+property id.apogee int; # the highest altitude actually reached, in km. This field may be omitted for orbital launches. In many cases for non-orbital launches the value is a guess based on known capabilities of the launch vehicle, so only values with no appended question-mark should be taken as accurate.
+property id.apo_flag string;
+property id.range int; # the range in km measured along the curved surface of the Earth between launch site and impact site, for a suborbital launch. I have only recently added this field and very few entries are filled in.
+property id.dest string;
+property id.orb_pay float; # payload in tonnes delivered to orbit
+key _launch_code string;
+property id.fail_code string; # Launch failure code describing the nature of a launch failure.
+# Codes cover orbital and some suborbital failures and may be incomplete or provisional.
+#
+# General codes:
+# AD  - Accidental destruct (erroneous range safety or onboard termination)
+# AL  - Accidental launch or ignition
+# FF  - Fairing-related failure (no separation, MaxQ failure, or fairing destroyed)
+# FS  - Structural failure (excluding fairing and excluding loss-of-control cascades)
+# PA  - Payload failed to separate from payload adapter
+# PE  - Exploded on pad prior to liftoff
+# PG  - Payload orbit insertion guidance/attitude problem
+# PI  - Payload orbit insertion ignition problem
+# PP  - Payload orbit insertion propulsion problem
+# U   - Failure, details unknown
+# UX  - Unconfirmed failure
+# WX  - Weather-related failure
+#
+# Stage-specific codes (n = stage number, m = burn number):
+# Sn   - Generic failure in stage n
+# SnB  - Explosion / RUD during stage n
+# SnE  - Electrical or power system failure during stage n
+# SnG  - Guidance or attitude control failure during stage n
+# SnGm - Guidance or attitude control failure during burn m of stage n
+# SnI  - Engine ignition or thrust failure in stage n
+# SnP  - Propulsion failure in stage n (early shutdown, propellant issues)
+# SnPm - Propulsion failure in burn m of stage n
+# SnR  - Failure of stage n to restart
+# SnS  - Stage separation failure between stage n and stage n+1
+# SnU  - Underperformance during stage n
+#
+# An asterisk suffix (e.g. S2P*) indicates later stages fired nominally
+# but on an incorrect trajectory.
+
+def classify_fail_code(x) -> CASE
+        WHEN x IS NULL THEN NULL
+
+        # General failures
+        WHEN regexp_contains(x, '^AD[\\*\\?]?$') THEN 'Accidental destruct'
+        WHEN regexp_contains(x, '^AL[\\*\\?]?$') THEN 'Accidental launch or ignition'
+        WHEN regexp_contains(x, '^FF[\\*\\?]?$') THEN 'Fairing failure'
+        WHEN regexp_contains(x, '^FS[\\*\\?]?$') THEN 'Structural failure'
+        WHEN regexp_contains(x, '^PA[\\*\\?]?$') THEN 'Payload failed to separate'
+        WHEN regexp_contains(x, '^PE[\\*\\?]?$') THEN 'Exploded on pad'
+        WHEN regexp_contains(x, '^PG[\\*\\?]?$') THEN 'Payload orbit insertion guidance failure'
+        WHEN regexp_contains(x, '^PI[\\*\\?]?$') THEN 'Payload orbit insertion ignition failure'
+        WHEN regexp_contains(x, '^PP[\\*\\?]?$') THEN 'Payload orbit insertion propulsion failure'
+        WHEN regexp_contains(x, '^WX[\\*\\?]?$') THEN 'Weather-related failure'
+        WHEN regexp_contains(x, '^UX[\\*\\?]?$') THEN 'Unconfirmed failure'
+        WHEN regexp_contains(x, '^U[\\*\\?]?$')  THEN 'Failure (details unknown)'
+
+        # Stage failures with burn numbers
+        WHEN regexp_contains(x, '^S([0-9]+)G([0-9]+)[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' guidance failure (burn '
+                 || regexp_extract(x, '^S[0-9]+G([0-9]+)', 1) || ')'
+
+        WHEN regexp_contains(x, '^S([0-9]+)P([0-9]+)[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' propulsion failure (burn '
+                 || regexp_extract(x, '^S[0-9]+P([0-9]+)', 1) || ')'
+
+        WHEN regexp_contains(x, '^S([0-9]+)U([0-9]+)[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' underperformance (burn '
+                 || regexp_extract(x, '^S[0-9]+U([0-9]+)', 1) || ')'
+
+        # Stage failures without burn numbers
+        WHEN regexp_contains(x, '^S([0-9]+)B[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' explosion (RUD)'
+
+        WHEN regexp_contains(x, '^S([0-9]+)E[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' electrical failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)G[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' guidance failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)I[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' ignition failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)P[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' propulsion failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)R[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' restart failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)S[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' separation failure'
+
+        WHEN regexp_contains(x, '^S([0-9]+)U[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' underperformance'
+
+        WHEN regexp_contains(x, '^S([0-9]+)[\\*\\?]?$')
+            THEN 'Stage ' || regexp_extract(x, '^S([0-9]+)', 1)
+                 || ' failure'
+
+        ELSE x
+    END;
+
+
+property id.failure_stage <- CASE
+    WHEN fail_code IS NULL THEN NULL
+    WHEN regexp_contains(fail_code, '^S([0-9]+)') THEN
+        CAST(regexp_extract(fail_code, '^S([0-9]+)', 1) AS int)
+    ELSE NULL
+END; # the stage number (integer) at which the failure occurred, if applicable
+
+property id.fail_code_name <- CASE
+    WHEN fail_code IS NULL THEN NULL
+    # Composite codes like AD/S1S or S2P/FS
+    WHEN strpos(fail_code, '/') > 0 THEN
+        array_to_string(
+            array_transform(
+                split(fail_code, '/'),
+                @classify_fail_code
+            ),
+            ' + '
+        )
+
+    # Single code
+    ELSE @classify_fail_code(fail_code)
+END; # full-text failure code interpretation
+
+
+property id.category string; # For non-orbital launches: Type of flight. Not necessarily a rigorous set of designations. For orbital launches: Launch profile code. This records what the target orbit type was, how many upper stages where left in orbit, and what kind of debris mitigation manuever was carried out for them, if any. The codes are explained in the launch profile code part of the definitions section.
+property id.lt_cite string; #  this citation is the primary reference for the existence of the launch and for the given launch time. See the Refs file. "Wire" means that the time was taken from wire service stories, internet news sites or live launch broadcasts. I've been more careful with recording a specific source where the launch time was hard to find.
+property id.cite string; # Additional citation of interest, for example reference for which launch pad was used, etc.
+property id.notes string;
+property id.orgs string;
+property id._split_orgs <- split(orgs,'/');
+property id.first_org <- _split_orgs[1];
+
+MERGE first_org into org.code;
+
+property id.launch_date <- date_add('1900-01-01'::date,day,CAST((CAST(_launch_jd AS float) - 2415021) AS int));
+property id.success_flag <- CASE
+	WHEN _launch_code = '' THEN null
+	WHEN len(_launch_code) > 1 THEN substring(_launch_code,2,len(_launch_code) - 1)
+	ELSE null
+END; # F|E|O for most cases; F is failure. E is pad issue.
+property id.was_complete_success <- CASE
+	WHEN success_flag = 'S' THEN True
+	ELSE False
+END; #whether the mission was a complete sucess
+property id.launch_type_code <- CASE
+	WHEN (_launch_code is null or _launch_code = '') THEN null
+	ELSE substring(_launch_code,1,1)
+END; # O - Orbital | M - Military Missile | T - Test Rocket | A - Atmospheric Rocket | S - Suborbital Rocket | D - Deep Space | H - High-altitude Sounding | R - Reentry Test | X - Launch from other world | Y - Suborbital Spaceplane
+property id.launch_type_label <- CASE
+	WHEN launch_type_code is null THEN null
+	WHEN launch_type_code = 'O' THEN 'Orbital'
+	WHEN launch_type_code = 'M' THEN 'Military Missile'
+	WHEN launch_type_code = 'T' THEN 'Test Rocket'
+	WHEN launch_type_code = 'A' THEN 'Atmospheric Rocket'
+	WHEN launch_type_code = 'S' THEN 'Suborbital Rocket'
+	WHEN launch_type_code = 'D' THEN 'Deep Space'
+	WHEN launch_type_code = 'H' THEN 'High-altitude Sounding'
+	WHEN launch_type_code = 'R' THEN 'Reentry Test'
+	WHEN launch_type_code = 'X' THEN 'Launch from other world'
+	WHEN launch_type_code = 'Y' THEN 'Suborbital Spaceplane'
+	ELSE launch_type_code
+END; # interpret the first letter of the existing launch_code into a readable label. Kept as launch_code_label to avoid shadowing the original launch_code property
+metric launch_count <- count(id); # count of launches
+key orbit_code <- split(category,' ')[2]; # Orbit code definitions (3-letter codes, capitalized):
+# DSO - Deep Space Orbit: Earth orbit with apogee beyond 150,000 km
+# EEO - Earth Escape Orbit
+# GEO - Direct Geosynchronous insertion
+# GTO - Geosynchronous Transfer Orbit
+# HEO - Highly Elliptical Orbit (excludes MTO, MOL, DSO)
+# ISS - International Space Station
+# LEO - Low Earth Orbit (excludes SSO, LSS, ISS)
+# LSS - LEO Space Station (other than ISS)
+# MEO - Medium Earth Orbit
+# MOL - Molniya Orbit
+# MTO - MEO Transfer Orbit (payload performs MEO circularization)
+# SSO - Sun-Synchronous Orbit
+# STO - Supersynchronous Transfer Orbit (apogee > 45,000 km)
+# XO  - Extraterrestrial Launch (e.g., launch from lunar surface)
+
+
+datasource launch_info (
+    id,
+    _launch_jd,
+    ~vehicle.name,
+    ~vehicle.variant,
+    flight_id,
+    flight,
+    mission,
+    flight_code,
+    ~?platform.code,
+    ~?site.key,
+    launch_pad,
+    ascent_site,
+    ascent_pad,
+    ?apogee,
+    ?apo_flag,
+    ?range,
+    dest,
+    orb_pay,
+    orgs,
+    ~org.code,
+    _launch_code,
+    ?fail_code,
+    category,
+    lt_cite,
+    cite,
+    notes,
+    data_updated_through
+    )
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/launch.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/launch.parquet`
+freshness by data_updated_through;
