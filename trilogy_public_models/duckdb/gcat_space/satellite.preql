@@ -1,0 +1,143 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
+import etl;
+import organization as manufacturer;
+import organization as owner;
+import organization as state;
+import launch as launch;
+
+
+#auto-generated datasource from table/view satcat
+key jcat string; # Alphanumeric identifier to uniquely tag space objects, consisting of a prefix letter and a sequence number.
+property jcat.satcat string; # Corresponds to the US SATCAT number; an integer value or a descriptive string if not present in SATCAT.
+
+property jcat.launch_date date; # Date the object was launched into space. UTC.
+property jcat.status_end_date date; # if the current state has ended, this is the time. For example, if a state is deorbited, this is the deorbit date. If blank, still in current state. UTC.
+property jcat.orbit_date date; # Date of the orbital data provided for the object.
+property jcat.status_start_date date; # Date the current phase began, typically a launch. UTC. For terminal phases, this is not the time of the status - use status_end_date for the time of an event.
+
+property jcat.piece string; # Piece designation for the object; often matches the Launch Tag.
+property jcat.type string; # Contains SatType string; characterizes the object (P for payload, R for rocket stage, etc.).
+property jcat.name string; # Recommended name based on that used by owner/operator; represents an objects name.
+property jcat.pl_name string; # An alternative name for the object; may indicate radar cross section or unidentified debris.
+
+property jcat.parent string; # Parent object or central body the object is attached to at the start of a phase.
+property jcat.primary string; # Central gravitation body the object is orbiting; usually Earth.
+
+property jcat.status string; #O        In orbit (free-flying, still tracked)
+#OX       In orbit but lost (no recent tracking)
+#AO       Attached to parent in orbit (external)
+#AO IN    Attached inside parent in orbit (internal)
+#UDK      Undocked from parent
+#REL      Released from parent (orbital)
+#DEP      Deployed from parent on surface
+#TO       Takeoff from small body (not a world)
+#TOA      Attached at takeoff from small body
+#R        Natural reentry (orbital decay)
+#D        Active deorbit
+#S        Targeted suborbital impact or reentry
+#L        Landed intact
+#LF       Failed landing (intended landing, destroyed)
+#E        Exploded in orbit
+#C        Collided with another object
+#F        Launch failure (free)
+#AF       Launch failure while attached
+#TX       Transmission ended (surface operation complete)
+#AS       Suborbital reentry while attached
+#AR       Reentered while attached
+#AR IN    Reentered while inside parent
+#AL       Landed while attached
+#AL IN    Landed while inside parent
+#N        Renamed or ownership changed (free)
+#NA       Renamed while attached
+#LEASE    Temporarily leased to another operator
+#DK       Docked to another object
+#GRP      Grappled by another object
+#ATT      Attached to new parent
+#TFR      Internal transfer between parents
+#TFR E    Transfer from internal to external
+#TFR IN   Transfer from external to internal
+#EVA DP   EVA depressurization began
+#EVA RP   EVA repressurization completed
+#DSO      Entered deep space (free)
+#DSA      Entered deep space while attached
+#DSA IN   Entered deep space inside parent
+#REFLT    Reflight (reassigned to new catalog number)
+#LO       Liftoff from a world (new catalog assignment)
+#LOA      Liftoff while attached (new catalog assignment)
+#EO       Escape from one body's SOI to another
+#EAO      Escape while attached
+#EN       Single flyby encounter
+#OI       Orbit insertion
+#OE       Orbit escape
+#ERR      Catalog or tracking error (no real object)
+
+property jcat.dest string; # Destination of the current phase, could be a reentry location or JCAT identifier of a new parent.
+# property jcat.state string; # OrgCode for the country/state of the owner/operator.
+
+key bus string; # Spacecraft bus type; indicates chassis type or standardization.
+property jcat.motor string; # Name of the main thruster or rocket engine; details may be in Engines file.
+property jcat.mass float; # Mass in kg at launch, excluding attached objects; identified if the mass is an estimate.
+property jcat.dry_mass float; # Dry mass in kg; proxy for object's mass post active life, not including attached objects.
+property jcat.tot_mass float; # Total mass in kg at launch; for attached GCAT objects, sum should equate to TotMass.
+property jcat.length float; # Longest dimension in metres; if '?', it's a guess within ~20% accuracy.
+property jcat.diameter float; # Second longest dimension; often second-longest dimension for cross-sectional approximation.
+property jcat.span float; # Largest dimension including all appendages, in metres; stay outside a sphere of Span diameter.
+property jcat.shape string; # Approximate shape description; not a substitute for a CAD model.
+
+property jcat.perigee int; # Perigee height in km of canonical orbit; if ‘?’, value is estimated.
+property jcat.apogee float; # Apogee height in km; if ‘?’, it’s an estimate.
+property jcat.inc float; # Inclination of orbit in degrees; if ‘?’, signifies estimation.
+property jcat.op_orbit string; # Orbit type of the canonical orbit.
+property jcat.oqual string; # Orbit Quality Note; where the orbit data was sourced from.
+property jcat.alt_names string; # Comma-delimited list of alternative names for the space object.
+
+
+auto base_category <- substring(split(type, ' ')[1],1,1); #P	Payload (for orbital attempt)
+#C	Component
+#R	Launch vehicle stage
+#D	Fragmentation debris
+#S	Suborbital payload (e.g. sounding rocket payload or missile reentry vehicle)
+#X	Catalog entry that has been deleted (used in auxcat etc.)
+#Z	Spurious catalog entry (was in SATCAT, perhaps in TLEs, but there was no real object)
+
+property jcat.is_decommed <- status in ['R','D','C', 'E', 'F', 'OX'];
+
+datasource satcat (
+    JCAT: jcat,
+    Satcat: satcat,
+    Launch_Tag: ~launch.id,
+    Piece: piece,
+    Type: type,
+    Name: name,
+    PLName: pl_name,
+    LDate: ?launch_date,
+    Parent: parent,
+    Primary: primary,
+    status_start_date: ?status_start_date,
+    status_end_date: ?status_end_date,
+    orbit_date: ?orbit_date,
+    Status: status,
+    Dest: dest,
+    Owner: ~owner.code,
+    State: ~state.code,
+    Manufacturer: ~manufacturer.code,
+    Bus: bus,
+    Motor: motor,
+    Mass: mass,
+    DryMass: dry_mass,
+    TotMass: tot_mass,
+    Length: length,
+    Diameter: diameter,
+    Span: span,
+    Shape: shape,
+    Perigee: perigee,
+    Apogee: apogee,
+    Inc: inc,
+    OpOrbit: op_orbit,
+    OQUAL: oqual,
+    AltNames: alt_names,
+    data_update_date: data_updated_through
+    )
+grain (jcat)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/satcat_three.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/satcat_three.parquet`
+freshness by data_updated_through;

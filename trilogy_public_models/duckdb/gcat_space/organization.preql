@@ -1,0 +1,119 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
+import std.geography;
+import std.net;
+import std.color;
+import etl;
+
+key code string; # unique identifier or an organization (a company, state, or other body)
+property code.u_code string; # a unified code tying together an entity that has gone through name/ownership changes. For example, the Czech republic has 3 org codes CSSR (1940-1990), CSFR (1990-1993) and CZ (1993-present), sharing the ucode CZ
+property code.state_code string; #OrgCode for organzation's host state.
+property code.type string; # 	Organization roles: a slash-separated set of types. The current database is somewhat patchy in data quality for this field, and should primary be relied on for the special values CY, IGO and AP which indicate entries with a status equivalent to a nation-state.
+property code.class string; # Organization class: A, B, C, or D (Nonprofit, commercial, civil or defence)
+property code._t_start string;
+property code.t_start <-  @extract_date(_t_start); # Date the organization code began operations (approximate if needed).
+property code._t_stop string;
+property code.t_stop <- @extract_date(_t_stop); # Date the organization code ended (or was updated to new code due to state change)
+property code.short_name string;
+property code.name string;
+property code.location string; # Approximate location (e.g. city).  In many cases this is given in the form UrbanArea-Suburb, e.g "Los Angeles-El Segundo"
+property code.longitude float; # HQ/geographic center longitude
+property code.latitude float; # HQ/geographic center latitude
+property code.error float; # error of lat long - not fully populated
+property code.parent string; # primary parent organization; when nonempty, the organization of which the current entry is a subset. Thus, NASA is the parent of Goddard Space Flight Center.
+property code._e_name string;
+property code.u_name string;
+property flag <- CAST(CASE WHEN state_code in ('SU', 'RU') THEN 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_the_Soviet_Union_%283-2%29.svg'
+WHEN state_code = 'US' THEN 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_the_United_States_%283-2_aspect_ratio%29.svg'
+WHEN state_code = 'CN' THEN 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2880px-Flag_of_the_People%27s_Republic_of_China.svg.png'
+ELSE 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/2880px-Flag_of_the_United_Nations.svg.png'
+END AS string::url_image); # wikipedia flag image url; only for US/Russia/China for now
+
+property code.color <-
+  CASE
+     # Major powers
+    WHEN state_code = 'US' THEN '#4A6CFF'        # bright US blue
+    WHEN state_code IN ('SU', 'RU') THEN '#FF3B3B' # bright Soviet/Russia red
+    WHEN state_code = 'CN' THEN '#FF4D00'        # vivid China red-orange
+    WHEN state_code = 'IN' THEN '#2ECC71'        # bright India green
+    WHEN state_code = 'J' THEN '#FFFFFF'         # Japan white (pops on dark)
+    WHEN state_code = 'UK' THEN '#3B7CFF'        # lifted UK blue
+    WHEN state_code = 'F' THEN '#4DA3FF'         # bright France blue
+
+    # Europe
+    WHEN state_code IN ('D', 'DR', 'DD') THEN '#FFD84D' # luminous Germany gold
+    WHEN state_code = 'NL' THEN '#FFB347'        # bright Netherlands orange
+    WHEN state_code = 'E' THEN '#FFD23F'         # Spain yellow
+    WHEN state_code = 'I' THEN '#3DDB85'         # Italy green
+    WHEN state_code = 'PL' THEN '#FFFFFF'        # Poland white
+    WHEN state_code = 'GR' THEN '#4FC3FF'        # Greece light blue
+    WHEN state_code = 'N' THEN '#5FA8FF'         # Norway blue
+    WHEN state_code = 'S' THEN '#4DD2FF'         # Sweden cyan-blue
+    WHEN state_code = 'DK' THEN '#FF5C5C'        # Denmark bright red
+    WHEN state_code = 'CH' THEN '#FF3B3B'        # Switzerland red
+    WHEN state_code = 'UA' THEN '#FFE066'        # Ukraine yellow
+
+    # Americas
+    WHEN state_code = 'CA' THEN '#FF4D4D'        # Canada bright red
+    WHEN state_code = 'BR' THEN '#2ECC71'        # Brazil bright green
+    WHEN state_code = 'AR' THEN '#7FDBFF'        # Argentina sky blue
+
+    # Middle East / Africa
+    WHEN state_code = 'IR' THEN '#2ECC71'        # Iran green
+    WHEN state_code = 'IQ' THEN '#FFFFFF'        # Iraq white (avoid black)
+    WHEN state_code = 'IL' THEN '#4DA3FF'        # Israel blue
+    WHEN state_code = 'EG' THEN '#FFFFFF'        # Egypt white
+    WHEN state_code = 'TR' THEN '#FF3B3B'        # Turkey red
+    WHEN state_code = 'SY' THEN '#FFFFFF'        # Syria white
+    WHEN state_code = 'LY' THEN '#3DDB85'        # Libya green
+    WHEN state_code = 'ZA' THEN '#2ECC71'        # South Africa green
+    WHEN state_code = 'OM' THEN '#FFFFFF'        # Oman white
+    WHEN state_code = 'LB' THEN '#3DDB85'        # Lebanon green
+    WHEN state_code = 'YE' THEN '#FFFFFF'        # Yemen white
+
+    # Asia-Pacific
+    WHEN state_code = 'KP' THEN '#FF5C5C'        # North Korea red
+    WHEN state_code = 'KR' THEN '#4DA3FF'        # South Korea blue
+    WHEN state_code = 'PK' THEN '#2ECC71'        # Pakistan green
+    WHEN state_code = 'ID' THEN '#FFFFFF'        # Indonesia white
+    WHEN state_code = 'TW' THEN '#4A6CFF'        # Taiwan blue
+    WHEN state_code = 'AU' THEN '#4A6CFF'        # Australia blue
+    WHEN state_code = 'NZ' THEN '#4A6CFF'        # New Zealand blue
+
+    # Space / supranational
+    WHEN state_code IN ('I-ESA', 'I-ESRO', 'I-ELDO') THEN '#4FC3FF' # ESA bright blue
+    WHEN state_code = 'CYM' THEN '#4A6CFF'       # UK blue (BOT)
+
+    # Unknown / placeholder
+    WHEN state_code = 'X' THEN '#7FB7FF'          # UN light blue
+
+    ELSE '#7FB7FF'
+  END::string::hex; # a representative hex code
+
+
+auto e_name <- coalesce(CASE WHEN _e_name = '-' then NULL else _e_name end, u_name); # the default English name of an "organization" - a company, state, or other body. Examples "European Space Agency", "US Air Force Space and Missile Center", "Beijing Interstellar Glory Space Tech. Co. Ltd." Best search with wildcards; abbreviations typically expanded.
+property code.short_e_name string; # the short English name of an "organization" - a company, state, or other body. Examples "ESA", "USAF SMC", "CASC". Best search with wildcards; abbreviations typically expanded.
+
+datasource organizations (
+    code,
+    u_code,
+    state_code,
+    type,
+    class,
+    t_start: _t_start,
+    t_stop: _t_stop,
+    short_name,
+    name,
+    location,
+    ?longitude,
+    ?latitude,
+    error,
+    ?parent,
+    short_e_name,
+    ?_e_name,
+    u_name,
+    data_updated_through,
+    color
+    )
+grain (code)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/organizations.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/organizations.parquet`
+freshness by data_updated_through;

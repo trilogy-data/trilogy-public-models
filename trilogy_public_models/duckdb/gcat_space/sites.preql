@@ -1,0 +1,45 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
+import std.geography;
+import etl;
+
+key key string; # the code of a launch site. A launch site is a fixed geographical location from which launches occur. Most launches are from sites, not platforms. Platforms which have been used to launch rockets include surface ships, submarines and aircraft.
+property key.u_code string; #  the unified Org Code for all phases for this launch site.
+property key.type string; #the launch site type (LS, LC, LZ).
+# There are three types of Site:
+#    the Launch Zone (LZ), a geographically more or less compact zone grouping air and/or sea LPs;
+#    the Launch Cruise (LC), a temporally compact but geographically extended zone (possibly over multiple oceans) representing a research cruise expedition with multiple sea LPs;
+#    the Launch Site (LS), for everything else, i.e. land based launch sites.
+key state_code string; #  Org Code for the nation-state, IGO or other polity with responsibility for the launch site. This is normally the country in which the site is located. Type of the state code must be CY, IGO or AP, and the code must occur in the Organizations Database.
+property key.t_start string;
+property key.t_stop string;
+property key.short_name string;
+property key.name string;
+property key.location string; #  City and locality of the launch site. In many cases this is given in the form UrbanArea-Suburb, e.g "Los Angeles-El Segundo".
+property key.longitude float::longitude;
+property key.latitude float::latitude;
+property key.error float;
+property key.parent string;
+property key.e_name string;
+property key.u_name string;
+
+datasource sites (
+    key,
+    u_code,
+    type,
+    state_code,
+    t_start,
+    t_stop,
+    short_name,
+    name,
+    location,
+    ?longitude,
+    ?latitude,
+    error,
+    parent,
+    e_name,
+    u_name,
+    data_updated_through
+    )
+grain (key)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/sites.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/sites.parquet`
+freshness by data_updated_through;

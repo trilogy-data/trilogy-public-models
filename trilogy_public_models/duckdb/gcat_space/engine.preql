@@ -1,53 +1,231 @@
+# Canonical ETL source is https://github.com/greenmtnboy/space_reporting
 #auto-generated datasource from table/view engines
 import std.metric;
 import std.color;
+import etl;
+import organization as manufacturer;
 
 key name string; # name of engine
-property name.manufacturer string; # manufacturer of the engine
 property name.family string; # engine family, a loosely defined grouping
 property name.alt_name string; # alternative name of the engine
 key oxidizer string; # type of oxidizer used
 key fuel string; # type of fuel used
 property name.mass float; # mass in kg, loaded for solids only
-property name.mflag string; # mass flag for additional information
 property name.impulse int; # total impulse in kNs, mostly for solids
-property name.impflag string; # impulse flag for additional information
 property name.thrust numeric::kn; # typical thrust in kilonewtons (kN)
-property name.tflag string; # thrust flag for additional information
 property name.isp float; # typical specific impulse in seconds, vacuum Isp where available
-property name.ispflag string; # isp flag for additional information
 property name.duration float; # typical burn duration in seconds
-property name.durflag string; # duration flag for additional information
 property name.chambers int; # number of engine chambers per engine
 property name.date string; # date of first flight
 property name.usage string; # example of usage, includes stage number in brackets
-property fuel.fuel_hex string::hex; # hexadecimal color representation for fuel
 key group string; # general grouping of engines
-property group.group_hex string::hex; # hexadecimal color representation for group
 
-datasource engines (
-    Name: name,
-    Manufacturer: manufacturer,
-    Family: family,
-    Alt_name: alt_name,
-    Oxidizer: oxidizer,
-    Fuel: fuel,
-    Mass: ?mass,
-    MFlag: ?mflag,
-    Impulse: ?impulse,
-    ImpFlag: ?impflag,
-    Thrust: ?thrust,
-    TFlag: ?tflag,
-    Isp: ?isp,
-    IspFlag: ?ispflag,
-    Duration: ?duration,
-    DurFlag: ?durflag,
-    Chambers: ?chambers,
-    Date: date,
-    Usage: usage,
-    Group: group,
-    fuel_hex_color:fuel_hex,
-    group_hex_color:group_hex
+
+auto group_hex_color <- CASE
+        # Top tier (very high volume, maximal contrast)
+        WHEN COALESCE(group, 'Unspecified') = 'NTO/UDMH'     THEN '#D62728' # strong red
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/Kero'     THEN '#1F77B4' # strong blue
+        WHEN COALESCE(group, 'Unspecified') = 'NA/Kero'      THEN '#FF7F0E' # orange
+        WHEN COALESCE(group, 'Unspecified') = 'NA/UDMH'      THEN '#9467BD' # purple
+        WHEN COALESCE(group, 'Unspecified') = 'NA/AA'        THEN '#2CA02C' # green
+
+        # High–mid tier
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/Alcohol'  THEN '#17BECF' # cyan
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/LH2'       THEN '#8C564B' # brown
+        WHEN COALESCE(group, 'Unspecified') = 'NTO/Hyd'       THEN '#E377C2' # pink
+        WHEN COALESCE(group, 'Unspecified') = 'NA/Amine'     THEN '#BCBD22' # olive
+        WHEN COALESCE(group, 'Unspecified') = 'Hybrid'       THEN '#7F7F7F' # dark gray
+
+        # Mid tier
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/UDMH'     THEN '#AEC7E8' # light blue
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/NH3'      THEN '#98DF8A' # light green
+        WHEN COALESCE(group, 'Unspecified') = 'NA/Turps'     THEN '#FFBB78' # light orange
+        WHEN COALESCE(group, 'Unspecified') = 'NA/UDMH'      THEN '#C5B0D5' # light purple
+        WHEN COALESCE(group, 'Unspecified') = 'Green'        THEN '#C49C94' # muted green-brown
+
+        # Low volume / tail
+        WHEN COALESCE(group, 'Unspecified') = 'H2O2/Kero'    THEN '#DBDB8D'
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/Methane'  THEN '#F7B6D2'
+        WHEN COALESCE(group, 'Unspecified') = 'MonoHyd'      THEN '#C7C7C7'
+        WHEN COALESCE(group, 'Unspecified') = 'N2'           THEN '#E0E0E0'
+        WHEN COALESCE(group, 'Unspecified') = 'LOX/Propane'  THEN '#EEEEEE'
+
+        # Electric / rare / unspecified
+        WHEN COALESCE(group, 'Unspecified') = 'EP'           THEN '#BDBDBD'
+        ELSE '#BDBDBD'
+    END::string::hex; # thematic hex color associated with engine group
+
+auto fuel_hex_color <- CASE
+    # Solid Propellants (Earthy brown → tan ramp)
+    WHEN fuel = 'PBAN' THEN '#6B361E'
+    WHEN fuel = 'HTPB' THEN '#7A421F'
+    WHEN fuel = 'Solid' THEN '#8C5A2B'
+    WHEN fuel = 'Solid?' THEN '#8C5A2B'
+    WHEN fuel = 'HTPB-2013' THEN '#9B6A35'
+    WHEN fuel = 'HTPB BP-204J' THEN '#AB7740'
+    WHEN fuel = 'CTPB' THEN '#BB844B'
+    WHEN fuel = 'HTPB/AP/Al' THEN '#C99357'
+    WHEN fuel = 'Butalane' THEN '#D8A266'
+    WHEN fuel = 'HTPB 1814' THEN '#E6B173'
+    WHEN fuel = 'HTPB/NG/BTTN' THEN '#F3C081'
+    WHEN fuel = 'Isolane' THEN '#F6C99F'
+    WHEN fuel = 'HTBP/AP/Al' THEN '#F9D4B8'
+    WHEN fuel = 'HTPB BP-205J' THEN '#FBE6CF'
+    WHEN fuel = 'Polyurethane/AP' THEN '#FCECDF'
+    WHEN fuel = 'Solid T9-BK-6' THEN '#5B4C43'
+    WHEN fuel = 'PBAA' THEN '#6A564B'
+    WHEN fuel = 'HTPB BP-201J' THEN '#7A675D'
+    WHEN fuel = 'NEPE Polyethane' THEN '#4B372E'
+    WHEN fuel = 'Polyurethane' THEN '#5A463C'
+    WHEN fuel = 'Polyurethane?' THEN '#5A463C'
+    WHEN fuel = 'PBHL/AP/Al' THEN '#6D584D'
+    WHEN fuel = 'Solid DB/AP' THEN '#7F6458'
+    WHEN fuel = 'Polysulfide' THEN '#88905C'
+    WHEN fuel = 'PEG/NG/BTTN' THEN '#98A86C'
+    WHEN fuel = 'Solid PS' THEN '#7D925F'
+    WHEN fuel = 'Polysulphide' THEN '#6F8254'
+    WHEN fuel = 'Solid T14E1' THEN '#5E7046'
+    WHEN fuel = 'CMDB' THEN '#7B5CA7'
+    WHEN fuel = 'Plastolane' THEN '#8E69B7'
+    WHEN fuel = 'HTPB 1813' THEN '#A082C6'
+    WHEN fuel = 'HTPB/AP/Al TP-H-334' THEN '#B49AD6'
+    WHEN fuel = 'AP/Al/Polyurethane' THEN '#D0BEE8'
+    WHEN fuel = 'SP Polysulphide' THEN '#DECEF0'
+    WHEN fuel = 'UP Polyurethane' THEN '#E7DBF5'
+    WHEN fuel = 'BHT' THEN '#F0E6F9'
+    WHEN fuel = 'AP' THEN '#F5EFFB'
+    WHEN fuel = 'Plastolite' THEN '#FBF7FD'
+    WHEN fuel = 'Polyurethane-AP' THEN '#FDFBF7'
+    WHEN fuel = 'PB' THEN '#FEFBFA'
+    WHEN fuel = 'CTPB 16.12' THEN '#FFF9F5'
+    WHEN fuel = 'HEF-20' THEN '#F0E68C'
+    WHEN fuel = 'Solid TP-H 1205C' THEN '#F9F0C9'
+    WHEN fuel = 'E107M polyurethane' THEN '#FAF3D2'
+    WHEN fuel = 'Solid PBAA' THEN '#FFFADF'
+    WHEN fuel = 'CTPB/AP/Al' THEN '#F5F0E1'
+    WHEN fuel = 'Solid RD2435' THEN '#FDF8EE'
+    WHEN fuel = 'Polyvinyl' THEN '#FBF5EC'
+    WHEN fuel = 'Solid DB' THEN '#FFF7EA'
+    WHEN fuel = 'CTPB/AP/AlTP-H-3062' THEN '#FFFBF4'
+    WHEN fuel = 'Solid ANP2872JM-IV' THEN '#F0FFF0'
+    WHEN fuel = 'Polyurethane DREV' THEN '#F7FFF8'
+    WHEN fuel = 'EP polyesther' THEN '#F0FFFF'
+    WHEN fuel = 'Solid RD2409' THEN '#F0F8FF'
+    WHEN fuel = 'Solid RD2410' THEN '#E8E8FA'
+    WHEN fuel = 'Solid GALCIT' THEN '#FFF0F5'
+    WHEN fuel = 'PBAA/AP' THEN '#FFECE9'
+    WHEN fuel = 'PBAA TPH-3117' THEN '#FFF5DF'
+    WHEN fuel = 'Solid APCP' THEN '#FFE6C9'
+    WHEN fuel = 'Solid AP/Al E-107M' THEN '#FFE9BD'
+    WHEN fuel = 'Solid JPL-131' THEN '#FFDEAD'
+    WHEN fuel = 'Solid JPL-132A' THEN '#F5DEB3'
+    WHEN fuel = 'E107M' THEN '#FFF8E6'
+    WHEN fuel = 'Solid DB N-4' THEN '#FFFAF0'
+    WHEN fuel = 'JPL 136' THEN '#FFFBFB'
+    WHEN fuel = 'AP/Al' THEN '#F8F8FF'
+    WHEN fuel = 'Polyurethane/AP/Al' THEN '#F5F5F5'
+    WHEN fuel = 'PS/AP' THEN '#EDEDED'
+    WHEN fuel = 'PB/AP/Al TP-G-3012' THEN '#DCDCDC'
+    WHEN fuel = 'Solid DB T6' THEN '#C0C0C0'
+    WHEN fuel = 'Epictete' THEN '#A9A9A9'
+    WHEN fuel = 'Solid Arcite' THEN '#808080'
+    WHEN fuel = 'Solid T13E1' THEN '#2F2F2F'
+    WHEN fuel = 'Sorbitol/Paraf/Al' THEN '#27304B'
+    WHEN fuel = 'SBR' THEN '#1F2A4A'
+    WHEN fuel = 'Paraffin' THEN '#10203A'
+    WHEN fuel = 'Polyethylene' THEN '#003366'
+    WHEN fuel = 'Polyamide' THEN '#002244'
+
+    # Inert/Pressurization (purple/indigo family)
+    WHEN fuel = 'N2' THEN '#6E61C6'
+    WHEN fuel = 'Xe' THEN '#8679D6'
+    WHEN fuel = 'Kr' THEN '#A095E6'
+
+    # Hypergolic Fuels (Red/orange family)
+    WHEN fuel = 'Hydyne' THEN '#6C1A1A'
+    WHEN fuel = 'Aniline' THEN '#7C2222'
+    WHEN fuel = 'Aniline/Alcohol' THEN '#8F2B2B'
+    WHEN fuel = 'Aniline (ANFA)' THEN '#9F3434'
+    WHEN fuel = 'MAF-1' THEN '#B43D3D'
+    WHEN fuel = 'Vinyl Isobutyl ethe' THEN '#C74646'
+    WHEN fuel = 'Amine' THEN '#D84E4E'
+    WHEN fuel = 'Amine TG-02' THEN '#E35656'
+    WHEN fuel = 'Xylidiene/Trieth.' THEN '#F04848'
+
+    # Hydrocarbon Fuels (amber → gold → pale ramp)
+    WHEN fuel = 'Kerosene?' THEN '#C28710'
+    WHEN fuel = 'Kerosene' THEN '#C28710'
+    WHEN fuel = 'Kerosene JP-4' THEN '#CFAA1E'
+    WHEN fuel = 'JPX (JP-4/UDMH)' THEN '#D9B33A'
+    WHEN fuel = 'Kerosene TG-02' THEN '#E4C35A'
+    WHEN fuel = 'Gasoline/UDMH' THEN '#EFD77A'
+    WHEN fuel = 'Kerosene T-1' THEN '#F7E59A'
+    WHEN fuel = 'Diesel oil' THEN '#FAE9B2'
+    WHEN fuel = 'Turpentine' THEN '#FCF1C9'
+    WHEN fuel = 'Kero' THEN '#E4CE6F'
+    WHEN fuel = 'Kero?' THEN '#E4CE6F'
+    WHEN fuel = 'Kero Sintin' THEN '#E9D488'
+    WHEN fuel = 'Kerosene RP-1' THEN '#F0E1A0'
+    WHEN fuel = 'Kero RP-1' THEN '#F4E8B6'
+    WHEN fuel = 'Kero Jet A' THEN '#F8EFCB'
+    WHEN fuel = 'Kero Naphthyl' THEN '#FBF5E0'
+    WHEN fuel = 'Kero RG-1' THEN '#FEFBF2'
+    WHEN fuel = 'Kero RJ-1' THEN '#FFFDF6'
+    WHEN fuel = 'Kero T-1' THEN '#FFFEFA'
+
+    # Hypergolic/Hydrazine Compounds (dark → pale red/pink ramp)
+    WHEN fuel = 'UDMH' THEN '#5A0E0E'
+    WHEN fuel = 'UDMH?' THEN '#5A0E0E'
+    WHEN fuel = 'UDMH USO' THEN '#6E1111'
+    WHEN fuel = 'Hydrazine' THEN '#7A1515'
+    WHEN fuel = 'Hydrazine?' THEN '#7A1515'
+    WHEN fuel = 'MMH?' THEN '#AD2E2E'
+    WHEN fuel = 'MMH' THEN '#AD2E2E'
+    WHEN fuel = 'N2H4' THEN '#C03F3F'
+    WHEN fuel = 'N2H4/MMH' THEN '#D16666'
+    WHEN fuel = 'USO' THEN '#E79C9C'
+    WHEN fuel = 'MMH-H2O' THEN '#F2CFCF'
+    WHEN fuel = 'MON-3' THEN '#C94A3A'
+    WHEN fuel = 'AZ-50' THEN '#D86B5A'
+    WHEN fuel = 'UMDH' THEN '#E89A96'
+    WHEN fuel = 'UDMH UH25' THEN '#F6CECA'
+
+    # Alcohols (soft aqua family)
+    WHEN fuel = 'Alcohol' THEN '#AEEBE3'
+    WHEN fuel = 'Ethanol' THEN '#87D4CC'
+
+    # Cryogenic Fuels (cool blue ramp)
+    WHEN fuel = 'Ammonia' THEN '#A8D4F2'
+    WHEN fuel = 'Methane LNG' THEN '#6FB8F2'
+    WHEN fuel = 'Methane' THEN '#3F9DEB'
+    WHEN fuel = 'Propane' THEN '#2C7FCE'
+    WHEN fuel = 'LH2' THEN '#1F5FAF'
+
+    # Green Propellants (greens)
+    WHEN fuel = 'RL Green Prop' THEN '#3AAE3A'
+    WHEN fuel = 'NH3OHNO3 AF-M315E' THEN '#5CC45C'
+
+    ELSE '#BDBDBD'
+END::string::hex; # thematic hex color associated with the engine fuel
+
+datasource engine (
+    name,
+    manufacturer: ~manufacturer.code,
+    family,
+    alt_name,
+    ?oxidizer,
+    fuel,
+    ?mass,
+    ?impulse,
+    ?thrust,
+    ?isp,
+    ?duration,
+    ?chambers,
+    date,
+    usage,
+    group,
+    data_updated_through
     )
 grain (name)
-address engines;
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/engine.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/engine.parquet`
+freshness by data_updated_through;

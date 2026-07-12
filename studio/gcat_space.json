@@ -15,6 +15,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/entrypoint.preql"
     },
     {
+      "alias": "etl",
+      "name": "etl",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/etl.preql"
+    },
+    {
       "alias": "fuel_dashboard",
       "name": "fuel_dashboard",
       "purpose": "source",
@@ -35,25 +42,11 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch.preql"
     },
     {
-      "alias": "launch_base",
-      "name": "launch_base",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_base.preql"
-    },
-    {
       "alias": "launch_dashboard",
       "name": "launch_dashboard",
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_dashboard.preql"
-    },
-    {
-      "alias": "launch_sites",
-      "name": "launch_sites",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/launch_sites.preql"
     },
     {
       "name": "launch_stats",
@@ -62,11 +55,11 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/launch_stats.json"
     },
     {
-      "alias": "organizations",
-      "name": "organizations",
+      "alias": "organization",
+      "name": "organization",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/organizations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/organization.preql"
     },
     {
       "alias": "platform",
@@ -76,18 +69,11 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/platform.preql"
     },
     {
-      "alias": "satcat",
-      "name": "satcat",
+      "alias": "satellite",
+      "name": "satellite",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satcat.preql"
-    },
-    {
-      "alias": "satcat_dashboard",
-      "name": "satcat_dashboard",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satcat_dashboard.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/satellite.preql"
     },
     {
       "name": "satellite_dashboard",
@@ -96,11 +82,11 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/gcat_space/satellite_dashboard.json"
     },
     {
-      "alias": "setup",
-      "name": "setup",
-      "purpose": "setup",
-      "type": "sql",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/setup.sql"
+      "alias": "sites",
+      "name": "sites",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/sites.preql"
     },
     {
       "alias": "stage",
@@ -117,7 +103,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/vehicle.preql"
     }
   ],
-  "description": "# GCAT: General Catalog of Artificial Space Objects\n\nUpdated through: 2025 Oct 28\n\nFull open source satellite database, plus ancillary catalogs.\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects, Release 1.7.3, https://planet4589.org/space/gcat",
+  "description": "# GCAT: General Catalog of Artificial Space Objects\n\nFull open source satellite database, plus ancillary catalogs.\n\nThis model reads parquet files published to GCS by\n[space_reporting](https://github.com/greenmtnboy/space_reporting), which\ningests and cleans the upstream GCAT TSVs. The parquet files are refreshed\nautomatically; each datasource tracks its currency via the\n`data_updated_through` column (`freshness by`).\n\nMcDowell, Jonathan C., 2020. General Catalog of Artificial Space Objects, Release 1.7.3, https://planet4589.org/space/gcat",
   "engine": "duckdb",
   "link": "",
   "name": "gcat_space",
