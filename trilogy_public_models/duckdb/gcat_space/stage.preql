@@ -32,10 +32,5 @@ datasource stages (
     data_updated_through
     )
 grain (name)
-# filtered query rather than direct file binding: the parquet contains rows
-# with a null stage name that would violate the (name) grain
-query '''
-select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/stages.parquet')
-where name is not null
-'''
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/stages.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/stages.parquet`
 freshness by data_updated_through;

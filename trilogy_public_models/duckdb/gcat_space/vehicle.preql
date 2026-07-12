@@ -62,12 +62,7 @@ datasource lv_info (
     data_updated_through
     )
 grain (name,variant)
-# filtered query rather than direct file binding: the parquet retains rows from
-# a prior load with a null timestamp that would duplicate the (name, variant) grain
-query '''
-select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lv_info.parquet')
-where data_updated_through is not null
-'''
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lv_info.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/lv_info.parquet`
 freshness by data_updated_through;
 
 
@@ -96,10 +91,5 @@ datasource lvs_info (
     data_updated_through
     )
 grain (name,stage_no,variant)
-# filtered query rather than direct file binding: the parquet retains rows from
-# a prior load with a null timestamp that would duplicate the (name, stage_no, variant) grain
-query '''
-select * from read_parquet('https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lvs_info.parquet')
-where name is not null and data_updated_through is not null
-'''
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/launch_report/lvs_info.parquet`:`gcs://trilogy_public_models/duckdb/launch_report/lvs_info.parquet`
 freshness by data_updated_through;
