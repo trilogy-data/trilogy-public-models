@@ -1,0 +1,12 @@
+# How many administrative boundaries exist at each admin level.
+import boundaries as boundaries;
+
+SELECT
+    boundaries.admin_level,
+    count(boundaries.id) -> boundary_count
+WHERE
+    boundaries.boundary = 'administrative'
+    and boundaries.admin_level is not null
+ORDER BY
+    boundary_count desc
+LIMIT 15;

@@ -1,0 +1,13 @@
+# Named national parks, with their designation and operator.
+import parks as parks;
+
+SELECT
+    parks.name,
+    parks.protection_title,
+    parks.operator,
+    parks.latitude,
+    parks.longitude,
+WHERE
+    parks.boundary = 'national_park'
+    and parks.name is not null
+LIMIT 20;

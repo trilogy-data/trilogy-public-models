@@ -14,6 +14,10 @@ SKIPPED_KEYS = [
     "bigquery.age_of_empires_2",
     "duckdb.titanic",
     "duckdb.covid19_open_data",
+    # duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap
+    # US; validation grain checks would stream the ~700M-row buildings layer
+    # over HTTP. Validated manually against the small layers (see its README).
+    "duckdb.layercake",
 ]
 
 

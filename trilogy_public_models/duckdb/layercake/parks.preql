@@ -1,0 +1,71 @@
+import std.geography;
+
+# Parks and protected areas from the OSM LayerCake parks layer (~1.5M rows):
+# leisure=park features plus boundary=protected_area / national_park areas.
+# One row per OSM element.
+
+key type string; # OSM element type: node, way, or relation
+key id bigint; # OSM element id; only unique within an element type
+
+properties <type, id> (
+    boundary string?, # boundary classification (e.g. protected_area, national_park); null for plain parks
+    protected_area string?, # protected area classification tag
+    leisure string?, # leisure classification (e.g. park, nature_reserve); null for pure protected areas
+    name string?, # primary name of the park or protected area
+    short_name string?, # short name
+    official_name string?, # official name where it differs from the primary name
+    protect_class string?, # IUCN-style protection class as tagged ('1'-'6', ...)
+    protection_title string?, # protection designation title (e.g. National Park, Wilderness Area)
+    protected string?, # what is protected (e.g. perpetuity)
+    iucn_level string?, # IUCN protected-area category as tagged
+    access string?, # public access restrictions (yes, no, private, permissive, ...)
+    operator string?, # operating organization
+    operator_type string?, # operator classification (government, private, community, ...)
+    owner string?, # owning entity
+    ownership string?, # ownership classification (national, state, municipal, private, ...)
+    start_date string?, # date the park or protection was established, as tagged
+    related_law string?, # law or regulation establishing the protection
+    website string?, # official website
+    wikidata string?, # linked Wikidata item id
+    wikipedia string?, # linked Wikipedia article reference
+    bbox_xmin float, # western longitude bound of the element bounding box
+    bbox_ymin float, # southern latitude bound of the element bounding box
+    bbox_xmax float, # eastern longitude bound of the element bounding box
+    bbox_ymax float, # northern latitude bound of the element bounding box
+);
+
+property <type, id>.longitude float::longitude; # bbox centroid longitude
+property <type, id>.latitude float::latitude; # bbox centroid latitude
+
+datasource parks (
+    type,
+    id,
+    ?boundary,
+    ?protected_area,
+    ?leisure,
+    ?name,
+    ?short_name,
+    ?official_name,
+    ?protect_class,
+    ?protection_title,
+    ?protected,
+    ?iucn_level,
+    ?access,
+    ?operator,
+    ?operator_type,
+    ?owner,
+    ?ownership,
+    ?start_date,
+    ?related_law,
+    ?website,
+    ?wikidata,
+    ?wikipedia,
+    bbox_xmin,
+    bbox_ymin,
+    bbox_xmax,
+    bbox_ymax,
+    longitude,
+    latitude,
+)
+grain (type, id)
+address parks;

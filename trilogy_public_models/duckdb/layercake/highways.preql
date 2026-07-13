@@ -1,0 +1,97 @@
+import std.geography;
+
+# Roads, paths and related ways from the OSM LayerCake highways layer (~300M
+# rows — always filter on the bbox bounds so DuckDB can prune remote row
+# groups). One row per OSM element. OSM tag values are free-text strings;
+# numeric-looking tags like lanes, maxspeed and width need try_cast for
+# arithmetic.
+
+key type string; # OSM element type: node, way, or relation
+key id bigint; # OSM element id; only unique within an element type
+
+properties <type, id> (
+    highway string?, # highway classification: motorway, trunk, primary, residential, footway, cycleway, ...
+    service string?, # service way classification (driveway, parking_aisle, alley, ...)
+    crossing string?, # pedestrian crossing classification
+    cycleway string?, # cycle infrastructure on the way
+    cycleway_left string?, # cycle infrastructure on the left side
+    cycleway_right string?, # cycle infrastructure on the right side
+    footway string?, # footway classification (sidewalk, crossing, ...)
+    construction string?, # target classification for ways under construction
+    name string?, # street or way name
+    ref string?, # route reference number (e.g. I 5, US 101)
+    bridge string?, # whether/how the way is a bridge
+    covered string?, # whether the way is covered
+    lanes string?, # number of traffic lanes, as tagged
+    layer string?, # vertical layer relative to ground level, as tagged
+    lit string?, # whether the way is lit
+    sidewalk string?, # sidewalk presence (both, left, right, no)
+    smoothness string?, # surface smoothness grade
+    surface string?, # surface material (asphalt, gravel, dirt, ...)
+    tracktype string?, # track firmness grade (grade1-grade5)
+    tunnel string?, # whether/how the way is a tunnel
+    wheelchair string?, # wheelchair accessibility
+    width string?, # way width, as tagged (usually meters)
+    access string?, # general access restrictions
+    bicycle string?, # bicycle access
+    bus string?, # bus access
+    foot string?, # pedestrian access
+    hgv string?, # heavy goods vehicle access
+    maxspeed string?, # speed limit, as tagged (e.g. '50', '30 mph')
+    motor_vehicle string?, # motor vehicle access
+    motorcycle string?, # motorcycle access
+    oneway string?, # whether the way is one-way
+    toll string?, # whether a toll applies
+    bbox_xmin float, # western longitude bound of the element bounding box
+    bbox_ymin float, # southern latitude bound of the element bounding box
+    bbox_xmax float, # eastern longitude bound of the element bounding box
+    bbox_ymax float, # northern latitude bound of the element bounding box
+);
+
+property <type, id>.longitude float::longitude; # bbox centroid longitude
+property <type, id>.latitude float::latitude; # bbox centroid latitude
+
+datasource highways (
+    type,
+    id,
+    ?highway,
+    ?service,
+    ?crossing,
+    ?cycleway,
+    ?cycleway_left,
+    ?cycleway_right,
+    ?footway,
+    ?construction,
+    ?name,
+    ?ref,
+    ?bridge,
+    ?covered,
+    ?lanes,
+    ?layer,
+    ?lit,
+    ?sidewalk,
+    ?smoothness,
+    ?surface,
+    ?tracktype,
+    ?tunnel,
+    ?wheelchair,
+    ?width,
+    ?access,
+    ?bicycle,
+    ?bus,
+    ?foot,
+    ?hgv,
+    ?maxspeed,
+    ?motor_vehicle,
+    ?motorcycle,
+    ?oneway,
+    ?toll,
+    bbox_xmin,
+    bbox_ymin,
+    bbox_xmax,
+    bbox_ymax,
+    longitude,
+    latitude,
+)
+grain (type, id)
+address highways;

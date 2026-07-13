@@ -16,6 +16,9 @@ SKIPPED_MODELS = {
     "bigquery.age_of_empires_2",
     "duckdb.titanic",
     "duckdb.covid19_open_data",
+    # duckdb.layercake queries third-party-hosted planet-scale OSM parquet
+    # over HTTP; examples run real scans, so keep them out of CI.
+    "duckdb.layercake",
 }
 
 # (model key, source label) pairs to skip; for queries under active investigation.

@@ -1,0 +1,83 @@
+import std.geography;
+
+# Building footprints from the OSM LayerCake buildings layer (~700M rows —
+# the largest layer; always filter on the bbox bounds so DuckDB can prune
+# remote row groups). One row per OSM element. OSM tag values are free-text
+# strings; numeric-looking tags like building_levels and height need try_cast
+# for arithmetic.
+
+key type string; # OSM element type: node, way, or relation
+key id bigint; # OSM element id; only unique within an element type
+
+properties <type, id> (
+    building string?, # building classification tag: yes, house, residential, apartments, commercial, ...
+    building_levels string?, # number of above-ground floors, as tagged (free text)
+    building_flats string?, # number of dwelling units, as tagged
+    building_material string?, # outer wall material
+    building_colour string?, # facade colour
+    building_part string?, # whether the element is a 3D building part
+    building_use string?, # current use where it differs from the building type
+    name string?, # building name
+    addr_housenumber string?, # address house number
+    addr_street string?, # address street
+    addr_city string?, # address city
+    addr_postcode string?, # address postal code
+    website string?, # associated website
+    wikipedia string?, # linked Wikipedia article reference
+    wikidata string?, # linked Wikidata item id
+    height string?, # building height, as tagged (usually meters, free text)
+    roof_shape string?, # roof shape (flat, gabled, hipped, ...)
+    roof_levels string?, # number of roof levels, as tagged
+    roof_colour string?, # roof colour
+    roof_material string?, # roof material
+    roof_orientation string?, # roof ridge orientation
+    roof_height string?, # roof height, as tagged
+    start_date string?, # construction date, as tagged
+    access string?, # public access restrictions
+    wheelchair string?, # wheelchair accessibility (yes, no, limited)
+    bbox_xmin float, # western longitude bound of the element bounding box
+    bbox_ymin float, # southern latitude bound of the element bounding box
+    bbox_xmax float, # eastern longitude bound of the element bounding box
+    bbox_ymax float, # northern latitude bound of the element bounding box
+);
+
+property <type, id>.longitude float::longitude; # bbox centroid longitude
+property <type, id>.latitude float::latitude; # bbox centroid latitude
+
+datasource buildings (
+    type,
+    id,
+    ?building,
+    ?building_levels,
+    ?building_flats,
+    ?building_material,
+    ?building_colour,
+    ?building_part,
+    ?building_use,
+    ?name,
+    ?addr_housenumber,
+    ?addr_street,
+    ?addr_city,
+    ?addr_postcode,
+    ?website,
+    ?wikipedia,
+    ?wikidata,
+    ?height,
+    ?roof_shape,
+    ?roof_levels,
+    ?roof_colour,
+    ?roof_material,
+    ?roof_orientation,
+    ?roof_height,
+    ?start_date,
+    ?access,
+    ?wheelchair,
+    bbox_xmin,
+    bbox_ymin,
+    bbox_xmax,
+    bbox_ymax,
+    longitude,
+    latitude,
+)
+grain (type, id)
+address buildings;
