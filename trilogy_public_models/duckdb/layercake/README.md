@@ -67,11 +67,12 @@ See `examples/duckdb/layercake/` for more queries.
 
 ## Testing
 
-The model is excluded from the CI validation suites (`test_models.py`,
-`test_examples.py`): validation runs grain-uniqueness scans, which against the
-remote 700M-row buildings layer would stream the file over HTTP, and the data
-is hosted by a third party. Grain uniqueness of `(type, id)` was verified
-directly against the boundaries, settlements and parks layers.
+The model is excluded from the validation suites (`test_models.py`,
+`test_examples.py`) **in CI only** (gated on the `CI` env var): the data is
+hosted by a third party, and the grain-uniqueness scans stream ~2GB of the
+buildings/highways `type`/`id` columns over HTTP. Local runs of the test
+suites include the model — expect the model validation to take a while on
+the two planet-scale layers; the example queries finish in seconds.
 
 ## Data notes
 
