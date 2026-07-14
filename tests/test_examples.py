@@ -1,3 +1,4 @@
+import os
 import traceback
 from copy import deepcopy
 from json import loads
@@ -17,6 +18,12 @@ SKIPPED_MODELS = {
     "duckdb.titanic",
     "duckdb.covid19_open_data",
 }
+
+# duckdb.layercake examples run real scans against third-party-hosted OSM
+# parquet over HTTP. They finish in seconds and pass locally; keep the
+# external dependency and bandwidth out of CI.
+if os.environ.get("CI"):
+    SKIPPED_MODELS.add("duckdb.layercake")
 
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {

@@ -1,3 +1,5 @@
+import os
+
 from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import validate_model
 from concurrent.futures import ThreadPoolExecutor
@@ -15,6 +17,13 @@ SKIPPED_KEYS = [
     "duckdb.titanic",
     "duckdb.covid19_open_data",
 ]
+
+# duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap US;
+# its grain checks stream ~2GB (the type/id columns of the 700M-row buildings
+# and 300M-row highways layers) over HTTP and aggregate ~1B groups. That
+# passes, but is too slow and bandwidth-heavy for CI — run locally instead.
+if os.environ.get("CI"):
+    SKIPPED_KEYS.append("duckdb.layercake")
 
 
 def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = False):

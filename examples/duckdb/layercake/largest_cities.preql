@@ -1,0 +1,14 @@
+# Largest cities in OSM by tagged population.
+import settlements as settlements;
+
+SELECT
+    settlements.name,
+    settlements.population,
+    settlements.latitude,
+    settlements.longitude,
+WHERE
+    settlements.place = 'city'
+    and settlements.population is not null
+ORDER BY
+    settlements.population desc
+LIMIT 10;

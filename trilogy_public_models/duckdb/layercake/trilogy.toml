@@ -1,0 +1,8 @@
+# Trilogy Configuration File
+# Learn more at: https://github.com/trilogy-data/pytrilogy
+
+[engine]
+dialect = "duck_db"
+
+[setup]
+sql = ["setup.sql"]

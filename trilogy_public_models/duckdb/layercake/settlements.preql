@@ -1,0 +1,45 @@
+import std.geography;
+
+# Populated places (place=city/town/village/hamlet/...) from the OSM LayerCake
+# settlements layer (~4.6M rows). One row per OSM element; currently all
+# settlements are nodes, but the (type, id) key is kept for OSM-wide identity.
+
+key type string; # OSM element type: node, way, or relation
+key id bigint; # OSM element id; only unique within an element type
+
+properties <type, id> (
+    place string?, # settlement classification: city, town, village, hamlet, suburb, quarter, isolated_dwelling, farm, ...
+    name string?, # primary name of the settlement
+    alt_name string?, # alternative name
+    official_name string?, # official name where it differs from the primary name
+    wikidata string?, # linked Wikidata item id (e.g. Q243307)
+    wikipedia string?, # linked Wikipedia article reference
+    population int?, # population from the OSM population tag; unverified, sparsely tagged
+    bbox_xmin float, # western longitude bound of the element bounding box
+    bbox_ymin float, # southern latitude bound of the element bounding box
+    bbox_xmax float, # eastern longitude bound of the element bounding box
+    bbox_ymax float, # northern latitude bound of the element bounding box
+);
+
+property <type, id>.longitude float::longitude; # bbox centroid longitude (the point itself for nodes)
+property <type, id>.latitude float::latitude; # bbox centroid latitude (the point itself for nodes)
+
+datasource settlements (
+    type,
+    id,
+    ?place,
+    ?name,
+    ?alt_name,
+    ?official_name,
+    ?wikidata,
+    ?wikipedia,
+    ?population,
+    bbox_xmin,
+    bbox_ymin,
+    bbox_xmax,
+    bbox_ymax,
+    longitude,
+    latitude,
+)
+grain (type, id)
+address settlements;

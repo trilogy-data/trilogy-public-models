@@ -1,0 +1,57 @@
+import std.geography;
+
+# Administrative and place boundaries from the OSM LayerCake boundaries layer
+# (~800K rows): countries, states, counties, aboriginal lands, maritime and
+# disputed borders. One row per OSM element.
+
+key type string; # OSM element type: node, way, or relation
+key id bigint; # OSM element id; only unique within an element type
+
+properties <type, id> (
+    boundary string?, # boundary classification: administrative, place, aboriginal_lands, maritime, disputed
+    admin_level string?, # OSM admin_level as tagged (string): '2' country, '4' state/province, '6' county, '8' municipality, ...
+    name string?, # primary name of the boundary
+    official_name string?, # official name where it differs from the primary name
+    int_name string?, # international (romanized) name
+    alt_name string?, # alternative name
+    place string?, # place classification when the boundary also represents a place
+    border_type string?, # finer border classification (e.g. territorial, nation)
+    iso_3166_2 string?, # ISO 3166-2 subdivision code (e.g. US-CA)
+    iso_3166_1_alpha2 string?, # ISO 3166-1 alpha-2 country code (e.g. US)
+    iso_3166_1_alpha3 string?, # ISO 3166-1 alpha-3 country code (e.g. USA)
+    wikidata string?, # linked Wikidata item id
+    wikipedia string?, # linked Wikipedia article reference
+    bbox_xmin float, # western longitude bound of the element bounding box
+    bbox_ymin float, # southern latitude bound of the element bounding box
+    bbox_xmax float, # eastern longitude bound of the element bounding box
+    bbox_ymax float, # northern latitude bound of the element bounding box
+);
+
+property <type, id>.longitude float::longitude; # bbox centroid longitude
+property <type, id>.latitude float::latitude; # bbox centroid latitude
+
+datasource boundaries (
+    type,
+    id,
+    ?boundary,
+    ?admin_level,
+    ?name,
+    ?official_name,
+    ?int_name,
+    ?alt_name,
+    ?place,
+    ?border_type,
+    ?iso_3166_2,
+    ?iso_3166_1_alpha2,
+    ?iso_3166_1_alpha3,
+    ?wikidata,
+    ?wikipedia,
+    bbox_xmin,
+    bbox_ymin,
+    bbox_xmax,
+    bbox_ymax,
+    longitude,
+    latitude,
+)
+grain (type, id)
+address boundaries;
