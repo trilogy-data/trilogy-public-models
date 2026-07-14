@@ -1,0 +1,81 @@
+{
+  "components": [
+    {
+      "alias": "boundaries",
+      "name": "boundaries",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/boundaries.preql"
+    },
+    {
+      "alias": "buildings",
+      "name": "buildings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/buildings.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/entrypoint.preql"
+    },
+    {
+      "alias": "highways",
+      "name": "highways",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/highways.preql"
+    },
+    {
+      "alias": "parks",
+      "name": "parks",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/parks.preql"
+    },
+    {
+      "alias": "settlements",
+      "name": "settlements",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/settlements.preql"
+    },
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/layercake/setup.sql"
+    },
+    {
+      "alias": "admin_boundaries_by_level",
+      "name": "admin_boundaries_by_level",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/layercake/admin_boundaries_by_level.preql"
+    },
+    {
+      "alias": "largest_cities",
+      "name": "largest_cities",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/layercake/largest_cities.preql"
+    },
+    {
+      "alias": "national_parks",
+      "name": "national_parks",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/layercake/national_parks.preql"
+    }
+  ],
+  "description": "# OSM LayerCake\n\nA Trilogy model over [LayerCake](https://openstreetmap.us/our-work/layercake/),\nOpenStreetMap US's thematic extracts of the full OSM planet published as\ncloud-native GeoParquet at `https://data.openstreetmap.us/layercake/`.\n\n## Engine\n\nDuckDB. `setup.sql` creates one view per layer directly over the remote\nparquet URLs (httpfs); nothing is downloaded up front. DuckDB pushes column\nselection and bbox predicates down to HTTP range reads, so queries against\neven the planet-scale layers only fetch the row groups they need \u2014 but a\nquery with no bbox filter on `buildings` or `highways` is a full scan of a\nmulti-GB remote file. Filter on `bbox_*` bounds whenever working with the two\nlarge layers.\n\n## Structure\n\nOne namespace per layer, all at grain `(type, id)` \u2014 the OSM element type\n(`node` / `way` / `relation`) plus element id, which is only unique within a\ntype.\n\n| File | Layer | Rows (approx.) | Description |\n|------|-------|----------------|-------------|\n| `buildings.preql` | buildings | 700M | Building footprints with address, height and roof tags |\n| `highways.preql` | highways | 298M | Roads, paths and related ways with surface, lanes, access tags |\n| `boundaries.preql` | boundaries | 804K | Administrative and place boundaries with ISO 3166 codes |\n| `settlements.preql` | settlements | 4.6M | Populated places (city / town / village / ...) with population |\n| `parks.preql` | parks | 1.5M | Parks and protected areas with protection class and operator |\n\nEvery layer exposes the element bounding box (`bbox_xmin` / `bbox_ymin` /\n`bbox_xmax` / `bbox_ymax`) plus a computed centroid `latitude` / `longitude`\nfor mapping. The raw WKB `geometry` column is not modeled \u2014 pull it from the\nsource parquet directly if you need true geometries.\n\nMost OSM tag values are free-text strings by design (`building_levels`,\n`height`, `lanes`, `maxspeed`, ...); use `try_cast` for arithmetic. The views\nin `setup.sql` rename namespaced tag columns (`building:levels` \u2192\n`building_levels`), flatten the `bbox` struct, and take the primary entry of\nthe multilingual name arrays on `boundaries` and `parks`. The per-language\nname maps and the boundary dispute arrays (`disputed_by`, `claimed_by`, ...)\nare not modeled.\n\n## Usage\n\n```python\nfrom trilogy_public_models import get_executor\n\nexecutor = get_executor(\"duckdb.layercake\")\n\nresults = executor.execute_text(\"\"\"\nSELECT\n    settlements.name,\n    settlements.population,\nWHERE\n    settlements.place = 'city'\nORDER BY\n    settlements.population desc\nLIMIT 10;\n\"\"\")\n\nfor row in results[0].fetchall():\n    print(row)\n```\n\nSee `examples/duckdb/layercake/` for more queries.\n\n## Testing\n\nThe model is excluded from the validation suites (`test_models.py`,\n`test_examples.py`) **in CI only** (gated on the `CI` env var): the data is\nhosted by a third party, and the grain-uniqueness scans stream ~2GB of the\nbuildings/highways `type`/`id` columns over HTTP. Local runs of the test\nsuites include the model \u2014 expect the model validation to take a while on\nthe two planet-scale layers; the example queries finish in seconds.\n\n## Data notes\n\n- Layers are regenerated from the OSM planet by OpenStreetMap US; row counts\n  above are as of July 2026.\n- OpenStreetMap data is \u00a9 OpenStreetMap contributors, available under the\n  [ODbL](https://www.openstreetmap.org/copyright).",
+  "engine": "duckdb",
+  "link": "",
+  "name": "layercake",
+  "tags": [
+    "duckdb"
+  ]
+}
