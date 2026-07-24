@@ -1,0 +1,19 @@
+key col_sis_admin_department_code date;
+key col_sis_admin_department_name string;
+key col_department_phone_area_code string;
+key col_department_phone_number string;
+key col_clearing_cost_collector string;
+key col_last_activity_date string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SIS_ADMIN_DEPARTMENT_CODE`:col_sis_admin_department_code,
+    `SIS_ADMIN_DEPARTMENT_NAME`:col_sis_admin_department_name,
+    `DEPARTMENT_PHONE_AREA_CODE`:col_department_phone_area_code,
+    `DEPARTMENT_PHONE_NUMBER`:col_department_phone_number,
+    `CLEARING_COST_COLLECTOR`:col_clearing_cost_collector,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_sis_admin_department_code, col_sis_admin_department_name, col_department_phone_area_code, col_department_phone_number, col_clearing_cost_collector, col_last_activity_date, col_warehouse_load_date)
+address `dw.SIS_ADMIN_DEPARTMENT`;

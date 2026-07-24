@@ -1,0 +1,9 @@
+key col_fclt_organization_key string;
+key col_dlc_key string;
+
+datasource source (
+    `FCLT_ORGANIZATION_KEY`:col_fclt_organization_key,
+    `DLC_KEY`:col_dlc_key,
+)
+grain (col_fclt_organization_key, col_dlc_key)
+address `dw.FCLT_ORG_DLC_KEY`;

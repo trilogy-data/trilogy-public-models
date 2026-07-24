@@ -1,0 +1,9 @@
+key col_hash_id string;
+property col_hash_id.col_hash string;
+
+datasource source (
+    `HASH_ID`:col_hash_id,
+    `HASH`:col_hash,
+)
+grain (col_hash_id)
+address `neutron.consistencyhashes`;

@@ -1,0 +1,11 @@
+key col_rule_id string;
+key col_edge_id string;
+property <col_rule_id, col_edge_id>.col_rule_vse_id string;
+
+datasource source (
+    `RULE_ID`:col_rule_id,
+    `EDGE_ID`:col_edge_id,
+    `RULE_VSE_ID`:col_rule_vse_id,
+)
+grain (col_rule_id, col_edge_id)
+address `neutron.nsxv_firewall_rule_bindings`;

@@ -1,0 +1,9 @@
+key col_port_id string;
+key col_security_group_id string;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `SECURITY_GROUP_ID`:col_security_group_id,
+)
+grain (col_port_id, col_security_group_id)
+address `neutron.securitygroupportbindings`;

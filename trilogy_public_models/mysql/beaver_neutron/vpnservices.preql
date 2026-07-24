@@ -1,0 +1,21 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_status string;
+property col_id.col_admin_state_up int;
+property col_id.col_subnet_id string;
+property col_id.col_router_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `STATUS`:col_status,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `SUBNET_ID`:col_subnet_id,
+    `ROUTER_ID`:col_router_id,
+)
+grain (col_id)
+address `neutron.vpnservices`;

@@ -1,0 +1,23 @@
+key col_moira_list_key string;
+key col_moira_list_name string;
+key col_moira_list_description string;
+key col_is_active string;
+key col_is_moira_mailing_list string;
+key col_is_moira_group string;
+key col_is_nfs_group string;
+key col_is_public string;
+key col_is_hidden string;
+
+datasource source (
+    `MOIRA_LIST_KEY`:col_moira_list_key,
+    `MOIRA_LIST_NAME`:col_moira_list_name,
+    `MOIRA_LIST_DESCRIPTION`:col_moira_list_description,
+    `IS_ACTIVE`:col_is_active,
+    `IS_MOIRA_MAILING_LIST`:col_is_moira_mailing_list,
+    `IS_MOIRA_GROUP`:col_is_moira_group,
+    `IS_NFS_GROUP`:col_is_nfs_group,
+    `IS_PUBLIC`:col_is_public,
+    `IS_HIDDEN`:col_is_hidden,
+)
+grain (col_moira_list_key, col_moira_list_name, col_moira_list_description, col_is_active, col_is_moira_mailing_list, col_is_moira_group, col_is_nfs_group, col_is_public, col_is_hidden)
+address `dw.MOIRA_LIST`;

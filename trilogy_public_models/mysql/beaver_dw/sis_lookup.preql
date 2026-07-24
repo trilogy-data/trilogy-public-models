@@ -1,0 +1,13 @@
+key col_lookup_type string;
+key col_code string;
+key col_description string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LOOKUP_TYPE`:col_lookup_type,
+    `CODE`:col_code,
+    `DESCRIPTION`:col_description,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_lookup_type, col_code, col_description, col_warehouse_load_date)
+address `dw.SIS_LOOKUP`;

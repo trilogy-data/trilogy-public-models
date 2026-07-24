@@ -1,0 +1,9 @@
+key col_network_id string;
+property col_network_id.col_dns_domain string;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `DNS_DOMAIN`:col_dns_domain,
+)
+grain (col_network_id)
+address `neutron.networkdnsdomains`;

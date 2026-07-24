@@ -1,0 +1,25 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_type string;
+property col_id.col_delay int;
+property col_id.col_timeout int;
+property col_id.col_max_retries int;
+property col_id.col_http_method string;
+property col_id.col_url_path string;
+property col_id.col_expected_codes string;
+property col_id.col_admin_state_up int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `TYPE`:col_type,
+    `DELAY`:col_delay,
+    `TIMEOUT`:col_timeout,
+    `MAX_RETRIES`:col_max_retries,
+    `HTTP_METHOD`:col_http_method,
+    `URL_PATH`:col_url_path,
+    `EXPECTED_CODES`:col_expected_codes,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+)
+grain (col_id)
+address `neutron.healthmonitors`;

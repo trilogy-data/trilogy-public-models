@@ -1,0 +1,19 @@
+key col_subnet_id string;
+property col_subnet_id.col_net_partition_id string;
+property col_subnet_id.col_nuage_subnet_id string;
+property col_subnet_id.col_nuage_l2dom_tmplt_id string;
+property col_subnet_id.col_nuage_user_id string;
+property col_subnet_id.col_nuage_group_id string;
+property col_subnet_id.col_nuage_managed_subnet int;
+
+datasource source (
+    `SUBNET_ID`:col_subnet_id,
+    `NET_PARTITION_ID`:col_net_partition_id,
+    `NUAGE_SUBNET_ID`:col_nuage_subnet_id,
+    `NUAGE_L2DOM_TMPLT_ID`:col_nuage_l2dom_tmplt_id,
+    `NUAGE_USER_ID`:col_nuage_user_id,
+    `NUAGE_GROUP_ID`:col_nuage_group_id,
+    `NUAGE_MANAGED_SUBNET`:col_nuage_managed_subnet,
+)
+grain (col_subnet_id)
+address `neutron.nuage_subnet_l2dom_mapping`;

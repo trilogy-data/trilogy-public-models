@@ -1,0 +1,15 @@
+property col_ipsec_site_conn_id.col_tenant_id string;
+key col_ipsec_site_conn_id string;
+property col_ipsec_site_conn_id.col_csr_tunnel_id int;
+property col_ipsec_site_conn_id.col_csr_ike_policy_id int;
+property col_ipsec_site_conn_id.col_csr_ipsec_policy_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `IPSEC_SITE_CONN_ID`:col_ipsec_site_conn_id,
+    `CSR_TUNNEL_ID`:col_csr_tunnel_id,
+    `CSR_IKE_POLICY_ID`:col_csr_ike_policy_id,
+    `CSR_IPSEC_POLICY_ID`:col_csr_ipsec_policy_id,
+)
+grain (col_ipsec_site_conn_id)
+address `neutron.cisco_csr_identifier_map`;

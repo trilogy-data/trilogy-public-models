@@ -1,0 +1,15 @@
+key col_id int;
+property col_id.col_resource_type string;
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_description string;
+
+datasource source (
+    `ID`:col_id,
+    `RESOURCE_TYPE`:col_resource_type,
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DESCRIPTION`:col_description,
+)
+grain (col_id)
+address `neutron.standardattributes`;

@@ -1,0 +1,11 @@
+key col_bgp_speaker_id string;
+key col_network_id string;
+key col_ip_version int;
+
+datasource source (
+    `BGP_SPEAKER_ID`:col_bgp_speaker_id,
+    `NETWORK_ID`:col_network_id,
+    `IP_VERSION`:col_ip_version,
+)
+grain (col_network_id, col_bgp_speaker_id, col_ip_version)
+address `neutron.bgp_speaker_network_bindings`;

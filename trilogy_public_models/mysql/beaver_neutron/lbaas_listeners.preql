@@ -1,0 +1,31 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_protocol string;
+property col_id.col_protocol_port int;
+property col_id.col_connection_limit int;
+property col_id.col_loadbalancer_id string;
+property col_id.col_default_pool_id string;
+property col_id.col_admin_state_up int;
+property col_id.col_provisioning_status string;
+property col_id.col_operating_status string;
+property col_id.col_default_tls_container_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `PROTOCOL`:col_protocol,
+    `PROTOCOL_PORT`:col_protocol_port,
+    `CONNECTION_LIMIT`:col_connection_limit,
+    `LOADBALANCER_ID`:col_loadbalancer_id,
+    `DEFAULT_POOL_ID`:col_default_pool_id,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `PROVISIONING_STATUS`:col_provisioning_status,
+    `OPERATING_STATUS`:col_operating_status,
+    `DEFAULT_TLS_CONTAINER_ID`:col_default_tls_container_id,
+)
+grain (col_id)
+address `neutron.lbaas_listeners`;

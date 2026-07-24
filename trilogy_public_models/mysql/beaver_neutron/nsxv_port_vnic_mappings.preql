@@ -1,0 +1,9 @@
+key col_neutron_id string;
+key col_nsx_id string;
+
+datasource source (
+    `NEUTRON_ID`:col_neutron_id,
+    `NSX_ID`:col_nsx_id,
+)
+grain (col_neutron_id, col_nsx_id)
+address `neutron.nsxv_port_vnic_mappings`;

@@ -1,0 +1,45 @@
+key col_fiscal_year string;
+key col_fy_quarter_code string;
+key col_fy_quarter_name string;
+key col_cy_quarter_code string;
+key col_cy_quarter_name string;
+key col_calendar_year string;
+key col_quarter_start_date date;
+key col_quarter_end_date date;
+key col_quarter_start_fp string;
+key col_quarter_end_fp string;
+key col_quarter_cert_open date;
+key col_quarter_cert_expected date;
+key col_quarter_cert_due date;
+key col_is_current_quarter string;
+key col_is_next_quarter string;
+key col_is_previous_quarter string;
+key col_is_past_quarter string;
+key col_is_future_quarter string;
+key col_payroll_edacca_cert_sched_key string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FISCAL_YEAR`:col_fiscal_year,
+    `FY_QUARTER_CODE`:col_fy_quarter_code,
+    `FY_QUARTER_NAME`:col_fy_quarter_name,
+    `CY_QUARTER_CODE`:col_cy_quarter_code,
+    `CY_QUARTER_NAME`:col_cy_quarter_name,
+    `CALENDAR_YEAR`:col_calendar_year,
+    `QUARTER_START_DATE`:col_quarter_start_date,
+    `QUARTER_END_DATE`:col_quarter_end_date,
+    `QUARTER_START_FP`:col_quarter_start_fp,
+    `QUARTER_END_FP`:col_quarter_end_fp,
+    `QUARTER_CERT_OPEN`:col_quarter_cert_open,
+    `QUARTER_CERT_EXPECTED`:col_quarter_cert_expected,
+    `QUARTER_CERT_DUE`:col_quarter_cert_due,
+    `IS_CURRENT_QUARTER`:col_is_current_quarter,
+    `IS_NEXT_QUARTER`:col_is_next_quarter,
+    `IS_PREVIOUS_QUARTER`:col_is_previous_quarter,
+    `IS_PAST_QUARTER`:col_is_past_quarter,
+    `IS_FUTURE_QUARTER`:col_is_future_quarter,
+    `PAYROLL_EDACCA_CERT_SCHED_KEY`:col_payroll_edacca_cert_sched_key,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_fiscal_year, col_fy_quarter_code, col_fy_quarter_name, col_cy_quarter_code, col_cy_quarter_name, col_calendar_year, col_quarter_start_date, col_quarter_end_date, col_quarter_start_fp, col_quarter_end_fp, col_quarter_cert_open, col_quarter_cert_expected, col_quarter_cert_due, col_is_current_quarter, col_is_next_quarter, col_is_previous_quarter, col_is_past_quarter, col_is_future_quarter, col_payroll_edacca_cert_sched_key, col_warehouse_load_date)
+address `dw.TIME_QUARTER`;

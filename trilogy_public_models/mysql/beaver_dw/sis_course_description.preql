@@ -1,0 +1,49 @@
+key col_sis_course_description_key string;
+key col_course string;
+key col_course_description string;
+key col_course_description_long string;
+key col_department string;
+key col_department_name string;
+key col_dept_name_in_commencement_bk string;
+key col_school_name string;
+key col_school_name_in_commencement_bk string;
+key col_from_term string;
+key col_from_term_description string;
+key col_thru_term string;
+key col_thru_term_description string;
+key col_course_option string;
+key col_course_level string;
+key col_cip_program_code string;
+key col_is_degree_granting string;
+key col_default_ultimate_degree string;
+key col_gradaute_level string;
+key col_graduate_level string;
+key col_last_activity_date date;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SIS_COURSE_DESCRIPTION_KEY`:col_sis_course_description_key,
+    `COURSE`:col_course,
+    `COURSE_DESCRIPTION`:col_course_description,
+    `COURSE_DESCRIPTION_LONG`:col_course_description_long,
+    `DEPARTMENT`:col_department,
+    `DEPARTMENT_NAME`:col_department_name,
+    `DEPT_NAME_IN_COMMENCEMENT_BK`:col_dept_name_in_commencement_bk,
+    `SCHOOL_NAME`:col_school_name,
+    `SCHOOL_NAME_IN_COMMENCEMENT_BK`:col_school_name_in_commencement_bk,
+    `FROM_TERM`:col_from_term,
+    `FROM_TERM_DESCRIPTION`:col_from_term_description,
+    `THRU_TERM`:col_thru_term,
+    `THRU_TERM_DESCRIPTION`:col_thru_term_description,
+    `COURSE_OPTION`:col_course_option,
+    `COURSE_LEVEL`:col_course_level,
+    `CIP_PROGRAM_CODE`:col_cip_program_code,
+    `IS_DEGREE_GRANTING`:col_is_degree_granting,
+    `DEFAULT_ULTIMATE_DEGREE`:col_default_ultimate_degree,
+    `GRADAUTE_LEVEL`:col_gradaute_level,
+    `GRADUATE_LEVEL`:col_graduate_level,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_sis_course_description_key, col_course, col_course_description, col_course_description_long, col_department, col_department_name, col_dept_name_in_commencement_bk, col_school_name, col_school_name_in_commencement_bk, col_from_term, col_from_term_description, col_thru_term, col_thru_term_description, col_course_option, col_course_level, col_cip_program_code, col_is_degree_granting, col_default_ultimate_degree, col_gradaute_level, col_graduate_level, col_last_activity_date, col_warehouse_load_date)
+address `dw.SIS_COURSE_DESCRIPTION`;

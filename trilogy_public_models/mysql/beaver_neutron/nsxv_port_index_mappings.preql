@@ -1,0 +1,11 @@
+key col_port_id string;
+property col_port_id.col_device_id string;
+property col_port_id.col_index int;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `DEVICE_ID`:col_device_id,
+    `INDEX`:col_index,
+)
+grain (col_port_id)
+address `neutron.nsxv_port_index_mappings`;

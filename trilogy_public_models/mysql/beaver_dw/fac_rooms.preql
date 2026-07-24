@@ -1,0 +1,55 @@
+key col_fac_room_key date;
+key col_building_key string;
+key col_floor string;
+key col_floor_key string;
+key col_room string;
+key col_space_id string;
+key col_major_use_key string;
+key col_major_use_desc string;
+key col_use_key string;
+key col_use_desc string;
+key col_minor_use_key string;
+key col_minor_use_desc string;
+key col_organization_key string;
+key col_organization_name string;
+key col_minor_organization_key string;
+key col_minor_organization string;
+key col_area string;
+key col_room_full_name int;
+key col_dept_code string;
+key col_access_level string;
+key col_latitude_wgs string;
+key col_longitude_wgs int;
+key col_northing_spcs int;
+key col_easting_spcs int;
+key col_warehouse_load_date int;
+
+datasource source (
+    `FAC_ROOM_KEY`:col_fac_room_key,
+    `BUILDING_KEY`:col_building_key,
+    `FLOOR`:col_floor,
+    `FLOOR_KEY`:col_floor_key,
+    `ROOM`:col_room,
+    `SPACE_ID`:col_space_id,
+    `MAJOR_USE_KEY`:col_major_use_key,
+    `MAJOR_USE_DESC`:col_major_use_desc,
+    `USE_KEY`:col_use_key,
+    `USE_DESC`:col_use_desc,
+    `MINOR_USE_KEY`:col_minor_use_key,
+    `MINOR_USE_DESC`:col_minor_use_desc,
+    `ORGANIZATION_KEY`:col_organization_key,
+    `ORGANIZATION_NAME`:col_organization_name,
+    `MINOR_ORGANIZATION_KEY`:col_minor_organization_key,
+    `MINOR_ORGANIZATION`:col_minor_organization,
+    `AREA`:col_area,
+    `ROOM_FULL_NAME`:col_room_full_name,
+    `DEPT_CODE`:col_dept_code,
+    `ACCESS_LEVEL`:col_access_level,
+    `LATITUDE_WGS`:col_latitude_wgs,
+    `LONGITUDE_WGS`:col_longitude_wgs,
+    `NORTHING_SPCS`:col_northing_spcs,
+    `EASTING_SPCS`:col_easting_spcs,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_fac_room_key, col_building_key, col_floor, col_floor_key, col_room, col_space_id, col_major_use_key, col_major_use_desc, col_use_key, col_use_desc, col_minor_use_key, col_minor_use_desc, col_organization_key, col_organization_name, col_minor_organization_key, col_minor_organization, col_area, col_room_full_name, col_dept_code, col_access_level, col_latitude_wgs, col_longitude_wgs, col_northing_spcs, col_easting_spcs, col_warehouse_load_date)
+address `dw.FAC_ROOMS`;

@@ -1,0 +1,13 @@
+key col_router_id string;
+property col_router_id.col_distributed int;
+property col_router_id.col_router_type string;
+property col_router_id.col_service_router int;
+
+datasource source (
+    `ROUTER_ID`:col_router_id,
+    `DISTRIBUTED`:col_distributed,
+    `ROUTER_TYPE`:col_router_type,
+    `SERVICE_ROUTER`:col_service_router,
+)
+grain (col_router_id)
+address `neutron.nsxv_router_ext_attributes`;

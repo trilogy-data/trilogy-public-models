@@ -1,0 +1,29 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_network_id string;
+property col_id.col_ip_version int;
+property col_id.col_cidr string;
+property col_id.col_gateway_ip string;
+property col_id.col_enable_dhcp int;
+property col_id.col_ipv6_ra_mode string;
+property col_id.col_ipv6_address_mode string;
+property col_id.col_subnetpool_id string;
+property col_id.col_standard_attr_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `NETWORK_ID`:col_network_id,
+    `IP_VERSION`:col_ip_version,
+    `CIDR`:col_cidr,
+    `GATEWAY_IP`:col_gateway_ip,
+    `ENABLE_DHCP`:col_enable_dhcp,
+    `IPV6_RA_MODE`:col_ipv6_ra_mode,
+    `IPV6_ADDRESS_MODE`:col_ipv6_address_mode,
+    `SUBNETPOOL_ID`:col_subnetpool_id,
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+)
+grain (col_id)
+address `neutron.subnets`;

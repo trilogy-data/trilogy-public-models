@@ -1,0 +1,17 @@
+key col_router_id string;
+property col_router_id.col_distributed int;
+property col_router_id.col_service_router int;
+property col_router_id.col_ha int;
+property col_router_id.col_ha_vr_id int;
+property col_router_id.col_availability_zone_hints string;
+
+datasource source (
+    `ROUTER_ID`:col_router_id,
+    `DISTRIBUTED`:col_distributed,
+    `SERVICE_ROUTER`:col_service_router,
+    `HA`:col_ha,
+    `HA_VR_ID`:col_ha_vr_id,
+    `AVAILABILITY_ZONE_HINTS`:col_availability_zone_hints,
+)
+grain (col_router_id)
+address `neutron.router_extra_attributes`;

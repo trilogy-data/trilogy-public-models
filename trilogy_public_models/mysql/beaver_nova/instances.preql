@@ -1,0 +1,111 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_internal_id int;
+property col_id.col_user_id string;
+property col_id.col_project_id string;
+property col_id.col_image_ref string;
+property col_id.col_kernel_id string;
+property col_id.col_ramdisk_id string;
+property col_id.col_launch_index int;
+property col_id.col_key_name string;
+property col_id.col_key_data string;
+property col_id.col_power_state int;
+property col_id.col_vm_state string;
+property col_id.col_memory_mb int;
+property col_id.col_vcpus int;
+property col_id.col_hostname string;
+property col_id.col_host string;
+property col_id.col_user_data string;
+property col_id.col_reservation_id string;
+property col_id.col_scheduled_at datetime;
+property col_id.col_launched_at datetime;
+property col_id.col_terminated_at datetime;
+property col_id.col_display_name string;
+property col_id.col_display_description string;
+property col_id.col_availability_zone string;
+property col_id.col_locked int;
+property col_id.col_os_type string;
+property col_id.col_launched_on string;
+property col_id.col_instance_type_id int;
+property col_id.col_vm_mode string;
+property col_id.col_uuid string;
+property col_id.col_architecture string;
+property col_id.col_root_device_name string;
+property col_id.col_access_ip_v4 string;
+property col_id.col_access_ip_v6 string;
+property col_id.col_config_drive string;
+property col_id.col_task_state string;
+property col_id.col_default_ephemeral_device string;
+property col_id.col_default_swap_device string;
+property col_id.col_progress int;
+property col_id.col_auto_disk_config int;
+property col_id.col_shutdown_terminate int;
+property col_id.col_disable_terminate int;
+property col_id.col_root_gb int;
+property col_id.col_ephemeral_gb int;
+property col_id.col_cell_name string;
+property col_id.col_node string;
+property col_id.col_deleted int;
+property col_id.col_locked_by string;
+property col_id.col_cleaned int;
+property col_id.col_ephemeral_key_uuid string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `INTERNAL_ID`:col_internal_id,
+    `USER_ID`:col_user_id,
+    `PROJECT_ID`:col_project_id,
+    `IMAGE_REF`:col_image_ref,
+    `KERNEL_ID`:col_kernel_id,
+    `RAMDISK_ID`:col_ramdisk_id,
+    `LAUNCH_INDEX`:col_launch_index,
+    `KEY_NAME`:col_key_name,
+    `KEY_DATA`:col_key_data,
+    `POWER_STATE`:col_power_state,
+    `VM_STATE`:col_vm_state,
+    `MEMORY_MB`:col_memory_mb,
+    `VCPUS`:col_vcpus,
+    `HOSTNAME`:col_hostname,
+    `HOST`:col_host,
+    `USER_DATA`:col_user_data,
+    `RESERVATION_ID`:col_reservation_id,
+    `SCHEDULED_AT`:col_scheduled_at,
+    `LAUNCHED_AT`:col_launched_at,
+    `TERMINATED_AT`:col_terminated_at,
+    `DISPLAY_NAME`:col_display_name,
+    `DISPLAY_DESCRIPTION`:col_display_description,
+    `AVAILABILITY_ZONE`:col_availability_zone,
+    `LOCKED`:col_locked,
+    `OS_TYPE`:col_os_type,
+    `LAUNCHED_ON`:col_launched_on,
+    `INSTANCE_TYPE_ID`:col_instance_type_id,
+    `VM_MODE`:col_vm_mode,
+    `UUID`:col_uuid,
+    `ARCHITECTURE`:col_architecture,
+    `ROOT_DEVICE_NAME`:col_root_device_name,
+    `ACCESS_IP_V4`:col_access_ip_v4,
+    `ACCESS_IP_V6`:col_access_ip_v6,
+    `CONFIG_DRIVE`:col_config_drive,
+    `TASK_STATE`:col_task_state,
+    `DEFAULT_EPHEMERAL_DEVICE`:col_default_ephemeral_device,
+    `DEFAULT_SWAP_DEVICE`:col_default_swap_device,
+    `PROGRESS`:col_progress,
+    `AUTO_DISK_CONFIG`:col_auto_disk_config,
+    `SHUTDOWN_TERMINATE`:col_shutdown_terminate,
+    `DISABLE_TERMINATE`:col_disable_terminate,
+    `ROOT_GB`:col_root_gb,
+    `EPHEMERAL_GB`:col_ephemeral_gb,
+    `CELL_NAME`:col_cell_name,
+    `NODE`:col_node,
+    `DELETED`:col_deleted,
+    `LOCKED_BY`:col_locked_by,
+    `CLEANED`:col_cleaned,
+    `EPHEMERAL_KEY_UUID`:col_ephemeral_key_uuid,
+)
+grain (col_id)
+address `nova.instances`;

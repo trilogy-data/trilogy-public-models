@@ -1,0 +1,17 @@
+key col_postal_code string;
+key col_city_name string;
+key col_city_type string;
+key col_province_abbr string;
+key col_province_name string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `POSTAL_CODE`:col_postal_code,
+    `CITY_NAME`:col_city_name,
+    `CITY_TYPE`:col_city_type,
+    `PROVINCE_ABBR`:col_province_abbr,
+    `PROVINCE_NAME`:col_province_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_postal_code, col_city_name, col_city_type, col_province_abbr, col_province_name, col_warehouse_load_date)
+address `dw.ZIP_CANADA`;

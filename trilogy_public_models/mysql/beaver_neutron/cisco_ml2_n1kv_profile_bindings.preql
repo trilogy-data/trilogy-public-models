@@ -1,0 +1,11 @@
+property <col_tenant_id, col_profile_id>.col_profile_type string;
+key col_tenant_id string;
+key col_profile_id string;
+
+datasource source (
+    `PROFILE_TYPE`:col_profile_type,
+    `TENANT_ID`:col_tenant_id,
+    `PROFILE_ID`:col_profile_id,
+)
+grain (col_tenant_id, col_profile_id)
+address `neutron.cisco_ml2_n1kv_profile_bindings`;

@@ -1,0 +1,11 @@
+key col_vxlan_id int;
+property col_vxlan_id.col_allocated int;
+property col_vxlan_id.col_network_profile_id string;
+
+datasource source (
+    `VXLAN_ID`:col_vxlan_id,
+    `ALLOCATED`:col_allocated,
+    `NETWORK_PROFILE_ID`:col_network_profile_id,
+)
+grain (col_vxlan_id)
+address `neutron.cisco_ml2_n1kv_vxlan_allocations`;

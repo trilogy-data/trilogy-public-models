@@ -1,0 +1,31 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_ip_version int;
+property col_id.col_default_prefixlen int;
+property col_id.col_min_prefixlen int;
+property col_id.col_max_prefixlen int;
+property col_id.col_shared int;
+property col_id.col_default_quota int;
+property col_id.col_hash string;
+property col_id.col_address_scope_id string;
+property col_id.col_is_default int;
+property col_id.col_standard_attr_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `IP_VERSION`:col_ip_version,
+    `DEFAULT_PREFIXLEN`:col_default_prefixlen,
+    `MIN_PREFIXLEN`:col_min_prefixlen,
+    `MAX_PREFIXLEN`:col_max_prefixlen,
+    `SHARED`:col_shared,
+    `DEFAULT_QUOTA`:col_default_quota,
+    `HASH`:col_hash,
+    `ADDRESS_SCOPE_ID`:col_address_scope_id,
+    `IS_DEFAULT`:col_is_default,
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+)
+grain (col_id)
+address `neutron.subnetpools`;

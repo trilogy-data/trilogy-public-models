@@ -1,0 +1,33 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_host string;
+property col_id.col_binary string;
+property col_id.col_topic string;
+property col_id.col_report_count int;
+property col_id.col_disabled int;
+property col_id.col_deleted int;
+property col_id.col_disabled_reason string;
+property col_id.col_last_seen_up datetime;
+property col_id.col_forced_down int;
+property col_id.col_version int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `HOST`:col_host,
+    `BINARY`:col_binary,
+    `TOPIC`:col_topic,
+    `REPORT_COUNT`:col_report_count,
+    `DISABLED`:col_disabled,
+    `DELETED`:col_deleted,
+    `DISABLED_REASON`:col_disabled_reason,
+    `LAST_SEEN_UP`:col_last_seen_up,
+    `FORCED_DOWN`:col_forced_down,
+    `VERSION`:col_version,
+)
+grain (col_id)
+address `nova.shadow_services`;

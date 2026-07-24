@@ -1,0 +1,13 @@
+key col_floor_key string;
+key col_floor string;
+key col_floor_name string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FLOOR_KEY`:col_floor_key,
+    `FLOOR`:col_floor,
+    `FLOOR_NAME`:col_floor_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_floor_key, col_floor, col_floor_name, col_warehouse_load_date)
+address `dw.SPACE_FLOOR`;

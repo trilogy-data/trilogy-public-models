@@ -1,0 +1,13 @@
+key col_library_material_status_key string;
+key col_library_material_status_code string;
+key col_library_material_status string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LIBRARY_MATERIAL_STATUS_KEY`:col_library_material_status_key,
+    `LIBRARY_MATERIAL_STATUS_CODE`:col_library_material_status_code,
+    `LIBRARY_MATERIAL_STATUS`:col_library_material_status,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_library_material_status_key, col_library_material_status_code, col_library_material_status, col_warehouse_load_date)
+address `dw.LIBRARY_MATERIAL_STATUS`;

@@ -1,0 +1,9 @@
+key col_standard_attr_id int;
+key col_tag string;
+
+datasource source (
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+    `TAG`:col_tag,
+)
+grain (col_standard_attr_id, col_tag)
+address `neutron.tags`;

@@ -1,0 +1,35 @@
+key col_mit_id string;
+key col_krb_name string;
+key col_krb_name_uppercase string;
+key col_last_name string;
+key col_first_name string;
+key col_middle_name string;
+key col_email_address string;
+key col_office_location string;
+key col_office_phone string;
+key col_unit_id string;
+key col_unit_name string;
+key col_title string;
+key col_year string;
+key col_type string;
+key col_appointment_type string;
+
+datasource source (
+    `MIT_ID`:col_mit_id,
+    `KRB_NAME`:col_krb_name,
+    `KRB_NAME_UPPERCASE`:col_krb_name_uppercase,
+    `LAST_NAME`:col_last_name,
+    `FIRST_NAME`:col_first_name,
+    `MIDDLE_NAME`:col_middle_name,
+    `EMAIL_ADDRESS`:col_email_address,
+    `OFFICE_LOCATION`:col_office_location,
+    `OFFICE_PHONE`:col_office_phone,
+    `UNIT_ID`:col_unit_id,
+    `UNIT_NAME`:col_unit_name,
+    `TITLE`:col_title,
+    `YEAR`:col_year,
+    `TYPE`:col_type,
+    `APPOINTMENT_TYPE`:col_appointment_type,
+)
+grain (col_mit_id, col_krb_name, col_krb_name_uppercase, col_last_name, col_first_name, col_middle_name, col_email_address, col_office_location, col_office_phone, col_unit_id, col_unit_name, col_title, col_year, col_type, col_appointment_type)
+address `dw.WAREHOUSE_USERS`;

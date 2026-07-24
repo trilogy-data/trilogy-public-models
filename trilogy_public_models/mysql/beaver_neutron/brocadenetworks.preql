@@ -1,0 +1,9 @@
+key col_id string;
+property col_id.col_vlan string;
+
+datasource source (
+    `ID`:col_id,
+    `VLAN`:col_vlan,
+)
+grain (col_id)
+address `neutron.brocadenetworks`;

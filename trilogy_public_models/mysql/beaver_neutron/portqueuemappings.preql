@@ -1,0 +1,9 @@
+key col_port_id string;
+key col_queue_id string;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `QUEUE_ID`:col_queue_id,
+)
+grain (col_port_id, col_queue_id)
+address `neutron.portqueuemappings`;

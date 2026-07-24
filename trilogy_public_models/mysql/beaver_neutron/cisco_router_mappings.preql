@@ -1,0 +1,11 @@
+key col_router_id string;
+property col_router_id.col_auto_schedule int;
+property col_router_id.col_hosting_device_id string;
+
+datasource source (
+    `ROUTER_ID`:col_router_id,
+    `AUTO_SCHEDULE`:col_auto_schedule,
+    `HOSTING_DEVICE_ID`:col_hosting_device_id,
+)
+grain (col_router_id)
+address `neutron.cisco_router_mappings`;

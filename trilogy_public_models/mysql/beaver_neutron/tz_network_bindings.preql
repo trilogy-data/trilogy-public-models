@@ -1,0 +1,13 @@
+key col_network_id string;
+key col_binding_type string;
+key col_phy_uuid string;
+key col_vlan_id int;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `BINDING_TYPE`:col_binding_type,
+    `PHY_UUID`:col_phy_uuid,
+    `VLAN_ID`:col_vlan_id,
+)
+grain (col_network_id, col_binding_type, col_phy_uuid, col_vlan_id)
+address `neutron.tz_network_bindings`;

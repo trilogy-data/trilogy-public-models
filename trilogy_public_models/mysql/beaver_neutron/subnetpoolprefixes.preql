@@ -1,0 +1,9 @@
+key col_cidr string;
+key col_subnetpool_id string;
+
+datasource source (
+    `CIDR`:col_cidr,
+    `SUBNETPOOL_ID`:col_subnetpool_id,
+)
+grain (col_cidr, col_subnetpool_id)
+address `neutron.subnetpoolprefixes`;

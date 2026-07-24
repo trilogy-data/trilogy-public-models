@@ -1,0 +1,13 @@
+key col_vni int;
+key col_switch_ip string;
+key col_device_id string;
+property <col_vni, col_switch_ip, col_device_id>.col_mcast_group string;
+
+datasource source (
+    `VNI`:col_vni,
+    `SWITCH_IP`:col_switch_ip,
+    `DEVICE_ID`:col_device_id,
+    `MCAST_GROUP`:col_mcast_group,
+)
+grain (col_vni, col_switch_ip, col_device_id)
+address `neutron.cisco_ml2_nexus_nve`;

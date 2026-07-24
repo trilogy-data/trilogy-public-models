@@ -1,0 +1,9 @@
+key col_network_id string;
+property col_network_id.col_port_security_enabled int;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `PORT_SECURITY_ENABLED`:col_port_security_enabled,
+)
+grain (col_network_id)
+address `neutron.networksecuritybindings`;

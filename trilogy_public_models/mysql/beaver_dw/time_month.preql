@@ -1,0 +1,51 @@
+key col_time_month_key string;
+key col_fiscal_period string;
+key col_fiscal_period_description string;
+key col_fiscal_year string;
+key col_fiscal_year_quarter string;
+key col_fy_quarter_code string;
+key col_calendar_period string;
+key col_calendar_period_description string;
+key col_calendar_year string;
+key col_start_date string;
+key col_end_date string;
+key col_calendar_month string;
+key col_calendar_month_name date;
+key col_is_current_fiscal_period date;
+key col_is_previous_fiscal_period string;
+key col_academic_year string;
+key col_academic_term string;
+key col_academic_term_description string;
+key col_financial_aid_year string;
+key col_financial_aid_year_desc string;
+key col_is_closing_period string;
+key col_fiscal_period_selector string;
+key col_is_current_fiscal_year string;
+
+datasource source (
+    `TIME_MONTH_KEY`:col_time_month_key,
+    `FISCAL_PERIOD`:col_fiscal_period,
+    `FISCAL_PERIOD_DESCRIPTION`:col_fiscal_period_description,
+    `FISCAL_YEAR`:col_fiscal_year,
+    `FISCAL_YEAR_QUARTER`:col_fiscal_year_quarter,
+    `FY_QUARTER_CODE`:col_fy_quarter_code,
+    `CALENDAR_PERIOD`:col_calendar_period,
+    `CALENDAR_PERIOD_DESCRIPTION`:col_calendar_period_description,
+    `CALENDAR_YEAR`:col_calendar_year,
+    `START_DATE`:col_start_date,
+    `END_DATE`:col_end_date,
+    `CALENDAR_MONTH`:col_calendar_month,
+    `CALENDAR_MONTH_NAME`:col_calendar_month_name,
+    `IS_CURRENT_FISCAL_PERIOD`:col_is_current_fiscal_period,
+    `IS_PREVIOUS_FISCAL_PERIOD`:col_is_previous_fiscal_period,
+    `ACADEMIC_YEAR`:col_academic_year,
+    `ACADEMIC_TERM`:col_academic_term,
+    `ACADEMIC_TERM_DESCRIPTION`:col_academic_term_description,
+    `FINANCIAL_AID_YEAR`:col_financial_aid_year,
+    `FINANCIAL_AID_YEAR_DESC`:col_financial_aid_year_desc,
+    `IS_CLOSING_PERIOD`:col_is_closing_period,
+    `FISCAL_PERIOD_SELECTOR`:col_fiscal_period_selector,
+    `IS_CURRENT_FISCAL_YEAR`:col_is_current_fiscal_year,
+)
+grain (col_time_month_key, col_fiscal_period, col_fiscal_period_description, col_fiscal_year, col_fiscal_year_quarter, col_fy_quarter_code, col_calendar_period, col_calendar_period_description, col_calendar_year, col_start_date, col_end_date, col_calendar_month, col_calendar_month_name, col_is_current_fiscal_period, col_is_previous_fiscal_period, col_academic_year, col_academic_term, col_academic_term_description, col_financial_aid_year, col_financial_aid_year_desc, col_is_closing_period, col_fiscal_period_selector, col_is_current_fiscal_year)
+address `dw.TIME_MONTH`;

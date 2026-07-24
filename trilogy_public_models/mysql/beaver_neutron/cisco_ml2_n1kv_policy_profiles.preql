@@ -1,0 +1,11 @@
+key col_id string;
+property <col_id, col_vsm_ip>.col_name string;
+key col_vsm_ip string;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `VSM_IP`:col_vsm_ip,
+)
+grain (col_id, col_vsm_ip)
+address `neutron.cisco_ml2_n1kv_policy_profiles`;

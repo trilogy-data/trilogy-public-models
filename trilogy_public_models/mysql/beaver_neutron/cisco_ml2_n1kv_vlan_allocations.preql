@@ -1,0 +1,13 @@
+key col_physical_network string;
+key col_vlan_id int;
+property <col_physical_network, col_vlan_id>.col_allocated int;
+property <col_physical_network, col_vlan_id>.col_network_profile_id string;
+
+datasource source (
+    `PHYSICAL_NETWORK`:col_physical_network,
+    `VLAN_ID`:col_vlan_id,
+    `ALLOCATED`:col_allocated,
+    `NETWORK_PROFILE_ID`:col_network_profile_id,
+)
+grain (col_physical_network, col_vlan_id)
+address `neutron.cisco_ml2_n1kv_vlan_allocations`;

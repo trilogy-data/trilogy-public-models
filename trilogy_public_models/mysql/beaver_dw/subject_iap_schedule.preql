@@ -1,0 +1,25 @@
+key col_term_code string;
+key col_subject_id string;
+key col_session_number int;
+key col_meet_place string;
+key col_meet_start_time string;
+key col_meet_end_time string;
+key col_iap_day string;
+key col_iap_date date;
+key col_remarks string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `TERM_CODE`:col_term_code,
+    `SUBJECT_ID`:col_subject_id,
+    `SESSION_NUMBER`:col_session_number,
+    `MEET_PLACE`:col_meet_place,
+    `MEET_START_TIME`:col_meet_start_time,
+    `MEET_END_TIME`:col_meet_end_time,
+    `IAP_DAY`:col_iap_day,
+    `IAP_DATE`:col_iap_date,
+    `REMARKS`:col_remarks,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_term_code, col_subject_id, col_session_number, col_meet_place, col_meet_start_time, col_meet_end_time, col_iap_day, col_iap_date, col_remarks, col_warehouse_load_date)
+address `dw.SUBJECT_IAP_SCHEDULE`;

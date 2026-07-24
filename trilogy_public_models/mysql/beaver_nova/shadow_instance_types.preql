@@ -1,0 +1,37 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_name string;
+key col_id int;
+property col_id.col_memory_mb int;
+property col_id.col_vcpus int;
+property col_id.col_swap int;
+property col_id.col_vcpu_weight int;
+property col_id.col_flavorid string;
+property col_id.col_rxtx_factor float;
+property col_id.col_root_gb int;
+property col_id.col_ephemeral_gb int;
+property col_id.col_disabled int;
+property col_id.col_is_public int;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `NAME`:col_name,
+    `ID`:col_id,
+    `MEMORY_MB`:col_memory_mb,
+    `VCPUS`:col_vcpus,
+    `SWAP`:col_swap,
+    `VCPU_WEIGHT`:col_vcpu_weight,
+    `FLAVORID`:col_flavorid,
+    `RXTX_FACTOR`:col_rxtx_factor,
+    `ROOT_GB`:col_root_gb,
+    `EPHEMERAL_GB`:col_ephemeral_gb,
+    `DISABLED`:col_disabled,
+    `IS_PUBLIC`:col_is_public,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.shadow_instance_types`;

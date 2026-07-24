@@ -1,0 +1,49 @@
+key col_cost_collector_key string;
+key col_cost_collector_fp_key string;
+key col_cost_collector_fy_key string;
+key col_gl_account_key string;
+key col_time_month_key string;
+key col_amount int;
+key col_cumulative_amount int;
+key col_fytd_amount int;
+key col_institute_budget int;
+key col_total_institute_budget int;
+key col_fytd_institute_budget int;
+key col_department_budget int;
+key col_total_department_budget int;
+key col_fytd_department_budget int;
+key col_annual_forecast_budget int;
+key col_commitment_amount int;
+key col_non_bl_order_commitment_amount int;
+key col_commitment_amount_fy int;
+key col_non_bl_order_commit_amount_fy int;
+key col_record_type string;
+key col_record_counter int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `COST_COLLECTOR_KEY`:col_cost_collector_key,
+    `COST_COLLECTOR_FP_KEY`:col_cost_collector_fp_key,
+    `COST_COLLECTOR_FY_KEY`:col_cost_collector_fy_key,
+    `GL_ACCOUNT_KEY`:col_gl_account_key,
+    `TIME_MONTH_KEY`:col_time_month_key,
+    `AMOUNT`:col_amount,
+    `CUMULATIVE_AMOUNT`:col_cumulative_amount,
+    `FYTD_AMOUNT`:col_fytd_amount,
+    `INSTITUTE_BUDGET`:col_institute_budget,
+    `TOTAL_INSTITUTE_BUDGET`:col_total_institute_budget,
+    `FYTD_INSTITUTE_BUDGET`:col_fytd_institute_budget,
+    `DEPARTMENT_BUDGET`:col_department_budget,
+    `TOTAL_DEPARTMENT_BUDGET`:col_total_department_budget,
+    `FYTD_DEPARTMENT_BUDGET`:col_fytd_department_budget,
+    `ANNUAL_FORECAST_BUDGET`:col_annual_forecast_budget,
+    `COMMITMENT_AMOUNT`:col_commitment_amount,
+    `NON_BL_ORDER_COMMITMENT_AMOUNT`:col_non_bl_order_commitment_amount,
+    `COMMITMENT_AMOUNT_FY`:col_commitment_amount_fy,
+    `NON_BL_ORDER_COMMIT_AMOUNT_FY`:col_non_bl_order_commit_amount_fy,
+    `RECORD_TYPE`:col_record_type,
+    `RECORD_COUNTER`:col_record_counter,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_cost_collector_key, col_cost_collector_fp_key, col_cost_collector_fy_key, col_gl_account_key, col_time_month_key, col_amount, col_cumulative_amount, col_fytd_amount, col_institute_budget, col_total_institute_budget, col_fytd_institute_budget, col_department_budget, col_total_department_budget, col_fytd_department_budget, col_annual_forecast_budget, col_commitment_amount, col_non_bl_order_commitment_amount, col_commitment_amount_fy, col_non_bl_order_commit_amount_fy, col_record_type, col_record_counter, col_warehouse_load_date)
+address `dw.ESTIMATED_SURCHARGES_ESTONLY`;

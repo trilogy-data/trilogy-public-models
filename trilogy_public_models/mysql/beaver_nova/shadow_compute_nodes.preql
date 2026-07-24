@@ -1,0 +1,71 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_service_id int;
+property col_id.col_vcpus int;
+property col_id.col_memory_mb int;
+property col_id.col_local_gb int;
+property col_id.col_vcpus_used int;
+property col_id.col_memory_mb_used int;
+property col_id.col_local_gb_used int;
+property col_id.col_hypervisor_type string;
+property col_id.col_hypervisor_version int;
+property col_id.col_cpu_info string;
+property col_id.col_disk_available_least int;
+property col_id.col_free_ram_mb int;
+property col_id.col_free_disk_gb int;
+property col_id.col_current_workload int;
+property col_id.col_running_vms int;
+property col_id.col_hypervisor_hostname string;
+property col_id.col_deleted int;
+property col_id.col_host_ip string;
+property col_id.col_supported_instances string;
+property col_id.col_pci_stats string;
+property col_id.col_metrics string;
+property col_id.col_extra_resources string;
+property col_id.col_stats string;
+property col_id.col_numa_topology string;
+property col_id.col_host string;
+property col_id.col_ram_allocation_ratio float;
+property col_id.col_cpu_allocation_ratio float;
+property col_id.col_uuid string;
+property col_id.col_disk_allocation_ratio float;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `SERVICE_ID`:col_service_id,
+    `VCPUS`:col_vcpus,
+    `MEMORY_MB`:col_memory_mb,
+    `LOCAL_GB`:col_local_gb,
+    `VCPUS_USED`:col_vcpus_used,
+    `MEMORY_MB_USED`:col_memory_mb_used,
+    `LOCAL_GB_USED`:col_local_gb_used,
+    `HYPERVISOR_TYPE`:col_hypervisor_type,
+    `HYPERVISOR_VERSION`:col_hypervisor_version,
+    `CPU_INFO`:col_cpu_info,
+    `DISK_AVAILABLE_LEAST`:col_disk_available_least,
+    `FREE_RAM_MB`:col_free_ram_mb,
+    `FREE_DISK_GB`:col_free_disk_gb,
+    `CURRENT_WORKLOAD`:col_current_workload,
+    `RUNNING_VMS`:col_running_vms,
+    `HYPERVISOR_HOSTNAME`:col_hypervisor_hostname,
+    `DELETED`:col_deleted,
+    `HOST_IP`:col_host_ip,
+    `SUPPORTED_INSTANCES`:col_supported_instances,
+    `PCI_STATS`:col_pci_stats,
+    `METRICS`:col_metrics,
+    `EXTRA_RESOURCES`:col_extra_resources,
+    `STATS`:col_stats,
+    `NUMA_TOPOLOGY`:col_numa_topology,
+    `HOST`:col_host,
+    `RAM_ALLOCATION_RATIO`:col_ram_allocation_ratio,
+    `CPU_ALLOCATION_RATIO`:col_cpu_allocation_ratio,
+    `UUID`:col_uuid,
+    `DISK_ALLOCATION_RATIO`:col_disk_allocation_ratio,
+)
+grain (col_id)
+address `nova.shadow_compute_nodes`;

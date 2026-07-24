@@ -1,0 +1,13 @@
+key col_id string;
+property col_id.col_name string;
+property col_id.col_tenant_id string;
+property col_id.col_default int;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `TENANT_ID`:col_tenant_id,
+    `DEFAULT`:col_default,
+)
+grain (col_id)
+address `neutron.networkgateways`;

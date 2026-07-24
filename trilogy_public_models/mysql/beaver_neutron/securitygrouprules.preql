@@ -1,0 +1,27 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_security_group_id string;
+property col_id.col_remote_group_id string;
+property col_id.col_direction string;
+property col_id.col_ethertype string;
+property col_id.col_protocol string;
+property col_id.col_port_range_min int;
+property col_id.col_port_range_max int;
+property col_id.col_remote_ip_prefix string;
+property col_id.col_standard_attr_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `SECURITY_GROUP_ID`:col_security_group_id,
+    `REMOTE_GROUP_ID`:col_remote_group_id,
+    `DIRECTION`:col_direction,
+    `ETHERTYPE`:col_ethertype,
+    `PROTOCOL`:col_protocol,
+    `PORT_RANGE_MIN`:col_port_range_min,
+    `PORT_RANGE_MAX`:col_port_range_max,
+    `REMOTE_IP_PREFIX`:col_remote_ip_prefix,
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+)
+grain (col_id)
+address `neutron.securitygrouprules`;

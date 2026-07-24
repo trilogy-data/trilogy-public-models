@@ -1,0 +1,25 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_complementary_id string;
+property col_id.col_device_id string;
+property col_id.col_admin_state_up int;
+property col_id.col_management_port_id string;
+property col_id.col_protocol_port int;
+property col_id.col_cfg_agent_id string;
+property col_id.col_created_at datetime;
+property col_id.col_status string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `COMPLEMENTARY_ID`:col_complementary_id,
+    `DEVICE_ID`:col_device_id,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `MANAGEMENT_PORT_ID`:col_management_port_id,
+    `PROTOCOL_PORT`:col_protocol_port,
+    `CFG_AGENT_ID`:col_cfg_agent_id,
+    `CREATED_AT`:col_created_at,
+    `STATUS`:col_status,
+)
+grain (col_id)
+address `neutron.cisco_hosting_devices`;

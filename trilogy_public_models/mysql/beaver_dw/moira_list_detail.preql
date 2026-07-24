@@ -1,0 +1,21 @@
+key col_moira_list_key string;
+key col_moira_list_owner_key string;
+key col_moira_list_member string;
+key col_moira_list_member_full_name string;
+key col_moira_list_member_mit_id string;
+key col_last_update_date date;
+key col_counter int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `MOIRA_LIST_KEY`:col_moira_list_key,
+    `MOIRA_LIST_OWNER_KEY`:col_moira_list_owner_key,
+    `MOIRA_LIST_MEMBER`:col_moira_list_member,
+    `MOIRA_LIST_MEMBER_FULL_NAME`:col_moira_list_member_full_name,
+    `MOIRA_LIST_MEMBER_MIT_ID`:col_moira_list_member_mit_id,
+    `LAST_UPDATE_DATE`:col_last_update_date,
+    `COUNTER`:col_counter,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_moira_list_key, col_moira_list_owner_key, col_moira_list_member, col_moira_list_member_full_name, col_moira_list_member_mit_id, col_last_update_date, col_counter, col_warehouse_load_date)
+address `dw.MOIRA_LIST_DETAIL`;

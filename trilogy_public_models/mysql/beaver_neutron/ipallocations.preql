@@ -1,0 +1,13 @@
+property <col_ip_address, col_subnet_id, col_network_id>.col_port_id string;
+key col_ip_address string;
+key col_subnet_id string;
+key col_network_id string;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `IP_ADDRESS`:col_ip_address,
+    `SUBNET_ID`:col_subnet_id,
+    `NETWORK_ID`:col_network_id,
+)
+grain (col_ip_address, col_subnet_id, col_network_id)
+address `neutron.ipallocations`;

@@ -1,0 +1,9 @@
+property col_id.col_tenant_id string;
+key col_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+)
+grain (col_id)
+address `neutron.arista_provisioned_tenants`;

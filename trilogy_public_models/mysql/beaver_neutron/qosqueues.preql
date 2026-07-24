@@ -1,0 +1,21 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_default int;
+property col_id.col_min int;
+property col_id.col_max int;
+property col_id.col_qos_marking string;
+property col_id.col_dscp int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DEFAULT`:col_default,
+    `MIN`:col_min,
+    `MAX`:col_max,
+    `QOS_MARKING`:col_qos_marking,
+    `DSCP`:col_dscp,
+)
+grain (col_id)
+address `neutron.qosqueues`;

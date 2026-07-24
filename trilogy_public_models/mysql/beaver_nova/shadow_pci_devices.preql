@@ -1,0 +1,41 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_deleted int;
+key col_id int;
+property col_id.col_compute_node_id int;
+property col_id.col_address string;
+property col_id.col_product_id string;
+property col_id.col_vendor_id string;
+property col_id.col_dev_type string;
+property col_id.col_dev_id string;
+property col_id.col_label string;
+property col_id.col_status string;
+property col_id.col_extra_info string;
+property col_id.col_instance_uuid string;
+property col_id.col_request_id string;
+property col_id.col_numa_node int;
+property col_id.col_parent_addr string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `DELETED`:col_deleted,
+    `ID`:col_id,
+    `COMPUTE_NODE_ID`:col_compute_node_id,
+    `ADDRESS`:col_address,
+    `PRODUCT_ID`:col_product_id,
+    `VENDOR_ID`:col_vendor_id,
+    `DEV_TYPE`:col_dev_type,
+    `DEV_ID`:col_dev_id,
+    `LABEL`:col_label,
+    `STATUS`:col_status,
+    `EXTRA_INFO`:col_extra_info,
+    `INSTANCE_UUID`:col_instance_uuid,
+    `REQUEST_ID`:col_request_id,
+    `NUMA_NODE`:col_numa_node,
+    `PARENT_ADDR`:col_parent_addr,
+)
+grain (col_id)
+address `nova.shadow_pci_devices`;

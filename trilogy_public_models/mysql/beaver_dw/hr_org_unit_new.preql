@@ -1,0 +1,65 @@
+key col_hr_org_unit_key string;
+key col_hr_org_unit_id string;
+key col_hr_org_unit_title string;
+key col_hr_org_unit_level string;
+key col_hr_department_code string;
+key col_hr_department_abbr string;
+key col_hr_department_code_old string;
+key col_hr_department_name string;
+key col_hr_department_name_long string;
+key col_hr_department_name_alpha string;
+key col_org_hier_school_area_name string;
+key col_org_hier_top_level_name string;
+key col_org_hier_root_name string;
+key col_hr_org_level1_id string;
+key col_hr_org_level1_sort string;
+key col_hr_org_level1_name string;
+key col_hr_org_level2_id string;
+key col_hr_org_level2_sort string;
+key col_hr_org_level2_name string;
+key col_hr_org_level3_id string;
+key col_hr_org_level3_sort string;
+key col_hr_org_level3_name string;
+key col_hr_org_level4_id string;
+key col_hr_org_level4_sort string;
+key col_hr_org_level4_name string;
+key col_hr_org_level5_id string;
+key col_hr_org_level5_sort string;
+key col_hr_org_level5_name string;
+key col_dlc_key string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `HR_ORG_UNIT_KEY`:col_hr_org_unit_key,
+    `HR_ORG_UNIT_ID`:col_hr_org_unit_id,
+    `HR_ORG_UNIT_TITLE`:col_hr_org_unit_title,
+    `HR_ORG_UNIT_LEVEL`:col_hr_org_unit_level,
+    `HR_DEPARTMENT_CODE`:col_hr_department_code,
+    `HR_DEPARTMENT_ABBR`:col_hr_department_abbr,
+    `HR_DEPARTMENT_CODE_OLD`:col_hr_department_code_old,
+    `HR_DEPARTMENT_NAME`:col_hr_department_name,
+    `HR_DEPARTMENT_NAME_LONG`:col_hr_department_name_long,
+    `HR_DEPARTMENT_NAME_ALPHA`:col_hr_department_name_alpha,
+    `ORG_HIER_SCHOOL_AREA_NAME`:col_org_hier_school_area_name,
+    `ORG_HIER_TOP_LEVEL_NAME`:col_org_hier_top_level_name,
+    `ORG_HIER_ROOT_NAME`:col_org_hier_root_name,
+    `HR_ORG_LEVEL1_ID`:col_hr_org_level1_id,
+    `HR_ORG_LEVEL1_SORT`:col_hr_org_level1_sort,
+    `HR_ORG_LEVEL1_NAME`:col_hr_org_level1_name,
+    `HR_ORG_LEVEL2_ID`:col_hr_org_level2_id,
+    `HR_ORG_LEVEL2_SORT`:col_hr_org_level2_sort,
+    `HR_ORG_LEVEL2_NAME`:col_hr_org_level2_name,
+    `HR_ORG_LEVEL3_ID`:col_hr_org_level3_id,
+    `HR_ORG_LEVEL3_SORT`:col_hr_org_level3_sort,
+    `HR_ORG_LEVEL3_NAME`:col_hr_org_level3_name,
+    `HR_ORG_LEVEL4_ID`:col_hr_org_level4_id,
+    `HR_ORG_LEVEL4_SORT`:col_hr_org_level4_sort,
+    `HR_ORG_LEVEL4_NAME`:col_hr_org_level4_name,
+    `HR_ORG_LEVEL5_ID`:col_hr_org_level5_id,
+    `HR_ORG_LEVEL5_SORT`:col_hr_org_level5_sort,
+    `HR_ORG_LEVEL5_NAME`:col_hr_org_level5_name,
+    `DLC_KEY`:col_dlc_key,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_hr_org_unit_key, col_hr_org_unit_id, col_hr_org_unit_title, col_hr_org_unit_level, col_hr_department_code, col_hr_department_abbr, col_hr_department_code_old, col_hr_department_name, col_hr_department_name_long, col_hr_department_name_alpha, col_org_hier_school_area_name, col_org_hier_top_level_name, col_org_hier_root_name, col_hr_org_level1_id, col_hr_org_level1_sort, col_hr_org_level1_name, col_hr_org_level2_id, col_hr_org_level2_sort, col_hr_org_level2_name, col_hr_org_level3_id, col_hr_org_level3_sort, col_hr_org_level3_name, col_hr_org_level4_id, col_hr_org_level4_sort, col_hr_org_level4_name, col_hr_org_level5_id, col_hr_org_level5_sort, col_hr_org_level5_name, col_dlc_key, col_warehouse_load_date)
+address `dw.HR_ORG_UNIT_NEW`;

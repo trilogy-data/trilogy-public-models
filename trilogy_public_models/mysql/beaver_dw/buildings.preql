@@ -1,0 +1,23 @@
+key col_building_key string;
+key col_building_number string;
+key col_building_name string;
+key col_building_street_address string;
+key col_building_mailing_address string;
+key col_bldg_gross_square_footage int;
+key col_bldg_assignable_square_footage int;
+key col_building_counter int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `BUILDING_KEY`:col_building_key,
+    `BUILDING_NUMBER`:col_building_number,
+    `BUILDING_NAME`:col_building_name,
+    `BUILDING_STREET_ADDRESS`:col_building_street_address,
+    `BUILDING_MAILING_ADDRESS`:col_building_mailing_address,
+    `BLDG_GROSS_SQUARE_FOOTAGE`:col_bldg_gross_square_footage,
+    `BLDG_ASSIGNABLE_SQUARE_FOOTAGE`:col_bldg_assignable_square_footage,
+    `BUILDING_COUNTER`:col_building_counter,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_building_key, col_building_number, col_building_name, col_building_street_address, col_building_mailing_address, col_bldg_gross_square_footage, col_bldg_assignable_square_footage, col_building_counter, col_warehouse_load_date)
+address `dw.BUILDINGS`;

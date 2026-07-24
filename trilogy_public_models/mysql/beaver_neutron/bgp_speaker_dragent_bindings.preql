@@ -1,0 +1,9 @@
+key col_agent_id string;
+property col_agent_id.col_bgp_speaker_id string;
+
+datasource source (
+    `AGENT_ID`:col_agent_id,
+    `BGP_SPEAKER_ID`:col_bgp_speaker_id,
+)
+grain (col_agent_id)
+address `neutron.bgp_speaker_dragent_bindings`;

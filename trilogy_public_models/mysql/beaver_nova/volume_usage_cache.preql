@@ -1,0 +1,45 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_volume_id string;
+property col_id.col_tot_last_refreshed datetime;
+property col_id.col_tot_reads int;
+property col_id.col_tot_read_bytes int;
+property col_id.col_tot_writes int;
+property col_id.col_tot_write_bytes int;
+property col_id.col_curr_last_refreshed datetime;
+property col_id.col_curr_reads int;
+property col_id.col_curr_read_bytes int;
+property col_id.col_curr_writes int;
+property col_id.col_curr_write_bytes int;
+property col_id.col_deleted int;
+property col_id.col_instance_uuid string;
+property col_id.col_project_id string;
+property col_id.col_user_id string;
+property col_id.col_availability_zone string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `VOLUME_ID`:col_volume_id,
+    `TOT_LAST_REFRESHED`:col_tot_last_refreshed,
+    `TOT_READS`:col_tot_reads,
+    `TOT_READ_BYTES`:col_tot_read_bytes,
+    `TOT_WRITES`:col_tot_writes,
+    `TOT_WRITE_BYTES`:col_tot_write_bytes,
+    `CURR_LAST_REFRESHED`:col_curr_last_refreshed,
+    `CURR_READS`:col_curr_reads,
+    `CURR_READ_BYTES`:col_curr_read_bytes,
+    `CURR_WRITES`:col_curr_writes,
+    `CURR_WRITE_BYTES`:col_curr_write_bytes,
+    `DELETED`:col_deleted,
+    `INSTANCE_UUID`:col_instance_uuid,
+    `PROJECT_ID`:col_project_id,
+    `USER_ID`:col_user_id,
+    `AVAILABILITY_ZONE`:col_availability_zone,
+)
+grain (col_id)
+address `nova.volume_usage_cache`;

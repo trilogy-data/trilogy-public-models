@@ -1,0 +1,21 @@
+key col_id int;
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_project_id string;
+property col_id.col_resource string;
+property col_id.col_hard_limit int;
+property col_id.col_deleted int;
+
+datasource source (
+    `ID`:col_id,
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `PROJECT_ID`:col_project_id,
+    `RESOURCE`:col_resource,
+    `HARD_LIMIT`:col_hard_limit,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.quotas`;

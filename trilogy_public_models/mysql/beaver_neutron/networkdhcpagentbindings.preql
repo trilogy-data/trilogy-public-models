@@ -1,0 +1,9 @@
+key col_network_id string;
+key col_dhcp_agent_id string;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `DHCP_AGENT_ID`:col_dhcp_agent_id,
+)
+grain (col_network_id, col_dhcp_agent_id)
+address `neutron.networkdhcpagentbindings`;

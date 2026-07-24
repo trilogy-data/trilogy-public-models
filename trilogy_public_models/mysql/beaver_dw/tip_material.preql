@@ -1,0 +1,29 @@
+key col_tip_material_key string;
+key col_isbn string;
+key col_title string;
+key col_author string;
+key col_edition string;
+key col_publisher string;
+key col_year string;
+key col_new_shelf_price int;
+key col_used_shelf_price int;
+key col_rental_new_price int;
+key col_rental_used_price int;
+key col_material_info_source string;
+
+datasource source (
+    `TIP_MATERIAL_KEY`:col_tip_material_key,
+    `ISBN`:col_isbn,
+    `TITLE`:col_title,
+    `AUTHOR`:col_author,
+    `EDITION`:col_edition,
+    `PUBLISHER`:col_publisher,
+    `YEAR`:col_year,
+    `NEW_SHELF_PRICE`:col_new_shelf_price,
+    `USED_SHELF_PRICE`:col_used_shelf_price,
+    `RENTAL_NEW_PRICE`:col_rental_new_price,
+    `RENTAL_USED_PRICE`:col_rental_used_price,
+    `MATERIAL_INFO_SOURCE`:col_material_info_source,
+)
+grain (col_tip_material_key, col_isbn, col_title, col_author, col_edition, col_publisher, col_year, col_new_shelf_price, col_used_shelf_price, col_rental_new_price, col_rental_used_price, col_material_info_source)
+address `dw.TIP_MATERIAL`;

@@ -1,0 +1,25 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_name string;
+property col_id.col_user_id string;
+property col_id.col_fingerprint string;
+property col_id.col_public_key string;
+property col_id.col_deleted int;
+property col_id.col_type string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `USER_ID`:col_user_id,
+    `FINGERPRINT`:col_fingerprint,
+    `PUBLIC_KEY`:col_public_key,
+    `DELETED`:col_deleted,
+    `TYPE`:col_type,
+)
+grain (col_id)
+address `nova.key_pairs`;

@@ -1,0 +1,15 @@
+key col_pool_id string;
+property col_pool_id.col_edge_id string;
+property col_pool_id.col_edge_app_profile_id string;
+property col_pool_id.col_edge_vse_id string;
+property col_pool_id.col_edge_fw_rule_id string;
+
+datasource source (
+    `POOL_ID`:col_pool_id,
+    `EDGE_ID`:col_edge_id,
+    `EDGE_APP_PROFILE_ID`:col_edge_app_profile_id,
+    `EDGE_VSE_ID`:col_edge_vse_id,
+    `EDGE_FW_RULE_ID`:col_edge_fw_rule_id,
+)
+grain (col_pool_id)
+address `neutron.nsxv_edge_vip_mappings`;

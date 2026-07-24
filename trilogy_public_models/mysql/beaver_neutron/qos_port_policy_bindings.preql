@@ -1,0 +1,9 @@
+key col_policy_id string;
+key col_port_id string;
+
+datasource source (
+    `POLICY_ID`:col_policy_id,
+    `PORT_ID`:col_port_id,
+)
+grain (col_policy_id, col_port_id)
+address `neutron.qos_port_policy_bindings`;

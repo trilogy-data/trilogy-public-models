@@ -1,0 +1,15 @@
+key col_fw_id string;
+property col_fw_id.col_port_id string;
+property col_fw_id.col_direction string;
+property col_fw_id.col_acl_id string;
+property col_fw_id.col_router_id string;
+
+datasource source (
+    `FW_ID`:col_fw_id,
+    `PORT_ID`:col_port_id,
+    `DIRECTION`:col_direction,
+    `ACL_ID`:col_acl_id,
+    `ROUTER_ID`:col_router_id,
+)
+grain (col_fw_id)
+address `neutron.cisco_firewall_associations`;

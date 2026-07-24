@@ -1,0 +1,9 @@
+key col_network_id string;
+property col_network_id.col_queue_id string;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `QUEUE_ID`:col_queue_id,
+)
+grain (col_network_id)
+address `neutron.networkqueuemappings`;

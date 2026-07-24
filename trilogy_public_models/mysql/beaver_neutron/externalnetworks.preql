@@ -1,0 +1,9 @@
+key col_network_id string;
+property col_network_id.col_is_default int;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `IS_DEFAULT`:col_is_default,
+)
+grain (col_network_id)
+address `neutron.externalnetworks`;

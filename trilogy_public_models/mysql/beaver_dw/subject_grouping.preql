@@ -1,0 +1,19 @@
+key col_subject_grouping_key string;
+key col_term_code string;
+key col_department_code string;
+key col_department_name string;
+key col_department_full_name string;
+key col_school_name string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SUBJECT_GROUPING_KEY`:col_subject_grouping_key,
+    `TERM_CODE`:col_term_code,
+    `DEPARTMENT_CODE`:col_department_code,
+    `DEPARTMENT_NAME`:col_department_name,
+    `DEPARTMENT_FULL_NAME`:col_department_full_name,
+    `SCHOOL_NAME`:col_school_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_subject_grouping_key, col_term_code, col_department_code, col_department_name, col_department_full_name, col_school_name, col_warehouse_load_date)
+address `dw.SUBJECT_GROUPING`;

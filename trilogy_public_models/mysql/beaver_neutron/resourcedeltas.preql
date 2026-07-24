@@ -1,0 +1,11 @@
+key col_resource string;
+key col_reservation_id string;
+property <col_resource, col_reservation_id>.col_amount int;
+
+datasource source (
+    `RESOURCE`:col_resource,
+    `RESERVATION_ID`:col_reservation_id,
+    `AMOUNT`:col_amount,
+)
+grain (col_resource, col_reservation_id)
+address `neutron.resourcedeltas`;

@@ -1,0 +1,9 @@
+key col_port_id string;
+property col_port_id.col_mac_learning_enabled int;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `MAC_LEARNING_ENABLED`:col_mac_learning_enabled,
+)
+grain (col_port_id)
+address `neutron.maclearningstates`;

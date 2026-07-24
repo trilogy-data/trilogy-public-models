@@ -1,0 +1,43 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_peer_address string;
+property col_id.col_peer_id string;
+property col_id.col_route_mode string;
+property col_id.col_mtu int;
+property col_id.col_initiator string;
+property col_id.col_auth_mode string;
+property col_id.col_psk string;
+property col_id.col_dpd_action string;
+property col_id.col_dpd_interval int;
+property col_id.col_dpd_timeout int;
+property col_id.col_status string;
+property col_id.col_admin_state_up int;
+property col_id.col_vpnservice_id string;
+property col_id.col_ipsecpolicy_id string;
+property col_id.col_ikepolicy_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `PEER_ADDRESS`:col_peer_address,
+    `PEER_ID`:col_peer_id,
+    `ROUTE_MODE`:col_route_mode,
+    `MTU`:col_mtu,
+    `INITIATOR`:col_initiator,
+    `AUTH_MODE`:col_auth_mode,
+    `PSK`:col_psk,
+    `DPD_ACTION`:col_dpd_action,
+    `DPD_INTERVAL`:col_dpd_interval,
+    `DPD_TIMEOUT`:col_dpd_timeout,
+    `STATUS`:col_status,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `VPNSERVICE_ID`:col_vpnservice_id,
+    `IPSECPOLICY_ID`:col_ipsecpolicy_id,
+    `IKEPOLICY_ID`:col_ikepolicy_id,
+)
+grain (col_id)
+address `neutron.ipsec_site_connections`;

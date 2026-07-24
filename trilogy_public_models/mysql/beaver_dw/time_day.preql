@@ -1,0 +1,35 @@
+key col_fiscal_period string;
+key col_fiscal_year string;
+key col_fiscal_period_description string;
+key col_calendar_period string;
+key col_calendar_period_description string;
+key col_calendar_year string;
+key col_start_date date;
+key col_end_date date;
+key col_calendar_date date;
+key col_day_of_week string;
+key col_financial_aid_year string;
+key col_financial_aid_year_desc string;
+key col_academic_year string;
+key col_academic_term_code string;
+key col_academic_term_description string;
+
+datasource source (
+    `FISCAL_PERIOD`:col_fiscal_period,
+    `FISCAL_YEAR`:col_fiscal_year,
+    `FISCAL_PERIOD_DESCRIPTION`:col_fiscal_period_description,
+    `CALENDAR_PERIOD`:col_calendar_period,
+    `CALENDAR_PERIOD_DESCRIPTION`:col_calendar_period_description,
+    `CALENDAR_YEAR`:col_calendar_year,
+    `START_DATE`:col_start_date,
+    `END_DATE`:col_end_date,
+    `CALENDAR_DATE`:col_calendar_date,
+    `DAY_OF_WEEK`:col_day_of_week,
+    `FINANCIAL_AID_YEAR`:col_financial_aid_year,
+    `FINANCIAL_AID_YEAR_DESC`:col_financial_aid_year_desc,
+    `ACADEMIC_YEAR`:col_academic_year,
+    `ACADEMIC_TERM_CODE`:col_academic_term_code,
+    `ACADEMIC_TERM_DESCRIPTION`:col_academic_term_description,
+)
+grain (col_fiscal_period, col_fiscal_year, col_fiscal_period_description, col_calendar_period, col_calendar_period_description, col_calendar_year, col_start_date, col_end_date, col_calendar_date, col_day_of_week, col_financial_aid_year, col_financial_aid_year_desc, col_academic_year, col_academic_term_code, col_academic_term_description)
+address `dw.TIME_DAY`;

@@ -1,0 +1,11 @@
+key col_vip_id string;
+property col_vip_id.col_type string;
+property col_vip_id.col_cookie_name string;
+
+datasource source (
+    `VIP_ID`:col_vip_id,
+    `TYPE`:col_type,
+    `COOKIE_NAME`:col_cookie_name,
+)
+grain (col_vip_id)
+address `neutron.sessionpersistences`;

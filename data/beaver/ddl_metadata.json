@@ -1,0 +1,2045 @@
+{
+  "foreign_keys": {
+    "neutron": [
+      [
+        "allowedaddresspairs",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "auto_allocated_topologies",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "auto_allocated_topologies",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "bgp_speaker_dragent_bindings",
+        "agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "bgp_speaker_dragent_bindings",
+        "bgp_speaker_id",
+        "bgp_speakers",
+        "id"
+      ],
+      [
+        "bgp_speaker_network_bindings",
+        "bgp_speaker_id",
+        "bgp_speakers",
+        "id"
+      ],
+      [
+        "bgp_speaker_network_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "bgp_speaker_peer_bindings",
+        "bgp_peer_id",
+        "bgp_peers",
+        "id"
+      ],
+      [
+        "bgp_speaker_peer_bindings",
+        "bgp_speaker_id",
+        "bgp_speakers",
+        "id"
+      ],
+      [
+        "brocadeports",
+        "network_id",
+        "brocadenetworks",
+        "id"
+      ],
+      [
+        "cisco_csr_identifier_map",
+        "ipsec_site_conn_id",
+        "ipsec_site_connections",
+        "id"
+      ],
+      [
+        "cisco_firewall_associations",
+        "fw_id",
+        "firewalls",
+        "id"
+      ],
+      [
+        "cisco_firewall_associations",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "cisco_hosting_devices",
+        "cfg_agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "cisco_hosting_devices",
+        "management_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "cisco_ml2_apic_contracts",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "cisco_ml2_n1kv_network_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "cisco_ml2_n1kv_network_bindings",
+        "profile_id",
+        "cisco_ml2_n1kv_network_profiles",
+        "id"
+      ],
+      [
+        "cisco_ml2_n1kv_port_bindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "cisco_ml2_n1kv_vlan_allocations",
+        "network_profile_id",
+        "cisco_ml2_n1kv_network_profiles",
+        "id"
+      ],
+      [
+        "cisco_ml2_n1kv_vxlan_allocations",
+        "network_profile_id",
+        "cisco_ml2_n1kv_network_profiles",
+        "id"
+      ],
+      [
+        "cisco_port_mappings",
+        "hosting_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "cisco_port_mappings",
+        "logical_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "cisco_router_mappings",
+        "hosting_device_id",
+        "cisco_hosting_devices",
+        "id"
+      ],
+      [
+        "cisco_router_mappings",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "default_security_group",
+        "security_group_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "dnsnameservers",
+        "subnet_id",
+        "subnets",
+        "id"
+      ],
+      [
+        "externalnetworks",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "extradhcpopts",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "firewall_router_associations",
+        "fw_id",
+        "firewalls",
+        "id"
+      ],
+      [
+        "firewall_router_associations",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "firewall_rules",
+        "firewall_policy_id",
+        "firewall_policies",
+        "id"
+      ],
+      [
+        "firewalls",
+        "firewall_policy_id",
+        "firewall_policies",
+        "id"
+      ],
+      [
+        "flavorserviceprofilebindings",
+        "flavor_id",
+        "flavors",
+        "id"
+      ],
+      [
+        "flavorserviceprofilebindings",
+        "service_profile_id",
+        "serviceprofiles",
+        "id"
+      ],
+      [
+        "floatingipdnses",
+        "floatingip_id",
+        "floatingips",
+        "id"
+      ],
+      [
+        "floatingips",
+        "fixed_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "floatingips",
+        "floating_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "floatingips",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "floatingips",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "ha_router_agent_port_bindings",
+        "l3_agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "ha_router_agent_port_bindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "ha_router_agent_port_bindings",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "ha_router_networks",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "ha_router_vrid_allocations",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "ipallocationpools",
+        "subnet_id",
+        "subnets",
+        "id"
+      ],
+      [
+        "ipallocations",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "ipallocations",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "ipallocations",
+        "subnet_id",
+        "subnets",
+        "id"
+      ],
+      [
+        "ipamallocationpools",
+        "ipam_subnet_id",
+        "ipamsubnets",
+        "id"
+      ],
+      [
+        "ipamallocations",
+        "ipam_subnet_id",
+        "ipamsubnets",
+        "id"
+      ],
+      [
+        "ipamavailabilityranges",
+        "allocation_pool_id",
+        "ipamallocationpools",
+        "id"
+      ],
+      [
+        "ipavailabilityranges",
+        "allocation_pool_id",
+        "ipallocationpools",
+        "id"
+      ],
+      [
+        "ipsec_site_connections",
+        "ikepolicy_id",
+        "ikepolicies",
+        "id"
+      ],
+      [
+        "ipsec_site_connections",
+        "ipsecpolicy_id",
+        "ipsecpolicies",
+        "id"
+      ],
+      [
+        "ipsec_site_connections",
+        "vpnservice_id",
+        "vpnservices",
+        "id"
+      ],
+      [
+        "ipsecpeercidrs",
+        "ipsec_site_connection_id",
+        "ipsec_site_connections",
+        "id"
+      ],
+      [
+        "lbaas_l7policies",
+        "listener_id",
+        "lbaas_listeners",
+        "id"
+      ],
+      [
+        "lbaas_l7policies",
+        "redirect_pool_id",
+        "lbaas_pools",
+        "id"
+      ],
+      [
+        "lbaas_l7rules",
+        "l7policy_id",
+        "lbaas_l7policies",
+        "id"
+      ],
+      [
+        "lbaas_listeners",
+        "default_pool_id",
+        "lbaas_pools",
+        "id"
+      ],
+      [
+        "lbaas_listeners",
+        "loadbalancer_id",
+        "lbaas_loadbalancers",
+        "id"
+      ],
+      [
+        "lbaas_loadbalancer_statistics",
+        "loadbalancer_id",
+        "lbaas_loadbalancers",
+        "id"
+      ],
+      [
+        "lbaas_loadbalanceragentbindings",
+        "agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "lbaas_loadbalanceragentbindings",
+        "loadbalancer_id",
+        "lbaas_loadbalancers",
+        "id"
+      ],
+      [
+        "lbaas_loadbalancers",
+        "flavor_id",
+        "flavors",
+        "id"
+      ],
+      [
+        "lbaas_loadbalancers",
+        "vip_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "lbaas_members",
+        "pool_id",
+        "lbaas_pools",
+        "id"
+      ],
+      [
+        "lbaas_pools",
+        "healthmonitor_id",
+        "lbaas_healthmonitors",
+        "id"
+      ],
+      [
+        "lbaas_pools",
+        "loadbalancer_id",
+        "lbaas_loadbalancers",
+        "id"
+      ],
+      [
+        "lbaas_sessionpersistences",
+        "pool_id",
+        "lbaas_pools",
+        "id"
+      ],
+      [
+        "lbaas_sni",
+        "listener_id",
+        "lbaas_listeners",
+        "id"
+      ],
+      [
+        "lsn_port",
+        "lsn_id",
+        "lsn",
+        "lsn_id"
+      ],
+      [
+        "maclearningstates",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "members",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "meteringlabelrules",
+        "metering_label_id",
+        "meteringlabels",
+        "id"
+      ],
+      [
+        "ml2_brocadeports",
+        "network_id",
+        "ml2_brocadenetworks",
+        "id"
+      ],
+      [
+        "ml2_dvr_port_bindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "ml2_network_segments",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "ml2_nexus_vxlan_mcast_groups",
+        "associated_vni",
+        "ml2_nexus_vxlan_allocations",
+        "vxlan_vni"
+      ],
+      [
+        "ml2_port_binding_levels",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "ml2_port_binding_levels",
+        "segment_id",
+        "ml2_network_segments",
+        "id"
+      ],
+      [
+        "ml2_port_bindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "multi_provider_networks",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networkconnections",
+        "network_gateway_id",
+        "networkgateways",
+        "id"
+      ],
+      [
+        "networkconnections",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networkconnections",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "networkdhcpagentbindings",
+        "dhcp_agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "networkdhcpagentbindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networkdnsdomains",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networkgatewaydevicereferences",
+        "network_gateway_id",
+        "networkgateways",
+        "id"
+      ],
+      [
+        "networkqueuemappings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networkqueuemappings",
+        "queue_id",
+        "qosqueues",
+        "id"
+      ],
+      [
+        "networkrbacs",
+        "object_id",
+        "networks",
+        "id"
+      ],
+      [
+        "networks",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "networksecuritybindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "neutron_nsx_network_mappings",
+        "neutron_id",
+        "networks",
+        "id"
+      ],
+      [
+        "neutron_nsx_port_mappings",
+        "neutron_id",
+        "ports",
+        "id"
+      ],
+      [
+        "neutron_nsx_router_mappings",
+        "neutron_id",
+        "routers",
+        "id"
+      ],
+      [
+        "neutron_nsx_security_group_mappings",
+        "neutron_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "nexthops",
+        "rule_id",
+        "routerrules",
+        "id"
+      ],
+      [
+        "nsxv_edge_monitor_mappings",
+        "monitor_id",
+        "healthmonitors",
+        "id"
+      ],
+      [
+        "nsxv_edge_pool_mappings",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "nsxv_edge_vip_mappings",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "nsxv_internal_networks",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "nsxv_port_index_mappings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "nsxv_port_vnic_mappings",
+        "neutron_id",
+        "ports",
+        "id"
+      ],
+      [
+        "nsxv_router_ext_attributes",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "nsxv_rule_mappings",
+        "neutron_id",
+        "securitygrouprules",
+        "id"
+      ],
+      [
+        "nsxv_security_group_section_mappings",
+        "neutron_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "nsxv_spoofguard_policy_network_mappings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "nsxv_tz_network_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "nuage_net_partition_router_mapping",
+        "net_partition_id",
+        "nuage_net_partitions",
+        "id"
+      ],
+      [
+        "nuage_net_partition_router_mapping",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "nuage_provider_net_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "nuage_subnet_l2dom_mapping",
+        "net_partition_id",
+        "nuage_net_partitions",
+        "id"
+      ],
+      [
+        "nuage_subnet_l2dom_mapping",
+        "subnet_id",
+        "subnets",
+        "id"
+      ],
+      [
+        "poolloadbalanceragentbindings",
+        "agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "poolloadbalanceragentbindings",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "poolmonitorassociations",
+        "monitor_id",
+        "healthmonitors",
+        "id"
+      ],
+      [
+        "poolmonitorassociations",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "pools",
+        "vip_id",
+        "vips",
+        "id"
+      ],
+      [
+        "poolstatisticss",
+        "pool_id",
+        "pools",
+        "id"
+      ],
+      [
+        "portbindingports",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "portdnses",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "portqueuemappings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "portqueuemappings",
+        "queue_id",
+        "qosqueues",
+        "id"
+      ],
+      [
+        "ports",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "ports",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "portsecuritybindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "qos_bandwidth_limit_rules",
+        "qos_policy_id",
+        "qos_policies",
+        "id"
+      ],
+      [
+        "qos_network_policy_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "qos_network_policy_bindings",
+        "policy_id",
+        "qos_policies",
+        "id"
+      ],
+      [
+        "qos_port_policy_bindings",
+        "policy_id",
+        "qos_policies",
+        "id"
+      ],
+      [
+        "qos_port_policy_bindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "qospolicyrbacs",
+        "object_id",
+        "qos_policies",
+        "id"
+      ],
+      [
+        "resourcedeltas",
+        "reservation_id",
+        "reservations",
+        "id"
+      ],
+      [
+        "router_extra_attributes",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "routerl3agentbindings",
+        "l3_agent_id",
+        "agents",
+        "id"
+      ],
+      [
+        "routerl3agentbindings",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "routerports",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "routerports",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "routerroutes",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "routerrules",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "routers",
+        "gw_port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "routers",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "securitygroupportbindings",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "securitygroupportbindings",
+        "security_group_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "securitygrouprules",
+        "remote_group_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "securitygrouprules",
+        "security_group_id",
+        "securitygroups",
+        "id"
+      ],
+      [
+        "securitygrouprules",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "securitygroups",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "sessionpersistences",
+        "vip_id",
+        "vips",
+        "id"
+      ],
+      [
+        "subnetpoolprefixes",
+        "subnetpool_id",
+        "subnetpools",
+        "id"
+      ],
+      [
+        "subnetpools",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "subnetroutes",
+        "subnet_id",
+        "subnets",
+        "id"
+      ],
+      [
+        "subnets",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "subnets",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "tags",
+        "standard_attr_id",
+        "standardattributes",
+        "id"
+      ],
+      [
+        "tz_network_bindings",
+        "network_id",
+        "networks",
+        "id"
+      ],
+      [
+        "vips",
+        "port_id",
+        "ports",
+        "id"
+      ],
+      [
+        "vpnservices",
+        "router_id",
+        "routers",
+        "id"
+      ],
+      [
+        "vpnservices",
+        "subnet_id",
+        "subnets",
+        "id"
+      ]
+    ],
+    "nova": [
+      [
+        "aggregate_hosts",
+        "aggregate_id",
+        "aggregates",
+        "id"
+      ],
+      [
+        "aggregate_metadata",
+        "aggregate_id",
+        "aggregates",
+        "id"
+      ],
+      [
+        "block_device_mapping",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "consoles",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "consoles",
+        "pool_id",
+        "console_pools",
+        "id"
+      ],
+      [
+        "fixed_ips",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_actions",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_actions_events",
+        "action_id",
+        "instance_actions",
+        "id"
+      ],
+      [
+        "instance_extra",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_faults",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_group_member",
+        "group_id",
+        "instance_groups",
+        "id"
+      ],
+      [
+        "instance_group_policy",
+        "group_id",
+        "instance_groups",
+        "id"
+      ],
+      [
+        "instance_info_caches",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_metadata",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_system_metadata",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "instance_type_extra_specs",
+        "instance_type_id",
+        "instance_types",
+        "id"
+      ],
+      [
+        "instance_type_projects",
+        "instance_type_id",
+        "instance_types",
+        "id"
+      ],
+      [
+        "migrations",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "pci_devices",
+        "compute_node_id",
+        "compute_nodes",
+        "id"
+      ],
+      [
+        "reservations",
+        "usage_id",
+        "quota_usages",
+        "id"
+      ],
+      [
+        "security_group_instance_association",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ],
+      [
+        "security_group_instance_association",
+        "security_group_id",
+        "security_groups",
+        "id"
+      ],
+      [
+        "security_group_rules",
+        "group_id",
+        "security_groups",
+        "id"
+      ],
+      [
+        "security_group_rules",
+        "parent_group_id",
+        "security_groups",
+        "id"
+      ],
+      [
+        "virtual_interfaces",
+        "instance_uuid",
+        "instances",
+        "uuid"
+      ]
+    ]
+  },
+  "primary_keys": {
+    "neutron": {
+      "address_scopes": [
+        "id"
+      ],
+      "agents": [
+        "id"
+      ],
+      "allowedaddresspairs": [
+        "port_id",
+        "mac_address",
+        "ip_address"
+      ],
+      "arista_provisioned_nets": [
+        "id"
+      ],
+      "arista_provisioned_tenants": [
+        "id"
+      ],
+      "arista_provisioned_vms": [
+        "id"
+      ],
+      "auto_allocated_topologies": [
+        "tenant_id"
+      ],
+      "bgp_peers": [
+        "id"
+      ],
+      "bgp_speaker_dragent_bindings": [
+        "agent_id"
+      ],
+      "bgp_speaker_network_bindings": [
+        "network_id",
+        "bgp_speaker_id",
+        "ip_version"
+      ],
+      "bgp_speaker_peer_bindings": [
+        "bgp_speaker_id",
+        "bgp_peer_id"
+      ],
+      "bgp_speakers": [
+        "id"
+      ],
+      "brocadenetworks": [
+        "id"
+      ],
+      "brocadeports": [
+        "port_id"
+      ],
+      "cisco_csr_identifier_map": [
+        "ipsec_site_conn_id"
+      ],
+      "cisco_firewall_associations": [
+        "fw_id"
+      ],
+      "cisco_hosting_devices": [
+        "id"
+      ],
+      "cisco_ml2_apic_contracts": [
+        "router_id"
+      ],
+      "cisco_ml2_apic_host_links": [
+        "host",
+        "ifname"
+      ],
+      "cisco_ml2_apic_names": [
+        "neutron_id",
+        "neutron_type"
+      ],
+      "cisco_ml2_n1kv_network_bindings": [
+        "network_id"
+      ],
+      "cisco_ml2_n1kv_network_profiles": [
+        "id"
+      ],
+      "cisco_ml2_n1kv_policy_profiles": [
+        "id",
+        "vsm_ip"
+      ],
+      "cisco_ml2_n1kv_port_bindings": [
+        "port_id"
+      ],
+      "cisco_ml2_n1kv_profile_bindings": [
+        "tenant_id",
+        "profile_id"
+      ],
+      "cisco_ml2_n1kv_vlan_allocations": [
+        "physical_network",
+        "vlan_id"
+      ],
+      "cisco_ml2_n1kv_vxlan_allocations": [
+        "vxlan_id"
+      ],
+      "cisco_ml2_nexus_nve": [
+        "vni",
+        "switch_ip",
+        "device_id"
+      ],
+      "cisco_ml2_nexusport_bindings": [
+        "binding_id"
+      ],
+      "cisco_port_mappings": [
+        "logical_resource_id",
+        "logical_port_id"
+      ],
+      "cisco_router_mappings": [
+        "router_id"
+      ],
+      "consistencyhashes": [
+        "hash_id"
+      ],
+      "default_security_group": [
+        "tenant_id"
+      ],
+      "dnsnameservers": [
+        "address",
+        "subnet_id"
+      ],
+      "dvr_host_macs": [
+        "host"
+      ],
+      "externalnetworks": [
+        "network_id"
+      ],
+      "extradhcpopts": [
+        "id"
+      ],
+      "firewall_policies": [
+        "id"
+      ],
+      "firewall_router_associations": [
+        "fw_id",
+        "router_id"
+      ],
+      "firewall_rules": [
+        "id"
+      ],
+      "firewalls": [
+        "id"
+      ],
+      "flavors": [
+        "id"
+      ],
+      "flavorserviceprofilebindings": [
+        "service_profile_id",
+        "flavor_id"
+      ],
+      "floatingipdnses": [
+        "floatingip_id"
+      ],
+      "floatingips": [
+        "id"
+      ],
+      "ha_router_agent_port_bindings": [
+        "port_id"
+      ],
+      "ha_router_networks": [
+        "tenant_id",
+        "network_id"
+      ],
+      "ha_router_vrid_allocations": [
+        "network_id",
+        "vr_id"
+      ],
+      "healthmonitors": [
+        "id"
+      ],
+      "ikepolicies": [
+        "id"
+      ],
+      "ipallocationpools": [
+        "id"
+      ],
+      "ipallocations": [
+        "ip_address",
+        "subnet_id",
+        "network_id"
+      ],
+      "ipamallocationpools": [
+        "id"
+      ],
+      "ipamallocations": [
+        "ip_address",
+        "ipam_subnet_id"
+      ],
+      "ipamavailabilityranges": [
+        "allocation_pool_id",
+        "first_ip",
+        "last_ip"
+      ],
+      "ipamsubnets": [
+        "id"
+      ],
+      "ipavailabilityranges": [
+        "allocation_pool_id",
+        "first_ip",
+        "last_ip"
+      ],
+      "ipsec_site_connections": [
+        "id"
+      ],
+      "ipsecpeercidrs": [
+        "cidr",
+        "ipsec_site_connection_id"
+      ],
+      "ipsecpolicies": [
+        "id"
+      ],
+      "lbaas_healthmonitors": [
+        "id"
+      ],
+      "lbaas_l7policies": [
+        "id"
+      ],
+      "lbaas_l7rules": [
+        "id"
+      ],
+      "lbaas_listeners": [
+        "id"
+      ],
+      "lbaas_loadbalancer_statistics": [
+        "loadbalancer_id"
+      ],
+      "lbaas_loadbalanceragentbindings": [
+        "loadbalancer_id"
+      ],
+      "lbaas_loadbalancers": [
+        "id"
+      ],
+      "lbaas_members": [
+        "id"
+      ],
+      "lbaas_pools": [
+        "id"
+      ],
+      "lbaas_sessionpersistences": [
+        "pool_id"
+      ],
+      "lbaas_sni": [
+        "listener_id",
+        "tls_container_id"
+      ],
+      "lsn": [
+        "lsn_id"
+      ],
+      "lsn_port": [
+        "lsn_port_id"
+      ],
+      "maclearningstates": [
+        "port_id"
+      ],
+      "members": [
+        "id"
+      ],
+      "meteringlabelrules": [
+        "id"
+      ],
+      "meteringlabels": [
+        "id"
+      ],
+      "ml2_brocadenetworks": [
+        "id"
+      ],
+      "ml2_brocadeports": [
+        "id"
+      ],
+      "ml2_dvr_port_bindings": [
+        "port_id",
+        "host"
+      ],
+      "ml2_flat_allocations": [
+        "physical_network"
+      ],
+      "ml2_geneve_allocations": [
+        "geneve_vni"
+      ],
+      "ml2_geneve_endpoints": [
+        "ip_address"
+      ],
+      "ml2_gre_allocations": [
+        "gre_id"
+      ],
+      "ml2_gre_endpoints": [
+        "ip_address"
+      ],
+      "ml2_network_segments": [
+        "id"
+      ],
+      "ml2_nexus_vxlan_allocations": [
+        "vxlan_vni"
+      ],
+      "ml2_nexus_vxlan_mcast_groups": [
+        "id"
+      ],
+      "ml2_port_binding_levels": [
+        "port_id",
+        "host",
+        "level"
+      ],
+      "ml2_port_bindings": [
+        "port_id"
+      ],
+      "ml2_ucsm_port_profiles": [
+        "vlan_id"
+      ],
+      "ml2_vlan_allocations": [
+        "physical_network",
+        "vlan_id"
+      ],
+      "ml2_vxlan_allocations": [
+        "vxlan_vni"
+      ],
+      "ml2_vxlan_endpoints": [
+        "ip_address"
+      ],
+      "multi_provider_networks": [
+        "network_id"
+      ],
+      "networkconnections": [
+        "port_id"
+      ],
+      "networkdhcpagentbindings": [
+        "network_id",
+        "dhcp_agent_id"
+      ],
+      "networkdnsdomains": [
+        "network_id"
+      ],
+      "networkgatewaydevicereferences": [
+        "id",
+        "network_gateway_id",
+        "interface_name"
+      ],
+      "networkgatewaydevices": [
+        "id"
+      ],
+      "networkgateways": [
+        "id"
+      ],
+      "networkqueuemappings": [
+        "network_id"
+      ],
+      "networkrbacs": [
+        "id"
+      ],
+      "networks": [
+        "id"
+      ],
+      "networksecuritybindings": [
+        "network_id"
+      ],
+      "neutron_nsx_network_mappings": [
+        "neutron_id",
+        "nsx_id"
+      ],
+      "neutron_nsx_port_mappings": [
+        "neutron_id"
+      ],
+      "neutron_nsx_router_mappings": [
+        "neutron_id"
+      ],
+      "neutron_nsx_security_group_mappings": [
+        "neutron_id",
+        "nsx_id"
+      ],
+      "nexthops": [
+        "rule_id",
+        "nexthop"
+      ],
+      "nsxv_edge_dhcp_static_bindings": [
+        "edge_id",
+        "mac_address"
+      ],
+      "nsxv_edge_monitor_mappings": [
+        "monitor_id"
+      ],
+      "nsxv_edge_pool_mappings": [
+        "pool_id"
+      ],
+      "nsxv_edge_vip_mappings": [
+        "pool_id"
+      ],
+      "nsxv_edge_vnic_bindings": [
+        "edge_id",
+        "vnic_index",
+        "tunnel_index"
+      ],
+      "nsxv_firewall_rule_bindings": [
+        "rule_id",
+        "edge_id"
+      ],
+      "nsxv_internal_edges": [
+        "ext_ip_address"
+      ],
+      "nsxv_internal_networks": [
+        "network_purpose"
+      ],
+      "nsxv_port_index_mappings": [
+        "port_id"
+      ],
+      "nsxv_port_vnic_mappings": [
+        "neutron_id",
+        "nsx_id"
+      ],
+      "nsxv_router_bindings": [
+        "router_id"
+      ],
+      "nsxv_router_ext_attributes": [
+        "router_id"
+      ],
+      "nsxv_rule_mappings": [
+        "neutron_id",
+        "nsx_rule_id"
+      ],
+      "nsxv_security_group_section_mappings": [
+        "neutron_id"
+      ],
+      "nsxv_spoofguard_policy_network_mappings": [
+        "network_id"
+      ],
+      "nsxv_tz_network_bindings": [
+        "network_id",
+        "binding_type",
+        "phy_uuid",
+        "vlan_id"
+      ],
+      "nsxv_vdr_dhcp_bindings": [
+        "vdr_router_id"
+      ],
+      "nuage_net_partition_router_mapping": [
+        "net_partition_id",
+        "router_id"
+      ],
+      "nuage_net_partitions": [
+        "id"
+      ],
+      "nuage_provider_net_bindings": [
+        "network_id"
+      ],
+      "nuage_subnet_l2dom_mapping": [
+        "subnet_id"
+      ],
+      "poolloadbalanceragentbindings": [
+        "pool_id"
+      ],
+      "poolmonitorassociations": [
+        "pool_id",
+        "monitor_id"
+      ],
+      "pools": [
+        "id"
+      ],
+      "poolstatisticss": [
+        "pool_id"
+      ],
+      "portbindingports": [
+        "port_id"
+      ],
+      "portdnses": [
+        "port_id"
+      ],
+      "portqueuemappings": [
+        "port_id",
+        "queue_id"
+      ],
+      "ports": [
+        "id"
+      ],
+      "portsecuritybindings": [
+        "port_id"
+      ],
+      "providerresourceassociations": [
+        "provider_name",
+        "resource_id"
+      ],
+      "qos_bandwidth_limit_rules": [
+        "id"
+      ],
+      "qos_policies": [
+        "id"
+      ],
+      "qospolicyrbacs": [
+        "id"
+      ],
+      "qosqueues": [
+        "id"
+      ],
+      "quotas": [
+        "id"
+      ],
+      "quotausages": [
+        "tenant_id",
+        "resource"
+      ],
+      "reservations": [
+        "id"
+      ],
+      "resourcedeltas": [
+        "resource",
+        "reservation_id"
+      ],
+      "router_extra_attributes": [
+        "router_id"
+      ],
+      "routerl3agentbindings": [
+        "router_id",
+        "l3_agent_id"
+      ],
+      "routerports": [
+        "router_id",
+        "port_id"
+      ],
+      "routerroutes": [
+        "destination",
+        "nexthop",
+        "router_id"
+      ],
+      "routerrules": [
+        "id"
+      ],
+      "routers": [
+        "id"
+      ],
+      "securitygroupportbindings": [
+        "port_id",
+        "security_group_id"
+      ],
+      "securitygrouprules": [
+        "id"
+      ],
+      "securitygroups": [
+        "id"
+      ],
+      "serviceprofiles": [
+        "id"
+      ],
+      "sessionpersistences": [
+        "vip_id"
+      ],
+      "standardattributes": [
+        "id"
+      ],
+      "subnetpoolprefixes": [
+        "cidr",
+        "subnetpool_id"
+      ],
+      "subnetpools": [
+        "id"
+      ],
+      "subnetroutes": [
+        "destination",
+        "nexthop",
+        "subnet_id"
+      ],
+      "subnets": [
+        "id"
+      ],
+      "tags": [
+        "standard_attr_id",
+        "tag"
+      ],
+      "tz_network_bindings": [
+        "network_id",
+        "binding_type",
+        "phy_uuid",
+        "vlan_id"
+      ],
+      "vcns_router_bindings": [
+        "router_id"
+      ],
+      "vips": [
+        "id"
+      ],
+      "vpnservices": [
+        "id"
+      ]
+    },
+    "nova": {
+      "agent_builds": [
+        "id"
+      ],
+      "aggregate_hosts": [
+        "id"
+      ],
+      "aggregate_metadata": [
+        "id"
+      ],
+      "aggregates": [
+        "id"
+      ],
+      "allocations": [
+        "id"
+      ],
+      "block_device_mapping": [
+        "id"
+      ],
+      "bw_usage_cache": [
+        "id"
+      ],
+      "cells": [
+        "id"
+      ],
+      "certificates": [
+        "id"
+      ],
+      "compute_nodes": [
+        "id"
+      ],
+      "console_pools": [
+        "id"
+      ],
+      "consoles": [
+        "id"
+      ],
+      "dns_domains": [
+        "domain"
+      ],
+      "fixed_ips": [
+        "id"
+      ],
+      "floating_ips": [
+        "id"
+      ],
+      "instance_actions": [
+        "id"
+      ],
+      "instance_actions_events": [
+        "id"
+      ],
+      "instance_extra": [
+        "id"
+      ],
+      "instance_faults": [
+        "id"
+      ],
+      "instance_group_member": [
+        "id"
+      ],
+      "instance_group_policy": [
+        "id"
+      ],
+      "instance_groups": [
+        "id"
+      ],
+      "instance_id_mappings": [
+        "id"
+      ],
+      "instance_info_caches": [
+        "id"
+      ],
+      "instance_metadata": [
+        "id"
+      ],
+      "instance_system_metadata": [
+        "id"
+      ],
+      "instance_type_extra_specs": [
+        "id"
+      ],
+      "instance_type_projects": [
+        "id"
+      ],
+      "instance_types": [
+        "id"
+      ],
+      "instances": [
+        "id"
+      ],
+      "inventories": [
+        "id"
+      ],
+      "key_pairs": [
+        "id"
+      ],
+      "migrate_version": [
+        "repository_id"
+      ],
+      "migrations": [
+        "id"
+      ],
+      "networks": [
+        "id"
+      ],
+      "pci_devices": [
+        "id"
+      ],
+      "project_user_quotas": [
+        "id"
+      ],
+      "provider_fw_rules": [
+        "id"
+      ],
+      "quota_classes": [
+        "id"
+      ],
+      "quota_usages": [
+        "id"
+      ],
+      "quotas": [
+        "id"
+      ],
+      "reservations": [
+        "id"
+      ],
+      "resource_provider_aggregates": [
+        "resource_provider_id",
+        "aggregate_id"
+      ],
+      "resource_providers": [
+        "id"
+      ],
+      "s3_images": [
+        "id"
+      ],
+      "security_group_default_rules": [
+        "id"
+      ],
+      "security_group_instance_association": [
+        "id"
+      ],
+      "security_group_rules": [
+        "id"
+      ],
+      "security_groups": [
+        "id"
+      ],
+      "services": [
+        "id"
+      ],
+      "shadow_agent_builds": [
+        "id"
+      ],
+      "shadow_aggregate_hosts": [
+        "id"
+      ],
+      "shadow_aggregate_metadata": [
+        "id"
+      ],
+      "shadow_aggregates": [
+        "id"
+      ],
+      "shadow_block_device_mapping": [
+        "id"
+      ],
+      "shadow_bw_usage_cache": [
+        "id"
+      ],
+      "shadow_cells": [
+        "id"
+      ],
+      "shadow_certificates": [
+        "id"
+      ],
+      "shadow_compute_nodes": [
+        "id"
+      ],
+      "shadow_console_pools": [
+        "id"
+      ],
+      "shadow_consoles": [
+        "id"
+      ],
+      "shadow_dns_domains": [
+        "domain"
+      ],
+      "shadow_fixed_ips": [
+        "id"
+      ],
+      "shadow_floating_ips": [
+        "id"
+      ],
+      "shadow_instance_actions": [
+        "id"
+      ],
+      "shadow_instance_actions_events": [
+        "id"
+      ],
+      "shadow_instance_extra": [
+        "id"
+      ],
+      "shadow_instance_faults": [
+        "id"
+      ],
+      "shadow_instance_group_member": [
+        "id"
+      ],
+      "shadow_instance_group_policy": [
+        "id"
+      ],
+      "shadow_instance_groups": [
+        "id"
+      ],
+      "shadow_instance_id_mappings": [
+        "id"
+      ],
+      "shadow_instance_info_caches": [
+        "id"
+      ],
+      "shadow_instance_metadata": [
+        "id"
+      ],
+      "shadow_instance_system_metadata": [
+        "id"
+      ],
+      "shadow_instance_type_extra_specs": [
+        "id"
+      ],
+      "shadow_instance_type_projects": [
+        "id"
+      ],
+      "shadow_instance_types": [
+        "id"
+      ],
+      "shadow_instances": [
+        "id"
+      ],
+      "shadow_key_pairs": [
+        "id"
+      ],
+      "shadow_migrate_version": [
+        "repository_id"
+      ],
+      "shadow_migrations": [
+        "id"
+      ],
+      "shadow_networks": [
+        "id"
+      ],
+      "shadow_pci_devices": [
+        "id"
+      ],
+      "shadow_project_user_quotas": [
+        "id"
+      ],
+      "shadow_provider_fw_rules": [
+        "id"
+      ],
+      "shadow_quota_classes": [
+        "id"
+      ],
+      "shadow_quota_usages": [
+        "id"
+      ],
+      "shadow_quotas": [
+        "id"
+      ],
+      "shadow_reservations": [
+        "id"
+      ],
+      "shadow_s3_images": [
+        "id"
+      ],
+      "shadow_security_group_default_rules": [
+        "id"
+      ],
+      "shadow_security_group_instance_association": [
+        "id"
+      ],
+      "shadow_security_group_rules": [
+        "id"
+      ],
+      "shadow_security_groups": [
+        "id"
+      ],
+      "shadow_services": [
+        "id"
+      ],
+      "shadow_snapshot_id_mappings": [
+        "id"
+      ],
+      "shadow_snapshots": [
+        "id"
+      ],
+      "shadow_task_log": [
+        "id"
+      ],
+      "shadow_virtual_interfaces": [
+        "id"
+      ],
+      "shadow_volume_id_mappings": [
+        "id"
+      ],
+      "shadow_volume_usage_cache": [
+        "id"
+      ],
+      "snapshot_id_mappings": [
+        "id"
+      ],
+      "snapshots": [
+        "id"
+      ],
+      "tags": [
+        "resource_id",
+        "tag"
+      ],
+      "task_log": [
+        "id"
+      ],
+      "virtual_interfaces": [
+        "id"
+      ],
+      "volume_id_mappings": [
+        "id"
+      ],
+      "volume_usage_cache": [
+        "id"
+      ]
+    }
+  }
+}

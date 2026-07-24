@@ -1,0 +1,9 @@
+key col_vxlan_vni int;
+property col_vxlan_vni.col_allocated int;
+
+datasource source (
+    `VXLAN_VNI`:col_vxlan_vni,
+    `ALLOCATED`:col_allocated,
+)
+grain (col_vxlan_vni)
+address `neutron.ml2_vxlan_allocations`;

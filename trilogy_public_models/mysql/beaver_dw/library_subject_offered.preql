@@ -1,0 +1,45 @@
+key col_library_subject_offered_key string;
+key col_term_code string;
+key col_master_course_number string;
+key col_master_course_number_sort string;
+key col_master_course_number_desc string;
+key col_master_subject_id string;
+key col_master_subject_id_sort string;
+key col_course_number string;
+key col_course_number_sort string;
+key col_course_number_desc string;
+key col_subject_id string;
+key col_subject_id_sort string;
+key col_subject_title string;
+key col_offer_dept_code string;
+key col_offer_dept_name string;
+key col_offer_school_name string;
+key col_responsible_faculty_name string;
+key col_responsible_faculty_mit_id string;
+key col_num_enrolled_students int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LIBRARY_SUBJECT_OFFERED_KEY`:col_library_subject_offered_key,
+    `TERM_CODE`:col_term_code,
+    `MASTER_COURSE_NUMBER`:col_master_course_number,
+    `MASTER_COURSE_NUMBER_SORT`:col_master_course_number_sort,
+    `MASTER_COURSE_NUMBER_DESC`:col_master_course_number_desc,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `MASTER_SUBJECT_ID_SORT`:col_master_subject_id_sort,
+    `COURSE_NUMBER`:col_course_number,
+    `COURSE_NUMBER_SORT`:col_course_number_sort,
+    `COURSE_NUMBER_DESC`:col_course_number_desc,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_ID_SORT`:col_subject_id_sort,
+    `SUBJECT_TITLE`:col_subject_title,
+    `OFFER_DEPT_CODE`:col_offer_dept_code,
+    `OFFER_DEPT_NAME`:col_offer_dept_name,
+    `OFFER_SCHOOL_NAME`:col_offer_school_name,
+    `RESPONSIBLE_FACULTY_NAME`:col_responsible_faculty_name,
+    `RESPONSIBLE_FACULTY_MIT_ID`:col_responsible_faculty_mit_id,
+    `NUM_ENROLLED_STUDENTS`:col_num_enrolled_students,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_library_subject_offered_key, col_term_code, col_master_course_number, col_master_course_number_sort, col_master_course_number_desc, col_master_subject_id, col_master_subject_id_sort, col_course_number, col_course_number_sort, col_course_number_desc, col_subject_id, col_subject_id_sort, col_subject_title, col_offer_dept_code, col_offer_dept_name, col_offer_school_name, col_responsible_faculty_name, col_responsible_faculty_mit_id, col_num_enrolled_students, col_warehouse_load_date)
+address `dw.LIBRARY_SUBJECT_OFFERED`;

@@ -1,0 +1,15 @@
+key col_fclt_major_use_key string;
+key col_major_use string;
+key col_description string;
+key col_assignable string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FCLT_MAJOR_USE_KEY`:col_fclt_major_use_key,
+    `MAJOR_USE`:col_major_use,
+    `DESCRIPTION`:col_description,
+    `ASSIGNABLE`:col_assignable,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_fclt_major_use_key, col_major_use, col_description, col_assignable, col_warehouse_load_date)
+address `dw.FCLT_MAJOR_USE`;

@@ -1,0 +1,27 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_network_id string;
+property col_id.col_mac_address string;
+property col_id.col_admin_state_up int;
+property col_id.col_status string;
+property col_id.col_device_id string;
+property col_id.col_device_owner string;
+property col_id.col_dns_name string;
+property col_id.col_standard_attr_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `NETWORK_ID`:col_network_id,
+    `MAC_ADDRESS`:col_mac_address,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `STATUS`:col_status,
+    `DEVICE_ID`:col_device_id,
+    `DEVICE_OWNER`:col_device_owner,
+    `DNS_NAME`:col_dns_name,
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+)
+grain (col_id)
+address `neutron.ports`;

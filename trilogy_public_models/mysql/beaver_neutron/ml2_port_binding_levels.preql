@@ -1,0 +1,15 @@
+key col_port_id string;
+key col_host string;
+key col_level int;
+property <col_port_id, col_host, col_level>.col_driver string;
+property <col_port_id, col_host, col_level>.col_segment_id string;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `HOST`:col_host,
+    `LEVEL`:col_level,
+    `DRIVER`:col_driver,
+    `SEGMENT_ID`:col_segment_id,
+)
+grain (col_port_id, col_host, col_level)
+address `neutron.ml2_port_binding_levels`;

@@ -1,0 +1,9 @@
+key col_neutron_id string;
+property col_neutron_id.col_ip_section_id string;
+
+datasource source (
+    `NEUTRON_ID`:col_neutron_id,
+    `IP_SECTION_ID`:col_ip_section_id,
+)
+grain (col_neutron_id)
+address `neutron.nsxv_security_group_section_mappings`;

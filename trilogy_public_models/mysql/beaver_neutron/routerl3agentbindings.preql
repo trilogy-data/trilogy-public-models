@@ -1,0 +1,9 @@
+key col_router_id string;
+key col_l3_agent_id string;
+
+datasource source (
+    `ROUTER_ID`:col_router_id,
+    `L3_AGENT_ID`:col_l3_agent_id,
+)
+grain (col_router_id, col_l3_agent_id)
+address `neutron.routerl3agentbindings`;

@@ -1,0 +1,11 @@
+key col_ext_ip_address string;
+property col_ext_ip_address.col_router_id string;
+property col_ext_ip_address.col_purpose int;
+
+datasource source (
+    `EXT_IP_ADDRESS`:col_ext_ip_address,
+    `ROUTER_ID`:col_router_id,
+    `PURPOSE`:col_purpose,
+)
+grain (col_ext_ip_address)
+address `neutron.nsxv_internal_edges`;

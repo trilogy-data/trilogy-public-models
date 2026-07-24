@@ -1,0 +1,11 @@
+key col_vlan_id int;
+property col_vlan_id.col_profile_id string;
+property col_vlan_id.col_created_on_ucs int;
+
+datasource source (
+    `VLAN_ID`:col_vlan_id,
+    `PROFILE_ID`:col_profile_id,
+    `CREATED_ON_UCS`:col_created_on_ucs,
+)
+grain (col_vlan_id)
+address `neutron.ml2_ucsm_port_profiles`;

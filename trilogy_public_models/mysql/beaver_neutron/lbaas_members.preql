@@ -1,0 +1,27 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_pool_id string;
+property col_id.col_subnet_id string;
+property col_id.col_address string;
+property col_id.col_protocol_port int;
+property col_id.col_weight int;
+property col_id.col_admin_state_up int;
+property col_id.col_provisioning_status string;
+property col_id.col_operating_status string;
+property col_id.col_name string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `POOL_ID`:col_pool_id,
+    `SUBNET_ID`:col_subnet_id,
+    `ADDRESS`:col_address,
+    `PROTOCOL_PORT`:col_protocol_port,
+    `WEIGHT`:col_weight,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `PROVISIONING_STATUS`:col_provisioning_status,
+    `OPERATING_STATUS`:col_operating_status,
+    `NAME`:col_name,
+)
+grain (col_id)
+address `neutron.lbaas_members`;

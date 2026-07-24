@@ -1,0 +1,9 @@
+key col_service_profile_id string;
+key col_flavor_id string;
+
+datasource source (
+    `SERVICE_PROFILE_ID`:col_service_profile_id,
+    `FLAVOR_ID`:col_flavor_id,
+)
+grain (col_service_profile_id, col_flavor_id)
+address `neutron.flavorserviceprofilebindings`;

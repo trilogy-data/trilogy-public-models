@@ -1,0 +1,25 @@
+key col_iap_subject_session_key string;
+key col_session_sequence int;
+key col_session_title string;
+key col_session_description string;
+key col_session_location string;
+key col_session_date date;
+key col_session_start_time string;
+key col_session_end_time string;
+key col_has_session_info string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `IAP_SUBJECT_SESSION_KEY`:col_iap_subject_session_key,
+    `SESSION_SEQUENCE`:col_session_sequence,
+    `SESSION_TITLE`:col_session_title,
+    `SESSION_DESCRIPTION`:col_session_description,
+    `SESSION_LOCATION`:col_session_location,
+    `SESSION_DATE`:col_session_date,
+    `SESSION_START_TIME`:col_session_start_time,
+    `SESSION_END_TIME`:col_session_end_time,
+    `HAS_SESSION_INFO`:col_has_session_info,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_iap_subject_session_key, col_session_sequence, col_session_title, col_session_description, col_session_location, col_session_date, col_session_start_time, col_session_end_time, col_has_session_info, col_warehouse_load_date)
+address `dw.IAP_SUBJECT_SESSION`;

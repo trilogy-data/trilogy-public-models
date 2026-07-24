@@ -1,0 +1,43 @@
+key col_degree_code string;
+key col_degree_desc string;
+key col_degree_desc_short string;
+key col_degree_type string;
+key col_degree_type_desc string;
+key col_degree_weight int;
+key col_from_term string;
+key col_thru_term string;
+key col_department string;
+key col_dept_name_in_commencement_bk string;
+key col_school_name_in_commencement_bk string;
+key col_course string;
+key col_course_level string;
+key col_is_double_major string;
+key col_commencement_bk_course_roman string;
+key col_commencement_bk_see_also string;
+key col_degree_last_activity_date date;
+key col_course_last_activity_date date;
+key col_warehouse_load_date date;
+
+datasource source (
+    `DEGREE_CODE`:col_degree_code,
+    `DEGREE_DESC`:col_degree_desc,
+    `DEGREE_DESC_SHORT`:col_degree_desc_short,
+    `DEGREE_TYPE`:col_degree_type,
+    `DEGREE_TYPE_DESC`:col_degree_type_desc,
+    `DEGREE_WEIGHT`:col_degree_weight,
+    `FROM_TERM`:col_from_term,
+    `THRU_TERM`:col_thru_term,
+    `DEPARTMENT`:col_department,
+    `DEPT_NAME_IN_COMMENCEMENT_BK`:col_dept_name_in_commencement_bk,
+    `SCHOOL_NAME_IN_COMMENCEMENT_BK`:col_school_name_in_commencement_bk,
+    `COURSE`:col_course,
+    `COURSE_LEVEL`:col_course_level,
+    `IS_DOUBLE_MAJOR`:col_is_double_major,
+    `COMMENCEMENT_BK_COURSE_ROMAN`:col_commencement_bk_course_roman,
+    `COMMENCEMENT_BK_SEE_ALSO`:col_commencement_bk_see_also,
+    `DEGREE_LAST_ACTIVITY_DATE`:col_degree_last_activity_date,
+    `COURSE_LAST_ACTIVITY_DATE`:col_course_last_activity_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_degree_code, col_degree_desc, col_degree_desc_short, col_degree_type, col_degree_type_desc, col_degree_weight, col_from_term, col_thru_term, col_department, col_dept_name_in_commencement_bk, col_school_name_in_commencement_bk, col_course, col_course_level, col_is_double_major, col_commencement_bk_course_roman, col_commencement_bk_see_also, col_degree_last_activity_date, col_course_last_activity_date, col_warehouse_load_date)
+address `dw.STUDENT_DEGREE_PROGRAM`;

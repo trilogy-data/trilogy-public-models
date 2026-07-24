@@ -1,0 +1,15 @@
+key col_department_code string;
+key col_department_name string;
+key col_department_full_name string;
+key col_school_code string;
+key col_school_name string;
+
+datasource source (
+    `DEPARTMENT_CODE`:col_department_code,
+    `DEPARTMENT_NAME`:col_department_name,
+    `DEPARTMENT_FULL_NAME`:col_department_full_name,
+    `SCHOOL_CODE`:col_school_code,
+    `SCHOOL_NAME`:col_school_name,
+)
+grain (col_department_code, col_department_name, col_department_full_name, col_school_code, col_school_name)
+address `dw.STUDENT_DEPARTMENT`;

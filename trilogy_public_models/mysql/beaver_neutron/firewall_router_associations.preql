@@ -1,0 +1,9 @@
+key col_fw_id string;
+key col_router_id string;
+
+datasource source (
+    `FW_ID`:col_fw_id,
+    `ROUTER_ID`:col_router_id,
+)
+grain (col_fw_id, col_router_id)
+address `neutron.firewall_router_associations`;

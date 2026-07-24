@@ -1,0 +1,13 @@
+key col_id string;
+property col_id.col_tenant_id string;
+property col_id.col_resource string;
+property col_id.col_limit int;
+
+datasource source (
+    `ID`:col_id,
+    `TENANT_ID`:col_tenant_id,
+    `RESOURCE`:col_resource,
+    `LIMIT`:col_limit,
+)
+grain (col_id)
+address `neutron.quotas`;

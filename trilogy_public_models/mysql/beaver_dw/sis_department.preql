@@ -1,0 +1,31 @@
+key col_department_code string;
+key col_department_name string;
+key col_department_full_name string;
+key col_school_code string;
+key col_school_name string;
+key col_dept_budget_code string;
+key col_is_degree_granting string;
+key col_dept_name_in_commencement_bk string;
+key col_school_name_in_commencement_bk string;
+key col_department_name_history string;
+key col_department_last_activity_date date;
+key col_dlc_key string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `DEPARTMENT_CODE`:col_department_code,
+    `DEPARTMENT_NAME`:col_department_name,
+    `DEPARTMENT_FULL_NAME`:col_department_full_name,
+    `SCHOOL_CODE`:col_school_code,
+    `SCHOOL_NAME`:col_school_name,
+    `DEPT_BUDGET_CODE`:col_dept_budget_code,
+    `IS_DEGREE_GRANTING`:col_is_degree_granting,
+    `DEPT_NAME_IN_COMMENCEMENT_BK`:col_dept_name_in_commencement_bk,
+    `SCHOOL_NAME_IN_COMMENCEMENT_BK`:col_school_name_in_commencement_bk,
+    `DEPARTMENT_NAME_HISTORY`:col_department_name_history,
+    `DEPARTMENT_LAST_ACTIVITY_DATE`:col_department_last_activity_date,
+    `DLC_KEY`:col_dlc_key,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_department_code, col_department_name, col_department_full_name, col_school_code, col_school_name, col_dept_budget_code, col_is_degree_granting, col_dept_name_in_commencement_bk, col_school_name_in_commencement_bk, col_department_name_history, col_department_last_activity_date, col_dlc_key, col_warehouse_load_date)
+address `dw.SIS_DEPARTMENT`;

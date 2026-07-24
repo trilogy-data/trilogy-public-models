@@ -1,0 +1,11 @@
+key col_destination string;
+key col_nexthop string;
+key col_router_id string;
+
+datasource source (
+    `DESTINATION`:col_destination,
+    `NEXTHOP`:col_nexthop,
+    `ROUTER_ID`:col_router_id,
+)
+grain (col_destination, col_nexthop, col_router_id)
+address `neutron.routerroutes`;

@@ -1,0 +1,9 @@
+key col_provider_name string;
+key col_resource_id string;
+
+datasource source (
+    `PROVIDER_NAME`:col_provider_name,
+    `RESOURCE_ID`:col_resource_id,
+)
+grain (col_provider_name, col_resource_id)
+address `neutron.providerresourceassociations`;

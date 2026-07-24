@@ -1,0 +1,9 @@
+key col_rule_id int;
+key col_nexthop string;
+
+datasource source (
+    `RULE_ID`:col_rule_id,
+    `NEXTHOP`:col_nexthop,
+)
+grain (col_rule_id, col_nexthop)
+address `neutron.nexthops`;

@@ -1,0 +1,29 @@
+key col_first_name string;
+key col_middle_name string;
+key col_last_name string;
+key col_full_name string;
+key col_office_location string;
+key col_office_phone string;
+key col_email_address string;
+key col_department string;
+key col_department_name string;
+key col_student_year string;
+key col_full_name_uppercase string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FIRST_NAME`:col_first_name,
+    `MIDDLE_NAME`:col_middle_name,
+    `LAST_NAME`:col_last_name,
+    `FULL_NAME`:col_full_name,
+    `OFFICE_LOCATION`:col_office_location,
+    `OFFICE_PHONE`:col_office_phone,
+    `EMAIL_ADDRESS`:col_email_address,
+    `DEPARTMENT`:col_department,
+    `DEPARTMENT_NAME`:col_department_name,
+    `STUDENT_YEAR`:col_student_year,
+    `FULL_NAME_UPPERCASE`:col_full_name_uppercase,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_first_name, col_middle_name, col_last_name, col_full_name, col_office_location, col_office_phone, col_email_address, col_department, col_department_name, col_student_year, col_full_name_uppercase, col_warehouse_load_date)
+address `dw.MIT_STUDENT_DIRECTORY`;

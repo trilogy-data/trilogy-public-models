@@ -1,0 +1,13 @@
+key col_network_id string;
+property col_network_id.col_network_type string;
+property col_network_id.col_segmentation_id int;
+property col_network_id.col_profile_id string;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+    `NETWORK_TYPE`:col_network_type,
+    `SEGMENTATION_ID`:col_segmentation_id,
+    `PROFILE_ID`:col_profile_id,
+)
+grain (col_network_id)
+address `neutron.cisco_ml2_n1kv_network_bindings`;

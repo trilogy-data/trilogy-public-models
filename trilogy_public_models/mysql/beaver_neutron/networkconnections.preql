@@ -1,0 +1,17 @@
+property col_port_id.col_tenant_id string;
+property col_port_id.col_network_gateway_id string;
+property col_port_id.col_network_id string;
+property col_port_id.col_segmentation_type string;
+property col_port_id.col_segmentation_id int;
+key col_port_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `NETWORK_GATEWAY_ID`:col_network_gateway_id,
+    `NETWORK_ID`:col_network_id,
+    `SEGMENTATION_TYPE`:col_segmentation_type,
+    `SEGMENTATION_ID`:col_segmentation_id,
+    `PORT_ID`:col_port_id,
+)
+grain (col_port_id)
+address `neutron.networkconnections`;

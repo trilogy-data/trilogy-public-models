@@ -1,0 +1,15 @@
+key col_loadbalancer_id string;
+property col_loadbalancer_id.col_bytes_in int;
+property col_loadbalancer_id.col_bytes_out int;
+property col_loadbalancer_id.col_active_connections int;
+property col_loadbalancer_id.col_total_connections int;
+
+datasource source (
+    `LOADBALANCER_ID`:col_loadbalancer_id,
+    `BYTES_IN`:col_bytes_in,
+    `BYTES_OUT`:col_bytes_out,
+    `ACTIVE_CONNECTIONS`:col_active_connections,
+    `TOTAL_CONNECTIONS`:col_total_connections,
+)
+grain (col_loadbalancer_id)
+address `neutron.lbaas_loadbalancer_statistics`;

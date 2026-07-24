@@ -1,0 +1,13 @@
+key col_moira_list_owner_key string;
+key col_owner string;
+key col_owner_type string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `MOIRA_LIST_OWNER_KEY`:col_moira_list_owner_key,
+    `OWNER`:col_owner,
+    `OWNER_TYPE`:col_owner_type,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_moira_list_owner_key, col_owner, col_owner_type, col_warehouse_load_date)
+address `dw.MOIRA_LIST_OWNER`;

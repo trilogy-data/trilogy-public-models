@@ -1,0 +1,17 @@
+key col_logical_resource_id string;
+key col_logical_port_id string;
+property <col_logical_resource_id, col_logical_port_id>.col_port_type string;
+property <col_logical_resource_id, col_logical_port_id>.col_network_type string;
+property <col_logical_resource_id, col_logical_port_id>.col_hosting_port_id string;
+property <col_logical_resource_id, col_logical_port_id>.col_segmentation_id int;
+
+datasource source (
+    `LOGICAL_RESOURCE_ID`:col_logical_resource_id,
+    `LOGICAL_PORT_ID`:col_logical_port_id,
+    `PORT_TYPE`:col_port_type,
+    `NETWORK_TYPE`:col_network_type,
+    `HOSTING_PORT_ID`:col_hosting_port_id,
+    `SEGMENTATION_ID`:col_segmentation_id,
+)
+grain (col_logical_resource_id, col_logical_port_id)
+address `neutron.cisco_port_mappings`;

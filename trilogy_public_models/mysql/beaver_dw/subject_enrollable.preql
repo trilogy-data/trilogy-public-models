@@ -1,0 +1,27 @@
+key col_term_code string;
+key col_subject_id string;
+key col_subject_title string;
+key col_subject_title_long string;
+key col_master_subject_id string;
+key col_ult_master_subject_id string;
+key col_cluster_list string;
+key col_offer_dept_code string;
+key col_offer_school_code string;
+key col_subject_group_id string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `TERM_CODE`:col_term_code,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_TITLE`:col_subject_title,
+    `SUBJECT_TITLE_LONG`:col_subject_title_long,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `ULT_MASTER_SUBJECT_ID`:col_ult_master_subject_id,
+    `CLUSTER_LIST`:col_cluster_list,
+    `OFFER_DEPT_CODE`:col_offer_dept_code,
+    `OFFER_SCHOOL_CODE`:col_offer_school_code,
+    `SUBJECT_GROUP_ID`:col_subject_group_id,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_term_code, col_subject_id, col_subject_title, col_subject_title_long, col_master_subject_id, col_ult_master_subject_id, col_cluster_list, col_offer_dept_code, col_offer_school_code, col_subject_group_id, col_warehouse_load_date)
+address `dw.SUBJECT_ENROLLABLE`;

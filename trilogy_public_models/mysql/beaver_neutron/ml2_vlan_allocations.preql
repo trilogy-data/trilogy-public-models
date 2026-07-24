@@ -1,0 +1,11 @@
+key col_physical_network string;
+key col_vlan_id int;
+property <col_physical_network, col_vlan_id>.col_allocated int;
+
+datasource source (
+    `PHYSICAL_NETWORK`:col_physical_network,
+    `VLAN_ID`:col_vlan_id,
+    `ALLOCATED`:col_allocated,
+)
+grain (col_physical_network, col_vlan_id)
+address `neutron.ml2_vlan_allocations`;

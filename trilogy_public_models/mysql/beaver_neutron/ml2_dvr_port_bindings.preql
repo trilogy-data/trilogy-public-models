@@ -1,0 +1,21 @@
+key col_port_id string;
+key col_host string;
+property <col_port_id, col_host>.col_router_id string;
+property <col_port_id, col_host>.col_vif_type string;
+property <col_port_id, col_host>.col_vif_details string;
+property <col_port_id, col_host>.col_vnic_type string;
+property <col_port_id, col_host>.col_profile string;
+property <col_port_id, col_host>.col_status string;
+
+datasource source (
+    `PORT_ID`:col_port_id,
+    `HOST`:col_host,
+    `ROUTER_ID`:col_router_id,
+    `VIF_TYPE`:col_vif_type,
+    `VIF_DETAILS`:col_vif_details,
+    `VNIC_TYPE`:col_vnic_type,
+    `PROFILE`:col_profile,
+    `STATUS`:col_status,
+)
+grain (col_port_id, col_host)
+address `neutron.ml2_dvr_port_bindings`;

@@ -1,0 +1,33 @@
+key col_hierarchy_type string;
+key col_dlc_key string;
+key col_dlc_code string;
+key col_dlc_name string;
+key col_master_dept_hier_level_1_code string;
+key col_master_dept_hier_level_1_name string;
+key col_master_dept_hier_level_2_code string;
+key col_master_dept_hier_level_2_name string;
+key col_master_dept_hier_level_3_code string;
+key col_master_dept_hier_level_3_name string;
+key col_master_dept_hier_level_4_code string;
+key col_master_dept_hier_level_4_name string;
+key col_master_dept_hier_level_5_code string;
+key col_master_dept_hier_level_5_name string;
+
+datasource source (
+    `HIERARCHY_TYPE`:col_hierarchy_type,
+    `DLC_KEY`:col_dlc_key,
+    `DLC_CODE`:col_dlc_code,
+    `DLC_NAME`:col_dlc_name,
+    `MASTER_DEPT_HIER_LEVEL_1_CODE`:col_master_dept_hier_level_1_code,
+    `MASTER_DEPT_HIER_LEVEL_1_NAME`:col_master_dept_hier_level_1_name,
+    `MASTER_DEPT_HIER_LEVEL_2_CODE`:col_master_dept_hier_level_2_code,
+    `MASTER_DEPT_HIER_LEVEL_2_NAME`:col_master_dept_hier_level_2_name,
+    `MASTER_DEPT_HIER_LEVEL_3_CODE`:col_master_dept_hier_level_3_code,
+    `MASTER_DEPT_HIER_LEVEL_3_NAME`:col_master_dept_hier_level_3_name,
+    `MASTER_DEPT_HIER_LEVEL_4_CODE`:col_master_dept_hier_level_4_code,
+    `MASTER_DEPT_HIER_LEVEL_4_NAME`:col_master_dept_hier_level_4_name,
+    `MASTER_DEPT_HIER_LEVEL_5_CODE`:col_master_dept_hier_level_5_code,
+    `MASTER_DEPT_HIER_LEVEL_5_NAME`:col_master_dept_hier_level_5_name,
+)
+grain (col_hierarchy_type, col_dlc_key, col_dlc_code, col_dlc_name, col_master_dept_hier_level_1_code, col_master_dept_hier_level_1_name, col_master_dept_hier_level_2_code, col_master_dept_hier_level_2_name, col_master_dept_hier_level_3_code, col_master_dept_hier_level_3_name, col_master_dept_hier_level_4_code, col_master_dept_hier_level_4_name, col_master_dept_hier_level_5_code, col_master_dept_hier_level_5_name)
+address `dw.MASTER_DEPT_HIERARCHY`;

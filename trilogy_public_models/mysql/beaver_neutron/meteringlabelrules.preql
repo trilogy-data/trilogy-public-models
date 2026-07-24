@@ -1,0 +1,15 @@
+key col_id string;
+property col_id.col_direction string;
+property col_id.col_remote_ip_prefix string;
+property col_id.col_metering_label_id string;
+property col_id.col_excluded int;
+
+datasource source (
+    `ID`:col_id,
+    `DIRECTION`:col_direction,
+    `REMOTE_IP_PREFIX`:col_remote_ip_prefix,
+    `METERING_LABEL_ID`:col_metering_label_id,
+    `EXCLUDED`:col_excluded,
+)
+grain (col_id)
+address `neutron.meteringlabelrules`;

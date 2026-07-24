@@ -1,0 +1,9 @@
+key col_loadbalancer_id string;
+property col_loadbalancer_id.col_agent_id string;
+
+datasource source (
+    `LOADBALANCER_ID`:col_loadbalancer_id,
+    `AGENT_ID`:col_agent_id,
+)
+grain (col_loadbalancer_id)
+address `neutron.lbaas_loadbalanceragentbindings`;

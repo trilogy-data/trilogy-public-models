@@ -1,0 +1,9 @@
+key col_bgp_speaker_id string;
+key col_bgp_peer_id string;
+
+datasource source (
+    `BGP_SPEAKER_ID`:col_bgp_speaker_id,
+    `BGP_PEER_ID`:col_bgp_peer_id,
+)
+grain (col_bgp_speaker_id, col_bgp_peer_id)
+address `neutron.bgp_speaker_peer_bindings`;

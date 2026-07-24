@@ -1,0 +1,87 @@
+key col_subject_summary_key string;
+key col_term_code string;
+key col_subject_id string;
+key col_subject_id_sort string;
+key col_subject_title string;
+key col_subject_or_cluster string;
+key col_master_subject_id string;
+key col_master_subject_id_sort string;
+key col_ult_master_subject_id string;
+key col_cluster_type string;
+key col_cluster_type_desc string;
+key col_cluster_list string;
+key col_department_code string;
+key col_department_name string;
+key col_school_code string;
+key col_school_name string;
+key col_total_units int;
+key col_lecture_units int;
+key col_lab_units int;
+key col_prep_units int;
+key col_design_units int;
+key col_subject_enrollment_number int;
+key col_cluster_enrollment_number int;
+key col_subject_group_id string;
+key col_subject_enrollment_first_week int;
+key col_cluster_enrollment_first_week int;
+key col_subject_enrollment_fifth_week int;
+key col_cluster_enrollment_fifth_week int;
+key col_subject_enrollment_credit int;
+key col_subject_enrollment_listen int;
+key col_cluster_enrollment_credit int;
+key col_cluster_enrollment_listen int;
+key col_subject_enrollment_1st_credit int;
+key col_subject_enrollment_1st_listen int;
+key col_cluster_enrollment_1st_credit int;
+key col_cluster_enrollment_1st_listen int;
+key col_subject_enrollment_5th_credit int;
+key col_subject_enrollment_5th_listen int;
+key col_cluster_enrollment_5th_credit int;
+key col_cluster_enrollment_5th_listen int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SUBJECT_SUMMARY_KEY`:col_subject_summary_key,
+    `TERM_CODE`:col_term_code,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_ID_SORT`:col_subject_id_sort,
+    `SUBJECT_TITLE`:col_subject_title,
+    `SUBJECT_OR_CLUSTER`:col_subject_or_cluster,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `MASTER_SUBJECT_ID_SORT`:col_master_subject_id_sort,
+    `ULT_MASTER_SUBJECT_ID`:col_ult_master_subject_id,
+    `CLUSTER_TYPE`:col_cluster_type,
+    `CLUSTER_TYPE_DESC`:col_cluster_type_desc,
+    `CLUSTER_LIST`:col_cluster_list,
+    `DEPARTMENT_CODE`:col_department_code,
+    `DEPARTMENT_NAME`:col_department_name,
+    `SCHOOL_CODE`:col_school_code,
+    `SCHOOL_NAME`:col_school_name,
+    `TOTAL_UNITS`:col_total_units,
+    `LECTURE_UNITS`:col_lecture_units,
+    `LAB_UNITS`:col_lab_units,
+    `PREP_UNITS`:col_prep_units,
+    `DESIGN_UNITS`:col_design_units,
+    `SUBJECT_ENROLLMENT_NUMBER`:col_subject_enrollment_number,
+    `CLUSTER_ENROLLMENT_NUMBER`:col_cluster_enrollment_number,
+    `SUBJECT_GROUP_ID`:col_subject_group_id,
+    `SUBJECT_ENROLLMENT_FIRST_WEEK`:col_subject_enrollment_first_week,
+    `CLUSTER_ENROLLMENT_FIRST_WEEK`:col_cluster_enrollment_first_week,
+    `SUBJECT_ENROLLMENT_FIFTH_WEEK`:col_subject_enrollment_fifth_week,
+    `CLUSTER_ENROLLMENT_FIFTH_WEEK`:col_cluster_enrollment_fifth_week,
+    `SUBJECT_ENROLLMENT_CREDIT`:col_subject_enrollment_credit,
+    `SUBJECT_ENROLLMENT_LISTEN`:col_subject_enrollment_listen,
+    `CLUSTER_ENROLLMENT_CREDIT`:col_cluster_enrollment_credit,
+    `CLUSTER_ENROLLMENT_LISTEN`:col_cluster_enrollment_listen,
+    `SUBJECT_ENROLLMENT_1ST_CREDIT`:col_subject_enrollment_1st_credit,
+    `SUBJECT_ENROLLMENT_1ST_LISTEN`:col_subject_enrollment_1st_listen,
+    `CLUSTER_ENROLLMENT_1ST_CREDIT`:col_cluster_enrollment_1st_credit,
+    `CLUSTER_ENROLLMENT_1ST_LISTEN`:col_cluster_enrollment_1st_listen,
+    `SUBJECT_ENROLLMENT_5TH_CREDIT`:col_subject_enrollment_5th_credit,
+    `SUBJECT_ENROLLMENT_5TH_LISTEN`:col_subject_enrollment_5th_listen,
+    `CLUSTER_ENROLLMENT_5TH_CREDIT`:col_cluster_enrollment_5th_credit,
+    `CLUSTER_ENROLLMENT_5TH_LISTEN`:col_cluster_enrollment_5th_listen,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_subject_summary_key, col_term_code, col_subject_id, col_subject_id_sort, col_subject_title, col_subject_or_cluster, col_master_subject_id, col_master_subject_id_sort, col_ult_master_subject_id, col_cluster_type, col_cluster_type_desc, col_cluster_list, col_department_code, col_department_name, col_school_code, col_school_name, col_total_units, col_lecture_units, col_lab_units, col_prep_units, col_design_units, col_subject_enrollment_number, col_cluster_enrollment_number, col_subject_group_id, col_subject_enrollment_first_week, col_cluster_enrollment_first_week, col_subject_enrollment_fifth_week, col_cluster_enrollment_fifth_week, col_subject_enrollment_credit, col_subject_enrollment_listen, col_cluster_enrollment_credit, col_cluster_enrollment_listen, col_subject_enrollment_1st_credit, col_subject_enrollment_1st_listen, col_cluster_enrollment_1st_credit, col_cluster_enrollment_1st_listen, col_subject_enrollment_5th_credit, col_subject_enrollment_5th_listen, col_cluster_enrollment_5th_credit, col_cluster_enrollment_5th_listen, col_warehouse_load_date)
+address `dw.SUBJECT_SUMMARY`;

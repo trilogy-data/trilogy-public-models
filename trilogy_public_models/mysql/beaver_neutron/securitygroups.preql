@@ -1,0 +1,13 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_standard_attr_id int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `STANDARD_ATTR_ID`:col_standard_attr_id,
+)
+grain (col_id)
+address `neutron.securitygroups`;

@@ -1,0 +1,21 @@
+key col_zip_code string;
+key col_zip_type date;
+key col_city_name string;
+key col_city_type string;
+key col_county_name string;
+key col_state_abbr string;
+key col_state_name string;
+key col_warehouse_load_date string;
+
+datasource source (
+    `ZIP_CODE`:col_zip_code,
+    `ZIP_TYPE`:col_zip_type,
+    `CITY_NAME`:col_city_name,
+    `CITY_TYPE`:col_city_type,
+    `COUNTY_NAME`:col_county_name,
+    `STATE_ABBR`:col_state_abbr,
+    `STATE_NAME`:col_state_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_zip_code, col_zip_type, col_city_name, col_city_type, col_county_name, col_state_abbr, col_state_name, col_warehouse_load_date)
+address `dw.ZIP_USA`;

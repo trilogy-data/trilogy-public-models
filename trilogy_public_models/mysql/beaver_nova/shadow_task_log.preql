@@ -1,0 +1,31 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_task_name string;
+property col_id.col_state string;
+property col_id.col_host string;
+property col_id.col_period_beginning datetime;
+property col_id.col_period_ending datetime;
+property col_id.col_message string;
+property col_id.col_task_items int;
+property col_id.col_errors int;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `TASK_NAME`:col_task_name,
+    `STATE`:col_state,
+    `HOST`:col_host,
+    `PERIOD_BEGINNING`:col_period_beginning,
+    `PERIOD_ENDING`:col_period_ending,
+    `MESSAGE`:col_message,
+    `TASK_ITEMS`:col_task_items,
+    `ERRORS`:col_errors,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.shadow_task_log`;

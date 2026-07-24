@@ -1,0 +1,7 @@
+key col_network_id string;
+
+datasource source (
+    `NETWORK_ID`:col_network_id,
+)
+grain (col_network_id)
+address `neutron.multi_provider_networks`;

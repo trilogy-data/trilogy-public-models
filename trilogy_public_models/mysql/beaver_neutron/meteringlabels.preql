@@ -1,0 +1,15 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_shared int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `SHARED`:col_shared,
+)
+grain (col_id)
+address `neutron.meteringlabels`;

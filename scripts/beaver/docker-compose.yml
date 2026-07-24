@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: beaver-mysql
+    restart: unless-stopped
+    command:
+      - --local-infile=1
+      - --max-allowed-packet=256M
+      - --lower-case-table-names=1
+      - --innodb-redo-log-capacity=1G
+    environment:
+      MYSQL_ROOT_PASSWORD: ${BEAVER_MYSQL_ROOT_PASSWORD:-beaver}
+    ports:
+      - "${BEAVER_MYSQL_PORT:-3306}:3306"
+    volumes:
+      - beaver_mysql_data:/var/lib/mysql
+      - ${BEAVER_MYSQL_INIT_DIR:?Set BEAVER_MYSQL_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${BEAVER_MYSQL_ROOT_PASSWORD:-beaver}"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+
+volumes:
+  beaver_mysql_data:

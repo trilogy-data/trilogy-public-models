@@ -1,0 +1,29 @@
+key col_library_reserve_catalog_key string;
+key col_catalog_title string;
+key col_catalog_author_name string;
+key col_catalog_year string;
+key col_catalog_publisher string;
+key col_catalog_call_number string;
+key col_catalog_isbn string;
+key col_catalog_system_number string;
+key col_catalog_record_create_date date;
+key col_catalog_record_update_date date;
+key col_record_counter int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LIBRARY_RESERVE_CATALOG_KEY`:col_library_reserve_catalog_key,
+    `CATALOG_TITLE`:col_catalog_title,
+    `CATALOG_AUTHOR_NAME`:col_catalog_author_name,
+    `CATALOG_YEAR`:col_catalog_year,
+    `CATALOG_PUBLISHER`:col_catalog_publisher,
+    `CATALOG_CALL_NUMBER`:col_catalog_call_number,
+    `CATALOG_ISBN`:col_catalog_isbn,
+    `CATALOG_SYSTEM_NUMBER`:col_catalog_system_number,
+    `CATALOG_RECORD_CREATE_DATE`:col_catalog_record_create_date,
+    `CATALOG_RECORD_UPDATE_DATE`:col_catalog_record_update_date,
+    `RECORD_COUNTER`:col_record_counter,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_library_reserve_catalog_key, col_catalog_title, col_catalog_author_name, col_catalog_year, col_catalog_publisher, col_catalog_call_number, col_catalog_isbn, col_catalog_system_number, col_catalog_record_create_date, col_catalog_record_update_date, col_record_counter, col_warehouse_load_date)
+address `dw.LIBRARY_RESERVE_CATALOG`;

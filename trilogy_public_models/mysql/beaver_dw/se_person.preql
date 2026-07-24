@@ -1,0 +1,29 @@
+key col_mit_id string;
+key col_krb_name string;
+key col_full_name string;
+key col_payroll_rank string;
+key col_position_title string;
+key col_is_active string;
+key col_office_location string;
+key col_organization string;
+key col_first_name string;
+key col_last_name string;
+key col_middle_name string;
+key col_employee_type string;
+
+datasource source (
+    `MIT_ID`:col_mit_id,
+    `KRB_NAME`:col_krb_name,
+    `FULL_NAME`:col_full_name,
+    `PAYROLL_RANK`:col_payroll_rank,
+    `POSITION_TITLE`:col_position_title,
+    `IS_ACTIVE`:col_is_active,
+    `OFFICE_LOCATION`:col_office_location,
+    `ORGANIZATION`:col_organization,
+    `FIRST_NAME`:col_first_name,
+    `LAST_NAME`:col_last_name,
+    `MIDDLE_NAME`:col_middle_name,
+    `EMPLOYEE_TYPE`:col_employee_type,
+)
+grain (col_mit_id, col_krb_name, col_full_name, col_payroll_rank, col_position_title, col_is_active, col_office_location, col_organization, col_first_name, col_last_name, col_middle_name, col_employee_type)
+address `dw.SE_PERSON`;

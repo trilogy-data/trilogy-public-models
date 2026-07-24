@@ -1,0 +1,32 @@
+{
+  "database_table_counts": {
+    "dw": 97,
+    "neutron": 175,
+    "nova": 109
+  },
+  "files": {
+    "join_keys.json": {
+      "bytes": 19748,
+      "sha256": "99eb8528a13e204fcde9aa7ff1c90e101102957831d7321217af08cfe838c3ab"
+    },
+    "questions.jsonl": {
+      "bytes": 40870755,
+      "sha256": "d7cf45c2b91da731865782bd2c711d66502f58ddba279815a72d5769ad570a54"
+    },
+    "questions.txt": {
+      "bytes": 4506307,
+      "sha256": "bf89262f909a24e152e00cc92844c51b0692dfe30d9985f6d6aa86bd580cd325"
+    },
+    "schema.json": {
+      "bytes": 758481,
+      "sha256": "027360cdfcc6c7e65a694d6a33147c9d322f2605b6037c6b03602d6a3b9ad495"
+    }
+  },
+  "question_count": 7978,
+  "question_counts_by_split": {
+    "dw": 5787,
+    "dw_real": 121,
+    "neutron": 1017,
+    "nova": 1053
+  }
+}

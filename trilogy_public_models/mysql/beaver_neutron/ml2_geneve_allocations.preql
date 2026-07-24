@@ -1,0 +1,9 @@
+key col_geneve_vni int;
+property col_geneve_vni.col_allocated int;
+
+datasource source (
+    `GENEVE_VNI`:col_geneve_vni,
+    `ALLOCATED`:col_allocated,
+)
+grain (col_geneve_vni)
+address `neutron.ml2_geneve_allocations`;

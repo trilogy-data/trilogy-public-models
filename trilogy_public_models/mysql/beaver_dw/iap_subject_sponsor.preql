@@ -1,0 +1,13 @@
+key col_iap_subject_sponsor_key string;
+key col_sponsor_name string;
+key col_sponsor_type string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `IAP_SUBJECT_SPONSOR_KEY`:col_iap_subject_sponsor_key,
+    `SPONSOR_NAME`:col_sponsor_name,
+    `SPONSOR_TYPE`:col_sponsor_type,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_iap_subject_sponsor_key, col_sponsor_name, col_sponsor_type, col_warehouse_load_date)
+address `dw.IAP_SUBJECT_SPONSOR`;

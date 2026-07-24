@@ -1,0 +1,11 @@
+key col_tenant_id string;
+property col_tenant_id.col_network_id string;
+property col_tenant_id.col_router_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `NETWORK_ID`:col_network_id,
+    `ROUTER_ID`:col_router_id,
+)
+grain (col_tenant_id)
+address `neutron.auto_allocated_topologies`;

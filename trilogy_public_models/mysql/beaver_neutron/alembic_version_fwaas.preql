@@ -1,0 +1,7 @@
+key col_version_num string;
+
+datasource source (
+    `VERSION_NUM`:col_version_num,
+)
+grain (col_version_num)
+address `neutron.alembic_version_fwaas`;

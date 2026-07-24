@@ -1,0 +1,13 @@
+key col_pool_id string;
+key col_monitor_id string;
+property <col_pool_id, col_monitor_id>.col_status string;
+property <col_pool_id, col_monitor_id>.col_status_description string;
+
+datasource source (
+    `POOL_ID`:col_pool_id,
+    `MONITOR_ID`:col_monitor_id,
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+)
+grain (col_pool_id, col_monitor_id)
+address `neutron.poolmonitorassociations`;

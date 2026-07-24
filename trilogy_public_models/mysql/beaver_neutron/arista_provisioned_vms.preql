@@ -1,0 +1,17 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_vm_id string;
+property col_id.col_host_id string;
+property col_id.col_port_id string;
+property col_id.col_network_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `VM_ID`:col_vm_id,
+    `HOST_ID`:col_host_id,
+    `PORT_ID`:col_port_id,
+    `NETWORK_ID`:col_network_id,
+)
+grain (col_id)
+address `neutron.arista_provisioned_vms`;
