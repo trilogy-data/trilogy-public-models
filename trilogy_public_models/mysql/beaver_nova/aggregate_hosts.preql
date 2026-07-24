@@ -1,9 +1,10 @@
+import aggregates as aggregates;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
 key col_id int;
 property col_id.col_host string;
-property col_id.col_aggregate_id int;
 property col_id.col_deleted int;
 
 datasource source (
@@ -12,7 +13,7 @@ datasource source (
     `DELETED_AT`:col_deleted_at,
     `ID`:col_id,
     `HOST`:col_host,
-    `AGGREGATE_ID`:col_aggregate_id,
+    `AGGREGATE_ID`:aggregates.col_id,
     `DELETED`:col_deleted,
 )
 grain (col_id)

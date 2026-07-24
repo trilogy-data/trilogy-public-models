@@ -1,9 +1,10 @@
-key col_policy_id string;
-key col_network_id string;
+import networks as networks;
+import qos_policies as qos_policies;
+
 
 datasource source (
-    `POLICY_ID`:col_policy_id,
-    `NETWORK_ID`:col_network_id,
+    `POLICY_ID`:qos_policies.col_id,
+    `NETWORK_ID`:networks.col_id,
 )
-grain (col_policy_id, col_network_id)
+grain (qos_policies.col_id, networks.col_id)
 address `neutron.qos_network_policy_bindings`;

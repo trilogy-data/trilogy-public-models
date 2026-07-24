@@ -1,3 +1,5 @@
+import instances as instances;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
@@ -6,7 +8,6 @@ property col_id.col_source_compute string;
 property col_id.col_dest_compute string;
 property col_id.col_dest_host string;
 property col_id.col_status string;
-property col_id.col_instance_uuid string;
 property col_id.col_old_instance_type_id int;
 property col_id.col_new_instance_type_id int;
 property col_id.col_source_node string;
@@ -30,7 +31,7 @@ datasource source (
     `DEST_COMPUTE`:col_dest_compute,
     `DEST_HOST`:col_dest_host,
     `STATUS`:col_status,
-    `INSTANCE_UUID`:col_instance_uuid,
+    `INSTANCE_UUID`:instances.col_uuid,
     `OLD_INSTANCE_TYPE_ID`:col_old_instance_type_id,
     `NEW_INSTANCE_TYPE_ID`:col_new_instance_type_id,
     `SOURCE_NODE`:col_source_node,

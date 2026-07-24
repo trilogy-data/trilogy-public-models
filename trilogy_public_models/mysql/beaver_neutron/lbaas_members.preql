@@ -1,6 +1,7 @@
+import lbaas_pools as lbaas_pools;
+
 property col_id.col_tenant_id string;
 key col_id string;
-property col_id.col_pool_id string;
 property col_id.col_subnet_id string;
 property col_id.col_address string;
 property col_id.col_protocol_port int;
@@ -13,7 +14,7 @@ property col_id.col_name string;
 datasource source (
     `TENANT_ID`:col_tenant_id,
     `ID`:col_id,
-    `POOL_ID`:col_pool_id,
+    `POOL_ID`:lbaas_pools.col_id,
     `SUBNET_ID`:col_subnet_id,
     `ADDRESS`:col_address,
     `PROTOCOL_PORT`:col_protocol_port,

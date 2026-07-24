@@ -1,3 +1,5 @@
+import instances as instances;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
@@ -9,7 +11,6 @@ property col_id.col_volume_id string;
 property col_id.col_volume_size int;
 property col_id.col_no_device int;
 property col_id.col_connection_info string;
-property col_id.col_instance_uuid string;
 property col_id.col_deleted int;
 property col_id.col_source_type string;
 property col_id.col_destination_type string;
@@ -31,7 +32,7 @@ datasource source (
     `VOLUME_SIZE`:col_volume_size,
     `NO_DEVICE`:col_no_device,
     `CONNECTION_INFO`:col_connection_info,
-    `INSTANCE_UUID`:col_instance_uuid,
+    `INSTANCE_UUID`:instances.col_uuid,
     `DELETED`:col_deleted,
     `SOURCE_TYPE`:col_source_type,
     `DESTINATION_TYPE`:col_destination_type,

@@ -1,6 +1,7 @@
+import vips as vips;
+
 property col_id.col_tenant_id string;
 key col_id string;
-property col_id.col_vip_id string;
 property col_id.col_name string;
 property col_id.col_description string;
 property col_id.col_subnet_id string;
@@ -13,7 +14,7 @@ property col_id.col_admin_state_up int;
 datasource source (
     `TENANT_ID`:col_tenant_id,
     `ID`:col_id,
-    `VIP_ID`:col_vip_id,
+    `VIP_ID`:vips.col_id,
     `NAME`:col_name,
     `DESCRIPTION`:col_description,
     `SUBNET_ID`:col_subnet_id,

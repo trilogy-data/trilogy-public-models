@@ -1,9 +1,10 @@
-key col_router_id string;
-key col_l3_agent_id string;
+import agents as agents;
+import routers as routers;
+
 
 datasource source (
-    `ROUTER_ID`:col_router_id,
-    `L3_AGENT_ID`:col_l3_agent_id,
+    `ROUTER_ID`:routers.col_id,
+    `L3_AGENT_ID`:agents.col_id,
 )
-grain (col_router_id, col_l3_agent_id)
+grain (routers.col_id, agents.col_id)
 address `neutron.routerl3agentbindings`;

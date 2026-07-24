@@ -1,8 +1,9 @@
+import ports as ports;
+
 property col_id.col_tenant_id string;
 key col_id string;
 property col_id.col_name string;
 property col_id.col_description string;
-property col_id.col_port_id string;
 property col_id.col_protocol_port int;
 property col_id.col_protocol string;
 property col_id.col_pool_id string;
@@ -16,7 +17,7 @@ datasource source (
     `ID`:col_id,
     `NAME`:col_name,
     `DESCRIPTION`:col_description,
-    `PORT_ID`:col_port_id,
+    `PORT_ID`:ports.col_id,
     `PROTOCOL_PORT`:col_protocol_port,
     `PROTOCOL`:col_protocol,
     `POOL_ID`:col_pool_id,

@@ -1,14 +1,15 @@
 from trilogy import Executor, Dialects
-from trilogy.dialect import DuckDBConfig, SQLiteConfig
+from trilogy.dialect import DuckDBConfig, MySQLConfig, SQLiteConfig
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
 from pathlib import Path
+import os
 
 
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
-    conf: DuckDBConfig | SQLiteConfig | None = None
+    conf: DuckDBConfig | MySQLConfig | SQLiteConfig | None = None
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
@@ -22,6 +23,16 @@ def get_executor(
         db_files = sorted(model_dir.glob("*.db"))
         if db_files:
             conf = SQLiteConfig(path=str(db_files[0]))
+    elif "mysql" in model:
+        dialect = Dialects.MYSQL
+        database = model.removeprefix("mysql.beaver_")
+        conf = MySQLConfig(
+            host=os.environ.get("BEAVER_MYSQL_HOST", "127.0.0.1"),
+            port=int(os.environ.get("BEAVER_MYSQL_PORT", "3306")),
+            username=os.environ.get("BEAVER_MYSQL_USER", "root"),
+            password=os.environ.get("BEAVER_MYSQL_PASSWORD", "beaver"),
+            database=database,
+        )
     else:
         raise NotImplementedError(f"Model {model} not supported")
     loaded = data_models[model]

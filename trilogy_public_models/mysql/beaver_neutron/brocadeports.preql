@@ -1,5 +1,6 @@
+import brocadenetworks as brocadenetworks;
+
 key col_port_id string;
-property col_port_id.col_network_id string;
 property col_port_id.col_admin_state_up int;
 property col_port_id.col_physical_interface string;
 property col_port_id.col_vlan_id string;
@@ -7,7 +8,7 @@ property col_port_id.col_tenant_id string;
 
 datasource source (
     `PORT_ID`:col_port_id,
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:brocadenetworks.col_id,
     `ADMIN_STATE_UP`:col_admin_state_up,
     `PHYSICAL_INTERFACE`:col_physical_interface,
     `VLAN_ID`:col_vlan_id,

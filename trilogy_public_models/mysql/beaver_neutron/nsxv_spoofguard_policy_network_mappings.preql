@@ -1,9 +1,10 @@
-key col_network_id string;
-property col_network_id.col_policy_id string;
+import networks as networks;
+
+property networks.col_id.col_policy_id string;
 
 datasource source (
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
     `POLICY_ID`:col_policy_id,
 )
-grain (col_network_id)
+grain (networks.col_id)
 address `neutron.nsxv_spoofguard_policy_network_mappings`;

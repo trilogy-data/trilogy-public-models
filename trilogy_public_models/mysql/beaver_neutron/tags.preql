@@ -1,9 +1,10 @@
-key col_standard_attr_id int;
+import standardattributes as standardattributes;
+
 key col_tag string;
 
 datasource source (
-    `STANDARD_ATTR_ID`:col_standard_attr_id,
+    `STANDARD_ATTR_ID`:standardattributes.col_id,
     `TAG`:col_tag,
 )
-grain (col_standard_attr_id, col_tag)
+grain (standardattributes.col_id, col_tag)
 address `neutron.tags`;

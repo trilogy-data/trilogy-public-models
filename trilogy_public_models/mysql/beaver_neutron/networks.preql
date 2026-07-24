@@ -1,3 +1,5 @@
+import standardattributes as standardattributes;
+
 property col_id.col_tenant_id string;
 key col_id string;
 property col_id.col_name string;
@@ -5,7 +7,6 @@ property col_id.col_status string;
 property col_id.col_admin_state_up int;
 property col_id.col_mtu int;
 property col_id.col_vlan_transparent int;
-property col_id.col_standard_attr_id int;
 property col_id.col_availability_zone_hints string;
 
 datasource source (
@@ -16,7 +17,7 @@ datasource source (
     `ADMIN_STATE_UP`:col_admin_state_up,
     `MTU`:col_mtu,
     `VLAN_TRANSPARENT`:col_vlan_transparent,
-    `STANDARD_ATTR_ID`:col_standard_attr_id,
+    `STANDARD_ATTR_ID`:standardattributes.col_id,
     `AVAILABILITY_ZONE_HINTS`:col_availability_zone_hints,
 )
 grain (col_id)

@@ -1,0 +1,843 @@
+{
+  "dw": [
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "building_key",
+      "source_table": "fac_building_address",
+      "target_column": "fac_building_key",
+      "target_table": "fac_building"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "building_key",
+      "source_table": "fac_floor",
+      "target_column": "fac_building_key",
+      "target_table": "fac_building"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "organization_id",
+      "source_table": "fac_organization",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "major_org_key",
+      "source_table": "fac_organization",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "building_key",
+      "source_table": "fac_rooms",
+      "target_column": "fac_building_key",
+      "target_table": "fac_building"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "floor_key",
+      "source_table": "fac_rooms",
+      "target_column": "floor_key",
+      "target_table": "fac_floor"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "major_use_key",
+      "source_table": "fac_rooms",
+      "target_column": "major_use_key",
+      "target_table": "fac_major_use"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "organization_key",
+      "source_table": "fac_rooms",
+      "target_column": "organization_key",
+      "target_table": "fac_organization"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "fclt_building_key",
+      "source_table": "fclt_building_address",
+      "target_column": "fclt_building_key",
+      "target_table": "fclt_building"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "fclt_building_key",
+      "source_table": "fclt_floor",
+      "target_column": "fclt_building_key",
+      "target_table": "fclt_building"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "fclt_major_use_key",
+      "source_table": "fclt_major_use_hist",
+      "target_column": "fclt_major_use_key",
+      "target_table": "fclt_major_use"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "fclt_organization_key",
+      "source_table": "fclt_organization",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "organization_id",
+      "source_table": "fclt_organization",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "fclt_major_org_key",
+      "source_table": "fclt_organization",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "fclt_building_key",
+      "source_table": "fclt_rooms",
+      "target_column": "fclt_building_key",
+      "target_table": "fclt_building"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "fclt_floor_key",
+      "source_table": "fclt_rooms",
+      "target_column": "fclt_floor_key",
+      "target_table": "fclt_floor"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "fclt_major_use_key",
+      "source_table": "fclt_rooms",
+      "target_column": "fclt_major_use_key",
+      "target_table": "fclt_major_use"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "fclt_organization_key",
+      "source_table": "fclt_rooms",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "fclt_floor_key",
+      "source_table": "fclt_rooms_hist",
+      "target_column": "fclt_floor_key",
+      "target_table": "fclt_floor"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "space_id",
+      "source_table": "fclt_rooms_hist",
+      "target_column": "space_usage_key",
+      "target_table": "space_usage"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "fclt_major_use_key",
+      "source_table": "fclt_rooms_hist",
+      "target_column": "fclt_major_use_key",
+      "target_table": "fclt_major_use"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "fclt_organization_key",
+      "source_table": "fclt_rooms_hist",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "iap_subject_category_key",
+      "source_table": "iap_subject_detail",
+      "target_column": "iap_subject_category_key",
+      "target_table": "iap_subject_category"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "iap_subject_sponsor_key",
+      "source_table": "iap_subject_detail",
+      "target_column": "iap_subject_sponsor_key",
+      "target_table": "iap_subject_sponsor"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "library_material_status_key",
+      "source_table": "library_reserve_matrl_detail",
+      "target_column": "library_material_status_key",
+      "target_table": "library_material_status"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "building_key",
+      "source_table": "space_detail",
+      "target_column": "building_key",
+      "target_table": "buildings"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "floor_key",
+      "source_table": "space_detail",
+      "target_column": "floor_key",
+      "target_table": "space_floor"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "space_usage_key",
+      "source_table": "space_detail",
+      "target_column": "space_usage_key",
+      "target_table": "space_usage"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "fclt_organization_key",
+      "source_table": "space_unit",
+      "target_column": "fclt_organization_key",
+      "target_table": "fclt_org_dlc_key"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "space_unit_key",
+      "source_table": "space_unit2",
+      "target_column": "space_unit_key",
+      "target_table": "space_unit"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "tip_material_status_key",
+      "source_table": "tip_detail",
+      "target_column": "tip_material_status_key",
+      "target_table": "tip_material_status"
+    }
+  ],
+  "neutron": [
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "port_id",
+      "source_table": "allowedaddresspairs",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared",
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "subnet_id",
+      "source_table": "dnsnameservers",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "floatingips",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "floating_network_id",
+      "source_table": "floatingips",
+      "target_column": "network_id",
+      "target_table": "externalnetworks"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "floating_port_id",
+      "source_table": "floatingips",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "healthmonitors",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared",
+        "annotation"
+      ],
+      "coverage": "complete",
+      "source_column": "subnet_id",
+      "source_table": "ipallocationpools",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "subnet_id",
+      "source_table": "ipallocations",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "network_id",
+      "source_table": "ipallocations",
+      "target_column": "id",
+      "target_table": "networks"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "lbaas_listeners",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "loadbalancer_id",
+      "source_table": "lbaas_listeners",
+      "target_column": "loadbalancer_id",
+      "target_table": "lbaas_loadbalanceragentbindings"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "complete",
+      "source_column": "default_pool_id",
+      "source_table": "lbaas_listeners",
+      "target_column": "id",
+      "target_table": "lbaas_pools"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "agent_id",
+      "source_table": "lbaas_loadbalanceragentbindings",
+      "target_column": "id",
+      "target_table": "agents"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "lbaas_loadbalancers",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "vip_port_id",
+      "source_table": "lbaas_loadbalancers",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "vip_subnet_id",
+      "source_table": "lbaas_loadbalancers",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "lbaas_members",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "complete",
+      "source_column": "pool_id",
+      "source_table": "lbaas_members",
+      "target_column": "id",
+      "target_table": "lbaas_pools"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "subnet_id",
+      "source_table": "lbaas_members",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "lbaas_pools",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "loadbalancer_id",
+      "source_table": "lbaas_pools",
+      "target_column": "loadbalancer_id",
+      "target_table": "lbaas_loadbalanceragentbindings"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "members",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "pool_id",
+      "source_table": "members",
+      "target_column": "pool_id",
+      "target_table": "poolstatisticss"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "complete",
+      "source_column": "network_id",
+      "source_table": "ml2_network_segments",
+      "target_column": "id",
+      "target_table": "networks"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "port_id",
+      "source_table": "ml2_port_binding_levels",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "segment_id",
+      "source_table": "ml2_port_binding_levels",
+      "target_column": "id",
+      "target_table": "ml2_network_segments"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "network_id",
+      "source_table": "networkdhcpagentbindings",
+      "target_column": "id",
+      "target_table": "networks"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "dhcp_agent_id",
+      "source_table": "networkdhcpagentbindings",
+      "target_column": "id",
+      "target_table": "agents"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "networkrbacs",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "networks",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "pool_id",
+      "source_table": "poolmonitorassociations",
+      "target_column": "pool_id",
+      "target_table": "poolstatisticss"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "monitor_id",
+      "source_table": "poolmonitorassociations",
+      "target_column": "id",
+      "target_table": "healthmonitors"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "pools",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "subnet_id",
+      "source_table": "pools",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "network_id",
+      "source_table": "ports",
+      "target_column": "id",
+      "target_table": "networks"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "quotas",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "quotausages",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "reservations",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "complete",
+      "source_column": "reservation_id",
+      "source_table": "resourcedeltas",
+      "target_column": "id",
+      "target_table": "reservations"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "router_id",
+      "source_table": "routerl3agentbindings",
+      "target_column": "router_id",
+      "target_table": "router_extra_attributes"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "l3_agent_id",
+      "source_table": "routerl3agentbindings",
+      "target_column": "id",
+      "target_table": "agents"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "router_id",
+      "source_table": "routerports",
+      "target_column": "router_id",
+      "target_table": "router_extra_attributes"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "port_id",
+      "source_table": "routerports",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "routers",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared",
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "port_id",
+      "source_table": "securitygroupportbindings",
+      "target_column": "id",
+      "target_table": "ports"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "tenant_id",
+      "source_table": "securitygrouprules",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "complete",
+      "source_column": "tenant_id",
+      "source_table": "securitygroups",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared",
+        "annotation"
+      ],
+      "coverage": "partial",
+      "source_column": "subnet_id",
+      "source_table": "subnetroutes",
+      "target_column": "id",
+      "target_table": "subnets"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "subnets",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "declared"
+      ],
+      "coverage": "partial",
+      "source_column": "network_id",
+      "source_table": "subnets",
+      "target_column": "id",
+      "target_table": "networks"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "tenant_id",
+      "source_table": "vips",
+      "target_column": "tenant_id",
+      "target_table": "default_security_group"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "port_id",
+      "source_table": "vips",
+      "target_column": "port_id",
+      "target_table": "ml2_port_bindings"
+    },
+    {
+      "accepted": false,
+      "corroborated_by": [],
+      "coverage": "partial",
+      "source_column": "pool_id",
+      "source_table": "vips",
+      "target_column": "pool_id",
+      "target_table": "poolstatisticss"
+    }
+  ],
+  "nova": []
+}

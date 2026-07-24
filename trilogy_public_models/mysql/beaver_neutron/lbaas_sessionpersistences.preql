@@ -1,11 +1,12 @@
-key col_pool_id string;
-property col_pool_id.col_type string;
-property col_pool_id.col_cookie_name string;
+import lbaas_pools as lbaas_pools;
+
+property lbaas_pools.col_id.col_type string;
+property lbaas_pools.col_id.col_cookie_name string;
 
 datasource source (
-    `POOL_ID`:col_pool_id,
+    `POOL_ID`:lbaas_pools.col_id,
     `TYPE`:col_type,
     `COOKIE_NAME`:col_cookie_name,
 )
-grain (col_pool_id)
+grain (lbaas_pools.col_id)
 address `neutron.lbaas_sessionpersistences`;

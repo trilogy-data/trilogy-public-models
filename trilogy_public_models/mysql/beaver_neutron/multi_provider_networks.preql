@@ -1,7 +1,8 @@
-key col_network_id string;
+import networks as networks;
+
 
 datasource source (
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
 )
-grain (col_network_id)
+grain (networks.col_id)
 address `neutron.multi_provider_networks`;

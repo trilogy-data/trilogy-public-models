@@ -1,9 +1,10 @@
-key col_loadbalancer_id string;
-property col_loadbalancer_id.col_agent_id string;
+import agents as agents;
+import lbaas_loadbalancers as lbaas_loadbalancers;
+
 
 datasource source (
-    `LOADBALANCER_ID`:col_loadbalancer_id,
-    `AGENT_ID`:col_agent_id,
+    `LOADBALANCER_ID`:lbaas_loadbalancers.col_id,
+    `AGENT_ID`:agents.col_id,
 )
-grain (col_loadbalancer_id)
+grain (lbaas_loadbalancers.col_id)
 address `neutron.lbaas_loadbalanceragentbindings`;

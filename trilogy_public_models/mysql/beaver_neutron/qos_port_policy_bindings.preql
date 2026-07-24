@@ -1,9 +1,10 @@
-key col_policy_id string;
-key col_port_id string;
+import ports as ports;
+import qos_policies as qos_policies;
+
 
 datasource source (
-    `POLICY_ID`:col_policy_id,
-    `PORT_ID`:col_port_id,
+    `POLICY_ID`:qos_policies.col_id,
+    `PORT_ID`:ports.col_id,
 )
-grain (col_policy_id, col_port_id)
+grain (qos_policies.col_id, ports.col_id)
 address `neutron.qos_port_policy_bindings`;

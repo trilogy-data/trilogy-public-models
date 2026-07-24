@@ -1,14 +1,15 @@
-key col_port_id string;
+import ports as ports;
+
 key col_host string;
-property <col_port_id, col_host>.col_router_id string;
-property <col_port_id, col_host>.col_vif_type string;
-property <col_port_id, col_host>.col_vif_details string;
-property <col_port_id, col_host>.col_vnic_type string;
-property <col_port_id, col_host>.col_profile string;
-property <col_port_id, col_host>.col_status string;
+property <ports.col_id, col_host>.col_router_id string;
+property <ports.col_id, col_host>.col_vif_type string;
+property <ports.col_id, col_host>.col_vif_details string;
+property <ports.col_id, col_host>.col_vnic_type string;
+property <ports.col_id, col_host>.col_profile string;
+property <ports.col_id, col_host>.col_status string;
 
 datasource source (
-    `PORT_ID`:col_port_id,
+    `PORT_ID`:ports.col_id,
     `HOST`:col_host,
     `ROUTER_ID`:col_router_id,
     `VIF_TYPE`:col_vif_type,
@@ -17,5 +18,5 @@ datasource source (
     `PROFILE`:col_profile,
     `STATUS`:col_status,
 )
-grain (col_port_id, col_host)
+grain (ports.col_id, col_host)
 address `neutron.ml2_dvr_port_bindings`;

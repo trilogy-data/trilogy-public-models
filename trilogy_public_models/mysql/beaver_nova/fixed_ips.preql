@@ -1,3 +1,5 @@
+import instances as instances;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
@@ -9,7 +11,6 @@ property col_id.col_leased int;
 property col_id.col_reserved int;
 property col_id.col_virtual_interface_id int;
 property col_id.col_host string;
-property col_id.col_instance_uuid string;
 property col_id.col_deleted int;
 
 datasource source (
@@ -24,7 +25,7 @@ datasource source (
     `RESERVED`:col_reserved,
     `VIRTUAL_INTERFACE_ID`:col_virtual_interface_id,
     `HOST`:col_host,
-    `INSTANCE_UUID`:col_instance_uuid,
+    `INSTANCE_UUID`:instances.col_uuid,
     `DELETED`:col_deleted,
 )
 grain (col_id)

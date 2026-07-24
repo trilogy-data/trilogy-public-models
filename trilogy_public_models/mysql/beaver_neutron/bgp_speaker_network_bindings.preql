@@ -1,11 +1,12 @@
-key col_bgp_speaker_id string;
-key col_network_id string;
+import bgp_speakers as bgp_speakers;
+import networks as networks;
+
 key col_ip_version int;
 
 datasource source (
-    `BGP_SPEAKER_ID`:col_bgp_speaker_id,
-    `NETWORK_ID`:col_network_id,
+    `BGP_SPEAKER_ID`:bgp_speakers.col_id,
+    `NETWORK_ID`:networks.col_id,
     `IP_VERSION`:col_ip_version,
 )
-grain (col_network_id, col_bgp_speaker_id, col_ip_version)
+grain (networks.col_id, bgp_speakers.col_id, col_ip_version)
 address `neutron.bgp_speaker_network_bindings`;

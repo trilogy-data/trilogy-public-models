@@ -1,13 +1,14 @@
-key col_network_id string;
-property col_network_id.col_network_type string;
-property col_network_id.col_physical_network string;
-property col_network_id.col_vlan_id int;
+import networks as networks;
+
+property networks.col_id.col_network_type string;
+property networks.col_id.col_physical_network string;
+property networks.col_id.col_vlan_id int;
 
 datasource source (
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
     `NETWORK_TYPE`:col_network_type,
     `PHYSICAL_NETWORK`:col_physical_network,
     `VLAN_ID`:col_vlan_id,
 )
-grain (col_network_id)
+grain (networks.col_id)
 address `neutron.nuage_provider_net_bindings`;

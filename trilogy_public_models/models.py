@@ -74,11 +74,15 @@ class LazyEnvironment(BaseLazyEnvironment):
         if self.loaded:
             return
         from trilogy import parse
+        from trilogy.authoring import ImportStatement
 
         env = Environment(working_path=str(self.working_path))
 
         with open(self.load_path, "r") as f:
-            env, _ = parse(f.read(), env)
+            env, entrypoint_queries = parse(f.read(), env)
+            for query in entrypoint_queries:
+                if not isinstance(query, ImportStatement):
+                    self.setup_queries.append(SetupQuery(query, QueryType.TRILOGY))
         if self.setup_path.exists():
             with open(self.setup_path, "r") as f2:
                 env, q = parse(f2.read(), env)

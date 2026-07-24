@@ -1,11 +1,12 @@
-key col_monitor_id string;
-property col_monitor_id.col_edge_id string;
-property col_monitor_id.col_edge_monitor_id string;
+import healthmonitors as healthmonitors;
+
+property healthmonitors.col_id.col_edge_id string;
+property healthmonitors.col_id.col_edge_monitor_id string;
 
 datasource source (
-    `MONITOR_ID`:col_monitor_id,
+    `MONITOR_ID`:healthmonitors.col_id,
     `EDGE_ID`:col_edge_id,
     `EDGE_MONITOR_ID`:col_edge_monitor_id,
 )
-grain (col_monitor_id)
+grain (healthmonitors.col_id)
 address `neutron.nsxv_edge_monitor_mappings`;

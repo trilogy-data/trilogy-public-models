@@ -1,9 +1,10 @@
-key col_network_id string;
-key col_dhcp_agent_id string;
+import agents as agents;
+import networks as networks;
+
 
 datasource source (
-    `NETWORK_ID`:col_network_id,
-    `DHCP_AGENT_ID`:col_dhcp_agent_id,
+    `NETWORK_ID`:networks.col_id,
+    `DHCP_AGENT_ID`:agents.col_id,
 )
-grain (col_network_id, col_dhcp_agent_id)
+grain (networks.col_id, agents.col_id)
 address `neutron.networkdhcpagentbindings`;

@@ -1,17 +1,18 @@
-property col_port_id.col_tenant_id string;
-property col_port_id.col_network_gateway_id string;
-property col_port_id.col_network_id string;
-property col_port_id.col_segmentation_type string;
-property col_port_id.col_segmentation_id int;
-key col_port_id string;
+import networkgateways as networkgateways;
+import networks as networks;
+import ports as ports;
+
+property ports.col_id.col_tenant_id string;
+property ports.col_id.col_segmentation_type string;
+property ports.col_id.col_segmentation_id int;
 
 datasource source (
     `TENANT_ID`:col_tenant_id,
-    `NETWORK_GATEWAY_ID`:col_network_gateway_id,
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_GATEWAY_ID`:networkgateways.col_id,
+    `NETWORK_ID`:networks.col_id,
     `SEGMENTATION_TYPE`:col_segmentation_type,
     `SEGMENTATION_ID`:col_segmentation_id,
-    `PORT_ID`:col_port_id,
+    `PORT_ID`:ports.col_id,
 )
-grain (col_port_id)
+grain (ports.col_id)
 address `neutron.networkconnections`;

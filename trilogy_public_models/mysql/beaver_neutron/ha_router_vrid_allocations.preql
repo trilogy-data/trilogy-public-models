@@ -1,9 +1,10 @@
-key col_network_id string;
+import networks as networks;
+
 key col_vr_id int;
 
 datasource source (
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
     `VR_ID`:col_vr_id,
 )
-grain (col_network_id, col_vr_id)
+grain (networks.col_id, col_vr_id)
 address `neutron.ha_router_vrid_allocations`;

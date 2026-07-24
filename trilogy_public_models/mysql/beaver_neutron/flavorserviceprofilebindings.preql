@@ -1,9 +1,10 @@
-key col_service_profile_id string;
-key col_flavor_id string;
+import flavors as flavors;
+import serviceprofiles as serviceprofiles;
+
 
 datasource source (
-    `SERVICE_PROFILE_ID`:col_service_profile_id,
-    `FLAVOR_ID`:col_flavor_id,
+    `SERVICE_PROFILE_ID`:serviceprofiles.col_id,
+    `FLAVOR_ID`:flavors.col_id,
 )
-grain (col_service_profile_id, col_flavor_id)
+grain (serviceprofiles.col_id, flavors.col_id)
 address `neutron.flavorserviceprofilebindings`;

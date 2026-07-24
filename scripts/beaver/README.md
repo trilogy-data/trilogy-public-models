@@ -54,14 +54,65 @@ models using both the released schema metadata and primary keys recovered from
 the dump:
 
 ```console
+python -m pip install -e C:\Users\ethan\coding_projects\pytrilogy[mysql]
 python scripts/beaver/generate_models.py \
   --ddl-zip /path/to/beaver_db.zip
 ```
 
 This creates `mysql.beaver_dw`, `mysql.beaver_neutron`, and
-`mysql.beaver_nova`. Trilogy currently has no native MySQL dialect/executor, so
-these are semantic schema models for prompt construction and inspection. The
-benchmark evaluator should execute generated SQL directly against MySQL.
+`mysql.beaver_nova`. They use the MySQL dialect currently available in the
+local PyTrilogy checkout.
+
+Declared foreign keys are modeled by importing the referenced dimension into
+the child module and assigning the physical FK column directly to that
+dimension concept. `MERGE` is retained only for annotation-only relationships
+where the released database metadata does not establish a canonical side. The
+anonymized `dw` dump declares no foreign keys, so its directed relationships
+require corroboration between annotations and value-based inference.
+
+### Relationship defense in depth
+
+Relationship evidence is applied in this order:
+
+1. Declared MySQL foreign keys are authoritative.
+2. Full ingest inference is accepted only when the same pair appears in a
+   released BEAVER gold-query join annotation.
+3. Accepted inferred relationships become directed table-local imports. Their
+   complete/partial coverage is preserved; partial relationships use `~`.
+4. Remaining annotation-only pairs stay as compatibility `MERGE` statements
+   until another source can establish direction.
+5. Uncorroborated inference remains in the evidence file with
+   `"accepted": false` and never changes the generated models.
+
+Collect inference evidence after running full ingest:
+
+```console
+python scripts/beaver/collect_inferred_relationships.py
+python scripts/beaver/generate_models.py
+```
+
+The checked-in `data/beaver/inferred_relationships.json` records every
+candidate, its coverage, corroborating sources, and acceptance decision.
+
+### Inference test rollout
+
+Use the datasets in this order:
+
+1. **Neutron** is the calibration suite. Its 163 declared foreign keys provide
+   ground truth for precision and recall, and it is much cheaper to scan than
+   Nova. Report exact directed matches, wrong-target matches, and missed FKs.
+2. **DW, then `dw_real`**, tests discovery where the dump has no declared FKs.
+   Score against released join annotations and query execution coverage. Use
+   `dw_real` as a small, human-readable regression slice over the same schema.
+3. **Nova** is the scale suite. Start with declared-FK neighborhoods such as
+   instances/actions and aggregates/hosts; run a full scan only as an offline
+   performance test. Its exhaustive all-table inference is too expensive for a
+   normal integration test.
+
+Promotion thresholds should be measured on Neutron before changing the policy:
+target at least 95% precision for automatically accepted relationships.
+Recall is secondary because annotations and declared constraints remain
+available as fallback layers.
 
 ## Run MySQL locally
 
@@ -78,3 +129,7 @@ The default connection is `127.0.0.1:3306`, user `root`, password `beaver`.
 Set `BEAVER_MYSQL_ROOT_PASSWORD` before the first `docker compose up` to use a
 different local password. MySQL executes the init files only when its named
 data volume is empty.
+
+The model executor reads `BEAVER_MYSQL_HOST`, `BEAVER_MYSQL_PORT`,
+`BEAVER_MYSQL_USER`, and `BEAVER_MYSQL_PASSWORD`, with the local defaults shown
+above.

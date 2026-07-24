@@ -1,9 +1,10 @@
+import networks as networks;
+
 key col_network_purpose int;
-property col_network_purpose.col_network_id string;
 
 datasource source (
     `NETWORK_PURPOSE`:col_network_purpose,
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
 )
 grain (col_network_purpose)
 address `neutron.nsxv_internal_networks`;

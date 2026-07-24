@@ -1,10 +1,11 @@
+import lbaas_listeners as lbaas_listeners;
+import lbaas_pools as lbaas_pools;
+
 property col_id.col_tenant_id string;
 key col_id string;
 property col_id.col_name string;
 property col_id.col_description string;
-property col_id.col_listener_id string;
 property col_id.col_action string;
-property col_id.col_redirect_pool_id string;
 property col_id.col_redirect_url string;
 property col_id.col_position int;
 property col_id.col_provisioning_status string;
@@ -15,9 +16,9 @@ datasource source (
     `ID`:col_id,
     `NAME`:col_name,
     `DESCRIPTION`:col_description,
-    `LISTENER_ID`:col_listener_id,
+    `LISTENER_ID`:lbaas_listeners.col_id,
     `ACTION`:col_action,
-    `REDIRECT_POOL_ID`:col_redirect_pool_id,
+    `REDIRECT_POOL_ID`:lbaas_pools.col_id,
     `REDIRECT_URL`:col_redirect_url,
     `POSITION`:col_position,
     `PROVISIONING_STATUS`:col_provisioning_status,

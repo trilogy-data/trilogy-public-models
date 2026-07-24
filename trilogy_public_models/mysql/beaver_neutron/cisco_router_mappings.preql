@@ -1,11 +1,12 @@
-key col_router_id string;
-property col_router_id.col_auto_schedule int;
-property col_router_id.col_hosting_device_id string;
+import cisco_hosting_devices as cisco_hosting_devices;
+import routers as routers;
+
+property routers.col_id.col_auto_schedule int;
 
 datasource source (
-    `ROUTER_ID`:col_router_id,
+    `ROUTER_ID`:routers.col_id,
     `AUTO_SCHEDULE`:col_auto_schedule,
-    `HOSTING_DEVICE_ID`:col_hosting_device_id,
+    `HOSTING_DEVICE_ID`:cisco_hosting_devices.col_id,
 )
-grain (col_router_id)
+grain (routers.col_id)
 address `neutron.cisco_router_mappings`;

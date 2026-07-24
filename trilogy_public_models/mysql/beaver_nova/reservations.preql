@@ -1,9 +1,10 @@
+import quota_usages as quota_usages;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
 key col_id int;
 property col_id.col_uuid string;
-property col_id.col_usage_id int;
 property col_id.col_project_id string;
 property col_id.col_resource string;
 property col_id.col_delta int;
@@ -17,7 +18,7 @@ datasource source (
     `DELETED_AT`:col_deleted_at,
     `ID`:col_id,
     `UUID`:col_uuid,
-    `USAGE_ID`:col_usage_id,
+    `USAGE_ID`:quota_usages.col_id,
     `PROJECT_ID`:col_project_id,
     `RESOURCE`:col_resource,
     `DELTA`:col_delta,

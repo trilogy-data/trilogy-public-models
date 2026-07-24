@@ -1,6 +1,7 @@
+import tip_material_status as tip_material_status;
+
 key col_tip_subject_offered_key string;
 key col_tip_material_key string;
-key col_tip_material_status_key string;
 key col_term_code string;
 key col_subject_id string;
 key col_isbn string;
@@ -10,12 +11,12 @@ key col_warehouse_load_date date;
 datasource source (
     `TIP_SUBJECT_OFFERED_KEY`:col_tip_subject_offered_key,
     `TIP_MATERIAL_KEY`:col_tip_material_key,
-    `TIP_MATERIAL_STATUS_KEY`:col_tip_material_status_key,
+    `TIP_MATERIAL_STATUS_KEY`:tip_material_status.col_tip_material_status_key,
     `TERM_CODE`:col_term_code,
     `SUBJECT_ID`:col_subject_id,
     `ISBN`:col_isbn,
     `RECORD_COUNT`:col_record_count,
     `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
 )
-grain (col_tip_subject_offered_key, col_tip_material_key, col_tip_material_status_key, col_term_code, col_subject_id, col_isbn, col_record_count, col_warehouse_load_date)
+grain (col_tip_subject_offered_key, col_tip_material_key, tip_material_status.col_tip_material_status_key, col_term_code, col_subject_id, col_isbn, col_record_count, col_warehouse_load_date)
 address `dw.TIP_DETAIL`;

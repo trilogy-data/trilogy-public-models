@@ -1,9 +1,10 @@
+import instances as instances;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
 key col_id int;
 property col_id.col_action string;
-property col_id.col_instance_uuid string;
 property col_id.col_request_id string;
 property col_id.col_user_id string;
 property col_id.col_project_id string;
@@ -18,7 +19,7 @@ datasource source (
     `DELETED_AT`:col_deleted_at,
     `ID`:col_id,
     `ACTION`:col_action,
-    `INSTANCE_UUID`:col_instance_uuid,
+    `INSTANCE_UUID`:instances.col_uuid,
     `REQUEST_ID`:col_request_id,
     `USER_ID`:col_user_id,
     `PROJECT_ID`:col_project_id,

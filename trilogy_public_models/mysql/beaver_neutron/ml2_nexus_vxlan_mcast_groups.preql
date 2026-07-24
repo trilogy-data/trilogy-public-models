@@ -1,11 +1,12 @@
+import ml2_nexus_vxlan_allocations as ml2_nexus_vxlan_allocations;
+
 key col_id string;
 property col_id.col_mcast_group string;
-property col_id.col_associated_vni int;
 
 datasource source (
     `ID`:col_id,
     `MCAST_GROUP`:col_mcast_group,
-    `ASSOCIATED_VNI`:col_associated_vni,
+    `ASSOCIATED_VNI`:ml2_nexus_vxlan_allocations.col_vxlan_vni,
 )
 grain (col_id)
 address `neutron.ml2_nexus_vxlan_mcast_groups`;

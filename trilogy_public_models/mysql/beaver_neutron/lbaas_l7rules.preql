@@ -1,6 +1,7 @@
+import lbaas_l7policies as lbaas_l7policies;
+
 property col_id.col_tenant_id string;
 key col_id string;
-property col_id.col_l7policy_id string;
 property col_id.col_type string;
 property col_id.col_compare_type string;
 property col_id.col_invert int;
@@ -12,7 +13,7 @@ property col_id.col_admin_state_up int;
 datasource source (
     `TENANT_ID`:col_tenant_id,
     `ID`:col_id,
-    `L7POLICY_ID`:col_l7policy_id,
+    `L7POLICY_ID`:lbaas_l7policies.col_id,
     `TYPE`:col_type,
     `COMPARE_TYPE`:col_compare_type,
     `INVERT`:col_invert,

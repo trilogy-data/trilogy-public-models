@@ -1,8 +1,9 @@
+import firewall_policies as firewall_policies;
+
 property col_id.col_tenant_id string;
 key col_id string;
 property col_id.col_name string;
 property col_id.col_description string;
-property col_id.col_firewall_policy_id string;
 property col_id.col_shared int;
 property col_id.col_protocol string;
 property col_id.col_ip_version int;
@@ -21,7 +22,7 @@ datasource source (
     `ID`:col_id,
     `NAME`:col_name,
     `DESCRIPTION`:col_description,
-    `FIREWALL_POLICY_ID`:col_firewall_policy_id,
+    `FIREWALL_POLICY_ID`:firewall_policies.col_id,
     `SHARED`:col_shared,
     `PROTOCOL`:col_protocol,
     `IP_VERSION`:col_ip_version,

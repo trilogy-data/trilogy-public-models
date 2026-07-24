@@ -1,9 +1,10 @@
-key col_fw_id string;
-key col_router_id string;
+import firewalls as firewalls;
+import routers as routers;
+
 
 datasource source (
-    `FW_ID`:col_fw_id,
-    `ROUTER_ID`:col_router_id,
+    `FW_ID`:firewalls.col_id,
+    `ROUTER_ID`:routers.col_id,
 )
-grain (col_fw_id, col_router_id)
+grain (firewalls.col_id, routers.col_id)
 address `neutron.firewall_router_associations`;

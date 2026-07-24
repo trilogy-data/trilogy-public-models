@@ -1,4 +1,5 @@
-key col_fclt_organization_key string;
+import fclt_org_dlc_key as fclt_org_dlc_key;
+
 key col_organization_id string;
 key col_organization string;
 key col_organization_name string;
@@ -20,7 +21,7 @@ key col_hr_org_unit_id string;
 key col_hr_department_name string;
 
 datasource source (
-    `FCLT_ORGANIZATION_KEY`:col_fclt_organization_key,
+    `FCLT_ORGANIZATION_KEY`:fclt_org_dlc_key.col_fclt_organization_key,
     `ORGANIZATION_ID`:col_organization_id,
     `ORGANIZATION`:col_organization,
     `ORGANIZATION_NAME`:col_organization_name,
@@ -41,5 +42,5 @@ datasource source (
     `HR_ORG_UNIT_ID`:col_hr_org_unit_id,
     `HR_DEPARTMENT_NAME`:col_hr_department_name,
 )
-grain (col_fclt_organization_key, col_organization_id, col_organization, col_organization_name, col_fclt_org_parent_key, col_org_parent, col_fclt_major_org_key, col_major_org, col_organization_level, col_organization_number, col_organization_sort, col_assignable, col_course, col_description, col_warehouse_load_date, col_dlc_key, col_dlc_name, col_hr_department_code_old, col_hr_org_unit_id, col_hr_department_name)
+grain (fclt_org_dlc_key.col_fclt_organization_key, col_organization_id, col_organization, col_organization_name, col_fclt_org_parent_key, col_org_parent, col_fclt_major_org_key, col_major_org, col_organization_level, col_organization_number, col_organization_sort, col_assignable, col_course, col_description, col_warehouse_load_date, col_dlc_key, col_dlc_name, col_hr_department_code_old, col_hr_org_unit_id, col_hr_department_name)
 address `dw.FCLT_ORGANIZATION`;

@@ -1,9 +1,10 @@
+import compute_nodes as compute_nodes;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
 property col_id.col_deleted int;
 key col_id int;
-property col_id.col_compute_node_id int;
 property col_id.col_address string;
 property col_id.col_product_id string;
 property col_id.col_vendor_id string;
@@ -23,7 +24,7 @@ datasource source (
     `DELETED_AT`:col_deleted_at,
     `DELETED`:col_deleted,
     `ID`:col_id,
-    `COMPUTE_NODE_ID`:col_compute_node_id,
+    `COMPUTE_NODE_ID`:compute_nodes.col_id,
     `ADDRESS`:col_address,
     `PRODUCT_ID`:col_product_id,
     `VENDOR_ID`:col_vendor_id,

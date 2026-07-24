@@ -1,9 +1,10 @@
+import networks as networks;
+
 key col_tenant_id string;
-key col_network_id string;
 
 datasource source (
     `TENANT_ID`:col_tenant_id,
-    `NETWORK_ID`:col_network_id,
+    `NETWORK_ID`:networks.col_id,
 )
-grain (col_tenant_id, col_network_id)
+grain (col_tenant_id, networks.col_id)
 address `neutron.ha_router_networks`;

@@ -1,8 +1,9 @@
+import instance_types as instance_types;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
 key col_id int;
-property col_id.col_instance_type_id int;
 property col_id.col_project_id string;
 property col_id.col_deleted int;
 
@@ -11,7 +12,7 @@ datasource source (
     `UPDATED_AT`:col_updated_at,
     `DELETED_AT`:col_deleted_at,
     `ID`:col_id,
-    `INSTANCE_TYPE_ID`:col_instance_type_id,
+    `INSTANCE_TYPE_ID`:instance_types.col_id,
     `PROJECT_ID`:col_project_id,
     `DELETED`:col_deleted,
 )

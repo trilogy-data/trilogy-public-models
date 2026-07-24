@@ -1,3 +1,5 @@
+import instances as instances;
+
 property col_id.col_created_at datetime;
 property col_id.col_updated_at datetime;
 property col_id.col_deleted_at datetime;
@@ -5,7 +7,6 @@ key col_id int;
 property col_id.col_address string;
 property col_id.col_network_id int;
 property col_id.col_uuid string;
-property col_id.col_instance_uuid string;
 property col_id.col_deleted int;
 
 datasource source (
@@ -16,7 +17,7 @@ datasource source (
     `ADDRESS`:col_address,
     `NETWORK_ID`:col_network_id,
     `UUID`:col_uuid,
-    `INSTANCE_UUID`:col_instance_uuid,
+    `INSTANCE_UUID`:instances.col_uuid,
     `DELETED`:col_deleted,
 )
 grain (col_id)

@@ -1,15 +1,16 @@
-key col_fw_id string;
-property col_fw_id.col_port_id string;
-property col_fw_id.col_direction string;
-property col_fw_id.col_acl_id string;
-property col_fw_id.col_router_id string;
+import firewalls as firewalls;
+import ports as ports;
+
+property firewalls.col_id.col_direction string;
+property firewalls.col_id.col_acl_id string;
+property firewalls.col_id.col_router_id string;
 
 datasource source (
-    `FW_ID`:col_fw_id,
-    `PORT_ID`:col_port_id,
+    `FW_ID`:firewalls.col_id,
+    `PORT_ID`:ports.col_id,
     `DIRECTION`:col_direction,
     `ACL_ID`:col_acl_id,
     `ROUTER_ID`:col_router_id,
 )
-grain (col_fw_id)
+grain (firewalls.col_id)
 address `neutron.cisco_firewall_associations`;

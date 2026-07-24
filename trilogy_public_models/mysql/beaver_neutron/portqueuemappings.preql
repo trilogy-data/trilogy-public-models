@@ -1,9 +1,10 @@
-key col_port_id string;
-key col_queue_id string;
+import ports as ports;
+import qosqueues as qosqueues;
+
 
 datasource source (
-    `PORT_ID`:col_port_id,
-    `QUEUE_ID`:col_queue_id,
+    `PORT_ID`:ports.col_id,
+    `QUEUE_ID`:qosqueues.col_id,
 )
-grain (col_port_id, col_queue_id)
+grain (ports.col_id, qosqueues.col_id)
 address `neutron.portqueuemappings`;

@@ -1,11 +1,12 @@
-key col_neutron_id string;
-property col_neutron_id.col_nsx_switch_id string;
-property col_neutron_id.col_nsx_port_id string;
+import ports as ports;
+
+property ports.col_id.col_nsx_switch_id string;
+property ports.col_id.col_nsx_port_id string;
 
 datasource source (
-    `NEUTRON_ID`:col_neutron_id,
+    `NEUTRON_ID`:ports.col_id,
     `NSX_SWITCH_ID`:col_nsx_switch_id,
     `NSX_PORT_ID`:col_nsx_port_id,
 )
-grain (col_neutron_id)
+grain (ports.col_id)
 address `neutron.neutron_nsx_port_mappings`;

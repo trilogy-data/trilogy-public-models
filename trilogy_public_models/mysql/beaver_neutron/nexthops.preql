@@ -1,9 +1,10 @@
-key col_rule_id int;
+import routerrules as routerrules;
+
 key col_nexthop string;
 
 datasource source (
-    `RULE_ID`:col_rule_id,
+    `RULE_ID`:routerrules.col_id,
     `NEXTHOP`:col_nexthop,
 )
-grain (col_rule_id, col_nexthop)
+grain (routerrules.col_id, col_nexthop)
 address `neutron.nexthops`;

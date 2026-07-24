@@ -16,8 +16,7 @@ SKIPPED_KEYS = [
     "bigquery.age_of_empires_2",
     "duckdb.titanic",
     "duckdb.covid19_open_data",
-    # Trilogy does not yet expose a MySQL dialect/executor. These models are
-    # parsed separately and used as BEAVER prompt schemas.
+    # BEAVER's MySQL dump is prepared locally and is not available in CI.
     "mysql.beaver_dw",
     "mysql.beaver_neutron",
     "mysql.beaver_nova",

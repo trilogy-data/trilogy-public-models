@@ -1,11 +1,12 @@
-key col_listener_id string;
+import lbaas_listeners as lbaas_listeners;
+
 key col_tls_container_id string;
-property <col_listener_id, col_tls_container_id>.col_position int;
+property <lbaas_listeners.col_id, col_tls_container_id>.col_position int;
 
 datasource source (
-    `LISTENER_ID`:col_listener_id,
+    `LISTENER_ID`:lbaas_listeners.col_id,
     `TLS_CONTAINER_ID`:col_tls_container_id,
     `POSITION`:col_position,
 )
-grain (col_listener_id, col_tls_container_id)
+grain (lbaas_listeners.col_id, col_tls_container_id)
 address `neutron.lbaas_sni`;

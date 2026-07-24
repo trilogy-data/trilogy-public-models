@@ -1,9 +1,10 @@
+import ipsec_site_connections as ipsec_site_connections;
+
 key col_cidr string;
-key col_ipsec_site_connection_id string;
 
 datasource source (
     `CIDR`:col_cidr,
-    `IPSEC_SITE_CONNECTION_ID`:col_ipsec_site_connection_id,
+    `IPSEC_SITE_CONNECTION_ID`:ipsec_site_connections.col_id,
 )
-grain (col_cidr, col_ipsec_site_connection_id)
+grain (col_cidr, ipsec_site_connections.col_id)
 address `neutron.ipsecpeercidrs`;
