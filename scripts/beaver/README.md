@@ -36,6 +36,18 @@ Outputs:
 - `join_keys.json`: join pairs observed in the released gold annotations.
 - `manifest.json`: counts and SHA-256 hashes for reproducibility.
 
+Audit the released questions for hidden gold dependencies after extraction:
+
+```console
+python scripts/beaver/audit_question_specification.py
+```
+
+This writes `question_specification.jsonl` and a readable
+`question_specification.md`. A question is conservatively marked unspecified
+when its gold SQL or join annotations use a physical table absent from its
+released `tables` annotation. The eval harness excludes those questions by
+default; use `--include-unspecified` only for benchmark-artifact analysis.
+
 `dev_tables.json` is useful model metadata, but is not complete relational DDL:
 it has table/column names and types, not declared primary/foreign-key
 constraints. `join_keys.json` recovers the relationships exercised by released
@@ -93,6 +105,9 @@ python scripts/beaver/generate_models.py
 
 The checked-in `data/beaver/inferred_relationships.json` records every
 candidate, its coverage, corroborating sources, and acceptance decision.
+`curated_relationships.json` records reviewed polymorphic roles that ordinary
+FK inference cannot represent; each entry must include concrete value-overlap
+evidence and independent annotation corroboration.
 
 ### Inference test rollout
 
@@ -113,6 +128,48 @@ Promotion thresholds should be measured on Neutron before changing the policy:
 target at least 95% precision for automatically accepted relationships.
 Recall is secondary because annotations and declared constraints remain
 available as fallback layers.
+
+## Run the Neutron agent eval
+
+The initial harness runs one fresh Trilogy agent per question against the
+stitched Neutron model, using DeepSeek directly. It executes both the generated
+Trilogy and the released reference SQL against MySQL, then applies BEAVER's
+execution-match semantics: stringified cells, ignored row order and duplicates,
+but preserved column order and count.
+
+Start by checking selection and credentials without making an API call:
+
+```console
+python scripts/beaver/eval_neutron.py \
+  --dry-run --query-ids neutron_0,neutron_10
+```
+
+Then run a small paid smoke test:
+
+```console
+$env:DEEPSEEK_API_KEY = "..."
+python scripts/beaver/eval_neutron.py \
+  --query-ids neutron_0,neutron_10 \
+  --model deepseek-v4-flash
+```
+
+The default is three questions, 40 agent iterations, a 10-minute agent timeout,
+and a 10-second database timeout. The agent receives no gold schema or table
+hints: it has the Trilogy tool and must discover the model through `file list`
+and `explore`; direct database introspection remains disabled. Artifacts
+are checkpointed after each question beneath
+`.cache/beaver/evals/neutron/<timestamp>/`, including the prompt, agent JSONL
+trace, generated `answer.preql`, stdout, and `report.{json,md}`.
+
+For a reproducible baseline, draw a seeded random sample from the conservatively
+specified pool rather than evaluating the first records in file order:
+
+```console
+python scripts/beaver/eval_neutron.py --sample-size 25 --seed 42
+```
+
+The report records the selected IDs, seed, pass rate, and 95% Wilson confidence
+interval. Reuse the same seed when comparing model or semantic-model changes.
 
 ## Run MySQL locally
 

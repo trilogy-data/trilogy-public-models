@@ -1,0 +1,22 @@
+import ..core.ports as ports;
+
+key col_host string;
+property <ports.col_id, col_host>.col_router_id string;
+property <ports.col_id, col_host>.col_vif_type string;
+property <ports.col_id, col_host>.col_vif_details string;
+property <ports.col_id, col_host>.col_vnic_type string;
+property <ports.col_id, col_host>.col_profile string;
+property <ports.col_id, col_host>.col_status string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `HOST`:col_host,
+    `ROUTER_ID`:col_router_id,
+    `VIF_TYPE`:col_vif_type,
+    `VIF_DETAILS`:col_vif_details,
+    `VNIC_TYPE`:col_vnic_type,
+    `PROFILE`:col_profile,
+    `STATUS`:col_status,
+)
+grain (ports.col_id, col_host)
+address `neutron.ml2_dvr_port_bindings`;

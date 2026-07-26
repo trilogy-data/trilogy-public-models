@@ -1,0 +1,22 @@
+import ports as ports;
+import ..other.standardattributes as standardattributes;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_status string;
+property col_id.col_admin_state_up int;
+property col_id.col_enable_snat int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `STATUS`:col_status,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `GW_PORT_ID`:ports.col_id,
+    `ENABLE_SNAT`:col_enable_snat,
+    `STANDARD_ATTR_ID`:standardattributes.col_id,
+)
+grain (col_id)
+address `neutron.routers`;

@@ -1,0 +1,20 @@
+{
+  "neutron": [
+    {
+      "accepted": true,
+      "corroborated_by": [
+        "annotation",
+        "value_overlap"
+      ],
+      "coverage": "partial",
+      "evidence": {
+        "matching_source_rows": 6,
+        "source_rows": 38
+      },
+      "source_column": "resource_id",
+      "source_table": "providerresourceassociations",
+      "target_column": "id",
+      "target_table": "lbaas_loadbalancers"
+    }
+  ]
+}

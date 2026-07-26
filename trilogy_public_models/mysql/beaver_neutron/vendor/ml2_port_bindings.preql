@@ -1,0 +1,18 @@
+import ..core.ports as ports;
+
+property ports.col_id.col_host string;
+property ports.col_id.col_vif_type string;
+property ports.col_id.col_vnic_type string;
+property ports.col_id.col_vif_details string;
+property ports.col_id.col_profile string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `HOST`:col_host,
+    `VIF_TYPE`:col_vif_type,
+    `VNIC_TYPE`:col_vnic_type,
+    `VIF_DETAILS`:col_vif_details,
+    `PROFILE`:col_profile,
+)
+grain (ports.col_id)
+address `neutron.ml2_port_bindings`;

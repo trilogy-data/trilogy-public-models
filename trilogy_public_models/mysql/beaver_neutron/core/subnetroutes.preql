@@ -1,0 +1,14 @@
+# Routes keyed by destination/next-hop and attached to a subnet.
+
+import subnets as subnets;
+
+key col_destination string;
+key col_nexthop string;
+
+datasource source (
+    `DESTINATION`:col_destination,
+    `NEXTHOP`:col_nexthop,
+    `SUBNET_ID`:subnets.col_id,
+)
+grain (col_destination, col_nexthop, subnets.col_id)
+address `neutron.subnetroutes`;

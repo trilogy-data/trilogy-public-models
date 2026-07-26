@@ -1,0 +1,20 @@
+import ..core.networks as networks;
+
+key col_id string;
+property col_id.col_network_type string;
+property col_id.col_physical_network string;
+property col_id.col_segmentation_id int;
+property col_id.col_is_dynamic int;
+property col_id.col_segment_index int;
+
+datasource source (
+    `ID`:col_id,
+    `NETWORK_ID`:networks.col_id,
+    `NETWORK_TYPE`:col_network_type,
+    `PHYSICAL_NETWORK`:col_physical_network,
+    `SEGMENTATION_ID`:col_segmentation_id,
+    `IS_DYNAMIC`:col_is_dynamic,
+    `SEGMENT_INDEX`:col_segment_index,
+)
+grain (col_id)
+address `neutron.ml2_network_segments`;

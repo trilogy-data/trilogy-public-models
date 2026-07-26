@@ -1,7 +1,12 @@
 import json
 
 from scripts.beaver.collect_inferred_relationships import collect
-from scripts.beaver.generate_models import render_table
+from scripts.beaver.generate_models import (
+    domain_for_table,
+    relative_module_path,
+    render_entrypoint,
+    render_table,
+)
 
 
 def test_collect_requires_corroboration(tmp_path):
@@ -64,3 +69,53 @@ def test_render_table_uses_accepted_partial_inference_as_weak_import():
 
     assert "import dimensions as dimensions;" in rendered
     assert "`DIMENSION_ID`:~dimensions.col_id," in rendered
+
+
+def test_neutron_models_are_grouped_and_cross_domain_imports_are_relative():
+    assert domain_for_table("neutron", "securitygroups") == "security"
+    assert domain_for_table("neutron", "networks") == "core"
+    assert relative_module_path("security", "core", "networks") == "..core.networks"
+    assert domain_for_table("neutron", "ipallocationpools") == "core"
+    assert domain_for_table("neutron", "ipavailabilityranges") == "core"
+    assert domain_for_table("neutron", "subnetpools") == "core"
+    assert domain_for_table("neutron", "nsxv_edge_pool_mappings") == "vendor"
+    assert (
+        domain_for_table("neutron", "providerresourceassociations") == "load_balancing"
+    )
+
+
+def test_entrypoint_is_a_lightweight_discovery_root():
+    rendered = render_entrypoint("neutron")
+
+    assert "import " not in rendered
+    assert "Import the relevant table module directly." in rendered
+
+
+def test_localized_extension_fact_keeps_statistics_at_root():
+    table = {
+        "table_name": "LBAAS_LOADBALANCER_STATISTICS",
+        "column_names": ["LOADBALANCER_ID", "BYTES_IN"],
+        "column_types": ["VARCHAR(36)", "BIGINT"],
+    }
+    foreign_keys = {
+        "neutron": [
+            (
+                "lbaas_loadbalancer_statistics",
+                "loadbalancer_id",
+                "lbaas_loadbalancers",
+                "id",
+            )
+        ]
+    }
+
+    rendered = render_table(
+        "neutron",
+        table,
+        {"neutron": {"lbaas_loadbalancer_statistics": ("loadbalancer_id",)}},
+        foreign_keys,
+        {},
+    )
+
+    assert "import lbaas_loadbalancers" not in rendered
+    assert "key col_loadbalancer_id string;" in rendered
+    assert "property col_loadbalancer_id.col_bytes_in int;" in rendered

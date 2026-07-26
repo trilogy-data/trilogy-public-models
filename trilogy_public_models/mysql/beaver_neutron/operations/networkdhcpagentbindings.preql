@@ -1,0 +1,10 @@
+import agents as agents;
+import ..core.networks as networks;
+
+
+datasource source (
+    `NETWORK_ID`:networks.col_id,
+    `DHCP_AGENT_ID`:agents.col_id,
+)
+grain (networks.col_id, agents.col_id)
+address `neutron.networkdhcpagentbindings`;

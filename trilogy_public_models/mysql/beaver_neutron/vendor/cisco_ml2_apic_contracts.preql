@@ -1,0 +1,10 @@
+import ..core.routers as routers;
+
+property routers.col_id.col_tenant_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ROUTER_ID`:routers.col_id,
+)
+grain (routers.col_id)
+address `neutron.cisco_ml2_apic_contracts`;

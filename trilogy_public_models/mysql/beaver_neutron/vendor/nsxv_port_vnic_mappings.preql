@@ -1,0 +1,10 @@
+import ..core.ports as ports;
+
+key col_nsx_id string;
+
+datasource source (
+    `NEUTRON_ID`:ports.col_id,
+    `NSX_ID`:col_nsx_id,
+)
+grain (ports.col_id, col_nsx_id)
+address `neutron.nsxv_port_vnic_mappings`;

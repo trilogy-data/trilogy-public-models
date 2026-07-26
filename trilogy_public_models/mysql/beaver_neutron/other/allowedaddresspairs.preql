@@ -1,0 +1,12 @@
+import ..core.ports as ports;
+
+key col_mac_address string;
+key col_ip_address string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `MAC_ADDRESS`:col_mac_address,
+    `IP_ADDRESS`:col_ip_address,
+)
+grain (ports.col_id, col_mac_address, col_ip_address)
+address `neutron.allowedaddresspairs`;

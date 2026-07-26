@@ -1,0 +1,14 @@
+import cisco_ml2_n1kv_network_profiles as cisco_ml2_n1kv_network_profiles;
+import ..core.networks as networks;
+
+property networks.col_id.col_network_type string;
+property networks.col_id.col_segmentation_id int;
+
+datasource source (
+    `NETWORK_ID`:networks.col_id,
+    `NETWORK_TYPE`:col_network_type,
+    `SEGMENTATION_ID`:col_segmentation_id,
+    `PROFILE_ID`:cisco_ml2_n1kv_network_profiles.col_id,
+)
+grain (networks.col_id)
+address `neutron.cisco_ml2_n1kv_network_bindings`;

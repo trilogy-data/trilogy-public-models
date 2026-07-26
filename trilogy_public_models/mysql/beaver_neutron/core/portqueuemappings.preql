@@ -1,0 +1,10 @@
+import ports as ports;
+import ..qos.qosqueues as qosqueues;
+
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `QUEUE_ID`:qosqueues.col_id,
+)
+grain (ports.col_id, qosqueues.col_id)
+address `neutron.portqueuemappings`;

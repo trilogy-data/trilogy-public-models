@@ -1,0 +1,28 @@
+import ports as col_fixed_port_id_ports;
+import ports as col_floating_port_id_ports;
+import routers as routers;
+import ..other.standardattributes as standardattributes;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_floating_ip_address string;
+property col_id.col_floating_network_id string;
+property col_id.col_fixed_ip_address string;
+property col_id.col_last_known_router_id string;
+property col_id.col_status string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `FLOATING_IP_ADDRESS`:col_floating_ip_address,
+    `FLOATING_NETWORK_ID`:col_floating_network_id,
+    `FLOATING_PORT_ID`:col_floating_port_id_ports.col_id,
+    `FIXED_PORT_ID`:col_fixed_port_id_ports.col_id,
+    `FIXED_IP_ADDRESS`:col_fixed_ip_address,
+    `ROUTER_ID`:routers.col_id,
+    `LAST_KNOWN_ROUTER_ID`:col_last_known_router_id,
+    `STATUS`:col_status,
+    `STANDARD_ATTR_ID`:standardattributes.col_id,
+)
+grain (col_id)
+address `neutron.floatingips`;

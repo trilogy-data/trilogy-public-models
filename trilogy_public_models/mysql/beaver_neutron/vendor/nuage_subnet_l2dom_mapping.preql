@@ -1,0 +1,20 @@
+import nuage_net_partitions as nuage_net_partitions;
+import ..core.subnets as subnets;
+
+property subnets.col_id.col_nuage_subnet_id string;
+property subnets.col_id.col_nuage_l2dom_tmplt_id string;
+property subnets.col_id.col_nuage_user_id string;
+property subnets.col_id.col_nuage_group_id string;
+property subnets.col_id.col_nuage_managed_subnet int;
+
+datasource source (
+    `SUBNET_ID`:subnets.col_id,
+    `NET_PARTITION_ID`:nuage_net_partitions.col_id,
+    `NUAGE_SUBNET_ID`:col_nuage_subnet_id,
+    `NUAGE_L2DOM_TMPLT_ID`:col_nuage_l2dom_tmplt_id,
+    `NUAGE_USER_ID`:col_nuage_user_id,
+    `NUAGE_GROUP_ID`:col_nuage_group_id,
+    `NUAGE_MANAGED_SUBNET`:col_nuage_managed_subnet,
+)
+grain (subnets.col_id)
+address `neutron.nuage_subnet_l2dom_mapping`;

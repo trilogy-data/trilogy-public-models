@@ -1,0 +1,10 @@
+import agents as agents;
+import ..other.bgp_speakers as bgp_speakers;
+
+
+datasource source (
+    `AGENT_ID`:agents.col_id,
+    `BGP_SPEAKER_ID`:bgp_speakers.col_id,
+)
+grain (agents.col_id)
+address `neutron.bgp_speaker_dragent_bindings`;

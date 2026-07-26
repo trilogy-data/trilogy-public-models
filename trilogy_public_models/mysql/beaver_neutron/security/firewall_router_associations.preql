@@ -1,0 +1,10 @@
+import firewalls as firewalls;
+import ..core.routers as routers;
+
+
+datasource source (
+    `FW_ID`:firewalls.col_id,
+    `ROUTER_ID`:routers.col_id,
+)
+grain (firewalls.col_id, routers.col_id)
+address `neutron.firewall_router_associations`;

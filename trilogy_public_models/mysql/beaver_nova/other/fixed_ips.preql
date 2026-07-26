@@ -1,0 +1,32 @@
+import ..compute.instances as instances;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_address string;
+property col_id.col_network_id int;
+property col_id.col_allocated int;
+property col_id.col_leased int;
+property col_id.col_reserved int;
+property col_id.col_virtual_interface_id int;
+property col_id.col_host string;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `ADDRESS`:col_address,
+    `NETWORK_ID`:col_network_id,
+    `ALLOCATED`:col_allocated,
+    `LEASED`:col_leased,
+    `RESERVED`:col_reserved,
+    `VIRTUAL_INTERFACE_ID`:col_virtual_interface_id,
+    `HOST`:col_host,
+    `INSTANCE_UUID`:instances.col_uuid,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.fixed_ips`;

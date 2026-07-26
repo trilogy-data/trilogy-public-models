@@ -1,0 +1,30 @@
+import ..core.ports as ports;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_protocol_port int;
+property col_id.col_protocol string;
+property col_id.col_pool_id string;
+property col_id.col_status string;
+property col_id.col_status_description string;
+property col_id.col_admin_state_up int;
+property col_id.col_connection_limit int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `PORT_ID`:ports.col_id,
+    `PROTOCOL_PORT`:col_protocol_port,
+    `PROTOCOL`:col_protocol,
+    `POOL_ID`:col_pool_id,
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `CONNECTION_LIMIT`:col_connection_limit,
+)
+grain (col_id)
+address `neutron.vips`;
