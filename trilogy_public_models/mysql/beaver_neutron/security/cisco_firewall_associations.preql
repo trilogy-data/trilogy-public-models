@@ -8,9 +8,9 @@ property firewalls.col_id.col_router_id string;
 datasource source (
     `FW_ID`:firewalls.col_id,
     `PORT_ID`:ports.col_id,
-    `DIRECTION`:col_direction,
-    `ACL_ID`:col_acl_id,
-    `ROUTER_ID`:col_router_id,
+    `DIRECTION`:firewalls.col_direction,
+    `ACL_ID`:firewalls.col_acl_id,
+    `ROUTER_ID`:firewalls.col_router_id,
 )
 grain (firewalls.col_id)
 address `neutron.cisco_firewall_associations`;

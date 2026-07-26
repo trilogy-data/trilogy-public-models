@@ -6,9 +6,9 @@ property networks.col_id.col_vlan_id int;
 
 datasource source (
     `NETWORK_ID`:networks.col_id,
-    `NETWORK_TYPE`:col_network_type,
-    `PHYSICAL_NETWORK`:col_physical_network,
-    `VLAN_ID`:col_vlan_id,
+    `NETWORK_TYPE`:networks.col_network_type,
+    `PHYSICAL_NETWORK`:networks.col_physical_network,
+    `VLAN_ID`:networks.col_vlan_id,
 )
 grain (networks.col_id)
 address `neutron.nuage_provider_net_bindings`;

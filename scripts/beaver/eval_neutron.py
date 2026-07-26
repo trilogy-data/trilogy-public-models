@@ -180,8 +180,11 @@ def build_task(question: dict[str, Any]) -> str:
     return (
         "Answer this data question using the prebuilt Trilogy model under raw/. "
         "Call `trilogy agent-info` first, explore the relevant model concepts, "
-        "and write the final executable query to answer.preql. Run it and check "
-        "the result before finishing. Use the backend configured in trilogy.toml; "
+        "and write the final executable query to answer.preql in the workspace "
+        "root, never inside raw/. Imports in answer.preql must therefore begin "
+        "with raw., for example `import raw.core.networks as networks;`. Run "
+        "`trilogy run answer.preql` and check the result before finishing. "
+        "Use the backend configured in trilogy.toml; "
         "do not pass a dialect to `trilogy run`. Do not use raw SQL or inspect "
         f"the database schema directly.\n\nQuestion:\n{question['question']}"
     )
@@ -274,9 +277,11 @@ def run_question(
     status = "missing"
     detail = ""
     reference_rows = candidate_rows = 0
-    if timed_out:
+    if timed_out and not candidate.exists():
         status = "timeout"
     elif not candidate.exists():
+        if exit_code == 2:
+            status = "exhausted"
         detail = f"agent exit={exit_code}; answer.preql was not created"
     else:
         shutil.copy2(candidate, case_dir / "answer.preql")
@@ -294,6 +299,11 @@ def run_question(
                 detail = (
                     f"result mismatch: reference={reference_rows} rows, "
                     f"candidate={candidate_rows} rows"
+                )
+            if timed_out:
+                detail = (
+                    "agent timed out after writing answer.preql"
+                    + (f"; {detail}" if detail else "")
                 )
         except Exception as exc:
             status = "error"

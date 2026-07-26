@@ -4,7 +4,7 @@ property ports.col_id.col_port_security_enabled int;
 
 datasource source (
     `PORT_ID`:ports.col_id,
-    `PORT_SECURITY_ENABLED`:col_port_security_enabled,
+    `PORT_SECURITY_ENABLED`:ports.col_port_security_enabled,
 )
 grain (ports.col_id)
 address `neutron.portsecuritybindings`;

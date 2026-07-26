@@ -6,9 +6,9 @@ property routers.col_id.col_service_router int;
 
 datasource source (
     `ROUTER_ID`:routers.col_id,
-    `DISTRIBUTED`:col_distributed,
-    `ROUTER_TYPE`:col_router_type,
-    `SERVICE_ROUTER`:col_service_router,
+    `DISTRIBUTED`:routers.col_distributed,
+    `ROUTER_TYPE`:routers.col_router_type,
+    `SERVICE_ROUTER`:routers.col_service_router,
 )
 grain (routers.col_id)
 address `neutron.nsxv_router_ext_attributes`;

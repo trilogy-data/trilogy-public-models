@@ -5,8 +5,8 @@ property vips.col_id.col_cookie_name string;
 
 datasource source (
     `VIP_ID`:vips.col_id,
-    `TYPE`:col_type,
-    `COOKIE_NAME`:col_cookie_name,
+    `TYPE`:vips.col_type,
+    `COOKIE_NAME`:vips.col_cookie_name,
 )
 grain (vips.col_id)
 address `neutron.sessionpersistences`;

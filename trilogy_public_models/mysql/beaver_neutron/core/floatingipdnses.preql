@@ -7,10 +7,10 @@ property floatingips.col_id.col_published_dns_domain string;
 
 datasource source (
     `FLOATINGIP_ID`:floatingips.col_id,
-    `DNS_NAME`:col_dns_name,
-    `DNS_DOMAIN`:col_dns_domain,
-    `PUBLISHED_DNS_NAME`:col_published_dns_name,
-    `PUBLISHED_DNS_DOMAIN`:col_published_dns_domain,
+    `DNS_NAME`:floatingips.col_dns_name,
+    `DNS_DOMAIN`:floatingips.col_dns_domain,
+    `PUBLISHED_DNS_NAME`:floatingips.col_published_dns_name,
+    `PUBLISHED_DNS_DOMAIN`:floatingips.col_published_dns_domain,
 )
 grain (floatingips.col_id)
 address `neutron.floatingipdnses`;

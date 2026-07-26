@@ -8,7 +8,7 @@ datasource source (
     `PORT_ID`:ports.col_id,
     `ROUTER_ID`:routers.col_id,
     `L3_AGENT_ID`:agents.col_id,
-    `STATE`:col_state,
+    `STATE`:ports.col_state,
 )
 grain (ports.col_id)
 address `neutron.ha_router_agent_port_bindings`;

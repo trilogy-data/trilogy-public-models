@@ -98,6 +98,11 @@ DOMAIN_OVERRIDES: dict[str, dict[str, str]] = {
         "pools": "load_balancing",
         "poolstatisticss": "load_balancing",
         "providerresourceassociations": "load_balancing",
+        # ML2 is Neutron's primary modular layer, and its port binding facts are
+        # required alongside ports/IP allocations in common operational queries.
+        # Keeping this high-value table under core avoids confusion with the
+        # legacy PORTBINDINGPORTS extension.
+        "ml2_port_bindings": "core",
         "sessionpersistences": "load_balancing",
         "subnetpoolprefixes": "core",
         "subnetpools": "core",
@@ -120,6 +125,20 @@ MODEL_DESCRIPTIONS: dict[tuple[str, str], str] = {
     ): (
         "Per-load-balancer traffic statistics. Join col_loadbalancer_id to a "
         "load-balancer col_id; statistic fields are local/root concepts."
+    ),
+    (
+        "neutron",
+        "ml2_port_bindings",
+    ): (
+        "Primary ML2 port-binding facts, including HOST and VIF_TYPE. Use this "
+        "for host/VIF questions; PORTBINDINGPORTS is a legacy host-only table."
+    ),
+    (
+        "neutron",
+        "portbindingports",
+    ): (
+        "Legacy host-only port binding extension. It does not contain VIF_TYPE; "
+        "prefer ML2_PORT_BINDINGS for host/VIF questions."
     ),
     (
         "neutron",
@@ -229,6 +248,19 @@ def property_declaration(parents: tuple[str, ...], column: str, datatype: str) -
     return f"property <{', '.join(parents)}>.{column} {datatype};"
 
 
+def property_reference(parents: tuple[str, ...], column: str) -> str:
+    """Return the address created by ``property_declaration``.
+
+    A property parented by one imported key is created in that key's namespace,
+    not at the extension module root. PyTrilogy 0.3.301 validates this mapping
+    eagerly, so the datasource must bind the qualified concept.
+    """
+    if len(parents) == 1 and "." in parents[0]:
+        namespace, _ = parents[0].rsplit(".", 1)
+        return f"{namespace}.{column}"
+    return column
+
+
 def render_table(
     db: str,
     table: dict,
@@ -320,6 +352,8 @@ def render_table(
     lines.extend(("", "datasource source ("))
     for original, column in zip(table["column_names"], columns):
         resolved, weak = foreign_concepts.get(original.lower(), (column, False))
+        if original.lower() not in foreign_concepts and resolved not in primary:
+            resolved = property_reference(primary, column)
         if weak:
             resolved = f"~{resolved}"
         lines.append(f"    `{original}`:{resolved},")

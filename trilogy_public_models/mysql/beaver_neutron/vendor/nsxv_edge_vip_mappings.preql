@@ -7,10 +7,10 @@ property pools.col_id.col_edge_fw_rule_id string;
 
 datasource source (
     `POOL_ID`:pools.col_id,
-    `EDGE_ID`:col_edge_id,
-    `EDGE_APP_PROFILE_ID`:col_edge_app_profile_id,
-    `EDGE_VSE_ID`:col_edge_vse_id,
-    `EDGE_FW_RULE_ID`:col_edge_fw_rule_id,
+    `EDGE_ID`:pools.col_edge_id,
+    `EDGE_APP_PROFILE_ID`:pools.col_edge_app_profile_id,
+    `EDGE_VSE_ID`:pools.col_edge_vse_id,
+    `EDGE_FW_RULE_ID`:pools.col_edge_fw_rule_id,
 )
 grain (pools.col_id)
 address `neutron.nsxv_edge_vip_mappings`;

@@ -7,10 +7,10 @@ property pools.col_id.col_total_connections int;
 
 datasource source (
     `POOL_ID`:pools.col_id,
-    `BYTES_IN`:col_bytes_in,
-    `BYTES_OUT`:col_bytes_out,
-    `ACTIVE_CONNECTIONS`:col_active_connections,
-    `TOTAL_CONNECTIONS`:col_total_connections,
+    `BYTES_IN`:pools.col_bytes_in,
+    `BYTES_OUT`:pools.col_bytes_out,
+    `ACTIVE_CONNECTIONS`:pools.col_active_connections,
+    `TOTAL_CONNECTIONS`:pools.col_total_connections,
 )
 grain (pools.col_id)
 address `neutron.poolstatisticss`;

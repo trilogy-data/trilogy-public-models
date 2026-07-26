@@ -77,6 +77,7 @@ def test_neutron_models_are_grouped_and_cross_domain_imports_are_relative():
     assert relative_module_path("security", "core", "networks") == "..core.networks"
     assert domain_for_table("neutron", "ipallocationpools") == "core"
     assert domain_for_table("neutron", "ipavailabilityranges") == "core"
+    assert domain_for_table("neutron", "ml2_port_bindings") == "core"
     assert domain_for_table("neutron", "subnetpools") == "core"
     assert domain_for_table("neutron", "nsxv_edge_pool_mappings") == "vendor"
     assert (
@@ -119,3 +120,27 @@ def test_localized_extension_fact_keeps_statistics_at_root():
     assert "import lbaas_loadbalancers" not in rendered
     assert "key col_loadbalancer_id string;" in rendered
     assert "property col_loadbalancer_id.col_bytes_in int;" in rendered
+
+
+def test_extension_properties_bind_in_imported_key_namespace():
+    table = {
+        "table_name": "EXTERNALNETWORKS",
+        "column_names": ["NETWORK_ID", "IS_DEFAULT"],
+        "column_types": ["VARCHAR(36)", "INT"],
+    }
+    foreign_keys = {
+        "neutron": [
+            ("externalnetworks", "network_id", "networks", "id"),
+        ]
+    }
+
+    rendered = render_table(
+        "neutron",
+        table,
+        {"neutron": {"externalnetworks": ("network_id",)}},
+        foreign_keys,
+        {},
+    )
+
+    assert "property networks.col_id.col_is_default int;" in rendered
+    assert "`IS_DEFAULT`:networks.col_is_default," in rendered

@@ -5,7 +5,7 @@ property routers.col_id.col_auto_schedule int;
 
 datasource source (
     `ROUTER_ID`:routers.col_id,
-    `AUTO_SCHEDULE`:col_auto_schedule,
+    `AUTO_SCHEDULE`:routers.col_auto_schedule,
     `HOSTING_DEVICE_ID`:cisco_hosting_devices.col_id,
 )
 grain (routers.col_id)

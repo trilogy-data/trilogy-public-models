@@ -5,8 +5,8 @@ property ports.col_id.col_index int;
 
 datasource source (
     `PORT_ID`:ports.col_id,
-    `DEVICE_ID`:col_device_id,
-    `INDEX`:col_index,
+    `DEVICE_ID`:ports.col_device_id,
+    `INDEX`:ports.col_index,
 )
 grain (ports.col_id)
 address `neutron.nsxv_port_index_mappings`;

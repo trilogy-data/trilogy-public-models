@@ -4,7 +4,7 @@ property ports.col_id.col_mac_learning_enabled int;
 
 datasource source (
     `PORT_ID`:ports.col_id,
-    `MAC_LEARNING_ENABLED`:col_mac_learning_enabled,
+    `MAC_LEARNING_ENABLED`:ports.col_mac_learning_enabled,
 )
 grain (ports.col_id)
 address `neutron.maclearningstates`;

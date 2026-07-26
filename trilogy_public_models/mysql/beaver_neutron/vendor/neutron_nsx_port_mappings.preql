@@ -5,8 +5,8 @@ property ports.col_id.col_nsx_port_id string;
 
 datasource source (
     `NEUTRON_ID`:ports.col_id,
-    `NSX_SWITCH_ID`:col_nsx_switch_id,
-    `NSX_PORT_ID`:col_nsx_port_id,
+    `NSX_SWITCH_ID`:ports.col_nsx_switch_id,
+    `NSX_PORT_ID`:ports.col_nsx_port_id,
 )
 grain (ports.col_id)
 address `neutron.neutron_nsx_port_mappings`;

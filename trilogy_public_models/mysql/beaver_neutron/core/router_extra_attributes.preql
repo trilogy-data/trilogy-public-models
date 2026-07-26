@@ -8,11 +8,11 @@ property routers.col_id.col_availability_zone_hints string;
 
 datasource source (
     `ROUTER_ID`:routers.col_id,
-    `DISTRIBUTED`:col_distributed,
-    `SERVICE_ROUTER`:col_service_router,
-    `HA`:col_ha,
-    `HA_VR_ID`:col_ha_vr_id,
-    `AVAILABILITY_ZONE_HINTS`:col_availability_zone_hints,
+    `DISTRIBUTED`:routers.col_distributed,
+    `SERVICE_ROUTER`:routers.col_service_router,
+    `HA`:routers.col_ha,
+    `HA_VR_ID`:routers.col_ha_vr_id,
+    `AVAILABILITY_ZONE_HINTS`:routers.col_availability_zone_hints,
 )
 grain (routers.col_id)
 address `neutron.router_extra_attributes`;

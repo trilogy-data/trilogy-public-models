@@ -4,7 +4,7 @@ property routers.col_id.col_nsx_id string;
 
 datasource source (
     `NEUTRON_ID`:routers.col_id,
-    `NSX_ID`:col_nsx_id,
+    `NSX_ID`:routers.col_nsx_id,
 )
 grain (routers.col_id)
 address `neutron.neutron_nsx_router_mappings`;

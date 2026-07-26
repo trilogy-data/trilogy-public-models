@@ -4,7 +4,7 @@ property securitygroups.col_id.col_ip_section_id string;
 
 datasource source (
     `NEUTRON_ID`:securitygroups.col_id,
-    `IP_SECTION_ID`:col_ip_section_id,
+    `IP_SECTION_ID`:securitygroups.col_ip_section_id,
 )
 grain (securitygroups.col_id)
 address `neutron.nsxv_security_group_section_mappings`;
