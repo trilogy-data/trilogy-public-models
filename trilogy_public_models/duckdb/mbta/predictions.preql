@@ -3,19 +3,19 @@ import common;
 key prediction_id string; # one predicted stop event (trip x stop x direction)
 property prediction_id.predicted_arrival datetime?;
 property prediction_id.predicted_departure datetime?;
-property prediction_id.arrival_uncertainty_seconds int?;
-property prediction_id.departure_uncertainty_seconds int?;
-property prediction_id.prediction_stop_sequence int?;
+property prediction_id.arrival_uncertainty_seconds int[0..]?;
+property prediction_id.departure_uncertainty_seconds int[0..]?;
+property prediction_id.prediction_stop_sequence int[0..]?;
 property prediction_id.prediction_status string?; # human override text, e.g. 'Stopped 5 stops away'
-property prediction_id.schedule_relationship string?; # ADDED / CANCELLED / SKIPPED / null for scheduled
-property prediction_id.prediction_update_type string?;
+property prediction_id.schedule_relationship enum<string>['ADDED', 'CANCELLED', 'SKIPPED', 'NO_DATA', 'UNSCHEDULED']?; # null means a normally scheduled trip
+property prediction_id.prediction_update_type enum<string>['MID_TRIP', 'AT_TERMINAL', 'REVERSE_TRIP']?;
 
 root datasource prediction_observations (
     id: prediction_id,
-    route_id: ?route_id,
-    stop_id: ?stop_id,
-    trip_id: ?trip_id,
-    vehicle_id: ?vehicle_id,
+    route_id: ~?route_id,
+    stop_id: ~?stop_id,
+    trip_id: ~?trip_id,
+    vehicle_id: ~?vehicle_id,
     direction_id: ?direction_id,
     arrival_time: ?predicted_arrival,
     departure_time: ?predicted_departure,

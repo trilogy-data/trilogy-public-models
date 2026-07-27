@@ -9,10 +9,10 @@
 """Build ``dimensions/carriers_v2.parquet`` from the local flight parquets,
 shaped to match ``faa/carrier.preql``.
 
-There is no clean public CSV for the BTS L_UNIQUE_CARRIERS lookup â€”
+There is no clean public CSV for the BTS L_UNIQUE_CARRIERS lookup
 ``Download_Lookup.asp`` returns 500s for direct GETs and the HTML table
 is rendered client-side. Since the dataset is tiny (a few dozen unique
-codes across the entire 1987â€“present BTS history), we instead:
+codes across the entire 1987-present BTS history), we instead:
 
   1. Read every distinct ``carrier`` code from
      ``ingest/flights/flights_v2_*.parquet``.

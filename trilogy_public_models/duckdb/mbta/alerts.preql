@@ -1,19 +1,19 @@
 import common;
 
 key alert_id string; # an active service alert
-property alert_id.alert_effect string; # DELAY / SHUTTLE / STATION_ISSUE / ...
-property alert_id.alert_cause string?;
-property alert_id.alert_severity int; # 1 (minor) .. 10 (severe)
+property alert_id.alert_effect string; # DELAY / SHUTTLE / STATION_ISSUE / ... left open: the MBTA V3 effect vocabulary is long and grows
+property alert_id.alert_cause string?; # MAINTENANCE / CONSTRUCTION / UNKNOWN_CAUSE / ... left open for the same reason as alert_effect
+property alert_id.alert_severity int[0..10]; # 0 (least severe) .. 10 (most severe), per the MBTA V3 API
 property alert_id.alert_header string?;
 property alert_id.alert_service_effect string?; # one-line rider-facing summary
-property alert_id.alert_lifecycle string?; # NEW / ONGOING / ONGOING_UPCOMING / UPCOMING
+property alert_id.alert_lifecycle enum<string>['NEW', 'ONGOING', 'ONGOING_UPCOMING', 'UPCOMING']?;
 property alert_id.alert_created_at datetime?;
 property alert_id.alert_updated_at datetime?;
 property alert_id.alert_active_start datetime?;
 property alert_id.alert_active_end datetime?; # null = open-ended
 
 key alert_entity_id string; # one (alert, informed entity) pair: 'alert_id:index'
-property alert_entity_id.entity_route_type int?;
+property alert_entity_id.entity_route_type int[0..12]?; # GTFS route type of the informed route. Wider than routes.route_type: alerts can name bus (3) shuttle routes that the routes feed itself does not carry.
 property alert_entity_id.entity_activities string?; # ';'-joined rider activities (BOARD;EXIT;RIDE)
 
 root datasource active_alerts (
@@ -29,8 +29,8 @@ root datasource active_alerts (
     updated_at: ?alert_updated_at,
     active_start: ?alert_active_start,
     active_end: ?alert_active_end,
-    entity_route_id: ?route_id,
-    entity_stop_id: ?stop_id, # the stop the alert names; may be a platform ('70006') or a parent station ('place-*')
+    entity_route_id: ~?route_id,
+    entity_stop_id: ~?stop_id, # the stop the alert names; may be a platform ('70006') or a parent station ('place-*')
     entity_route_type: ?entity_route_type,
     entity_activities: ?entity_activities,
     mbta_data_updated_through: mbta_data_updated_through,

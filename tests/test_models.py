@@ -24,9 +24,11 @@ SKIPPED_KEYS = [
 
 # duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap US;
 # its grain checks stream ~2GB (the type/id columns of the 700M-row buildings
-# and 300M-row highways layers) over HTTP and aggregate ~1B groups. That
-# passes, but is too slow and bandwidth-heavy for CI — run locally instead.
-if os.environ.get("CI"):
+# and 300M-row highways layers) over HTTP and aggregate ~1B groups. That is too
+# slow and bandwidth-heavy for CI, and heavy enough to take down a developer
+# machine, so it is skipped by default everywhere rather than just in CI. Set
+# VALIDATE_LAYERCAKE=1 to opt in when you intend to pay that cost.
+if not os.environ.get("VALIDATE_LAYERCAKE"):
     SKIPPED_KEYS.append("duckdb.layercake")
 
 
