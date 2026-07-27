@@ -1,8 +1,8 @@
 from preql import Dialects
 from preql.constants import CONFIG
+from preql.hooks.query_debugger import DebuggingHook
 
 from trilogy_public_models import models
-from preql.hooks.query_debugger import DebuggingHook
 
 CONFIG.hash_identifiers = True
 env = models["bigquery.age_of_empires_2"]

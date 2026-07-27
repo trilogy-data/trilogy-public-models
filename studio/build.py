@@ -1,10 +1,10 @@
-import os
-import json
 import glob
-import click
+import json
+import os
+from datetime import datetime, timezone
 from pathlib import Path
-from datetime import datetime
 
+import click
 from trilogy.execution.config import load_config_file
 
 
@@ -334,7 +334,7 @@ def generate_json_files(check: bool):
     all_json_files.sort(key=lambda x: x["name"])
 
     index_data = {
-        "updated_at": datetime.now().isoformat(),
+        "updated_at": datetime.now(timezone.utc).isoformat(),
         "count": len(all_json_files),
         "files": all_json_files,
     }

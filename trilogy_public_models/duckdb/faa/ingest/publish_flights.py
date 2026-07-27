@@ -136,7 +136,7 @@ def main(argv: list[str] | None = None) -> int:
     # for different data_through timestamps, so the size-equality skip would
     # silently leave the GCS watermark stale.
     if prefix == DEFAULT_PREFIX.rstrip("/") and WATERMARK_PATH.exists():
-        wm_name, wm_secs, wm_did = upload_one(
+        wm_name, wm_secs, _ = upload_one(
             bucket, WATERMARK_PATH, WATERMARK_OBJECT, force=True
         )
         print(

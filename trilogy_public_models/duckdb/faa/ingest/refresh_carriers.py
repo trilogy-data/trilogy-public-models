@@ -9,10 +9,10 @@
 """Build ``dimensions/carriers_v2.parquet`` from the local flight parquets,
 shaped to match ``faa/carrier.preql``.
 
-There is no clean public CSV for the BTS L_UNIQUE_CARRIERS lookup —
+There is no clean public CSV for the BTS L_UNIQUE_CARRIERS lookup â€”
 ``Download_Lookup.asp`` returns 500s for direct GETs and the HTML table
 is rendered client-side. Since the dataset is tiny (a few dozen unique
-codes across the entire 1987–present BTS history), we instead:
+codes across the entire 1987â€“present BTS history), we instead:
 
   1. Read every distinct ``carrier`` code from
      ``ingest/flights/flights_v2_*.parquet``.
@@ -30,7 +30,7 @@ from __future__ import annotations
 
 import argparse
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import polars as pl
@@ -49,7 +49,7 @@ UNKNOWN_CARRIER_CODE = "ZZ"
 
 # Sourced from BTS L_UNIQUE_CARRIERS history. Keys are the ``Reporting_Airline``
 # / IATA code that BTS persists in the flight feed. Values are
-# (legal_name, short_nickname). Add to this map when refreshing — BTS
+# (legal_name, short_nickname). Add to this map when refreshing â€” BTS
 # introduces new codes whenever a carrier (re)enters the on-time data.
 CARRIER_NAMES: dict[str, tuple[str, str]] = {
     # Currently active majors / nationals (2020+)
@@ -207,7 +207,7 @@ def main(argv: list[str] | None = None) -> int:
     write_parquet(table, CARRIERS_PARQUET)
 
     print(
-        f"done at {datetime.now().isoformat(timespec='seconds')} — "
+        f"done at {datetime.now(timezone.utc).isoformat(timespec='seconds')} â€” "
         f"upload via publish_dimensions.py"
     )
     return 0

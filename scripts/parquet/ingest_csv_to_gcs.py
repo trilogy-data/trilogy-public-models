@@ -8,9 +8,10 @@ import sys
 import tempfile
 from pathlib import Path
 from urllib.parse import urlparse
-import requests
-import pandas as pd
+
 import click
+import pandas as pd
+import requests
 from google.cloud import storage
 
 
@@ -22,8 +23,7 @@ def download_csv(url: str, output_path: str) -> None:
     response.raise_for_status()
 
     with open(output_path, "wb") as f:
-        for chunk in response.iter_content(chunk_size=8192):
-            f.write(chunk)
+        f.writelines(response.iter_content(chunk_size=8192))
 
     print(f"Downloaded to: {output_path}")
 
@@ -141,7 +141,7 @@ def main(source_url: str, bucket: str, subdirectory: str):
     """
     try:
         process_csv_to_parquet_gcs(source_url, bucket, subdirectory)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - CLI top level: report and exit non-zero, never traceback
         print(f"Script failed: {e}")
         sys.exit(1)
 

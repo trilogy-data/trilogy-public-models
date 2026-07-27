@@ -12,7 +12,6 @@ import json
 import re
 from pathlib import Path
 
-
 IMPORT_RE = re.compile(r"^import\s+(?P<table>\w+)\s+as\s+(?P<alias>\w+);", re.MULTILINE)
 MAPPING_RE = re.compile(
     r"^\s*(?P<column>\w+):\s*(?P<weak>~?)(?P<alias>\w+)\.(?P<target>\w+),",

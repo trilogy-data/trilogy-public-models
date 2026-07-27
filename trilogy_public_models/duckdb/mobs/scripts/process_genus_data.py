@@ -1,7 +1,8 @@
-import pandas as pd
+import csv
 import re
 from pathlib import Path
-import csv
+
+import pandas as pd
 
 
 def minimize_species_row(row):

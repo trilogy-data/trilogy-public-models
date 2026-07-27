@@ -2,9 +2,9 @@ from os import listdir
 from os.path import dirname, join
 
 from trilogy import Environment
+from trilogy.authoring import PersistStatement, RawSQLStatement, SelectStatement
 from trilogy.constants import ENV_CACHE_NAME
 from trilogy.parser import parse
-from trilogy.authoring import RawSQLStatement, SelectStatement, PersistStatement
 
 
 def parse_initial_models(

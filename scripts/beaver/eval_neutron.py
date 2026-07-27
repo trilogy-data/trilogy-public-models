@@ -19,7 +19,6 @@ import pymysql
 from trilogy import Dialects, Environment
 from trilogy.dialect.config import MySQLConfig
 
-
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_QUESTIONS = REPO_ROOT / "data/beaver/questions.jsonl"
 DEFAULT_SPECIFICATION = REPO_ROOT / "data/beaver/question_specification.jsonl"
@@ -305,7 +304,7 @@ def run_question(
                     "agent timed out after writing answer.preql"
                     + (f"; {detail}" if detail else "")
                 )
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - one bad question is recorded, not fatal to the eval
             status = "error"
             detail = f"{type(exc).__name__}: {exc}"
 
@@ -352,8 +351,10 @@ def write_report(
         f"- Passed: {passed}/{len(results)} ({report['pass_rate']:.1%})",
         f"- 95% Wilson interval: {interval_low:.1%}–{interval_high:.1%}",
         f"- Sampling seed: `{args.seed}`",
-        f"- Agent budget: `{args.max_iterations}` iterations, "
-        f"`{args.agent_timeout}`s timeout",
+        (
+            f"- Agent budget: `{args.max_iterations}` iterations, "
+            f"`{args.agent_timeout}`s timeout"
+        ),
         f"- Tokens: {report['total_tokens']:,}",
         "",
         "| Question | Status | Tokens | Seconds | Detail |",

@@ -2,8 +2,9 @@ from os.path import dirname
 
 nb_path = __file__
 root_path = dirname(dirname(nb_path))
-from preql import Dialects  # noqa: E402
-from trilogy_public_models import models  # noqa: E402
+from preql import Dialects
+
+from trilogy_public_models import models
 
 env = models["bigquery.usa_names"]
 

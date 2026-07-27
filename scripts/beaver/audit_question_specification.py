@@ -6,9 +6,9 @@ import argparse
 import json
 import re
 from collections import Counter
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
-
+from typing import Any
 
 TABLE_REF_RE = re.compile(
     r"\b(?:FROM|JOIN)\s+`?(?P<table>[A-Za-z_][A-Za-z0-9_]*)`?",
@@ -103,15 +103,19 @@ def write_report(path: Path, audited: list[dict[str, Any]]) -> None:
     lines = [
         "# BEAVER question specification audit",
         "",
-        "A question is conservatively marked `unspecified` when its gold SQL or "
-        "gold join annotations require a physical table absent from the released "
-        "`tables` annotation. This detects hidden dependencies; it does not prove "
-        "that every remaining question is perfectly worded.",
+        (
+            "A question is conservatively marked `unspecified` when its gold SQL or "
+            "gold join annotations require a physical table absent from the released "
+            "`tables` annotation. This detects hidden dependencies; it does not prove "
+            "that every remaining question is perfectly worded."
+        ),
         "",
-        "The `high_confidence` evaluation tier is intentionally narrower: it "
-        "contains specified questions with exactly two declared tables and no "
-        "separate domain-knowledge annotation. This is a corpus-selection "
-        "heuristic, not benchmark-specific model guidance.",
+        (
+            "The `high_confidence` evaluation tier is intentionally narrower: it "
+            "contains specified questions with exactly two declared tables and no "
+            "separate domain-knowledge annotation. This is a corpus-selection "
+            "heuristic, not benchmark-specific model guidance."
+        ),
         "",
         "| Split | Specified | Unspecified | Total |",
         "| --- | ---: | ---: | ---: |",

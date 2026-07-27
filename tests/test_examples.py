@@ -1,15 +1,14 @@
 import os
 import traceback
+from collections.abc import Iterator
 from copy import deepcopy
 from json import loads
 from pathlib import Path
-from typing import Iterator
 
 import pytest
 
 from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import example_path, validate_query
-
 
 # duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
 # a dedicated build + `trilogy integration` step instead. See test_models.py.
@@ -104,7 +103,7 @@ def test_example_queries(bq_client, bq_executor, snowflake_executor):
                     (key, "<setup>", f"no executor path for dialect in {key}")
                 )
                 continue
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - collect every setup failure, don't abort the run
             failures.append(
                 (key, "<setup>", f"{type(e).__name__}: {e}\n{traceback.format_exc()}")
             )
@@ -115,10 +114,10 @@ def test_example_queries(bq_client, bq_executor, snowflake_executor):
                 continue
             try:
                 validate_query(query, environment, executor, dry_run)
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001 - collect every query failure, don't abort the run
                 failures.append((key, source, f"{type(e).__name__}: {e}"))
     if failures:
         lines = [f"  {k} [{src}]: {err.splitlines()[0]}" for k, src, err in failures]
         pytest.fail(
-            "Broken examples ({} failures):\n".format(len(failures)) + "\n".join(lines)
+            f"Broken examples ({len(failures)} failures):\n" + "\n".join(lines)
         )

@@ -9,7 +9,6 @@ import zipfile
 from collections import defaultdict
 from pathlib import Path
 
-
 DATABASES = ("dw", "neutron", "nova")
 CREATE_START_RE = re.compile(r"CREATE TABLE `(?P<table>[^`]+)` \(", re.IGNORECASE)
 PRIMARY_RE = re.compile(r"PRIMARY KEY \((?P<columns>[^)]+)\)", re.IGNORECASE)

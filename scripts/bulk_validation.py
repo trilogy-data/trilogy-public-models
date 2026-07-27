@@ -1,7 +1,8 @@
-from trilogy.core.validation.fix import validate_and_rewrite
-from trilogy.core.validation.environment import validate_environment
 from pathlib import Path
+
 from trilogy import Dialects, Environment
+from trilogy.core.validation.environment import validate_environment
+from trilogy.core.validation.fix import validate_and_rewrite
 
 DUCKDB_MODELS_PATH = Path(__file__).parent.parent / "trilogy_public_models" / "duckdb"
 
@@ -20,7 +21,7 @@ def process_model(file_path: Path):
         )
         engine.execute_raw_sql(setup_sql)
     if not found_setup:
-        return None
+        return
     for file in file_path.glob("*.preql"):
         if file.name == "entrypoint.preql":
             continue
@@ -28,13 +29,9 @@ def process_model(file_path: Path):
         engine.environment = Environment(working_path=file.parent)
         engine.parse_file(file)
 
-        try:
-            validate_environment(engine.environment, exec=engine)
-            validate_and_rewrite(file, engine)
-            print("No validation errors found")
-        except Exception as e:
-            raise e
-            print(f"Failed to process {file} with error: {e}")
+        validate_environment(engine.environment, exec=engine)
+        validate_and_rewrite(file, engine)
+        print("No validation errors found")
 
 
 if __name__ == "__main__":

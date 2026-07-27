@@ -18,7 +18,7 @@ PUBLISH = INGEST_DIR / "publish_dimensions.py"
 
 def _run(script: Path) -> int:
     print(f"--- {script.name} ---", flush=True)
-    return subprocess.run(["uv", "run", str(script)]).returncode
+    return subprocess.run(["uv", "run", str(script)], check=False).returncode
 
 
 def main() -> int:

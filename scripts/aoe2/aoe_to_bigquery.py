@@ -1,14 +1,14 @@
 """Adhoc script to upload AOE2 match data to the community dataset"""
 
 from pathlib import Path
-from tenacity import retry, wait_exponential, stop_after_attempt
+
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 
 @retry(wait=wait_exponential(multiplier=1, min=4, max=600), stop=stop_after_attempt(7))
 def upload(file_path: str):
     root = Path(file_path).stem
-    from google.cloud import bigquery
-    from google.cloud import storage
+    from google.cloud import bigquery, storage
 
     # Construct a BigQuery client object.
     bq_client = bigquery.Client()
@@ -80,9 +80,9 @@ def upload_action_file(file_path, index, storage_client, bq_client):
 
 
 def load_match_actions():
-    from google.cloud import bigquery
-    from google.cloud import storage
     from pathlib import Path
+
+    from google.cloud import bigquery, storage
 
     # Construct a BigQuery client object.
     bq_client = bigquery.Client()
@@ -104,8 +104,8 @@ def load_match_actions():
 def main(load_dimensions=False, load_game_data=True):
     if load_dimensions:
         for file in [
-            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_player_actions.parquet",  # noqa: E501
-            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_players.parquet",  # noqa: E501
+            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_player_actions.parquet",
+            # r"C:\Users\ethan\coding_projects\trilogy-public-models\match_players.parquet",
             # r"C:\Users\ethan\coding_projects\trilogy-public-models\matches.parquet",
             # r"C:\Users\ethan\coding_projects\trilogy-public-models\players.parquet",
             r"C:\Users\ethan\coding_projects\trilogy-public-models\unit_ids.parquet"

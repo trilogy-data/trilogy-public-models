@@ -1,7 +1,7 @@
-from trilogy_public_models import models
 from preql import Dialects
 from preql.hooks.query_debugger import DebuggingHook
 
+from trilogy_public_models import models
 
 environment = models["bigquery.usa_names"]
 executor = Dialects.BIGQUERY.default_executor(

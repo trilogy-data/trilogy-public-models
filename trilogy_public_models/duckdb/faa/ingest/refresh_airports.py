@@ -41,7 +41,7 @@ import argparse
 import io
 import re
 import zipfile
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import httpx
@@ -160,7 +160,7 @@ def discover_latest_cycle(client: httpx.Client) -> str:
         raise RuntimeError(
             f"no NASR cycles found at {INDEX_URL}; pass --cycle explicitly"
         )
-    today = date.today().isoformat()
+    today = datetime.now(timezone.utc).date().isoformat()
     eligible = [c for c in cycles if c <= today]
     if not eligible:
         # All cycles in the future — fall back to the earliest listed.
@@ -170,7 +170,7 @@ def discover_latest_cycle(client: httpx.Client) -> str:
 
 def cycle_short(cycle: str) -> str:
     """``2026-04-16`` -> ``16_Apr_2026``."""
-    d = datetime.strptime(cycle, "%Y-%m-%d").date()
+    d = date.fromisoformat(cycle)
     return d.strftime("%d_%b_%Y")
 
 
@@ -506,7 +506,7 @@ def main(argv: list[str] | None = None) -> int:
     write_parquet(table, AIRPORTS_PARQUET)
 
     print(
-        f"done at {datetime.now().isoformat(timespec='seconds')} — "
+        f"done at {datetime.now(timezone.utc).isoformat(timespec='seconds')} — "
         f"upload via publish_dimensions.py"
     )
     return 0

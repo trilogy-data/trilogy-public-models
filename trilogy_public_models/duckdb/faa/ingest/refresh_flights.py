@@ -41,17 +41,18 @@ import os
 import sys
 import zipfile
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import httpx
 import polars as pl
 import pyarrow as pa
 import pyarrow.parquet as pq
-
 from bts_ondemand import (
-    BTSOnDemandError,
     ON_DEMAND_TO_PREZIP,
+    BTSOnDemandError,
+)
+from bts_ondemand import (
     download_month as download_ondemand,
 )
 
@@ -167,7 +168,7 @@ class MonthKey:
 
 
 def default_range() -> tuple[MonthKey, MonthKey]:
-    today = date.today()
+    today = datetime.now(timezone.utc).date()
     # Use the two most recent complete calendar years.
     end_year = today.year - 1
     start_year = end_year - 1
@@ -175,7 +176,7 @@ def default_range() -> tuple[MonthKey, MonthKey]:
 
 
 def last_complete_month(today: date | None = None) -> MonthKey:
-    today = today or date.today()
+    today = today or datetime.now(timezone.utc).date()
     y, m = today.year, today.month - 1
     if m == 0:
         y, m = y - 1, 12
@@ -301,7 +302,7 @@ def build_datetime(date_col: str, hhmm_col: str, out_col: str) -> pl.Expr:
         pl.when(hhmm < 0)
         .then(None)
         .otherwise(
-            base.dt.offset_by((extra_days.cast(pl.Utf8) + "d")).cast(pl.Datetime("us"))
+            base.dt.offset_by(extra_days.cast(pl.Utf8) + "d").cast(pl.Datetime("us"))
             + pl.duration(hours=hours, minutes=minutes)
         )
         .alias(out_col)
@@ -524,7 +525,7 @@ def main(argv: list[str] | None = None) -> int:
                     continue
                 try:
                     raw = read_month_csv(zip_path)
-                except Exception as exc:
+                except Exception as exc:  # noqa: BLE001 - one bad month must not abort the whole refresh
                     print(
                         f"WARNING: failed to read {zip_path.name}: {exc}",
                         file=sys.stderr,
@@ -600,7 +601,9 @@ def main(argv: list[str] | None = None) -> int:
 
     # Single-row watermark parquet: referenced by flight_watermark in
     # flight.preql and used by every aggregate's freshness_by check.
-    now = datetime.now().replace(microsecond=0)
+    # Naive UTC: data_through is declared as a naive `datetime` in
+    # flight_common.preql and the parquet column is a tz-less timestamp("us").
+    now = datetime.now(timezone.utc).replace(tzinfo=None, microsecond=0)
     watermark_table = pa.table(
         {"data_through": pa.array([now], type=pa.timestamp("us"))}
     )

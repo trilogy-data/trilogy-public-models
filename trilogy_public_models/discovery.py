@@ -1,8 +1,9 @@
+import sys
+from collections import UserDict
 from os.path import dirname
 from pathlib import Path
-import sys
-from trilogy_public_models.models import ModelOutput, ModelDict, LazyEnvironment
-from collections import UserDict
+
+from trilogy_public_models.models import LazyEnvironment, ModelDict, ModelOutput
 
 
 def discover_models(models):

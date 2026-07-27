@@ -93,7 +93,7 @@ def transform_to_parquet(input: dict):
     for id, name in input.items():
         cmd = """INSERT INTO unit_ids VALUES (?, ?);"""
         con.execute(cmd, [id, name])
-    cmd = """COPY (select id, name from unit_ids) TO 'unit_ids.parquet' (FORMAT PARQUET);"""  # noqa: E501
+    cmd = """COPY (select id, name from unit_ids) TO 'unit_ids.parquet' (FORMAT PARQUET);"""
     duckdb.sql(cmd)
 
 

@@ -1,5 +1,5 @@
-from pathlib import Path
 from json import loads
+from pathlib import Path
 
 
 def load_raw(
@@ -9,7 +9,7 @@ def load_raw(
     with open(json_f, "r") as f:
         loaded = loads(f.read())
 
-    for key in loaded.keys():
+    for key in loaded:
         print(key)
     if print_civs:
         items = list(loaded["civ_names"].items())

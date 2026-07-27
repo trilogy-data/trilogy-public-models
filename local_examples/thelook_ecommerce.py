@@ -1,4 +1,5 @@
 from trilogy import Dialects
+
 from trilogy_public_models import models
 
 env = models["bigquery.thelook_ecommerce"]
@@ -8,7 +9,7 @@ FROM `bigquery-public-data.thelook_ecommerce.products` as p
 JOIN `bigquery-public-data.thelook_ecommerce.order_items` as oi
 ON p.id = oi.product_id
 GROUP BY 1,2,3
-ORDER BY num_of_orders DESC"""  # noqa: E501
+ORDER BY num_of_orders DESC"""
 
 executor = Dialects.BIGQUERY.default_executor(environment=env)
 QA_1 = """

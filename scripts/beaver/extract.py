@@ -8,7 +8,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 SPLITS = ("dw", "dw_real", "neutron", "nova")
 JSON_FIELDS = (
     "tables",

@@ -1,4 +1,5 @@
 from preql import Dialects
+
 from trilogy_public_models import models
 
 env = models["bigquery.chicago_crime"]
@@ -20,8 +21,8 @@ armed_crime_count
 order by
 armed_crime_count desc
 
-LIMIT 100;"""  # noqa: E501
-)  # noqa: E501
+LIMIT 100;"""
+)
 
 for row in results[0].fetchall():
     print(row)

@@ -1,14 +1,14 @@
 import os
+from collections.abc import Generator
 
 from google.auth import default
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from trilogy.executor import Executor, Dialects
 from pytest import fixture
 from sqlalchemy.engine import create_engine
-from typing import Generator
 from trilogy.constants import Rendering
 from trilogy.dialect.config import SnowflakeConfig
+from trilogy.executor import Dialects, Executor
 
 
 @fixture()

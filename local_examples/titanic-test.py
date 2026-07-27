@@ -6,7 +6,7 @@ root_path = dirname(dirname(nb_path))
 
 path.insert(0, root_path)
 print(root_path)
-from trilogy_public_models import get_executor  # noqa: E402
+from trilogy_public_models import get_executor
 
 executor = get_executor("duckdb.titanic")
 
@@ -14,7 +14,7 @@ QA_1 = """
 select 
     passenger.last_name,
      count(passenger.id)->passenger_count ;
-"""  # noqa: E501
+"""
 
 results = executor.execute_text(QA_1)
 

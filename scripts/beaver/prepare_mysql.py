@@ -6,7 +6,6 @@ import argparse
 import zipfile
 from pathlib import Path
 
-
 DATABASES = ("dw", "neutron", "nova")
 
 

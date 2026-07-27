@@ -1,9 +1,11 @@
-from trilogy import Executor, Dialects
+import os
+from pathlib import Path
+
+from trilogy import Dialects, Executor
 from trilogy.dialect import DuckDBConfig, MySQLConfig, SQLiteConfig
+
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
-from pathlib import Path
-import os
 
 
 def get_executor(

@@ -8,6 +8,7 @@ import sys
 import urllib.request
 from datetime import datetime
 from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 
 FAA_ZIP = "https://registry.faa.gov/database/ReleasableAircraft.zip"
 GCS_AIRCRAFT = "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/aircraft_v2.parquet"
@@ -24,7 +25,7 @@ def _head(url: str) -> dict[str, str]:
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
             return dict(resp.headers)
-    except Exception:
+    except (OSError, HTTPException):
         return {}
 
 
@@ -34,7 +35,7 @@ def _last_modified(headers: dict[str, str]) -> datetime | None:
         return None
     try:
         return parsedate_to_datetime(raw)
-    except Exception:
+    except (TypeError, ValueError):
         return None
 
 
