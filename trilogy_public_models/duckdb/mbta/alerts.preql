@@ -1,0 +1,40 @@
+import common;
+
+key alert_id string; # an active service alert
+property alert_id.alert_effect string; # DELAY / SHUTTLE / STATION_ISSUE / ...
+property alert_id.alert_cause string?;
+property alert_id.alert_severity int; # 1 (minor) .. 10 (severe)
+property alert_id.alert_header string?;
+property alert_id.alert_service_effect string?; # one-line rider-facing summary
+property alert_id.alert_lifecycle string?; # NEW / ONGOING / ONGOING_UPCOMING / UPCOMING
+property alert_id.alert_created_at datetime?;
+property alert_id.alert_updated_at datetime?;
+property alert_id.alert_active_start datetime?;
+property alert_id.alert_active_end datetime?; # null = open-ended
+
+key alert_entity_id string; # one (alert, informed entity) pair: 'alert_id:index'
+property alert_entity_id.entity_stop_id string?; # stop the alert names (platform or parent station id)
+property alert_entity_id.entity_route_type int?;
+property alert_entity_id.entity_activities string?; # ';'-joined rider activities (BOARD;EXIT;RIDE)
+
+root datasource active_alerts (
+    entity_id: alert_entity_id,
+    alert_id: alert_id,
+    effect: alert_effect,
+    cause: ?alert_cause,
+    severity: alert_severity,
+    header: ?alert_header,
+    service_effect: ?alert_service_effect,
+    lifecycle: ?alert_lifecycle,
+    created_at: ?alert_created_at,
+    updated_at: ?alert_updated_at,
+    active_start: ?alert_active_start,
+    active_end: ?alert_active_end,
+    entity_route_id: ?route_id,
+    entity_stop_id: ?entity_stop_id,
+    entity_route_type: ?entity_route_type,
+    entity_activities: ?entity_activities,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (alert_entity_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/active_alerts_v1.parquet`;

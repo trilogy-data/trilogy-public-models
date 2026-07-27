@@ -1,0 +1,28 @@
+import common;
+
+key schedule_id string; # one scheduled stop event (trip x stop)
+property schedule_id.scheduled_arrival datetime?;
+property schedule_id.scheduled_departure datetime?;
+property schedule_id.scheduled_stop_sequence int?;
+property schedule_id.pickup_type int?;
+property schedule_id.drop_off_type int?;
+property schedule_id.is_timepoint bool?;
+property schedule_id.service_date string; # GTFS service date the window was fetched for (YYYY-MM-DD)
+
+root datasource scheduled_stop_events (
+    id: schedule_id,
+    route_id: ?route_id,
+    stop_id: ?stop_id,
+    trip_id: ?trip_id,
+    direction_id: ?direction_id,
+    arrival_time: ?scheduled_arrival,
+    departure_time: ?scheduled_departure,
+    stop_sequence: ?scheduled_stop_sequence,
+    pickup_type: ?pickup_type,
+    drop_off_type: ?drop_off_type,
+    timepoint: ?is_timepoint,
+    service_date: service_date,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (schedule_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/scheduled_stop_events_v1.parquet`;

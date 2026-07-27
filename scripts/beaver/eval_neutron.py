@@ -400,6 +400,12 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="include questions flagged with hidden gold dependencies",
     )
+    parser.add_argument(
+        "--specification-tier",
+        choices=("all", "high_confidence"),
+        default="all",
+        help="optionally restrict the specified pool to its conservative tier",
+    )
     return parser
 
 
@@ -415,6 +421,13 @@ def main() -> int:
     }
     if not args.include_unspecified:
         questions = [row for row in questions if row["id"] not in excluded]
+    if args.specification_tier == "high_confidence":
+        questions = [
+            row
+            for row in questions
+            if specification.get(row["id"], {}).get("evaluation_tier")
+            == "high_confidence"
+        ]
     if args.query_ids:
         wanted = {value.strip() for value in args.query_ids.split(",") if value.strip()}
         selected = [row for row in questions if row["id"] in wanted]

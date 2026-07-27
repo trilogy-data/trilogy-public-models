@@ -2,12 +2,23 @@
 
 A question is conservatively marked `unspecified` when its gold SQL or gold join annotations require a physical table absent from the released `tables` annotation. This detects hidden dependencies; it does not prove that every remaining question is perfectly worded.
 
+The `high_confidence` evaluation tier is intentionally narrower: it contains specified questions with exactly two declared tables and no separate domain-knowledge annotation. This is a corpus-selection heuristic, not benchmark-specific model guidance.
+
 | Split | Specified | Unspecified | Total |
 | --- | ---: | ---: | ---: |
 | dw | 5562 | 225 | 5787 |
 | dw_real | 119 | 2 | 121 |
 | neutron | 487 | 530 | 1017 |
 | nova | 1037 | 16 | 1053 |
+
+## Evaluation tiers
+
+| Split | High confidence | General | Excluded |
+| --- | ---: | ---: | ---: |
+| dw | 427 | 5135 | 225 |
+| dw_real | 2 | 117 | 2 |
+| neutron | 74 | 413 | 530 |
+| nova | 95 | 942 | 16 |
 
 ## Unspecified questions
 

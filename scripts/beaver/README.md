@@ -168,6 +168,16 @@ specified pool rather than evaluating the first records in file order:
 python scripts/beaver/eval_neutron.py --sample-size 25 --seed 42
 ```
 
+For the narrowest corpus, restrict sampling to specified two-table questions
+that have no separate domain-knowledge annotation:
+
+```console
+python scripts/beaver/eval_neutron.py \
+  --specification-tier high_confidence \
+  --sample-size 15 \
+  --seed 42
+```
+
 The report records the selected IDs, seed, pass rate, and 95% Wilson confidence
 interval. Reuse the same seed when comparing model or semantic-model changes.
 

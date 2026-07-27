@@ -1,0 +1,26 @@
+# Gold: every predicted stop event classified against its route+direction's
+# typical gap in the current snapshot — 'bunching' (following at <= half the
+# typical gap), 'service_gap' (>= twice), or 'normal'.
+
+import common;
+import predictions;
+
+property prediction_id.predicted_event_time datetime?; # arrival when present, else departure
+property prediction_id.predicted_gap_minutes int?; # gap to the previous predicted train at the same platform+direction
+property prediction_id.route_direction_avg_gap float?; # the route+direction's typical gap this snapshot
+property prediction_id.headway_event_type string?; # bunching / service_gap / normal; null for a stop's first train
+
+root datasource headway_events (
+    id: prediction_id,
+    route_id: ?route_id,
+    stop_id: ?stop_id,
+    direction_id: ?direction_id,
+    vehicle_id: ?vehicle_id,
+    event_time: ?predicted_event_time,
+    gap_minutes: ?predicted_gap_minutes,
+    route_direction_avg_gap: ?route_direction_avg_gap,
+    event_type: ?headway_event_type,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (prediction_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/headway_events_v1.parquet`;

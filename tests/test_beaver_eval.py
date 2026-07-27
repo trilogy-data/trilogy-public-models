@@ -46,6 +46,7 @@ def test_audit_flags_a_gold_join_table_missing_from_declared_tables():
     )
 
     assert audited["status"] == "unspecified"
+    assert audited["evaluation_tier"] == "excluded"
     assert audited["reasons"][0]["tables"] == ["PORTSECURITYBINDINGS"]
 
 
@@ -58,6 +59,25 @@ def test_load_specification(tmp_path):
     )
 
     assert load_specification(path)["neutron_1"]["status"] == "unspecified"
+
+
+def test_audit_marks_two_table_question_without_domain_annotation_high_confidence():
+    audited = audit_question(
+        {
+            "id": "neutron_x",
+            "split": "neutron",
+            "tables": ["PORTS", "ML2_PORT_BINDINGS"],
+            "join_keys": [["PORTS.ID", "ML2_PORT_BINDINGS.PORT_ID"]],
+            "contains_domain_knowledge": False,
+            "sql": (
+                "SELECT p.id FROM ports p JOIN ml2_port_bindings b "
+                "ON p.id = b.port_id"
+            ),
+        }
+    )
+
+    assert audited["status"] == "specified"
+    assert audited["evaluation_tier"] == "high_confidence"
 
 
 def test_sql_table_extraction_ignores_words_inside_literals():

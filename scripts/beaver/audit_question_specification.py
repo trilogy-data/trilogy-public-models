@@ -70,10 +70,18 @@ def audit_question(question: dict[str, Any]) -> dict[str, Any]:
                 ),
             }
         )
+    status = "unspecified" if reasons else "specified"
+    if status == "unspecified":
+        evaluation_tier = "excluded"
+    elif len(declared) == 2 and not question.get("contains_domain_knowledge", False):
+        evaluation_tier = "high_confidence"
+    else:
+        evaluation_tier = "general"
     return {
         "id": question["id"],
         "split": question["split"],
-        "status": "unspecified" if reasons else "specified",
+        "status": status,
+        "evaluation_tier": evaluation_tier,
         "reasons": reasons,
         "declared_tables": sorted(declared),
         "gold_sql_tables": sorted(sql_tables),
@@ -86,8 +94,12 @@ def audit_questions(questions: Iterable[dict[str, Any]]) -> list[dict[str, Any]]
 
 def write_report(path: Path, audited: list[dict[str, Any]]) -> None:
     by_split: dict[str, Counter[str]] = {}
+    tiers_by_split: dict[str, Counter[str]] = {}
     for row in audited:
         by_split.setdefault(row["split"], Counter())[row["status"]] += 1
+        tiers_by_split.setdefault(row["split"], Counter())[
+            row["evaluation_tier"]
+        ] += 1
     lines = [
         "# BEAVER question specification audit",
         "",
@@ -95,6 +107,11 @@ def write_report(path: Path, audited: list[dict[str, Any]]) -> None:
         "gold join annotations require a physical table absent from the released "
         "`tables` annotation. This detects hidden dependencies; it does not prove "
         "that every remaining question is perfectly worded.",
+        "",
+        "The `high_confidence` evaluation tier is intentionally narrower: it "
+        "contains specified questions with exactly two declared tables and no "
+        "separate domain-knowledge annotation. This is a corpus-selection "
+        "heuristic, not benchmark-specific model guidance.",
         "",
         "| Split | Specified | Unspecified | Total |",
         "| --- | ---: | ---: | ---: |",
@@ -104,6 +121,18 @@ def write_report(path: Path, audited: list[dict[str, Any]]) -> None:
         lines.append(
             f"| {split} | {counts['specified']} | "
             f"{counts['unspecified']} | {total} |"
+        )
+    lines.extend(("", "## Evaluation tiers", ""))
+    lines.extend(
+        (
+            "| Split | High confidence | General | Excluded |",
+            "| --- | ---: | ---: | ---: |",
+        )
+    )
+    for split, counts in sorted(tiers_by_split.items()):
+        lines.append(
+            f"| {split} | {counts['high_confidence']} | "
+            f"{counts['general']} | {counts['excluded']} |"
         )
     lines.extend(("", "## Unspecified questions", ""))
     for row in audited:

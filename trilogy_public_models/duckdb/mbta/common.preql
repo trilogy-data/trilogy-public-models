@@ -1,0 +1,37 @@
+# Shared dimensions for the Boston Transit Pulse model. Every fact file binds
+# these same keys, so vehicles, predictions, schedules and alerts relate to
+# each other without hand-written joins.
+#
+# Assets are generated hourly (except ~2-4am Boston, when the T is closed) by
+# the trilogy-cloud `boston-transit-pulse` pipeline from the MBTA V3 API.
+
+import std.geography;
+
+property <*>.mbta_data_updated_through datetime; # snapshot watermark: when this data was fetched from the MBTA API
+
+key route_id string; # MBTA route id, e.g. 'Red', 'Green-B'
+property route_id.route_name string; # rider-facing long name, e.g. 'Red Line'
+property route_id.route_type int; # GTFS route type: 0 = light rail, 1 = heavy rail/subway
+property route_id.route_color string; # hex color for the line, no leading '#'
+property route_id.route_text_color string;
+property route_id.route_sort_order int;
+property route_id.route_fare_class string;
+property route_id.direction_0_name string; # e.g. 'South'
+property route_id.direction_1_name string; # e.g. 'North'
+property route_id.direction_0_destination string; # e.g. 'Ashmont/Braintree'
+property route_id.direction_1_destination string; # e.g. 'Alewife'
+
+key stop_id string; # GTFS stop id as referenced by realtime feeds (platform '70105' or station 'place-*')
+property stop_id.stop_name string;
+property stop_id.stop_location_type int; # 0 = platform, 1 = parent station
+property stop_id.parent_station string?; # parent station id ('place-*'), null for stations themselves
+property stop_id.parent_station_name string?;
+property stop_id.stop_latitude float::latitude;
+property stop_id.stop_longitude float::longitude;
+property stop_id.stop_municipality string?;
+property stop_id.platform_name string?;
+property stop_id.wheelchair_boarding int?;
+
+key trip_id string; # GTFS trip id (realtime ADDED-* ids included)
+key direction_id int; # 0 or 1; meaning is per-route (see direction_0_name/direction_1_name)
+key vehicle_id string; # a vehicle on the network in the current snapshot

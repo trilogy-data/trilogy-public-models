@@ -1,5 +1,5 @@
 {
-  "count": 32,
+  "count": 33,
   "files": [
     {
       "description": "## Age of Empires 2 Replays\n\n\nDerived from https://www.reddit.com/r/aoe2/comments/xj815r/aoepulse_database_dump_100_gb_5_million_games/",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "description": "# BEAVER dw\n\nGenerated semantic schema for the BEAVER `dw` MySQL database.\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+      "description": "# BEAVER dw\n\nGenerated semantic schema for the BEAVER `dw` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
       "engine": "mysql",
       "filename": "beaver_dw.json",
       "name": "beaver_dw",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "description": "# BEAVER neutron\n\nGenerated semantic schema for the BEAVER `neutron` MySQL database.\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+      "description": "# BEAVER neutron\n\nGenerated semantic schema for the BEAVER `neutron` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
       "engine": "mysql",
       "filename": "beaver_neutron.json",
       "name": "beaver_neutron",
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+      "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
       "engine": "mysql",
       "filename": "beaver_nova.json",
       "name": "beaver_nova",
@@ -166,6 +166,15 @@
       ]
     },
     {
+      "description": "# Boston Transit Pulse (MBTA)\n\n## Overview\n\nLive **Boston subway reliability** data: current vehicle positions, predicted\narrivals, timetabled service, active alerts \u2014 and gold-level reliability\nmetrics comparing what riders are *getting* against what the schedule\n*promises*. Covers every subway line (Red, Mattapan, Orange, Blue, Green\nB/C/D/E).\n\n**Source:** [MBTA V3 API](https://api-v3.mbta.com) (GTFS/GTFS-realtime),\nsnapshotted hourly (except ~2\u20134am Boston, when the T is closed) by the\ntrilogy-cloud `boston-transit-pulse` pipeline. Every asset carries\n`mbta_data_updated_through` \u2014 the snapshot watermark. Assets are point-in-time\nsnapshots, not history: each refresh replaces the previous one.\n\nAll facts share conformed `route_id` / `stop_id` / `trip_id` / `direction_id`\nkeys (see `common.preql`), so cross-fact questions resolve without explicit\njoins.\n\n## Assets\n\n| Datasource | Grain | What it holds |\n|---|---|---|\n| `routes` | route | Line names, colors, direction names/destinations |\n| `stops` | stop | Platforms + parent stations, denormalized, with coordinates |\n| `vehicle_observations` | vehicle | Where every train is right now |\n| `prediction_observations` | predicted stop event | Predicted arrivals/departures with uncertainty |\n| `scheduled_stop_events` | scheduled stop event | The timetable, \u22121h..+3h around the snapshot |\n| `active_alerts` | (alert, informed entity) | Active disruptions and what they touch |\n| `route_headways` | route \u00d7 stop \u00d7 direction | Predicted vs scheduled headway, `headway_ratio` |\n| `headway_events` | predicted stop event | Each arrival classified bunching / service_gap / normal |\n| `alert_service_impact` | (alert, informed entity) | Alerts joined to live route headway pressure |\n\n## Example questions\n\n```trilogy\n# Which routes are under headway pressure right now?\nwhere headway_ratio > 1.2\nselect route_id, route_name, count(stop_id) as pressured_stops, avg(headway_ratio) as avg_ratio\norder by avg_ratio desc;\n\n# Where is the biggest gap between consecutive trains?\nwhere headway_event_type = 'service_gap'\nselect route_id, stop_name, direction_id, predicted_gap_minutes, predicted_event_time\norder by predicted_gap_minutes desc limit 10;\n\n# Which active alerts sit on genuinely degraded service?\nwhere route_headway_pressure > 1.3\nselect alert_id, alert_effect, alert_severity, alert_service_effect, route_id, route_headway_pressure\norder by route_headway_pressure desc;\n\n# Live vehicle map data\nselect vehicle_id, route_id, vehicle_latitude, vehicle_longitude, vehicle_bearing, vehicle_status;\n```\n\n## License / attribution\n\nData from the Massachusetts Bay Transportation Authority (MBTA), via the\npublic V3 API. See the\n[MBTA developer terms](https://www.mbta.com/developers/v3-api) for usage\nconditions.",
+      "engine": "duckdb",
+      "filename": "mbta.json",
+      "name": "mbta",
+      "tags": [
+        "duckdb"
+      ]
+    },
+    {
       "description": "## The Marine Organismal Body Size (MOBS) Database\n\nA dataset of marine animals, sizes, and metadata.\n\n\n### Size Data\nMcClain, C. R., Heim, N. A., Knope, M. L., Monarrez, P. M., Payne, J. L., Santos, I. T., & Webb, T. J. (2025). MOBS 1.0: A database of interspecific variation in marine organismal body sizes. Global Ecology and Biogeography, 34: e70062. https://doi.org/10.1111/geb.70062\n\n### Images\nWikipedia for descriptions and images.\n\n### Images Alt\nFishbase for some images.\nFroese, R. and D. Pauly. Editors. 2025. FishBase.\nWorld Wide Web electronic publication.\nwww.fishbase.org, version (04/2025).\n\n### Notomyxine\n\n1983; Photo was made available to FishBase with the help of Cristian P\u00e9rez, Assistant Curator of the Ichthyology Collection of the Centro Nacional Patag\u00f3nico (CONICET) Puerto Madryn, Argentina.",
       "engine": "duckdb",
       "filename": "mobs.json",
@@ -294,5 +303,5 @@
       ]
     }
   ],
-  "updated_at": "2026-07-24T11:17:39.982450"
+  "updated_at": "2026-07-26T20:54:28.304040"
 }
