@@ -13,7 +13,6 @@ property alert_id.alert_active_start datetime?;
 property alert_id.alert_active_end datetime?; # null = open-ended
 
 key alert_entity_id string; # one (alert, informed entity) pair: 'alert_id:index'
-property alert_entity_id.entity_stop_id string?; # stop the alert names (platform or parent station id)
 property alert_entity_id.entity_route_type int?;
 property alert_entity_id.entity_activities string?; # ';'-joined rider activities (BOARD;EXIT;RIDE)
 
@@ -31,7 +30,7 @@ root datasource active_alerts (
     active_start: ?alert_active_start,
     active_end: ?alert_active_end,
     entity_route_id: ?route_id,
-    entity_stop_id: ?entity_stop_id,
+    entity_stop_id: ?stop_id, # the stop the alert names; may be a platform ('70006') or a parent station ('place-*')
     entity_route_type: ?entity_route_type,
     entity_activities: ?entity_activities,
     mbta_data_updated_through: mbta_data_updated_through,

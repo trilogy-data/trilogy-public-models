@@ -17,7 +17,7 @@ root datasource alert_service_impact (
     service_effect: ?alert_service_effect,
     lifecycle: ?alert_lifecycle,
     route_id: ?route_id,
-    entity_stop_id: ?entity_stop_id,
+    entity_stop_id: ?stop_id, # platform or parent station id, same as active_alerts
     route_predicted_headway_minutes: ?route_predicted_headway_minutes,
     route_scheduled_headway_minutes: ?route_scheduled_headway_minutes,
     route_headway_pressure: ?route_headway_pressure,

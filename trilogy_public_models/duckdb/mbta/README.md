@@ -35,20 +35,30 @@ joins.
 ## Example questions
 
 ```trilogy
-# Which routes are under headway pressure right now?
-where headway_ratio > 1.2
-select route_id, route_name, count(stop_id) as pressured_stops, avg(headway_ratio) as avg_ratio
-order by avg_ratio desc;
+# Which routes are under the most headway pressure right now?
+# headway_ratio > 1 means riders wait longer than the timetable promises. Which
+# stops clear a given bar swings hour to hour, so rank routes rather than filter.
+select route_id, route_name,
+  count(stop_id ? headway_ratio > 1.2) as pressured_stops,
+  avg(headway_ratio) as avg_ratio
+order by avg_ratio desc limit 10;
 
-# Where is the biggest gap between consecutive trains?
-where headway_event_type = 'service_gap'
-select route_id, stop_name, direction_id, predicted_gap_minutes, predicted_event_time
+# Where are the biggest gaps between consecutive trains right now?
+# headway_event_type classifies each arrival bunching / service_gap / normal --
+# select it rather than filtering on it, since a quiet snapshot may have none.
+select route_id, stop_name, direction_id, headway_event_type,
+  predicted_gap_minutes, predicted_event_time
 order by predicted_gap_minutes desc limit 10;
 
-# Which active alerts sit on genuinely degraded service?
-where route_headway_pressure > 1.3
+# Which active alerts sit on the most degraded service right now?
+# route_headway_pressure > 1 means the line is running worse than the timetable
+# promises. Route-level averages usually sit near 1, so rank rather than filter.
 select alert_id, alert_effect, alert_severity, alert_service_effect, route_id, route_headway_pressure
-order by route_headway_pressure desc;
+order by route_headway_pressure desc limit 10;
+
+# Which stations do active alerts name? (alert stops are conformed stop_ids)
+select stop_name, count(alert_id) as alerts
+order by alerts desc;
 
 # Live vehicle map data
 select vehicle_id, route_id, vehicle_latitude, vehicle_longitude, vehicle_bearing, vehicle_status;
