@@ -19,4 +19,5 @@ build/
 .ruff_cache
 .env
 .cache/
+.tmp/
 scheduled_tasks.lock

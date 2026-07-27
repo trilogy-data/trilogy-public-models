@@ -23,7 +23,7 @@ property route_id.direction_1_destination string; # e.g. 'Alewife'
 
 key stop_id string; # GTFS stop id as referenced by realtime feeds (platform '70105' or station 'place-*')
 property stop_id.stop_name string;
-property stop_id.stop_location_type int; # 0 = platform, 1 = parent station
+property stop_id.stop_location_type int; # 0 = boarding location (rail platform or street-level shuttle/bus stop), 1 = parent station
 property stop_id.parent_station string?; # parent station id ('place-*'), null for stations themselves
 property stop_id.parent_station_name string?;
 property stop_id.stop_latitude float::latitude;

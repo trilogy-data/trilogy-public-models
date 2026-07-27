@@ -23,7 +23,7 @@ joins.
 | Datasource | Grain | What it holds |
 |---|---|---|
 | `routes` | route | Line names, colors, direction names/destinations |
-| `stops` | stop | Platforms + parent stations, denormalized, with coordinates |
+| `stops` | stop | Every stop the fact feeds reference — platforms, parent stations, and diversion/shuttle boarding stops — with parent station denormalized and coordinates |
 | `vehicle_observations` | vehicle | Where every train is right now |
 | `prediction_observations` | predicted stop event | Predicted arrivals/departures with uncertainty |
 | `scheduled_stop_events` | scheduled stop event | The timetable, −1h..+3h around the snapshot |

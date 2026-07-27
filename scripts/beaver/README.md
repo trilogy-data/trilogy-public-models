@@ -66,7 +66,7 @@ models using both the released schema metadata and primary keys recovered from
 the dump:
 
 ```console
-python -m pip install -e C:\Users\ethan\coding_projects\pytrilogy[mysql]
+python -m pip install "pytrilogy[mysql]"
 python scripts/beaver/generate_models.py \
   --ddl-zip /path/to/beaver_db.zip
 ```
