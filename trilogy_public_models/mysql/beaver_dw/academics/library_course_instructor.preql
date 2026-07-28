@@ -1,0 +1,23 @@
+key col_library_course_instructor_key string;
+key col_course_name string;
+key col_instructor_name string;
+key col_department string;
+key col_date_from date;
+key col_date_to date;
+key col_unit_code string;
+key col_unit string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LIBRARY_COURSE_INSTRUCTOR_KEY`:col_library_course_instructor_key,
+    `COURSE_NAME`:col_course_name,
+    `INSTRUCTOR_NAME`:col_instructor_name,
+    `DEPARTMENT`:col_department,
+    `DATE_FROM`:col_date_from,
+    `DATE_TO`:col_date_to,
+    `UNIT_CODE`:col_unit_code,
+    `UNIT`:col_unit,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_library_course_instructor_key, col_course_name, col_instructor_name, col_department, col_date_from, col_date_to, col_unit_code, col_unit, col_warehouse_load_date)
+address `dw.LIBRARY_COURSE_INSTRUCTOR`;

@@ -1,0 +1,45 @@
+key col_academic_terms_key string;
+key col_term_code string;
+key col_term_description string;
+key col_term_selector string;
+key col_term_start_date date;
+key col_term_end_date date;
+key col_academic_year string;
+key col_academic_year_desc string;
+key col_is_current_term string;
+key col_term_status_indicator string;
+key col_financial_aid_year string;
+key col_degree_year string;
+key col_last_day_of_final_exam date;
+key col_pre_registration_start_day date;
+key col_registration_day date;
+key col_first_day_of_classes date;
+key col_last_day_of_classes date;
+key col_graduate_award_start_date date;
+key col_graduate_award_end_date date;
+key col_warehouse_load_date date;
+
+datasource source (
+    `ACADEMIC_TERMS_KEY`:col_academic_terms_key,
+    `TERM_CODE`:col_term_code,
+    `TERM_DESCRIPTION`:col_term_description,
+    `TERM_SELECTOR`:col_term_selector,
+    `TERM_START_DATE`:col_term_start_date,
+    `TERM_END_DATE`:col_term_end_date,
+    `ACADEMIC_YEAR`:col_academic_year,
+    `ACADEMIC_YEAR_DESC`:col_academic_year_desc,
+    `IS_CURRENT_TERM`:col_is_current_term,
+    `TERM_STATUS_INDICATOR`:col_term_status_indicator,
+    `FINANCIAL_AID_YEAR`:col_financial_aid_year,
+    `DEGREE_YEAR`:col_degree_year,
+    `LAST_DAY_OF_FINAL_EXAM`:col_last_day_of_final_exam,
+    `PRE_REGISTRATION_START_DAY`:col_pre_registration_start_day,
+    `REGISTRATION_DAY`:col_registration_day,
+    `FIRST_DAY_OF_CLASSES`:col_first_day_of_classes,
+    `LAST_DAY_OF_CLASSES`:col_last_day_of_classes,
+    `GRADUATE_AWARD_START_DATE`:col_graduate_award_start_date,
+    `GRADUATE_AWARD_END_DATE`:col_graduate_award_end_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_academic_terms_key, col_term_code, col_term_description, col_term_selector, col_term_start_date, col_term_end_date, col_academic_year, col_academic_year_desc, col_is_current_term, col_term_status_indicator, col_financial_aid_year, col_degree_year, col_last_day_of_final_exam, col_pre_registration_start_day, col_registration_day, col_first_day_of_classes, col_last_day_of_classes, col_graduate_award_start_date, col_graduate_award_end_date, col_warehouse_load_date)
+address `dw.ACADEMIC_TERMS_ALL`;

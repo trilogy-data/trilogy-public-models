@@ -1,0 +1,69 @@
+key col_fclt_building_key string;
+key col_building_number string;
+key col_parent_building_number string;
+key col_parent_building_name string;
+key col_parent_building_name_long string;
+key col_building_name_long string;
+key col_ext_gross_area int;
+key col_assignable_area int;
+key col_non_assignable_area int;
+key col_site string;
+key col_campus_sector string;
+key col_access_level_code int;
+key col_access_level_name string;
+key col_building_type string;
+key col_ownership_type string;
+key col_building_use string;
+key col_occupancy_class string;
+key col_building_height string;
+key col_cost_center_code string;
+key col_cost_collector_key string;
+key col_latitude_wgs int;
+key col_longitude_wgs int;
+key col_easting_x_spcs int;
+key col_northing_y_spcs int;
+key col_building_sort string;
+key col_building_named_for string;
+key col_building_name string;
+key col_date_built string;
+key col_date_acquired string;
+key col_date_occupied string;
+key col_warehouse_load_date date;
+key col_num_of_rooms int;
+
+datasource source (
+    `FCLT_BUILDING_KEY`:col_fclt_building_key,
+    `BUILDING_NUMBER`:col_building_number,
+    `PARENT_BUILDING_NUMBER`:col_parent_building_number,
+    `PARENT_BUILDING_NAME`:col_parent_building_name,
+    `PARENT_BUILDING_NAME_LONG`:col_parent_building_name_long,
+    `BUILDING_NAME_LONG`:col_building_name_long,
+    `EXT_GROSS_AREA`:col_ext_gross_area,
+    `ASSIGNABLE_AREA`:col_assignable_area,
+    `NON_ASSIGNABLE_AREA`:col_non_assignable_area,
+    `SITE`:col_site,
+    `CAMPUS_SECTOR`:col_campus_sector,
+    `ACCESS_LEVEL_CODE`:col_access_level_code,
+    `ACCESS_LEVEL_NAME`:col_access_level_name,
+    `BUILDING_TYPE`:col_building_type,
+    `OWNERSHIP_TYPE`:col_ownership_type,
+    `BUILDING_USE`:col_building_use,
+    `OCCUPANCY_CLASS`:col_occupancy_class,
+    `BUILDING_HEIGHT`:col_building_height,
+    `COST_CENTER_CODE`:col_cost_center_code,
+    `COST_COLLECTOR_KEY`:col_cost_collector_key,
+    `LATITUDE_WGS`:col_latitude_wgs,
+    `LONGITUDE_WGS`:col_longitude_wgs,
+    `EASTING_X_SPCS`:col_easting_x_spcs,
+    `NORTHING_Y_SPCS`:col_northing_y_spcs,
+    `BUILDING_SORT`:col_building_sort,
+    `BUILDING_NAMED_FOR`:col_building_named_for,
+    `BUILDING_NAME`:col_building_name,
+    `DATE_BUILT`:col_date_built,
+    `DATE_ACQUIRED`:col_date_acquired,
+    `DATE_OCCUPIED`:col_date_occupied,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `NUM_OF_ROOMS`:col_num_of_rooms,
+)
+grain (col_fclt_building_key, col_building_number, col_parent_building_number, col_parent_building_name, col_parent_building_name_long, col_building_name_long, col_ext_gross_area, col_assignable_area, col_non_assignable_area, col_site, col_campus_sector, col_access_level_code, col_access_level_name, col_building_type, col_ownership_type, col_building_use, col_occupancy_class, col_building_height, col_cost_center_code, col_cost_collector_key, col_latitude_wgs, col_longitude_wgs, col_easting_x_spcs, col_northing_y_spcs, col_building_sort, col_building_named_for, col_building_name, col_date_built, col_date_acquired, col_date_occupied, col_warehouse_load_date, col_num_of_rooms)
+address `dw.FCLT_BUILDING`;

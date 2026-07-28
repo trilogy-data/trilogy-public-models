@@ -1,0 +1,13 @@
+key col_edge_id string;
+key col_vnic_index int;
+key col_tunnel_index int;
+property <col_edge_id, col_vnic_index, col_tunnel_index>.col_network_id string;
+
+datasource source (
+    `EDGE_ID`:col_edge_id,
+    `VNIC_INDEX`:col_vnic_index,
+    `TUNNEL_INDEX`:col_tunnel_index,
+    `NETWORK_ID`:col_network_id,
+)
+grain (col_edge_id, col_vnic_index, col_tunnel_index)
+address `neutron.nsxv_edge_vnic_bindings`;

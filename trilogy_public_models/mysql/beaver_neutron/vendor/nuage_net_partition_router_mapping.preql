@@ -1,0 +1,16 @@
+import nuage_net_partitions as nuage_net_partitions;
+import ..core.routers as routers;
+
+property <nuage_net_partitions.col_id, routers.col_id>.col_nuage_router_id string;
+property <nuage_net_partitions.col_id, routers.col_id>.col_nuage_rtr_rd string;
+property <nuage_net_partitions.col_id, routers.col_id>.col_nuage_rtr_rt string;
+
+datasource source (
+    `NET_PARTITION_ID`:nuage_net_partitions.col_id,
+    `ROUTER_ID`:routers.col_id,
+    `NUAGE_ROUTER_ID`:col_nuage_router_id,
+    `NUAGE_RTR_RD`:col_nuage_rtr_rd,
+    `NUAGE_RTR_RT`:col_nuage_rtr_rt,
+)
+grain (nuage_net_partitions.col_id, routers.col_id)
+address `neutron.nuage_net_partition_router_mapping`;

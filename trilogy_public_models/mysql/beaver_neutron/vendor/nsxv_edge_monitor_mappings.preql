@@ -1,0 +1,12 @@
+import ..load_balancing.healthmonitors as healthmonitors;
+
+property healthmonitors.col_id.col_edge_id string;
+property healthmonitors.col_id.col_edge_monitor_id string;
+
+datasource source (
+    `MONITOR_ID`:healthmonitors.col_id,
+    `EDGE_ID`:healthmonitors.col_edge_id,
+    `EDGE_MONITOR_ID`:healthmonitors.col_edge_monitor_id,
+)
+grain (healthmonitors.col_id)
+address `neutron.nsxv_edge_monitor_mappings`;

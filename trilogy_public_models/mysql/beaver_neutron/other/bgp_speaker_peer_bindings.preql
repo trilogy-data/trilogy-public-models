@@ -1,0 +1,10 @@
+import bgp_peers as bgp_peers;
+import bgp_speakers as bgp_speakers;
+
+
+datasource source (
+    `BGP_SPEAKER_ID`:bgp_speakers.col_id,
+    `BGP_PEER_ID`:bgp_peers.col_id,
+)
+grain (bgp_speakers.col_id, bgp_peers.col_id)
+address `neutron.bgp_speaker_peer_bindings`;

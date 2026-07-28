@@ -1,0 +1,31 @@
+key col_institution_id string;
+key col_institution_name string;
+key col_alternate_institution_name string;
+key col_street_address string;
+key col_city string;
+key col_zip string;
+key col_state string;
+key col_country_code string;
+key col_country string;
+key col_institution_category_value int;
+key col_institution_category_label string;
+key col_institution_sort_order string;
+key col_record_created_date date;
+
+datasource source (
+    `INSTITUTION_ID`:col_institution_id,
+    `INSTITUTION_NAME`:col_institution_name,
+    `ALTERNATE_INSTITUTION_NAME`:col_alternate_institution_name,
+    `STREET_ADDRESS`:col_street_address,
+    `CITY`:col_city,
+    `ZIP`:col_zip,
+    `STATE`:col_state,
+    `COUNTRY_CODE`:col_country_code,
+    `COUNTRY`:col_country,
+    `INSTITUTION_CATEGORY_VALUE`:col_institution_category_value,
+    `INSTITUTION_CATEGORY_LABEL`:col_institution_category_label,
+    `INSTITUTION_SORT_ORDER`:col_institution_sort_order,
+    `RECORD_CREATED_DATE`:col_record_created_date,
+)
+grain (col_institution_id, col_institution_name, col_alternate_institution_name, col_street_address, col_city, col_zip, col_state, col_country_code, col_country, col_institution_category_value, col_institution_category_label, col_institution_sort_order, col_record_created_date)
+address `dw.IR_INSTITUTION`;

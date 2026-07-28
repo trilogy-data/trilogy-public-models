@@ -1,7 +1,8 @@
-import pandas as pd
+import csv
 import re
 from pathlib import Path
-import csv
+
+import pandas as pd
 
 
 def minimize_species_row(row):
@@ -87,7 +88,6 @@ def minimize_species_row(row):
 
 
 if __name__ == "__main__":
-
     target = Path(__file__).parent.parent / "genus_data.csv"
     processed = (
         Path(__file__).resolve().parents[4]
@@ -98,13 +98,17 @@ if __name__ == "__main__":
     )
     outputs = []
     if target.exists():
-        existing_data: set[str] = set()
         with open(target, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
-            count = 0
             for row in reader:
-                minimized = minimize_species_row(row)
-                outputs.append(minimized)
+                # A checkpoint written over a non-empty file can leave a literal
+                # `genus,image_url,summary` line mid-file. Left in, it reaches the
+                # published model as a genus named "genus" with image_url
+                # "image_url", failing the `url_image` domain check.
+                if all(key == value for key, value in row.items() if key):
+                    print(f"Skipping stray header row in {target}")
+                    continue
+                outputs.append(minimize_species_row(row))
     if outputs:
         with open(processed, "w", newline="", encoding="utf-8") as f:
             fieldnames = ["genus", "image_url", "summary"]

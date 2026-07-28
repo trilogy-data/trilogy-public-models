@@ -1,0 +1,18 @@
+import ml2_brocadenetworks as ml2_brocadenetworks;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_admin_state_up int;
+property col_id.col_physical_interface string;
+property col_id.col_vlan_id string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NETWORK_ID`:ml2_brocadenetworks.col_id,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `PHYSICAL_INTERFACE`:col_physical_interface,
+    `VLAN_ID`:col_vlan_id,
+)
+grain (col_id)
+address `neutron.ml2_brocadeports`;

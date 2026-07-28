@@ -1,0 +1,44 @@
+import iap_subject_category as iap_subject_category;
+import iap_subject_sponsor as iap_subject_sponsor;
+
+key col_iap_subject_session_key string;
+key col_iap_subject_person_key string;
+key col_activity_title string;
+key col_activity_description string;
+key col_term_code string;
+key col_enrollment_type string;
+key col_max_enrollment int;
+key col_attendance string;
+key col_prerequisites string;
+key col_fee int;
+key col_fee_reason string;
+key col_prereg_deadline date;
+key col_create_date date;
+key col_last_activity_date date;
+key col_is_multiple_session string;
+key col_is_cancelled string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `IAP_SUBJECT_CATEGORY_KEY`:~iap_subject_category.col_iap_subject_category_key,
+    `IAP_SUBJECT_SPONSOR_KEY`:iap_subject_sponsor.col_iap_subject_sponsor_key,
+    `IAP_SUBJECT_SESSION_KEY`:col_iap_subject_session_key,
+    `IAP_SUBJECT_PERSON_KEY`:col_iap_subject_person_key,
+    `ACTIVITY_TITLE`:col_activity_title,
+    `ACTIVITY_DESCRIPTION`:col_activity_description,
+    `TERM_CODE`:col_term_code,
+    `ENROLLMENT_TYPE`:col_enrollment_type,
+    `MAX_ENROLLMENT`:col_max_enrollment,
+    `ATTENDANCE`:col_attendance,
+    `PREREQUISITES`:col_prerequisites,
+    `FEE`:col_fee,
+    `FEE_REASON`:col_fee_reason,
+    `PREREG_DEADLINE`:col_prereg_deadline,
+    `CREATE_DATE`:col_create_date,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `IS_MULTIPLE_SESSION`:col_is_multiple_session,
+    `IS_CANCELLED`:col_is_cancelled,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (iap_subject_category.col_iap_subject_category_key, iap_subject_sponsor.col_iap_subject_sponsor_key, col_iap_subject_session_key, col_iap_subject_person_key, col_activity_title, col_activity_description, col_term_code, col_enrollment_type, col_max_enrollment, col_attendance, col_prerequisites, col_fee, col_fee_reason, col_prereg_deadline, col_create_date, col_last_activity_date, col_is_multiple_session, col_is_cancelled, col_warehouse_load_date)
+address `dw.IAP_SUBJECT_DETAIL`;

@@ -29,7 +29,6 @@ from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
-
 from refresh_flights import (
     BLOOM_COLUMNS,
     COLUMN_ENCODING,

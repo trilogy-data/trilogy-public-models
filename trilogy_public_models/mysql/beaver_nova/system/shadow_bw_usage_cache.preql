@@ -1,0 +1,31 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_start_period datetime;
+property col_id.col_last_refreshed datetime;
+property col_id.col_bw_in int;
+property col_id.col_bw_out int;
+property col_id.col_mac string;
+property col_id.col_uuid string;
+property col_id.col_last_ctr_in int;
+property col_id.col_last_ctr_out int;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `START_PERIOD`:col_start_period,
+    `LAST_REFRESHED`:col_last_refreshed,
+    `BW_IN`:col_bw_in,
+    `BW_OUT`:col_bw_out,
+    `MAC`:col_mac,
+    `UUID`:col_uuid,
+    `LAST_CTR_IN`:col_last_ctr_in,
+    `LAST_CTR_OUT`:col_last_ctr_out,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.shadow_bw_usage_cache`;

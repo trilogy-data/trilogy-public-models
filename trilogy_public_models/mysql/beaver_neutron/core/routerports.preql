@@ -1,0 +1,12 @@
+import ports as ports;
+import routers as routers;
+
+property <routers.col_id, ports.col_id>.col_port_type string;
+
+datasource source (
+    `ROUTER_ID`:routers.col_id,
+    `PORT_ID`:ports.col_id,
+    `PORT_TYPE`:col_port_type,
+)
+grain (routers.col_id, ports.col_id)
+address `neutron.routerports`;

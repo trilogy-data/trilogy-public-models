@@ -1,8 +1,8 @@
 from preql import Dialects
 from preql.constants import CONFIG
+from preql.hooks.query_debugger import DebuggingHook
 
 from trilogy_public_models import models
-from preql.hooks.query_debugger import DebuggingHook
 
 CONFIG.hash_identifiers = True
 env = models["bigquery.age_of_empires_2"]
@@ -116,7 +116,7 @@ where
 order by
     tech_research.id.count desc
 ;
-"""  # noqa: E501
+"""
 results = executor.execute_text(WHAT_UNITS_SHOULD_I_BUILD)
 
 for row in results[0].fetchall():

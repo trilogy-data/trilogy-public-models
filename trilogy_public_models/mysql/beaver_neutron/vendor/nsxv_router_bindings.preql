@@ -1,0 +1,19 @@
+property col_router_id.col_status string;
+property col_router_id.col_status_description string;
+key col_router_id string;
+property col_router_id.col_edge_id string;
+property col_router_id.col_lswitch_id string;
+property col_router_id.col_appliance_size string;
+property col_router_id.col_edge_type string;
+
+datasource source (
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+    `ROUTER_ID`:col_router_id,
+    `EDGE_ID`:col_edge_id,
+    `LSWITCH_ID`:col_lswitch_id,
+    `APPLIANCE_SIZE`:col_appliance_size,
+    `EDGE_TYPE`:col_edge_type,
+)
+grain (col_router_id)
+address `neutron.nsxv_router_bindings`;

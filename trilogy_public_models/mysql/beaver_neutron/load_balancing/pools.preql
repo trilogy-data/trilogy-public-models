@@ -1,0 +1,28 @@
+import vips as vips;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_subnet_id string;
+property col_id.col_protocol string;
+property col_id.col_lb_method string;
+property col_id.col_status string;
+property col_id.col_status_description string;
+property col_id.col_admin_state_up int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `VIP_ID`:vips.col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `SUBNET_ID`:col_subnet_id,
+    `PROTOCOL`:col_protocol,
+    `LB_METHOD`:col_lb_method,
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+)
+grain (col_id)
+address `neutron.pools`;

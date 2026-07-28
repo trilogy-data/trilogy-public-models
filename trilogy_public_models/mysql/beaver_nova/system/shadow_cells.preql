@@ -1,0 +1,27 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_api_url string;
+property col_id.col_weight_offset float;
+property col_id.col_weight_scale float;
+property col_id.col_name string;
+property col_id.col_is_parent int;
+property col_id.col_deleted int;
+property col_id.col_transport_url string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `API_URL`:col_api_url,
+    `WEIGHT_OFFSET`:col_weight_offset,
+    `WEIGHT_SCALE`:col_weight_scale,
+    `NAME`:col_name,
+    `IS_PARENT`:col_is_parent,
+    `DELETED`:col_deleted,
+    `TRANSPORT_URL`:col_transport_url,
+)
+grain (col_id)
+address `nova.shadow_cells`;

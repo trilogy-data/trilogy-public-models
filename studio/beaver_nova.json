@@ -1,0 +1,781 @@
+{
+  "components": [
+    {
+      "alias": "agent_builds",
+      "name": "agent_builds",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/agent_builds.preql"
+    },
+    {
+      "alias": "aggregate_hosts",
+      "name": "aggregate_hosts",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/aggregate_hosts.preql"
+    },
+    {
+      "alias": "aggregate_metadata",
+      "name": "aggregate_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/aggregate_metadata.preql"
+    },
+    {
+      "alias": "aggregates",
+      "name": "aggregates",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/aggregates.preql"
+    },
+    {
+      "alias": "allocations",
+      "name": "allocations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/allocations.preql"
+    },
+    {
+      "alias": "block_device_mapping",
+      "name": "block_device_mapping",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/block_device_mapping.preql"
+    },
+    {
+      "alias": "bw_usage_cache",
+      "name": "bw_usage_cache",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/bw_usage_cache.preql"
+    },
+    {
+      "alias": "cells",
+      "name": "cells",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/cells.preql"
+    },
+    {
+      "alias": "certificates",
+      "name": "certificates",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/certificates.preql"
+    },
+    {
+      "alias": "compute_nodes",
+      "name": "compute_nodes",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/compute_nodes.preql"
+    },
+    {
+      "alias": "console_pools",
+      "name": "console_pools",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/console_pools.preql"
+    },
+    {
+      "alias": "consoles",
+      "name": "consoles",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/consoles.preql"
+    },
+    {
+      "alias": "dns_domains",
+      "name": "dns_domains",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/dns_domains.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/entrypoint.preql"
+    },
+    {
+      "alias": "fixed_ips",
+      "name": "fixed_ips",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/fixed_ips.preql"
+    },
+    {
+      "alias": "floating_ips",
+      "name": "floating_ips",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/floating_ips.preql"
+    },
+    {
+      "alias": "instance_actions",
+      "name": "instance_actions",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_actions.preql"
+    },
+    {
+      "alias": "instance_actions_events",
+      "name": "instance_actions_events",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_actions_events.preql"
+    },
+    {
+      "alias": "instance_extra",
+      "name": "instance_extra",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_extra.preql"
+    },
+    {
+      "alias": "instance_faults",
+      "name": "instance_faults",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_faults.preql"
+    },
+    {
+      "alias": "instance_group_member",
+      "name": "instance_group_member",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_group_member.preql"
+    },
+    {
+      "alias": "instance_group_policy",
+      "name": "instance_group_policy",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_group_policy.preql"
+    },
+    {
+      "alias": "instance_groups",
+      "name": "instance_groups",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_groups.preql"
+    },
+    {
+      "alias": "instance_id_mappings",
+      "name": "instance_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_id_mappings.preql"
+    },
+    {
+      "alias": "instance_info_caches",
+      "name": "instance_info_caches",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_info_caches.preql"
+    },
+    {
+      "alias": "instance_metadata",
+      "name": "instance_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_metadata.preql"
+    },
+    {
+      "alias": "instance_system_metadata",
+      "name": "instance_system_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_system_metadata.preql"
+    },
+    {
+      "alias": "instance_type_extra_specs",
+      "name": "instance_type_extra_specs",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_type_extra_specs.preql"
+    },
+    {
+      "alias": "instance_type_projects",
+      "name": "instance_type_projects",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_type_projects.preql"
+    },
+    {
+      "alias": "instance_types",
+      "name": "instance_types",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instance_types.preql"
+    },
+    {
+      "alias": "instances",
+      "name": "instances",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/instances.preql"
+    },
+    {
+      "alias": "inventories",
+      "name": "inventories",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/inventories.preql"
+    },
+    {
+      "alias": "key_pairs",
+      "name": "key_pairs",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/key_pairs.preql"
+    },
+    {
+      "alias": "migrate_version",
+      "name": "migrate_version",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/migrate_version.preql"
+    },
+    {
+      "alias": "migrations",
+      "name": "migrations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/migrations.preql"
+    },
+    {
+      "alias": "networks",
+      "name": "networks",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/networks.preql"
+    },
+    {
+      "alias": "pci_devices",
+      "name": "pci_devices",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/pci_devices.preql"
+    },
+    {
+      "alias": "project_user_quotas",
+      "name": "project_user_quotas",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/project_user_quotas.preql"
+    },
+    {
+      "alias": "provider_fw_rules",
+      "name": "provider_fw_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/provider_fw_rules.preql"
+    },
+    {
+      "alias": "quota_classes",
+      "name": "quota_classes",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/quota_classes.preql"
+    },
+    {
+      "alias": "quota_usages",
+      "name": "quota_usages",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/quota_usages.preql"
+    },
+    {
+      "alias": "quotas",
+      "name": "quotas",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/quotas.preql"
+    },
+    {
+      "alias": "reservations",
+      "name": "reservations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/reservations.preql"
+    },
+    {
+      "alias": "resource_provider_aggregates",
+      "name": "resource_provider_aggregates",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/resource_provider_aggregates.preql"
+    },
+    {
+      "alias": "resource_providers",
+      "name": "resource_providers",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/resource_providers.preql"
+    },
+    {
+      "alias": "s3_images",
+      "name": "s3_images",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/s3_images.preql"
+    },
+    {
+      "alias": "security_group_default_rules",
+      "name": "security_group_default_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/security_group_default_rules.preql"
+    },
+    {
+      "alias": "security_group_instance_association",
+      "name": "security_group_instance_association",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/security_group_instance_association.preql"
+    },
+    {
+      "alias": "security_group_rules",
+      "name": "security_group_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/security_group_rules.preql"
+    },
+    {
+      "alias": "security_groups",
+      "name": "security_groups",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/security_groups.preql"
+    },
+    {
+      "alias": "services",
+      "name": "services",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/services.preql"
+    },
+    {
+      "alias": "shadow_agent_builds",
+      "name": "shadow_agent_builds",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_agent_builds.preql"
+    },
+    {
+      "alias": "shadow_aggregate_hosts",
+      "name": "shadow_aggregate_hosts",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_aggregate_hosts.preql"
+    },
+    {
+      "alias": "shadow_aggregate_metadata",
+      "name": "shadow_aggregate_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_aggregate_metadata.preql"
+    },
+    {
+      "alias": "shadow_aggregates",
+      "name": "shadow_aggregates",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_aggregates.preql"
+    },
+    {
+      "alias": "shadow_block_device_mapping",
+      "name": "shadow_block_device_mapping",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_block_device_mapping.preql"
+    },
+    {
+      "alias": "shadow_bw_usage_cache",
+      "name": "shadow_bw_usage_cache",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_bw_usage_cache.preql"
+    },
+    {
+      "alias": "shadow_cells",
+      "name": "shadow_cells",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_cells.preql"
+    },
+    {
+      "alias": "shadow_certificates",
+      "name": "shadow_certificates",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_certificates.preql"
+    },
+    {
+      "alias": "shadow_compute_nodes",
+      "name": "shadow_compute_nodes",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_compute_nodes.preql"
+    },
+    {
+      "alias": "shadow_console_pools",
+      "name": "shadow_console_pools",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_console_pools.preql"
+    },
+    {
+      "alias": "shadow_consoles",
+      "name": "shadow_consoles",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_consoles.preql"
+    },
+    {
+      "alias": "shadow_dns_domains",
+      "name": "shadow_dns_domains",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_dns_domains.preql"
+    },
+    {
+      "alias": "shadow_fixed_ips",
+      "name": "shadow_fixed_ips",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_fixed_ips.preql"
+    },
+    {
+      "alias": "shadow_floating_ips",
+      "name": "shadow_floating_ips",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_floating_ips.preql"
+    },
+    {
+      "alias": "shadow_instance_actions",
+      "name": "shadow_instance_actions",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_actions.preql"
+    },
+    {
+      "alias": "shadow_instance_actions_events",
+      "name": "shadow_instance_actions_events",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_actions_events.preql"
+    },
+    {
+      "alias": "shadow_instance_extra",
+      "name": "shadow_instance_extra",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_extra.preql"
+    },
+    {
+      "alias": "shadow_instance_faults",
+      "name": "shadow_instance_faults",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_faults.preql"
+    },
+    {
+      "alias": "shadow_instance_group_member",
+      "name": "shadow_instance_group_member",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_group_member.preql"
+    },
+    {
+      "alias": "shadow_instance_group_policy",
+      "name": "shadow_instance_group_policy",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_group_policy.preql"
+    },
+    {
+      "alias": "shadow_instance_groups",
+      "name": "shadow_instance_groups",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_groups.preql"
+    },
+    {
+      "alias": "shadow_instance_id_mappings",
+      "name": "shadow_instance_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_id_mappings.preql"
+    },
+    {
+      "alias": "shadow_instance_info_caches",
+      "name": "shadow_instance_info_caches",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_info_caches.preql"
+    },
+    {
+      "alias": "shadow_instance_metadata",
+      "name": "shadow_instance_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_metadata.preql"
+    },
+    {
+      "alias": "shadow_instance_system_metadata",
+      "name": "shadow_instance_system_metadata",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_system_metadata.preql"
+    },
+    {
+      "alias": "shadow_instance_type_extra_specs",
+      "name": "shadow_instance_type_extra_specs",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_type_extra_specs.preql"
+    },
+    {
+      "alias": "shadow_instance_type_projects",
+      "name": "shadow_instance_type_projects",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_type_projects.preql"
+    },
+    {
+      "alias": "shadow_instance_types",
+      "name": "shadow_instance_types",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instance_types.preql"
+    },
+    {
+      "alias": "shadow_instances",
+      "name": "shadow_instances",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_instances.preql"
+    },
+    {
+      "alias": "shadow_key_pairs",
+      "name": "shadow_key_pairs",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_key_pairs.preql"
+    },
+    {
+      "alias": "shadow_migrate_version",
+      "name": "shadow_migrate_version",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_migrate_version.preql"
+    },
+    {
+      "alias": "shadow_migrations",
+      "name": "shadow_migrations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_migrations.preql"
+    },
+    {
+      "alias": "shadow_networks",
+      "name": "shadow_networks",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_networks.preql"
+    },
+    {
+      "alias": "shadow_pci_devices",
+      "name": "shadow_pci_devices",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_pci_devices.preql"
+    },
+    {
+      "alias": "shadow_project_user_quotas",
+      "name": "shadow_project_user_quotas",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_project_user_quotas.preql"
+    },
+    {
+      "alias": "shadow_provider_fw_rules",
+      "name": "shadow_provider_fw_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_provider_fw_rules.preql"
+    },
+    {
+      "alias": "shadow_quota_classes",
+      "name": "shadow_quota_classes",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_quota_classes.preql"
+    },
+    {
+      "alias": "shadow_quota_usages",
+      "name": "shadow_quota_usages",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_quota_usages.preql"
+    },
+    {
+      "alias": "shadow_quotas",
+      "name": "shadow_quotas",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_quotas.preql"
+    },
+    {
+      "alias": "shadow_reservations",
+      "name": "shadow_reservations",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_reservations.preql"
+    },
+    {
+      "alias": "shadow_s3_images",
+      "name": "shadow_s3_images",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_s3_images.preql"
+    },
+    {
+      "alias": "shadow_security_group_default_rules",
+      "name": "shadow_security_group_default_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_security_group_default_rules.preql"
+    },
+    {
+      "alias": "shadow_security_group_instance_association",
+      "name": "shadow_security_group_instance_association",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_security_group_instance_association.preql"
+    },
+    {
+      "alias": "shadow_security_group_rules",
+      "name": "shadow_security_group_rules",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_security_group_rules.preql"
+    },
+    {
+      "alias": "shadow_security_groups",
+      "name": "shadow_security_groups",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_security_groups.preql"
+    },
+    {
+      "alias": "shadow_services",
+      "name": "shadow_services",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_services.preql"
+    },
+    {
+      "alias": "shadow_snapshot_id_mappings",
+      "name": "shadow_snapshot_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_snapshot_id_mappings.preql"
+    },
+    {
+      "alias": "shadow_snapshots",
+      "name": "shadow_snapshots",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_snapshots.preql"
+    },
+    {
+      "alias": "shadow_task_log",
+      "name": "shadow_task_log",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_task_log.preql"
+    },
+    {
+      "alias": "shadow_virtual_interfaces",
+      "name": "shadow_virtual_interfaces",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_virtual_interfaces.preql"
+    },
+    {
+      "alias": "shadow_volume_id_mappings",
+      "name": "shadow_volume_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_volume_id_mappings.preql"
+    },
+    {
+      "alias": "shadow_volume_usage_cache",
+      "name": "shadow_volume_usage_cache",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/shadow_volume_usage_cache.preql"
+    },
+    {
+      "alias": "snapshot_id_mappings",
+      "name": "snapshot_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/snapshot_id_mappings.preql"
+    },
+    {
+      "alias": "snapshots",
+      "name": "snapshots",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/snapshots.preql"
+    },
+    {
+      "alias": "tags",
+      "name": "tags",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/tags.preql"
+    },
+    {
+      "alias": "task_log",
+      "name": "task_log",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/task_log.preql"
+    },
+    {
+      "alias": "virtual_interfaces",
+      "name": "virtual_interfaces",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/virtual_interfaces.preql"
+    },
+    {
+      "alias": "volume_id_mappings",
+      "name": "volume_id_mappings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/volume_id_mappings.preql"
+    },
+    {
+      "alias": "volume_usage_cache",
+      "name": "volume_usage_cache",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/volume_usage_cache.preql"
+    }
+  ],
+  "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+  "engine": "mysql",
+  "link": "",
+  "name": "beaver_nova",
+  "tags": [
+    "mysql"
+  ]
+}

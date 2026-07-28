@@ -1,0 +1,18 @@
+import common;
+
+root datasource routes (
+    id: route_id,
+    long_name: route_name,
+    route_type: route_type,
+    color: route_color,
+    text_color: route_text_color,
+    sort_order: route_sort_order,
+    fare_class: route_fare_class,
+    direction_0_name: direction_0_name,
+    direction_1_name: direction_1_name,
+    direction_0_destination: direction_0_destination,
+    direction_1_destination: direction_1_destination,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (route_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/routes_v1.parquet`;

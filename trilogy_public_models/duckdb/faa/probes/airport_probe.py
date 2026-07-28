@@ -10,6 +10,7 @@ import sys
 import urllib.request
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 
 INDEX_URL = (
     "https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/"
@@ -29,7 +30,7 @@ def _head(url: str) -> dict[str, str]:
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
             return dict(resp.headers)
-    except Exception:
+    except (OSError, HTTPException):
         return {}
 
 
@@ -38,7 +39,7 @@ def _get_text(url: str) -> str | None:
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             return resp.read().decode("utf-8", errors="ignore")
-    except Exception:
+    except (OSError, HTTPException):
         return None
 
 
@@ -48,7 +49,7 @@ def _last_modified(headers: dict[str, str]) -> datetime | None:
         return None
     try:
         return parsedate_to_datetime(raw)
-    except Exception:
+    except (TypeError, ValueError):
         return None
 
 
@@ -64,7 +65,7 @@ def _latest_cycle_date() -> datetime | None:
         return None
     try:
         return datetime.strptime(pick, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-    except Exception:
+    except ValueError:
         return None
 
 

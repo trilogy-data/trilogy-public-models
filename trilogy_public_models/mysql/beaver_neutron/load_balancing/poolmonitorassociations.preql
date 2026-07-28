@@ -1,0 +1,14 @@
+import healthmonitors as healthmonitors;
+import pools as pools;
+
+property <pools.col_id, healthmonitors.col_id>.col_status string;
+property <pools.col_id, healthmonitors.col_id>.col_status_description string;
+
+datasource source (
+    `POOL_ID`:pools.col_id,
+    `MONITOR_ID`:healthmonitors.col_id,
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+)
+grain (pools.col_id, healthmonitors.col_id)
+address `neutron.poolmonitorassociations`;

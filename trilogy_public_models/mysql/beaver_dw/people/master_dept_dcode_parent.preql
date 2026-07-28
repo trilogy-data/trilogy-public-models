@@ -1,0 +1,19 @@
+key col_dept_id int;
+key col_d_code string;
+key col_d_name string;
+key col_parent_id int;
+key col_parent_d_code string;
+key col_parent_d_name string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `DEPT_ID`:col_dept_id,
+    `D_CODE`:col_d_code,
+    `D_NAME`:col_d_name,
+    `PARENT_ID`:col_parent_id,
+    `PARENT_D_CODE`:col_parent_d_code,
+    `PARENT_D_NAME`:col_parent_d_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_dept_id, col_d_code, col_d_name, col_parent_id, col_parent_d_code, col_parent_d_name, col_warehouse_load_date)
+address `dw.MASTER_DEPT_DCODE_PARENT`;

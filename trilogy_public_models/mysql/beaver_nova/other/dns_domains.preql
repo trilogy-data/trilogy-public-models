@@ -1,0 +1,21 @@
+property col_domain.col_created_at datetime;
+property col_domain.col_updated_at datetime;
+property col_domain.col_deleted_at datetime;
+property col_domain.col_deleted int;
+key col_domain string;
+property col_domain.col_scope string;
+property col_domain.col_availability_zone string;
+property col_domain.col_project_id string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `DELETED`:col_deleted,
+    `DOMAIN`:col_domain,
+    `SCOPE`:col_scope,
+    `AVAILABILITY_ZONE`:col_availability_zone,
+    `PROJECT_ID`:col_project_id,
+)
+grain (col_domain)
+address `nova.dns_domains`;

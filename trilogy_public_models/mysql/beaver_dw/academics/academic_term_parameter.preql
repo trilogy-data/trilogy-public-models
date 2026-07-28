@@ -1,0 +1,21 @@
+key col_term_parameter string;
+key col_term_indicator string;
+key col_term_code string;
+key col_term_description string;
+key col_term_start_date date;
+key col_term_end_date date;
+key col_term_last_day_before_next_term date;
+key col_is_current_term string;
+
+datasource source (
+    `TERM_PARAMETER`:col_term_parameter,
+    `TERM_INDICATOR`:col_term_indicator,
+    `TERM_CODE`:col_term_code,
+    `TERM_DESCRIPTION`:col_term_description,
+    `TERM_START_DATE`:col_term_start_date,
+    `TERM_END_DATE`:col_term_end_date,
+    `TERM_LAST_DAY_BEFORE_NEXT_TERM`:col_term_last_day_before_next_term,
+    `IS_CURRENT_TERM`:col_is_current_term,
+)
+grain (col_term_parameter, col_term_indicator, col_term_code, col_term_description, col_term_start_date, col_term_end_date, col_term_last_day_before_next_term, col_is_current_term)
+address `dw.ACADEMIC_TERM_PARAMETER`;

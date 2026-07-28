@@ -1,0 +1,143 @@
+key col_academic_year string;
+key col_term_code string;
+key col_subject_id string;
+key col_subject_code string;
+key col_subject_number string;
+key col_source_subject_id string;
+key col_print_subject_id string;
+key col_is_printed_in_bulletin string;
+key col_department_code string;
+key col_department_name string;
+key col_effective_term_code string;
+key col_subject_short_title string;
+key col_subject_title string;
+key col_is_variable_units string;
+key col_lecture_units int;
+key col_lab_units int;
+key col_preparation_units int;
+key col_total_units int;
+key col_design_units int;
+key col_grade_type string;
+key col_grade_type_desc string;
+key col_grade_rule string;
+key col_grade_rule_desc string;
+key col_hgn_code string;
+key col_hgn_desc string;
+key col_hgn_except string;
+key col_gir_attribute string;
+key col_gir_attribute_desc string;
+key col_comm_req_attribute string;
+key col_comm_req_attribute_desc string;
+key col_tuition_attribute string;
+key col_tuition_attribute_desc string;
+key col_write_req_attribute string;
+key col_write_req_attribute_desc string;
+key col_supervisor_attribute string;
+key col_supervisor_attribute_desc string;
+key col_prerequisites string;
+key col_subject_description string;
+key col_joint_subjects string;
+key col_school_wide_electives string;
+key col_meets_with_subjects string;
+key col_equivalent_subjects string;
+key col_is_offered_this_year string;
+key col_is_offered_fall_term string;
+key col_is_offered_iap string;
+key col_is_offered_spring_term string;
+key col_is_offered_summer_term string;
+key col_fall_instructors string;
+key col_spring_instructors string;
+key col_status_change string;
+key col_last_activity_date date;
+key col_warehouse_load_date date;
+key col_master_subject_id string;
+key col_hass_attribute string;
+key col_hass_attribute_desc string;
+key col_term_duration string;
+key col_global_regions string;
+key col_global_countries string;
+key col_on_line_page_number string;
+key col_section_id string;
+key col_is_master_section string;
+key col_is_lecture_section string;
+key col_is_lab_section string;
+key col_is_recitation_section string;
+key col_is_design_section string;
+key col_responsible_faculty_name string;
+key col_responsible_faculty_mit_id string;
+key col_meet_time string;
+key col_meet_place string;
+
+datasource source (
+    `ACADEMIC_YEAR`:col_academic_year,
+    `TERM_CODE`:col_term_code,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_CODE`:col_subject_code,
+    `SUBJECT_NUMBER`:col_subject_number,
+    `SOURCE_SUBJECT_ID`:col_source_subject_id,
+    `PRINT_SUBJECT_ID`:col_print_subject_id,
+    `IS_PRINTED_IN_BULLETIN`:col_is_printed_in_bulletin,
+    `DEPARTMENT_CODE`:col_department_code,
+    `DEPARTMENT_NAME`:col_department_name,
+    `EFFECTIVE_TERM_CODE`:col_effective_term_code,
+    `SUBJECT_SHORT_TITLE`:col_subject_short_title,
+    `SUBJECT_TITLE`:col_subject_title,
+    `IS_VARIABLE_UNITS`:col_is_variable_units,
+    `LECTURE_UNITS`:col_lecture_units,
+    `LAB_UNITS`:col_lab_units,
+    `PREPARATION_UNITS`:col_preparation_units,
+    `TOTAL_UNITS`:col_total_units,
+    `DESIGN_UNITS`:col_design_units,
+    `GRADE_TYPE`:col_grade_type,
+    `GRADE_TYPE_DESC`:col_grade_type_desc,
+    `GRADE_RULE`:col_grade_rule,
+    `GRADE_RULE_DESC`:col_grade_rule_desc,
+    `HGN_CODE`:col_hgn_code,
+    `HGN_DESC`:col_hgn_desc,
+    `HGN_EXCEPT`:col_hgn_except,
+    `GIR_ATTRIBUTE`:col_gir_attribute,
+    `GIR_ATTRIBUTE_DESC`:col_gir_attribute_desc,
+    `COMM_REQ_ATTRIBUTE`:col_comm_req_attribute,
+    `COMM_REQ_ATTRIBUTE_DESC`:col_comm_req_attribute_desc,
+    `TUITION_ATTRIBUTE`:col_tuition_attribute,
+    `TUITION_ATTRIBUTE_DESC`:col_tuition_attribute_desc,
+    `WRITE_REQ_ATTRIBUTE`:col_write_req_attribute,
+    `WRITE_REQ_ATTRIBUTE_DESC`:col_write_req_attribute_desc,
+    `SUPERVISOR_ATTRIBUTE`:col_supervisor_attribute,
+    `SUPERVISOR_ATTRIBUTE_DESC`:col_supervisor_attribute_desc,
+    `PREREQUISITES`:col_prerequisites,
+    `SUBJECT_DESCRIPTION`:col_subject_description,
+    `JOINT_SUBJECTS`:col_joint_subjects,
+    `SCHOOL_WIDE_ELECTIVES`:col_school_wide_electives,
+    `MEETS_WITH_SUBJECTS`:col_meets_with_subjects,
+    `EQUIVALENT_SUBJECTS`:col_equivalent_subjects,
+    `IS_OFFERED_THIS_YEAR`:col_is_offered_this_year,
+    `IS_OFFERED_FALL_TERM`:col_is_offered_fall_term,
+    `IS_OFFERED_IAP`:col_is_offered_iap,
+    `IS_OFFERED_SPRING_TERM`:col_is_offered_spring_term,
+    `IS_OFFERED_SUMMER_TERM`:col_is_offered_summer_term,
+    `FALL_INSTRUCTORS`:col_fall_instructors,
+    `SPRING_INSTRUCTORS`:col_spring_instructors,
+    `STATUS_CHANGE`:col_status_change,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `HASS_ATTRIBUTE`:col_hass_attribute,
+    `HASS_ATTRIBUTE_DESC`:col_hass_attribute_desc,
+    `TERM_DURATION`:col_term_duration,
+    `GLOBAL_REGIONS`:col_global_regions,
+    `GLOBAL_COUNTRIES`:col_global_countries,
+    `ON_LINE_PAGE_NUMBER`:col_on_line_page_number,
+    `SECTION_ID`:col_section_id,
+    `IS_MASTER_SECTION`:col_is_master_section,
+    `IS_LECTURE_SECTION`:col_is_lecture_section,
+    `IS_LAB_SECTION`:col_is_lab_section,
+    `IS_RECITATION_SECTION`:col_is_recitation_section,
+    `IS_DESIGN_SECTION`:col_is_design_section,
+    `RESPONSIBLE_FACULTY_NAME`:col_responsible_faculty_name,
+    `RESPONSIBLE_FACULTY_MIT_ID`:col_responsible_faculty_mit_id,
+    `MEET_TIME`:col_meet_time,
+    `MEET_PLACE`:col_meet_place,
+)
+grain (col_academic_year, col_term_code, col_subject_id, col_subject_code, col_subject_number, col_source_subject_id, col_print_subject_id, col_is_printed_in_bulletin, col_department_code, col_department_name, col_effective_term_code, col_subject_short_title, col_subject_title, col_is_variable_units, col_lecture_units, col_lab_units, col_preparation_units, col_total_units, col_design_units, col_grade_type, col_grade_type_desc, col_grade_rule, col_grade_rule_desc, col_hgn_code, col_hgn_desc, col_hgn_except, col_gir_attribute, col_gir_attribute_desc, col_comm_req_attribute, col_comm_req_attribute_desc, col_tuition_attribute, col_tuition_attribute_desc, col_write_req_attribute, col_write_req_attribute_desc, col_supervisor_attribute, col_supervisor_attribute_desc, col_prerequisites, col_subject_description, col_joint_subjects, col_school_wide_electives, col_meets_with_subjects, col_equivalent_subjects, col_is_offered_this_year, col_is_offered_fall_term, col_is_offered_iap, col_is_offered_spring_term, col_is_offered_summer_term, col_fall_instructors, col_spring_instructors, col_status_change, col_last_activity_date, col_warehouse_load_date, col_master_subject_id, col_hass_attribute, col_hass_attribute_desc, col_term_duration, col_global_regions, col_global_countries, col_on_line_page_number, col_section_id, col_is_master_section, col_is_lecture_section, col_is_lab_section, col_is_recitation_section, col_is_design_section, col_responsible_faculty_name, col_responsible_faculty_mit_id, col_meet_time, col_meet_place)
+address `dw.COURSE_CATALOG_SUBJECT_OFFERED`;

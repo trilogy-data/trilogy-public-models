@@ -1,0 +1,9 @@
+key col_username string;
+key col_dlc_key string;
+
+datasource source (
+    `USERNAME`:col_username,
+    `DLC_KEY`:col_dlc_key,
+)
+grain (col_username, col_dlc_key)
+address `dw.ROLES_FIN_PA`;

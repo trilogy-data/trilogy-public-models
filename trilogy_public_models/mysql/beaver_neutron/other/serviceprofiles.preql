@@ -1,0 +1,15 @@
+key col_id string;
+property col_id.col_description string;
+property col_id.col_driver string;
+property col_id.col_enabled int;
+property col_id.col_metainfo string;
+
+datasource source (
+    `ID`:col_id,
+    `DESCRIPTION`:col_description,
+    `DRIVER`:col_driver,
+    `ENABLED`:col_enabled,
+    `METAINFO`:col_metainfo,
+)
+grain (col_id)
+address `neutron.serviceprofiles`;

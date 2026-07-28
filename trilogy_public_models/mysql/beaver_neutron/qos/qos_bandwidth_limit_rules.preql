@@ -1,0 +1,14 @@
+import qos_policies as qos_policies;
+
+key col_id string;
+property col_id.col_max_kbps int;
+property col_id.col_max_burst_kbps int;
+
+datasource source (
+    `ID`:col_id,
+    `QOS_POLICY_ID`:qos_policies.col_id,
+    `MAX_KBPS`:col_max_kbps,
+    `MAX_BURST_KBPS`:col_max_burst_kbps,
+)
+grain (col_id)
+address `neutron.qos_bandwidth_limit_rules`;

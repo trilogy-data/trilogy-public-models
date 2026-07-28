@@ -1,14 +1,17 @@
-from pathlib import Path
-from typing import Any
-from trilogy.core.models.environment import (
-    Environment,
-    LazyEnvironment as BaseLazyEnvironment,
-)
 import sys
-from importlib.machinery import SourceFileLoader
 from collections import UserDict
 from dataclasses import dataclass
 from enum import Enum
+from importlib.machinery import SourceFileLoader
+from pathlib import Path
+from typing import Any
+
+from trilogy.core.models.environment import (
+    Environment,
+)
+from trilogy.core.models.environment import (
+    LazyEnvironment as BaseLazyEnvironment,
+)
 
 
 class QueryType(Enum):
@@ -74,15 +77,19 @@ class LazyEnvironment(BaseLazyEnvironment):
         if self.loaded:
             return
         from trilogy import parse
+        from trilogy.authoring import ImportStatement
 
         env = Environment(working_path=str(self.working_path))
 
         with open(self.load_path, "r") as f:
-            env, _ = parse(f.read(), env)
+            env, entrypoint_queries = parse(f.read(), env)
+            for query in entrypoint_queries:
+                if not isinstance(query, ImportStatement):
+                    self.setup_queries.append(SetupQuery(query, QueryType.TRILOGY))
         if self.setup_path.exists():
             with open(self.setup_path, "r") as f2:
-                env, q = parse(f2.read(), env)
-                for q in q:
+                env, setup_statements = parse(f2.read(), env)
+                for q in setup_statements:
                     self.setup_queries.append(SetupQuery(q, QueryType.TRILOGY))
         if self.setup_path_sql.exists():
             with open(self.setup_path_sql, "r") as f2:

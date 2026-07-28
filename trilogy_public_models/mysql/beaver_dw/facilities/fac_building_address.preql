@@ -1,0 +1,36 @@
+import fac_building as fac_building;
+
+key col_building_address_key date;
+key col_address_purpose string;
+key col_address_city_id string;
+key col_is_e911_address string;
+key col_street_number string;
+key col_street_number_suffix string;
+key col_pre_directional string;
+key col_street_name string;
+key col_street_suffix string;
+key col_post_directional string;
+key col_city string;
+key col_state string;
+key col_postal_code string;
+key col_warehouse_load_date string;
+
+datasource source (
+    `BUILDING_ADDRESS_KEY`:col_building_address_key,
+    `BUILDING_KEY`:fac_building.col_fac_building_key,
+    `ADDRESS_PURPOSE`:col_address_purpose,
+    `ADDRESS_CITY_ID`:col_address_city_id,
+    `IS_E911_ADDRESS`:col_is_e911_address,
+    `STREET_NUMBER`:col_street_number,
+    `STREET_NUMBER_SUFFIX`:col_street_number_suffix,
+    `PRE_DIRECTIONAL`:col_pre_directional,
+    `STREET_NAME`:col_street_name,
+    `STREET_SUFFIX`:col_street_suffix,
+    `POST_DIRECTIONAL`:col_post_directional,
+    `CITY`:col_city,
+    `STATE`:col_state,
+    `POSTAL_CODE`:col_postal_code,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_building_address_key, fac_building.col_fac_building_key, col_address_purpose, col_address_city_id, col_is_e911_address, col_street_number, col_street_number_suffix, col_pre_directional, col_street_name, col_street_suffix, col_post_directional, col_city, col_state, col_postal_code, col_warehouse_load_date)
+address `dw.FAC_BUILDING_ADDRESS`;

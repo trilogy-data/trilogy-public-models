@@ -1,0 +1,9 @@
+key col_gre_id int;
+property col_gre_id.col_allocated int;
+
+datasource source (
+    `GRE_ID`:col_gre_id,
+    `ALLOCATED`:col_allocated,
+)
+grain (col_gre_id)
+address `neutron.ml2_gre_allocations`;

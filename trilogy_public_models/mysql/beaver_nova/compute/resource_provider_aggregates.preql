@@ -1,0 +1,9 @@
+key col_resource_provider_id int;
+key col_aggregate_id int;
+
+datasource source (
+    `RESOURCE_PROVIDER_ID`:col_resource_provider_id,
+    `AGGREGATE_ID`:col_aggregate_id,
+)
+grain (col_resource_provider_id, col_aggregate_id)
+address `nova.resource_provider_aggregates`;

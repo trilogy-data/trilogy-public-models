@@ -1,8 +1,8 @@
 """Adhoc script to parse an ao2 sql database into parquet"""
 
-import duckdb
 from pathlib import Path
 
+import duckdb
 
 column_restriction = {
     "matches": ["id", "map_id", "time", "ladder_id", "patch_id", "patch_number"]
@@ -10,7 +10,7 @@ column_restriction = {
 
 
 def export_match_player_actions(db_name, mods=100):
-    for idx in range(0, 2):
+    for idx in range(2):
         print(idx)
         cmd = f"""COPY (select *,  id%{mods} mod_division 
         from  {db_name}.match_player_actions 
@@ -19,7 +19,7 @@ def export_match_player_actions(db_name, mods=100):
         OVERWRITE_OR_IGNORE);"""
         try:
             duckdb.sql(cmd)
-        except Exception as e:
+        except duckdb.Error as e:
             from time import sleep
 
             sleep(20)

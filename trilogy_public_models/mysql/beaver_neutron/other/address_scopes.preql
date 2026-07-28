@@ -1,0 +1,15 @@
+key col_id string;
+property col_id.col_name string;
+property col_id.col_tenant_id string;
+property col_id.col_shared int;
+property col_id.col_ip_version int;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `TENANT_ID`:col_tenant_id,
+    `SHARED`:col_shared,
+    `IP_VERSION`:col_ip_version,
+)
+grain (col_id)
+address `neutron.address_scopes`;

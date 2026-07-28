@@ -1,0 +1,11 @@
+key col_edge_id string;
+key col_mac_address string;
+property <col_edge_id, col_mac_address>.col_binding_id string;
+
+datasource source (
+    `EDGE_ID`:col_edge_id,
+    `MAC_ADDRESS`:col_mac_address,
+    `BINDING_ID`:col_binding_id,
+)
+grain (col_edge_id, col_mac_address)
+address `neutron.nsxv_edge_dhcp_static_bindings`;

@@ -1,14 +1,14 @@
 import os
+from collections.abc import Generator
 
 from google.auth import default
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from trilogy.executor import Executor, Dialects
 from pytest import fixture
 from sqlalchemy.engine import create_engine
-from typing import Generator
 from trilogy.constants import Rendering
 from trilogy.dialect.config import SnowflakeConfig
+from trilogy.executor import Dialects, Executor
 
 
 @fixture()
@@ -79,7 +79,15 @@ def snowflake_engine(fakesnow_happening) -> Generator[Executor, None, None]:
     MENU_ITEM_HEALTH_METRICS_OBJ VARIANT
 );"""
     )
-    yield executor
+    try:
+        yield executor
+    finally:
+        # Close deterministically, while fakesnow is still patched. Otherwise the
+        # connection lives until interpreter shutdown, where SQLAlchemy's pool
+        # finalizer issues a rollback, fakesnow parses "ROLLBACK" with sqlglot,
+        # and sqlglot's lazy `from sqlglot.dialects.dialect import Dialect`
+        # explodes with "sys.meta_path is None, Python is likely shutting down".
+        executor.close()
 
 
 @fixture()

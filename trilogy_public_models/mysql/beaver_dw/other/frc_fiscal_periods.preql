@@ -1,0 +1,11 @@
+key col_time_month_key string;
+key col_calendar_period_description string;
+key col_fiscal_period string;
+
+datasource source (
+    `TIME_MONTH_KEY`:col_time_month_key,
+    `CALENDAR_PERIOD_DESCRIPTION`:col_calendar_period_description,
+    `FISCAL_PERIOD`:col_fiscal_period,
+)
+grain (col_time_month_key, col_calendar_period_description, col_fiscal_period)
+address `dw.FRC_FISCAL_PERIODS`;

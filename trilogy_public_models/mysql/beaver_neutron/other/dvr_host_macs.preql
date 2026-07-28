@@ -1,0 +1,9 @@
+key col_host string;
+property col_host.col_mac_address string;
+
+datasource source (
+    `HOST`:col_host,
+    `MAC_ADDRESS`:col_mac_address,
+)
+grain (col_host)
+address `neutron.dvr_host_macs`;

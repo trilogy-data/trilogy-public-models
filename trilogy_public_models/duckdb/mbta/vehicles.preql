@@ -1,0 +1,33 @@
+import common;
+
+property vehicle_id.vehicle_label string?;
+property vehicle_id.vehicle_status enum<string>['STOPPED_AT', 'IN_TRANSIT_TO', 'INCOMING_AT']?; # the complete GTFS-realtime VehicleStopStatus domain
+property vehicle_id.vehicle_stop_sequence int[0..]?;
+property vehicle_id.vehicle_latitude float?;
+property vehicle_id.vehicle_longitude float?;
+property vehicle_id.vehicle_bearing float[0..360]?; # degrees clockwise from true north
+property vehicle_id.vehicle_speed float[0..]?; # meters/second when reported, usually null on subway
+property vehicle_id.vehicle_occupancy string?; # GTFS-rt OccupancyStatus; left open because it is entirely null in current snapshots, so the emitted subset is unverified
+property vehicle_id.vehicle_revenue enum<string>['REVENUE', 'NON_REVENUE']?;
+property vehicle_id.vehicle_updated_at datetime; # when the vehicle last reported, from the feed itself
+
+root datasource vehicle_observations (
+    id: vehicle_id,
+    label: ?vehicle_label,
+    route_id: ~?route_id,
+    stop_id: ~?stop_id,
+    trip_id: ~?trip_id,
+    direction_id: ?direction_id,
+    latitude: ?vehicle_latitude,
+    longitude: ?vehicle_longitude,
+    bearing: ?vehicle_bearing,
+    speed: ?vehicle_speed,
+    current_status: ?vehicle_status,
+    current_stop_sequence: ?vehicle_stop_sequence,
+    occupancy_status: ?vehicle_occupancy,
+    revenue: ?vehicle_revenue,
+    updated_at: vehicle_updated_at,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (vehicle_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/vehicle_observations_v1.parquet`;

@@ -11,12 +11,12 @@ def parse_public_bigquery_project(dataset: str, write: bool):
 
     root = dirname(dirname(__file__))
     Path(root) / "bigquery" / dataset
-    cred, project = auth.default()
+    cred, _ = auth.default()
     client = bigquery.Client(credentials=cred, project="bigquery-public-data")
 
     datasets = client.list_datasets()
-    for dataset in datasets:
-        tables = client.list_tables(dataset=dataset)
+    for listed_dataset in datasets:
+        tables = client.list_tables(dataset=listed_dataset)
         for table in tables:
             table = client.get_table(table)
             modified = str(table.modified)

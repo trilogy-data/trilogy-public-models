@@ -1,0 +1,13 @@
+key col_holiday_closing_date date;
+key col_holiday_closing_description string;
+key col_holiday_closing_type string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `HOLIDAY_CLOSING_DATE`:col_holiday_closing_date,
+    `HOLIDAY_CLOSING_DESCRIPTION`:col_holiday_closing_description,
+    `HOLIDAY_CLOSING_TYPE`:col_holiday_closing_type,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_holiday_closing_date, col_holiday_closing_description, col_holiday_closing_type, col_warehouse_load_date)
+address `dw.MIT_HOLIDAY_CLOSING_CALENDAR`;

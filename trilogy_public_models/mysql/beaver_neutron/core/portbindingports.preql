@@ -1,0 +1,12 @@
+# Legacy host-only port binding extension. It does not contain VIF_TYPE; prefer ML2_PORT_BINDINGS for host/VIF questions.
+
+import ports as ports;
+
+property ports.col_id.col_host string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `HOST`:ports.col_host,
+)
+grain (ports.col_id)
+address `neutron.portbindingports`;

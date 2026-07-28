@@ -1,0 +1,16 @@
+import pools as pools;
+
+property pools.col_id.col_bytes_in int;
+property pools.col_id.col_bytes_out int;
+property pools.col_id.col_active_connections int;
+property pools.col_id.col_total_connections int;
+
+datasource source (
+    `POOL_ID`:pools.col_id,
+    `BYTES_IN`:pools.col_bytes_in,
+    `BYTES_OUT`:pools.col_bytes_out,
+    `ACTIVE_CONNECTIONS`:pools.col_active_connections,
+    `TOTAL_CONNECTIONS`:pools.col_total_connections,
+)
+grain (pools.col_id)
+address `neutron.poolstatisticss`;

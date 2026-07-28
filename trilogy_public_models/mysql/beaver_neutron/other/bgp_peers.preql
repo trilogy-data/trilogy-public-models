@@ -1,0 +1,19 @@
+key col_id string;
+property col_id.col_name string;
+property col_id.col_auth_type string;
+property col_id.col_password string;
+property col_id.col_peer_ip string;
+property col_id.col_remote_as int;
+property col_id.col_tenant_id string;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `AUTH_TYPE`:col_auth_type,
+    `PASSWORD`:col_password,
+    `PEER_IP`:col_peer_ip,
+    `REMOTE_AS`:col_remote_as,
+    `TENANT_ID`:col_tenant_id,
+)
+grain (col_id)
+address `neutron.bgp_peers`;

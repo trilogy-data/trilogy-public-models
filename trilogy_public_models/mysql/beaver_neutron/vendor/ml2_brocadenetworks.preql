@@ -1,0 +1,15 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_vlan string;
+property col_id.col_segment_id string;
+property col_id.col_network_type string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `VLAN`:col_vlan,
+    `SEGMENT_ID`:col_segment_id,
+    `NETWORK_TYPE`:col_network_type,
+)
+grain (col_id)
+address `neutron.ml2_brocadenetworks`;

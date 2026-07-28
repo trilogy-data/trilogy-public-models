@@ -1,0 +1,11 @@
+key col_repository_id string;
+property col_repository_id.col_repository_path string;
+property col_repository_id.col_version int;
+
+datasource source (
+    `REPOSITORY_ID`:col_repository_id,
+    `REPOSITORY_PATH`:col_repository_path,
+    `VERSION`:col_version,
+)
+grain (col_repository_id)
+address `nova.migrate_version`;

@@ -1,0 +1,15 @@
+key col_space_unit_key string;
+key col_space_unit_code string;
+key col_space_unit string;
+key col_dlc_key string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SPACE_UNIT_KEY`:col_space_unit_key,
+    `SPACE_UNIT_CODE`:col_space_unit_code,
+    `SPACE_UNIT`:col_space_unit,
+    `DLC_KEY`:col_dlc_key,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_space_unit_key, col_space_unit_code, col_space_unit, col_dlc_key, col_warehouse_load_date)
+address `dw.SPACE_UNIT2`;

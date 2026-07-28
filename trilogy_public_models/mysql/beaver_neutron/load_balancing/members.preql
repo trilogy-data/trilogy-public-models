@@ -1,0 +1,24 @@
+import pools as pools;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_address string;
+property col_id.col_protocol_port int;
+property col_id.col_weight int;
+property col_id.col_status string;
+property col_id.col_status_description string;
+property col_id.col_admin_state_up int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `POOL_ID`:pools.col_id,
+    `ADDRESS`:col_address,
+    `PROTOCOL_PORT`:col_protocol_port,
+    `WEIGHT`:col_weight,
+    `STATUS`:col_status,
+    `STATUS_DESCRIPTION`:col_status_description,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+)
+grain (col_id)
+address `neutron.members`;

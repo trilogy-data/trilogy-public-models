@@ -1,0 +1,29 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_uuid string;
+property col_id.col_usage_id int;
+property col_id.col_project_id string;
+property col_id.col_resource string;
+property col_id.col_delta int;
+property col_id.col_expire datetime;
+property col_id.col_deleted int;
+property col_id.col_user_id string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `UUID`:col_uuid,
+    `USAGE_ID`:col_usage_id,
+    `PROJECT_ID`:col_project_id,
+    `RESOURCE`:col_resource,
+    `DELTA`:col_delta,
+    `EXPIRE`:col_expire,
+    `DELETED`:col_deleted,
+    `USER_ID`:col_user_id,
+)
+grain (col_id)
+address `nova.shadow_reservations`;

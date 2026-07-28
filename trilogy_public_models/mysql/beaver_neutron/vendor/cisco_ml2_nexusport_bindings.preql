@@ -1,0 +1,19 @@
+key col_binding_id int;
+property col_binding_id.col_port_id string;
+property col_binding_id.col_vlan_id int;
+property col_binding_id.col_switch_ip string;
+property col_binding_id.col_instance_id string;
+property col_binding_id.col_vni int;
+property col_binding_id.col_is_provider_vlan int;
+
+datasource source (
+    `BINDING_ID`:col_binding_id,
+    `PORT_ID`:col_port_id,
+    `VLAN_ID`:col_vlan_id,
+    `SWITCH_IP`:col_switch_ip,
+    `INSTANCE_ID`:col_instance_id,
+    `VNI`:col_vni,
+    `IS_PROVIDER_VLAN`:col_is_provider_vlan,
+)
+grain (col_binding_id)
+address `neutron.cisco_ml2_nexusport_bindings`;

@@ -1,0 +1,50 @@
+import instances as instances;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_source_compute string;
+property col_id.col_dest_compute string;
+property col_id.col_dest_host string;
+property col_id.col_status string;
+property col_id.col_old_instance_type_id int;
+property col_id.col_new_instance_type_id int;
+property col_id.col_source_node string;
+property col_id.col_dest_node string;
+property col_id.col_deleted int;
+property col_id.col_migration_type string;
+property col_id.col_hidden int;
+property col_id.col_memory_total int;
+property col_id.col_memory_processed int;
+property col_id.col_memory_remaining int;
+property col_id.col_disk_total int;
+property col_id.col_disk_processed int;
+property col_id.col_disk_remaining int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `SOURCE_COMPUTE`:col_source_compute,
+    `DEST_COMPUTE`:col_dest_compute,
+    `DEST_HOST`:col_dest_host,
+    `STATUS`:col_status,
+    `INSTANCE_UUID`:instances.col_uuid,
+    `OLD_INSTANCE_TYPE_ID`:col_old_instance_type_id,
+    `NEW_INSTANCE_TYPE_ID`:col_new_instance_type_id,
+    `SOURCE_NODE`:col_source_node,
+    `DEST_NODE`:col_dest_node,
+    `DELETED`:col_deleted,
+    `MIGRATION_TYPE`:col_migration_type,
+    `HIDDEN`:col_hidden,
+    `MEMORY_TOTAL`:col_memory_total,
+    `MEMORY_PROCESSED`:col_memory_processed,
+    `MEMORY_REMAINING`:col_memory_remaining,
+    `DISK_TOTAL`:col_disk_total,
+    `DISK_PROCESSED`:col_disk_processed,
+    `DISK_REMAINING`:col_disk_remaining,
+)
+grain (col_id)
+address `nova.migrations`;

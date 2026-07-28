@@ -1,0 +1,10 @@
+import agents as agents;
+import ..core.routers as routers;
+
+
+datasource source (
+    `ROUTER_ID`:routers.col_id,
+    `L3_AGENT_ID`:agents.col_id,
+)
+grain (routers.col_id, agents.col_id)
+address `neutron.routerl3agentbindings`;

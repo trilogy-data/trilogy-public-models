@@ -1,0 +1,21 @@
+key col_term_address_category_code string;
+key col_term_address_category string;
+key col_living_group_type string;
+key col_living_group_type_desc string;
+key col_valid_from_date date;
+key col_valid_thru_date date;
+key col_last_activity_date date;
+key col_warehouse_load_date date;
+
+datasource source (
+    `TERM_ADDRESS_CATEGORY_CODE`:col_term_address_category_code,
+    `TERM_ADDRESS_CATEGORY`:col_term_address_category,
+    `LIVING_GROUP_TYPE`:col_living_group_type,
+    `LIVING_GROUP_TYPE_DESC`:col_living_group_type_desc,
+    `VALID_FROM_DATE`:col_valid_from_date,
+    `VALID_THRU_DATE`:col_valid_thru_date,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_term_address_category_code, col_term_address_category, col_living_group_type, col_living_group_type_desc, col_valid_from_date, col_valid_thru_date, col_last_activity_date, col_warehouse_load_date)
+address `dw.SIS_TERM_ADDRESS_CATEGORY`;

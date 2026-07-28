@@ -1,0 +1,11 @@
+key col_space_usage_key int;
+key col_space_usage string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `SPACE_USAGE_KEY`:col_space_usage_key,
+    `SPACE_USAGE`:col_space_usage,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_space_usage_key, col_space_usage, col_warehouse_load_date)
+address `dw.SPACE_USAGE`;

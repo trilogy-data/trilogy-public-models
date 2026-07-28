@@ -1,0 +1,13 @@
+key col_top_level_domain_key string;
+key col_top_level_domain string;
+key col_top_level_domain_description string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `TOP_LEVEL_DOMAIN_KEY`:col_top_level_domain_key,
+    `TOP_LEVEL_DOMAIN`:col_top_level_domain,
+    `TOP_LEVEL_DOMAIN_DESCRIPTION`:col_top_level_domain_description,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_top_level_domain_key, col_top_level_domain, col_top_level_domain_description, col_warehouse_load_date)
+address `dw.TOP_LEVEL_DOMAIN`;

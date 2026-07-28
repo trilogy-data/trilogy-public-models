@@ -1,0 +1,19 @@
+key col_id string;
+property col_id.col_name string;
+property col_id.col_local_as int;
+property col_id.col_ip_version int;
+property col_id.col_tenant_id string;
+property col_id.col_advertise_floating_ip_host_routes int;
+property col_id.col_advertise_tenant_networks int;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `LOCAL_AS`:col_local_as,
+    `IP_VERSION`:col_ip_version,
+    `TENANT_ID`:col_tenant_id,
+    `ADVERTISE_FLOATING_IP_HOST_ROUTES`:col_advertise_floating_ip_host_routes,
+    `ADVERTISE_TENANT_NETWORKS`:col_advertise_tenant_networks,
+)
+grain (col_id)
+address `neutron.bgp_speakers`;

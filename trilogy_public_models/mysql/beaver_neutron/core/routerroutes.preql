@@ -1,0 +1,12 @@
+import routers as routers;
+
+key col_destination string;
+key col_nexthop string;
+
+datasource source (
+    `DESTINATION`:col_destination,
+    `NEXTHOP`:col_nexthop,
+    `ROUTER_ID`:routers.col_id,
+)
+grain (col_destination, col_nexthop, routers.col_id)
+address `neutron.routerroutes`;

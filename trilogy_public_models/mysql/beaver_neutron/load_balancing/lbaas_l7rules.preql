@@ -1,0 +1,26 @@
+import lbaas_l7policies as lbaas_l7policies;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_type string;
+property col_id.col_compare_type string;
+property col_id.col_invert int;
+property col_id.col_key string;
+property col_id.col_value string;
+property col_id.col_provisioning_status string;
+property col_id.col_admin_state_up int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `L7POLICY_ID`:lbaas_l7policies.col_id,
+    `TYPE`:col_type,
+    `COMPARE_TYPE`:col_compare_type,
+    `INVERT`:col_invert,
+    `KEY`:col_key,
+    `VALUE`:col_value,
+    `PROVISIONING_STATUS`:col_provisioning_status,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+)
+grain (col_id)
+address `neutron.lbaas_l7rules`;

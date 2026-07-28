@@ -1,0 +1,14 @@
+import networks as networks;
+import ports as ports;
+import subnets as subnets;
+
+key col_ip_address string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `IP_ADDRESS`:col_ip_address,
+    `SUBNET_ID`:subnets.col_id,
+    `NETWORK_ID`:networks.col_id,
+)
+grain (col_ip_address, subnets.col_id, networks.col_id)
+address `neutron.ipallocations`;

@@ -1,0 +1,7 @@
+key col_physical_network string;
+
+datasource source (
+    `PHYSICAL_NETWORK`:col_physical_network,
+)
+grain (col_physical_network)
+address `neutron.ml2_flat_allocations`;

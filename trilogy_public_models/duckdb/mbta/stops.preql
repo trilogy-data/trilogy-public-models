@@ -1,0 +1,17 @@
+import common;
+
+root datasource stops (
+    id: stop_id,
+    name: stop_name,
+    location_type: stop_location_type,
+    parent_station: ?parent_station,
+    parent_station_name: ?parent_station_name,
+    latitude: stop_latitude,
+    longitude: stop_longitude,
+    municipality: ?stop_municipality,
+    platform_name: ?platform_name,
+    wheelchair_boarding: ?wheelchair_boarding,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (stop_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/stops_v1.parquet`;

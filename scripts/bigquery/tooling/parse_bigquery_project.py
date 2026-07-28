@@ -1,21 +1,22 @@
 # requires openai
 # and langchain
 
-from typing import TYPE_CHECKING
-from preql.core.models import (
-    Datasource,
-    ColumnAssignment,
-    Environment,
-    Concept,
-    Metadata,
-    Grain,
-)
-from preql.core.enums import DataType, Purpose
-from preql.parsing.render import render_environment
-import re
-import os
-from pathlib import Path
 import json
+import os
+import re
+from pathlib import Path
+from typing import TYPE_CHECKING
+
+from preql.core.enums import DataType, Purpose
+from preql.core.models import (
+    ColumnAssignment,
+    Concept,
+    Datasource,
+    Environment,
+    Grain,
+    Metadata,
+)
+from preql.parsing.render import render_environment
 
 
 def camel_to_snake(name: str) -> str:
@@ -50,7 +51,7 @@ Example responses:
 Columns are:
 {columns}
 Answer:
-    """  # noqa: E501
+    """
     results = llm(text)
     print(results)
     return json.loads(results)
@@ -105,7 +106,7 @@ def get_table_environment(table: "bigquery.Table", target: Path) -> Environment:
         print(f"{fpath} already exists, returning existing environment")
         contents = f.read()
         env = Environment(working_path=target)
-        environment, statements = parse(contents, environment=env)
+        environment, _ = parse(contents, environment=env)
         return environment
 
 
@@ -122,7 +123,7 @@ def process_table(table, client: "bigquery.Client", target: Path) -> Environment
         or get_table_keys(table)
         or []
     )
-    for _, datasource in environment.datasources.items():
+    for datasource in environment.datasources.values():
         for c in datasource.columns:
             existing_bindings.add(c.alias)
     for c in table.schema:

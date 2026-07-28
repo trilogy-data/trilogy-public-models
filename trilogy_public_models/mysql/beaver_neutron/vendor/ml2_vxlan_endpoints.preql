@@ -1,0 +1,11 @@
+key col_ip_address string;
+property col_ip_address.col_udp_port int;
+property col_ip_address.col_host string;
+
+datasource source (
+    `IP_ADDRESS`:col_ip_address,
+    `UDP_PORT`:col_udp_port,
+    `HOST`:col_host,
+)
+grain (col_ip_address)
+address `neutron.ml2_vxlan_endpoints`;

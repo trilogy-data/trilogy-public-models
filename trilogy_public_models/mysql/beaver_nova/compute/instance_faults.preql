@@ -1,0 +1,26 @@
+import instances as instances;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_code int;
+property col_id.col_message string;
+property col_id.col_details string;
+property col_id.col_host string;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `INSTANCE_UUID`:instances.col_uuid,
+    `CODE`:col_code,
+    `MESSAGE`:col_message,
+    `DETAILS`:col_details,
+    `HOST`:col_host,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.instance_faults`;

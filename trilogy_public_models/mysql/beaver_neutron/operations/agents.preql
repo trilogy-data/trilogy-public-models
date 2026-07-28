@@ -1,0 +1,33 @@
+key col_id string;
+property col_id.col_agent_type string;
+property col_id.col_binary string;
+property col_id.col_topic string;
+property col_id.col_host string;
+property col_id.col_admin_state_up int;
+property col_id.col_created_at datetime;
+property col_id.col_started_at datetime;
+property col_id.col_heartbeat_timestamp datetime;
+property col_id.col_description string;
+property col_id.col_configurations string;
+property col_id.col_load int;
+property col_id.col_availability_zone string;
+property col_id.col_resource_versions string;
+
+datasource source (
+    `ID`:col_id,
+    `AGENT_TYPE`:col_agent_type,
+    `BINARY`:col_binary,
+    `TOPIC`:col_topic,
+    `HOST`:col_host,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `CREATED_AT`:col_created_at,
+    `STARTED_AT`:col_started_at,
+    `HEARTBEAT_TIMESTAMP`:col_heartbeat_timestamp,
+    `DESCRIPTION`:col_description,
+    `CONFIGURATIONS`:col_configurations,
+    `LOAD`:col_load,
+    `AVAILABILITY_ZONE`:col_availability_zone,
+    `RESOURCE_VERSIONS`:col_resource_versions,
+)
+grain (col_id)
+address `neutron.agents`;

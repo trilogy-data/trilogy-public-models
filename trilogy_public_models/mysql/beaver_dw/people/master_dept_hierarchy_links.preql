@@ -1,0 +1,19 @@
+key col_hierarchy_type string;
+key col_link_type_code string;
+key col_link_type string;
+key col_dlc_key string;
+key col_dlc_code string;
+key col_linked_object_key string;
+key col_linked_object_code string;
+
+datasource source (
+    `HIERARCHY_TYPE`:col_hierarchy_type,
+    `LINK_TYPE_CODE`:col_link_type_code,
+    `LINK_TYPE`:col_link_type,
+    `DLC_KEY`:col_dlc_key,
+    `DLC_CODE`:col_dlc_code,
+    `LINKED_OBJECT_KEY`:col_linked_object_key,
+    `LINKED_OBJECT_CODE`:col_linked_object_code,
+)
+grain (col_hierarchy_type, col_link_type_code, col_link_type, col_dlc_key, col_dlc_code, col_linked_object_key, col_linked_object_code)
+address `dw.MASTER_DEPT_HIERARCHY_LINKS`;

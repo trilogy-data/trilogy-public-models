@@ -1,0 +1,18 @@
+import routers as routers;
+
+property routers.col_id.col_distributed int;
+property routers.col_id.col_service_router int;
+property routers.col_id.col_ha int;
+property routers.col_id.col_ha_vr_id int;
+property routers.col_id.col_availability_zone_hints string;
+
+datasource source (
+    `ROUTER_ID`:routers.col_id,
+    `DISTRIBUTED`:routers.col_distributed,
+    `SERVICE_ROUTER`:routers.col_service_router,
+    `HA`:routers.col_ha,
+    `HA_VR_ID`:routers.col_ha_vr_id,
+    `AVAILABILITY_ZONE_HINTS`:routers.col_availability_zone_hints,
+)
+grain (routers.col_id)
+address `neutron.router_extra_attributes`;

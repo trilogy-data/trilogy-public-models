@@ -1,0 +1,23 @@
+key col_program_code string;
+key col_program_title string;
+key col_category_code string;
+key col_category_title string;
+key col_four_digit_code string;
+key col_four_digit_title string;
+key col_note string;
+key col_warehouse_load_date date;
+key col_version string;
+
+datasource source (
+    `PROGRAM_CODE`:col_program_code,
+    `PROGRAM_TITLE`:col_program_title,
+    `CATEGORY_CODE`:col_category_code,
+    `CATEGORY_TITLE`:col_category_title,
+    `FOUR_DIGIT_CODE`:col_four_digit_code,
+    `FOUR_DIGIT_TITLE`:col_four_digit_title,
+    `NOTE`:col_note,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `VERSION`:col_version,
+)
+grain (col_program_code, col_program_title, col_category_code, col_category_title, col_four_digit_code, col_four_digit_title, col_note, col_warehouse_load_date, col_version)
+address `dw.CIP`;

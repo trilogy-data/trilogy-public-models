@@ -1,0 +1,16 @@
+import routers as routers;
+
+key col_id int;
+property col_id.col_source string;
+property col_id.col_destination string;
+property col_id.col_action string;
+
+datasource source (
+    `ID`:col_id,
+    `SOURCE`:col_source,
+    `DESTINATION`:col_destination,
+    `ACTION`:col_action,
+    `ROUTER_ID`:routers.col_id,
+)
+grain (col_id)
+address `neutron.routerrules`;

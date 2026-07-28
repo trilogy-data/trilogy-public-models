@@ -1,0 +1,71 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_injected int;
+property col_id.col_cidr string;
+property col_id.col_netmask string;
+property col_id.col_bridge string;
+property col_id.col_gateway string;
+property col_id.col_broadcast string;
+property col_id.col_dns1 string;
+property col_id.col_vlan int;
+property col_id.col_vpn_public_address string;
+property col_id.col_vpn_public_port int;
+property col_id.col_vpn_private_address string;
+property col_id.col_dhcp_start string;
+property col_id.col_project_id string;
+property col_id.col_host string;
+property col_id.col_cidr_v6 string;
+property col_id.col_gateway_v6 string;
+property col_id.col_label string;
+property col_id.col_netmask_v6 string;
+property col_id.col_bridge_interface string;
+property col_id.col_multi_host int;
+property col_id.col_dns2 string;
+property col_id.col_uuid string;
+property col_id.col_priority int;
+property col_id.col_rxtx_base int;
+property col_id.col_deleted int;
+property col_id.col_mtu int;
+property col_id.col_dhcp_server string;
+property col_id.col_enable_dhcp int;
+property col_id.col_share_address int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `INJECTED`:col_injected,
+    `CIDR`:col_cidr,
+    `NETMASK`:col_netmask,
+    `BRIDGE`:col_bridge,
+    `GATEWAY`:col_gateway,
+    `BROADCAST`:col_broadcast,
+    `DNS1`:col_dns1,
+    `VLAN`:col_vlan,
+    `VPN_PUBLIC_ADDRESS`:col_vpn_public_address,
+    `VPN_PUBLIC_PORT`:col_vpn_public_port,
+    `VPN_PRIVATE_ADDRESS`:col_vpn_private_address,
+    `DHCP_START`:col_dhcp_start,
+    `PROJECT_ID`:col_project_id,
+    `HOST`:col_host,
+    `CIDR_V6`:col_cidr_v6,
+    `GATEWAY_V6`:col_gateway_v6,
+    `LABEL`:col_label,
+    `NETMASK_V6`:col_netmask_v6,
+    `BRIDGE_INTERFACE`:col_bridge_interface,
+    `MULTI_HOST`:col_multi_host,
+    `DNS2`:col_dns2,
+    `UUID`:col_uuid,
+    `PRIORITY`:col_priority,
+    `RXTX_BASE`:col_rxtx_base,
+    `DELETED`:col_deleted,
+    `MTU`:col_mtu,
+    `DHCP_SERVER`:col_dhcp_server,
+    `ENABLE_DHCP`:col_enable_dhcp,
+    `SHARE_ADDRESS`:col_share_address,
+)
+grain (col_id)
+address `nova.shadow_networks`;

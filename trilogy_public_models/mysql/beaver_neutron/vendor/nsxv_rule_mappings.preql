@@ -1,0 +1,10 @@
+import ..security.securitygrouprules as securitygrouprules;
+
+key col_nsx_rule_id string;
+
+datasource source (
+    `NEUTRON_ID`:securitygrouprules.col_id,
+    `NSX_RULE_ID`:col_nsx_rule_id,
+)
+grain (securitygrouprules.col_id, col_nsx_rule_id)
+address `neutron.nsxv_rule_mappings`;

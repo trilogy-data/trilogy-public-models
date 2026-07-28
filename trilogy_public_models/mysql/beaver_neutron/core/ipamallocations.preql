@@ -1,0 +1,12 @@
+import ipamsubnets as ipamsubnets;
+
+key col_ip_address string;
+property <col_ip_address, ipamsubnets.col_id>.col_status string;
+
+datasource source (
+    `IP_ADDRESS`:col_ip_address,
+    `STATUS`:col_status,
+    `IPAM_SUBNET_ID`:ipamsubnets.col_id,
+)
+grain (col_ip_address, ipamsubnets.col_id)
+address `neutron.ipamallocations`;

@@ -1,0 +1,33 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id string;
+property col_id.col_volume_id string;
+property col_id.col_user_id string;
+property col_id.col_project_id string;
+property col_id.col_status string;
+property col_id.col_progress string;
+property col_id.col_volume_size int;
+property col_id.col_scheduled_at datetime;
+property col_id.col_display_name string;
+property col_id.col_display_description string;
+property col_id.col_deleted string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `VOLUME_ID`:col_volume_id,
+    `USER_ID`:col_user_id,
+    `PROJECT_ID`:col_project_id,
+    `STATUS`:col_status,
+    `PROGRESS`:col_progress,
+    `VOLUME_SIZE`:col_volume_size,
+    `SCHEDULED_AT`:col_scheduled_at,
+    `DISPLAY_NAME`:col_display_name,
+    `DISPLAY_DESCRIPTION`:col_display_description,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.shadow_snapshots`;

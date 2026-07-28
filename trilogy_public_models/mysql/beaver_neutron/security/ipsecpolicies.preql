@@ -1,0 +1,27 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_transform_protocol string;
+property col_id.col_auth_algorithm string;
+property col_id.col_encryption_algorithm string;
+property col_id.col_encapsulation_mode string;
+property col_id.col_lifetime_units string;
+property col_id.col_lifetime_value int;
+property col_id.col_pfs string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `TRANSFORM_PROTOCOL`:col_transform_protocol,
+    `AUTH_ALGORITHM`:col_auth_algorithm,
+    `ENCRYPTION_ALGORITHM`:col_encryption_algorithm,
+    `ENCAPSULATION_MODE`:col_encapsulation_mode,
+    `LIFETIME_UNITS`:col_lifetime_units,
+    `LIFETIME_VALUE`:col_lifetime_value,
+    `PFS`:col_pfs,
+)
+grain (col_id)
+address `neutron.ipsecpolicies`;

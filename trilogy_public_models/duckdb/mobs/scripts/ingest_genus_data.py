@@ -1,11 +1,13 @@
-import wikipedia
-import httpx
-from bs4 import BeautifulSoup
-import duckdb
 import csv
-from pathlib import Path
 import os
+import sys
+from pathlib import Path
+
+import duckdb
+import httpx
 import pandas as pd
+import wikipedia
+from bs4 import BeautifulSoup
 
 
 def get_genus_list():
@@ -66,9 +68,21 @@ def get_wikipedia_summary_and_image(genus_name):
                     if img_tag and img_tag.has_attr("src"):
                         result["image_url"] = "https:" + img_tag["src"]
             return result
-        except Exception:
+        except Exception as e:  # noqa: BLE001 - any lookup failure just falls through to the next search phrase
+            print(f"  lookup failed for '{search_phrase}': {type(e).__name__}: {e}")
             continue
     return result
+
+
+def is_header_echo(row):
+    """True if a row is a copy of the header line sitting in the data.
+
+    A checkpoint written over a file that already had content can leave a
+    literal `genus,image_url,summary` line mid-file; it then round-trips
+    through every later run as a genus named "genus" whose image_url is the
+    non-URL string "image_url", which fails the model's `url_image` domain.
+    """
+    return all(key == value for key, value in row.items() if key)
 
 
 def read_csv_to_memory(csv_file):
@@ -89,14 +103,17 @@ def read_csv_to_memory(csv_file):
 
     try:
         with open(csv_file, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                data.append(row)
+            rows = list(csv.DictReader(f))
+        data = [row for row in rows if not is_header_echo(row)]
+        if len(data) != len(rows):
+            print(
+                f"Dropped {len(rows) - len(data)} stray header row(s) from {csv_file}"
+            )
 
         print(f"Successfully read {len(data)} rows from {csv_file}")
         return data
 
-    except Exception as e:
+    except (OSError, csv.Error, UnicodeDecodeError) as e:
         print(f"Error reading CSV file: {e}")
         return data
 
@@ -116,7 +133,7 @@ def write_updated_csv(target_file, updated_data):
             writer.writeheader()
             writer.writerows(updated_data)
         print(f"Successfully updated {target_file} with {len(updated_data)} rows")
-    except Exception as e:
+    except (OSError, csv.Error) as e:
         print(f"Error writing CSV file: {e}")
 
 
@@ -133,7 +150,7 @@ def checkpoint_progress(target_file, data_dict):
     try:
         write_updated_csv(target_file, updated_data_list)
         print(f"✓ Checkpoint saved: {target_file} ({len(updated_data_list)} records)")
-    except Exception as e:
+    except OSError as e:
         print(f"✗ Failed to save checkpoint: {e}")
 
 
@@ -189,7 +206,7 @@ def csv_to_parquet(csv_file="genus.csv", parquet_file="genus.parquet"):
         print("\nData types:")
         print(verification_df.dtypes)
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - report any pandas/pyarrow conversion failure with a traceback
         print(f"Error during conversion: {e}")
         import traceback
 
@@ -235,15 +252,13 @@ if __name__ == "__main__":
 
     if not genera_to_process:
         print("No genera to process. All data appears complete.")
-        exit()
+        sys.exit()
 
     # Create a dictionary for quick lookup and updates
     data_dict = {row["genus"]: row for row in existing_data_list}
 
     # Process each genus with checkpointing
-    processed_count = 0
-
-    for genus in genera_to_process:
+    for processed_count, genus in enumerate(genera_to_process, start=1):
         data = get_wikipedia_summary_and_image(genus)
 
         # Update or add the data
@@ -260,8 +275,6 @@ if __name__ == "__main__":
             status = "Updated" if genus in missing_image_genera else "Added"
             image_status = "with image" if data.get("image_url") else "no image found"
             print(f"{status}: {genus} ({image_status})")
-
-        processed_count += 1
 
         # Checkpoint every 10 records by overwriting source file
         if processed_count % 10 == 0:

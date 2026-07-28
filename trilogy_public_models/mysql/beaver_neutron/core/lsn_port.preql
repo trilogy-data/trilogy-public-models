@@ -1,0 +1,14 @@
+import ..other.lsn as lsn;
+
+key col_lsn_port_id string;
+property col_lsn_port_id.col_sub_id string;
+property col_lsn_port_id.col_mac_addr string;
+
+datasource source (
+    `LSN_PORT_ID`:col_lsn_port_id,
+    `LSN_ID`:lsn.col_lsn_id,
+    `SUB_ID`:col_sub_id,
+    `MAC_ADDR`:col_mac_addr,
+)
+grain (col_lsn_port_id)
+address `neutron.lsn_port`;

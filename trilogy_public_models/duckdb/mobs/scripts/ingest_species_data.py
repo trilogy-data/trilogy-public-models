@@ -10,17 +10,17 @@
 # ]
 # ///
 
-import wikipedia
-import httpx
-from bs4 import BeautifulSoup
-import duckdb
 import csv
-from pathlib import Path
-import google.generativeai as genai
 import json
-import time
 import os
-from typing import Dict
+import time
+from pathlib import Path
+
+import duckdb
+import google.generativeai as genai
+import httpx
+import wikipedia
+from bs4 import BeautifulSoup
 
 # Configure Gemini API - you'll need to set your API key
 # genai.configure(api_key="YOUR_GEMINI_API_KEY_HERE")
@@ -108,7 +108,7 @@ class SpeciesCategorizer:
                 )
                 self.model = None
                 raise ValueError("GEMINI_API_KEY not set")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - degrade to no-AI mode on any SDK/config failure
             print(f"Error initializing Gemini: {e}")
             self.model = None
 
@@ -146,7 +146,7 @@ def extract_response_content(response: str):
     return response
 
 
-def get_wikipedia_summary_and_image(species_name: str) -> Dict:
+def get_wikipedia_summary_and_image(species_name: str) -> dict:
     """Get Wikipedia summary and image for a species"""
     result = {
         "species": species_name,
@@ -185,7 +185,7 @@ def get_wikipedia_summary_and_image(species_name: str) -> Dict:
                         else None
                     )
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - record any scrape failure on the row and keep going
         result["error"] = str(e)
 
     return result
@@ -193,7 +193,7 @@ def get_wikipedia_summary_and_image(species_name: str) -> Dict:
 
 def categorize_species_with_gemini(
     categorizer: SpeciesCategorizer, species_name: str, summary: str
-) -> Dict:
+) -> dict:
     """Use Gemini API to categorize a species"""
     if not categorizer.model:
         return {
@@ -256,7 +256,7 @@ def load_existing_species(csv_path: Path) -> set:
                 reader = csv.DictReader(f)
                 for row in reader:
                     existing_species.add(row["species"])
-        except Exception as e:
+        except (OSError, csv.Error, KeyError, UnicodeDecodeError) as e:
             print(f"Error reading existing CSV: {e}")
     return existing_species
 
@@ -366,7 +366,7 @@ def main():
                 error_row.update(
                     {
                         "species": full_species_name,
-                        "categorization_error": f"Processing error: {str(e)}",
+                        "categorization_error": f"Processing error: {e!s}",
                     }
                 )
                 writer.writerow(error_row)

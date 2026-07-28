@@ -1,0 +1,10 @@
+import ..core.ports as ports;
+import securitygroups as securitygroups;
+
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `SECURITY_GROUP_ID`:securitygroups.col_id,
+)
+grain (ports.col_id, securitygroups.col_id)
+address `neutron.securitygroupportbindings`;

@@ -1,0 +1,20 @@
+import library_material_status as library_material_status;
+
+key col_library_course_instructor_key string;
+key col_library_reserve_catalog_key string;
+key col_library_subject_offered_key string;
+key col_term_code string;
+key col_subject_id string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `LIBRARY_COURSE_INSTRUCTOR_KEY`:col_library_course_instructor_key,
+    `LIBRARY_RESERVE_CATALOG_KEY`:col_library_reserve_catalog_key,
+    `LIBRARY_SUBJECT_OFFERED_KEY`:col_library_subject_offered_key,
+    `LIBRARY_MATERIAL_STATUS_KEY`:~library_material_status.col_library_material_status_key,
+    `TERM_CODE`:col_term_code,
+    `SUBJECT_ID`:col_subject_id,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_library_course_instructor_key, col_library_reserve_catalog_key, col_library_subject_offered_key, library_material_status.col_library_material_status_key, col_term_code, col_subject_id, col_warehouse_load_date)
+address `dw.LIBRARY_RESERVE_MATRL_DETAIL`;

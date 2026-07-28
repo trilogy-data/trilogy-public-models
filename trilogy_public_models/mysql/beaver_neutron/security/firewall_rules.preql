@@ -1,0 +1,40 @@
+import firewall_policies as firewall_policies;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_shared int;
+property col_id.col_protocol string;
+property col_id.col_ip_version int;
+property col_id.col_source_ip_address string;
+property col_id.col_destination_ip_address string;
+property col_id.col_source_port_range_min int;
+property col_id.col_source_port_range_max int;
+property col_id.col_destination_port_range_min int;
+property col_id.col_destination_port_range_max int;
+property col_id.col_action string;
+property col_id.col_enabled int;
+property col_id.col_position int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `FIREWALL_POLICY_ID`:firewall_policies.col_id,
+    `SHARED`:col_shared,
+    `PROTOCOL`:col_protocol,
+    `IP_VERSION`:col_ip_version,
+    `SOURCE_IP_ADDRESS`:col_source_ip_address,
+    `DESTINATION_IP_ADDRESS`:col_destination_ip_address,
+    `SOURCE_PORT_RANGE_MIN`:col_source_port_range_min,
+    `SOURCE_PORT_RANGE_MAX`:col_source_port_range_max,
+    `DESTINATION_PORT_RANGE_MIN`:col_destination_port_range_min,
+    `DESTINATION_PORT_RANGE_MAX`:col_destination_port_range_max,
+    `ACTION`:col_action,
+    `ENABLED`:col_enabled,
+    `POSITION`:col_position,
+)
+grain (col_id)
+address `neutron.firewall_rules`;

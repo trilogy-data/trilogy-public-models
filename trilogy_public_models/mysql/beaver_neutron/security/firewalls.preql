@@ -1,0 +1,22 @@
+import firewall_policies as firewall_policies;
+
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_name string;
+property col_id.col_description string;
+property col_id.col_shared int;
+property col_id.col_admin_state_up int;
+property col_id.col_status string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NAME`:col_name,
+    `DESCRIPTION`:col_description,
+    `SHARED`:col_shared,
+    `ADMIN_STATE_UP`:col_admin_state_up,
+    `STATUS`:col_status,
+    `FIREWALL_POLICY_ID`:firewall_policies.col_id,
+)
+grain (col_id)
+address `neutron.firewalls`;

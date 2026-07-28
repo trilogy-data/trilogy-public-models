@@ -1,0 +1,32 @@
+import instance_actions as instance_actions;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_event string;
+property col_id.col_start_time datetime;
+property col_id.col_finish_time datetime;
+property col_id.col_result string;
+property col_id.col_traceback string;
+property col_id.col_deleted int;
+property col_id.col_host string;
+property col_id.col_details string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `EVENT`:col_event,
+    `ACTION_ID`:instance_actions.col_id,
+    `START_TIME`:col_start_time,
+    `FINISH_TIME`:col_finish_time,
+    `RESULT`:col_result,
+    `TRACEBACK`:col_traceback,
+    `DELETED`:col_deleted,
+    `HOST`:col_host,
+    `DETAILS`:col_details,
+)
+grain (col_id)
+address `nova.instance_actions_events`;

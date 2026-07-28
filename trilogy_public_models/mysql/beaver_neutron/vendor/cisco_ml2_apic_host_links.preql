@@ -1,0 +1,17 @@
+key col_host string;
+key col_ifname string;
+property <col_host, col_ifname>.col_ifmac string;
+property <col_host, col_ifname>.col_swid string;
+property <col_host, col_ifname>.col_module string;
+property <col_host, col_ifname>.col_port string;
+
+datasource source (
+    `HOST`:col_host,
+    `IFNAME`:col_ifname,
+    `IFMAC`:col_ifmac,
+    `SWID`:col_swid,
+    `MODULE`:col_module,
+    `PORT`:col_port,
+)
+grain (col_host, col_ifname)
+address `neutron.cisco_ml2_apic_host_links`;

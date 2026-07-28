@@ -1,0 +1,9 @@
+key col_ip_address string;
+property col_ip_address.col_host string;
+
+datasource source (
+    `IP_ADDRESS`:col_ip_address,
+    `HOST`:col_host,
+)
+grain (col_ip_address)
+address `neutron.ml2_geneve_endpoints`;

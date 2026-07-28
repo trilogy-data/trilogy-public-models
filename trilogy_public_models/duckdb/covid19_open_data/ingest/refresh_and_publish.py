@@ -16,7 +16,7 @@ PUBLISH = INGEST_DIR / "publish_extract.py"
 
 def _run(script: Path, args: list[str]) -> int:
     print(f"--- {script.name} ---", flush=True)
-    return subprocess.run(["uv", "run", str(script), *args]).returncode
+    return subprocess.run(["uv", "run", str(script), *args], check=False).returncode
 
 
 def main() -> int:

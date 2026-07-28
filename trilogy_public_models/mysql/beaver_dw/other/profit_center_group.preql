@@ -1,0 +1,53 @@
+key col_profit_center_group_code string;
+key col_profit_center_group_name string;
+key col_profit_center_key string;
+key col_profit_center_id int;
+key col_profit_center_name string;
+key col_pc_level1_sort int;
+key col_pc_level1_category string;
+key col_pc_level2_sort int;
+key col_pc_level2_category string;
+key col_pc_level3_sort int;
+key col_pc_level3_category string;
+key col_pc_level4_sort int;
+key col_pc_level4_category string;
+key col_pc_level5_sort int;
+key col_pc_level5_category string;
+key col_pc_level6_sort int;
+key col_pc_level6_category string;
+key col_pc_level7_sort int;
+key col_pc_level7_category string;
+key col_pc_level8_sort string;
+key col_pc_level8_category string;
+key col_dlc_key date;
+key col_dlc_name string;
+key col_warehouse_load_date string;
+
+datasource source (
+    `PROFIT_CENTER_GROUP_CODE`:col_profit_center_group_code,
+    `PROFIT_CENTER_GROUP_NAME`:col_profit_center_group_name,
+    `PROFIT_CENTER_KEY`:col_profit_center_key,
+    `PROFIT_CENTER_ID`:col_profit_center_id,
+    `PROFIT_CENTER_NAME`:col_profit_center_name,
+    `PC_LEVEL1_SORT`:col_pc_level1_sort,
+    `PC_LEVEL1_CATEGORY`:col_pc_level1_category,
+    `PC_LEVEL2_SORT`:col_pc_level2_sort,
+    `PC_LEVEL2_CATEGORY`:col_pc_level2_category,
+    `PC_LEVEL3_SORT`:col_pc_level3_sort,
+    `PC_LEVEL3_CATEGORY`:col_pc_level3_category,
+    `PC_LEVEL4_SORT`:col_pc_level4_sort,
+    `PC_LEVEL4_CATEGORY`:col_pc_level4_category,
+    `PC_LEVEL5_SORT`:col_pc_level5_sort,
+    `PC_LEVEL5_CATEGORY`:col_pc_level5_category,
+    `PC_LEVEL6_SORT`:col_pc_level6_sort,
+    `PC_LEVEL6_CATEGORY`:col_pc_level6_category,
+    `PC_LEVEL7_SORT`:col_pc_level7_sort,
+    `PC_LEVEL7_CATEGORY`:col_pc_level7_category,
+    `PC_LEVEL8_SORT`:col_pc_level8_sort,
+    `PC_LEVEL8_CATEGORY`:col_pc_level8_category,
+    `DLC_KEY`:col_dlc_key,
+    `DLC_NAME`:col_dlc_name,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_profit_center_group_code, col_profit_center_group_name, col_profit_center_key, col_profit_center_id, col_profit_center_name, col_pc_level1_sort, col_pc_level1_category, col_pc_level2_sort, col_pc_level2_category, col_pc_level3_sort, col_pc_level3_category, col_pc_level4_sort, col_pc_level4_category, col_pc_level5_sort, col_pc_level5_category, col_pc_level6_sort, col_pc_level6_category, col_pc_level7_sort, col_pc_level7_category, col_pc_level8_sort, col_pc_level8_category, col_dlc_key, col_dlc_name, col_warehouse_load_date)
+address `dw.PROFIT_CENTER_GROUP`;

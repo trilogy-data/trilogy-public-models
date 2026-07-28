@@ -1,0 +1,61 @@
+key col_fclt_room_hist_key string;
+key col_fiscal_period string;
+key col_fclt_room_key string;
+key col_building_room string;
+key col_fclt_building_key string;
+key col_floor string;
+key col_fclt_floor_key string;
+key col_room string;
+key col_space_id string;
+key col_fclt_major_use_key string;
+key col_major_use_desc string;
+key col_fclt_use_key string;
+key col_use_desc string;
+key col_fclt_minor_use_key string;
+key col_minor_use_desc string;
+key col_fclt_organization_key string;
+key col_organization_name string;
+key col_fclt_minor_organization_key string;
+key col_minor_organization string;
+key col_area int;
+key col_room_full_name string;
+key col_dept_code string;
+key col_access_level string;
+key col_latitude_wgs int;
+key col_longitude_wgs int;
+key col_northing_spcs int;
+key col_easting_spcs int;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FCLT_ROOM_HIST_KEY`:col_fclt_room_hist_key,
+    `FISCAL_PERIOD`:col_fiscal_period,
+    `FCLT_ROOM_KEY`:col_fclt_room_key,
+    `BUILDING_ROOM`:col_building_room,
+    `FCLT_BUILDING_KEY`:col_fclt_building_key,
+    `FLOOR`:col_floor,
+    `FCLT_FLOOR_KEY`:col_fclt_floor_key,
+    `ROOM`:col_room,
+    `SPACE_ID`:col_space_id,
+    `FCLT_MAJOR_USE_KEY`:col_fclt_major_use_key,
+    `MAJOR_USE_DESC`:col_major_use_desc,
+    `FCLT_USE_KEY`:col_fclt_use_key,
+    `USE_DESC`:col_use_desc,
+    `FCLT_MINOR_USE_KEY`:col_fclt_minor_use_key,
+    `MINOR_USE_DESC`:col_minor_use_desc,
+    `FCLT_ORGANIZATION_KEY`:col_fclt_organization_key,
+    `ORGANIZATION_NAME`:col_organization_name,
+    `FCLT_MINOR_ORGANIZATION_KEY`:col_fclt_minor_organization_key,
+    `MINOR_ORGANIZATION`:col_minor_organization,
+    `AREA`:col_area,
+    `ROOM_FULL_NAME`:col_room_full_name,
+    `DEPT_CODE`:col_dept_code,
+    `ACCESS_LEVEL`:col_access_level,
+    `LATITUDE_WGS`:col_latitude_wgs,
+    `LONGITUDE_WGS`:col_longitude_wgs,
+    `NORTHING_SPCS`:col_northing_spcs,
+    `EASTING_SPCS`:col_easting_spcs,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_fclt_room_hist_key, col_fiscal_period, col_fclt_room_key, col_building_room, col_fclt_building_key, col_floor, col_fclt_floor_key, col_room, col_space_id, col_fclt_major_use_key, col_major_use_desc, col_fclt_use_key, col_use_desc, col_fclt_minor_use_key, col_minor_use_desc, col_fclt_organization_key, col_organization_name, col_fclt_minor_organization_key, col_minor_organization, col_area, col_room_full_name, col_dept_code, col_access_level, col_latitude_wgs, col_longitude_wgs, col_northing_spcs, col_easting_spcs, col_warehouse_load_date)
+address `dw.FCLT_ROOMS_HIST`;

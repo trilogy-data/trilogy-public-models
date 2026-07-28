@@ -1,0 +1,12 @@
+import ipamallocationpools as ipamallocationpools;
+
+key col_first_ip string;
+key col_last_ip string;
+
+datasource source (
+    `ALLOCATION_POOL_ID`:ipamallocationpools.col_id,
+    `FIRST_IP`:col_first_ip,
+    `LAST_IP`:col_last_ip,
+)
+grain (ipamallocationpools.col_id, col_first_ip, col_last_ip)
+address `neutron.ipamavailabilityranges`;

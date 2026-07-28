@@ -1,0 +1,17 @@
+key col_student_ethnic_subgroup_key string;
+key col_ethnic_group_name string;
+key col_ethnic_subgroup_name string;
+key col_ethnic_code string;
+key col_ethnic_subgroup_code string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `STUDENT_ETHNIC_SUBGROUP_KEY`:col_student_ethnic_subgroup_key,
+    `ETHNIC_GROUP_NAME`:col_ethnic_group_name,
+    `ETHNIC_SUBGROUP_NAME`:col_ethnic_subgroup_name,
+    `ETHNIC_CODE`:col_ethnic_code,
+    `ETHNIC_SUBGROUP_CODE`:col_ethnic_subgroup_code,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_student_ethnic_subgroup_key, col_ethnic_group_name, col_ethnic_subgroup_name, col_ethnic_code, col_ethnic_subgroup_code, col_warehouse_load_date)
+address `dw.STUDENT_ETHNIC_SUBGROUP`;

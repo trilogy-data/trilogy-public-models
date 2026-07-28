@@ -1,0 +1,9 @@
+key col_resource_id string;
+key col_tag string;
+
+datasource source (
+    `RESOURCE_ID`:col_resource_id,
+    `TAG`:col_tag,
+)
+grain (col_resource_id, col_tag)
+address `nova.tags`;

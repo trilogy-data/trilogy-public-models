@@ -1,0 +1,32 @@
+import instances as instances;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+key col_id int;
+property col_id.col_action string;
+property col_id.col_request_id string;
+property col_id.col_user_id string;
+property col_id.col_project_id string;
+property col_id.col_start_time datetime;
+property col_id.col_finish_time datetime;
+property col_id.col_message string;
+property col_id.col_deleted int;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `ID`:col_id,
+    `ACTION`:col_action,
+    `INSTANCE_UUID`:instances.col_uuid,
+    `REQUEST_ID`:col_request_id,
+    `USER_ID`:col_user_id,
+    `PROJECT_ID`:col_project_id,
+    `START_TIME`:col_start_time,
+    `FINISH_TIME`:col_finish_time,
+    `MESSAGE`:col_message,
+    `DELETED`:col_deleted,
+)
+grain (col_id)
+address `nova.instance_actions`;

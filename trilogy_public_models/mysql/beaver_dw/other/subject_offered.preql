@@ -1,0 +1,99 @@
+key col_subject_key string;
+key col_subject_offered_summary_key string;
+key col_master_subject_key string;
+key col_composite_subject_key string;
+key col_term_code string;
+key col_master_course_number string;
+key col_master_course_number_sort string;
+key col_master_course_number_desc string;
+key col_master_subject_id string;
+key col_master_subject_id_sort string;
+key col_course_number string;
+key col_course_number_sort string;
+key col_course_number_desc string;
+key col_subject_id string;
+key col_subject_id_sort string;
+key col_subject_title string;
+key col_section_id string;
+key col_is_master_section string;
+key col_is_lecture_section string;
+key col_is_lab_section string;
+key col_is_recitation_section string;
+key col_is_design_section string;
+key col_offer_dept_code string;
+key col_offer_dept_name string;
+key col_offer_school_name string;
+key col_responsible_faculty_name string;
+key col_responsible_faculty_mit_id string;
+key col_meet_time string;
+key col_meet_place string;
+key col_cluster_type string;
+key col_cluster_type_desc string;
+key col_cluster_list string;
+key col_hgn_code string;
+key col_hgn_code_desc string;
+key col_form_type string;
+key col_form_type_desc string;
+key col_subject_enrollment_number int;
+key col_section_enrollment_number string;
+key col_cluster_enrollment_number int;
+key col_evaluate_this_subject string;
+key col_is_ose_subject string;
+key col_is_created_by_data_warehouse string;
+key col_subject_grouping_key string;
+key col_warehouse_load_date date;
+key col_num_enrolled_students int;
+key col_subject_summary_key string;
+key col_is_repeatable_subject string;
+
+datasource source (
+    `SUBJECT_KEY`:col_subject_key,
+    `SUBJECT_OFFERED_SUMMARY_KEY`:col_subject_offered_summary_key,
+    `MASTER_SUBJECT_KEY`:col_master_subject_key,
+    `COMPOSITE_SUBJECT_KEY`:col_composite_subject_key,
+    `TERM_CODE`:col_term_code,
+    `MASTER_COURSE_NUMBER`:col_master_course_number,
+    `MASTER_COURSE_NUMBER_SORT`:col_master_course_number_sort,
+    `MASTER_COURSE_NUMBER_DESC`:col_master_course_number_desc,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `MASTER_SUBJECT_ID_SORT`:col_master_subject_id_sort,
+    `COURSE_NUMBER`:col_course_number,
+    `COURSE_NUMBER_SORT`:col_course_number_sort,
+    `COURSE_NUMBER_DESC`:col_course_number_desc,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_ID_SORT`:col_subject_id_sort,
+    `SUBJECT_TITLE`:col_subject_title,
+    `SECTION_ID`:col_section_id,
+    `IS_MASTER_SECTION`:col_is_master_section,
+    `IS_LECTURE_SECTION`:col_is_lecture_section,
+    `IS_LAB_SECTION`:col_is_lab_section,
+    `IS_RECITATION_SECTION`:col_is_recitation_section,
+    `IS_DESIGN_SECTION`:col_is_design_section,
+    `OFFER_DEPT_CODE`:col_offer_dept_code,
+    `OFFER_DEPT_NAME`:col_offer_dept_name,
+    `OFFER_SCHOOL_NAME`:col_offer_school_name,
+    `RESPONSIBLE_FACULTY_NAME`:col_responsible_faculty_name,
+    `RESPONSIBLE_FACULTY_MIT_ID`:col_responsible_faculty_mit_id,
+    `MEET_TIME`:col_meet_time,
+    `MEET_PLACE`:col_meet_place,
+    `CLUSTER_TYPE`:col_cluster_type,
+    `CLUSTER_TYPE_DESC`:col_cluster_type_desc,
+    `CLUSTER_LIST`:col_cluster_list,
+    `HGN_CODE`:col_hgn_code,
+    `HGN_CODE_DESC`:col_hgn_code_desc,
+    `FORM_TYPE`:col_form_type,
+    `FORM_TYPE_DESC`:col_form_type_desc,
+    `SUBJECT_ENROLLMENT_NUMBER`:col_subject_enrollment_number,
+    `SECTION_ENROLLMENT_NUMBER`:col_section_enrollment_number,
+    `CLUSTER_ENROLLMENT_NUMBER`:col_cluster_enrollment_number,
+    `EVALUATE_THIS_SUBJECT`:col_evaluate_this_subject,
+    `IS_OSE_SUBJECT`:col_is_ose_subject,
+    `IS_CREATED_BY_DATA_WAREHOUSE`:col_is_created_by_data_warehouse,
+    `SUBJECT_GROUPING_KEY`:col_subject_grouping_key,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `NUM_ENROLLED_STUDENTS`:col_num_enrolled_students,
+    `SUBJECT_SUMMARY_KEY`:col_subject_summary_key,
+    `IS_REPEATABLE_SUBJECT`:col_is_repeatable_subject,
+)
+grain (col_subject_key, col_subject_offered_summary_key, col_master_subject_key, col_composite_subject_key, col_term_code, col_master_course_number, col_master_course_number_sort, col_master_course_number_desc, col_master_subject_id, col_master_subject_id_sort, col_course_number, col_course_number_sort, col_course_number_desc, col_subject_id, col_subject_id_sort, col_subject_title, col_section_id, col_is_master_section, col_is_lecture_section, col_is_lab_section, col_is_recitation_section, col_is_design_section, col_offer_dept_code, col_offer_dept_name, col_offer_school_name, col_responsible_faculty_name, col_responsible_faculty_mit_id, col_meet_time, col_meet_place, col_cluster_type, col_cluster_type_desc, col_cluster_list, col_hgn_code, col_hgn_code_desc, col_form_type, col_form_type_desc, col_subject_enrollment_number, col_section_enrollment_number, col_cluster_enrollment_number, col_evaluate_this_subject, col_is_ose_subject, col_is_created_by_data_warehouse, col_subject_grouping_key, col_warehouse_load_date, col_num_enrolled_students, col_subject_summary_key, col_is_repeatable_subject)
+address `dw.SUBJECT_OFFERED`;

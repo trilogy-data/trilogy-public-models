@@ -1,0 +1,28 @@
+import fac_building as fac_building;
+
+key col_floor string;
+key col_floor_key string;
+key col_ext_gross_area string;
+key col_assignable_area int;
+key col_non_assignable_area int;
+key col_floor_sort_sequence int;
+key col_level_id string;
+key col_building_wings_id string;
+key col_access_level string;
+key col_warehouse_load_date string;
+
+datasource source (
+    `BUILDING_KEY`:~fac_building.col_fac_building_key,
+    `FLOOR`:col_floor,
+    `FLOOR_KEY`:col_floor_key,
+    `EXT_GROSS_AREA`:col_ext_gross_area,
+    `ASSIGNABLE_AREA`:col_assignable_area,
+    `NON_ASSIGNABLE_AREA`:col_non_assignable_area,
+    `FLOOR_SORT_SEQUENCE`:col_floor_sort_sequence,
+    `LEVEL_ID`:col_level_id,
+    `BUILDING_WINGS_ID`:col_building_wings_id,
+    `ACCESS_LEVEL`:col_access_level,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (fac_building.col_fac_building_key, col_floor, col_floor_key, col_ext_gross_area, col_assignable_area, col_non_assignable_area, col_floor_sort_sequence, col_level_id, col_building_wings_id, col_access_level, col_warehouse_load_date)
+address `dw.FAC_FLOOR`;

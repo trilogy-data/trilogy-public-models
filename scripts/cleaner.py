@@ -15,13 +15,13 @@ Usage with UV:
     uv run csv_cleaner.py input.csv --dry-run --verbose --validate-only
 """
 
-import click
-import sys
 import csv
 import re
+import sys
 from pathlib import Path
-from typing import List, Tuple
+
 import chardet
+import click
 
 
 def detect_encoding(file_path: Path) -> str:
@@ -32,7 +32,7 @@ def detect_encoding(file_path: Path) -> str:
         return result["encoding"] or "utf-8"
 
 
-def detect_csv_dialect(file_path: Path, encoding: str) -> Tuple[str, str, str]:
+def detect_csv_dialect(file_path: Path, encoding: str) -> tuple[str, str, str]:
     """Detect CSV dialect (delimiter, quotechar, lineterminator)"""
     try:
         with open(file_path, "r", encoding=encoding, errors="ignore") as f:
@@ -60,8 +60,9 @@ def detect_csv_dialect(file_path: Path, encoding: str) -> Tuple[str, str, str]:
 
         return delimiter, quotechar, lineterminator
 
-    except Exception:
-        # Default values
+    except (OSError, UnicodeDecodeError, LookupError):
+        # Unreadable file or an encoding name chardet guessed that Python
+        # doesn't know — fall back to the common defaults.
         return ",", '"', "\n"
 
 
@@ -94,7 +95,7 @@ def clean_csv_field(field: str, mode: str) -> str:
 
 def validate_csv_structure(
     file_path: Path, delimiter: str, quotechar: str, encoding: str, verbose: bool
-) -> Tuple[bool, List[str]]:
+) -> tuple[bool, list[str]]:
     """Validate CSV structure for DuckDB compatibility"""
     issues = []
 
@@ -278,7 +279,7 @@ def clean_csv(
             quote = quote or detected_quote
             if verbose:
                 click.echo(
-                    f"Detected CSV format - delimiter: '{delimiter}', quote: '{quote}', line terminator: '{repr(line_terminator)}'"
+                    f"Detected CSV format - delimiter: '{delimiter}', quote: '{quote}', line terminator: '{line_terminator!r}'"
                 )
         else:
             line_terminator = "\n"
@@ -420,7 +421,7 @@ def clean_csv(
     except PermissionError:
         click.echo(f"Error: Permission denied accessing '{input_path}'", err=True)
         sys.exit(1)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - CLI top level: report and exit non-zero, never traceback
         click.echo(f"Error: {e}", err=True)
         sys.exit(1)
 

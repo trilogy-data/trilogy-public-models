@@ -1,0 +1,16 @@
+import ..security.ipsec_site_connections as ipsec_site_connections;
+
+property ipsec_site_connections.col_id.col_tenant_id string;
+property ipsec_site_connections.col_id.col_csr_tunnel_id int;
+property ipsec_site_connections.col_id.col_csr_ike_policy_id int;
+property ipsec_site_connections.col_id.col_csr_ipsec_policy_id int;
+
+datasource source (
+    `TENANT_ID`:ipsec_site_connections.col_tenant_id,
+    `IPSEC_SITE_CONN_ID`:ipsec_site_connections.col_id,
+    `CSR_TUNNEL_ID`:ipsec_site_connections.col_csr_tunnel_id,
+    `CSR_IKE_POLICY_ID`:ipsec_site_connections.col_csr_ike_policy_id,
+    `CSR_IPSEC_POLICY_ID`:ipsec_site_connections.col_csr_ipsec_policy_id,
+)
+grain (ipsec_site_connections.col_id)
+address `neutron.cisco_csr_identifier_map`;

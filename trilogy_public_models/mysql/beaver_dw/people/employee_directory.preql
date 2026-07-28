@@ -1,0 +1,53 @@
+key col_mit_id string;
+key col_last_name string;
+key col_first_name string;
+key col_middle_name string;
+key col_full_name string;
+key col_directory_full_name string;
+key col_office_location string;
+key col_office_phone string;
+key col_directory_title string;
+key col_primary_title string;
+key col_department_number string;
+key col_department_name string;
+key col_krb_name string;
+key col_krb_name_uppercase string;
+key col_email_address string;
+key col_personal_url string;
+key col_name_known_by string;
+key col_email_address_uppercase string;
+key col_full_name_uppercase string;
+key col_preferred_first_name_upper string;
+key col_preferred_last_name_upper string;
+key col_preferred_first_name string;
+key col_preferred_middle_name string;
+key col_preferred_last_name string;
+
+datasource source (
+    `MIT_ID`:col_mit_id,
+    `LAST_NAME`:col_last_name,
+    `FIRST_NAME`:col_first_name,
+    `MIDDLE_NAME`:col_middle_name,
+    `FULL_NAME`:col_full_name,
+    `DIRECTORY_FULL_NAME`:col_directory_full_name,
+    `OFFICE_LOCATION`:col_office_location,
+    `OFFICE_PHONE`:col_office_phone,
+    `DIRECTORY_TITLE`:col_directory_title,
+    `PRIMARY_TITLE`:col_primary_title,
+    `DEPARTMENT_NUMBER`:col_department_number,
+    `DEPARTMENT_NAME`:col_department_name,
+    `KRB_NAME`:col_krb_name,
+    `KRB_NAME_UPPERCASE`:col_krb_name_uppercase,
+    `EMAIL_ADDRESS`:col_email_address,
+    `PERSONAL_URL`:col_personal_url,
+    `NAME_KNOWN_BY`:col_name_known_by,
+    `EMAIL_ADDRESS_UPPERCASE`:col_email_address_uppercase,
+    `FULL_NAME_UPPERCASE`:col_full_name_uppercase,
+    `PREFERRED_FIRST_NAME_UPPER`:col_preferred_first_name_upper,
+    `PREFERRED_LAST_NAME_UPPER`:col_preferred_last_name_upper,
+    `PREFERRED_FIRST_NAME`:col_preferred_first_name,
+    `PREFERRED_MIDDLE_NAME`:col_preferred_middle_name,
+    `PREFERRED_LAST_NAME`:col_preferred_last_name,
+)
+grain (col_mit_id, col_last_name, col_first_name, col_middle_name, col_full_name, col_directory_full_name, col_office_location, col_office_phone, col_directory_title, col_primary_title, col_department_number, col_department_name, col_krb_name, col_krb_name_uppercase, col_email_address, col_personal_url, col_name_known_by, col_email_address_uppercase, col_full_name_uppercase, col_preferred_first_name_upper, col_preferred_last_name_upper, col_preferred_first_name, col_preferred_middle_name, col_preferred_last_name)
+address `dw.EMPLOYEE_DIRECTORY`;

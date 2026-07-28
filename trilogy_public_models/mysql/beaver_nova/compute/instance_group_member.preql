@@ -1,0 +1,20 @@
+import instance_groups as instance_groups;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_deleted int;
+key col_id int;
+property col_id.col_instance_id string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `DELETED`:col_deleted,
+    `ID`:col_id,
+    `INSTANCE_ID`:col_instance_id,
+    `GROUP_ID`:instance_groups.col_id,
+)
+grain (col_id)
+address `nova.instance_group_member`;

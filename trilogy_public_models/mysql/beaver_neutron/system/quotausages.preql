@@ -1,0 +1,15 @@
+key col_tenant_id string;
+key col_resource string;
+property <col_tenant_id, col_resource>.col_dirty int;
+property <col_tenant_id, col_resource>.col_in_use int;
+property <col_tenant_id, col_resource>.col_reserved int;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `RESOURCE`:col_resource,
+    `DIRTY`:col_dirty,
+    `IN_USE`:col_in_use,
+    `RESERVED`:col_reserved,
+)
+grain (col_tenant_id, col_resource)
+address `neutron.quotausages`;

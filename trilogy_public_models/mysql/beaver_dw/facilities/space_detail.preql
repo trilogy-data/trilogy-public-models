@@ -1,0 +1,28 @@
+import buildings as buildings;
+import space_floor as space_floor;
+import space_usage as space_usage;
+
+key col_space_unit_key string;
+key col_building_room string;
+key col_building_room_name string;
+key col_room_number string;
+key col_room_square_footage int;
+key col_room_counter int;
+key col_building_component string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `BUILDING_KEY`:~buildings.col_building_key,
+    `FLOOR_KEY`:~space_floor.col_floor_key,
+    `SPACE_UNIT_KEY`:col_space_unit_key,
+    `SPACE_USAGE_KEY`:~space_usage.col_space_usage_key,
+    `BUILDING_ROOM`:col_building_room,
+    `BUILDING_ROOM_NAME`:col_building_room_name,
+    `ROOM_NUMBER`:col_room_number,
+    `ROOM_SQUARE_FOOTAGE`:col_room_square_footage,
+    `ROOM_COUNTER`:col_room_counter,
+    `BUILDING_COMPONENT`:col_building_component,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (buildings.col_building_key, space_floor.col_floor_key, col_space_unit_key, space_usage.col_space_usage_key, col_building_room, col_building_room_name, col_room_number, col_room_square_footage, col_room_counter, col_building_component, col_warehouse_load_date)
+address `dw.SPACE_DETAIL`;

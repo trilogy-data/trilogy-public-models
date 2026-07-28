@@ -1,0 +1,697 @@
+{
+  "components": [
+    {
+      "alias": "academic_term_parameter",
+      "name": "academic_term_parameter",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/academic_term_parameter.preql"
+    },
+    {
+      "alias": "academic_terms",
+      "name": "academic_terms",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/academic_terms.preql"
+    },
+    {
+      "alias": "academic_terms_all",
+      "name": "academic_terms_all",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/academic_terms_all.preql"
+    },
+    {
+      "alias": "buildings",
+      "name": "buildings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/buildings.preql"
+    },
+    {
+      "alias": "cip",
+      "name": "cip",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/cip.preql"
+    },
+    {
+      "alias": "cip_with_version",
+      "name": "cip_with_version",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/cip_with_version.preql"
+    },
+    {
+      "alias": "cis_course_catalog",
+      "name": "cis_course_catalog",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/cis_course_catalog.preql"
+    },
+    {
+      "alias": "cis_hass_attribute",
+      "name": "cis_hass_attribute",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/cis_hass_attribute.preql"
+    },
+    {
+      "alias": "course_catalog_subject_offered",
+      "name": "course_catalog_subject_offered",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/course_catalog_subject_offered.preql"
+    },
+    {
+      "alias": "drupal_course_catalog",
+      "name": "drupal_course_catalog",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/drupal_course_catalog.preql"
+    },
+    {
+      "alias": "drupal_employee_directory",
+      "name": "drupal_employee_directory",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/drupal_employee_directory.preql"
+    },
+    {
+      "alias": "employee_directory",
+      "name": "employee_directory",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/employee_directory.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/entrypoint.preql"
+    },
+    {
+      "alias": "estimated_surcharges_estonly",
+      "name": "estimated_surcharges_estonly",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/estimated_surcharges_estonly.preql"
+    },
+    {
+      "alias": "fac_building",
+      "name": "fac_building",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_building.preql"
+    },
+    {
+      "alias": "fac_building_address",
+      "name": "fac_building_address",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_building_address.preql"
+    },
+    {
+      "alias": "fac_floor",
+      "name": "fac_floor",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_floor.preql"
+    },
+    {
+      "alias": "fac_major_use",
+      "name": "fac_major_use",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_major_use.preql"
+    },
+    {
+      "alias": "fac_organization",
+      "name": "fac_organization",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_organization.preql"
+    },
+    {
+      "alias": "fac_rooms",
+      "name": "fac_rooms",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fac_rooms.preql"
+    },
+    {
+      "alias": "fclt_building",
+      "name": "fclt_building",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_building.preql"
+    },
+    {
+      "alias": "fclt_building_address",
+      "name": "fclt_building_address",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_building_address.preql"
+    },
+    {
+      "alias": "fclt_building_address_hist",
+      "name": "fclt_building_address_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_building_address_hist.preql"
+    },
+    {
+      "alias": "fclt_building_hist",
+      "name": "fclt_building_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_building_hist.preql"
+    },
+    {
+      "alias": "fclt_building_hist_1",
+      "name": "fclt_building_hist_1",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_building_hist_1.preql"
+    },
+    {
+      "alias": "fclt_floor",
+      "name": "fclt_floor",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_floor.preql"
+    },
+    {
+      "alias": "fclt_floor_hist",
+      "name": "fclt_floor_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_floor_hist.preql"
+    },
+    {
+      "alias": "fclt_major_use",
+      "name": "fclt_major_use",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_major_use.preql"
+    },
+    {
+      "alias": "fclt_major_use_hist",
+      "name": "fclt_major_use_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_major_use_hist.preql"
+    },
+    {
+      "alias": "fclt_org_dlc_key",
+      "name": "fclt_org_dlc_key",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_org_dlc_key.preql"
+    },
+    {
+      "alias": "fclt_organization",
+      "name": "fclt_organization",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_organization.preql"
+    },
+    {
+      "alias": "fclt_organization_hist",
+      "name": "fclt_organization_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_organization_hist.preql"
+    },
+    {
+      "alias": "fclt_rooms",
+      "name": "fclt_rooms",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_rooms.preql"
+    },
+    {
+      "alias": "fclt_rooms_hist",
+      "name": "fclt_rooms_hist",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fclt_rooms_hist.preql"
+    },
+    {
+      "alias": "frc_fiscal_periods",
+      "name": "frc_fiscal_periods",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/frc_fiscal_periods.preql"
+    },
+    {
+      "alias": "fund_center_hierarchy",
+      "name": "fund_center_hierarchy",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/fund_center_hierarchy.preql"
+    },
+    {
+      "alias": "hr_faculty_roster",
+      "name": "hr_faculty_roster",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/hr_faculty_roster.preql"
+    },
+    {
+      "alias": "hr_org_unit",
+      "name": "hr_org_unit",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/hr_org_unit.preql"
+    },
+    {
+      "alias": "hr_org_unit_new",
+      "name": "hr_org_unit_new",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/hr_org_unit_new.preql"
+    },
+    {
+      "alias": "iap_subject_category",
+      "name": "iap_subject_category",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/iap_subject_category.preql"
+    },
+    {
+      "alias": "iap_subject_detail",
+      "name": "iap_subject_detail",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/iap_subject_detail.preql"
+    },
+    {
+      "alias": "iap_subject_person",
+      "name": "iap_subject_person",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/iap_subject_person.preql"
+    },
+    {
+      "alias": "iap_subject_session",
+      "name": "iap_subject_session",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/iap_subject_session.preql"
+    },
+    {
+      "alias": "iap_subject_sponsor",
+      "name": "iap_subject_sponsor",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/iap_subject_sponsor.preql"
+    },
+    {
+      "alias": "ir_institution",
+      "name": "ir_institution",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/ir_institution.preql"
+    },
+    {
+      "alias": "library_course_instructor",
+      "name": "library_course_instructor",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/library_course_instructor.preql"
+    },
+    {
+      "alias": "library_material_status",
+      "name": "library_material_status",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/library_material_status.preql"
+    },
+    {
+      "alias": "library_reserve_catalog",
+      "name": "library_reserve_catalog",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/library_reserve_catalog.preql"
+    },
+    {
+      "alias": "library_reserve_matrl_detail",
+      "name": "library_reserve_matrl_detail",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/library_reserve_matrl_detail.preql"
+    },
+    {
+      "alias": "library_subject_offered",
+      "name": "library_subject_offered",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/library_subject_offered.preql"
+    },
+    {
+      "alias": "master_dept_dcode_parent",
+      "name": "master_dept_dcode_parent",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/master_dept_dcode_parent.preql"
+    },
+    {
+      "alias": "master_dept_hierarchy",
+      "name": "master_dept_hierarchy",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/master_dept_hierarchy.preql"
+    },
+    {
+      "alias": "master_dept_hierarchy_links",
+      "name": "master_dept_hierarchy_links",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/master_dept_hierarchy_links.preql"
+    },
+    {
+      "alias": "mit_holiday_closing_calendar",
+      "name": "mit_holiday_closing_calendar",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/mit_holiday_closing_calendar.preql"
+    },
+    {
+      "alias": "mit_student_directory",
+      "name": "mit_student_directory",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/mit_student_directory.preql"
+    },
+    {
+      "alias": "moira_list",
+      "name": "moira_list",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/moira_list.preql"
+    },
+    {
+      "alias": "moira_list_detail",
+      "name": "moira_list_detail",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/moira_list_detail.preql"
+    },
+    {
+      "alias": "moira_list_owner",
+      "name": "moira_list_owner",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/moira_list_owner.preql"
+    },
+    {
+      "alias": "opa_person_current",
+      "name": "opa_person_current",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/opa_person_current.preql"
+    },
+    {
+      "alias": "person_auth_area",
+      "name": "person_auth_area",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/person_auth_area.preql"
+    },
+    {
+      "alias": "profit_center_group",
+      "name": "profit_center_group",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/profit_center_group.preql"
+    },
+    {
+      "alias": "roles_fin_pa",
+      "name": "roles_fin_pa",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/roles_fin_pa.preql"
+    },
+    {
+      "alias": "se_person",
+      "name": "se_person",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/se_person.preql"
+    },
+    {
+      "alias": "sis_admin_department",
+      "name": "sis_admin_department",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_admin_department.preql"
+    },
+    {
+      "alias": "sis_course_description",
+      "name": "sis_course_description",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_course_description.preql"
+    },
+    {
+      "alias": "sis_department",
+      "name": "sis_department",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_department.preql"
+    },
+    {
+      "alias": "sis_lookup",
+      "name": "sis_lookup",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_lookup.preql"
+    },
+    {
+      "alias": "sis_subject_code",
+      "name": "sis_subject_code",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_subject_code.preql"
+    },
+    {
+      "alias": "sis_term_address_category",
+      "name": "sis_term_address_category",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/sis_term_address_category.preql"
+    },
+    {
+      "alias": "space_detail",
+      "name": "space_detail",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_detail.preql"
+    },
+    {
+      "alias": "space_floor",
+      "name": "space_floor",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_floor.preql"
+    },
+    {
+      "alias": "space_supervisor_usage",
+      "name": "space_supervisor_usage",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_supervisor_usage.preql"
+    },
+    {
+      "alias": "space_unit",
+      "name": "space_unit",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_unit.preql"
+    },
+    {
+      "alias": "space_unit2",
+      "name": "space_unit2",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_unit2.preql"
+    },
+    {
+      "alias": "space_usage",
+      "name": "space_usage",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/space_usage.preql"
+    },
+    {
+      "alias": "student_degree_program",
+      "name": "student_degree_program",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/student_degree_program.preql"
+    },
+    {
+      "alias": "student_department",
+      "name": "student_department",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/student_department.preql"
+    },
+    {
+      "alias": "student_ethnic_subgroup",
+      "name": "student_ethnic_subgroup",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/student_ethnic_subgroup.preql"
+    },
+    {
+      "alias": "subject_attribute",
+      "name": "subject_attribute",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_attribute.preql"
+    },
+    {
+      "alias": "subject_enrollable",
+      "name": "subject_enrollable",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_enrollable.preql"
+    },
+    {
+      "alias": "subject_grouping",
+      "name": "subject_grouping",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_grouping.preql"
+    },
+    {
+      "alias": "subject_iap_schedule",
+      "name": "subject_iap_schedule",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_iap_schedule.preql"
+    },
+    {
+      "alias": "subject_offered",
+      "name": "subject_offered",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_offered.preql"
+    },
+    {
+      "alias": "subject_offered_summary",
+      "name": "subject_offered_summary",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_offered_summary.preql"
+    },
+    {
+      "alias": "subject_selector",
+      "name": "subject_selector",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_selector.preql"
+    },
+    {
+      "alias": "subject_summary",
+      "name": "subject_summary",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/subject_summary.preql"
+    },
+    {
+      "alias": "time_day",
+      "name": "time_day",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/time_day.preql"
+    },
+    {
+      "alias": "time_month",
+      "name": "time_month",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/time_month.preql"
+    },
+    {
+      "alias": "time_quarter",
+      "name": "time_quarter",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/time_quarter.preql"
+    },
+    {
+      "alias": "tip_detail",
+      "name": "tip_detail",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/tip_detail.preql"
+    },
+    {
+      "alias": "tip_material",
+      "name": "tip_material",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/tip_material.preql"
+    },
+    {
+      "alias": "tip_material_status",
+      "name": "tip_material_status",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/tip_material_status.preql"
+    },
+    {
+      "alias": "tip_subject_offered",
+      "name": "tip_subject_offered",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/tip_subject_offered.preql"
+    },
+    {
+      "alias": "top_level_domain",
+      "name": "top_level_domain",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/top_level_domain.preql"
+    },
+    {
+      "alias": "warehouse_users",
+      "name": "warehouse_users",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/warehouse_users.preql"
+    },
+    {
+      "alias": "zip_canada",
+      "name": "zip_canada",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/zip_canada.preql"
+    },
+    {
+      "alias": "zip_usa",
+      "name": "zip_usa",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/zip_usa.preql"
+    },
+    {
+      "alias": "zpm_rooms_load",
+      "name": "zpm_rooms_load",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/zpm_rooms_load.preql"
+    }
+  ],
+  "description": "# BEAVER dw\n\nGenerated semantic schema for the BEAVER `dw` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+  "engine": "mysql",
+  "link": "",
+  "name": "beaver_dw",
+  "tags": [
+    "mysql"
+  ]
+}

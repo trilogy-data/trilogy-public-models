@@ -1,0 +1,27 @@
+# Gold: active alerts joined to how degraded their routes actually are right
+# now. A SHUTTLE alert on a line at 3x scheduled headway reads very
+# differently from one on a line running normally.
+
+import common;
+import alerts;
+
+property alert_entity_id.route_predicted_headway_minutes float[0..]?; # the informed route's avg predicted gap
+property alert_entity_id.route_scheduled_headway_minutes float[0..]?; # the informed route's avg timetabled gap near the snapshot
+property alert_entity_id.route_headway_pressure float[0..]?; # predicted / scheduled; > 1 = worse than promised
+
+root datasource alert_service_impact (
+    entity_id: alert_entity_id,
+    alert_id: alert_id,
+    effect: alert_effect,
+    severity: alert_severity,
+    service_effect: ?alert_service_effect,
+    lifecycle: ?alert_lifecycle,
+    route_id: ~?route_id,
+    entity_stop_id: ~?stop_id, # platform or parent station id, same as active_alerts
+    route_predicted_headway_minutes: ?route_predicted_headway_minutes,
+    route_scheduled_headway_minutes: ?route_scheduled_headway_minutes,
+    route_headway_pressure: ?route_headway_pressure,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (alert_entity_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/alert_service_impact_v1.parquet`;

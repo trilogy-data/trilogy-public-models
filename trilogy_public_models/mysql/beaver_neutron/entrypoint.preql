@@ -1,0 +1,3 @@
+# BEAVER neutron discovery root.
+# Table models are grouped into domain folders and intentionally are not
+# imported here. Import the relevant table module directly.

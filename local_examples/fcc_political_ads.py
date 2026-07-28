@@ -1,4 +1,5 @@
 from preql import Dialects
+
 from trilogy_public_models import models
 
 env = models["bigquery.fcc_political_ads"]

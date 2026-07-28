@@ -1,0 +1,9 @@
+key col_lsn_id string;
+property col_lsn_id.col_net_id string;
+
+datasource source (
+    `LSN_ID`:col_lsn_id,
+    `NET_ID`:col_net_id,
+)
+grain (col_lsn_id)
+address `neutron.lsn`;

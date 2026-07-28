@@ -1,19 +1,20 @@
-from trilogy import Environment, Dialects
-from trilogy.constants import DEFAULT_NAMESPACE
+from json import loads
+from pathlib import Path
+
+from trilogy import Dialects, Environment
 from trilogy.authoring import (
     Concept,
     ConceptRef,
     SelectStatement,
 )
-from trilogy.core.models.datasource import Datasource
-from trilogy.core.statements.execute import ProcessedShowStatement
-from trilogy.core.processing.concept_strategies_v3 import search_concepts, History
-from trilogy.executor import Executor
-from trilogy.parser import parse_text
+from trilogy.constants import DEFAULT_NAMESPACE
 from trilogy.core.internal import INTERNAL_NAMESPACE
 from trilogy.core.models.build import BuildConcept
-from pathlib import Path
-from json import loads
+from trilogy.core.models.datasource import Datasource
+from trilogy.core.processing.concept_strategies_v3 import History, search_concepts
+from trilogy.core.statements.execute import ProcessedShowStatement
+from trilogy.executor import Executor
+from trilogy.parser import parse_text
 
 example_path = Path(__file__).parent.parent / "examples"
 
@@ -45,10 +46,10 @@ def validate_query(
             x for x in parsed if isinstance(x, SelectStatement)
         ]
         sql = executor.generator.generate_queries(environment, processed)
-    except Exception as e:
+    except Exception:
         print("Failing Validation Query Is")
         print(validation_query)
-        raise e
+        raise
     for statement in sql:
         if isinstance(statement, ProcessedShowStatement):
             continue
@@ -70,9 +71,7 @@ def validate_query(
                     compiled_sql, job_config=job_config
                 )  # Make an API request.
                 print(
-                    "This query will process {} bytes.".format(
-                        query_job.total_bytes_processed
-                    )
+                    f"This query will process {query_job.total_bytes_processed} bytes."
                 )
             elif executor.dialect == Dialects.DUCK_DB:
                 # use a dry run to save costs
@@ -84,11 +83,11 @@ def validate_query(
                 raise NotImplementedError(
                     f"Validation not implemented for {executor.dialect}"
                 )
-        except Exception as e:
+        except Exception:
             print("Failed validation on:")
             print(validation_query)
             print(compiled_sql)
-            raise e
+            raise
 
 
 def validate_datasource_grain(datasource):
@@ -111,7 +110,7 @@ def get_example_queries(key: str) -> list[str]:
             content: dict = loads(f.read())
             imports = content.get("imports", [])
             imp_prefix = " ".join([f"import {x['name']};" for x in imports])
-            for k, v in content["gridItems"].items():
+            for v in content["gridItems"].values():
                 content = v.get("content", None)
                 if content and isinstance(content, dict) and content.get("query", None):
                     final.append(imp_prefix + " " + content["query"])

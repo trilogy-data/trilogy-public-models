@@ -1,0 +1,17 @@
+key col_user_name string;
+key col_has_financial_auth string;
+key col_has_hr_full_auth string;
+key col_has_hr_limited_auth string;
+key col_has_payroll_auth string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `USER_NAME`:col_user_name,
+    `HAS_FINANCIAL_AUTH`:col_has_financial_auth,
+    `HAS_HR_FULL_AUTH`:col_has_hr_full_auth,
+    `HAS_HR_LIMITED_AUTH`:col_has_hr_limited_auth,
+    `HAS_PAYROLL_AUTH`:col_has_payroll_auth,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_user_name, col_has_financial_auth, col_has_hr_full_auth, col_has_hr_limited_auth, col_has_payroll_auth, col_warehouse_load_date)
+address `dw.PERSON_AUTH_AREA`;

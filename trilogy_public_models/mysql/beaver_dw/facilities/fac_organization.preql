@@ -1,0 +1,43 @@
+key col_organization_key string;
+key col_organization_id string;
+key col_organization string;
+key col_organization_name string;
+key col_org_parent_key string;
+key col_org_parent string;
+key col_major_org_key string;
+key col_major_org string;
+key col_organization_level string;
+key col_organization_number string;
+key col_organization_sort string;
+key col_assignable string;
+key col_course string;
+key col_description string;
+key col_warehouse_load_date date;
+key col_d_code string;
+key col_hr_department_code_old string;
+key col_hr_org_unit_id string;
+key col_hr_department_name string;
+
+datasource source (
+    `ORGANIZATION_KEY`:col_organization_key,
+    `ORGANIZATION_ID`:col_organization_id,
+    `ORGANIZATION`:col_organization,
+    `ORGANIZATION_NAME`:col_organization_name,
+    `ORG_PARENT_KEY`:col_org_parent_key,
+    `ORG_PARENT`:col_org_parent,
+    `MAJOR_ORG_KEY`:col_major_org_key,
+    `MAJOR_ORG`:col_major_org,
+    `ORGANIZATION_LEVEL`:col_organization_level,
+    `ORGANIZATION_NUMBER`:col_organization_number,
+    `ORGANIZATION_SORT`:col_organization_sort,
+    `ASSIGNABLE`:col_assignable,
+    `COURSE`:col_course,
+    `DESCRIPTION`:col_description,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `D_CODE`:col_d_code,
+    `HR_DEPARTMENT_CODE_OLD`:col_hr_department_code_old,
+    `HR_ORG_UNIT_ID`:col_hr_org_unit_id,
+    `HR_DEPARTMENT_NAME`:col_hr_department_name,
+)
+grain (col_organization_key, col_organization_id, col_organization, col_organization_name, col_org_parent_key, col_org_parent, col_major_org_key, col_major_org, col_organization_level, col_organization_number, col_organization_sort, col_assignable, col_course, col_description, col_warehouse_load_date, col_d_code, col_hr_department_code_old, col_hr_org_unit_id, col_hr_department_name)
+address `dw.FAC_ORGANIZATION`;

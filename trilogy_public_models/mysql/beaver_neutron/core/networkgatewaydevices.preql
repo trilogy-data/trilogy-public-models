@@ -1,0 +1,19 @@
+property col_id.col_tenant_id string;
+key col_id string;
+property col_id.col_nsx_id string;
+property col_id.col_name string;
+property col_id.col_connector_type string;
+property col_id.col_connector_ip string;
+property col_id.col_status string;
+
+datasource source (
+    `TENANT_ID`:col_tenant_id,
+    `ID`:col_id,
+    `NSX_ID`:col_nsx_id,
+    `NAME`:col_name,
+    `CONNECTOR_TYPE`:col_connector_type,
+    `CONNECTOR_IP`:col_connector_ip,
+    `STATUS`:col_status,
+)
+grain (col_id)
+address `neutron.networkgatewaydevices`;

@@ -1,0 +1,11 @@
+key col_vdr_router_id string;
+property col_vdr_router_id.col_dhcp_router_id string;
+property col_vdr_router_id.col_dhcp_edge_id string;
+
+datasource source (
+    `VDR_ROUTER_ID`:col_vdr_router_id,
+    `DHCP_ROUTER_ID`:col_dhcp_router_id,
+    `DHCP_EDGE_ID`:col_dhcp_edge_id,
+)
+grain (col_vdr_router_id)
+address `neutron.nsxv_vdr_dhcp_bindings`;

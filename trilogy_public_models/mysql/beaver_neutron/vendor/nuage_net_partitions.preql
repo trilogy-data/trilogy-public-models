@@ -1,0 +1,17 @@
+key col_id string;
+property col_id.col_name string;
+property col_id.col_l3dom_tmplt_id string;
+property col_id.col_l2dom_tmplt_id string;
+property col_id.col_isolated_zone string;
+property col_id.col_shared_zone string;
+
+datasource source (
+    `ID`:col_id,
+    `NAME`:col_name,
+    `L3DOM_TMPLT_ID`:col_l3dom_tmplt_id,
+    `L2DOM_TMPLT_ID`:col_l2dom_tmplt_id,
+    `ISOLATED_ZONE`:col_isolated_zone,
+    `SHARED_ZONE`:col_shared_zone,
+)
+grain (col_id)
+address `neutron.nuage_net_partitions`;

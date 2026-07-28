@@ -10,6 +10,7 @@ import sys
 import urllib.request
 from datetime import datetime
 from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 
 GCS_CARRIERS = "https://storage.googleapis.com/trilogy_public_models/duckdb/faa/dimensions/carriers_v2.parquet"
 GCS_WATERMARK = (
@@ -23,7 +24,7 @@ def _head(url: str) -> dict[str, str]:
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
             return dict(resp.headers)
-    except Exception:
+    except (OSError, HTTPException):
         return {}
 
 
@@ -33,7 +34,7 @@ def _last_modified(headers: dict[str, str]) -> datetime | None:
         return None
     try:
         return parsedate_to_datetime(raw)
-    except Exception:
+    except (TypeError, ValueError):
         return None
 
 

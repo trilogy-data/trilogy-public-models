@@ -1,0 +1,27 @@
+key col_hass_attribute string;
+key col_description_on_form string;
+key col_description_in_bulletin string;
+key col_cis_attribute_group string;
+key col_cis_attribute_group_note string;
+key col_icon_gif_name string;
+key col_icon_height string;
+key col_icon_width string;
+key col_last_activity_date date;
+key col_last_update_user string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `HASS_ATTRIBUTE`:col_hass_attribute,
+    `DESCRIPTION_ON_FORM`:col_description_on_form,
+    `DESCRIPTION_IN_BULLETIN`:col_description_in_bulletin,
+    `CIS_ATTRIBUTE_GROUP`:col_cis_attribute_group,
+    `CIS_ATTRIBUTE_GROUP_NOTE`:col_cis_attribute_group_note,
+    `ICON_GIF_NAME`:col_icon_gif_name,
+    `ICON_HEIGHT`:col_icon_height,
+    `ICON_WIDTH`:col_icon_width,
+    `LAST_ACTIVITY_DATE`:col_last_activity_date,
+    `LAST_UPDATE_USER`:col_last_update_user,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_hass_attribute, col_description_on_form, col_description_in_bulletin, col_cis_attribute_group, col_cis_attribute_group_note, col_icon_gif_name, col_icon_height, col_icon_width, col_last_activity_date, col_last_update_user, col_warehouse_load_date)
+address `dw.CIS_HASS_ATTRIBUTE`;

@@ -1,0 +1,28 @@
+# Gold: observed (predicted) headway vs the timetable's promised headway, per
+# platform and direction, for the snapshot in mbta_data_updated_through.
+# headway_ratio > 2.0 means riders are currently waiting more than twice as
+# long as the schedule promises.
+
+import common;
+
+property <route_id, stop_id, direction_id>.predicted_headway_minutes float[0..]?; # avg gap between consecutive predicted trains
+property <route_id, stop_id, direction_id>.scheduled_headway_minutes float[0..]?; # avg timetabled gap in the hour after the snapshot
+property <route_id, stop_id, direction_id>.headway_ratio float[0..]?; # predicted / scheduled
+property <route_id, stop_id, direction_id>.max_predicted_gap_minutes int[0..]?; # worst single gap right now
+property <route_id, stop_id, direction_id>.predicted_trip_count int[0..]?;
+property <route_id, stop_id, direction_id>.next_predicted_event datetime?;
+
+root datasource route_headways (
+    route_id: ~?route_id,
+    stop_id: ~?stop_id,
+    direction_id: ?direction_id,
+    predicted_headway_minutes: ?predicted_headway_minutes,
+    scheduled_headway_minutes: ?scheduled_headway_minutes,
+    headway_ratio: ?headway_ratio,
+    max_predicted_gap_minutes: ?max_predicted_gap_minutes,
+    predicted_trip_count: ?predicted_trip_count,
+    next_predicted_event: ?next_predicted_event,
+    mbta_data_updated_through: mbta_data_updated_through,
+)
+grain (route_id, stop_id, direction_id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/mbta/route_headways_v1.parquet`;

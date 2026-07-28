@@ -1,0 +1,23 @@
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_deleted int;
+key col_id int;
+property col_id.col_user_id string;
+property col_id.col_project_id string;
+property col_id.col_uuid string;
+property col_id.col_name string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `DELETED`:col_deleted,
+    `ID`:col_id,
+    `USER_ID`:col_user_id,
+    `PROJECT_ID`:col_project_id,
+    `UUID`:col_uuid,
+    `NAME`:col_name,
+)
+grain (col_id)
+address `nova.shadow_instance_groups`;

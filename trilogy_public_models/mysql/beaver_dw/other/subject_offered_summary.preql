@@ -1,0 +1,63 @@
+key col_subject_offered_summary_key string;
+key col_composite_subject_key string;
+key col_term_code string;
+key col_course_number string;
+key col_subject_id string;
+key col_subject_id_sort string;
+key col_subject_title string;
+key col_master_subject_id string;
+key col_master_subject_id_sort string;
+key col_cluster_type string;
+key col_cluster_type_desc string;
+key col_cluster_list string;
+key col_hgn_code string;
+key col_hgn_code_desc string;
+key col_offer_dept_code string;
+key col_offer_dept_name string;
+key col_offer_school_name string;
+key col_responsible_faculty_name string;
+key col_responsible_faculty_mit_id string;
+key col_total_units int;
+key col_lecture_units int;
+key col_lab_units int;
+key col_preparation_units int;
+key col_subject_enrollment_number int;
+key col_cluster_enrollment_number int;
+key col_warehouse_load_date date;
+key col_num_enrolled_students int;
+key col_subject_grouping_key string;
+key col_subject_summary_key string;
+
+datasource source (
+    `SUBJECT_OFFERED_SUMMARY_KEY`:col_subject_offered_summary_key,
+    `COMPOSITE_SUBJECT_KEY`:col_composite_subject_key,
+    `TERM_CODE`:col_term_code,
+    `COURSE_NUMBER`:col_course_number,
+    `SUBJECT_ID`:col_subject_id,
+    `SUBJECT_ID_SORT`:col_subject_id_sort,
+    `SUBJECT_TITLE`:col_subject_title,
+    `MASTER_SUBJECT_ID`:col_master_subject_id,
+    `MASTER_SUBJECT_ID_SORT`:col_master_subject_id_sort,
+    `CLUSTER_TYPE`:col_cluster_type,
+    `CLUSTER_TYPE_DESC`:col_cluster_type_desc,
+    `CLUSTER_LIST`:col_cluster_list,
+    `HGN_CODE`:col_hgn_code,
+    `HGN_CODE_DESC`:col_hgn_code_desc,
+    `OFFER_DEPT_CODE`:col_offer_dept_code,
+    `OFFER_DEPT_NAME`:col_offer_dept_name,
+    `OFFER_SCHOOL_NAME`:col_offer_school_name,
+    `RESPONSIBLE_FACULTY_NAME`:col_responsible_faculty_name,
+    `RESPONSIBLE_FACULTY_MIT_ID`:col_responsible_faculty_mit_id,
+    `TOTAL_UNITS`:col_total_units,
+    `LECTURE_UNITS`:col_lecture_units,
+    `LAB_UNITS`:col_lab_units,
+    `PREPARATION_UNITS`:col_preparation_units,
+    `SUBJECT_ENROLLMENT_NUMBER`:col_subject_enrollment_number,
+    `CLUSTER_ENROLLMENT_NUMBER`:col_cluster_enrollment_number,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+    `NUM_ENROLLED_STUDENTS`:col_num_enrolled_students,
+    `SUBJECT_GROUPING_KEY`:col_subject_grouping_key,
+    `SUBJECT_SUMMARY_KEY`:col_subject_summary_key,
+)
+grain (col_subject_offered_summary_key, col_composite_subject_key, col_term_code, col_course_number, col_subject_id, col_subject_id_sort, col_subject_title, col_master_subject_id, col_master_subject_id_sort, col_cluster_type, col_cluster_type_desc, col_cluster_list, col_hgn_code, col_hgn_code_desc, col_offer_dept_code, col_offer_dept_name, col_offer_school_name, col_responsible_faculty_name, col_responsible_faculty_mit_id, col_total_units, col_lecture_units, col_lab_units, col_preparation_units, col_subject_enrollment_number, col_cluster_enrollment_number, col_warehouse_load_date, col_num_enrolled_students, col_subject_grouping_key, col_subject_summary_key)
+address `dw.SUBJECT_OFFERED_SUMMARY`;

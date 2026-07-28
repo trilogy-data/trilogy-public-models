@@ -15,12 +15,12 @@ Source: https://registry.faa.gov/database/ReleasableAircraft.zip
 
 The zip ships several CSVs; we consume three:
 
-* ``MASTER.txt``  — one row per currently-registered N-number.
-* ``DEREG.txt``   — historical deregistrations going back to ~1945 (~382k
+* ``MASTER.txt``  â€” one row per currently-registered N-number.
+* ``DEREG.txt``   â€” historical deregistrations going back to ~1945 (~382k
                     rows). Pulling this in lifts join coverage on flights
-                    from older years dramatically — without it, retired
+                    from older years dramatically â€” without it, retired
                     tail numbers don't match.
-* ``ACFTREF.txt`` — one row per FAA make/model code (the join key between
+* ``ACFTREF.txt`` â€” one row per FAA make/model code (the join key between
                     aircraft and the aircraft model dimension).
 
 The FAA MASTER N-NUMBER is the bare digits/letters (e.g. ``12345``); BTS
@@ -39,7 +39,7 @@ from __future__ import annotations
 import argparse
 import io
 import zipfile
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
@@ -56,7 +56,7 @@ OUT_DIR = INGEST_DIR / "dimensions"
 ZIP_NAME = "ReleasableAircraft.zip"
 FLIGHTS_GLOB = INGEST_DIR / "flights" / "flights_v2_*.parquet"
 
-# status_code value used to mark rows backfilled from the flight fact —
+# status_code value used to mark rows backfilled from the flight fact â€”
 # tail_num was observed in BTS but not present in MASTER or DEREG. Lets
 # downstream queries filter ``WHERE status_code <> 'U'`` for pure FAA
 # truth without losing the join coverage.
@@ -213,7 +213,7 @@ AIRCRAFT_OUTPUT_COLUMNS = (
     "air_worth_date",
 )
 
-# MASTER.txt → canonical column names. ``None`` means the source CSV has
+# MASTER.txt â†’ canonical column names. ``None`` means the source CSV has
 # no equivalent and the field is filled with a default (0 for ints, null
 # for strings/dates).
 MASTER_COLUMN_MAP: dict[str, str | None] = {
@@ -243,9 +243,9 @@ MASTER_COLUMN_MAP: dict[str, str | None] = {
     "air_worth_date": "AIR WORTH DATE",
 }
 
-# DEREG.txt → canonical column names. DEREG omits the per-airframe type
+# DEREG.txt â†’ canonical column names. DEREG omits the per-airframe type
 # fields (TYPE AIRCRAFT/ENGINE/REGISTRANT) and FRACT OWNER; we backfill
-# those with 0/null. DEREG also splits address into MAIL/PHYSICAL — we
+# those with 0/null. DEREG also splits address into MAIL/PHYSICAL â€” we
 # keep the mailing address to mirror MASTER's STREET semantics.
 DEREG_COLUMN_MAP: dict[str, str | None] = {
     "tail_num": "N-NUMBER",
@@ -274,7 +274,7 @@ DEREG_COLUMN_MAP: dict[str, str | None] = {
     "air_worth_date": "AIR-WORTH-DATE",
 }
 
-# Output column → polars dtype, used to fill missing-source columns.
+# Output column â†’ polars dtype, used to fill missing-source columns.
 INT_FIELDS = {
     "year_built",
     "aircraft_type_id",
@@ -300,7 +300,7 @@ def _project_to_canonical(
             return cols[src.upper()]
         except KeyError as exc:
             raise KeyError(
-                f"source CSV missing expected column {src!r}; have {sorted(cols)[:20]}…"
+                f"source CSV missing expected column {src!r}; have {sorted(cols)[:20]}â€¦"
             ) from exc
 
     exprs: list[pl.Expr] = []
@@ -346,7 +346,7 @@ def _flight_tail_nums(flights_glob: Path) -> pl.DataFrame | None:
 def _stub_rows_for(missing: pl.DataFrame) -> pl.DataFrame:
     """Build stub aircraft rows for tail_nums observed in flights but
     absent from the FAA registry. Only ``tail_num`` and ``status_code``
-    are populated — other fields are null/0 sentinels matching the
+    are populated â€” other fields are null/0 sentinels matching the
     canonical schema dtypes."""
     n = missing.height
     return (
@@ -400,7 +400,7 @@ def build_aircraft(
         historic = historic.sort("cert_issue_date", nulls_last=True).unique(
             subset=["tail_num"], keep="last"
         )
-        # Drop tail_nums that are already active in MASTER — the active
+        # Drop tail_nums that are already active in MASTER â€” the active
         # record is the right one for current and recent flights; flights
         # for the prior holder of a re-issued tail number will mismatch,
         # but the schema doesn't support multiple rows per tail_num.
@@ -588,7 +588,7 @@ def main(argv: list[str] | None = None) -> int:
     write_parquet(models_table, AIRCRAFT_MODELS_PARQUET)
 
     print(
-        f"done at {datetime.now().isoformat(timespec='seconds')} — "
+        f"done at {datetime.now(timezone.utc).isoformat(timespec='seconds')} â€” "
         f"upload via publish_dimensions.py"
     )
     return 0

@@ -1,0 +1,16 @@
+import ports as ports;
+
+property ports.col_id.col_current_dns_name string;
+property ports.col_id.col_current_dns_domain string;
+property ports.col_id.col_previous_dns_name string;
+property ports.col_id.col_previous_dns_domain string;
+
+datasource source (
+    `PORT_ID`:ports.col_id,
+    `CURRENT_DNS_NAME`:ports.col_current_dns_name,
+    `CURRENT_DNS_DOMAIN`:ports.col_current_dns_domain,
+    `PREVIOUS_DNS_NAME`:ports.col_previous_dns_name,
+    `PREVIOUS_DNS_DOMAIN`:ports.col_previous_dns_domain,
+)
+grain (ports.col_id)
+address `neutron.portdnses`;

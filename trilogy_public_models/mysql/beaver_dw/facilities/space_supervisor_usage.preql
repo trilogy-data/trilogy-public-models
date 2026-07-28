@@ -1,0 +1,23 @@
+key col_mit_id string;
+key col_dept_count int;
+key col_dept_names string;
+key col_num_of_supervisees int;
+key col_sqft int;
+key col_research_volume int;
+key col_sqft_per_supervisee int;
+key col_sqft_per_res_vol int;
+key col_res_vol_per_sqft int;
+
+datasource source (
+    `MIT_ID`:col_mit_id,
+    `DEPT_COUNT`:col_dept_count,
+    `DEPT_NAMES`:col_dept_names,
+    `NUM_OF_SUPERVISEES`:col_num_of_supervisees,
+    `SQFT`:col_sqft,
+    `RESEARCH_VOLUME`:col_research_volume,
+    `SQFT_PER_SUPERVISEE`:col_sqft_per_supervisee,
+    `SQFT_PER_RES_VOL`:col_sqft_per_res_vol,
+    `RES_VOL_PER_SQFT`:col_res_vol_per_sqft,
+)
+grain (col_mit_id, col_dept_count, col_dept_names, col_num_of_supervisees, col_sqft, col_research_volume, col_sqft_per_supervisee, col_sqft_per_res_vol, col_res_vol_per_sqft)
+address `dw.SPACE_SUPERVISOR_USAGE`;

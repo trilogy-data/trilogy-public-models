@@ -1,0 +1,19 @@
+key col_building_room string;
+key col_building_component string;
+key col_floor string;
+key col_space_usage string;
+key col_space_unit_code string;
+key col_hr_org_unit_id string;
+key col_access_level string;
+
+datasource source (
+    `BUILDING_ROOM`:col_building_room,
+    `BUILDING_COMPONENT`:col_building_component,
+    `FLOOR`:col_floor,
+    `SPACE_USAGE`:col_space_usage,
+    `SPACE_UNIT_CODE`:col_space_unit_code,
+    `HR_ORG_UNIT_ID`:col_hr_org_unit_id,
+    `ACCESS_LEVEL`:col_access_level,
+)
+grain (col_building_room, col_building_component, col_floor, col_space_usage, col_space_unit_code, col_hr_org_unit_id, col_access_level)
+address `dw.ZPM_ROOMS_LOAD`;

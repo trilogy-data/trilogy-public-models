@@ -1,0 +1,11 @@
+key col_neutron_id string;
+key col_neutron_type string;
+property <col_neutron_id, col_neutron_type>.col_apic_name string;
+
+datasource source (
+    `NEUTRON_ID`:col_neutron_id,
+    `NEUTRON_TYPE`:col_neutron_type,
+    `APIC_NAME`:col_apic_name,
+)
+grain (col_neutron_id, col_neutron_type)
+address `neutron.cisco_ml2_apic_names`;

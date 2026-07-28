@@ -1,0 +1,12 @@
+import subnets as subnets;
+
+key col_address string;
+property <col_address, subnets.col_id>.col_order int;
+
+datasource source (
+    `ADDRESS`:col_address,
+    `SUBNET_ID`:subnets.col_id,
+    `ORDER`:col_order,
+)
+grain (col_address, subnets.col_id)
+address `neutron.dnsnameservers`;

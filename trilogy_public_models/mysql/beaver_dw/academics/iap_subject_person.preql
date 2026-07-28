@@ -1,0 +1,23 @@
+key col_iap_subject_person_key string;
+key col_person_role string;
+key col_person_mit_affiliation string;
+key col_person_name string;
+key col_person_location string;
+key col_person_email string;
+key col_person_organization string;
+key col_person_title string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `IAP_SUBJECT_PERSON_KEY`:col_iap_subject_person_key,
+    `PERSON_ROLE`:col_person_role,
+    `PERSON_MIT_AFFILIATION`:col_person_mit_affiliation,
+    `PERSON_NAME`:col_person_name,
+    `PERSON_LOCATION`:col_person_location,
+    `PERSON_EMAIL`:col_person_email,
+    `PERSON_ORGANIZATION`:col_person_organization,
+    `PERSON_TITLE`:col_person_title,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_iap_subject_person_key, col_person_role, col_person_mit_affiliation, col_person_name, col_person_location, col_person_email, col_person_organization, col_person_title, col_warehouse_load_date)
+address `dw.IAP_SUBJECT_PERSON`;

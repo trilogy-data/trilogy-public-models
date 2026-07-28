@@ -1,0 +1,13 @@
+key col_iap_subject_category_key string;
+key col_iap_category_name string;
+key col_iap_category_desc string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `IAP_SUBJECT_CATEGORY_KEY`:col_iap_subject_category_key,
+    `IAP_CATEGORY_NAME`:col_iap_category_name,
+    `IAP_CATEGORY_DESC`:col_iap_category_desc,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_iap_subject_category_key, col_iap_category_name, col_iap_category_desc, col_warehouse_load_date)
+address `dw.IAP_SUBJECT_CATEGORY`;

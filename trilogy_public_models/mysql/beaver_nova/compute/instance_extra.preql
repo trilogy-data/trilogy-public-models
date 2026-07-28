@@ -1,0 +1,28 @@
+import instances as instances;
+
+property col_id.col_created_at datetime;
+property col_id.col_updated_at datetime;
+property col_id.col_deleted_at datetime;
+property col_id.col_deleted int;
+key col_id int;
+property col_id.col_numa_topology string;
+property col_id.col_pci_requests string;
+property col_id.col_flavor string;
+property col_id.col_vcpu_model string;
+property col_id.col_migration_context string;
+
+datasource source (
+    `CREATED_AT`:col_created_at,
+    `UPDATED_AT`:col_updated_at,
+    `DELETED_AT`:col_deleted_at,
+    `DELETED`:col_deleted,
+    `ID`:col_id,
+    `INSTANCE_UUID`:instances.col_uuid,
+    `NUMA_TOPOLOGY`:col_numa_topology,
+    `PCI_REQUESTS`:col_pci_requests,
+    `FLAVOR`:col_flavor,
+    `VCPU_MODEL`:col_vcpu_model,
+    `MIGRATION_CONTEXT`:col_migration_context,
+)
+grain (col_id)
+address `nova.instance_extra`;

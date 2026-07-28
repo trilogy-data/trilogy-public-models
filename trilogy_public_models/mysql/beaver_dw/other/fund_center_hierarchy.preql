@@ -1,0 +1,53 @@
+key col_fund_center_key string;
+key col_fund_center_id string;
+key col_fund_center_name string;
+key col_fund_center_id_level1 string;
+key col_fund_center_name_level1 string;
+key col_fund_center_id_level2 string;
+key col_fund_center_name_level2 string;
+key col_fund_center_id_level3 string;
+key col_fund_center_name_level3 string;
+key col_fund_center_id_level4 string;
+key col_fund_center_name_level4 string;
+key col_fund_center_id_level5 string;
+key col_fund_center_name_level5 string;
+key col_fund_center_id_level6 string;
+key col_fund_center_name_level6 string;
+key col_fund_center_id_level7 string;
+key col_fund_center_name_level7 string;
+key col_fund_center_id_level8 string;
+key col_fund_center_name_level8 string;
+key col_fund_center_id_level9 string;
+key col_fund_center_name_level9 string;
+key col_fund_center_id_level10 string;
+key col_fund_center_name_level10 string;
+key col_warehouse_load_date date;
+
+datasource source (
+    `FUND_CENTER_KEY`:col_fund_center_key,
+    `FUND_CENTER_ID`:col_fund_center_id,
+    `FUND_CENTER_NAME`:col_fund_center_name,
+    `FUND_CENTER_ID_LEVEL1`:col_fund_center_id_level1,
+    `FUND_CENTER_NAME_LEVEL1`:col_fund_center_name_level1,
+    `FUND_CENTER_ID_LEVEL2`:col_fund_center_id_level2,
+    `FUND_CENTER_NAME_LEVEL2`:col_fund_center_name_level2,
+    `FUND_CENTER_ID_LEVEL3`:col_fund_center_id_level3,
+    `FUND_CENTER_NAME_LEVEL3`:col_fund_center_name_level3,
+    `FUND_CENTER_ID_LEVEL4`:col_fund_center_id_level4,
+    `FUND_CENTER_NAME_LEVEL4`:col_fund_center_name_level4,
+    `FUND_CENTER_ID_LEVEL5`:col_fund_center_id_level5,
+    `FUND_CENTER_NAME_LEVEL5`:col_fund_center_name_level5,
+    `FUND_CENTER_ID_LEVEL6`:col_fund_center_id_level6,
+    `FUND_CENTER_NAME_LEVEL6`:col_fund_center_name_level6,
+    `FUND_CENTER_ID_LEVEL7`:col_fund_center_id_level7,
+    `FUND_CENTER_NAME_LEVEL7`:col_fund_center_name_level7,
+    `FUND_CENTER_ID_LEVEL8`:col_fund_center_id_level8,
+    `FUND_CENTER_NAME_LEVEL8`:col_fund_center_name_level8,
+    `FUND_CENTER_ID_LEVEL9`:col_fund_center_id_level9,
+    `FUND_CENTER_NAME_LEVEL9`:col_fund_center_name_level9,
+    `FUND_CENTER_ID_LEVEL10`:col_fund_center_id_level10,
+    `FUND_CENTER_NAME_LEVEL10`:col_fund_center_name_level10,
+    `WAREHOUSE_LOAD_DATE`:col_warehouse_load_date,
+)
+grain (col_fund_center_key, col_fund_center_id, col_fund_center_name, col_fund_center_id_level1, col_fund_center_name_level1, col_fund_center_id_level2, col_fund_center_name_level2, col_fund_center_id_level3, col_fund_center_name_level3, col_fund_center_id_level4, col_fund_center_name_level4, col_fund_center_id_level5, col_fund_center_name_level5, col_fund_center_id_level6, col_fund_center_name_level6, col_fund_center_id_level7, col_fund_center_name_level7, col_fund_center_id_level8, col_fund_center_name_level8, col_fund_center_id_level9, col_fund_center_name_level9, col_fund_center_id_level10, col_fund_center_name_level10, col_warehouse_load_date)
+address `dw.FUND_CENTER_HIERARCHY`;
