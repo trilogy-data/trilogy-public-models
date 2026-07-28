@@ -133,7 +133,9 @@ def main(argv: list[str] | None = None) -> int:
         print(f"dry run: would upload -> {target}")
         return 0
 
-    from google.cloud import storage
+    # Declared in this script's PEP 723 metadata, so `uv run` provides it — but it
+    # is not in requirements.txt and so is absent from the CI type-check env.
+    from google.cloud import storage  # type: ignore[attr-defined]
 
     client = storage.Client(project=args.project)
     blob = client.bucket(args.bucket).blob(args.object_name)
