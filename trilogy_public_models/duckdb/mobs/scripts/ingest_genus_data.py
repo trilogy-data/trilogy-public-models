@@ -74,6 +74,17 @@ def get_wikipedia_summary_and_image(genus_name):
     return result
 
 
+def is_header_echo(row):
+    """True if a row is a copy of the header line sitting in the data.
+
+    A checkpoint written over a file that already had content can leave a
+    literal `genus,image_url,summary` line mid-file; it then round-trips
+    through every later run as a genus named "genus" whose image_url is the
+    non-URL string "image_url", which fails the model's `url_image` domain.
+    """
+    return all(key == value for key, value in row.items() if key)
+
+
 def read_csv_to_memory(csv_file):
     """
     Read CSV file into memory as a list of dictionaries
@@ -92,7 +103,12 @@ def read_csv_to_memory(csv_file):
 
     try:
         with open(csv_file, "r", encoding="utf-8") as f:
-            data = list(csv.DictReader(f))
+            rows = list(csv.DictReader(f))
+        data = [row for row in rows if not is_header_echo(row)]
+        if len(data) != len(rows):
+            print(
+                f"Dropped {len(rows) - len(data)} stray header row(s) from {csv_file}"
+            )
 
         print(f"Successfully read {len(data)} rows from {csv_file}")
         return data

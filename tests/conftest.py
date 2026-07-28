@@ -79,7 +79,15 @@ def snowflake_engine(fakesnow_happening) -> Generator[Executor, None, None]:
     MENU_ITEM_HEALTH_METRICS_OBJ VARIANT
 );"""
     )
-    yield executor
+    try:
+        yield executor
+    finally:
+        # Close deterministically, while fakesnow is still patched. Otherwise the
+        # connection lives until interpreter shutdown, where SQLAlchemy's pool
+        # finalizer issues a rollback, fakesnow parses "ROLLBACK" with sqlglot,
+        # and sqlglot's lazy `from sqlglot.dialects.dialect import Dialect`
+        # explodes with "sys.meta_path is None, Python is likely shutting down".
+        executor.close()
 
 
 @fixture()
