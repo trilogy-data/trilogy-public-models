@@ -771,7 +771,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/volume_usage_cache.preql"
     }
   ],
-  "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+  "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
   "engine": "mysql",
   "link": "",
   "name": "beaver_nova",

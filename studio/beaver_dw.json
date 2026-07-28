@@ -687,7 +687,7 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_dw/zpm_rooms_load.preql"
     }
   ],
-  "description": "# BEAVER dw\n\nGenerated semantic schema for the BEAVER `dw` MySQL database.\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
+  "description": "# BEAVER dw\n\nGenerated semantic schema for the BEAVER `dw` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",
   "engine": "mysql",
   "link": "",
   "name": "beaver_dw",

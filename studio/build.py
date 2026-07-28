@@ -63,8 +63,12 @@ def generate_json_files(check: bool):
                             json_data["description"] = f.read().strip()
                             readme_description = True
 
-                    # Add source components from trilogy_public_models
-                    preql_files = glob.glob(os.path.join(dataset_path, "*.preql"))
+                    # Add source components from trilogy_public_models. Recursive:
+                    # the beaver models group their sources into subdirectories
+                    # (compute/, network/, ...) rather than a flat dataset dir.
+                    preql_files = glob.glob(
+                        os.path.join(dataset_path, "**", "*.preql"), recursive=True
+                    )
                     for preql_file in sorted(preql_files):
                         file_name = os.path.basename(preql_file).replace(".preql", "")
 
