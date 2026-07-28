@@ -15,7 +15,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import pymysql
 from trilogy import Dialects, Environment
 from trilogy.dialect.config import MySQLConfig
 
@@ -89,6 +88,9 @@ def mysql_config(args: argparse.Namespace) -> MySQLConfig:
 
 
 def execute_reference(sql: str, args: argparse.Namespace) -> list[tuple[Any, ...]]:
+    # Imported lazily: this is a local-only eval and CI has no mysql driver.
+    import pymysql
+
     connection = pymysql.connect(
         host=args.host,
         port=args.port,
