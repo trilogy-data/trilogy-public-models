@@ -1,11 +1,11 @@
 import common;
+import location as location;
 
 # Daily epidemiology facts, one row per location per day. `new_*` is the daily
-# delta, `cumulative_*` the running total reported to date. Pruned to the keys
-# in the upstream `index` table so the tile can only reference known locations.
-# This is the largest table by far: ~520MB of CSV upstream.
+# delta, `cumulative_*` the running total reported to date. This is the largest
+# table by far: ~520MB of CSV upstream, 12.5M rows.
 
-properties <location_key, date> (
+properties <location.location_key, date> (
 	new_confirmed int?, # newly confirmed cases reported that day
 	new_deceased int?, # new deaths reported that day
 	new_recovered int?, # new recoveries reported that day
@@ -18,7 +18,7 @@ properties <location_key, date> (
 
 root datasource epidemiology_raw (
 	date: date,
-	location_key: location_key,
+	location_key: location.location_key,
 	new_confirmed: new_confirmed,
 	new_deceased: new_deceased,
 	new_recovered: new_recovered,
@@ -28,27 +28,12 @@ root datasource epidemiology_raw (
 	cumulative_recovered: cumulative_recovered,
 	cumulative_tested: cumulative_tested,
 )
-grain (location_key, date)
-query '''
-SELECT
-    e.date,
-    e.location_key,
-    e.new_confirmed,
-    e.new_deceased,
-    e.new_recovered,
-    e.new_tested,
-    e.cumulative_confirmed,
-    e.cumulative_deceased,
-    e.cumulative_recovered,
-    e.cumulative_tested
-FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/epidemiology.csv', sample_size=-1) e
-SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
-    USING (location_key)
-''';
+grain (location.location_key, date)
+file `https://storage.googleapis.com/covid19-open-data/v3/epidemiology.csv`;
 
 datasource epidemiology (
 	date: date,
-	location_key: location_key,
+	location_key: location.location_key,
 	new_confirmed: new_confirmed,
 	new_deceased: new_deceased,
 	new_recovered: new_recovered,
@@ -59,6 +44,6 @@ datasource epidemiology (
 	cumulative_tested: cumulative_tested,
 	data_updated_through: data_updated_through,
 )
-grain (location_key, date)
+grain (location.location_key, date)
 file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/epidemiology.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/epidemiology.parquet`
 freshness by data_updated_through;

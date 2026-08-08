@@ -65,10 +65,17 @@ See `examples/duckdb/covid19_open_data/` for more queries.
 ## Rebuilding & publishing the tiles
 
 `data/` is a Trilogy ingest model over the live upstream CSVs: one root
-datasource per table carrying the same SELECT the extract has always used, and
-one published datasource per tile writing straight to `gcs://`. `trilogy
-refresh` builds and publishes in a single step — DuckDB writes the parquet to
-GCS itself, so there is no separate upload.
+datasource per upstream table reading its URL directly, and one published
+datasource per tile writing straight to `gcs://`. `trilogy refresh` builds and
+publishes in a single step — DuckDB writes the parquet to GCS itself, so there
+is no separate upload.
+
+The relationships are declared rather than hand-written. `location.preql` owns
+`location_key` and its attributes; every other file imports it and binds its own
+`location_key` against that concept, so the tiles relate to each other the same
+way the query model above does. The one real join — `index` left joined to
+`geography`, keeping locations with no known centroid — falls out of
+`geography_raw`'s partial (`~`) key binding rather than a SQL string.
 
 ```bash
 cd trilogy_public_models/duckdb/covid19_open_data/data

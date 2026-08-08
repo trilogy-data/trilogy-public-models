@@ -1,43 +1,42 @@
 import common;
+import location as location;
 
 # Daily hospitalization facts, one row per location per day. `new_*` are daily
 # admissions, `current_*` the census (patients in care that day).
 
-properties <location_key, date> (
+properties <location.location_key, date> (
 	new_hospitalized_patients int?, # new COVID-19 hospital admissions that day
 	cumulative_hospitalized_patients int?, # running total of hospital admissions
-	current_hospitalized_patients int?, # COVID-19 patients hospitalized that day (census)
 	new_intensive_care_patients int?, # new ICU admissions that day
-	current_intensive_care_patients int?, # COVID-19 patients in the ICU that day (census)
 );
+
+# The two `current_*` columns are empty for the whole of DuckDB's default
+# 20,480-row sniffing prefix, so it types them VARCHAR even though the rest of
+# the file is integer — which is what the old `query` form's `sample_size=-1`
+# was buying. Reading the URL directly, that belongs in the model instead, where
+# it is visible and stays correct whichever way a future sniffer goes: casting
+# an already-integer column is a no-op.
+property <location.location_key, date>._current_hospitalized_patients_text string?;
+property <location.location_key, date>._current_intensive_care_patients_text string?;
+
+property <location.location_key, date>.current_hospitalized_patients <- _current_hospitalized_patients_text::int; # COVID-19 patients hospitalized that day (census)
+property <location.location_key, date>.current_intensive_care_patients <- _current_intensive_care_patients_text::int; # COVID-19 patients in the ICU that day (census)
 
 root datasource hospitalizations_raw (
 	date: date,
-	location_key: location_key,
+	location_key: location.location_key,
 	new_hospitalized_patients: new_hospitalized_patients,
 	cumulative_hospitalized_patients: cumulative_hospitalized_patients,
-	current_hospitalized_patients: current_hospitalized_patients,
+	current_hospitalized_patients: _current_hospitalized_patients_text,
 	new_intensive_care_patients: new_intensive_care_patients,
-	current_intensive_care_patients: current_intensive_care_patients,
+	current_intensive_care_patients: _current_intensive_care_patients_text,
 )
-grain (location_key, date)
-query '''
-SELECT
-    hp.date,
-    hp.location_key,
-    hp.new_hospitalized_patients,
-    hp.cumulative_hospitalized_patients,
-    hp.current_hospitalized_patients,
-    hp.new_intensive_care_patients,
-    hp.current_intensive_care_patients
-FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/hospitalizations.csv', sample_size=-1) hp
-SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
-    USING (location_key)
-''';
+grain (location.location_key, date)
+file `https://storage.googleapis.com/covid19-open-data/v3/hospitalizations.csv`;
 
 datasource hospitalizations (
 	date: date,
-	location_key: location_key,
+	location_key: location.location_key,
 	new_hospitalized_patients: new_hospitalized_patients,
 	cumulative_hospitalized_patients: cumulative_hospitalized_patients,
 	current_hospitalized_patients: current_hospitalized_patients,
@@ -45,6 +44,6 @@ datasource hospitalizations (
 	current_intensive_care_patients: current_intensive_care_patients,
 	data_updated_through: data_updated_through,
 )
-grain (location_key, date)
+grain (location.location_key, date)
 file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/hospitalizations.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/hospitalizations.parquet`
 freshness by data_updated_through;

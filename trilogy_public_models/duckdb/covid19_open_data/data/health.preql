@@ -1,9 +1,9 @@
 import common;
+import location as location;
 
-# Health-system indicators, one row per location. Pruned to the keys in the
-# upstream `index` table.
+# Health-system indicators, one row per location.
 
-properties location_key (
+properties location.location_key (
 	life_expectancy float?, # life expectancy at birth, years
 	smoking_prevalence float?, # percent of adults who smoke
 	diabetes_prevalence float?, # percent of adults with diabetes
@@ -13,7 +13,7 @@ properties location_key (
 );
 
 root datasource health_raw (
-	location_key: location_key,
+	location_key: location.location_key,
 	life_expectancy: life_expectancy,
 	smoking_prevalence: smoking_prevalence,
 	diabetes_prevalence: diabetes_prevalence,
@@ -21,23 +21,11 @@ root datasource health_raw (
 	physicians_per_1000: physicians_per_1000,
 	health_expenditure_usd: health_expenditure_usd,
 )
-grain (location_key)
-query '''
-SELECT
-    h.location_key,
-    h.life_expectancy,
-    h.smoking_prevalence,
-    h.diabetes_prevalence,
-    h.hospital_beds_per_1000,
-    h.physicians_per_1000,
-    h.health_expenditure_usd
-FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/health.csv', sample_size=-1) h
-SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
-    USING (location_key)
-''';
+grain (location.location_key)
+file `https://storage.googleapis.com/covid19-open-data/v3/health.csv`;
 
 datasource health (
-	location_key: location_key,
+	location_key: location.location_key,
 	life_expectancy: life_expectancy,
 	smoking_prevalence: smoking_prevalence,
 	diabetes_prevalence: diabetes_prevalence,
@@ -46,6 +34,6 @@ datasource health (
 	health_expenditure_usd: health_expenditure_usd,
 	data_updated_through: data_updated_through,
 )
-grain (location_key)
+grain (location.location_key)
 file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/health.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/health.parquet`
 freshness by data_updated_through;
