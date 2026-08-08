@@ -1,0 +1,47 @@
+import common;
+
+# Population attributes, one row per location. Pruned to the keys in the
+# upstream `index` table.
+
+properties location_key (
+	population int?, # total resident population
+	population_male int?, # male population
+	population_female int?, # female population
+	population_density float?, # residents per square kilometer
+	human_development_index float?, # UN Human Development Index, 0-1 (higher = more developed)
+);
+
+root datasource demographics_raw (
+	location_key: location_key,
+	population: population,
+	population_male: population_male,
+	population_female: population_female,
+	population_density: population_density,
+	human_development_index: human_development_index,
+)
+grain (location_key)
+query '''
+SELECT
+    d.location_key,
+    d.population,
+    d.population_male,
+    d.population_female,
+    d.population_density,
+    d.human_development_index
+FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/demographics.csv', sample_size=-1) d
+SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
+    USING (location_key)
+''';
+
+datasource demographics (
+	location_key: location_key,
+	population: population,
+	population_male: population_male,
+	population_female: population_female,
+	population_density: population_density,
+	human_development_index: human_development_index,
+	data_updated_through: data_updated_through,
+)
+grain (location_key)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/demographics.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/demographics.parquet`
+freshness by data_updated_through;

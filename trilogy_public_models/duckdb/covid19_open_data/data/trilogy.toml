@@ -1,0 +1,14 @@
+# Ingest model for COVID-19 Open Data.
+#
+# `trilogy refresh .` rebuilds the parquet tiles under
+# gs://trilogy_public_models/duckdb/covid19_open_data/ from the upstream CSVs.
+# Writing to gcs:// needs GOOGLE_HMAC_KEY / GOOGLE_HMAC_SECRET in the
+# environment; reads are public and need no credentials.
+
+[engine]
+dialect = "duck_db"
+
+[engine.config]
+enable_gcs = true
+# ingest_update_date.py, the freshness anchor, is a Python datasource.
+enable_python_datasources = true

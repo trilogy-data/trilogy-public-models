@@ -1,0 +1,50 @@
+import common;
+
+# Daily hospitalization facts, one row per location per day. `new_*` are daily
+# admissions, `current_*` the census (patients in care that day).
+
+properties <location_key, date> (
+	new_hospitalized_patients int?, # new COVID-19 hospital admissions that day
+	cumulative_hospitalized_patients int?, # running total of hospital admissions
+	current_hospitalized_patients int?, # COVID-19 patients hospitalized that day (census)
+	new_intensive_care_patients int?, # new ICU admissions that day
+	current_intensive_care_patients int?, # COVID-19 patients in the ICU that day (census)
+);
+
+root datasource hospitalizations_raw (
+	date: date,
+	location_key: location_key,
+	new_hospitalized_patients: new_hospitalized_patients,
+	cumulative_hospitalized_patients: cumulative_hospitalized_patients,
+	current_hospitalized_patients: current_hospitalized_patients,
+	new_intensive_care_patients: new_intensive_care_patients,
+	current_intensive_care_patients: current_intensive_care_patients,
+)
+grain (location_key, date)
+query '''
+SELECT
+    hp.date,
+    hp.location_key,
+    hp.new_hospitalized_patients,
+    hp.cumulative_hospitalized_patients,
+    hp.current_hospitalized_patients,
+    hp.new_intensive_care_patients,
+    hp.current_intensive_care_patients
+FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/hospitalizations.csv', sample_size=-1) hp
+SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
+    USING (location_key)
+''';
+
+datasource hospitalizations (
+	date: date,
+	location_key: location_key,
+	new_hospitalized_patients: new_hospitalized_patients,
+	cumulative_hospitalized_patients: cumulative_hospitalized_patients,
+	current_hospitalized_patients: current_hospitalized_patients,
+	new_intensive_care_patients: new_intensive_care_patients,
+	current_intensive_care_patients: current_intensive_care_patients,
+	data_updated_through: data_updated_through,
+)
+grain (location_key, date)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/hospitalizations.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/hospitalizations.parquet`
+freshness by data_updated_through;

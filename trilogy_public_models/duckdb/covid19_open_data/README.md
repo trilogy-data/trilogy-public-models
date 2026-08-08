@@ -64,13 +64,37 @@ See `examples/duckdb/covid19_open_data/` for more queries.
 
 ## Rebuilding & publishing the tiles
 
-`ingest/build_extract.py` downloads the live COVID-19 Open Data CSVs and writes
-the parquet tiles into this directory (git-ignored). `ingest/publish_extract.py`
-uploads them to GCS. `ingest/refresh_and_publish.py` runs both and is the entry
-point used by the Refresh Data workflow.
+`data/` is a Trilogy ingest model over the live upstream CSVs: one root
+datasource per table carrying the same SELECT the extract has always used, and
+one published datasource per tile writing straight to `gcs://`. `trilogy
+refresh` builds and publishes in a single step — DuckDB writes the parquet to
+GCS itself, so there is no separate upload.
 
 ```bash
-# build locally (no credentials needed)
+cd trilogy_public_models/duckdb/covid19_open_data/data
+
+# what would be rebuilt, and why
+trilogy refresh . --dry-run
+
+# build + publish (needs GOOGLE_HMAC_KEY / GOOGLE_HMAC_SECRET for the gcs:// write)
+trilogy refresh . -e /path/to/.env
+```
+
+Staleness is anchored on `ingest_update_date.py`, which HEADs the upstream CSVs
+and reports the newest `Last-Modified` as `data_updated_through`; every tile
+carries that stamp and declares `freshness by data_updated_through`. Upstream's
+final refresh was 2022-09-16, so once the tiles are built a rerun exits 2 ("all
+assets up to date") and rewrites nothing. Force a rebuild with `-f <tile>`.
+
+This runs on trilogy-cloud as the `covid-refresh` job (org `trilogy-data`,
+`operation=refresh`), triggered ad-hoc — there is no schedule, for the same
+reason the CI workflow skips its daily cron: the dataset is static.
+
+The older `ingest/build_extract.py` + `ingest/publish_extract.py` pair does the
+same job from CI using ADC instead of HMAC, and is kept as a fallback path.
+
+```bash
+# build locally to this directory, no credentials needed (tiles are git-ignored)
 uv run trilogy_public_models/duckdb/covid19_open_data/ingest/build_extract.py
 
 # build + publish to GCS (needs GCS write credentials / ADC)

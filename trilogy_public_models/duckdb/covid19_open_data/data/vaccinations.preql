@@ -1,0 +1,55 @@
+import common;
+
+# Daily vaccination facts, one row per location per day. `persons_vaccinated`
+# counts people with at least one dose, `persons_fully_vaccinated` those who
+# completed the initial protocol, `vaccine_doses_administered` doses.
+
+properties <location_key, date> (
+	new_persons_vaccinated int?, # new people receiving their first dose that day
+	cumulative_persons_vaccinated int?, # running total of people with >= 1 dose
+	new_persons_fully_vaccinated int?, # new people completing the protocol that day
+	cumulative_persons_fully_vaccinated int?, # running total of fully vaccinated people
+	new_vaccine_doses_administered int?, # new doses administered that day
+	cumulative_vaccine_doses_administered int?, # running total of doses administered
+);
+
+root datasource vaccinations_raw (
+	date: date,
+	location_key: location_key,
+	new_persons_vaccinated: new_persons_vaccinated,
+	cumulative_persons_vaccinated: cumulative_persons_vaccinated,
+	new_persons_fully_vaccinated: new_persons_fully_vaccinated,
+	cumulative_persons_fully_vaccinated: cumulative_persons_fully_vaccinated,
+	new_vaccine_doses_administered: new_vaccine_doses_administered,
+	cumulative_vaccine_doses_administered: cumulative_vaccine_doses_administered,
+)
+grain (location_key, date)
+query '''
+SELECT
+    v.date,
+    v.location_key,
+    v.new_persons_vaccinated,
+    v.cumulative_persons_vaccinated,
+    v.new_persons_fully_vaccinated,
+    v.cumulative_persons_fully_vaccinated,
+    v.new_vaccine_doses_administered,
+    v.cumulative_vaccine_doses_administered
+FROM read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/vaccinations.csv', sample_size=-1) v
+SEMI JOIN read_csv_auto('https://storage.googleapis.com/covid19-open-data/v3/index.csv', sample_size=-1) idx
+    USING (location_key)
+''';
+
+datasource vaccinations (
+	date: date,
+	location_key: location_key,
+	new_persons_vaccinated: new_persons_vaccinated,
+	cumulative_persons_vaccinated: cumulative_persons_vaccinated,
+	new_persons_fully_vaccinated: new_persons_fully_vaccinated,
+	cumulative_persons_fully_vaccinated: cumulative_persons_fully_vaccinated,
+	new_vaccine_doses_administered: new_vaccine_doses_administered,
+	cumulative_vaccine_doses_administered: cumulative_vaccine_doses_administered,
+	data_updated_through: data_updated_through,
+)
+grain (location_key, date)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/vaccinations.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/vaccinations.parquet`
+freshness by data_updated_through;
