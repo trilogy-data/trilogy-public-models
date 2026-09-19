@@ -69,8 +69,37 @@ def generate_json_files(check: bool):
                     preql_files = glob.glob(
                         os.path.join(dataset_path, "**", "*.preql"), recursive=True
                     )
+                    # A subdirectory with its own trilogy.toml is a separate
+                    # project (covid19_open_data/data is the ingest job that
+                    # builds the tiles), not part of the query model. Its files
+                    # reuse the model's names, so listing them would collide.
+                    nested_projects = [
+                        Path(toml).parent
+                        for toml in glob.glob(
+                            os.path.join(dataset_path, "*", "**", "trilogy.toml"),
+                            recursive=True,
+                        )
+                    ]
                     for preql_file in sorted(preql_files):
-                        file_name = os.path.basename(preql_file).replace(".preql", "")
+                        if any(
+                            project in Path(preql_file).parents
+                            for project in nested_projects
+                        ):
+                            continue
+                        # Studio names an untitled editor new-editor-<timestamp>;
+                        # one saved into a model directory is scratch, not source.
+                        if os.path.basename(preql_file).startswith("new-editor-"):
+                            continue
+                        # Path relative to the dataset, slash-separated: it is
+                        # both where the file is served and the name Studio
+                        # resolves `import data.tree_info` / `import ..other.x`
+                        # against. The basename alone 404s and cannot resolve.
+                        file_name = (
+                            Path(preql_file)
+                            .relative_to(dataset_path)
+                            .with_suffix("")
+                            .as_posix()
+                        )
 
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.preql"
                         if file_name == "entrypoint":

@@ -1,0 +1,19 @@
+# The freshness anchor shared by every tile in the COVID-19 Open Data ingest
+# model.
+#
+# Upstream publishes one CSV per table under
+# https://storage.googleapis.com/covid19-open-data/v3/, all keyed on
+# location_key (declared in location.preql, which every other file imports),
+# with the daily fact tables additionally keyed on date (dates.preql).
+
+# The upstream publication time, stamped onto every published tile. Each tile
+# declares `freshness by data_updated_through`, so a tile is stale exactly when
+# upstream has been republished since the tile was built. Nothing else in the
+# dataset can serve as that watermark: the upstream CSVs carry no update column,
+# and key-hash watermarks never mark an asset stale on their own.
+property <*>.data_updated_through datetime; # when upstream last republished the dataset
+
+root datasource data_update_info (
+	data_update_date: data_updated_through,
+)
+file `ingest_update_date.py`;

@@ -1,0 +1,9 @@
+# SABR Lahman Baseball Database, 1871-2025 seasons. Raw CSVs are hosted at
+# gs://trilogy_public_models/duckdb/lahman/ and read over public HTTP; no
+# credentials required.
+
+[engine]
+dialect = "duck_db"
+
+[setup]
+sql = ["setup.sql"]

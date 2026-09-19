@@ -21,8 +21,8 @@ the most-used columns is kept per table. The data spans the pandemic period
 (2020 through the dataset's final 2022 refresh).
 
 The parquet tiles are **not committed to git** — they are built from the live
-upstream CSVs and published to GCS by the ingest scripts (wired into the Refresh
-Data CI workflow on merge to main).
+upstream CSVs and published to GCS by the `data/` ingest model, which runs as a
+trilogy-cloud refresh job (see [Rebuilding & publishing the tiles](#rebuilding--publishing-the-tiles)).
 
 ## Structure
 
@@ -64,13 +64,49 @@ See `examples/duckdb/covid19_open_data/` for more queries.
 
 ## Rebuilding & publishing the tiles
 
-`ingest/build_extract.py` downloads the live COVID-19 Open Data CSVs and writes
-the parquet tiles into this directory (git-ignored). `ingest/publish_extract.py`
-uploads them to GCS. `ingest/refresh_and_publish.py` runs both and is the entry
-point used by the Refresh Data workflow.
+`data/` is a Trilogy ingest model over the live upstream CSVs: one root
+datasource per upstream table reading its URL directly, and one published
+datasource per tile writing straight to `gcs://`. `trilogy refresh` builds and
+publishes in a single step — DuckDB writes the parquet to GCS itself, so there
+is no separate upload.
+
+The relationships are declared rather than hand-written. `location.preql` owns
+`location_key` and its attributes; every other file imports it and binds its own
+`location_key` against that concept, so the tiles relate to each other the same
+way the query model above does. The one real join — `index` left joined to
+`geography`, keeping locations with no known centroid — falls out of
+`geography_raw`'s partial (`~`) key binding rather than a SQL string.
 
 ```bash
-# build locally (no credentials needed)
+cd trilogy_public_models/duckdb/covid19_open_data/data
+
+# what would be rebuilt, and why
+trilogy refresh . --dry-run
+
+# build + publish (needs GOOGLE_HMAC_KEY / GOOGLE_HMAC_SECRET for the gcs:// write)
+trilogy refresh . -e /path/to/.env
+```
+
+Staleness is anchored on `ingest_update_date.py`, which HEADs the upstream CSVs
+and reports the newest `Last-Modified` as `data_updated_through`; every tile
+carries that stamp and declares `freshness by data_updated_through`. Upstream's
+final refresh was 2022-09-16, so once the tiles are built a rerun exits 2 ("all
+assets up to date") and rewrites nothing. Force a rebuild with `-f <tile>`.
+
+This runs on trilogy-cloud as a refresh job (org `trilogy-data`,
+`operation=refresh`), declared by the `[cloud]` block in `data/trilogy.toml` and
+deployed by `trilogy cloud sync` (`.github/workflows/cloud-sync.yml`). It is
+scheduled daily, but because the dataset is static every tick exits up to date
+and rewrites nothing. On a non-default branch the sync targets that branch's
+own environment and namespaces the tiles, so a PR never writes over production.
+
+The older `ingest/build_extract.py` + `ingest/publish_extract.py` pair does the
+same job using ADC instead of HMAC. It is no longer wired into CI for
+publishing, and is kept as a manual fallback; `build_extract.py` still builds
+the local tiles the CI integration test validates against.
+
+```bash
+# build locally to this directory, no credentials needed (tiles are git-ignored)
 uv run trilogy_public_models/duckdb/covid19_open_data/ingest/build_extract.py
 
 # build + publish to GCS (needs GCS write credentials / ADC)

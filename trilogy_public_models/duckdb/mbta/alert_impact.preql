@@ -10,12 +10,12 @@ property alert_entity_id.route_scheduled_headway_minutes float[0..]?; # the info
 property alert_entity_id.route_headway_pressure float[0..]?; # predicted / scheduled; > 1 = worse than promised
 
 root datasource alert_service_impact (
-    entity_id: alert_entity_id,
-    alert_id: alert_id,
-    effect: alert_effect,
-    severity: alert_severity,
-    service_effect: ?alert_service_effect,
-    lifecycle: ?alert_lifecycle,
+    entity_id: ~alert_entity_id, # only entities on a route with headway data; alerts.preql holds the full set
+    alert_id: ~alert_id,
+    effect: ~alert_effect,
+    severity: ~alert_severity,
+    service_effect: ~?alert_service_effect,
+    lifecycle: ~?alert_lifecycle,
     route_id: ~?route_id,
     entity_stop_id: ~?stop_id, # platform or parent station id, same as active_alerts
     route_predicted_headway_minutes: ?route_predicted_headway_minutes,

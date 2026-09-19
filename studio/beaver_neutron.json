@@ -1,270 +1,263 @@
 {
   "components": [
     {
-      "alias": "address_scopes",
-      "name": "address_scopes",
+      "alias": "core/bgp_speaker_network_bindings",
+      "name": "core/bgp_speaker_network_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/address_scopes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/bgp_speaker_network_bindings.preql"
     },
     {
-      "alias": "agents",
-      "name": "agents",
+      "alias": "core/dnsnameservers",
+      "name": "core/dnsnameservers",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/agents.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/dnsnameservers.preql"
     },
     {
-      "alias": "alembic_version",
-      "name": "alembic_version",
+      "alias": "core/externalnetworks",
+      "name": "core/externalnetworks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/alembic_version.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/externalnetworks.preql"
     },
     {
-      "alias": "alembic_version_fwaas",
-      "name": "alembic_version_fwaas",
+      "alias": "core/floatingipdnses",
+      "name": "core/floatingipdnses",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/alembic_version_fwaas.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/floatingipdnses.preql"
     },
     {
-      "alias": "alembic_version_lbaas",
-      "name": "alembic_version_lbaas",
+      "alias": "core/floatingips",
+      "name": "core/floatingips",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/alembic_version_lbaas.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/floatingips.preql"
     },
     {
-      "alias": "allowedaddresspairs",
-      "name": "allowedaddresspairs",
+      "alias": "core/ha_router_networks",
+      "name": "core/ha_router_networks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/allowedaddresspairs.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ha_router_networks.preql"
     },
     {
-      "alias": "arista_provisioned_nets",
-      "name": "arista_provisioned_nets",
+      "alias": "core/ha_router_vrid_allocations",
+      "name": "core/ha_router_vrid_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/arista_provisioned_nets.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ha_router_vrid_allocations.preql"
     },
     {
-      "alias": "arista_provisioned_tenants",
-      "name": "arista_provisioned_tenants",
+      "alias": "core/ipallocationpools",
+      "name": "core/ipallocationpools",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/arista_provisioned_tenants.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipallocationpools.preql"
     },
     {
-      "alias": "arista_provisioned_vms",
-      "name": "arista_provisioned_vms",
+      "alias": "core/ipallocations",
+      "name": "core/ipallocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/arista_provisioned_vms.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipallocations.preql"
     },
     {
-      "alias": "auto_allocated_topologies",
-      "name": "auto_allocated_topologies",
+      "alias": "core/ipamallocationpools",
+      "name": "core/ipamallocationpools",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/auto_allocated_topologies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipamallocationpools.preql"
     },
     {
-      "alias": "bgp_peers",
-      "name": "bgp_peers",
+      "alias": "core/ipamallocations",
+      "name": "core/ipamallocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/bgp_peers.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipamallocations.preql"
     },
     {
-      "alias": "bgp_speaker_dragent_bindings",
-      "name": "bgp_speaker_dragent_bindings",
+      "alias": "core/ipamavailabilityranges",
+      "name": "core/ipamavailabilityranges",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/bgp_speaker_dragent_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipamavailabilityranges.preql"
     },
     {
-      "alias": "bgp_speaker_network_bindings",
-      "name": "bgp_speaker_network_bindings",
+      "alias": "core/ipamsubnets",
+      "name": "core/ipamsubnets",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/bgp_speaker_network_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipamsubnets.preql"
     },
     {
-      "alias": "bgp_speaker_peer_bindings",
-      "name": "bgp_speaker_peer_bindings",
+      "alias": "core/ipavailabilityranges",
+      "name": "core/ipavailabilityranges",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/bgp_speaker_peer_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ipavailabilityranges.preql"
     },
     {
-      "alias": "bgp_speakers",
-      "name": "bgp_speakers",
+      "alias": "core/lsn_port",
+      "name": "core/lsn_port",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/bgp_speakers.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/lsn_port.preql"
     },
     {
-      "alias": "brocadenetworks",
-      "name": "brocadenetworks",
+      "alias": "core/ml2_port_bindings",
+      "name": "core/ml2_port_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/brocadenetworks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ml2_port_bindings.preql"
     },
     {
-      "alias": "brocadeports",
-      "name": "brocadeports",
+      "alias": "core/multi_provider_networks",
+      "name": "core/multi_provider_networks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/brocadeports.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/multi_provider_networks.preql"
     },
     {
-      "alias": "cisco_csr_identifier_map",
-      "name": "cisco_csr_identifier_map",
+      "alias": "core/networkconnections",
+      "name": "core/networkconnections",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_csr_identifier_map.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkconnections.preql"
     },
     {
-      "alias": "cisco_firewall_associations",
-      "name": "cisco_firewall_associations",
+      "alias": "core/networkdnsdomains",
+      "name": "core/networkdnsdomains",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_firewall_associations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkdnsdomains.preql"
     },
     {
-      "alias": "cisco_hosting_devices",
-      "name": "cisco_hosting_devices",
+      "alias": "core/networkgatewaydevicereferences",
+      "name": "core/networkgatewaydevicereferences",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_hosting_devices.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkgatewaydevicereferences.preql"
     },
     {
-      "alias": "cisco_ml2_apic_contracts",
-      "name": "cisco_ml2_apic_contracts",
+      "alias": "core/networkgatewaydevices",
+      "name": "core/networkgatewaydevices",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_apic_contracts.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkgatewaydevices.preql"
     },
     {
-      "alias": "cisco_ml2_apic_host_links",
-      "name": "cisco_ml2_apic_host_links",
+      "alias": "core/networkgateways",
+      "name": "core/networkgateways",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_apic_host_links.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkgateways.preql"
     },
     {
-      "alias": "cisco_ml2_apic_names",
-      "name": "cisco_ml2_apic_names",
+      "alias": "core/networkqueuemappings",
+      "name": "core/networkqueuemappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_apic_names.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networkqueuemappings.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_network_bindings",
-      "name": "cisco_ml2_n1kv_network_bindings",
+      "alias": "core/networks",
+      "name": "core/networks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_network_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/networks.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_network_profiles",
-      "name": "cisco_ml2_n1kv_network_profiles",
+      "alias": "core/portbindingports",
+      "name": "core/portbindingports",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_network_profiles.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/portbindingports.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_policy_profiles",
-      "name": "cisco_ml2_n1kv_policy_profiles",
+      "alias": "core/portdnses",
+      "name": "core/portdnses",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_policy_profiles.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/portdnses.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_port_bindings",
-      "name": "cisco_ml2_n1kv_port_bindings",
+      "alias": "core/portqueuemappings",
+      "name": "core/portqueuemappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_port_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/portqueuemappings.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_profile_bindings",
-      "name": "cisco_ml2_n1kv_profile_bindings",
+      "alias": "core/ports",
+      "name": "core/ports",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_profile_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/ports.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_vlan_allocations",
-      "name": "cisco_ml2_n1kv_vlan_allocations",
+      "alias": "core/router_extra_attributes",
+      "name": "core/router_extra_attributes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_vlan_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/router_extra_attributes.preql"
     },
     {
-      "alias": "cisco_ml2_n1kv_vxlan_allocations",
-      "name": "cisco_ml2_n1kv_vxlan_allocations",
+      "alias": "core/routerports",
+      "name": "core/routerports",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_n1kv_vxlan_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/routerports.preql"
     },
     {
-      "alias": "cisco_ml2_nexus_nve",
-      "name": "cisco_ml2_nexus_nve",
+      "alias": "core/routerroutes",
+      "name": "core/routerroutes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_nexus_nve.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/routerroutes.preql"
     },
     {
-      "alias": "cisco_ml2_nexusport_bindings",
-      "name": "cisco_ml2_nexusport_bindings",
+      "alias": "core/routerrules",
+      "name": "core/routerrules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_ml2_nexusport_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/routerrules.preql"
     },
     {
-      "alias": "cisco_port_mappings",
-      "name": "cisco_port_mappings",
+      "alias": "core/routers",
+      "name": "core/routers",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_port_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/routers.preql"
     },
     {
-      "alias": "cisco_router_mappings",
-      "name": "cisco_router_mappings",
+      "alias": "core/subnetpoolprefixes",
+      "name": "core/subnetpoolprefixes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/cisco_router_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/subnetpoolprefixes.preql"
     },
     {
-      "alias": "consistencyhashes",
-      "name": "consistencyhashes",
+      "alias": "core/subnetpools",
+      "name": "core/subnetpools",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/consistencyhashes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/subnetpools.preql"
     },
     {
-      "alias": "default_security_group",
-      "name": "default_security_group",
+      "alias": "core/subnetroutes",
+      "name": "core/subnetroutes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/default_security_group.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/subnetroutes.preql"
     },
     {
-      "alias": "dnsnameservers",
-      "name": "dnsnameservers",
+      "alias": "core/subnets",
+      "name": "core/subnets",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/dnsnameservers.preql"
-    },
-    {
-      "alias": "dvr_host_macs",
-      "name": "dvr_host_macs",
-      "purpose": "source",
-      "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/dvr_host_macs.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/core/subnets.preql"
     },
     {
       "alias": "entrypoint",
@@ -274,963 +267,970 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/entrypoint.preql"
     },
     {
-      "alias": "externalnetworks",
-      "name": "externalnetworks",
+      "alias": "load_balancing/healthmonitors",
+      "name": "load_balancing/healthmonitors",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/externalnetworks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/healthmonitors.preql"
     },
     {
-      "alias": "extradhcpopts",
-      "name": "extradhcpopts",
+      "alias": "load_balancing/lbaas_healthmonitors",
+      "name": "load_balancing/lbaas_healthmonitors",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/extradhcpopts.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_healthmonitors.preql"
     },
     {
-      "alias": "firewall_policies",
-      "name": "firewall_policies",
+      "alias": "load_balancing/lbaas_l7policies",
+      "name": "load_balancing/lbaas_l7policies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/firewall_policies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_l7policies.preql"
     },
     {
-      "alias": "firewall_router_associations",
-      "name": "firewall_router_associations",
+      "alias": "load_balancing/lbaas_l7rules",
+      "name": "load_balancing/lbaas_l7rules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/firewall_router_associations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_l7rules.preql"
     },
     {
-      "alias": "firewall_rules",
-      "name": "firewall_rules",
+      "alias": "load_balancing/lbaas_listeners",
+      "name": "load_balancing/lbaas_listeners",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/firewall_rules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_listeners.preql"
     },
     {
-      "alias": "firewalls",
-      "name": "firewalls",
+      "alias": "load_balancing/lbaas_loadbalancer_statistics",
+      "name": "load_balancing/lbaas_loadbalancer_statistics",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/firewalls.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_loadbalancer_statistics.preql"
     },
     {
-      "alias": "flavors",
-      "name": "flavors",
+      "alias": "load_balancing/lbaas_loadbalancers",
+      "name": "load_balancing/lbaas_loadbalancers",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/flavors.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_loadbalancers.preql"
     },
     {
-      "alias": "flavorserviceprofilebindings",
-      "name": "flavorserviceprofilebindings",
+      "alias": "load_balancing/lbaas_members",
+      "name": "load_balancing/lbaas_members",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/flavorserviceprofilebindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_members.preql"
     },
     {
-      "alias": "floatingipdnses",
-      "name": "floatingipdnses",
+      "alias": "load_balancing/lbaas_pools",
+      "name": "load_balancing/lbaas_pools",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/floatingipdnses.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_pools.preql"
     },
     {
-      "alias": "floatingips",
-      "name": "floatingips",
+      "alias": "load_balancing/lbaas_sessionpersistences",
+      "name": "load_balancing/lbaas_sessionpersistences",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/floatingips.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_sessionpersistences.preql"
     },
     {
-      "alias": "ha_router_agent_port_bindings",
-      "name": "ha_router_agent_port_bindings",
+      "alias": "load_balancing/lbaas_sni",
+      "name": "load_balancing/lbaas_sni",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ha_router_agent_port_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/lbaas_sni.preql"
     },
     {
-      "alias": "ha_router_networks",
-      "name": "ha_router_networks",
+      "alias": "load_balancing/members",
+      "name": "load_balancing/members",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ha_router_networks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/members.preql"
     },
     {
-      "alias": "ha_router_vrid_allocations",
-      "name": "ha_router_vrid_allocations",
+      "alias": "load_balancing/poolloadbalanceragentbindings",
+      "name": "load_balancing/poolloadbalanceragentbindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ha_router_vrid_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/poolloadbalanceragentbindings.preql"
     },
     {
-      "alias": "healthmonitors",
-      "name": "healthmonitors",
+      "alias": "load_balancing/poolmonitorassociations",
+      "name": "load_balancing/poolmonitorassociations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/healthmonitors.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/poolmonitorassociations.preql"
     },
     {
-      "alias": "ikepolicies",
-      "name": "ikepolicies",
+      "alias": "load_balancing/pools",
+      "name": "load_balancing/pools",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ikepolicies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/pools.preql"
     },
     {
-      "alias": "ipallocationpools",
-      "name": "ipallocationpools",
+      "alias": "load_balancing/poolstatisticss",
+      "name": "load_balancing/poolstatisticss",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipallocationpools.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/poolstatisticss.preql"
     },
     {
-      "alias": "ipallocations",
-      "name": "ipallocations",
+      "alias": "load_balancing/providerresourceassociations",
+      "name": "load_balancing/providerresourceassociations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipallocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/providerresourceassociations.preql"
     },
     {
-      "alias": "ipamallocationpools",
-      "name": "ipamallocationpools",
+      "alias": "load_balancing/sessionpersistences",
+      "name": "load_balancing/sessionpersistences",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipamallocationpools.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/sessionpersistences.preql"
     },
     {
-      "alias": "ipamallocations",
-      "name": "ipamallocations",
+      "alias": "load_balancing/vips",
+      "name": "load_balancing/vips",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipamallocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/load_balancing/vips.preql"
     },
     {
-      "alias": "ipamavailabilityranges",
-      "name": "ipamavailabilityranges",
+      "alias": "operations/agents",
+      "name": "operations/agents",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipamavailabilityranges.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/agents.preql"
     },
     {
-      "alias": "ipamsubnets",
-      "name": "ipamsubnets",
+      "alias": "operations/bgp_speaker_dragent_bindings",
+      "name": "operations/bgp_speaker_dragent_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipamsubnets.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/bgp_speaker_dragent_bindings.preql"
     },
     {
-      "alias": "ipavailabilityranges",
-      "name": "ipavailabilityranges",
+      "alias": "operations/ha_router_agent_port_bindings",
+      "name": "operations/ha_router_agent_port_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipavailabilityranges.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/ha_router_agent_port_bindings.preql"
     },
     {
-      "alias": "ipsec_site_connections",
-      "name": "ipsec_site_connections",
+      "alias": "operations/lbaas_loadbalanceragentbindings",
+      "name": "operations/lbaas_loadbalanceragentbindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipsec_site_connections.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/lbaas_loadbalanceragentbindings.preql"
     },
     {
-      "alias": "ipsecpeercidrs",
-      "name": "ipsecpeercidrs",
+      "alias": "operations/networkdhcpagentbindings",
+      "name": "operations/networkdhcpagentbindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipsecpeercidrs.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/networkdhcpagentbindings.preql"
     },
     {
-      "alias": "ipsecpolicies",
-      "name": "ipsecpolicies",
+      "alias": "operations/networkrbacs",
+      "name": "operations/networkrbacs",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ipsecpolicies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/networkrbacs.preql"
     },
     {
-      "alias": "lbaas_healthmonitors",
-      "name": "lbaas_healthmonitors",
+      "alias": "operations/routerl3agentbindings",
+      "name": "operations/routerl3agentbindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_healthmonitors.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/operations/routerl3agentbindings.preql"
     },
     {
-      "alias": "lbaas_l7policies",
-      "name": "lbaas_l7policies",
+      "alias": "other/address_scopes",
+      "name": "other/address_scopes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_l7policies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/address_scopes.preql"
     },
     {
-      "alias": "lbaas_l7rules",
-      "name": "lbaas_l7rules",
+      "alias": "other/allowedaddresspairs",
+      "name": "other/allowedaddresspairs",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_l7rules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/allowedaddresspairs.preql"
     },
     {
-      "alias": "lbaas_listeners",
-      "name": "lbaas_listeners",
+      "alias": "other/auto_allocated_topologies",
+      "name": "other/auto_allocated_topologies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_listeners.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/auto_allocated_topologies.preql"
     },
     {
-      "alias": "lbaas_loadbalancer_statistics",
-      "name": "lbaas_loadbalancer_statistics",
+      "alias": "other/bgp_peers",
+      "name": "other/bgp_peers",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_loadbalancer_statistics.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/bgp_peers.preql"
     },
     {
-      "alias": "lbaas_loadbalanceragentbindings",
-      "name": "lbaas_loadbalanceragentbindings",
+      "alias": "other/bgp_speaker_peer_bindings",
+      "name": "other/bgp_speaker_peer_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_loadbalanceragentbindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/bgp_speaker_peer_bindings.preql"
     },
     {
-      "alias": "lbaas_loadbalancers",
-      "name": "lbaas_loadbalancers",
+      "alias": "other/bgp_speakers",
+      "name": "other/bgp_speakers",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_loadbalancers.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/bgp_speakers.preql"
     },
     {
-      "alias": "lbaas_members",
-      "name": "lbaas_members",
+      "alias": "other/consistencyhashes",
+      "name": "other/consistencyhashes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_members.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/consistencyhashes.preql"
     },
     {
-      "alias": "lbaas_pools",
-      "name": "lbaas_pools",
+      "alias": "other/dvr_host_macs",
+      "name": "other/dvr_host_macs",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_pools.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/dvr_host_macs.preql"
     },
     {
-      "alias": "lbaas_sessionpersistences",
-      "name": "lbaas_sessionpersistences",
+      "alias": "other/extradhcpopts",
+      "name": "other/extradhcpopts",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_sessionpersistences.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/extradhcpopts.preql"
     },
     {
-      "alias": "lbaas_sni",
-      "name": "lbaas_sni",
+      "alias": "other/flavors",
+      "name": "other/flavors",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lbaas_sni.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/flavors.preql"
     },
     {
-      "alias": "lsn",
-      "name": "lsn",
+      "alias": "other/flavorserviceprofilebindings",
+      "name": "other/flavorserviceprofilebindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lsn.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/flavorserviceprofilebindings.preql"
     },
     {
-      "alias": "lsn_port",
-      "name": "lsn_port",
+      "alias": "other/lsn",
+      "name": "other/lsn",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/lsn_port.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/lsn.preql"
     },
     {
-      "alias": "maclearningstates",
-      "name": "maclearningstates",
+      "alias": "other/maclearningstates",
+      "name": "other/maclearningstates",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/maclearningstates.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/maclearningstates.preql"
     },
     {
-      "alias": "members",
-      "name": "members",
+      "alias": "other/meteringlabelrules",
+      "name": "other/meteringlabelrules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/members.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/meteringlabelrules.preql"
     },
     {
-      "alias": "meteringlabelrules",
-      "name": "meteringlabelrules",
+      "alias": "other/meteringlabels",
+      "name": "other/meteringlabels",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/meteringlabelrules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/meteringlabels.preql"
     },
     {
-      "alias": "meteringlabels",
-      "name": "meteringlabels",
+      "alias": "other/nexthops",
+      "name": "other/nexthops",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/meteringlabels.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/nexthops.preql"
     },
     {
-      "alias": "ml2_brocadenetworks",
-      "name": "ml2_brocadenetworks",
+      "alias": "other/resourcedeltas",
+      "name": "other/resourcedeltas",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_brocadenetworks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/resourcedeltas.preql"
     },
     {
-      "alias": "ml2_brocadeports",
-      "name": "ml2_brocadeports",
+      "alias": "other/serviceprofiles",
+      "name": "other/serviceprofiles",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_brocadeports.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/serviceprofiles.preql"
     },
     {
-      "alias": "ml2_dvr_port_bindings",
-      "name": "ml2_dvr_port_bindings",
+      "alias": "other/standardattributes",
+      "name": "other/standardattributes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_dvr_port_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/other/standardattributes.preql"
     },
     {
-      "alias": "ml2_flat_allocations",
-      "name": "ml2_flat_allocations",
+      "alias": "qos/qos_bandwidth_limit_rules",
+      "name": "qos/qos_bandwidth_limit_rules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_flat_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qos_bandwidth_limit_rules.preql"
     },
     {
-      "alias": "ml2_geneve_allocations",
-      "name": "ml2_geneve_allocations",
+      "alias": "qos/qos_network_policy_bindings",
+      "name": "qos/qos_network_policy_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_geneve_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qos_network_policy_bindings.preql"
     },
     {
-      "alias": "ml2_geneve_endpoints",
-      "name": "ml2_geneve_endpoints",
+      "alias": "qos/qos_policies",
+      "name": "qos/qos_policies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_geneve_endpoints.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qos_policies.preql"
     },
     {
-      "alias": "ml2_gre_allocations",
-      "name": "ml2_gre_allocations",
+      "alias": "qos/qos_port_policy_bindings",
+      "name": "qos/qos_port_policy_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_gre_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qos_port_policy_bindings.preql"
     },
     {
-      "alias": "ml2_gre_endpoints",
-      "name": "ml2_gre_endpoints",
+      "alias": "qos/qospolicyrbacs",
+      "name": "qos/qospolicyrbacs",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_gre_endpoints.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qospolicyrbacs.preql"
     },
     {
-      "alias": "ml2_network_segments",
-      "name": "ml2_network_segments",
+      "alias": "qos/qosqueues",
+      "name": "qos/qosqueues",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_network_segments.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos/qosqueues.preql"
     },
     {
-      "alias": "ml2_nexus_vxlan_allocations",
-      "name": "ml2_nexus_vxlan_allocations",
+      "alias": "security/cisco_firewall_associations",
+      "name": "security/cisco_firewall_associations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_nexus_vxlan_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/cisco_firewall_associations.preql"
     },
     {
-      "alias": "ml2_nexus_vxlan_mcast_groups",
-      "name": "ml2_nexus_vxlan_mcast_groups",
+      "alias": "security/default_security_group",
+      "name": "security/default_security_group",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_nexus_vxlan_mcast_groups.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/default_security_group.preql"
     },
     {
-      "alias": "ml2_port_binding_levels",
-      "name": "ml2_port_binding_levels",
+      "alias": "security/firewall_policies",
+      "name": "security/firewall_policies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_port_binding_levels.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/firewall_policies.preql"
     },
     {
-      "alias": "ml2_port_bindings",
-      "name": "ml2_port_bindings",
+      "alias": "security/firewall_router_associations",
+      "name": "security/firewall_router_associations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_port_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/firewall_router_associations.preql"
     },
     {
-      "alias": "ml2_ucsm_port_profiles",
-      "name": "ml2_ucsm_port_profiles",
+      "alias": "security/firewall_rules",
+      "name": "security/firewall_rules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_ucsm_port_profiles.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/firewall_rules.preql"
     },
     {
-      "alias": "ml2_vlan_allocations",
-      "name": "ml2_vlan_allocations",
+      "alias": "security/firewalls",
+      "name": "security/firewalls",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_vlan_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/firewalls.preql"
     },
     {
-      "alias": "ml2_vxlan_allocations",
-      "name": "ml2_vxlan_allocations",
+      "alias": "security/ikepolicies",
+      "name": "security/ikepolicies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_vxlan_allocations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/ikepolicies.preql"
     },
     {
-      "alias": "ml2_vxlan_endpoints",
-      "name": "ml2_vxlan_endpoints",
+      "alias": "security/ipsec_site_connections",
+      "name": "security/ipsec_site_connections",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ml2_vxlan_endpoints.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/ipsec_site_connections.preql"
     },
     {
-      "alias": "multi_provider_networks",
-      "name": "multi_provider_networks",
+      "alias": "security/ipsecpeercidrs",
+      "name": "security/ipsecpeercidrs",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/multi_provider_networks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/ipsecpeercidrs.preql"
     },
     {
-      "alias": "networkconnections",
-      "name": "networkconnections",
+      "alias": "security/ipsecpolicies",
+      "name": "security/ipsecpolicies",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkconnections.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/ipsecpolicies.preql"
     },
     {
-      "alias": "networkdhcpagentbindings",
-      "name": "networkdhcpagentbindings",
+      "alias": "security/networksecuritybindings",
+      "name": "security/networksecuritybindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkdhcpagentbindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/networksecuritybindings.preql"
     },
     {
-      "alias": "networkdnsdomains",
-      "name": "networkdnsdomains",
+      "alias": "security/neutron_nsx_security_group_mappings",
+      "name": "security/neutron_nsx_security_group_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkdnsdomains.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/neutron_nsx_security_group_mappings.preql"
     },
     {
-      "alias": "networkgatewaydevicereferences",
-      "name": "networkgatewaydevicereferences",
+      "alias": "security/nsxv_firewall_rule_bindings",
+      "name": "security/nsxv_firewall_rule_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkgatewaydevicereferences.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/nsxv_firewall_rule_bindings.preql"
     },
     {
-      "alias": "networkgatewaydevices",
-      "name": "networkgatewaydevices",
+      "alias": "security/nsxv_security_group_section_mappings",
+      "name": "security/nsxv_security_group_section_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkgatewaydevices.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/nsxv_security_group_section_mappings.preql"
     },
     {
-      "alias": "networkgateways",
-      "name": "networkgateways",
+      "alias": "security/portsecuritybindings",
+      "name": "security/portsecuritybindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkgateways.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/portsecuritybindings.preql"
     },
     {
-      "alias": "networkqueuemappings",
-      "name": "networkqueuemappings",
+      "alias": "security/securitygroupportbindings",
+      "name": "security/securitygroupportbindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkqueuemappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/securitygroupportbindings.preql"
     },
     {
-      "alias": "networkrbacs",
-      "name": "networkrbacs",
+      "alias": "security/securitygrouprules",
+      "name": "security/securitygrouprules",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networkrbacs.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/securitygrouprules.preql"
     },
     {
-      "alias": "networks",
-      "name": "networks",
+      "alias": "security/securitygroups",
+      "name": "security/securitygroups",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/securitygroups.preql"
     },
     {
-      "alias": "networksecuritybindings",
-      "name": "networksecuritybindings",
+      "alias": "security/vpnservices",
+      "name": "security/vpnservices",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/networksecuritybindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/security/vpnservices.preql"
     },
     {
-      "alias": "neutron_nsx_network_mappings",
-      "name": "neutron_nsx_network_mappings",
+      "alias": "system/alembic_version",
+      "name": "system/alembic_version",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/neutron_nsx_network_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/alembic_version.preql"
     },
     {
-      "alias": "neutron_nsx_port_mappings",
-      "name": "neutron_nsx_port_mappings",
+      "alias": "system/alembic_version_fwaas",
+      "name": "system/alembic_version_fwaas",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/neutron_nsx_port_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/alembic_version_fwaas.preql"
     },
     {
-      "alias": "neutron_nsx_router_mappings",
-      "name": "neutron_nsx_router_mappings",
+      "alias": "system/alembic_version_lbaas",
+      "name": "system/alembic_version_lbaas",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/neutron_nsx_router_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/alembic_version_lbaas.preql"
     },
     {
-      "alias": "neutron_nsx_security_group_mappings",
-      "name": "neutron_nsx_security_group_mappings",
+      "alias": "system/quotas",
+      "name": "system/quotas",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/neutron_nsx_security_group_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/quotas.preql"
     },
     {
-      "alias": "nexthops",
-      "name": "nexthops",
+      "alias": "system/quotausages",
+      "name": "system/quotausages",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nexthops.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/quotausages.preql"
     },
     {
-      "alias": "nsxv_edge_dhcp_static_bindings",
-      "name": "nsxv_edge_dhcp_static_bindings",
+      "alias": "system/reservations",
+      "name": "system/reservations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_edge_dhcp_static_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/reservations.preql"
     },
     {
-      "alias": "nsxv_edge_monitor_mappings",
-      "name": "nsxv_edge_monitor_mappings",
+      "alias": "system/tags",
+      "name": "system/tags",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_edge_monitor_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/tags.preql"
     },
     {
-      "alias": "nsxv_edge_pool_mappings",
-      "name": "nsxv_edge_pool_mappings",
+      "alias": "vendor/arista_provisioned_nets",
+      "name": "vendor/arista_provisioned_nets",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_edge_pool_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/arista_provisioned_nets.preql"
     },
     {
-      "alias": "nsxv_edge_vip_mappings",
-      "name": "nsxv_edge_vip_mappings",
+      "alias": "vendor/arista_provisioned_tenants",
+      "name": "vendor/arista_provisioned_tenants",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_edge_vip_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/arista_provisioned_tenants.preql"
     },
     {
-      "alias": "nsxv_edge_vnic_bindings",
-      "name": "nsxv_edge_vnic_bindings",
+      "alias": "vendor/arista_provisioned_vms",
+      "name": "vendor/arista_provisioned_vms",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_edge_vnic_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/arista_provisioned_vms.preql"
     },
     {
-      "alias": "nsxv_firewall_rule_bindings",
-      "name": "nsxv_firewall_rule_bindings",
+      "alias": "vendor/brocadenetworks",
+      "name": "vendor/brocadenetworks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_firewall_rule_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/brocadenetworks.preql"
     },
     {
-      "alias": "nsxv_internal_edges",
-      "name": "nsxv_internal_edges",
+      "alias": "vendor/brocadeports",
+      "name": "vendor/brocadeports",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_internal_edges.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/brocadeports.preql"
     },
     {
-      "alias": "nsxv_internal_networks",
-      "name": "nsxv_internal_networks",
+      "alias": "vendor/cisco_csr_identifier_map",
+      "name": "vendor/cisco_csr_identifier_map",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_internal_networks.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_csr_identifier_map.preql"
     },
     {
-      "alias": "nsxv_port_index_mappings",
-      "name": "nsxv_port_index_mappings",
+      "alias": "vendor/cisco_hosting_devices",
+      "name": "vendor/cisco_hosting_devices",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_port_index_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_hosting_devices.preql"
     },
     {
-      "alias": "nsxv_port_vnic_mappings",
-      "name": "nsxv_port_vnic_mappings",
+      "alias": "vendor/cisco_ml2_apic_contracts",
+      "name": "vendor/cisco_ml2_apic_contracts",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_port_vnic_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_apic_contracts.preql"
     },
     {
-      "alias": "nsxv_router_bindings",
-      "name": "nsxv_router_bindings",
+      "alias": "vendor/cisco_ml2_apic_host_links",
+      "name": "vendor/cisco_ml2_apic_host_links",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_router_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_apic_host_links.preql"
     },
     {
-      "alias": "nsxv_router_ext_attributes",
-      "name": "nsxv_router_ext_attributes",
+      "alias": "vendor/cisco_ml2_apic_names",
+      "name": "vendor/cisco_ml2_apic_names",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_router_ext_attributes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_apic_names.preql"
     },
     {
-      "alias": "nsxv_rule_mappings",
-      "name": "nsxv_rule_mappings",
+      "alias": "vendor/cisco_ml2_n1kv_network_bindings",
+      "name": "vendor/cisco_ml2_n1kv_network_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_rule_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_network_bindings.preql"
     },
     {
-      "alias": "nsxv_security_group_section_mappings",
-      "name": "nsxv_security_group_section_mappings",
+      "alias": "vendor/cisco_ml2_n1kv_network_profiles",
+      "name": "vendor/cisco_ml2_n1kv_network_profiles",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_security_group_section_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_network_profiles.preql"
     },
     {
-      "alias": "nsxv_spoofguard_policy_network_mappings",
-      "name": "nsxv_spoofguard_policy_network_mappings",
+      "alias": "vendor/cisco_ml2_n1kv_policy_profiles",
+      "name": "vendor/cisco_ml2_n1kv_policy_profiles",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_spoofguard_policy_network_mappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_policy_profiles.preql"
     },
     {
-      "alias": "nsxv_tz_network_bindings",
-      "name": "nsxv_tz_network_bindings",
+      "alias": "vendor/cisco_ml2_n1kv_port_bindings",
+      "name": "vendor/cisco_ml2_n1kv_port_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_tz_network_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_port_bindings.preql"
     },
     {
-      "alias": "nsxv_vdr_dhcp_bindings",
-      "name": "nsxv_vdr_dhcp_bindings",
+      "alias": "vendor/cisco_ml2_n1kv_profile_bindings",
+      "name": "vendor/cisco_ml2_n1kv_profile_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nsxv_vdr_dhcp_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_profile_bindings.preql"
     },
     {
-      "alias": "nuage_net_partition_router_mapping",
-      "name": "nuage_net_partition_router_mapping",
+      "alias": "vendor/cisco_ml2_n1kv_vlan_allocations",
+      "name": "vendor/cisco_ml2_n1kv_vlan_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nuage_net_partition_router_mapping.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_vlan_allocations.preql"
     },
     {
-      "alias": "nuage_net_partitions",
-      "name": "nuage_net_partitions",
+      "alias": "vendor/cisco_ml2_n1kv_vxlan_allocations",
+      "name": "vendor/cisco_ml2_n1kv_vxlan_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nuage_net_partitions.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_n1kv_vxlan_allocations.preql"
     },
     {
-      "alias": "nuage_provider_net_bindings",
-      "name": "nuage_provider_net_bindings",
+      "alias": "vendor/cisco_ml2_nexus_nve",
+      "name": "vendor/cisco_ml2_nexus_nve",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nuage_provider_net_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_nexus_nve.preql"
     },
     {
-      "alias": "nuage_subnet_l2dom_mapping",
-      "name": "nuage_subnet_l2dom_mapping",
+      "alias": "vendor/cisco_ml2_nexusport_bindings",
+      "name": "vendor/cisco_ml2_nexusport_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/nuage_subnet_l2dom_mapping.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_ml2_nexusport_bindings.preql"
     },
     {
-      "alias": "poolloadbalanceragentbindings",
-      "name": "poolloadbalanceragentbindings",
+      "alias": "vendor/cisco_port_mappings",
+      "name": "vendor/cisco_port_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/poolloadbalanceragentbindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_port_mappings.preql"
     },
     {
-      "alias": "poolmonitorassociations",
-      "name": "poolmonitorassociations",
+      "alias": "vendor/cisco_router_mappings",
+      "name": "vendor/cisco_router_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/poolmonitorassociations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/cisco_router_mappings.preql"
     },
     {
-      "alias": "pools",
-      "name": "pools",
+      "alias": "vendor/ml2_brocadenetworks",
+      "name": "vendor/ml2_brocadenetworks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/pools.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_brocadenetworks.preql"
     },
     {
-      "alias": "poolstatisticss",
-      "name": "poolstatisticss",
+      "alias": "vendor/ml2_brocadeports",
+      "name": "vendor/ml2_brocadeports",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/poolstatisticss.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_brocadeports.preql"
     },
     {
-      "alias": "portbindingports",
-      "name": "portbindingports",
+      "alias": "vendor/ml2_dvr_port_bindings",
+      "name": "vendor/ml2_dvr_port_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/portbindingports.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_dvr_port_bindings.preql"
     },
     {
-      "alias": "portdnses",
-      "name": "portdnses",
+      "alias": "vendor/ml2_flat_allocations",
+      "name": "vendor/ml2_flat_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/portdnses.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_flat_allocations.preql"
     },
     {
-      "alias": "portqueuemappings",
-      "name": "portqueuemappings",
+      "alias": "vendor/ml2_geneve_allocations",
+      "name": "vendor/ml2_geneve_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/portqueuemappings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_geneve_allocations.preql"
     },
     {
-      "alias": "ports",
-      "name": "ports",
+      "alias": "vendor/ml2_geneve_endpoints",
+      "name": "vendor/ml2_geneve_endpoints",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/ports.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_geneve_endpoints.preql"
     },
     {
-      "alias": "portsecuritybindings",
-      "name": "portsecuritybindings",
+      "alias": "vendor/ml2_gre_allocations",
+      "name": "vendor/ml2_gre_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/portsecuritybindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_gre_allocations.preql"
     },
     {
-      "alias": "providerresourceassociations",
-      "name": "providerresourceassociations",
+      "alias": "vendor/ml2_gre_endpoints",
+      "name": "vendor/ml2_gre_endpoints",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/providerresourceassociations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_gre_endpoints.preql"
     },
     {
-      "alias": "qos_bandwidth_limit_rules",
-      "name": "qos_bandwidth_limit_rules",
+      "alias": "vendor/ml2_network_segments",
+      "name": "vendor/ml2_network_segments",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos_bandwidth_limit_rules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_network_segments.preql"
     },
     {
-      "alias": "qos_network_policy_bindings",
-      "name": "qos_network_policy_bindings",
+      "alias": "vendor/ml2_nexus_vxlan_allocations",
+      "name": "vendor/ml2_nexus_vxlan_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos_network_policy_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_nexus_vxlan_allocations.preql"
     },
     {
-      "alias": "qos_policies",
-      "name": "qos_policies",
+      "alias": "vendor/ml2_nexus_vxlan_mcast_groups",
+      "name": "vendor/ml2_nexus_vxlan_mcast_groups",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos_policies.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_nexus_vxlan_mcast_groups.preql"
     },
     {
-      "alias": "qos_port_policy_bindings",
-      "name": "qos_port_policy_bindings",
+      "alias": "vendor/ml2_port_binding_levels",
+      "name": "vendor/ml2_port_binding_levels",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qos_port_policy_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_port_binding_levels.preql"
     },
     {
-      "alias": "qospolicyrbacs",
-      "name": "qospolicyrbacs",
+      "alias": "vendor/ml2_ucsm_port_profiles",
+      "name": "vendor/ml2_ucsm_port_profiles",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qospolicyrbacs.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_ucsm_port_profiles.preql"
     },
     {
-      "alias": "qosqueues",
-      "name": "qosqueues",
+      "alias": "vendor/ml2_vlan_allocations",
+      "name": "vendor/ml2_vlan_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/qosqueues.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_vlan_allocations.preql"
     },
     {
-      "alias": "quotas",
-      "name": "quotas",
+      "alias": "vendor/ml2_vxlan_allocations",
+      "name": "vendor/ml2_vxlan_allocations",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/quotas.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_vxlan_allocations.preql"
     },
     {
-      "alias": "quotausages",
-      "name": "quotausages",
+      "alias": "vendor/ml2_vxlan_endpoints",
+      "name": "vendor/ml2_vxlan_endpoints",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/quotausages.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/ml2_vxlan_endpoints.preql"
     },
     {
-      "alias": "reservations",
-      "name": "reservations",
+      "alias": "vendor/neutron_nsx_network_mappings",
+      "name": "vendor/neutron_nsx_network_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/reservations.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/neutron_nsx_network_mappings.preql"
     },
     {
-      "alias": "resourcedeltas",
-      "name": "resourcedeltas",
+      "alias": "vendor/neutron_nsx_port_mappings",
+      "name": "vendor/neutron_nsx_port_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/resourcedeltas.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/neutron_nsx_port_mappings.preql"
     },
     {
-      "alias": "router_extra_attributes",
-      "name": "router_extra_attributes",
+      "alias": "vendor/neutron_nsx_router_mappings",
+      "name": "vendor/neutron_nsx_router_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/router_extra_attributes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/neutron_nsx_router_mappings.preql"
     },
     {
-      "alias": "routerl3agentbindings",
-      "name": "routerl3agentbindings",
+      "alias": "vendor/nsxv_edge_dhcp_static_bindings",
+      "name": "vendor/nsxv_edge_dhcp_static_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/routerl3agentbindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_edge_dhcp_static_bindings.preql"
     },
     {
-      "alias": "routerports",
-      "name": "routerports",
+      "alias": "vendor/nsxv_edge_monitor_mappings",
+      "name": "vendor/nsxv_edge_monitor_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/routerports.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_edge_monitor_mappings.preql"
     },
     {
-      "alias": "routerroutes",
-      "name": "routerroutes",
+      "alias": "vendor/nsxv_edge_pool_mappings",
+      "name": "vendor/nsxv_edge_pool_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/routerroutes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_edge_pool_mappings.preql"
     },
     {
-      "alias": "routerrules",
-      "name": "routerrules",
+      "alias": "vendor/nsxv_edge_vip_mappings",
+      "name": "vendor/nsxv_edge_vip_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/routerrules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_edge_vip_mappings.preql"
     },
     {
-      "alias": "routers",
-      "name": "routers",
+      "alias": "vendor/nsxv_edge_vnic_bindings",
+      "name": "vendor/nsxv_edge_vnic_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/routers.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_edge_vnic_bindings.preql"
     },
     {
-      "alias": "securitygroupportbindings",
-      "name": "securitygroupportbindings",
+      "alias": "vendor/nsxv_internal_edges",
+      "name": "vendor/nsxv_internal_edges",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/securitygroupportbindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_internal_edges.preql"
     },
     {
-      "alias": "securitygrouprules",
-      "name": "securitygrouprules",
+      "alias": "vendor/nsxv_internal_networks",
+      "name": "vendor/nsxv_internal_networks",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/securitygrouprules.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_internal_networks.preql"
     },
     {
-      "alias": "securitygroups",
-      "name": "securitygroups",
+      "alias": "vendor/nsxv_port_index_mappings",
+      "name": "vendor/nsxv_port_index_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/securitygroups.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_port_index_mappings.preql"
     },
     {
-      "alias": "serviceprofiles",
-      "name": "serviceprofiles",
+      "alias": "vendor/nsxv_port_vnic_mappings",
+      "name": "vendor/nsxv_port_vnic_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/serviceprofiles.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_port_vnic_mappings.preql"
     },
     {
-      "alias": "sessionpersistences",
-      "name": "sessionpersistences",
+      "alias": "vendor/nsxv_router_bindings",
+      "name": "vendor/nsxv_router_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/sessionpersistences.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_router_bindings.preql"
     },
     {
-      "alias": "standardattributes",
-      "name": "standardattributes",
+      "alias": "vendor/nsxv_router_ext_attributes",
+      "name": "vendor/nsxv_router_ext_attributes",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/standardattributes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_router_ext_attributes.preql"
     },
     {
-      "alias": "subnetpoolprefixes",
-      "name": "subnetpoolprefixes",
+      "alias": "vendor/nsxv_rule_mappings",
+      "name": "vendor/nsxv_rule_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/subnetpoolprefixes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_rule_mappings.preql"
     },
     {
-      "alias": "subnetpools",
-      "name": "subnetpools",
+      "alias": "vendor/nsxv_spoofguard_policy_network_mappings",
+      "name": "vendor/nsxv_spoofguard_policy_network_mappings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/subnetpools.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_spoofguard_policy_network_mappings.preql"
     },
     {
-      "alias": "subnetroutes",
-      "name": "subnetroutes",
+      "alias": "vendor/nsxv_tz_network_bindings",
+      "name": "vendor/nsxv_tz_network_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/subnetroutes.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_tz_network_bindings.preql"
     },
     {
-      "alias": "subnets",
-      "name": "subnets",
+      "alias": "vendor/nsxv_vdr_dhcp_bindings",
+      "name": "vendor/nsxv_vdr_dhcp_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/subnets.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nsxv_vdr_dhcp_bindings.preql"
     },
     {
-      "alias": "tags",
-      "name": "tags",
+      "alias": "vendor/nuage_net_partition_router_mapping",
+      "name": "vendor/nuage_net_partition_router_mapping",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/tags.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nuage_net_partition_router_mapping.preql"
     },
     {
-      "alias": "tz_network_bindings",
-      "name": "tz_network_bindings",
+      "alias": "vendor/nuage_net_partitions",
+      "name": "vendor/nuage_net_partitions",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/tz_network_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nuage_net_partitions.preql"
     },
     {
-      "alias": "vcns_router_bindings",
-      "name": "vcns_router_bindings",
+      "alias": "vendor/nuage_provider_net_bindings",
+      "name": "vendor/nuage_provider_net_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vcns_router_bindings.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nuage_provider_net_bindings.preql"
     },
     {
-      "alias": "vips",
-      "name": "vips",
+      "alias": "vendor/nuage_subnet_l2dom_mapping",
+      "name": "vendor/nuage_subnet_l2dom_mapping",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vips.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/nuage_subnet_l2dom_mapping.preql"
     },
     {
-      "alias": "vpnservices",
-      "name": "vpnservices",
+      "alias": "vendor/tz_network_bindings",
+      "name": "vendor/tz_network_bindings",
       "purpose": "source",
       "type": "trilogy",
-      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vpnservices.preql"
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/tz_network_bindings.preql"
+    },
+    {
+      "alias": "vendor/vcns_router_bindings",
+      "name": "vendor/vcns_router_bindings",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/vendor/vcns_router_bindings.preql"
     }
   ],
   "description": "# BEAVER neutron\n\nGenerated semantic schema for the BEAVER `neutron` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",

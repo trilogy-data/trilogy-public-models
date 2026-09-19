@@ -1,0 +1,110 @@
+# One row per team per season from the Lahman Teams table. A team_id (e.g.
+# 'NYA') is only unique within a season, so the grain is (year, team_id);
+# franchise_id links the same franchise across renames and relocations.
+
+key year int; # season year, 1871-2025
+key team_id string; # Lahman team code within a season, e.g. 'NYA'
+
+properties <year, team_id> (
+	league_id string?, # league: AL, NL, or a historical league (NA, AA, UA, PL, FL) or Negro league
+	franchise_id string, # franchise code, stable across team renames and moves
+	division_id string?, # division: E, W, or C; null before divisional play (1969)
+	rank int?, # final standing within division or league
+	games int?, # games played
+	home_games int?, # games played at home
+	wins int?, # wins
+	losses int?, # losses
+	division_winner string?, # won division: Y or N
+	wildcard_winner string?, # won wildcard: Y or N
+	league_champion string?, # won league pennant: Y or N
+	world_series_champion string?, # won World Series: Y or N
+	runs int?, # runs scored
+	at_bats int?, # at bats
+	hits int?, # hits by batters
+	doubles int?, # doubles
+	triples int?, # triples
+	home_runs int?, # home runs by batters
+	walks int?, # walks by batters
+	strikeouts int?, # batters struck out
+	stolen_bases int?, # stolen bases
+	caught_stealing int?, # caught stealing
+	hit_by_pitch int?, # batters hit by pitch
+	sacrifice_flies int?, # sacrifice flies
+	runs_allowed int?, # opponents' runs scored
+	earned_runs_allowed int?, # earned runs allowed
+	era float?, # earned run average
+	complete_games int?, # complete games by pitchers
+	shutouts int?, # shutouts
+	saves int?, # saves
+	outs_pitched int?, # outs recorded by pitchers (innings pitched x 3)
+	hits_allowed int?, # hits allowed by pitchers
+	home_runs_allowed int?, # home runs allowed by pitchers
+	walks_allowed int?, # walks allowed by pitchers
+	pitcher_strikeouts int?, # strikeouts recorded by pitchers
+	errors int?, # fielding errors
+	double_plays int?, # double plays turned
+	fielding_percentage float?, # fielding percentage
+	name string, # full team name, e.g. 'New York Yankees'
+	park string?, # home park name
+	attendance int?, # total home attendance
+	batting_park_factor int?, # three-year park factor for batters (100 = neutral)
+	pitching_park_factor int?, # three-year park factor for pitchers (100 = neutral)
+	team_id_br string?, # Baseball-Reference.com team ID
+	team_id_lahman45 string?, # team ID used in Lahman database version 4.5
+	team_id_retro string?, # Retrosheet team ID
+);
+
+auto win_pct <- wins::float / games; # wins as a share of games played
+
+datasource team (
+	yearID: year,
+	teamID: team_id,
+	lgID: league_id,
+	franchID: franchise_id,
+	divID: division_id,
+	Rank: rank,
+	G: games,
+	Ghome: home_games,
+	W: wins,
+	L: losses,
+	DivWin: division_winner,
+	WCWin: wildcard_winner,
+	LgWin: league_champion,
+	WSWin: world_series_champion,
+	R: runs,
+	AB: at_bats,
+	H: hits,
+	doubles: doubles,
+	triples: triples,
+	HR: home_runs,
+	BB: walks,
+	SO: strikeouts,
+	SB: stolen_bases,
+	CS: caught_stealing,
+	HBP: hit_by_pitch,
+	SF: sacrifice_flies,
+	RA: runs_allowed,
+	ER: earned_runs_allowed,
+	ERA: era,
+	CG: complete_games,
+	SHO: shutouts,
+	SV: saves,
+	IPouts: outs_pitched,
+	HA: hits_allowed,
+	HRA: home_runs_allowed,
+	BBA: walks_allowed,
+	SOA: pitcher_strikeouts,
+	E: errors,
+	DP: double_plays,
+	FP: fielding_percentage,
+	name: name,
+	park: park,
+	attendance: attendance,
+	BPF: batting_park_factor,
+	PPF: pitching_park_factor,
+	teamIDBR: team_id_br,
+	teamIDlahman45: team_id_lahman45,
+	teamIDretro: team_id_retro,
+)
+grain (year, team_id)
+address team;

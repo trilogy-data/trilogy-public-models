@@ -1,0 +1,39 @@
+import common;
+import location as location;
+
+# Health-system indicators, one row per location.
+
+properties location.location_key (
+	life_expectancy float?, # life expectancy at birth, years
+	smoking_prevalence float?, # percent of adults who smoke
+	diabetes_prevalence float?, # percent of adults with diabetes
+	hospital_beds_per_1000 float?, # hospital beds per 1,000 people
+	physicians_per_1000 float?, # physicians per 1,000 people
+	health_expenditure_usd float?, # annual health expenditure per capita, USD
+);
+
+root datasource health_raw (
+	location_key: location.location_key,
+	life_expectancy: life_expectancy,
+	smoking_prevalence: smoking_prevalence,
+	diabetes_prevalence: diabetes_prevalence,
+	hospital_beds_per_1000: hospital_beds_per_1000,
+	physicians_per_1000: physicians_per_1000,
+	health_expenditure_usd: health_expenditure_usd,
+)
+grain (location.location_key)
+file `https://storage.googleapis.com/covid19-open-data/v3/health.csv`;
+
+datasource health (
+	location_key: location.location_key,
+	life_expectancy: life_expectancy,
+	smoking_prevalence: smoking_prevalence,
+	diabetes_prevalence: diabetes_prevalence,
+	hospital_beds_per_1000: hospital_beds_per_1000,
+	physicians_per_1000: physicians_per_1000,
+	health_expenditure_usd: health_expenditure_usd,
+	data_updated_through: data_updated_through,
+)
+grain (location.location_key)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/health.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/health.parquet`
+freshness by data_updated_through;

@@ -1,0 +1,85 @@
+import common;
+
+# The location dimension: the `index` + `geography` tables from COVID-19 Open
+# Data, one row per location at country (aggregation_level 0), state / province
+# (1), county / admin-2 (2) or locality (3) granularity. `index` is the master
+# location list, and every other file in this model imports this one to bind its
+# own location_key against it.
+#
+# Each tile lives in its own file on purpose. Two tiles sharing a *namespace*
+# also share `data_updated_through`, and the planner will happily source the
+# watermark from a sibling tile's parquet rather than from the `data_update_info`
+# root — which fails outright on a first build, when no sibling exists yet.
+# Importing this file elsewhere is safe precisely because the import is
+# namespaced: a fact file's own `data_updated_through` is a different concept
+# from `location.data_updated_through`, so the location tile cannot satisfy it.
+# `trilogy refresh . --dry-run` is how to check that — every tile's watermark
+# must come from `uv_run(ingest_update_date.py)`.
+
+key location_key string; # unique location id; a country code or country_subregion code, eg 'US', 'US_CA', 'FR', 'JP_13'
+
+properties location_key (
+	country_code string, # ISO 3166-1 alpha-2 country code; eg 'US'
+	country_name string, # country display name; eg 'United States of America'
+	subregion1_code string?, # first-level subdivision (state / province) code; null for country rows
+	subregion1_name string?, # first-level subdivision name; eg 'California'
+	subregion2_code string?, # second-level subdivision (county / admin-2) code; null above county level
+	subregion2_name string?, # second-level subdivision name; eg 'Los Angeles County'
+	locality_name string?, # locality name; null above locality level
+	iso_3166_1_alpha_3 string?, # ISO 3166-1 alpha-3 country code; eg 'USA'
+	aggregation_level int, # geographic granularity: 0 = country, 1 = state / province, 2 = county, 3 = locality
+	latitude float?, # location centroid latitude
+	longitude float?, # location centroid longitude
+	area_sq_km int?, # land area in square kilometers
+);
+
+# The master location list: one row per location, and the definition of which
+# location_keys exist. Every other table upstream is already pruned to it — the
+# fact CSVs contain zero keys absent from here — which is why each tile can be
+# built straight from its own CSV with no join back to this one.
+root datasource index_raw (
+	location_key: location_key,
+	country_code: country_code,
+	country_name: country_name,
+	subregion1_code: subregion1_code,
+	subregion1_name: subregion1_name,
+	subregion2_code: subregion2_code,
+	subregion2_name: subregion2_name,
+	locality_name: locality_name,
+	iso_3166_1_alpha_3: iso_3166_1_alpha_3,
+	aggregation_level: aggregation_level,
+)
+grain (location_key)
+file `https://storage.googleapis.com/covid19-open-data/v3/index.csv`;
+
+# Centroids and areas, published for 22,130 of the 22,963 indexed locations —
+# hence the partial key binding, which is what keeps a location with no known
+# centroid in the tile rather than dropping it.
+root datasource geography_raw (
+	location_key: ~location_key,
+	latitude: latitude,
+	longitude: longitude,
+	area_sq_km: area_sq_km,
+)
+grain (location_key)
+file `https://storage.googleapis.com/covid19-open-data/v3/geography.csv`;
+
+datasource location (
+	location_key: location_key,
+	country_code: country_code,
+	country_name: country_name,
+	subregion1_code: subregion1_code,
+	subregion1_name: subregion1_name,
+	subregion2_code: subregion2_code,
+	subregion2_name: subregion2_name,
+	locality_name: locality_name,
+	iso_3166_1_alpha_3: iso_3166_1_alpha_3,
+	aggregation_level: aggregation_level,
+	latitude: latitude,
+	longitude: longitude,
+	area_sq_km: area_sq_km,
+	data_updated_through: data_updated_through,
+)
+grain (location_key)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/location.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/location.parquet`
+freshness by data_updated_through;

@@ -8,10 +8,7 @@ from trilogy.authoring import (
     SelectStatement,
 )
 from trilogy.constants import DEFAULT_NAMESPACE
-from trilogy.core.internal import INTERNAL_NAMESPACE
-from trilogy.core.models.build import BuildConcept
 from trilogy.core.models.datasource import Datasource
-from trilogy.core.processing.concept_strategies_v3 import History, search_concepts
 from trilogy.core.statements.execute import ProcessedShowStatement
 from trilogy.executor import Executor
 from trilogy.parser import parse_text
@@ -120,23 +117,11 @@ def get_example_queries(key: str) -> list[str]:
     return final
 
 
-def validate_concept(concept: BuildConcept, history: History, env, graph):
-    if concept.namespace == INTERNAL_NAMESPACE or INTERNAL_NAMESPACE in concept.address:
-        return
-    search_concepts([concept], history=history, environment=env, depth=0, g=graph)
-
-
 def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
     if executor.dialect == Dialects.DUCK_DB:
         return executor.validate_environment()
     # for dataset in model.datasources.values():
     #     validate_dataset(dataset, model, executor, dry_run_client)
-    # history = History(base_environment=model)
-    # factory = Factory(model)
-    # build_model: BuildEnvironment = factory.build(model)
-    # graph = generate_graph(build_model)
-    # for concept in build_model.concepts.values():
-    #     validate_concept(concept, history, build_model, graph)
 
     for example in get_example_queries(key):
 

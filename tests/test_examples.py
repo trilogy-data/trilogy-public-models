@@ -28,6 +28,14 @@ if not os.environ.get("VALIDATE_LAYERCAKE"):
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {
     ("duckdb.faa", "flights.json#0"),
+    # Two `<key>.count` shorthands in one select merge on a keyless join.
+    # pytrilogy <=0.3.315 plans it correctly; 0.3.316-0.3.329 silently emit a
+    # cross join (fanned-out counts); >=0.3.330 refuses with
+    # UnresolvableQueryException ("This is a planner bug"). The queries are
+    # valid — restore once fixed upstream. Minimal repro:
+    # local_examples/repro_two_count_shorthand.py
+    ("duckdb.tpc_h", "demo_dashboard.json#0"),
+    ("duckdb.tpc_h", "demo_dashboard.json#10"),
 }
 
 

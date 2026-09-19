@@ -1,0 +1,50 @@
+import common;
+import dates;
+import location as location;
+
+# Daily epidemiology facts, one row per location per day. `new_*` is the daily
+# delta, `cumulative_*` the running total reported to date. This is the largest
+# table by far: ~520MB of CSV upstream, 12.5M rows.
+
+properties <location.location_key, date> (
+	new_confirmed int?, # newly confirmed cases reported that day
+	new_deceased int?, # new deaths reported that day
+	new_recovered int?, # new recoveries reported that day
+	new_tested int?, # new tests reported that day
+	cumulative_confirmed int?, # running total confirmed cases
+	cumulative_deceased int?, # running total deaths
+	cumulative_recovered int?, # running total recoveries
+	cumulative_tested int?, # running total tests
+);
+
+root datasource epidemiology_raw (
+	date: date,
+	location_key: location.location_key,
+	new_confirmed: new_confirmed,
+	new_deceased: new_deceased,
+	new_recovered: new_recovered,
+	new_tested: new_tested,
+	cumulative_confirmed: cumulative_confirmed,
+	cumulative_deceased: cumulative_deceased,
+	cumulative_recovered: cumulative_recovered,
+	cumulative_tested: cumulative_tested,
+)
+grain (location.location_key, date)
+file `https://storage.googleapis.com/covid19-open-data/v3/epidemiology.csv`;
+
+datasource epidemiology (
+	date: date,
+	location_key: location.location_key,
+	new_confirmed: new_confirmed,
+	new_deceased: new_deceased,
+	new_recovered: new_recovered,
+	new_tested: new_tested,
+	cumulative_confirmed: cumulative_confirmed,
+	cumulative_deceased: cumulative_deceased,
+	cumulative_recovered: cumulative_recovered,
+	cumulative_tested: cumulative_tested,
+	data_updated_through: data_updated_through,
+)
+grain (location.location_key, date)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/covid19_open_data/epidemiology.parquet`:`gcs://trilogy_public_models/duckdb/covid19_open_data/epidemiology.parquet`
+freshness by data_updated_through;

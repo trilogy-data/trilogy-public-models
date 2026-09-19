@@ -1,0 +1,62 @@
+# One row per person who has played major league baseball, 1871-2025, from the
+# Lahman People table. The player_id is the join key used by every other Lahman
+# table.
+
+key player_id string; # Lahman player ID, e.g. 'ruthba01'
+
+properties player_id (
+	first_name string?, # given first name
+	last_name string?, # family name
+	given_name string?, # full given name (first and middle)
+	birth_year int?, # year of birth
+	birth_month int?, # month of birth
+	birth_day int?, # day of birth
+	birth_city string?, # city of birth
+	birth_state string?, # state or province of birth
+	birth_country string?, # country of birth
+	death_year int?, # year of death; null if living
+	death_month int?, # month of death; null if living
+	death_day int?, # day of death; null if living
+	death_city string?, # city of death; null if living
+	death_state string?, # state or province of death; null if living
+	death_country string?, # country of death; null if living
+	weight int?, # playing weight in pounds
+	height int?, # height in inches
+	bats string?, # batting hand: R, L, or B (both)
+	throws string?, # throwing hand: R or L
+	debut date?, # date of first major league appearance
+	final_game date?, # date of last major league appearance
+	bbref_id string?, # Baseball-Reference.com player ID
+	retro_id string?, # Retrosheet player ID
+);
+
+auto name <- concat(first_name, ' ', last_name); # display name, e.g. 'Babe Ruth'
+
+datasource player (
+	playerID: player_id,
+	nameFirst: first_name,
+	nameLast: last_name,
+	nameGiven: given_name,
+	birthYear: birth_year,
+	birthMonth: birth_month,
+	birthDay: birth_day,
+	birthCity: birth_city,
+	birthState: birth_state,
+	birthCountry: birth_country,
+	deathYear: death_year,
+	deathMonth: death_month,
+	deathDay: death_day,
+	deathCity: death_city,
+	deathState: death_state,
+	deathCountry: death_country,
+	weight: weight,
+	height: height,
+	bats: bats,
+	throws: throws,
+	debut: debut,
+	finalGame: final_game,
+	bbrefID: bbref_id,
+	retroID: retro_id,
+)
+grain (player_id)
+address player;

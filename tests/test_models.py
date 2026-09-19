@@ -9,7 +9,7 @@ from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import validate_model
 
 # duckdb.covid19_open_data reads its parquet tiles from GCS (not committed to
-# git); they are published by the Refresh Data workflow on merge to main. It is
+# git); they are published by the `data/` trilogy-cloud refresh job. It is
 # validated in CI by a dedicated build + `trilogy integration` step against
 # locally-built tiles (see .github/workflows/pythonpackage.yml).
 SKIPPED_KEYS = [
@@ -20,6 +20,13 @@ SKIPPED_KEYS = [
     "mysql.beaver_dw",
     "mysql.beaver_neutron",
     "mysql.beaver_nova",
+    # duckdb.mbta reads a live snapshot republished every few minutes by the
+    # trilogy-cloud boston-transit-pulse pipeline, so whether it validates
+    # depends on the feed at that moment. As of 2026-09-19 headway_events
+    # carries duplicate rows for `prediction-ADDED-*` ids (4 ids x 4 rows),
+    # which fails the grain check; fix the publisher, then re-enable. Validate
+    # by hand with `trilogy integration .../mbta/entrypoint.preql duckdb`.
+    "duckdb.mbta",
 ]
 
 # duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap US;
