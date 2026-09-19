@@ -28,6 +28,12 @@ if not os.environ.get("VALIDATE_LAYERCAKE"):
 # (model key, source label) pairs to skip; for queries under active investigation.
 SKIPPED_QUERIES = {
     ("duckdb.faa", "flights.json#0"),
+    # pytrilogy >=0.3.330 refuses both with UnresolvableQueryException ("Planner
+    # emitted a keyless join ... This is a planner bug"); 0.3.329 plans them.
+    # The queries are valid counts across the nation role-playing dimension —
+    # restore once the planner regression is fixed upstream.
+    ("duckdb.tpc_h", "demo_dashboard.json#0"),
+    ("duckdb.tpc_h", "demo_dashboard.json#10"),
 }
 
 

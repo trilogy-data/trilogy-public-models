@@ -1,0 +1,6 @@
+# The observation-date key shared by the daily fact tiles (epidemiology,
+# vaccinations, hospitalizations). Kept apart from common.preql because that
+# file binds a datasource: a root concept declared beside a datasource must be
+# bound there, and `date` is only bound by the fact tables that import this.
+
+key date date; # observation date (calendar day)

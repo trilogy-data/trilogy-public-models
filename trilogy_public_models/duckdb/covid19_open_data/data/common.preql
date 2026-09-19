@@ -1,12 +1,10 @@
-# The observation-date key and the freshness anchor shared by every tile in the
-# COVID-19 Open Data ingest model.
+# The freshness anchor shared by every tile in the COVID-19 Open Data ingest
+# model.
 #
 # Upstream publishes one CSV per table under
 # https://storage.googleapis.com/covid19-open-data/v3/, all keyed on
 # location_key (declared in location.preql, which every other file imports),
-# with the daily fact tables additionally keyed on date.
-
-key date date; # observation date (calendar day)
+# with the daily fact tables additionally keyed on date (dates.preql).
 
 # The upstream publication time, stamped onto every published tile. Each tile
 # declares `freshness by data_updated_through`, so a tile is stale exactly when

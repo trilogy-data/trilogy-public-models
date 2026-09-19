@@ -1,4 +1,5 @@
 import common;
+import dates;
 import location as location;
 
 # Daily hospitalization facts, one row per location per day. `new_*` are daily

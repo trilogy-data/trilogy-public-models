@@ -1,0 +1,63 @@
+import player as player;
+import team as team;
+
+# Season batting lines from the Lahman Batting table, one row per player per
+# season per stint. A player traded mid-season gets one row per team, ordered
+# by stint; the season year doubles as the team season, so team attributes
+# (name, league, park) join through team.year + team.team_id.
+
+key stint int; # ordinal of the player's stint that season: 1 = first team, 2 = second, ...
+
+properties <player.player_id, team.year, stint> (
+	games int?, # games appeared in
+	at_bats int?, # at bats
+	runs int?, # runs scored
+	hits int?, # hits
+	doubles int?, # doubles
+	triples int?, # triples
+	home_runs int?, # home runs
+	runs_batted_in int?, # runs batted in
+	stolen_bases int?, # stolen bases
+	caught_stealing int?, # caught stealing
+	walks int?, # base on balls
+	strikeouts int?, # strikeouts
+	intentional_walks int?, # intentional walks
+	hit_by_pitch int?, # hit by pitch
+	sacrifice_hits int?, # sacrifice bunts
+	sacrifice_flies int?, # sacrifice flies
+	grounded_into_double_plays int?, # grounded into double plays
+);
+
+auto singles <- hits - doubles - triples - home_runs; # hits that were singles
+
+metric total_hits <- sum(hits); # hits across the selected set
+metric total_at_bats <- sum(at_bats); # at bats across the selected set
+metric total_home_runs <- sum(home_runs); # home runs across the selected set
+
+auto batting_average <- total_hits::float / total_at_bats; # hits per at bat over the selected set
+
+datasource batting (
+	playerID: ~player.player_id, # partial: People includes people who never batted
+	yearID: team.year,
+	stint: stint,
+	teamID: ~team.team_id, # partial: one historical team code has no batting rows
+	G: games,
+	AB: at_bats,
+	R: runs,
+	H: hits,
+	doubles: doubles,
+	triples: triples,
+	HR: home_runs,
+	RBI: runs_batted_in,
+	SB: stolen_bases,
+	CS: caught_stealing,
+	BB: walks,
+	SO: strikeouts,
+	IBB: intentional_walks,
+	HBP: hit_by_pitch,
+	SH: sacrifice_hits,
+	SF: sacrifice_flies,
+	GIDP: grounded_into_double_plays,
+)
+grain (player.player_id, team.year, stint)
+address batting;

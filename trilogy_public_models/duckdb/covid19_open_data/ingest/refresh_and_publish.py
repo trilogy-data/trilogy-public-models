@@ -2,8 +2,9 @@
 """Refresh + publish the COVID-19 Open Data tiles end-to-end.
 
 Runs ingest/build_extract.py (download + recompress the upstream CSVs to local
-parquet) then ingest/publish_extract.py (upload them to GCS). This is the entry
-point wired into the Refresh Data CI workflow.
+parquet) then ingest/publish_extract.py (upload them to GCS). This is the manual
+fallback path; routine publishing is the `data/` ingest model, deployed as a
+trilogy-cloud refresh job by .github/workflows/cloud-sync.yml.
 """
 import subprocess
 import sys

@@ -21,8 +21,8 @@ the most-used columns is kept per table. The data spans the pandemic period
 (2020 through the dataset's final 2022 refresh).
 
 The parquet tiles are **not committed to git** — they are built from the live
-upstream CSVs and published to GCS by the ingest scripts (wired into the Refresh
-Data CI workflow on merge to main).
+upstream CSVs and published to GCS by the `data/` ingest model, which runs as a
+trilogy-cloud refresh job (see [Rebuilding & publishing the tiles](#rebuilding--publishing-the-tiles)).
 
 ## Structure
 
@@ -93,12 +93,17 @@ carries that stamp and declares `freshness by data_updated_through`. Upstream's
 final refresh was 2022-09-16, so once the tiles are built a rerun exits 2 ("all
 assets up to date") and rewrites nothing. Force a rebuild with `-f <tile>`.
 
-This runs on trilogy-cloud as the `covid-refresh` job (org `trilogy-data`,
-`operation=refresh`), triggered ad-hoc — there is no schedule, for the same
-reason the CI workflow skips its daily cron: the dataset is static.
+This runs on trilogy-cloud as a refresh job (org `trilogy-data`,
+`operation=refresh`), declared by the `[cloud]` block in `data/trilogy.toml` and
+deployed by `trilogy cloud sync` (`.github/workflows/cloud-sync.yml`). It is
+scheduled daily, but because the dataset is static every tick exits up to date
+and rewrites nothing. On a non-default branch the sync targets that branch's
+own environment and namespaces the tiles, so a PR never writes over production.
 
 The older `ingest/build_extract.py` + `ingest/publish_extract.py` pair does the
-same job from CI using ADC instead of HMAC, and is kept as a fallback path.
+same job using ADC instead of HMAC. It is no longer wired into CI for
+publishing, and is kept as a manual fallback; `build_extract.py` still builds
+the local tiles the CI integration test validates against.
 
 ```bash
 # build locally to this directory, no credentials needed (tiles are git-ignored)

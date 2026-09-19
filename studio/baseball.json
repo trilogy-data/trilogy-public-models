@@ -1,0 +1,46 @@
+{
+  "components": [
+    {
+      "alias": "batting",
+      "name": "batting",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/baseball/batting.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/baseball/entrypoint.preql"
+    },
+    {
+      "alias": "player",
+      "name": "player",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/baseball/player.preql"
+    },
+    {
+      "alias": "setup",
+      "name": "setup",
+      "purpose": "setup",
+      "type": "sql",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/baseball/setup.sql"
+    },
+    {
+      "alias": "team",
+      "name": "team",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/baseball/team.preql"
+    }
+  ],
+  "description": "# Lahman Baseball Database\n\nMajor league baseball history, 1871-2025, from the [SABR Lahman Baseball\nDatabase](https://sabr.org/lahman-database/) (December 2025 release). The data\nis copyright 1996-2025 by SABR via donation from Sean Lahman, licensed under\n[CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/).\n\nThe full set of raw CSVs (28 files, including Pitching, Fielding, Salaries,\nHallOfFame, and the rest) is hosted publicly at\n`gs://trilogy_public_models/duckdb/lahman/` \u2014 browse at\n`https://storage.googleapis.com/trilogy_public_models/duckdb/lahman/<file>`.\nThis model covers the three core tables; the remaining files are uploaded and\nready if the model grows.\n\n## Tables\n\n- **player** (`People.csv`) \u2014 one row per person who has played, keyed by\n  `player_id`.\n- **team** (`Teams.csv`) \u2014 one row per team per season, keyed by\n  `(year, team_id)`; includes standings, season totals, park, and attendance.\n- **batting** (`Batting.csv`) \u2014 one row per player per season per stint,\n  keyed by `(player.player_id, team.year, stint)`.\n\n## Example\n\n```preql\nimport batting as batting;\n\nWHERE batting.team.year >= 1920\nSELECT\n    batting.player.name,\n    batting.total_home_runs,\nORDER BY\n    batting.total_home_runs desc\nLIMIT 10;\n```",
+  "engine": "duckdb",
+  "link": "",
+  "name": "baseball",
+  "tags": [
+    "duckdb"
+  ]
+}

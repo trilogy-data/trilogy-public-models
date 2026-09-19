@@ -1,4 +1,5 @@
 import common;
+import dates;
 import location as location;
 
 # Daily vaccination facts, one row per location per day. `persons_vaccinated`

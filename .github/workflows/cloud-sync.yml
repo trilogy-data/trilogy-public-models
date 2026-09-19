@@ -1,0 +1,103 @@
+# Deploy this repository's models to trilogy-cloud.
+#
+# A model directory becomes a cloud job by declaring a `[cloud]` block in its
+# trilogy.toml; `trilogy cloud sync` finds every such directory and upserts it.
+# The job's *name* comes from its path under the sync root and its *identity*
+# from the repo + subdirectory. Neither survives a move: relocating a directory
+# deploys a new job, and `--prune` is what clears the old one out.
+#
+# Only main syncs, into production. There is no per-branch deploy flow from CI:
+# a branch-environment sync additionally calls GET /orgs/{org}/environments,
+# which no scoped token may reach, so a sync from any other branch 403s before
+# it writes anything. PR changes to a `[cloud]` project take effect on merge.
+# To rehearse one first, run `trilogy cloud --org trilogy-data sync
+# trilogy_public_models` from the branch checkout with a user login — that
+# targets the branch's own environment and namespaces the tiles it builds.
+#
+# TRILOGY_CLOUD_TOKEN is a source-pinned deploy token, minted from a checkout
+# with `trilogy cloud --org trilogy-data bootstrap trilogy_public_models
+# --prune` (the mint alone is `tokens create-deploy NAME --source --prune`).
+# It carries jobs:read/write/delete and schedules:read/write for this
+# repository's subtree and nothing else in the org.
+
+name: Cloud Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'trilogy_public_models/**'
+      - '.github/workflows/cloud-sync.yml'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report what would change without writing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+# One sync at a time. Two pushes in quick succession would otherwise race on
+# the same jobs, and the loser's content would win.
+concurrency:
+  group: cloud-sync
+  cancel-in-progress: false
+
+env:
+  SYNC_ROOT: trilogy_public_models
+  # Passed explicitly as `--org`. The CLI only reads `[cloud].org` from a
+  # trilogy.toml at or above the *working directory*, and the repo root has
+  # none — so the org named in each project's `[cloud]` block is never consulted
+  # here, and a token with more than one membership fails with "Multiple orgs".
+  # TRILOGY_CLOUD_API defaults to production.
+  TRILOGY_CLOUD_ORG: trilogy-data
+  # Lives in the refresh environment (see the job's `environment:` binding),
+  # not in repo secrets.
+  TRILOGY_CLOUD_TOKEN: ${{ secrets.TRILOGY_CLOUD_TOKEN }}
+  # First release carrying `trilogy cloud sync`. Pinned to a floor rather than
+  # an exact version so a CLI fix does not need a commit here, and never to a
+  # git ref — CI installing from a branch means the deployment depends on
+  # whatever that branch happens to say today.
+  TRILOGY_CLI: 'pytrilogy>=0.3.317'
+  # Every real platform wheel pytrilogy publishes is cp311-cp313 (macos,
+  # manylinux, win_amd64). There IS a cp314 wheel, but it is
+  # `pyemscripten_..._wasm32` — no use to a runner — so a runner that has
+  # defaulted to 3.14 finds nothing installable and silently falls back to
+  # building from source through maturin, which needs a Rust toolchain and is
+  # slow and fragile where it works at all. Pin the interpreter to one that
+  # has wheels. Check the *platform* tag before widening this: the aggregate
+  # list of Python tags looks like 3.14 is covered when it is not.
+  TRILOGY_CLI_PYTHON: '3.13'
+
+jobs:
+  sync:
+    name: Sync models
+    runs-on: ubuntu-latest
+    # The refresh environment's deployment branch policy allows only main, so a
+    # workflow_dispatch from any other branch cannot reach
+    # TRILOGY_CLOUD_TOKEN (the run fails at job start).
+    environment: refresh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # `sync` reads the branch and remote out of .git to derive the
+          # environment, so it needs a real checkout — not a detached tarball.
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install trilogy CLI
+        run: uv tool install --python "$TRILOGY_CLI_PYTHON" "$TRILOGY_CLI"
+
+      - name: Show what would change
+        run: trilogy cloud --org "$TRILOGY_CLOUD_ORG" sync "$SYNC_ROOT" --dry-run
+
+      - name: Sync
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.dry_run }}
+        # --prune deletes jobs whose directory is gone, which is what makes a
+        # deleted model directory actually leave the cloud.
+        run: trilogy cloud --org "$TRILOGY_CLOUD_ORG" sync "$SYNC_ROOT" --prune

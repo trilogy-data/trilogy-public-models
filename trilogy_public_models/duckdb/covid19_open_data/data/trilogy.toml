@@ -12,3 +12,28 @@ dialect = "duck_db"
 enable_gcs = true
 # ingest_update_date.py, the freshness anchor, is a Python datasource.
 enable_python_datasources = true
+
+# How this directory is deployed by `trilogy cloud sync` (see
+# .github/workflows/cloud-sync.yml). There is deliberately no `name`: the job's
+# name comes from this directory's path under the sync root, and its identity
+# from the repository plus that path. Neither survives a move: relocating this
+# directory deploys a new job and leaves the old one, with its run history, for
+# `--prune` to clear.
+#
+# CI syncs from main only, into production. A sync run by hand from a
+# non-default branch targets that branch's environment, and the tiles it builds
+# are namespaced (`location_<label>.parquet`) — so it rebuilds beside
+# production's tiles rather than over them.
+[cloud]
+org = "trilogy-data"
+operation = "refresh"
+# The whole build reads ~750MB of upstream CSV; 1800s is measured headroom
+# over the ~100s a full six-tile rebuild actually takes.
+timeout_seconds = 1800
+# Daily, an hour after space-refresh so the two do not contend for VMs.
+# Upstream froze on 2022-09-16, so in practice every tick exits `up_to_date`
+# and rewrites nothing.
+schedule = "0 0 7 * * *"
+# DuckDB writes the parquet to gcs:// itself; these are the only credentials
+# that work, since the tenant SA holds no IAM on that bucket.
+secret_env = ["GOOGLE_HMAC_KEY", "GOOGLE_HMAC_SECRET"]

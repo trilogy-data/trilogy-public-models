@@ -69,10 +69,14 @@ jobs:
             trilogy integration trilogy_public_models/duckdb/gcat_space duckdb --config trilogy_public_models/duckdb/gcat_space/trilogy.toml
       - name: COVID-19 Open Data integration test
         # Tiles are not committed to git, so build them from the upstream CSVs
-        # and validate the model against the local (dev) config.
+        # and validate the model against the local (dev) config. The entrypoint
+        # imports every file of the query model, so validating it covers all of
+        # them; pointing at the directory would also recurse into data/, the
+        # ingest project, whose bindings are complete-by-construction for the
+        # tile build and so fail the query-side partial-key check by design.
         run: |
             uv run trilogy_public_models/duckdb/covid19_open_data/ingest/build_extract.py
-            trilogy integration trilogy_public_models/duckdb/covid19_open_data duckdb --config trilogy_public_models/duckdb/covid19_open_data/trilogy_dev.toml
+            trilogy integration trilogy_public_models/duckdb/covid19_open_data/entrypoint.preql duckdb --config trilogy_public_models/duckdb/covid19_open_data/trilogy_dev.toml
       - name: Check studio interface was updated
         run: |
           python studio/build.py --check
