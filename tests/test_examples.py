@@ -11,9 +11,11 @@ from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import example_path, validate_query
 
 # duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
-# a dedicated build + `trilogy integration` step instead. See test_models.py.
+# a dedicated build + `trilogy integration` step instead. bigquery.age_of_empires_2
+# reads a private project CI has no IAM on. See test_models.py for both.
 SKIPPED_MODELS = {
     "duckdb.covid19_open_data",
+    "bigquery.age_of_empires_2",
 }
 
 # duckdb.layercake examples run real scans against third-party-hosted OSM

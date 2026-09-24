@@ -14,6 +14,14 @@ from trilogy_public_models.validator import validate_model
 # locally-built tiles (see .github/workflows/pythonpackage.yml).
 SKIPPED_KEYS = [
     "duckdb.covid19_open_data",
+    # The only BigQuery model on a private project: it reads
+    # ttl-test-355422.aoe2, while every other one reads bigquery-public-data.
+    # CI authenticates as the federated preqldata service account, which holds
+    # no IAM on that dataset, so every query 403s ("User does not have
+    # permission to query table ttl-test-355422:aoe2.match_player_actions").
+    # It validates for a principal that can read it; grant that SA access to
+    # drop this skip.
+    "bigquery.age_of_empires_2",
     # BEAVER's MySQL dump is prepared locally and is not available in CI.
     "mysql.beaver_dw",
     "mysql.beaver_neutron",
