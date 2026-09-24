@@ -18,10 +18,6 @@ properties <type, id> (
     building_part string?, # whether the element is a 3D building part
     building_use string?, # current use where it differs from the building type
     name string?, # building name
-    addr_housenumber string?, # address house number
-    addr_street string?, # address street
-    addr_city string?, # address city
-    addr_postcode string?, # address postal code
     website string?, # associated website
     wikipedia string?, # linked Wikipedia article reference
     wikidata string?, # linked Wikidata item id
@@ -55,10 +51,6 @@ datasource buildings (
     ?building_part,
     ?building_use,
     ?name,
-    ?addr_housenumber,
-    ?addr_street,
-    ?addr_city,
-    ?addr_postcode,
     ?website,
     ?wikipedia,
     ?wikidata,

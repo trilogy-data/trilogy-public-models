@@ -3,28 +3,31 @@
 # requires-python = ">=3.11,<3.14"
 # dependencies = ["pytrilogy", "duckdb", "duckdb-engine"]
 # ///
-"""Standalone repro: two `.count` shorthand metrics in one SELECT.
+"""Regression guard: two `.count` shorthand metrics in one SELECT.
 
     SELECT supplier_id.count, nation_id.count;
 
-Selecting the `<key>.count` shorthand for two different keys plans each count
-as its own branch and then merges the branches with a keyless join.
+Selecting the `<key>.count` shorthand for two different keys used to plan each
+count as its own branch and then merge the branches with a keyless join.
 
     pytrilogy <= 0.3.315   correct                       (6, 3)
     pytrilogy 0.3.316-329  SILENTLY WRONG: cross join    (18, 18)
-    pytrilogy >= 0.3.330   raises UnresolvableQueryException
+    pytrilogy 0.3.330-366  raises UnresolvableQueryException
                            ("Planner emitted a keyless join ... planner bug")
+    pytrilogy >= 0.3.368   FIXED: correct again          (6, 3)
 
-So the exception in 0.3.330+ is a guard correctly refusing SQL the planner had
-been emitting since 0.3.316; the regression itself is 0.3.315 -> 0.3.316.
+The exception in 0.3.330-366 was a guard correctly refusing SQL the planner had
+been emitting since 0.3.316; the regression itself was 0.3.315 -> 0.3.316, and
+the fix landed in 0.3.368 (0.3.367 was never published).
 
 Writing the same counts inline -- `count(supplier_id), count(nation_id)` -- is
 planned correctly on every version, so it serves as the oracle below. Only the
 shorthand form, and only with two or more of them in one select, is affected:
 `x.count` alone, or `x.count` next to an inline aggregate, is fine.
 
-This is the shape behind the two skipped tpc_h dashboard queries in
-trilogy-public-models (tests/test_examples.py, demo_dashboard.json#0 and #10):
+This is the shape behind two tpc_h dashboard queries in trilogy-public-models
+(examples/duckdb/tpc_h/demo_dashboard.json, grid items 0 and 10), which were
+skipped in tests/test_examples.py while the bug was live and now run again:
 
     SELECT part.supplier.id.count, part.supplier.nation.id.count;
     select order.id.count, order.customer.nation.id.count, part.supplier.nation.id.count;
@@ -34,6 +37,7 @@ Run against a specific release:
     uv run --with pytrilogy==0.3.315 repro_two_count_shorthand.py   # passes
     uv run --with pytrilogy==0.3.329 repro_two_count_shorthand.py   # wrong rows
     uv run --with pytrilogy==0.3.365 repro_two_count_shorthand.py   # raises
+    uv run --with pytrilogy==0.3.368 repro_two_count_shorthand.py   # passes
 
 Also collectable by pytest (`pytest repro_two_count_shorthand.py`).
 """
