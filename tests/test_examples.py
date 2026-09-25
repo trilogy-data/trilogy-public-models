@@ -11,11 +11,11 @@ from trilogy_public_models import data_models, get_executor
 from trilogy_public_models.validator import example_path, validate_query
 
 # duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
-# a dedicated build + `trilogy integration` step instead. See test_models.py.
+# a dedicated build + `trilogy integration` step instead. bigquery.age_of_empires_2
+# reads a private project CI has no IAM on. See test_models.py for both.
 SKIPPED_MODELS = {
-    "bigquery.age_of_empires_2",
-    "duckdb.titanic",
     "duckdb.covid19_open_data",
+    "bigquery.age_of_empires_2",
 }
 
 # duckdb.layercake examples run real scans against third-party-hosted OSM
@@ -26,17 +26,9 @@ if not os.environ.get("VALIDATE_LAYERCAKE"):
     SKIPPED_MODELS.add("duckdb.layercake")
 
 # (model key, source label) pairs to skip; for queries under active investigation.
-SKIPPED_QUERIES = {
-    ("duckdb.faa", "flights.json#0"),
-    # Two `<key>.count` shorthands in one select merge on a keyless join.
-    # pytrilogy <=0.3.315 plans it correctly; 0.3.316-0.3.329 silently emit a
-    # cross join (fanned-out counts); >=0.3.330 refuses with
-    # UnresolvableQueryException ("This is a planner bug"). The queries are
-    # valid — restore once fixed upstream. Minimal repro:
-    # local_examples/repro_two_count_shorthand.py
-    ("duckdb.tpc_h", "demo_dashboard.json#0"),
-    ("duckdb.tpc_h", "demo_dashboard.json#10"),
-}
+# Empty is the intended state: a query that cannot be planned is either a model
+# bug to fix or a pytrilogy bug to report, and a standing skip hides both.
+SKIPPED_QUERIES: set[tuple[str, str]] = set()
 
 
 def _with_terminator(query: str) -> str:

@@ -164,7 +164,7 @@
     },
     "6": {
       "type": "chart",
-      "content": "import entrypoint;\n\n\nSELECT\n    passenger.gender,\n    passenger.id.count,\n    passenger.survival_rate,\n;",
+      "content": "import entrypoint;\n\n\nSELECT\n    passenger.sex,\n    passenger.id.count,\n    passenger.survival_rate,\n;",
       "name": "Class Breakdown",
       "width": 661,
       "height": 235,

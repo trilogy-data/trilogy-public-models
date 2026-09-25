@@ -13,20 +13,19 @@ from trilogy_public_models.validator import validate_model
 # validated in CI by a dedicated build + `trilogy integration` step against
 # locally-built tiles (see .github/workflows/pythonpackage.yml).
 SKIPPED_KEYS = [
-    "bigquery.age_of_empires_2",
-    "duckdb.titanic",
     "duckdb.covid19_open_data",
+    # The only BigQuery model on a private project: it reads
+    # ttl-test-355422.aoe2, while every other one reads bigquery-public-data.
+    # CI authenticates as the federated preqldata service account, which holds
+    # no IAM on that dataset, so every query 403s ("User does not have
+    # permission to query table ttl-test-355422:aoe2.match_player_actions").
+    # It validates for a principal that can read it; grant that SA access to
+    # drop this skip.
+    "bigquery.age_of_empires_2",
     # BEAVER's MySQL dump is prepared locally and is not available in CI.
     "mysql.beaver_dw",
     "mysql.beaver_neutron",
     "mysql.beaver_nova",
-    # duckdb.mbta reads a live snapshot republished every few minutes by the
-    # trilogy-cloud boston-transit-pulse pipeline, so whether it validates
-    # depends on the feed at that moment. As of 2026-09-19 headway_events
-    # carries duplicate rows for `prediction-ADDED-*` ids (4 ids x 4 rows),
-    # which fails the grain check; fix the publisher, then re-enable. Validate
-    # by hand with `trilogy integration .../mbta/entrypoint.preql duckdb`.
-    "duckdb.mbta",
 ]
 
 # duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap US;

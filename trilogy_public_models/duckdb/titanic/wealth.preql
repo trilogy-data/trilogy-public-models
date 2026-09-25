@@ -1,6 +1,15 @@
+import std.money;
+
 key full_name string;
-property <full_name>.net_worth_1918_dollars string;
+property <full_name>.net_worth_1918_dollars string; # as published: a formatted string, eg '$1.2 BIL' or '$225 MIL'
 property last_name <- split(full_name, ' ')[-1];
+
+# The published figure is text, so it cannot be averaged or compared. Parse it
+# into a number; every row is either '$<n> BIL' or '$<n> MIL'.
+property full_name.net_worth_1918_usd <- (
+    cast(replace(replace(replace(net_worth_1918_dollars, '$', ''), ' BIL', ''), ' MIL', '') as float)
+    * (CASE WHEN strpos(net_worth_1918_dollars, 'BIL') > 0 THEN 1000000000 ELSE 1000000 END)
+)::float::usd; # net worth in 1918 dollars
 
 datasource wealth (
     `Name`: full_name,

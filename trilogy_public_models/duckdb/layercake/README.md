@@ -22,7 +22,7 @@ type.
 
 | File | Layer | Rows (approx.) | Description |
 |------|-------|----------------|-------------|
-| `buildings.preql` | buildings | 700M | Building footprints with address, height and roof tags |
+| `buildings.preql` | buildings | 700M | Building footprints with height and roof tags |
 | `highways.preql` | highways | 298M | Roads, paths and related ways with surface, lanes, access tags |
 | `boundaries.preql` | boundaries | 804K | Administrative and place boundaries with ISO 3166 codes |
 | `settlements.preql` | settlements | 4.6M | Populated places (city / town / village / ...) with population |
