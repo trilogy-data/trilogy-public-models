@@ -116,6 +116,32 @@ The resulting directory is the proposed object tree below `duckdb/danish_democra
 
 Inspection of the existing FAA publishers found independent per-object uploads (`publish_dimensions.py`), not a cross-table generation switch. The installed pytrilogy 0.3.383 refresh command's state snapshots record asset observations and fingerprints; they do not retain this extractor's SQLite rows or paging checkpoints. Its Cloud workspace schema carries versioned files/configuration and resource defaults, with no verified writable-volume contract here. Those mechanisms cannot be assumed to provide durable incremental extraction state. The selected worker must explicitly retain the checkpoint directory across invocations.
 
+### Where existing jobs keep state
+
+These are repository/installed-client contracts, not a claim that live Cloud bindings were inspected:
+
+| Existing path | Durable state used by subsequent runs | What it does not establish |
+|---|---|---|
+| COVID `data/common.preql`, `data/ingest_update_date.py`, individual tile declarations | Published GCS Parquet files carry `data_updated_through`; upstream CSV `Last-Modified` values drive staleness. A stale tile is rebuilt from its source CSV | No local incremental database or multi-tile transaction |
+| FAA `ingest/refresh_flights.py`, `ingest/publish_flights.py`, `flight.preql` | Local yearly files are uploaded to GCS; a separate `watermark.parquet` is uploaded after flight uploads, and public objects/probes drive later aggregate refreshes | Local working files are not proven to survive an ephemeral worker; a final watermark upload is not atomic switching of all objects |
+| `gcat_space/etl.preql` | This checkout is a query model over externally produced Parquet; its comment points to `greenmtnboy/space_reporting` as canonical ETL | This repository does not establish that external producer's checkpoint/worker contract |
+| Trilogy Cloud sync/workspaces and CLI refresh state snapshots | Versioned job source/configuration and asset observations/fingerprints | No verified persistent writable filesystem for application SQLite checkpoints; resource settings alone do not create one |
+| Danish current `source.emit` | Reloads published tiles, including lossless update/reconciliation timestamps, into a temporary SQLite database | Interrupted replay/ID-scan progress disappears with that temporary directory; large reconciliation must use the manual persistent-checkpoint route |
+
+### Minimum existing-worker configuration
+
+No new infrastructure is needed if an existing worker meets the following contract. The two operator facts still needed are **the existing worker identifier and its persistent writable directory**, plus confirmation that the existing publisher can use the already named bucket binding when release is approved. No secret values should be provided.
+
+- Python 3.11+ and PyArrow 17+ for standalone extraction/preparation; use the tested Python 3.13/pytrilogy 0.3.383 environment for model validation. The checkout and dependency versions must be pinned for a run. `uv` may install declared script dependencies, or the worker can provision them in advance.
+- A persistent filesystem supporting SQLite transactions, locking and same-filesystem rename. Retain `<state>/checkpoints/{entity}.sqlite`, `<state>/outputs/{entity}.parquet` and staged generations across process/container restarts. An ephemeral working directory, Cloud source workspace or object-store FUSE mount is not sufficient evidence of this contract. Keep SQLite journals alongside the databases; do not copy a live SQLite file as a backup without SQLite's backup API or stopping its writer.
+- One orchestration lock covering extraction and generation preparation, or equivalently a verified single writer with no overlapping scheduled/manual runs. Run the seven entities sequentially initially. Stop all extractors while preparing a generation. Use a retained lock path, for example `<state>/run.lock`, with the worker's established lock facility.
+- Outbound HTTPS to `oda.ft.dk` for extraction, plus normal checkout/dependency access if not preinstalled. Local bootstrap/preparation needs **no Cloud, HMAC or Google credentials**. Publication remains a separate approved step using existing bindings.
+- Invoke `source.py <entity> --checkpoint-dir <state>/checkpoints --output <state>/outputs/<entity>.parquet --max-requests 1000`. Exit 3 means rerun the same entity/checkpoint; keep the prior output but do not treat it as this cycle's success. Other failures stop the cycle for inspection. Record exit 0 for every entity in the current cycle before staging a generation. Retain logs/exit status and checkpoint progress so interrupted work is observable. Do not discard checkpoints between daily runs: the extractor itself triggers the seven-day ID scan and mismatch reconciliation.
+- Allow repeated bounded invocations until completion, including multi-hour/day bootstrap. A request budget is not a one-hour wall-clock guarantee. Resume after worker time limits rather than restarting from the published tile. Keep scheduling disabled until the measured full-ID cycle fits the chosen runtime/cadence.
+- Capacity must cover all seven SQLite row stores plus their temporary reconciliation/journal space, completed Parquet outputs, one output being replaced, one full staging copy, and retained generations. Peak memory must accommodate one entity's Arrow table and validation overhead; the code is not a constant-memory streaming publisher. Exact minimum GiB/CPU/time limits cannot be established from a 163-row period run: measure the ballot backfill before setting production limits. Start with existing capacity, report measured usage, and request any capacity increase separately.
+
+Thus the current operational gap is a specific persistent directory/single-writer execution contract and measured capacity, not a need to mint credentials or choose a new cloud provider.
+
 ## Verification and activation checklist
 
 1. Run `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py`, `ruff check trilogy_public_models`, `mypy trilogy_public_models`, and `python studio/build.py --check`
@@ -139,6 +165,14 @@ Revalidation on 2026-10-13 (Python 3.13, pytrilogy 0.3.383):
 - Seven live allowlisted entity samples converted successfully to their Arrow schemas; a live Periode backfill and incremental rerun each produced **163 rows**
 
 These checks do not constitute ballot-scale backfill, atomic publication, authenticated Cloud/bucket validation or a first successful production refresh.
+
+### Full workflow-command reproduction
+
+Ran the workflow's `pytest --ignore=docs_src/ --cov=./` locally without credentials or coverage upload. Python 3.13.5 returned **33 passed, 2 setup errors**, both `google.auth.exceptions.DefaultCredentialsError` in the shared BigQuery fixture for `test_examples.py` and `test_models.py`.
+
+A fresh Python 3.12.14 environment using current `requirements.txt` and `requirements-test.txt` initially reproduced a different concrete dependency error: Snowflake SQLAlchemy 1.8.2 could not import `sqlalchemy.orm.context.ORMSelectCompileState` from SQLAlchemy 2.1.4. The test requirements now constrain `sqlalchemy<2.1` alongside the existing Snowflake pin. With resolved SQLAlchemy 2.0.54, the same complete command returns **33 passed, 2 setup errors**, now solely the expected missing BigQuery credentials. Other resolved versions: pytrilogy 0.3.383, pytest 9.1.1, PyArrow 26.0.0, DuckDB 1.5.6, fakesnow 0.11.22 and google-auth 2.62.0.
+
+All 17 Danish tests pass within those full runs; no Danish integration defect was reproduced. These results distinguish locally verified offline behavior from credential-dependent coverage. They do not establish the cause of the remote pytest failure: authorized Actions log access remains blocked, and no alternate log route was attempted.
 
 ## Attribution and conditions
 
