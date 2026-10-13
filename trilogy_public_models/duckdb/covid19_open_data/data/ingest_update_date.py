@@ -18,7 +18,7 @@ timestamp and a rebuilt tile stays fresh until upstream moves again.
 from __future__ import annotations
 
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from urllib.request import Request, urlopen
 
@@ -50,7 +50,7 @@ def main() -> None:
             "no Last-Modified header on any upstream table; cannot establish a "
             "publication time to compare published tiles against"
         )
-    updated_at = max(stamps).astimezone(timezone.utc)
+    updated_at = max(stamps).astimezone(UTC)
     table = pa.table(
         {"data_update_date": pa.array([updated_at], type=pa.timestamp("us", tz="UTC"))}
     )

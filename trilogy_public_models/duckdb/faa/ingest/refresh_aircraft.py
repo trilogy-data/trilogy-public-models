@@ -39,7 +39,7 @@ from __future__ import annotations
 import argparse
 import io
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -588,7 +588,7 @@ def main(argv: list[str] | None = None) -> int:
     write_parquet(models_table, AIRCRAFT_MODELS_PARQUET)
 
     print(
-        f"done at {datetime.now(timezone.utc).isoformat(timespec='seconds')} â€” "
+        f"done at {datetime.now(UTC).isoformat(timespec='seconds')} â€” "
         f"upload via publish_dimensions.py"
     )
     return 0

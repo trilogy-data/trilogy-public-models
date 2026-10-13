@@ -41,7 +41,7 @@ import os
 import sys
 import zipfile
 from dataclasses import dataclass
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import httpx
@@ -168,7 +168,7 @@ class MonthKey:
 
 
 def default_range() -> tuple[MonthKey, MonthKey]:
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(UTC).date()
     # Use the two most recent complete calendar years.
     end_year = today.year - 1
     start_year = end_year - 1
@@ -176,7 +176,7 @@ def default_range() -> tuple[MonthKey, MonthKey]:
 
 
 def last_complete_month(today: date | None = None) -> MonthKey:
-    today = today or datetime.now(timezone.utc).date()
+    today = today or datetime.now(UTC).date()
     y, m = today.year, today.month - 1
     if m == 0:
         y, m = y - 1, 12
@@ -603,7 +603,7 @@ def main(argv: list[str] | None = None) -> int:
     # flight.preql and used by every aggregate's freshness_by check.
     # Naive UTC: data_through is declared as a naive `datetime` in
     # flight_common.preql and the parquet column is a tz-less timestamp("us").
-    now = datetime.now(timezone.utc).replace(tzinfo=None, microsecond=0)
+    now = datetime.now(UTC).replace(tzinfo=None, microsecond=0)
     watermark_table = pa.table(
         {"data_through": pa.array([now], type=pa.timestamp("us"))}
     )
