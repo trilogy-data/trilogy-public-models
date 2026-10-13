@@ -29,6 +29,9 @@ from source import (  # type: ignore[import-not-found]
 )
 
 MODEL = Path(__file__).resolve().parents[2]
+REQUIRED_MODELS = frozenset(
+    {"entrypoint.preql", *(f"{entity}.preql" for entity in ENTITIES)}
+)
 
 
 def digest(path: Path) -> str:
@@ -42,6 +45,13 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
     No current pointer is written. Existing generations are never overwritten.
     The generation ID includes both data and model source content.
     """
+    models = {}
+    for name in sorted(REQUIRED_MODELS):
+        path = MODEL / name
+        content = path.read_text() if path.is_file() else ""
+        if not content.strip():
+            raise IncompleteExtract(f"missing or empty required query model: {name}")
+        models[name] = content
     output_dir.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".staging-", dir=output_dir) as work:
         staging = Path(work) / "generation"
@@ -67,10 +77,6 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
                 "rows": table.num_rows,
                 "bytes": target.stat().st_size,
             }
-        models = {
-            path.name: path.read_text()
-            for path in sorted(MODEL.glob("*.preql"))
-        }
         identity = {"format_version": 1, "files": files, "models": models}
         generation = hashlib.sha256(
             json.dumps(identity, sort_keys=True).encode()
@@ -80,7 +86,9 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
         model_files = {}
         for name, content in models.items():
             path = model_dir / name
-            path.write_text(content.replace(PUBLIC, PUBLIC + f"generations/{generation}/"))
+            path.write_text(
+                content.replace(PUBLIC, PUBLIC + f"generations/{generation}/")
+            )
             model_files[name] = {"path": f"model/{name}", "sha256": digest(path)}
         manifest = {
             "format_version": 1,

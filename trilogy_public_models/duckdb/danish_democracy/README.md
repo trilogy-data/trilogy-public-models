@@ -38,7 +38,9 @@ ORDER BY roll_calls desc;
 
 ## Refresh design and the unresolved production gate
 
-The existing repository workflow discovers `[cloud]` in `trilogy.toml` only. `data/trilogy_cloud.example.toml` proposes `operation = "refresh"` and `0 0 5 * * *` (six-field cron, daily **05:00 UTC**). It uses the existing `trilogy-data` organization, GCS bucket and `GOOGLE_HMAC_KEY` / `GOOGLE_HMAC_SECRET` secret names. It does not create credentials or new infrastructure. UTC is intentional; the local Copenhagen hour changes with daylight saving time.
+The existing repository workflow discovers `[cloud]` in `trilogy.toml` only. `trilogy_cloud.example.toml` proposes `operation = "refresh"` and `0 0 5 * * *` (six-field cron, daily **05:00 UTC**). It uses the existing `trilogy-data` organization, GCS bucket and `GOOGLE_HMAC_KEY` / `GOOGLE_HMAC_SECRET` secret names. It does not create credentials or new infrastructure. UTC is intentional; the local Copenhagen hour changes with daylight saving time.
+
+The opt-in template belongs at the model root and sets `entrypoint = "data"`. This bundles all eight query-model files together with `data/ingest/generation.py` while targeting only the ingest subtree for refresh. A data-only bundle cannot prepare a complete generation. Neither current `trilogy.toml` declares `[cloud]`: no Danish Cloud job is declared; this does not represent a disabled refresh job. The inspected CLI has no job-disable declaration; merely omitting a schedule would still allow manual runs.
 
 Daily refresh is appropriate for parliamentary updates. The official SQL Server backup is generated overnight and is the preferred candidate for a sustainable full-snapshot production pipeline. The public API currently caps responses at 100 rows. On 2026-10-12 it reported approximately 1.84 million ballots, 224,803 case steps, 99,629 cases, 18,419 actors, 13,981 meetings, 10,535 roll calls and 163 periods: about **22,100 pages per complete pass**, before retries and lookup calls. Measured source requests took several seconds each; full backfill/reconciliation can take many hours. An initial backfill plus a second ID pass can exceed 44,000 requests. No full backfill was run during implementation.
 
@@ -99,7 +101,7 @@ trilogy refresh "$MODEL/data" --dry-run
 DANISH_ODA_BACKFILL_DIR="$(pwd)/$MODEL" trilogy refresh "$MODEL/data"
 ```
 
-Do not use branch-environment rehearsals with the current API loader: it reads production seed URLs, while Trilogy may namespace write targets. The opt-in template must remain disabled until the production/rehearsal seed strategy and reconciliation runtime have been verified.
+Do not use branch-environment rehearsals with the current API loader: it reads production seed URLs, while Trilogy may namespace write targets. The opt-in template must remain outside discoverable `trilogy.toml` files until the production/rehearsal seed strategy and reconciliation runtime have been verified.
 
 ## Offline immutable-generation preparation
 
@@ -110,7 +112,7 @@ uv run "$MODEL/data/ingest/generation.py" \
   --source-dir "$MODEL" --output-dir /path/to/local/generations
 ```
 
-This command copies all seven Parquet files into a private staging directory, validates exact schemas, required values, unique IDs and reconciliation timestamps, and records row counts, sizes and SHA-256 hashes. It hashes data plus model source to name a generation, writes eight query-model files pinned to that generation's immutable public paths, and exposes the completed directory with a local rename. Failed preparation exposes no partial generation; an existing generation is never overwritten. It performs no network calls, uploads, pointer updates or activation. All four examples are tested against a locally resolved generation model.
+This command copies all seven Parquet files into a private staging directory, requires all seven query-model files and a nonempty `entrypoint.preql`, validates exact schemas, required values, unique IDs and reconciliation timestamps, and records row counts, sizes and SHA-256 hashes. It hashes data plus model source to name a generation, writes eight query-model files pinned to that generation's immutable public paths, and exposes the completed directory with a local rename. Failed preparation exposes no partial generation; an existing generation is never overwritten. It performs no network calls, uploads, pointer updates or activation. All four examples are tested against a locally resolved generation model.
 
 The resulting directory is the proposed object tree below `duckdb/danish_democracy/generations/<generation>/`, including `manifest.json` and `model/entrypoint.preql`. A future authorized publisher must create objects without overwriting existing generations, verify remote hashes, and use an object-version precondition to change one current-generation pointer only after the entire bundle is present. A reader must resolve that pointer once per session and load that generation's entire model. Existing sessions remain on their pinned generation; separate per-table pointer reads are unsafe. Pointer compare-and-swap, reader resolution, deletion propagation and retention remain runtime-specific work. Local rename guarantees visibility on the local filesystem, not remote atomicity or an atomic upstream snapshot.
 
@@ -137,7 +139,7 @@ No new infrastructure is needed if an existing worker meets the following contra
 - One orchestration lock covering extraction and generation preparation, or equivalently a verified single writer with no overlapping scheduled/manual runs. Run the seven entities sequentially initially. Stop all extractors while preparing a generation. Use a retained lock path, for example `<state>/run.lock`, with the worker's established lock facility.
 - Outbound HTTPS to `oda.ft.dk` for extraction, plus normal checkout/dependency access if not preinstalled. Local bootstrap/preparation needs **no Cloud, HMAC or Google credentials**. Publication remains a separate approved step using existing bindings.
 - Invoke `source.py <entity> --checkpoint-dir <state>/checkpoints --output <state>/outputs/<entity>.parquet --max-requests 1000`. Exit 3 means rerun the same entity/checkpoint; keep the prior output but do not treat it as this cycle's success. Other failures stop the cycle for inspection. Record exit 0 for every entity in the current cycle before staging a generation. Retain logs/exit status and checkpoint progress so interrupted work is observable. Do not discard checkpoints between daily runs: the extractor itself triggers the seven-day ID scan and mismatch reconciliation.
-- Allow repeated bounded invocations until completion, including multi-hour/day bootstrap. A request budget is not a one-hour wall-clock guarantee. Resume after worker time limits rather than restarting from the published tile. Keep scheduling disabled until the measured full-ID cycle fits the chosen runtime/cadence.
+- Allow repeated bounded invocations until completion, including multi-hour/day bootstrap. A request budget is not a one-hour wall-clock guarantee. Resume after worker time limits rather than restarting from the published tile. Do not declare or activate a schedule until the measured full-ID cycle fits the chosen runtime/cadence.
 - Capacity must cover all seven SQLite row stores plus their temporary reconciliation/journal space, completed Parquet outputs, one output being replaced, one full staging copy, and retained generations. Peak memory must accommodate one entity's Arrow table and validation overhead; the code is not a constant-memory streaming publisher. Exact minimum GiB/CPU/time limits cannot be established from a 163-row period run: measure the ballot backfill before setting production limits. Start with existing capacity, report measured usage, and request any capacity increase separately.
 
 Thus the current operational gap is a specific persistent directory/single-writer execution contract and measured capacity, not a need to mint credentials or choose a new cloud provider.
@@ -147,7 +149,7 @@ Thus the current operational gap is a specific persistent directory/single-write
 1. Run `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py`, `ruff check trilogy_public_models`, `mypy trilogy_public_models`, and `python studio/build.py --check`
 2. Complete the chosen full-history seed, validate key uniqueness, required fields, source counts and nullable relationships, and inspect all four examples against real data
 3. Validate a deletion fixture through the selected production ingestion route, including removal from derived/public outputs and retained accessible versions
-4. Confirm existing Cloud secret bindings and runtime/budget, then copy only the approved `[cloud]` configuration into `data/trilogy.toml` in a separate reviewed change
+4. Confirm existing Cloud secret bindings and runtime/budget, then apply the approved root template to the model-root `trilogy.toml` (including engine settings), leaving `data/trilogy.toml` without `[cloud]` in a separate reviewed change
 5. After approved merge, inspect the exact-commit **Cloud Sync** workflow result, check the job’s source version and schedule with `trilogy cloud --org trilogy-data jobs list` / `schedules list`
 6. Trigger that verified job with `jobs run <job-id> --wait`; inspect the final logs and public Parquet row counts/freshness. A queued run or a successful sync is not proof of a successful refresh
 
@@ -157,7 +159,7 @@ Offline tests cover typed schemas, models and examples, nullable case-step joins
 
 Revalidation on 2026-10-13 (Python 3.13, pytrilogy 0.3.383):
 
-- `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py tests/test_basic_structure.py -q`: **20 passed**, including retry-budget and complete-generation/failure-isolation coverage
+- `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py tests/test_basic_structure.py -q`: **31 passed**, including retry-budget and complete-generation/failure-isolation coverage. Eleven bundle cases run the shipped helper in isolation from the checkout using actual Cloud CLI `collect_files` output: a complete root bundle succeeds, while each missing model, an empty entrypoint, and the old data-only layout fail without exposing a generation
 - `mypy trilogy_public_models`: **49 source files passed**
 - `ruff check trilogy_public_models tests/test_danish_democracy.py`: passed. Eleven baseline UP017 findings in seven COVID/FAA files were fixed in a separate mechanical UTC-alias commit so CI can reach the tests; no ingest behavior changed
 - `python studio/build.py --check`: passed; the Danish model remains absent from the catalog
@@ -172,7 +174,7 @@ Ran the workflow's `pytest --ignore=docs_src/ --cov=./` locally without credenti
 
 A fresh Python 3.12.14 environment using current `requirements.txt` and `requirements-test.txt` initially reproduced a different concrete dependency error: Snowflake SQLAlchemy 1.8.2 could not import `sqlalchemy.orm.context.ORMSelectCompileState` from SQLAlchemy 2.1.4. The test requirements now constrain `sqlalchemy<2.1` alongside the existing Snowflake pin. With resolved SQLAlchemy 2.0.54, the same complete command returns **33 passed, 2 setup errors**, now solely the expected missing BigQuery credentials. Other resolved versions: pytrilogy 0.3.383, pytest 9.1.1, PyArrow 26.0.0, DuckDB 1.5.6, fakesnow 0.11.22 and google-auth 2.62.0.
 
-All 17 Danish tests pass within those full runs; no Danish integration defect was reproduced. These results distinguish locally verified offline behavior from credential-dependent coverage. They do not establish the cause of the remote pytest failure: authorized Actions log access remains blocked, and no alternate log route was attempted.
+All 17 Danish tests passed within those original full runs. A subsequent deployment-bundle regression exposed missing query models in a data-only bundle; the root template and fail-closed preparation checks now address that defect. These results distinguish locally verified offline behavior from credential-dependent coverage. They do not establish the cause of the remote pytest failure: authorized Actions log access remains blocked, and no alternate log route was attempted.
 
 ## Attribution and conditions
 

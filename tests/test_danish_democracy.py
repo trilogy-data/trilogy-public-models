@@ -268,7 +268,7 @@ def test_ingest_declarations_and_cloud_gate():
     assert "\n[cloud]" not in (BASE / "data/trilogy.toml").read_text()
     assert (
         'schedule = "0 0 5 * * *"'
-        in (BASE / "data/trilogy_cloud.example.toml").read_text()
+        in (BASE / "trilogy_cloud.example.toml").read_text()
     )
 
 
@@ -394,7 +394,9 @@ def test_generation_pins_all_models_and_examples_execute(tmp_path, generation):
     )[0]
     executor = Dialects.DUCK_DB.default_executor(environment=env)
     try:
-        for example in (BASE.parents[2] / "examples/duckdb/danish_democracy").glob("*.preql"):
+        for example in (BASE.parents[2] / "examples/duckdb/danish_democracy").glob(
+            "*.preql"
+        ):
             executor.execute_text(example.read_text())[-1].fetchall()
     finally:
         executor.close()
@@ -406,7 +408,9 @@ def test_generation_pins_all_models_and_examples_execute(tmp_path, generation):
 
 
 @pytest.mark.parametrize("failure", ["missing", "duplicate", "unreconciled", "schema"])
-def test_generation_fails_without_exposing_partial_bundle(tmp_path, generation, failure):
+def test_generation_fails_without_exposing_partial_bundle(
+    tmp_path, generation, failure
+):
     import pyarrow.parquet as pq
 
     seeds, bundles = tmp_path / "seeds", tmp_path / "generations"
@@ -420,9 +424,96 @@ def test_generation_fails_without_exposing_partial_bundle(tmp_path, generation, 
             records.append(records[0])
         elif failure == "unreconciled":
             records[0]["ids_reconciled_at"] = None
-        pq.write_table(pa.Table.from_pylist(records, schema=source.schema("ballot")), path)
+        pq.write_table(
+            pa.Table.from_pylist(records, schema=source.schema("ballot")), path
+        )
         if failure == "schema":
             pq.write_table(pq.read_table(path).drop(["source_updated_at"]), path)
     with pytest.raises((source.IncompleteExtract, FileNotFoundError)):
         generation.prepare(seeds, bundles)
     assert list(bundles.iterdir()) == []
+
+
+@pytest.mark.parametrize(
+    "missing",
+    [
+        None,
+        "entrypoint",
+        "actor",
+        "period",
+        "meeting",
+        "case",
+        "case_step",
+        "vote",
+        "ballot",
+        "empty-entrypoint",
+        "data-only",
+    ],
+)
+def test_generation_from_cloud_bundle(tmp_path, missing):
+    """Exercise the shipped helper in isolation from the repository models."""
+    import json
+    import subprocess
+    import tomllib
+
+    from trilogy.scripts.cloud import collect_files, discover_projects
+
+    # The shipped configuration remains non-discoverable. Only the proposed
+    # template defines a root bundle with a refresh entrypoint in data/.
+    assert discover_projects(BASE) == []
+    template = tomllib.loads((BASE / "trilogy_cloud.example.toml").read_text())
+    assert template["cloud"]["operation"] == "refresh"
+    assert template["cloud"]["entrypoint"] == "data"
+    deployment = tmp_path / "deployment"
+    deployment.mkdir()
+    bundle_root = BASE / "data" if missing == "data-only" else BASE
+    for item in collect_files(bundle_root):
+        path = deployment / item["name"]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(item["content"])
+    if missing and missing != "data-only":
+        if missing == "empty-entrypoint":
+            (deployment / "entrypoint.preql").write_text("\n")
+        else:
+            (deployment / f"{missing}.preql").unlink()
+    seeds, generations = tmp_path / "seeds", tmp_path / "generations"
+    generation_seeds(seeds)
+    helper = deployment / (
+        "ingest/generation.py"
+        if missing == "data-only"
+        else "data/ingest/generation.py"
+    )
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(helper),
+            "--source-dir",
+            str(seeds),
+            "--output-dir",
+            str(generations),
+        ],
+        check=False,
+        cwd=deployment,
+        capture_output=True,
+        text=True,
+    )
+    if missing:
+        assert result.returncode != 0
+        assert "missing or empty required query model:" in result.stderr
+        assert not generations.exists() or not list(generations.iterdir())
+    else:
+        assert result.returncode == 0, result.stderr
+        generation_dir = Path(result.stdout.strip())
+        manifest = json.loads((generation_dir / "manifest.json").read_text())
+        expected = {
+            "entrypoint.preql",
+            *(f"{entity}.preql" for entity in source.ENTITIES),
+        }
+        assert set(manifest["models"]) == expected
+        assert (generation_dir / manifest["entrypoint"]).is_file()
+        assert set(manifest["files"]) == set(source.ENTITIES)
+        for name, record in manifest["models"].items():
+            content = (generation_dir / record["path"]).read_text()
+            assert content.strip()
+            if name != "entrypoint.preql":
+                assert source.PUBLIC + f"generations/{generation_dir.name}/" in content
