@@ -347,3 +347,82 @@ def test_id_reconciliation_resumes_with_same_checkpoint(tmp_path):
     assert result.num_rows == 2
     assert any(after == 1 for columns, since, after in api.starts if columns == ["id"])
     state.close()
+
+
+@pytest.fixture
+def generation(monkeypatch):
+    monkeypatch.setitem(sys.modules, "source", source)
+    spec = importlib.util.spec_from_file_location(
+        "danish_generation", BASE / "data/ingest/generation.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def generation_seeds(directory):
+    import pyarrow.parquet as pq
+
+    directory.mkdir()
+    for entity, records in fixtures().items():
+        for row in records:
+            row["ids_reconciled_at"] = source._datetime(STAMP)
+        pq.write_table(
+            pa.Table.from_pylist(records, schema=source.schema(entity)),
+            directory / f"{entity}.parquet",
+        )
+
+
+def test_generation_pins_all_models_and_examples_execute(tmp_path, generation):
+    import json
+
+    seeds, bundles = tmp_path / "seeds", tmp_path / "generations"
+    generation_seeds(seeds)
+    bundle = generation.prepare(seeds, bundles)
+    manifest = json.loads((bundle / "manifest.json").read_text())
+    assert set(manifest["files"]) == set(source.ENTITIES)
+    pinned = source.PUBLIC + f"generations/{bundle.name}/"
+    local = tmp_path / "query"
+    local.mkdir()
+    for path in (bundle / "model").glob("*.preql"):
+        content = path.read_text()
+        if path.name != "entrypoint.preql":
+            assert pinned in content
+        (local / path.name).write_text(content.replace(pinned, bundle.as_posix() + "/"))
+    env = parse(
+        (local / "entrypoint.preql").read_text(), Environment(working_path=str(local))
+    )[0]
+    executor = Dialects.DUCK_DB.default_executor(environment=env)
+    try:
+        for example in (BASE.parents[2] / "examples/duckdb/danish_democracy").glob("*.preql"):
+            executor.execute_text(example.read_text())[-1].fetchall()
+    finally:
+        executor.close()
+    original = (bundle / "manifest.json").read_bytes()
+    with pytest.raises(FileExistsError):
+        generation.prepare(seeds, bundles)
+    assert (bundle / "manifest.json").read_bytes() == original
+    assert list(bundles.iterdir()) == [bundle]
+
+
+@pytest.mark.parametrize("failure", ["missing", "duplicate", "unreconciled", "schema"])
+def test_generation_fails_without_exposing_partial_bundle(tmp_path, generation, failure):
+    import pyarrow.parquet as pq
+
+    seeds, bundles = tmp_path / "seeds", tmp_path / "generations"
+    generation_seeds(seeds)
+    path = seeds / "ballot.parquet"
+    if failure == "missing":
+        path.unlink()
+    else:
+        records = pq.read_table(path).to_pylist()
+        if failure == "duplicate":
+            records.append(records[0])
+        elif failure == "unreconciled":
+            records[0]["ids_reconciled_at"] = None
+        pq.write_table(pa.Table.from_pylist(records, schema=source.schema("ballot")), path)
+        if failure == "schema":
+            pq.write_table(pq.read_table(path).drop(["source_updated_at"]), path)
+    with pytest.raises((source.IncompleteExtract, FileNotFoundError)):
+        generation.prepare(seeds, bundles)
+    assert list(bundles.iterdir()) == []

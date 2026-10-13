@@ -69,7 +69,7 @@ The remaining full-history route is:
 
 1. An existing authorized operator identifies a persistent runtime and verifies existing bucket/Cloud bindings. The API path needs writable durable checkpoint storage and a single writer per entity; this executor's files are not evidence of durable production storage. The SQL Server backup alternative still needs an existing authenticated restore runtime; none is established here.
 2. Run the manual extractor for all seven entities, retaining each SQLite checkpoint across bounded invocations. Use the same checkpoints for daily incremental updates and at least weekly full-ID reconciliation. The current ephemeral Cloud `emit` path restores from published tiles and cannot preserve an interrupted large reconciliation, so it is not a substitute for that worker. Measure elapsed time, peak memory, disk and request totals at ballot scale before selecting limits.
-3. Validate a complete generation, including all examples, keys, source counts, nullable relationships and deletion propagation. Publish immutable generation-specific object paths and switch one generation manifest/pointer only after every object validates. Consumers must pin one generation for all seven tables. **This atomic publication/reader mechanism is not implemented by the fixed-URL models in this patch**; replacing seven fixed URLs sequentially does not meet that requirement. Retention/cache removal policy must also be agreed before release.
+3. Validate a complete generation, including all examples, keys, source counts, nullable relationships and deletion propagation. The offline preparation command below stages immutable generation paths and a pinned query model. A production publisher must still upload/verify every object, then conditionally switch one manifest/pointer. Consumers must resolve that pointer once and pin the generation's model for all seven tables. **Remote publication and pointer resolution are not implemented by the fixed-URL default models in this patch**; replacing seven fixed URLs sequentially does not meet that requirement. Retention/cache removal policy must also be agreed before release.
 4. With separate release/activation approval, wire the verified runtime and publication mechanism, then verify the exact deployed source version, a terminal successful refresh, public queries and a subsequent incremental/reconciliation run. Only then activate the daily 05:00 UTC schedule and remove `.unpublished`.
 
 Full history plus incremental updates is the selected scope. No smaller-window fallback, production merge, public upload or schedule activation is authorized by this preparation step.
@@ -101,6 +101,21 @@ DANISH_ODA_BACKFILL_DIR="$(pwd)/$MODEL" trilogy refresh "$MODEL/data"
 
 Do not use branch-environment rehearsals with the current API loader: it reads production seed URLs, while Trilogy may namespace write targets. The opt-in template must remain disabled until the production/rehearsal seed strategy and reconciliation runtime have been verified.
 
+## Offline immutable-generation preparation
+
+Stop extraction writers after all seven outputs complete and pass source-level validation, then run:
+
+```bash
+uv run "$MODEL/data/ingest/generation.py" \
+  --source-dir "$MODEL" --output-dir /path/to/local/generations
+```
+
+This command copies all seven Parquet files into a private staging directory, validates exact schemas, required values, unique IDs and reconciliation timestamps, and records row counts, sizes and SHA-256 hashes. It hashes data plus model source to name a generation, writes eight query-model files pinned to that generation's immutable public paths, and exposes the completed directory with a local rename. Failed preparation exposes no partial generation; an existing generation is never overwritten. It performs no network calls, uploads, pointer updates or activation. All four examples are tested against a locally resolved generation model.
+
+The resulting directory is the proposed object tree below `duckdb/danish_democracy/generations/<generation>/`, including `manifest.json` and `model/entrypoint.preql`. A future authorized publisher must create objects without overwriting existing generations, verify remote hashes, and use an object-version precondition to change one current-generation pointer only after the entire bundle is present. A reader must resolve that pointer once per session and load that generation's entire model. Existing sessions remain on their pinned generation; separate per-table pointer reads are unsafe. Pointer compare-and-swap, reader resolution, deletion propagation and retention remain runtime-specific work. Local rename guarantees visibility on the local filesystem, not remote atomicity or an atomic upstream snapshot.
+
+Inspection of the existing FAA publishers found independent per-object uploads (`publish_dimensions.py`), not a cross-table generation switch. The installed pytrilogy 0.3.383 refresh command's state snapshots record asset observations and fingerprints; they do not retain this extractor's SQLite rows or paging checkpoints. Its Cloud workspace schema carries versioned files/configuration and resource defaults, with no verified writable-volume contract here. Those mechanisms cannot be assumed to provide durable incremental extraction state. The selected worker must explicitly retain the checkpoint directory across invocations.
+
 ## Verification and activation checklist
 
 1. Run `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py`, `ruff check trilogy_public_models`, `mypy trilogy_public_models`, and `python studio/build.py --check`
@@ -116,9 +131,9 @@ Offline tests cover typed schemas, models and examples, nullable case-step joins
 
 Revalidation on 2026-10-13 (Python 3.13, pytrilogy 0.3.383):
 
-- `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py tests/test_basic_structure.py -q`: **15 passed**, including a regression proving transient retries consume the request budget
-- `mypy trilogy_public_models`: **48 source files passed**
-- `ruff check trilogy_public_models/duckdb/danish_democracy tests/test_danish_democracy.py`: passed; repository-wide `ruff check trilogy_public_models` still reports 11 pre-existing UP017 findings in unrelated COVID/FAA files
+- `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py tests/test_basic_structure.py -q`: **20 passed**, including retry-budget and complete-generation/failure-isolation coverage
+- `mypy trilogy_public_models`: **49 source files passed**
+- `ruff check trilogy_public_models tests/test_danish_democracy.py`: passed. Eleven baseline UP017 findings in seven COVID/FAA files were fixed in a separate mechanical UTC-alias commit so CI can reach the tests; no ingest behavior changed
 - `python studio/build.py --check`: passed; the Danish model remains absent from the catalog
 - `python -m build --wheel --no-isolation`: passed; the wheel contains `data/ingest/entities.json`
 - Seven live allowlisted entity samples converted successfully to their Arrow schemas; a live Periode backfill and incremental rerun each produced **163 rows**
