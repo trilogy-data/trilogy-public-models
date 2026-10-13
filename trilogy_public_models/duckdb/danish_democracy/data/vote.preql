@@ -1,0 +1,52 @@
+import common;
+
+key id int;
+properties id (
+    number int,
+    approved bool,
+    conclusion string?,
+    comment string?,
+    meeting_id int,
+    case_step_id int?,
+    type_id int,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+);
+
+root datasource vote_raw (
+    id: id,
+    number: number,
+    approved: approved,
+    conclusion: conclusion,
+    comment: comment,
+    meeting_id: meeting_id,
+    case_step_id: case_step_id,
+    type_id: type_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+)
+grain (id)
+file `ingest/vote.py`;
+
+datasource vote (
+    id: id,
+    number: number,
+    approved: approved,
+    conclusion: conclusion,
+    comment: comment,
+    meeting_id: meeting_id,
+    case_step_id: case_step_id,
+    type_id: type_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    snapshot_date: snapshot_date,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/vote.parquet`:`gcs://trilogy_public_models/duckdb/danish_democracy/vote.parquet`
+freshness by snapshot_date;

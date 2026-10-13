@@ -1,0 +1,30 @@
+import case as case;
+
+key id int; # Folketinget Sagstrin identifier
+properties id (
+    title string?,
+    held_at datetime?,
+    type_id int,
+    status_id int,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+    status_name string?,
+);
+
+root datasource case_step (
+    id: id,
+    case_id: ~?case.id,
+    title: title,
+    held_at: held_at,
+    type_id: type_id,
+    status_id: status_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    status_name: status_name,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/case_step.parquet`;

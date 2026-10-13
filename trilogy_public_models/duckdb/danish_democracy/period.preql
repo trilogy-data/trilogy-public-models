@@ -1,0 +1,26 @@
+
+key id int; # Folketinget Periode identifier
+properties id (
+    code string?,
+    title string?,
+    type string?,
+    starts_at datetime,
+    ends_at datetime,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+);
+
+root datasource period (
+    id: id,
+    code: code,
+    title: title,
+    type: type,
+    starts_at: starts_at,
+    ends_at: ends_at,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/period.parquet`;

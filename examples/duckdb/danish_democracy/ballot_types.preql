@@ -1,0 +1,8 @@
+import ballot;
+
+# For / Imod / Fravær / Hverken for eller imod remain distinct.
+SELECT
+    type_name,
+    count(id) -> ballots
+ORDER BY
+    ballots desc;

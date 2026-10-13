@@ -1,0 +1,46 @@
+import common;
+
+key id int;
+properties id (
+    name string?,
+    type_id int,
+    group_short_name string?,
+    valid_from datetime?,
+    valid_to datetime?,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+);
+
+root datasource actor_raw (
+    id: id,
+    name: name,
+    type_id: type_id,
+    group_short_name: group_short_name,
+    valid_from: valid_from,
+    valid_to: valid_to,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+)
+grain (id)
+file `ingest/actor.py`;
+
+datasource actor (
+    id: id,
+    name: name,
+    type_id: type_id,
+    group_short_name: group_short_name,
+    valid_from: valid_from,
+    valid_to: valid_to,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    snapshot_date: snapshot_date,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/actor.parquet`:`gcs://trilogy_public_models/duckdb/danish_democracy/actor.parquet`
+freshness by snapshot_date;

@@ -1,0 +1,34 @@
+import period as period;
+
+key id int; # Folketinget Møde identifier
+properties id (
+    title string?,
+    held_at datetime?,
+    number string?,
+    room string?,
+    type_id int?,
+    status_id int?,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+    status_name string?,
+);
+
+root datasource meeting (
+    id: id,
+    title: title,
+    held_at: held_at,
+    number: number,
+    room: room,
+    period_id: ~?period.id,
+    type_id: type_id,
+    status_id: status_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    status_name: status_name,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/meeting.parquet`;

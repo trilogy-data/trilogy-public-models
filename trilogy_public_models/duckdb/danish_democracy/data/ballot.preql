@@ -1,0 +1,40 @@
+import common;
+
+key id int;
+properties id (
+    vote_id int,
+    actor_id int,
+    type_id int?,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+);
+
+root datasource ballot_raw (
+    id: id,
+    vote_id: vote_id,
+    actor_id: actor_id,
+    type_id: type_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+)
+grain (id)
+file `ingest/ballot.py`;
+
+datasource ballot (
+    id: id,
+    vote_id: vote_id,
+    actor_id: actor_id,
+    type_id: type_id,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    snapshot_date: snapshot_date,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/ballot.parquet`:`gcs://trilogy_public_models/duckdb/danish_democracy/ballot.parquet`
+freshness by snapshot_date;
