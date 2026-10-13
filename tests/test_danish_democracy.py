@@ -267,8 +267,7 @@ def test_ingest_declarations_and_cloud_gate():
     load_config_file(BASE / "data/trilogy.toml")
     assert "\n[cloud]" not in (BASE / "data/trilogy.toml").read_text()
     assert (
-        'schedule = "0 0 5 * * *"'
-        in (BASE / "trilogy_cloud.example.toml").read_text()
+        'schedule = "0 0 5 * * *"' in (BASE / "trilogy_cloud.example.toml").read_text()
     )
 
 
@@ -517,3 +516,300 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
             assert content.strip()
             if name != "entrypoint.preql":
                 assert source.PUBLIC + f"generations/{generation_dir.name}/" in content
+
+
+class MemoryCheckpointStore:
+    def __init__(self):
+        self.objects = {}
+        self.history = []
+        self.fail_save = False
+
+    def fetch(self, entity, path):
+        if entity not in self.objects:
+            return False
+        path.write_bytes(self.objects[entity])
+        return True
+
+    def save(self, entity, path):
+        if self.fail_save:
+            raise OSError("storage unavailable")
+        data = path.read_bytes()
+        self.objects[entity] = data
+        self.history.append((entity, data))
+
+
+@pytest.fixture
+def remote_store(tmp_path, monkeypatch):
+    # Initialization uses a complete seed only on NoSuchKey, then every run
+    # must use the remote SQLite rows and cursor even if publication failed.
+    local = checkpoint(tmp_path)
+    seed = source.extract("ballot", local, FakeAPI([ballot(1)]))
+    local.close()
+    seed = seed.set_column(
+        seed.schema.get_field_index("ids_reconciled_at"),
+        "ids_reconciled_at",
+        pa.array(
+            [source._datetime("2000-01-01T00:00:00")] * seed.num_rows,
+            type=pa.timestamp("us"),
+        ),
+    )
+    monkeypatch.setattr(source, "published_table", lambda _: seed)
+    return MemoryCheckpointStore()
+
+
+def test_remote_checkpoint_first_run_and_resume(remote_store, monkeypatch):
+    result = source.remote_extract(
+        "ballot", remote_store, FakeAPI([ballot(1), ballot(2)])
+    )
+    assert result.num_rows == 2
+    monkeypatch.setattr(
+        source, "published_table", lambda _: pytest.fail("must not reseed")
+    )
+    api = FakeAPI([ballot(1, type=4), ballot(2), ballot(3)])
+    result = source.remote_extract("ballot", remote_store, api)
+    assert result.num_rows == 3
+    assert result.to_pylist()[0]["type_id"] == 4
+    assert STAMP in api.since
+    assert len({source.CheckpointStore.key(entity) for entity in source.ENTITIES}) == 7
+    assert all(
+        "checkpoints/v1/" in source.CheckpointStore.key(e) for e in source.ENTITIES
+    )
+
+
+@pytest.mark.parametrize(
+    "phase,cursor", [("delta", "replay_last"), ("ids", "id_scan_last")]
+)
+def test_remote_interrupted_pages_resume(tmp_path, remote_store, phase, cursor):
+    rows = [ballot(1), ballot(2), ballot(3)]
+    with pytest.raises(source.IncompleteExtract, match="budget"):
+        source.remote_extract("ballot", remote_store, InterruptedAPI(rows, phase))
+    saved = tmp_path / "restored.sqlite"
+    saved.write_bytes(remote_store.objects["ballot"])
+    state = source.Checkpoint(saved)
+    assert state.get(cursor) == "1"
+    if phase == "ids":
+        assert state.db.execute("SELECT id FROM live_ids").fetchall() == [(1,)]
+    state.close()
+    api = InterruptedAPI(rows, "none")
+    assert source.remote_extract("ballot", remote_store, api).num_rows == 3
+    assert any(
+        after == 1 and (columns == ["id"]) == (phase == "ids")
+        for columns, _, after in api.starts
+    )
+
+
+def test_remote_full_backfill_checkpoint_resume(tmp_path, remote_store):
+    # An explicitly bootstrapped full-phase snapshot can be resumed too.
+    path = tmp_path / "full.sqlite"
+    state = source.Checkpoint(path)
+    state.set("entity", "ballot")
+    state.set("checkpoint_format", "1")
+    state.set("phase", "full")
+    state.db.commit()
+    state.close()
+    remote_store.objects["ballot"] = path.read_bytes()
+    with pytest.raises(source.IncompleteExtract):
+        source.remote_extract(
+            "ballot", remote_store, FakeAPI([ballot(1), ballot(2)], stop=True)
+        )
+    path.write_bytes(remote_store.objects["ballot"])
+    state = source.Checkpoint(path)
+    assert state.get("last_id") == "1"
+    assert state.db.execute("SELECT count(*) FROM rows").fetchone() == (1,)
+    state.close()
+    assert (
+        source.remote_extract(
+            "ballot", remote_store, FakeAPI([ballot(1), ballot(2)])
+        ).num_rows
+        == 2
+    )
+
+
+def test_remote_snapshot_wal_and_transaction_consistency(
+    tmp_path, remote_store, monkeypatch
+):
+    def interrupted(entity, state, api):
+        state.db.execute("PRAGMA journal_mode=WAL")
+        state.db.execute("PRAGMA wal_autocheckpoint=0")
+        state.upsert([ballot(2)])
+        state.set("replay_last", "2")
+        state.commit()
+        state.upsert([ballot(3)])
+        state.set("replay_last", "3")
+        raise KeyboardInterrupt()
+
+    monkeypatch.setattr(source, "extract", interrupted)
+    with pytest.raises(KeyboardInterrupt):
+        source.remote_extract("ballot", remote_store, FakeAPI([]))
+    path = tmp_path / "snapshot.sqlite"
+    path.write_bytes(remote_store.objects["ballot"])
+    source.validate_checkpoint(path, "ballot")
+    state = source.Checkpoint(path)
+    assert state.get("replay_last") == "2"
+    assert state.db.execute("SELECT id FROM rows ORDER BY id").fetchall() == [
+        (1,),
+        (2,),
+    ]
+    state.close()
+
+
+def test_remote_periodic_snapshots(tmp_path, remote_store, monkeypatch):
+    tick = iter(range(0, 100000, 301))
+    monkeypatch.setattr(source.time, "monotonic", lambda: next(tick))
+    source.remote_extract("ballot", remote_store, FakeAPI([ballot(1), ballot(2)]))
+    cursors = []
+    for i, (_, data) in enumerate(remote_store.history):
+        path = tmp_path / f"snapshot-{i}.sqlite"
+        path.write_bytes(data)
+        source.validate_checkpoint(path, "ballot")
+        state = source.Checkpoint(path)
+        cursors.append(state.get("replay_last"))
+        state.close()
+    assert "1" in cursors and "2" in cursors
+
+
+@pytest.mark.parametrize(
+    "failure", ["corrupt", "wrong-entity", "unavailable", "upload"]
+)
+def test_remote_storage_failures_do_not_reset_or_emit(
+    tmp_path, remote_store, monkeypatch, failure
+):
+    source.remote_extract("ballot", remote_store, FakeAPI([ballot(1)]))
+    if failure == "corrupt":
+        remote_store.objects["ballot"] = b"corrupt sqlite"
+    elif failure == "wrong-entity":
+        path = tmp_path / "wrong.sqlite"
+        path.write_bytes(remote_store.objects["ballot"])
+        state = source.Checkpoint(path)
+        state.set("entity", "actor")
+        state.db.commit()
+        state.close()
+        remote_store.objects["ballot"] = path.read_bytes()
+    elif failure == "unavailable":
+
+        def unavailable(*args):
+            raise OSError("download unavailable")
+
+        remote_store.fetch = unavailable
+    else:
+        remote_store.fail_save = True
+    previous = remote_store.objects.copy()
+    monkeypatch.setattr(
+        source, "published_table", lambda _: pytest.fail("must not reseed")
+    )
+    monkeypatch.setattr(source, "CheckpointStore", lambda: remote_store)
+    monkeypatch.setattr(source, "OData", lambda _: FakeAPI([ballot(1), ballot(2)]))
+    monkeypatch.delenv("DANISH_ODA_BACKFILL_DIR", raising=False)
+    monkeypatch.setattr(
+        source.pa.ipc, "new_stream", lambda *args: pytest.fail("must not emit")
+    )
+    with pytest.raises((source.IncompleteExtract, OSError)):
+        source.emit("ballot")
+    assert remote_store.objects == previous
+
+
+def test_remote_missing_seed_does_not_initialize_checkpoint(remote_store, monkeypatch):
+    def missing(_):
+        raise source.IncompleteExtract("published tile is absent")
+
+    monkeypatch.setattr(source, "published_table", missing)
+    with pytest.raises(source.IncompleteExtract, match="published tile"):
+        source.remote_extract("ballot", remote_store, FakeAPI([]))
+    assert remote_store.objects == {}
+
+
+def test_checkpoint_storage_protocol(tmp_path, monkeypatch):
+    import base64
+    import hashlib
+    import io
+
+    from botocore.exceptions import ClientError
+    from botocore.response import StreamingBody
+    from botocore.stub import Stubber
+
+    monkeypatch.setenv("GOOGLE_HMAC_KEY", "test-key")
+    monkeypatch.setenv("GOOGLE_HMAC_SECRET", "test-secret")
+    store = source.CheckpointStore()
+    assert store.client.meta.endpoint_url == "https://storage.googleapis.com"
+    assert store.client.meta.config.signature_version == "s3v4"
+    assert store.client.meta.config.request_checksum_calculation == "when_required"
+    args = {
+        "Bucket": "trilogy_public_models",
+        "Key": source.CheckpointStore.key("ballot"),
+    }
+    path = tmp_path / "download.sqlite"
+    with Stubber(store.client) as stub:
+        stub.add_client_error(
+            "get_object",
+            service_error_code="NoSuchKey",
+            http_status_code=404,
+            expected_params=args,
+        )
+        assert not store.fetch("ballot", path)
+        for code, status in [
+            ("AccessDenied", 403),
+            ("NoSuchBucket", 404),
+            ("InternalError", 500),
+        ]:
+            stub.add_client_error(
+                "get_object",
+                service_error_code=code,
+                http_status_code=status,
+                expected_params=args,
+            )
+            with pytest.raises(ClientError):
+                store.fetch("ballot", path)
+        stub.add_response(
+            "get_object",
+            {"Body": StreamingBody(io.BytesIO(b"data"), 4), "ContentLength": 4},
+            args,
+        )
+        assert store.fetch("ballot", path)
+        assert path.read_bytes() == b"data"
+    requests = []
+
+    def capture(**kwargs):
+        requests.append({**kwargs, "Body": kwargs["Body"].read()})
+
+    monkeypatch.setattr(store.client, "put_object", capture)
+    store.save("ballot", path)
+    assert requests == [
+        {
+            **args,
+            "Body": b"data",
+            "ContentLength": 4,
+            "ContentMD5": base64.b64encode(hashlib.md5(b"data").digest()).decode(),
+            "ContentType": "application/vnd.sqlite3",
+            "CacheControl": "no-store",
+        }
+    ]
+
+
+def test_remote_deletion_reconciliation_survives_interruption(remote_store):
+    # The seed contains ID 1, which disappears upstream. Partial live IDs must
+    # survive without prematurely deleting rows before the scan finishes.
+    rows = [ballot(2), ballot(3)]
+    with pytest.raises(source.IncompleteExtract):
+        source.remote_extract("ballot", remote_store, InterruptedAPI(rows, "ids"))
+    api = InterruptedAPI(rows, "none")
+    result = source.remote_extract("ballot", remote_store, api)
+    assert result.column("id").to_pylist() == [2, 3]
+    assert any(columns == ["id"] and after == 2 for columns, _, after in api.starts)
+
+
+def test_checkpoint_download_truncation_and_missing_binding(tmp_path, monkeypatch):
+    import io
+    from types import SimpleNamespace
+
+    monkeypatch.delenv("GOOGLE_HMAC_KEY", raising=False)
+    monkeypatch.delenv("GOOGLE_HMAC_SECRET", raising=False)
+    with pytest.raises(source.IncompleteExtract, match="HMAC binding"):
+        source.CheckpointStore()
+    store = source.CheckpointStore.__new__(source.CheckpointStore)
+    store.client = SimpleNamespace(
+        get_object=lambda **_: {"Body": io.BytesIO(b"short"), "ContentLength": 20}
+    )
+    with pytest.raises(
+        source.IncompleteExtract, match="incomplete checkpoint download"
+    ):
+        store.fetch("ballot", tmp_path / "truncated.sqlite")
