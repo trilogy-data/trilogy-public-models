@@ -1,0 +1,10 @@
+# No [cloud] block: production activation is gated on the deletion-source and
+# bootstrap decisions documented in ../README.md. The model-root Cloud template
+# is deliberately not discovered by CI's `trilogy cloud sync`.
+[engine]
+dialect = "duck_db"
+parallelism = 1
+
+[engine.config]
+enable_gcs = true
+enable_python_datasources = true

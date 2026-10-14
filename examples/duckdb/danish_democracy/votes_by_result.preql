@@ -1,0 +1,8 @@
+import vote;
+
+# Count roll calls at roll-call grain, not joined ballot grain.
+SELECT
+    approved,
+    count(id) -> roll_calls
+ORDER BY
+    roll_calls desc;

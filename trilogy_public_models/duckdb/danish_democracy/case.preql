@@ -1,0 +1,40 @@
+import period as period;
+
+key id int; # Folketinget Sag identifier
+properties id (
+    title string?,
+    short_title string?,
+    number string?,
+    type_id int,
+    status_id int,
+    category_id int?,
+    decided_at datetime?,
+    decision_code string?,
+    updated_at datetime,
+    ids_reconciled_at datetime?, # most recent full live-ID scan, naive UTC
+    source_updated_at string,
+    type_name string?,
+    status_name string?,
+    category_name string?,
+);
+
+root datasource case (
+    id: id,
+    title: title,
+    short_title: short_title,
+    number: number,
+    period_id: ~?period.id,
+    type_id: type_id,
+    status_id: status_id,
+    category_id: category_id,
+    decided_at: decided_at,
+    decision_code: decision_code,
+    updated_at: updated_at,
+    ids_reconciled_at: ids_reconciled_at,
+    source_updated_at: source_updated_at,
+    type_name: type_name,
+    status_name: status_name,
+    category_name: category_name,
+)
+grain (id)
+file `https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/case.parquet`;

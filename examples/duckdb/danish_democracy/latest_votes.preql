@@ -1,0 +1,14 @@
+import vote;
+
+# The official outcome and correction comments should accompany raw totals.
+SELECT
+    id,
+    meeting.held_at,
+    case_step.case.short_title,
+    approved,
+    conclusion,
+    comment
+ORDER BY
+    meeting.held_at desc,
+    id desc
+LIMIT 20;

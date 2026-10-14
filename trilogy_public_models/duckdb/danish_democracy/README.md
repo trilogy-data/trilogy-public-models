@@ -1,0 +1,193 @@
+# Danish Democracy
+
+A full-history Trilogy voting model for [Folketinget's open parliamentary data](https://www.ft.dk/dokumenter/aabne_data), inspired by [bgarcevic/danish-democracy-data](https://github.com/bgarcevic/danish-democracy-data). DuckDB reads seven compact Parquet tiles; no warehouse account is required for queries once the tiles are published.
+
+**Status: model and extraction implementation only. No public tiles have been published and no Cloud schedule is active.** The proposed Cloud declaration is an opt-in template, deliberately excluded from automatic deployment. The `.unpublished` marker keeps it out of the Studio catalog. Merging this change alone does not activate refresh or advertise unavailable public data. Production release needs an initial backfill and a practical, verified deletion-reconciliation route.
+
+## Coverage and semantics
+
+| File | Grain | Contents |
+|---|---|---|
+| `ballot.preql` | individual ballot ID (`Stemme.id`) | Actor, roll call and ballot-type relationships |
+| `vote.preql` | roll-call ID (`Afstemning.id`) | Official approval/result, correction comments, meeting and optional case step |
+| `actor.preql` | actor ID | Public actor name, actor type, group abbreviation, validity dates |
+| `meeting.preql` | meeting ID | Date, title, room, type/status and parliamentary period |
+| `period.preql` | period ID | Period code, name, type and dates |
+| `case.preql` | case ID | Title, number, type/category/status and decision metadata |
+| `case_step.preql` | case-step ID | Step type/status/date and case relationship |
+
+All available upstream history is intended; no arbitrary 2014 cutoff or rolling window is applied. Parliamentary proceedings generally start in October 2013, while dimensions may contain older records. These are the analytical equivalents of the upstream project’s voting fact and dimensions, with native IDs rather than hashed surrogate keys. Case and case-step grain remain separate. Unused relationship tables and the upstream holiday calendar are not reproduced.
+
+Important distinctions:
+
+- Count roll calls from `vote.id`; joined ballot rows are a different population
+- Ballot types are **For**, **Imod**, **Fravær** and **Hverken for eller imod**. Absence is not abstention
+- Official `approved`, `conclusion` and `comment` are retained; raw ballot totals can differ from the official result because corrections may be recorded in comments
+- Optional/missing dimension relations preserve the underlying fact. A roll call with no case step is still a valid roll call
+- Current-party biography fields are deliberately absent; assigning today’s party to historical ballots would be misleading
+- Biographies, birth/death dates, private contact details, document bodies, photographs and document downloads are outside this extract
+- Source `opdateringsdato` is preserved verbatim as `source_updated_at` (including seven fractional digits) for replay; `updated_at` is its microsecond-resolution analytical timestamp. Upstream naive timestamps are not silently asserted to be UTC
+
+Examples are in `examples/duckdb/danish_democracy/`. For instance:
+
+```trilogy
+import vote;
+SELECT approved, count(id) -> roll_calls
+ORDER BY roll_calls desc;
+```
+
+## Refresh design and the unresolved production gate
+
+The existing repository workflow discovers `[cloud]` in `trilogy.toml` only. `trilogy_cloud.example.toml` proposes `operation = "refresh"` and `0 0 5 * * *` (six-field cron, daily **05:00 UTC**). It uses the existing `trilogy-data` organization, GCS bucket and `GOOGLE_HMAC_KEY` / `GOOGLE_HMAC_SECRET` secret names. It does not create credentials or new infrastructure. UTC is intentional; the local Copenhagen hour changes with daylight saving time.
+
+The opt-in template belongs at the model root and sets `entrypoint = "data"`. This bundles all eight query-model files together with `data/ingest/generation.py` while targeting only the ingest subtree for refresh. A data-only bundle cannot prepare a complete generation. Neither current `trilogy.toml` declares `[cloud]`: no Danish Cloud job is declared; this does not represent a disabled refresh job. The inspected CLI has no job-disable declaration; merely omitting a schedule would still allow manual runs.
+
+Daily refresh is appropriate for parliamentary updates. The official SQL Server backup is generated overnight and is the preferred candidate for a sustainable full-snapshot production pipeline. The public API currently caps responses at 100 rows. On 2026-10-12 it reported approximately 1.84 million ballots, 224,803 case steps, 99,629 cases, 18,419 actors, 13,981 meetings, 10,535 roll calls and 163 periods: about **22,100 pages per complete pass**, before retries and lookup calls. Measured source requests took several seconds each; full backfill/reconciliation can take many hours. An initial backfill plus a second ID pass can exceed 44,000 requests. No full backfill was run during implementation.
+
+The API documentation describes `Slettet` and `SlettetMap`, but neither is exposed in the current service metadata and `/api/Slettet` returns 404. Consequently the fallback extractor **never assumes that a merge by update timestamp processes deletions**:
+
+1. Fetch allowlisted columns, upserting each entity independently by ID with an inclusive, lossless update cursor
+2. Scan authoritative live IDs at least every seven days, and immediately on a post-upsert count mismatch; `ids_reconciled_at` records the last complete scan
+3. Remove IDs no longer present, and verify counts plus the latest update timestamp stayed stable before/after the extraction
+4. Produce output only after those checks pass. Incomplete paging, request-budget exhaustion, drift or missing IDs fails without replacing the existing output file
+
+This is conservative eventual reconciliation, not an atomic snapshot guarantee from a transactional API. The seven published tiles would also be replaced independently, not as one cross-table transaction. Deletions that a concurrent API change masks from the count check may remain until periodic reconciliation. A complete production design must address that eventual-consistency window and deleted identifiers in retained object versions/caches and downstream copies. No bucket retention, ACL, lifecycle, cache or credential settings are changed here.
+
+The API fallback is therefore **not enabled as an unattended daily production job**. Its default 1,000-request budget intentionally prevents accidental unbounded ingestion; do not simply enable the template and assume a full history refresh fits its one-hour timeout. Before activation, choose and verify one of:
+
+- Restore the official nightly SQL Server backup in an authorized existing environment, extract the same allowlisted schema, validate all tiles, and publish/reconcile removed data
+- Establish a supported tombstone feed plus an appropriately bounded periodic full-ID reconciliation
+- Use the resumable API extractor on an existing worker with durable SQLite checkpoints for all seven entities (retained locally or through the remote snapshot protocol below), a measured request budget, and enough runtime for both the full backfill and periodic full-ID scans
+
+A scoped deployment token may also be unable to assign `secret_env` to a new job; if so, an existing authorized Cloud operator must bootstrap that binding. No login/token was available in the implementation environment, so Cloud API state, bucket access, server resource limits and live schedule behavior were not validated.
+
+### Runtime investigation (2026-10-13)
+
+The republished executor can reach GitHub, Library downloads and the official API. The archive was restored at base `0fb759bafc47a04157effd4c4d5b2284b66af32f`. Validation uses Python 3.13 and pytrilogy 0.3.383, above the Cloud workflow's minimum 0.3.317. `trilogy cloud whoami` reports **Not logged in**; no Cloud token, HMAC key/secret or Google application credentials are configured in the executor. No login or credential creation was attempted.
+
+Repository configuration confirms that the existing COVID ingest uses bucket `trilogy_public_models` and the two HMAC secret names above. That is evidence of the intended binding, not verification of the live secrets or their permissions. GitHub's read-only environment endpoint confirms that `refresh` has a custom deployment branch policy; its secret-metadata endpoint returns HTTP 403 `Resource not accessible by integration`. The workflow documents and enforces the main-only deployment route. This investigation did not dispatch it or attempt to bypass that denial.
+
+The remaining full-history route is:
+
+1. An existing authorized operator verifies the existing runtime and bucket/Cloud bindings. The selected daily path assumes one active job run, uses local scratch storage and retains checkpoints in the existing bucket. Manual bootstrap may instead retain a local checkpoint directory; this executor's files are not evidence of durable production storage. The SQL Server backup alternative still needs an existing authenticated restore runtime; none is established here.
+2. Run the manual extractor for all seven entities, retaining each SQLite checkpoint across bounded invocations. Use the same checkpoints for daily incremental updates and at least weekly full-ID reconciliation. The Cloud `emit` path now retains SQLite snapshots in the existing bucket as described below; a published tile is used only when the entity checkpoint is confirmed absent. Durable local storage remains an alternative for manual bootstrap, not a requirement for this remote-checkpoint design. Measure elapsed time, peak memory, disk and request totals at ballot scale before selecting limits.
+3. Validate a complete generation, including all examples, keys, source counts, nullable relationships and deletion propagation. The offline preparation command below stages immutable generation paths and a pinned query model. A production publisher must still upload/verify every object, then conditionally switch one manifest/pointer. Consumers must resolve that pointer once and pin the generation's model for all seven tables. **Remote publication and pointer resolution are not implemented by the fixed-URL default models in this patch**; replacing seven fixed URLs sequentially does not meet that requirement. Retention/cache removal policy must also be agreed before release.
+4. With separate release/activation approval, wire the verified runtime and publication mechanism, then verify the exact deployed source version, a terminal successful refresh, public queries and a subsequent incremental/reconciliation run. Only then activate the daily 05:00 UTC schedule and remove `.unpublished`.
+
+Full history plus incremental updates is the selected scope. No smaller-window fallback, production merge, public upload or schedule activation is authorized by this preparation step.
+
+## Resumable API backfill (manual fallback)
+
+The loader uses bounded requests, retries transient errors, honors numeric Retry-After, projects columns at the API, and checkpoints progress locally. It reads no linked documents or biographies. Each invocation can stop with exit code 3 and be rerun with the same checkpoint. Both the full-row pass and ID pass resume while the source remains stable. Do not publish an intermediate checkpoint or an unfinished output.
+
+```bash
+MODEL=trilogy_public_models/duckdb/danish_democracy
+uv run "$MODEL/data/ingest/source.py" ballot \
+  --checkpoint-dir "$MODEL/.checkpoints" \
+  --output "$MODEL/ballot.parquet" \
+  --max-requests 1000
+```
+
+Repeat per entity (`actor`, `period`, `meeting`, `case`, `case_step`, `vote`, `ballot`). Exit 0 means that entity completed reconciliation and its output was atomically replaced. Exit 3 means no new output was published. A changing source may require retries. The API does not promise transactional isolation, so coordinate the initial release at a quiet time and validate source counts immediately before publication.
+
+Once all seven complete local files exist, an operator with existing bucket access can use the native Trilogy ingest project to publish them:
+
+```bash
+# Review targets first. This performs no upload by itself.
+trilogy refresh "$MODEL/data" --dry-run
+
+# This command writes public GCS tiles. Run only after release approval,
+# with existing authorized HMAC credentials and freshly validated seeds.
+DANISH_ODA_BACKFILL_DIR="$(pwd)/$MODEL" trilogy refresh "$MODEL/data"
+```
+
+Do not use branch-environment rehearsals with the current API loader: it reads production seed URLs, while Trilogy may namespace write targets. The opt-in template must remain outside discoverable `trilogy.toml` files until the production/rehearsal seed strategy and reconciliation runtime have been verified.
+
+## Offline immutable-generation preparation
+
+Stop extraction writers after all seven outputs complete and pass source-level validation, then run:
+
+```bash
+uv run "$MODEL/data/ingest/generation.py" \
+  --source-dir "$MODEL" --output-dir /path/to/local/generations
+```
+
+This command copies all seven Parquet files into a private staging directory, requires all seven query-model files and a nonempty `entrypoint.preql`, validates exact schemas, required values, unique IDs and reconciliation timestamps, and records row counts, sizes and SHA-256 hashes. It hashes data plus model source to name a generation, writes eight query-model files pinned to that generation's immutable public paths, and exposes the completed directory with a local rename. Failed preparation exposes no partial generation; an existing generation is never overwritten. It performs no network calls, uploads, pointer updates or activation. All four examples are tested against a locally resolved generation model.
+
+The resulting directory is the proposed object tree below `duckdb/danish_democracy/generations/<generation>/`, including `manifest.json` and `model/entrypoint.preql`. A future authorized publisher must create objects without overwriting existing generations, verify remote hashes, and use an object-version precondition to change one current-generation pointer only after the entire bundle is present. A reader must resolve that pointer once per session and load that generation's entire model. Existing sessions remain on their pinned generation; separate per-table pointer reads are unsafe. Pointer compare-and-swap, reader resolution, deletion propagation and retention remain runtime-specific work. Local rename guarantees visibility on the local filesystem, not remote atomicity or an atomic upstream snapshot.
+
+Inspection of the existing FAA publishers found independent per-object uploads (`publish_dimensions.py`), not a cross-table generation switch. The installed pytrilogy 0.3.383 refresh command's state snapshots record asset observations and fingerprints; they do not retain this extractor's SQLite rows or paging checkpoints. Its Cloud workspace schema carries versioned files/configuration and resource defaults, with no verified writable-volume contract here. Those mechanisms cannot be assumed to provide durable incremental extraction state. Cloud `emit` now persists the checkpoint itself through the remote snapshot protocol below; the manual CLI still uses its explicitly supplied local checkpoint directory.
+
+### Where existing jobs keep state
+
+These are repository/installed-client contracts, not a claim that live Cloud bindings were inspected:
+
+| Existing path | Durable state used by subsequent runs | What it does not establish |
+|---|---|---|
+| COVID `data/common.preql`, `data/ingest_update_date.py`, individual tile declarations | Published GCS Parquet files carry `data_updated_through`; upstream CSV `Last-Modified` values drive staleness. A stale tile is rebuilt from its source CSV | No local incremental database or multi-tile transaction |
+| FAA `ingest/refresh_flights.py`, `ingest/publish_flights.py`, `flight.preql` | Local yearly files are uploaded to GCS; a separate `watermark.parquet` is uploaded after flight uploads, and public objects/probes drive later aggregate refreshes | Local working files are not proven to survive an ephemeral worker; a final watermark upload is not atomic switching of all objects |
+| `gcat_space/etl.preql` | This checkout is a query model over externally produced Parquet; its comment points to `greenmtnboy/space_reporting` as canonical ETL | This repository does not establish that external producer's checkpoint/worker contract |
+| Trilogy Cloud sync/workspaces and CLI refresh state snapshots | Versioned job source/configuration and asset observations/fingerprints | No verified persistent writable filesystem for application SQLite checkpoints; resource settings alone do not create one |
+| Danish `source.emit` | One SQLite snapshot per entity in the existing bucket; reloads rows, update cursor, replay cursor and partial live-ID scans | Hard termination loses work after the last successful snapshot; replay resumes from that snapshot. Live bucket permissions and ballot-scale transfer/runtime are not yet validated |
+
+### Remote incremental checkpoints (selected design)
+
+Assume **one active refresh run**, with `[engine] parallelism = 1`. No distributed lock or new infrastructure is introduced. Each entity uses its own object:
+
+```
+gs://trilogy_public_models/duckdb/danish_democracy/checkpoints/v1/<entity>.sqlite
+```
+
+These seven objects are incremental working state, separate from published `<entity>.parquet` and immutable publication generations. They contain the same allowlisted rows plus SQLite metadata and partial `live_ids` reconciliation state. A prefix is not an access-control boundary: bucket permissions and object-version/deletion retention remain unchanged and must be checked before release.
+
+`emit` downloads the entity checkpoint to local scratch storage through the GCS XML API using boto3 and the existing `GOOGLE_HMAC_KEY` / `GOOGLE_HMAC_SECRET` bindings. This follows [Google's documented S3-client interoperability](https://cloud.google.com/storage/docs/aws-simple-migration). It never falls back to ADC or another credential source. Only `NoSuchKey` initializes state from the complete published Parquet seed; absent seeds still fail closed, so normal daily execution does not silently initiate full bootstrap. Permission, transport, missing-bucket, truncated-download, corrupt SQLite, incompatible format and wrong-entity errors stop without resetting progress or emitting output. The explicit `DANISH_ODA_BACKFILL_DIR` seed-only path remains local and does not write remote checkpoints.
+
+Rows and associated full-row/replay/ID-scan cursors commit together. After committed progress, the process checks whether **300 seconds** have elapsed since its last snapshot (`DANISH_ODA_CHECKPOINT_SECONDS`, a positive integer, may override this). It also saves on successful completion, request-budget exhaustion, source drift and catchable exceptions, including keyboard interruption. It rolls back any unfinished transaction, uses SQLite's backup API to include committed WAL contents, closes and integrity-checks the standalone snapshot, then synchronously uploads it with a Content-MD5 checksum. A single object PUT replaces only that entity's previous complete snapshot; no live database file or WAL sidecar is copied independently.
+
+A failed upload stops the extract before Arrow output. A hard kill/SIGTERM or machine loss cannot execute the final save: the next run restores the last successful periodic snapshot and replays later work. The interval is checked at commit boundaries, not a hard wall-clock recovery bound; slow requests, validation and uploads can extend it. An ambiguous transport failure may leave either the previous or the new complete snapshot remotely; both contain a coherent replay state. Saving a completed checkpoint before publishing Parquet is safe because the next extraction returns the entire reconciled row set, not just the delta.
+
+Local scratch disk must hold the downloaded database, SQLite journals/WAL, a standalone backup and Arrow/output working data. Each save uploads the full database, so ballot-scale runtime, temporary storage and transfer volume still need measurement. Boto3 is declared in the seven datasource scripts; no credentials or remote objects were created during implementation. The standalone manual `source.py` command remains a local resumable backfill tool. An explicitly prepared, versioned full-phase remote checkpoint can resume that phase, but converting/uploading bootstrap state is a separate operational step, not an automatic fallback.
+
+No additional concurrency mechanism is needed under the agreed single-active-run assumption. That is an operational assumption, not a new scheduler guarantee supplied by this patch. Remote checkpoint durability also does not implement cross-table atomic Parquet publication, generation-pointer switching or retention cleanup.
+
+Checkpoint validation: **45 focused tests passed** across the Danish, Studio manifest and basic structure suites; repository Ruff, full mypy (49 files), Studio and diff checks passed. Mocked storage covers first initialization, subsequent restore without reseeding, full/replay/ID-scan interruptions, deletion completion, periodic snapshots, committed WAL contents with uncommitted work excluded, corrupt/wrong-entity state, missing bindings, truncated reads, unavailable storage and failed uploads that emit no output. No live storage credentials or requests were used.
+
+## Verification and activation checklist
+
+1. Run `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py`, `ruff check trilogy_public_models`, `mypy trilogy_public_models`, and `python studio/build.py --check`
+2. Complete the chosen full-history seed, validate key uniqueness, required fields, source counts and nullable relationships, and inspect all four examples against real data
+3. Validate a deletion fixture through the selected production ingestion route, including removal from derived/public outputs and retained accessible versions
+4. Confirm existing Cloud secret bindings and runtime/budget, then apply the approved root template to the model-root `trilogy.toml` (including engine settings), leaving `data/trilogy.toml` without `[cloud]` in a separate reviewed change
+5. After approved merge, inspect the exact-commit **Cloud Sync** workflow result, check the job’s source version and schedule with `trilogy cloud --org trilogy-data jobs list` / `schedules list`
+6. Trigger that verified job with `jobs run <job-id> --wait`; inspect the final logs and public Parquet row counts/freshness. A queued run or a successful sync is not proof of a successful refresh
+
+7. Only after the verified public queries succeed, remove `.unpublished`, regenerate the Studio manifests and publish the catalog entry
+
+Offline tests cover typed schemas, models and examples, nullable case-step joins, timestamp ties, removal plus insertion with unchanged total count, incomplete backfill, request-budget paging, source drift and prohibited-column exclusions. The cross-dataset live validation suite is not a substitute for this pre-publication gate and skips this model until its tiles exist.
+
+Revalidation on 2026-10-13 (Python 3.13, pytrilogy 0.3.383):
+
+- `pytest tests/test_danish_democracy.py tests/test_studio_manifests.py tests/test_basic_structure.py -q`: **31 passed**, including retry-budget and complete-generation/failure-isolation coverage. Eleven bundle cases run the shipped helper in isolation from the checkout using actual Cloud CLI `collect_files` output: a complete root bundle succeeds, while each missing model, an empty entrypoint, and the old data-only layout fail without exposing a generation
+- `mypy trilogy_public_models`: **49 source files passed**
+- `ruff check trilogy_public_models tests/test_danish_democracy.py`: passed. Eleven baseline UP017 findings in seven COVID/FAA files were fixed in a separate mechanical UTC-alias commit so CI can reach the tests; no ingest behavior changed
+- `python studio/build.py --check`: passed; the Danish model remains absent from the catalog
+- `python -m build --wheel --no-isolation`: passed; the wheel contains `data/ingest/entities.json`
+- Seven live allowlisted entity samples converted successfully to their Arrow schemas; a live Periode backfill and incremental rerun each produced **163 rows**
+
+These checks do not constitute ballot-scale backfill, atomic publication, authenticated Cloud/bucket validation or a first successful production refresh.
+
+### Full workflow-command reproduction
+
+Ran the workflow's `pytest --ignore=docs_src/ --cov=./` locally without credentials or coverage upload. Python 3.13.5 returned **33 passed, 2 setup errors**, both `google.auth.exceptions.DefaultCredentialsError` in the shared BigQuery fixture for `test_examples.py` and `test_models.py`.
+
+A fresh Python 3.12.14 environment using current `requirements.txt` and `requirements-test.txt` initially reproduced a different concrete dependency error: Snowflake SQLAlchemy 1.8.2 could not import `sqlalchemy.orm.context.ORMSelectCompileState` from SQLAlchemy 2.1.4. The test requirements now constrain `sqlalchemy<2.1` alongside the existing Snowflake pin. With resolved SQLAlchemy 2.0.54, the same complete command returns **33 passed, 2 setup errors**, now solely the expected missing BigQuery credentials. Other resolved versions: pytrilogy 0.3.383, pytest 9.1.1, PyArrow 26.0.0, DuckDB 1.5.6, fakesnow 0.11.22 and google-auth 2.62.0.
+
+All 17 Danish tests passed within those original full runs. A subsequent deployment-bundle regression exposed missing query models in a data-only bundle; the root template and fail-closed preparation checks now address that defect. These historical results distinguish locally verified offline behavior from credential-dependent coverage; subsequent checkpoint tests are recorded in the PR. They do not establish the cause of the remote pytest failure: authorized Actions log access remains blocked, and no alternate log route was attempted.
+
+## Attribution and conditions
+
+Source: **Folketinget (the Danish Parliament), Open Data**, https://oda.ft.dk/, accessed 2026-10-12. Processing/modeling: Trilogy public models. This is an independent model and does not imply endorsement by Folketinget.
+
+Use is governed by [Folketinget’s conditions](https://www.ft.dk/-/media/sites/ft/pdf/dokumenter/aabne-data/conditions_for_use_-of_the_danish_parliaments-_open_data.pdf), not by the reference implementation’s software license. Retain source attribution and conditions when redistributing. Correct or remove material that Folketinget retracts; consumers must propagate removal to their copies, including mistaken disclosures. The conditions do not grant unrestricted reuse of linked photographs or documents, which are excluded here. The source is provided without warranties; derived statistics should retain the official vote outcomes and correction comments.
+
+The architectural reference project is MIT-licensed. This model and extractor were independently implemented against the official API schema; no upstream code or biography content is copied.

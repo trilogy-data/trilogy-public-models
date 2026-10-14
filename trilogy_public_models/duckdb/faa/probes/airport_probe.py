@@ -8,7 +8,7 @@ airports_v2.parquet object's Last-Modified.
 import re
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from http.client import HTTPException
 
@@ -58,13 +58,13 @@ def _latest_cycle_date() -> datetime | None:
     if not text:
         return None
     cycles = sorted(set(CYCLE_RE.findall(text)))
-    today = datetime.now(timezone.utc).date().isoformat()
+    today = datetime.now(UTC).date().isoformat()
     eligible = [c for c in cycles if c <= today]
     pick = eligible[-1] if eligible else (cycles[0] if cycles else None)
     if pick is None:
         return None
     try:
-        return datetime.strptime(pick, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        return datetime.strptime(pick, "%Y-%m-%d").replace(tzinfo=UTC)
     except ValueError:
         return None
 

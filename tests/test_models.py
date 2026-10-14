@@ -13,6 +13,9 @@ from trilogy_public_models.validator import validate_model
 # validated in CI by a dedicated build + `trilogy integration` step against
 # locally-built tiles (see .github/workflows/pythonpackage.yml).
 SKIPPED_KEYS = [
+    # No public tiles yet; covered by offline test_danish_democracy.py until
+    # bootstrap and deletion reconciliation are approved (see model README).
+    "duckdb.danish_democracy",
     "duckdb.covid19_open_data",
     # The only BigQuery model on a private project: it reads
     # ttl-test-355422.aoe2, while every other one reads bigquery-public-data.

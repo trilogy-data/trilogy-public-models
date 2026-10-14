@@ -1,0 +1,19 @@
+# Opt-in only: after release approval, apply at the model root, not data/.
+# Bundle query models plus ingest code; refresh only the data subtree.
+[engine]
+dialect = "duck_db"
+parallelism = 1
+
+[engine.config]
+enable_gcs = true
+enable_python_datasources = true
+
+[cloud]
+org = "trilogy-data"
+operation = "refresh"
+entrypoint = "data"
+timeout_seconds = 3600
+# Six-field cron: 05:00 UTC daily, after overnight source updates.
+# First seed all seven complete tiles; a missing tile fails closed (no partial history).
+schedule = "0 0 5 * * *"
+secret_env = ["GOOGLE_HMAC_KEY", "GOOGLE_HMAC_SECRET"]

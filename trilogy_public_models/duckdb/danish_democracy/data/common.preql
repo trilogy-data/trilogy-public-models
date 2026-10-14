@@ -1,0 +1,6 @@
+property <*>.snapshot_date date; # UTC date this snapshot was reconciled with Folketinget
+
+root datasource refresh_clock (
+    snapshot_date: snapshot_date,
+)
+file `ingest/refresh_date.py`;

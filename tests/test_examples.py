@@ -14,6 +14,9 @@ from trilogy_public_models.validator import example_path, validate_query
 # a dedicated build + `trilogy integration` step instead. bigquery.age_of_empires_2
 # reads a private project CI has no IAM on. See test_models.py for both.
 SKIPPED_MODELS = {
+    # No public tiles yet; covered by offline test_danish_democracy.py until
+    # bootstrap and deletion reconciliation are approved (see model README).
+    "duckdb.danish_democracy",
     "duckdb.covid19_open_data",
     "bigquery.age_of_empires_2",
 }

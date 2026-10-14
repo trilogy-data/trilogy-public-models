@@ -1,0 +1,10 @@
+import ballot;
+
+SELECT
+    vote.meeting.period.title,
+    actor.name,
+    type_name,
+    count(id) -> ballots
+ORDER BY
+    ballots desc
+LIMIT 50;

@@ -11,7 +11,7 @@ ending ~75 days ago and walk back if not yet posted.
 """
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from http.client import HTTPException
 
@@ -50,7 +50,7 @@ def _latest_bts_month_available() -> datetime | None:
     """Walk backward from ~75 days ago to find the most recent month BTS has
     posted. Returns the Last-Modified of that zip, or None if nothing in the
     last ~6 months is reachable."""
-    today = datetime.now(timezone.utc)
+    today = datetime.now(UTC)
     candidate = (today - timedelta(days=75)).replace(day=1)
     for _ in range(6):
         url = BTS_URL.format(year=candidate.year, month=candidate.month)

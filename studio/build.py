@@ -46,6 +46,11 @@ def generate_json_files(check: bool):
                 dataset_path = os.path.join(engine_path, dataset_dir)
 
                 if os.path.isdir(dataset_path):
+                    # Prepared models must not appear in Studio before their
+                    # data exists. Remove this marker only after publication
+                    # and a verified query against the public tiles.
+                    if (Path(dataset_path) / ".unpublished").exists():
+                        continue
                     # README authoritative description
                     readme_description = False
                     # Create the JSON structure
