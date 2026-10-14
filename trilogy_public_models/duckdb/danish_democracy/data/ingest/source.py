@@ -49,6 +49,10 @@ class IncompleteExtract(RuntimeError):
     """A staged extract must not be published."""
 
 
+class TileAbsent(IncompleteExtract):
+    """No published tile exists yet for this entity."""
+
+
 @dataclass(frozen=True)
 class Marker:
     count: int
@@ -56,9 +60,17 @@ class Marker:
 
 
 class OData:
-    def __init__(self, max_pages: int = 1000, delay: float = 0.05):
+    def __init__(
+        self,
+        max_pages: int = 1000,
+        delay: float = 0.05,
+        max_seconds: float | None = None,
+    ):
         self.remaining = max_pages
         self.delay = delay
+        # A wall-clock budget lets a bounded Cloud run stop cleanly, saving its
+        # checkpoint, before the job timeout kills it.
+        self.deadline = None if max_seconds is None else time.monotonic() + max_seconds
 
     def get(self, entity: str, **params: str) -> dict[str, Any]:
         url = BASE + quote(entity, safe="") + "?" + urlencode(params)
@@ -66,6 +78,10 @@ class OData:
             if self.remaining <= 0:
                 raise IncompleteExtract(
                     "request budget exhausted; resume the same checkpoint, not the published tile"
+                )
+            if self.deadline is not None and time.monotonic() >= self.deadline:
+                raise IncompleteExtract(
+                    "time budget exhausted; the next run resumes this checkpoint"
                 )
             self.remaining -= 1
             try:
@@ -371,9 +387,7 @@ def published_table(entity: str) -> pa.Table:
             return pq.read_table(pa.BufferReader(response.read()))
     except HTTPError as exc:
         if exc.code == 404:
-            raise IncompleteExtract(
-                "published tile is absent; complete the resumable local backfill before enabling Cloud refresh"
-            ) from exc
+            raise TileAbsent("published tile is absent") from exc
         raise
 
 
@@ -530,9 +544,15 @@ def remote_extract(entity: str, store: CheckpointStore, api: OData) -> pa.Table:
 
         try:
             if not exists:
-                # Bootstrap is an explicit separate operation. Missing state
-                # starts from a complete published seed, never an empty delta.
-                state.seed(entity, published_table(entity))
+                # Missing state starts from the complete published seed. With no
+                # tile either, this is the first bootstrap: an empty checkpoint
+                # in the full phase, which pages the whole history from id 0
+                # across as many bounded runs as it takes. Nothing is emitted
+                # until that scan and its ID reconciliation complete.
+                try:
+                    state.seed(entity, published_table(entity))
+                except TileAbsent:
+                    state.set("phase", "full")
                 state.set("checkpoint_format", "1")
                 state.set("entity", entity)
                 state.db.commit()
@@ -558,7 +578,10 @@ def emit(entity: str) -> None:
         table = remote_extract(
             entity,
             CheckpointStore(),
-            OData(int(os.getenv("DANISH_ODA_MAX_REQUESTS", "1000"))),
+            OData(
+                int(os.getenv("DANISH_ODA_MAX_REQUESTS", "100000")),
+                max_seconds=float(os.getenv("DANISH_ODA_MAX_SECONDS", "7200")),
+            ),
         )
     with pa.ipc.new_stream(sys.stdout.buffer, table.schema) as writer:
         writer.write_table(table)

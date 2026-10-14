@@ -266,9 +266,7 @@ def test_ingest_declarations_and_cloud_gate():
         parse(path.read_text(), Environment(working_path=str(path.parent)))
     load_config_file(BASE / "data/trilogy.toml")
     assert "\n[cloud]" not in (BASE / "data/trilogy.toml").read_text()
-    assert (
-        'schedule = "0 0 5 * * *"' in (BASE / "trilogy_cloud.example.toml").read_text()
-    )
+    assert 'schedule = "0 0 5 * * *"' in (BASE / "trilogy.toml").read_text()
 
 
 def test_reconciliation_timestamp_survives_published_tile_round_trip(tmp_path):
@@ -457,10 +455,10 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
 
     from trilogy.scripts.cloud import collect_files, discover_projects
 
-    # The shipped configuration remains non-discoverable. Only the proposed
-    # template defines a root bundle with a refresh entrypoint in data/.
-    assert discover_projects(BASE) == []
-    template = tomllib.loads((BASE / "trilogy_cloud.example.toml").read_text())
+    # The model root is the one discoverable project: a root bundle with a
+    # refresh entrypoint in data/.
+    assert [p.directory.resolve() for p in discover_projects(BASE)] == [BASE.resolve()]
+    template = tomllib.loads((BASE / "trilogy.toml").read_text())
     assert template["cloud"]["operation"] == "refresh"
     assert template["cloud"]["entrypoint"] == "data"
     deployment = tmp_path / "deployment"
@@ -698,7 +696,9 @@ def test_remote_storage_failures_do_not_reset_or_emit(
         source, "published_table", lambda _: pytest.fail("must not reseed")
     )
     monkeypatch.setattr(source, "CheckpointStore", lambda: remote_store)
-    monkeypatch.setattr(source, "OData", lambda _: FakeAPI([ballot(1), ballot(2)]))
+    monkeypatch.setattr(
+        source, "OData", lambda *_, **__: FakeAPI([ballot(1), ballot(2)])
+    )
     monkeypatch.delenv("DANISH_ODA_BACKFILL_DIR", raising=False)
     monkeypatch.setattr(
         source.pa.ipc, "new_stream", lambda *args: pytest.fail("must not emit")
@@ -708,14 +708,22 @@ def test_remote_storage_failures_do_not_reset_or_emit(
     assert remote_store.objects == previous
 
 
-def test_remote_missing_seed_does_not_initialize_checkpoint(remote_store, monkeypatch):
+def test_remote_missing_seed_bootstraps_from_empty_checkpoint(
+    remote_store, monkeypatch
+):
     def missing(_):
-        raise source.IncompleteExtract("published tile is absent")
+        raise source.TileAbsent("published tile is absent")
 
     monkeypatch.setattr(source, "published_table", missing)
-    with pytest.raises(source.IncompleteExtract, match="published tile"):
-        source.remote_extract("ballot", remote_store, FakeAPI([]))
-    assert remote_store.objects == {}
+    table = source.remote_extract("ballot", remote_store, FakeAPI([ballot(1)]))
+    assert table.column("id").to_pylist() == [1]
+    assert "ballot" in remote_store.objects
+
+
+def test_time_budget_stops_before_requesting():
+    api = source.OData(max_seconds=0)
+    with pytest.raises(source.IncompleteExtract, match="time budget"):
+        api.get("Stemme")
 
 
 def test_checkpoint_storage_protocol(tmp_path, monkeypatch):

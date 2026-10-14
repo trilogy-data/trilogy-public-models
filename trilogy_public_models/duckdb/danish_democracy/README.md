@@ -2,7 +2,7 @@
 
 A full-history Trilogy voting model for [Folketinget's open parliamentary data](https://www.ft.dk/dokumenter/aabne_data), inspired by [bgarcevic/danish-democracy-data](https://github.com/bgarcevic/danish-democracy-data). DuckDB reads seven compact Parquet tiles; no warehouse account is required for queries once the tiles are published.
 
-**Status: model and extraction implementation only. No public tiles have been published and no Cloud schedule is active.** The proposed Cloud declaration is an opt-in template, deliberately excluded from automatic deployment. The `.unpublished` marker keeps it out of the Studio catalog. Merging this change alone does not activate refresh or advertise unavailable public data. Production release needs an initial backfill and a practical, verified deletion-reconciliation route.
+**Status: deployed as a Cloud refresh job (`[cloud]` in the model-root `trilogy.toml`, entrypoint `data`, daily 05:00 UTC); tiles are bootstrapping.** With no checkpoint and no published tile, `emit` starts an empty full-phase checkpoint in the bucket and pages the whole history across as many runs as it takes: each entity stops on a 2h time budget (`DANISH_ODA_MAX_SECONDS`) and saves its checkpoint, and no tile is written until that entity's full scan and ID reconciliation complete. The `.unpublished` marker keeps the model out of the Studio catalog until all seven tiles exist. The sections below record the original design review; where they say the template is not deployed, this status supersedes them.
 
 ## Coverage and semantics
 
