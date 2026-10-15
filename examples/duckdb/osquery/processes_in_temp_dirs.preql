@@ -1,0 +1,9 @@
+import process;
+
+# Executables running out of temporary directories.
+WHERE
+    lower(path) like '%temp%' or path like '/tmp/%' or path like '/var/tmp/%'
+SELECT
+    pid,
+    name,
+    path;

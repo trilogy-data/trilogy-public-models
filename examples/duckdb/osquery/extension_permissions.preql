@@ -1,0 +1,11 @@
+import browser_extension;
+
+# Chromium browsers report permissions; firefox add-ons have no count.
+SELECT
+    browser,
+    name,
+    permission_count,
+    permissions
+ORDER BY
+    permission_count desc nulls last
+LIMIT 10;

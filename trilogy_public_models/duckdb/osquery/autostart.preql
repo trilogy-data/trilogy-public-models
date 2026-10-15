@@ -1,0 +1,26 @@
+# Programs configured to start automatically: at sign-in (Run keys, Startup
+# folders, login items) or at boot (automatic Windows services).
+
+key autostart_id string; # kind/source/name
+properties autostart_id (
+    kind string, # startup_item or service
+    trigger string, # sign_in or boot
+    name string,
+    path string?, # executable or command line
+    source string?, # registry key, startup folder, or service name
+    status string?, # enabled/disabled for startup items, RUNNING/STOPPED for services
+    username string?, # account it runs as, when reported
+);
+
+datasource autostarts (
+    autostart_id: autostart_id,
+    kind: kind,
+    trigger: trigger,
+    name: name,
+    path: path,
+    source: source,
+    status: status,
+    username: username,
+)
+grain (autostart_id)
+file `./ingest/autostart.py`;

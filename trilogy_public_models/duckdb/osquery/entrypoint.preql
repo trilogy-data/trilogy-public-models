@@ -4,3 +4,5 @@ import process as process;
 import listening_port as listening_port;
 import connection as connection;
 import interface_address as interface_address;
+import browser_extension as browser_extension;
+import autostart as autostart;

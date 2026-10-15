@@ -12,6 +12,8 @@ streams the result to DuckDB, so each Trilogy query sees the machine as it is no
 | `listening_port.preql` | pid/protocol/address/port | Listening TCP/UDP ports and the owning process |
 | `connection.preql` | pid/protocol/local/remote | Sockets with a remote end (established, closing, TIME_WAIT) |
 | `interface_address.preql` | interface/address | IP addresses on each network interface |
+| `browser_extension.preql` | browser/install path | Browser extensions and add-ons, with permission counts for Chromium browsers |
+| `autostart.preql` | kind/source/name | Programs started at sign-in (Run keys, Startup folders, login items) or boot (automatic Windows services) |
 
 ## Requirements
 

@@ -9,7 +9,7 @@ properties connection_id (
     local_port int,
     remote_address string,
     remote_port int,
-    state string?, # e.g. ESTABLISHED, TIME_WAIT
+    state string?, # e.g. ESTABLISHED, TIME_WAIT; closed TIME_WAIT sockets belong to no process (pid 0 on Windows)
 );
 
 datasource connections (
