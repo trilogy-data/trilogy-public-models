@@ -1,0 +1,10 @@
+import host;
+
+SELECT
+    hostname,
+    os_name,
+    os_version,
+    cpu_brand,
+    cpu_logical_cores,
+    physical_memory_gb,
+    booted_at;

@@ -1,0 +1,41 @@
+# The machine osquery is running on: one row of hardware, OS and uptime facts.
+
+key hostname string; # network hostname of the machine
+properties hostname (
+    computer_name string?, # OS-level computer name
+    cpu_brand string?, # CPU model string
+    cpu_physical_cores int?,
+    cpu_logical_cores int?,
+    physical_memory int?, # installed RAM, in bytes
+    hardware_vendor string?,
+    hardware_model string?,
+    os_name string?, # e.g. Microsoft Windows 11 Home, Ubuntu
+    os_version string?,
+    os_platform string?, # windows, darwin, ubuntu, ...
+    os_arch string?,
+    uptime_seconds int?,
+    booted_at datetime?, # UTC
+    observed_at datetime?, # UTC time the snapshot was taken
+);
+
+auto physical_memory_gb <- round(physical_memory / 1073741824.0, 1);
+
+datasource host (
+    hostname: hostname,
+    computer_name: computer_name,
+    cpu_brand: cpu_brand,
+    cpu_physical_cores: cpu_physical_cores,
+    cpu_logical_cores: cpu_logical_cores,
+    physical_memory: physical_memory,
+    hardware_vendor: hardware_vendor,
+    hardware_model: hardware_model,
+    os_name: os_name,
+    os_version: os_version,
+    os_platform: os_platform,
+    os_arch: os_arch,
+    uptime_seconds: uptime_seconds,
+    booted_at: booted_at,
+    observed_at: observed_at,
+)
+grain (hostname)
+file `./ingest/host.py`;

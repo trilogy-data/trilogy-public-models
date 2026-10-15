@@ -1,0 +1,11 @@
+import process;
+
+# The ten processes holding the most resident memory.
+SELECT
+    pid,
+    name,
+    resident_mb,
+    started_at
+ORDER BY
+    resident_mb desc nulls last
+LIMIT 10;

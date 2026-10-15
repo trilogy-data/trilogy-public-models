@@ -1,0 +1,9 @@
+import connection;
+
+SELECT
+    process.name,
+    count(connection_id) -> connections,
+    count(connection_id ? state = 'ESTABLISHED') -> established
+ORDER BY
+    connections desc
+LIMIT 10;

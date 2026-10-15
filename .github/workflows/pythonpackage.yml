@@ -51,6 +51,13 @@ jobs:
           pip install codecov
           pip install -r requirements.txt
           pip install -r requirements-test.txt
+      - name: Install osquery
+        # duckdb.osquery's script datasources shell out to osqueryi; uv fetches
+        # their python dependencies, but the binary comes from the osquery release.
+        run: |
+          curl -sSL -o /tmp/osquery.deb https://github.com/osquery/osquery/releases/download/5.23.1/osquery_5.23.1-1.linux_amd64.deb
+          sudo dpkg -i /tmp/osquery.deb
+          osqueryi --json "select version from osquery_info"
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names

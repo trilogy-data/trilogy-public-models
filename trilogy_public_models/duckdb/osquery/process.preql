@@ -1,0 +1,42 @@
+# Running processes at the moment of the query.
+import user as user;
+
+key pid int; # operating system process id
+properties pid (
+    parent_pid int?, # pid of the process that started this one
+    name string, # executable name, e.g. python.exe
+    path string?, # full path to the executable
+    cmdline string?, # full command line
+    state string?,
+    threads int?,
+    resident_bytes int?, # resident memory (working set), in bytes
+    virtual_bytes int?, # total virtual memory, in bytes
+    user_cpu_ms int?, # cumulative CPU time in user space, milliseconds
+    system_cpu_ms int?, # cumulative CPU time in kernel space, milliseconds
+    disk_bytes_read int?,
+    disk_bytes_written int?,
+    started_at datetime?, # UTC
+);
+
+auto resident_mb <- round(resident_bytes / 1048576.0, 1);
+auto cpu_seconds <- (coalesce(user_cpu_ms, 0) + coalesce(system_cpu_ms, 0)) / 1000.0;
+
+datasource processes (
+    pid: pid,
+    parent_pid: parent_pid,
+    name: name,
+    path: path,
+    cmdline: cmdline,
+    uid: ~?user.uid,
+    state: state,
+    threads: threads,
+    resident_bytes: resident_bytes,
+    virtual_bytes: virtual_bytes,
+    user_cpu_ms: user_cpu_ms,
+    system_cpu_ms: system_cpu_ms,
+    disk_bytes_read: disk_bytes_read,
+    disk_bytes_written: disk_bytes_written,
+    started_at: started_at,
+)
+grain (pid)
+file `./ingest/process.py`;

@@ -1,0 +1,10 @@
+import process;
+
+SELECT
+    user.username,
+    count(pid) -> processes,
+    sum(resident_mb) -> total_resident_mb
+HAVING
+    processes > 0
+ORDER BY
+    total_resident_mb desc nulls last;
