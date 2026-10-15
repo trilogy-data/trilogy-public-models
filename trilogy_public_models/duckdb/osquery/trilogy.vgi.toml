@@ -1,0 +1,10 @@
+# The same model read over VGI: each script datasource runs as a resident
+# worker (`--vgi`) instead of starting per query. Needs pytrilogy[vgi]
+# (haybarn + vgi-python, python >= 3.13).
+#   trilogy serve . --mcp --config trilogy.vgi.toml
+[engine]
+dialect = "duck_db"
+
+[engine.config]
+enable_python_datasources = true
+python_datasource_transport = "vgi"

@@ -67,7 +67,7 @@ LAUNCHERS = {
 }
 
 
-def windows_counters() -> dict[int, dict]:
+def windows_counters(pids: list[int]) -> dict[int, dict]:
     """Counters for every process, read without the handle osquery needs.
 
     Unprivileged, osquery cannot open protected processes (Defender, csrss,
@@ -77,16 +77,17 @@ def windows_counters() -> dict[int, dict]:
     import psutil
 
     counters: dict[int, dict] = {}
-    for proc in psutil.process_iter():
+    for pid in pids:
         # pid 0 is the System Idle Process: its CPU time is idle time.
-        if proc.pid == 0:
+        if pid == 0:
             continue
         try:
+            proc = psutil.Process(pid)
             with proc.oneshot():
                 cpu = proc.cpu_times()
                 io = proc.io_counters()
                 created = int(proc.create_time())
-                counters[proc.pid] = {
+                counters[pid] = {
                     "threads": proc.num_threads(),
                     "resident_bytes": proc.memory_info().rss,
                     "user_cpu_ms": int(cpu.user * 1000),
@@ -125,7 +126,9 @@ def app_parent(row: dict, by_pid: dict[int, dict]) -> int | None:
 def processes() -> pa.Table:
     rows = query(SQL, OSQUERY_SCHEMA).to_pylist()
     if sys.platform == "win32":
-        counters = windows_counters()
+        # Only the processes osquery could not open; psutil is slow per process.
+        unread = [row["pid"] for row in rows if row["resident_bytes"] is None]
+        counters = windows_counters(unread)
         for row in rows:
             for key, value in counters.get(row["pid"], {}).items():
                 if row[key] is None:
