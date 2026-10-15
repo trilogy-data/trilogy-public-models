@@ -4,6 +4,7 @@ import user as user;
 key pid int; # operating system process id
 properties pid (
     parent_pid int?, # pid of the process that started this one
+    app_parent_pid int?, # parent within the same application; null at a launcher (explorer, services, svchost, init, ...), a missing parent, or a reused pid
     name string, # executable name, e.g. python.exe
     path string?, # full path to the executable
     cmdline string?, # full command line
@@ -16,14 +17,20 @@ properties pid (
     disk_bytes_read int?,
     disk_bytes_written int?,
     started_at datetime?, # UTC
+    age_seconds int?, # seconds since the process started, at snapshot time
 );
 
 auto resident_mb <- round(resident_bytes / 1048576.0, 1);
-auto cpu_seconds <- (coalesce(user_cpu_ms, 0) + coalesce(system_cpu_ms, 0)) / 1000.0;
+auto cpu_seconds <- (coalesce(user_cpu_ms, 0) + coalesce(system_cpu_ms, 0)) / 1000.0; # user + kernel CPU time
+auto age_hours <- round(age_seconds / 3600.0, 1);
+auto in_temp_dir <- lower(path) like '%\temp\%' or lower(path) like '%\tmp\%' or path like '/tmp/%' or path like '/var/tmp/%' or path like '/private/var/folders/%'; # executable runs from a temporary directory
+# the process at the top of this one's application tree (itself, if it has no app parent)
+auto application_pid <- recurse_edge(pid, app_parent_pid);
 
 datasource processes (
     pid: pid,
     parent_pid: parent_pid,
+    app_parent_pid: app_parent_pid,
     name: name,
     path: path,
     cmdline: cmdline,
@@ -37,6 +44,7 @@ datasource processes (
     disk_bytes_read: disk_bytes_read,
     disk_bytes_written: disk_bytes_written,
     started_at: started_at,
+    age_seconds: age_seconds,
 )
 grain (pid)
 file `./ingest/process.py`;

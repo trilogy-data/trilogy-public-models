@@ -8,6 +8,7 @@ streams the result to DuckDB, so each Trilogy query sees the machine as it is no
 |---|---|---|
 | `host.preql` | hostname | Hardware, OS, uptime and boot time (one row) |
 | `process.preql` | pid | Running processes: path, command line, memory, CPU time, owner |
+| `process_tree.preql` | pid | Each process with its `parent` and its `app` (the top of its launch tree, via `recurse_edge`); per-application totals |
 | `user.preql` | uid | Local and system accounts |
 | `listening_port.preql` | pid/protocol/address/port | Listening TCP/UDP ports and the owning process |
 | `connection.preql` | pid/protocol/local/remote | Sockets with a remote end (established, closing, TIME_WAIT) |

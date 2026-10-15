@@ -1,0 +1,14 @@
+# Process ancestry: each process with its parent and the application it belongs
+# to. An application is the process at the top of a launch tree below explorer,
+# services, svchost, init, ..., so its totals include child processes with
+# other executable names.
+import process as process;
+import process as parent;
+import process as app;
+
+merge process.parent_pid into parent.pid;
+merge process.application_pid into app.pid;
+
+auto process_count <- count(process.pid);
+auto total_resident_mb <- round(sum(process.resident_bytes) / 1048576.0, 1);
+auto total_cpu_seconds <- round(sum(process.cpu_seconds), 1);

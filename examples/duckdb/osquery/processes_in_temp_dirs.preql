@@ -2,7 +2,7 @@ import process;
 
 # Executables running out of temporary directories.
 WHERE
-    lower(path) like '%temp%' or path like '/tmp/%' or path like '/var/tmp/%'
+    in_temp_dir
 SELECT
     pid,
     name,
