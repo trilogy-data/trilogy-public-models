@@ -48,7 +48,7 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
     models = {}
     for name in sorted(REQUIRED_MODELS):
         path = MODEL / name
-        content = path.read_text() if path.is_file() else ""
+        content = path.read_text(encoding="utf-8") if path.is_file() else ""
         if not content.strip():
             raise IncompleteExtract(f"missing or empty required query model: {name}")
         models[name] = content
@@ -87,7 +87,8 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
         for name, content in models.items():
             path = model_dir / name
             path.write_text(
-                content.replace(PUBLIC, PUBLIC + f"generations/{generation}/")
+                content.replace(PUBLIC, PUBLIC + f"generations/{generation}/"),
+                encoding="utf-8",
             )
             model_files[name] = {"path": f"model/{name}", "sha256": digest(path)}
         manifest = {
@@ -100,7 +101,7 @@ def prepare(source_dir: Path, output_dir: Path) -> Path:
             "conditions": "https://www.ft.dk/-/media/sites/ft/pdf/dokumenter/aabne-data/conditions_for_use_-of_the_danish_parliaments-_open_data.pdf",
         }
         (staging / "manifest.json").write_text(
-            json.dumps(manifest, indent=2, sort_keys=True) + "\n"
+            json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
         destination = output_dir / generation
         if destination.exists():
