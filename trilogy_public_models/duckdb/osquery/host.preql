@@ -1,4 +1,6 @@
 # The machine osquery is running on: one row of hardware, OS and uptime facts.
+import std.bytes;
+import std.date;
 
 key hostname string; # network hostname of the machine
 properties hostname (
@@ -6,19 +8,19 @@ properties hostname (
     cpu_brand string?, # CPU model string
     cpu_physical_cores int?,
     cpu_logical_cores int?,
-    physical_memory int?, # installed RAM, in bytes
+    physical_memory int::byte?, # installed RAM
     hardware_vendor string?,
     hardware_model string?,
     os_name string?, # e.g. Microsoft Windows 11 Home, Ubuntu
     os_version string?,
     os_platform string?, # windows, darwin, ubuntu, ...
     os_arch string?,
-    uptime_seconds int?,
+    uptime_seconds int::second?,
     booted_at datetime?, # UTC
     observed_at datetime?, # UTC time the snapshot was taken
 );
 
-auto physical_memory_gb <- round(physical_memory / 1073741824.0, 1);
+auto physical_memory_gb <- round(physical_memory / 1073741824.0, 1)::gib; # installed RAM in GiB (1,073,741,824 bytes)
 
 datasource host (
     hostname: hostname,

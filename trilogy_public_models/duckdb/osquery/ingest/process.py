@@ -101,6 +101,14 @@ def windows_counters(pids: list[int]) -> dict[int, dict]:
     return counters
 
 
+def boot_time() -> datetime.datetime:
+    import psutil
+
+    return datetime.datetime.fromtimestamp(psutil.boot_time(), datetime.UTC).replace(
+        tzinfo=None
+    )
+
+
 def app_parent(row: dict, by_pid: dict[int, dict]) -> int | None:
     """The parent within the same application, or None at the top of its tree."""
     parent = by_pid.get(row["parent_pid"])
@@ -128,6 +136,12 @@ def processes() -> pa.Table:
             for key, value in counters.get(row["pid"], {}).items():
                 if row[key] is None:
                     row[key] = value
+        # The idle and System pseudo-processes report no creation time; both
+        # exist from boot.
+        booted = boot_time()
+        for row in rows:
+            if row["pid"] in (0, 4) and row["started_at"] is None:
+                row["started_at"] = booted
     by_pid = {row["pid"]: row for row in rows}
     now = datetime.datetime.now(datetime.UTC).replace(tzinfo=None)
     for row in rows:

@@ -10,6 +10,7 @@ properties autostart_id (
     source string?, # registry key, startup folder, or service name
     status string?, # enabled/disabled for startup items, RUNNING/STOPPED for services
     username string?, # account it runs as, when reported
+    run_once bool, # a RunOnce entry: runs at the next sign-in, then Windows removes it
 );
 
 datasource autostarts (
@@ -21,6 +22,7 @@ datasource autostarts (
     source: source,
     status: status,
     username: username,
+    run_once: run_once,
 )
 grain (autostart_id)
 file `./ingest/osquery.py#autostart`;

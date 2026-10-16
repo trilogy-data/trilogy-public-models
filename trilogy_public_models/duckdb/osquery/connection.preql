@@ -1,4 +1,5 @@
 # Open network connections (sockets with a remote end), and the owning process.
+import std.net;
 import process as process;
 
 key connection_id string; # pid/protocol/local>remote
@@ -6,9 +7,9 @@ properties connection_id (
     protocol string, # tcp or udp
     family string, # ipv4 or ipv6
     local_address string,
-    local_port int,
+    local_port int::port,
     remote_address string,
-    remote_port int,
+    remote_port int::port,
     state string?, # e.g. ESTABLISHED, TIME_WAIT; closed TIME_WAIT sockets belong to no process (pid 0 on Windows)
 );
 

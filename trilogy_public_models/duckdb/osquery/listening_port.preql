@@ -1,9 +1,12 @@
-# Network ports processes are listening on.
+# Network ports processes are listening on. Every row is a listening socket: a
+# TCP socket in the LISTEN state, or a bound UDP port (UDP has no connection
+# state). Whether a firewall lets traffic reach it is not modeled.
+import std.net;
 import process as process;
 
 key listener_id string; # pid/protocol/address/port
 properties listener_id (
-    port int,
+    port int::port,
     protocol string, # tcp or udp
     family string, # ipv4 or ipv6
     address string, # bound address; 0.0.0.0 or :: means all interfaces

@@ -1,9 +1,10 @@
 import sys
 
 import pyarrow as pa
+import pyarrow.compute as pc
 from osq import query  # type: ignore[import-not-found]
 
-SCHEMA = pa.schema(
+OSQUERY_SCHEMA = pa.schema(
     [
         ("autostart_id", pa.string()),
         ("kind", pa.string()),
@@ -15,6 +16,7 @@ SCHEMA = pa.schema(
         ("username", pa.string()),
     ]
 )
+SCHEMA = OSQUERY_SCHEMA.append(pa.field("run_once", pa.bool_()))
 
 # Run keys, Startup folders, login items and autostart entries: start at sign-in.
 STARTUP_ITEMS = """
@@ -90,6 +92,10 @@ where start_type = 'AUTO_START' and service_type not like '%DRIVER%'
 
 def autostarts() -> pa.Table:
     if sys.platform == "win32":
-        return query(f"{WINDOWS_STARTUP} union all {SERVICES}", SCHEMA)
-    return query(STARTUP_ITEMS, SCHEMA)
+        table = query(f"{WINDOWS_STARTUP} union all {SERVICES}", OSQUERY_SCHEMA)
+    else:
+        table = query(STARTUP_ITEMS, OSQUERY_SCHEMA)
+    # A RunOnce entry runs at the next sign-in and is then removed by Windows.
+    run_once = pc.fill_null(pc.ends_with(table["source"], r"\RunOnce"), False)
+    return table.append_column("run_once", run_once)
 
