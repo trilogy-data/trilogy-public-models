@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["pytrilogy>=0.3.394", "psutil>=6"]
+# dependencies = ["pytrilogy>=0.3.395", "psutil>=6"]
 # ///
 """Every osquery source, served by one program (``file `./ingest/osquery.py#name```).
 
