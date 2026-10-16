@@ -22,4 +22,4 @@ datasource browser_extensions (
     permission_count: permission_count,
 )
 grain (extension_id)
-file `./ingest/browser_extension.py`;
+file `./ingest/osquery.py#browser_extension`;

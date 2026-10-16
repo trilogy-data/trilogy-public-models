@@ -1,8 +1,11 @@
 # osquery
 
 A live model of the machine you run it on, read through [osquery](https://osquery.io).
-Every datasource is a `uv` python script that runs one `osqueryi --json` query and
-streams the result to DuckDB, so each Trilogy query sees the machine as it is now.
+Every datasource is one source of a single `uv` python program, `ingest/osquery.py`
+(addressed as `` file `./ingest/osquery.py#process` ``). Each read runs one
+`osqueryi --json` query and streams the result to DuckDB, so each Trilogy query sees
+the machine as it is now. One program means one environment and, under the VGI
+transport (`trilogy.vgi.toml`), one resident worker for the whole model.
 
 | File | Grain | Contents |
 |---|---|---|

@@ -1,10 +1,5 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = ["pytrilogy>=0.3.391"]
-# ///
 import pyarrow as pa
 from osq import query  # type: ignore[import-not-found]
-from trilogy.io import run
 
 SCHEMA = pa.schema(
     [
@@ -29,6 +24,3 @@ from interface_addresses
 def interface_addresses() -> pa.Table:
     return query(SQL, SCHEMA)
 
-
-if __name__ == "__main__":
-    raise SystemExit(run(interface_addresses, schema=SCHEMA))

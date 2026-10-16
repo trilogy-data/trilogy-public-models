@@ -47,4 +47,4 @@ datasource processes (
     age_seconds: age_seconds,
 )
 grain (pid)
-file `./ingest/process.py`;
+file `./ingest/osquery.py#process`;

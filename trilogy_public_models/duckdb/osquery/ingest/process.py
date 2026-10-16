@@ -1,13 +1,8 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = ["pytrilogy>=0.3.391", "psutil>=6"]
-# ///
 import datetime
 import sys
 
 import pyarrow as pa
 from osq import query  # type: ignore[import-not-found]
-from trilogy.io import run
 
 OSQUERY_SCHEMA = pa.schema(
     [
@@ -141,6 +136,3 @@ def processes() -> pa.Table:
         row["age_seconds"] = int((now - started).total_seconds()) if started else None
     return pa.Table.from_pylist(rows, schema=SCHEMA)
 
-
-if __name__ == "__main__":
-    raise SystemExit(run(processes, schema=SCHEMA))

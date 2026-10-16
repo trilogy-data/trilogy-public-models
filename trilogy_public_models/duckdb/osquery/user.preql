@@ -18,4 +18,4 @@ datasource users (
     type: type,
 )
 grain (uid)
-file `./ingest/user.py`;
+file `./ingest/osquery.py#user`;

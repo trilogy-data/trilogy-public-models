@@ -18,4 +18,4 @@ datasource listening_ports (
     address: address,
 )
 grain (listener_id)
-file `./ingest/listening_port.py`;
+file `./ingest/osquery.py#listening_port`;

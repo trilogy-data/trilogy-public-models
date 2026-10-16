@@ -38,4 +38,4 @@ datasource host (
     observed_at: observed_at,
 )
 grain (hostname)
-file `./ingest/host.py`;
+file `./ingest/osquery.py#host`;

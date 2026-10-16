@@ -20,4 +20,4 @@ datasource interface_addresses (
     type: type,
 )
 grain (interface_address_id)
-file `./ingest/interface_address.py`;
+file `./ingest/osquery.py#interface_address`;

@@ -24,4 +24,4 @@ datasource connections (
     state: state,
 )
 grain (connection_id)
-file `./ingest/connection.py`;
+file `./ingest/osquery.py#connection`;

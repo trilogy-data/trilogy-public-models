@@ -1,12 +1,7 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = ["pytrilogy>=0.3.391"]
-# ///
 import sys
 
 import pyarrow as pa
 from osq import query  # type: ignore[import-not-found]
-from trilogy.io import run
 
 SCHEMA = pa.schema(
     [
@@ -51,6 +46,3 @@ where protocol = 17 and port > 0
 def listening_ports() -> pa.Table:
     return query(WINDOWS_SQL if sys.platform == "win32" else SQL, SCHEMA)
 
-
-if __name__ == "__main__":
-    raise SystemExit(run(listening_ports, schema=SCHEMA))

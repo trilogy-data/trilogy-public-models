@@ -1,12 +1,7 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = ["pytrilogy>=0.3.391"]
-# ///
 import sys
 
 import pyarrow as pa
 from osq import query  # type: ignore[import-not-found]
-from trilogy.io import run
 
 SCHEMA = pa.schema(
     [
@@ -98,6 +93,3 @@ def autostarts() -> pa.Table:
         return query(f"{WINDOWS_STARTUP} union all {SERVICES}", SCHEMA)
     return query(STARTUP_ITEMS, SCHEMA)
 
-
-if __name__ == "__main__":
-    raise SystemExit(run(autostarts, schema=SCHEMA))
