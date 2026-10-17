@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from trilogy_public_models import data_models, get_executor
+from trilogy_public_models.main import is_vgi_model
 from trilogy_public_models.validator import example_path, validate_query
 
 # duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
@@ -79,7 +80,8 @@ def _discover_example_keys() -> list[tuple[str, Path]]:
 def test_example_queries(bq_client, bq_executor, snowflake_executor):
     failures: list[tuple[str, str, str]] = []
     for key, example_dir in _discover_example_keys():
-        if key in SKIPPED_MODELS:
+        # VGI models need haybarn; test_vgi_models.py runs them.
+        if key in SKIPPED_MODELS or (key in data_models and is_vgi_model(key)):
             continue
         if key not in data_models:
             failures.append(

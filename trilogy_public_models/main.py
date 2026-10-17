@@ -18,6 +18,11 @@ def _engine_config(model: str) -> dict:
         return tomllib.load(f).get("engine", {}).get("config", {})
 
 
+def is_vgi_model(model: str) -> bool:
+    """Read through VGI workers, which only haybarn's DuckDB can load."""
+    return _engine_config(model).get("python_datasource_transport") == "vgi"
+
+
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
