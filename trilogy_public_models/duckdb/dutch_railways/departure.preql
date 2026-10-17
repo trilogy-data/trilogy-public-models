@@ -1,0 +1,35 @@
+import station as station;
+
+key train_number string;
+property <station.station_code, train_number>.category string; # Intercity, Sprinter, ...
+property <station.station_code, train_number>.operator string;
+property <station.station_code, train_number>.destination string;
+property <station.station_code, train_number>.via array<string>?; # intermediate stops
+property <station.station_code, train_number>.planned_time datetime;
+property <station.station_code, train_number>.actual_time datetime;
+property <station.station_code, train_number>.delay_minutes int;
+property <station.station_code, train_number>.planned_track string?;
+property <station.station_code, train_number>.actual_track string?;
+property <station.station_code, train_number>.track_changed bool;
+property <station.station_code, train_number>.cancelled bool;
+property <station.station_code, train_number>.status string;
+
+# The live departure board of every station: trains leaving in roughly the next hour.
+datasource departures (
+    station_code: ~station.station_code,
+    train_number,
+    category,
+    operator,
+    destination,
+    ?via,
+    planned_time,
+    actual_time,
+    delay_minutes,
+    ?planned_track,
+    ?actual_track,
+    track_changed,
+    cancelled,
+    status,
+)
+grain (station.station_code, train_number)
+address dutch_railways.main.station_departures;

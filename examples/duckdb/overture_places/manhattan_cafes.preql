@@ -1,0 +1,12 @@
+import place;
+
+where min_lon >= -74.000 and max_lon <= -73.980
+    and min_lat >= 40.740 and max_lat <= 40.760
+    and category = 'cafe'
+select
+    place_name,
+    locality,
+    confidence,
+    website
+order by confidence desc
+limit 20;

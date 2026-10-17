@@ -1,0 +1,12 @@
+import geocoding;
+
+where search = 'Springfield'
+select
+    place_name,
+    region,
+    country,
+    place_latitude,
+    place_longitude,
+    population
+order by population desc nulls last
+limit 5;

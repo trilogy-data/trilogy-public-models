@@ -1,0 +1,11 @@
+import daily;
+
+where latitude = 52.374 and longitude = 4.890
+select
+    forecast_date,
+    emoji,
+    condition,
+    temp_min,
+    temp_max,
+    precipitation_mm
+order by forecast_date asc;

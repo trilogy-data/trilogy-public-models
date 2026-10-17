@@ -1,0 +1,10 @@
+[engine]
+dialect = "duck_db"
+
+# Reads public Query.Farm VGI workers. Only haybarn (Query.Farm's DuckDB
+# build) can LOAD vgi: pip install haybarn.
+[engine.config]
+python_datasource_transport = "vgi"
+
+[setup]
+sql = ["setup.sql"]

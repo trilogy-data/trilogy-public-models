@@ -1,0 +1,25 @@
+key station_code string; # NS station code, e.g. ASD
+property station_code.station_name string;
+property station_code.short_name string;
+property station_code.country string; # NL, D, B, ...
+property station_code.latitude float;
+property station_code.longitude float;
+property station_code.station_type string;
+property station_code.has_departures bool;
+property station_code.has_travel_assistance bool;
+property station_code.uic_code string;
+
+datasource stations (
+    station_code,
+    name: station_name,
+    name_short: short_name,
+    country,
+    lat: latitude,
+    lng: longitude,
+    station_type,
+    has_departures,
+    has_travel_assistance,
+    uic_code,
+)
+grain (station_code)
+address dutch_railways.main.train_stations;

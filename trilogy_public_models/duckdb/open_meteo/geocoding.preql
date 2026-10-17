@@ -1,0 +1,25 @@
+# Place-name search: pin `search` with `= '<name>'` to look up the coordinates
+# a forecast query needs.
+key search string;
+key place_id int; # GeoNames id
+property <search, place_id>.place_name string;
+property <search, place_id>.country string;
+property <search, place_id>.region string;
+property <search, place_id>.place_latitude float;
+property <search, place_id>.place_longitude float;
+property <search, place_id>.population int?;
+property <search, place_id>.timezone string;
+
+datasource geocoding (
+    search,
+    id: place_id,
+    name: place_name,
+    country,
+    admin1: region,
+    latitude: place_latitude,
+    longitude: place_longitude,
+    ?population,
+    timezone,
+)
+grain (search, place_id)
+address open_meteo.main.geocoding(search, count := 10);

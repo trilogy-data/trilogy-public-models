@@ -1,0 +1,8 @@
+import departure;
+
+select
+    station.station_name,
+    count(train_number) as departures,
+    avg(delay_minutes) as avg_delay_minutes
+order by departures desc
+limit 10;

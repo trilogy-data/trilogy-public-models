@@ -1,0 +1,12 @@
+import departure;
+
+where delay_minutes > 0 and not cancelled
+select
+    station.station_name,
+    train_number,
+    category,
+    destination,
+    planned_time,
+    delay_minutes
+order by delay_minutes desc
+limit 20;

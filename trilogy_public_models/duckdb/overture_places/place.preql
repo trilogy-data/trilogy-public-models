@@ -1,0 +1,33 @@
+# Overture Places (points of interest), read from the live Overture release.
+# The server refuses a scan without a bounding box: filter all four of
+# min_lon, max_lon, min_lat and max_lat, e.g.
+#   where min_lon >= 4.88 and max_lon <= 4.90 and min_lat >= 52.368 and max_lat <= 52.378
+key place_id string; # GERS id
+property place_id.place_name string?;
+property place_id.category string?; # basic category, e.g. restaurant
+property place_id.confidence float; # 0-1 confidence the place exists
+property place_id.operating_status string;
+property place_id.locality string?;
+property place_id.country string?;
+property place_id.website string?;
+property place_id.min_lon float;
+property place_id.max_lon float;
+property place_id.min_lat float;
+property place_id.max_lat float;
+
+datasource places (
+    id: place_id,
+    raw('''names."primary"'''): ?place_name,
+    basic_category: ?category,
+    confidence,
+    operating_status,
+    raw('''addresses[1].locality'''): ?locality,
+    raw('''addresses[1].country'''): ?country,
+    raw('''websites[1]'''): ?website,
+    raw('''bbox.xmin'''): min_lon,
+    raw('''bbox.xmax'''): max_lon,
+    raw('''bbox.ymin'''): min_lat,
+    raw('''bbox.ymax'''): max_lat,
+)
+grain (place_id)
+address overture.places.place;

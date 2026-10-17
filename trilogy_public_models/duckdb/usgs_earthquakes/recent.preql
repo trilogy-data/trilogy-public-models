@@ -1,0 +1,25 @@
+import event;
+
+# The live USGS feed: every event worldwide from the past 30 days, all magnitudes.
+datasource recent (
+    event_id,
+    time: event_time,
+    updated: updated_at,
+    mag: ?magnitude,
+    magtype: ?magnitude_type,
+    place: ?place,
+    title,
+    depth: depth_km,
+    latitude,
+    longitude,
+    type: event_type,
+    status,
+    tsunami,
+    alert: ?alert,
+    felt: ?felt_reports,
+    sig: significance,
+    net: network,
+    url,
+)
+grain (event_id)
+address usgs_earthquakes.main.recent;

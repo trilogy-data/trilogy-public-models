@@ -6,6 +6,7 @@ from pydantic.errors import PydanticUserError
 from trilogy import Environment
 
 from trilogy_public_models import data_models, get_executor
+from trilogy_public_models.main import is_vgi_model
 from trilogy_public_models.validator import validate_model
 
 # duckdb.covid19_open_data reads its parquet tiles from GCS (not committed to
@@ -60,7 +61,8 @@ def test_models(bq_client, bq_executor, snowflake_executor):
     with ThreadPoolExecutor() as executor:
         for key, model in data_models.items():
             print(f"Validating {key}")
-            if key in SKIPPED_KEYS:
+            # VGI models need haybarn; test_vgi_models.py runs them.
+            if key in SKIPPED_KEYS or is_vgi_model(key):
                 continue
 
             if "bigquery" in key:

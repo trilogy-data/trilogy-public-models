@@ -1,0 +1,24 @@
+import location;
+import weather_code;
+
+property <latitude, longitude>.observed_at datetime;
+property <latitude, longitude>.current_temperature float; # °C
+property <latitude, longitude>.current_feels_like float; # °C
+property <latitude, longitude>.current_humidity_pct float;
+property <latitude, longitude>.current_precipitation_mm float;
+property <latitude, longitude>.current_wind_kmh float;
+
+# Conditions now: one row per coordinate.
+datasource forecast_current (
+    latitude,
+    longitude,
+    time: observed_at,
+    weather_code,
+    temperature_2m: current_temperature,
+    apparent_temperature: current_feels_like,
+    relative_humidity_2m: current_humidity_pct,
+    precipitation: current_precipitation_mm,
+    wind_speed_10m: current_wind_kmh,
+)
+grain (latitude, longitude)
+address open_meteo.main.forecast_current(latitude, longitude, timezone := 'auto');

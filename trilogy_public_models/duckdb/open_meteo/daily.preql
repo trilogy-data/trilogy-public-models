@@ -1,0 +1,36 @@
+import location;
+import weather_code;
+
+key forecast_date date;
+property <latitude, longitude, forecast_date>.temp_max float; # °C
+property <latitude, longitude, forecast_date>.temp_min float; # °C
+property <latitude, longitude, forecast_date>.feels_like_max float; # °C
+property <latitude, longitude, forecast_date>.feels_like_min float; # °C
+property <latitude, longitude, forecast_date>.sunrise datetime;
+property <latitude, longitude, forecast_date>.sunset datetime;
+property <latitude, longitude, forecast_date>.precipitation_mm float;
+property <latitude, longitude, forecast_date>.precipitation_hours float;
+property <latitude, longitude, forecast_date>.snowfall_cm float;
+property <latitude, longitude, forecast_date>.wind_max_kmh float;
+property <latitude, longitude, forecast_date>.gust_max_kmh float;
+
+# Seven days from today, local to the coordinate.
+datasource forecast_daily (
+    latitude,
+    longitude,
+    raw('''cast("time" as date)'''): forecast_date,
+    weather_code,
+    temperature_2m_max: temp_max,
+    temperature_2m_min: temp_min,
+    apparent_temperature_max: feels_like_max,
+    apparent_temperature_min: feels_like_min,
+    sunrise,
+    sunset,
+    precipitation_sum: precipitation_mm,
+    precipitation_hours,
+    snowfall_sum: snowfall_cm,
+    wind_speed_10m_max: wind_max_kmh,
+    wind_gusts_10m_max: gust_max_kmh,
+)
+grain (latitude, longitude, forecast_date)
+address open_meteo.main.forecast_daily(latitude, longitude, timezone := 'auto');
