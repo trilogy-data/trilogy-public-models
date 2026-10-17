@@ -2,6 +2,8 @@
 import std.bytes;
 import std.date;
 import user as user;
+self import as parent;
+self import as app;
 
 key pid int; # operating system process id
 properties pid (
@@ -30,7 +32,16 @@ auto cpu_seconds <- case
 end::second;
 auto age_hours <- round(age_seconds / 3600.0, 1)::numeric::hour;
 auto in_temp_dir <- lower(path) like '%\temp\%' or lower(path) like '%\tmp\%' or path like '/tmp/%' or path like '/var/tmp/%' or path like '/private/var/folders/%'; # executable runs from a temporary directory
-auto application_pid <- recurse_edge(pid, app_parent_pid); # the process at the top of this one's application tree (itself, if it has no app parent); see process_tree
+# An application is the root of a launch tree below a system launcher. Its
+# totals include children with other executable names; separately launched
+# copies of the same program remain separate applications.
+auto application_pid <- recurse_edge(pid, app_parent_pid);
+merge parent_pid into parent.pid;
+merge application_pid into app.pid;
+
+auto process_count <- count(pid);
+auto total_resident_mb <- round(sum(resident_bytes) / 1048576.0, 1)::mib;
+auto total_cpu_seconds <- round(sum(cpu_seconds), 1)::second;
 
 datasource processes (
     pid: pid,
