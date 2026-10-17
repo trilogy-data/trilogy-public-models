@@ -4,10 +4,19 @@ from pathlib import Path
 
 import pytest
 from trilogy import Dialects, Environment
+from trilogy.core.enums import ValidationScope
+from trilogy.core.validation.environment import validate_environment
 
 ROOT = Path(__file__).parents[1]
 MODEL = ROOT / "trilogy_public_models/duckdb/osquery"
 EXAMPLE = ROOT / "examples/duckdb/osquery/memory_by_application.preql"
+
+
+def test_entrypoint_has_no_unbound_concepts():
+    environment = Environment(working_path=MODEL)
+    environment.parse("import entrypoint;")
+    results = validate_environment(environment, scope=ValidationScope.CONCEPTS)
+    assert not [result.result for result in results if result.result]
 
 
 @pytest.fixture
