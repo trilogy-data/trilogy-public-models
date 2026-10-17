@@ -36,7 +36,9 @@ import pyarrow.parquet as pq
 
 BASE = "https://oda.ft.dk/api/"
 PUBLIC = "https://storage.googleapis.com/trilogy_public_models/duckdb/danish_democracy/"
-ENTITIES = json.loads(Path(__file__).with_name("entities.json").read_text())
+ENTITIES = json.loads(
+    Path(__file__).with_name("entities.json").read_text(encoding="utf-8")
+)
 TYPES = {
     "int": pa.int64(),
     "bool": pa.bool_(),

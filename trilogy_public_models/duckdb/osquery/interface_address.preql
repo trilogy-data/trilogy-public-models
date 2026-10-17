@@ -1,0 +1,23 @@
+# IP addresses assigned to the machine's network interfaces.
+
+key interface_address_id string; # interface/address
+properties interface_address_id (
+    interface string, # interface id (an index on Windows, e.g. eth0 elsewhere)
+    friendly_name string?, # e.g. Ethernet, Wi-Fi
+    address string,
+    mask string?,
+    family string, # ipv4 or ipv6
+    type string?, # windows: dhcp, manual, auto, ...
+);
+
+datasource interface_addresses (
+    interface_address_id: interface_address_id,
+    interface: interface,
+    friendly_name: friendly_name,
+    address: address,
+    mask: mask,
+    family: family,
+    type: type,
+)
+grain (interface_address_id)
+file `./ingest/osquery.py#interface_address`;

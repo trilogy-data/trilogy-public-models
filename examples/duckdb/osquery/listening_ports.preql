@@ -1,0 +1,10 @@
+import listening_port;
+
+# Which program owns each listening port.
+SELECT
+    port,
+    protocol,
+    address,
+    process.name
+ORDER BY
+    port asc;

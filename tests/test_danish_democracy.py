@@ -221,13 +221,15 @@ def local_environment(tmp_path):
         )
         preql = (
             (BASE / f"{entity}.preql")
-            .read_text()
+            .read_text(encoding="utf-8")
             .replace(source.PUBLIC + f"{entity}.parquet", str(path))
         )
-        (tmp_path / f"{entity}.preql").write_text(preql)
-    (tmp_path / "entrypoint.preql").write_text((BASE / "entrypoint.preql").read_text())
+        (tmp_path / f"{entity}.preql").write_text(preql, encoding="utf-8")
+    (tmp_path / "entrypoint.preql").write_text(
+        (BASE / "entrypoint.preql").read_text(encoding="utf-8")
+    )
     return parse(
-        (tmp_path / "entrypoint.preql").read_text(),
+        (tmp_path / "entrypoint.preql").read_text(encoding="utf-8"),
         Environment(working_path=str(tmp_path)),
     )[0]
 
@@ -254,7 +256,7 @@ def test_models_compile_and_examples_execute(tmp_path):
         example_dir = BASE.parents[2] / "examples/duckdb/danish_democracy"
         assert len(list(example_dir.glob("*.preql"))) == 4
         for path in example_dir.glob("*.preql"):
-            executor.execute_text(path.read_text())[-1].fetchall()
+            executor.execute_text(path.read_text(encoding="utf-8"))[-1].fetchall()
     finally:
         executor.close()
 
@@ -263,10 +265,14 @@ def test_ingest_declarations_and_cloud_gate():
     from trilogy.execution.config import load_config_file
 
     for path in (BASE / "data").glob("*.preql"):
-        parse(path.read_text(), Environment(working_path=str(path.parent)))
+        parse(
+            path.read_text(encoding="utf-8"), Environment(working_path=str(path.parent))
+        )
     load_config_file(BASE / "data/trilogy.toml")
-    assert "\n[cloud]" not in (BASE / "data/trilogy.toml").read_text()
-    assert 'schedule = "0 0 5 * * *"' in (BASE / "trilogy.toml").read_text()
+    assert "\n[cloud]" not in (BASE / "data/trilogy.toml").read_text(encoding="utf-8")
+    assert 'schedule = "0 0 5 * * *"' in (BASE / "trilogy.toml").read_text(
+        encoding="utf-8"
+    )
 
 
 def test_reconciliation_timestamp_survives_published_tile_round_trip(tmp_path):
@@ -291,7 +297,7 @@ def test_unpublished_model_is_not_in_studio_catalog():
     repo = BASE.parents[2]
     assert (BASE / ".unpublished").exists()
     assert not (repo / "studio/danish_democracy.json").exists()
-    index = json.loads((repo / "studio/index.json").read_text())
+    index = json.loads((repo / "studio/index.json").read_text(encoding="utf-8"))
     assert "danish_democracy" not in {item["name"] for item in index["files"]}
 
 
@@ -376,25 +382,28 @@ def test_generation_pins_all_models_and_examples_execute(tmp_path, generation):
     seeds, bundles = tmp_path / "seeds", tmp_path / "generations"
     generation_seeds(seeds)
     bundle = generation.prepare(seeds, bundles)
-    manifest = json.loads((bundle / "manifest.json").read_text())
+    manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
     assert set(manifest["files"]) == set(source.ENTITIES)
     pinned = source.PUBLIC + f"generations/{bundle.name}/"
     local = tmp_path / "query"
     local.mkdir()
     for path in (bundle / "model").glob("*.preql"):
-        content = path.read_text()
+        content = path.read_text(encoding="utf-8")
         if path.name != "entrypoint.preql":
             assert pinned in content
-        (local / path.name).write_text(content.replace(pinned, bundle.as_posix() + "/"))
+        (local / path.name).write_text(
+            content.replace(pinned, bundle.as_posix() + "/"), encoding="utf-8"
+        )
     env = parse(
-        (local / "entrypoint.preql").read_text(), Environment(working_path=str(local))
+        (local / "entrypoint.preql").read_text(encoding="utf-8"),
+        Environment(working_path=str(local)),
     )[0]
     executor = Dialects.DUCK_DB.default_executor(environment=env)
     try:
         for example in (BASE.parents[2] / "examples/duckdb/danish_democracy").glob(
             "*.preql"
         ):
-            executor.execute_text(example.read_text())[-1].fetchall()
+            executor.execute_text(example.read_text(encoding="utf-8"))[-1].fetchall()
     finally:
         executor.close()
     original = (bundle / "manifest.json").read_bytes()
@@ -458,7 +467,7 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
     # The model root is the one discoverable project: a root bundle with a
     # refresh entrypoint in data/.
     assert [p.directory.resolve() for p in discover_projects(BASE)] == [BASE.resolve()]
-    template = tomllib.loads((BASE / "trilogy.toml").read_text())
+    template = tomllib.loads((BASE / "trilogy.toml").read_text(encoding="utf-8"))
     assert template["cloud"]["operation"] == "refresh"
     assert template["cloud"]["entrypoint"] == "data"
     deployment = tmp_path / "deployment"
@@ -467,10 +476,10 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
     for item in collect_files(bundle_root):
         path = deployment / item["name"]
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(item["content"])
+        path.write_text(item["content"], encoding="utf-8")
     if missing and missing != "data-only":
         if missing == "empty-entrypoint":
-            (deployment / "entrypoint.preql").write_text("\n")
+            (deployment / "entrypoint.preql").write_text("\n", encoding="utf-8")
         else:
             (deployment / f"{missing}.preql").unlink()
     seeds, generations = tmp_path / "seeds", tmp_path / "generations"
@@ -501,7 +510,9 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
     else:
         assert result.returncode == 0, result.stderr
         generation_dir = Path(result.stdout.strip())
-        manifest = json.loads((generation_dir / "manifest.json").read_text())
+        manifest = json.loads(
+            (generation_dir / "manifest.json").read_text(encoding="utf-8")
+        )
         expected = {
             "entrypoint.preql",
             *(f"{entity}.preql" for entity in source.ENTITIES),
@@ -510,7 +521,7 @@ def test_generation_from_cloud_bundle(tmp_path, missing):
         assert (generation_dir / manifest["entrypoint"]).is_file()
         assert set(manifest["files"]) == set(source.ENTITIES)
         for name, record in manifest["models"].items():
-            content = (generation_dir / record["path"]).read_text()
+            content = (generation_dir / record["path"]).read_text(encoding="utf-8")
             assert content.strip()
             if name != "entrypoint.preql":
                 assert source.PUBLIC + f"generations/{generation_dir.name}/" in content

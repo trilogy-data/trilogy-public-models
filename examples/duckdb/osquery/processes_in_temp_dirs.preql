@@ -1,0 +1,9 @@
+import process;
+
+# Executables running out of temporary directories.
+WHERE
+    in_temp_dir
+SELECT
+    pid,
+    name,
+    path;

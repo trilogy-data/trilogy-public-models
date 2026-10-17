@@ -1,0 +1,2 @@
+Reads the local machine through osqueryi; there is nothing to publish to the
+browser Studio catalog. Query it with `trilogy run` or `trilogy serve --mcp`.

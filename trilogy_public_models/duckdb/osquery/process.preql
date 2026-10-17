@@ -1,0 +1,55 @@
+# Running processes at the moment of the query.
+import std.bytes;
+import std.date;
+import user as user;
+
+key pid int; # operating system process id
+properties pid (
+    parent_pid int?, # pid of the process that started this one
+    app_parent_pid int?, # parent within the same application; null at a launcher (explorer, services, svchost, init, ...), a missing parent, or a reused pid
+    name string, # executable name, e.g. python.exe
+    path string?, # full path to the executable
+    cmdline string?, # full command line
+    state string?,
+    threads int?,
+    resident_bytes int::byte?, # resident memory (working set)
+    virtual_bytes int::byte?, # total virtual memory
+    user_cpu_ms int::millisecond?, # cumulative CPU time in user space
+    system_cpu_ms int::millisecond?, # cumulative CPU time in kernel space
+    disk_bytes_read int::byte?, # bytes read since start; on Windows this counts all I/O (files, devices and network), not only disk
+    disk_bytes_written int::byte?, # bytes written since start; on Windows this counts all I/O (files, devices and network), not only disk
+    started_at datetime?, # UTC; boot time for the System and idle processes
+    age_seconds int::second?, # time since the process started, at snapshot time
+);
+
+auto resident_mb <- round(resident_bytes / 1048576.0, 1)::mib; # resident memory in MiB (1,048,576 bytes), the unit Task Manager calls MB
+# user + kernel CPU time; null when neither counter could be read
+auto cpu_seconds <- case
+    when user_cpu_ms is null and system_cpu_ms is null then null
+    else (coalesce(user_cpu_ms, 0) + coalesce(system_cpu_ms, 0)) / 1000.0
+end::second;
+auto age_hours <- round(age_seconds / 3600.0, 1)::numeric::hour;
+auto in_temp_dir <- lower(path) like '%\temp\%' or lower(path) like '%\tmp\%' or path like '/tmp/%' or path like '/var/tmp/%' or path like '/private/var/folders/%'; # executable runs from a temporary directory
+auto application_pid <- recurse_edge(pid, app_parent_pid); # the process at the top of this one's application tree (itself, if it has no app parent); see process_tree
+
+datasource processes (
+    pid: pid,
+    parent_pid: parent_pid,
+    app_parent_pid: app_parent_pid,
+    name: name,
+    path: path,
+    cmdline: cmdline,
+    uid: ~?user.uid,
+    state: state,
+    threads: threads,
+    resident_bytes: resident_bytes,
+    virtual_bytes: virtual_bytes,
+    user_cpu_ms: user_cpu_ms,
+    system_cpu_ms: system_cpu_ms,
+    disk_bytes_read: disk_bytes_read,
+    disk_bytes_written: disk_bytes_written,
+    started_at: started_at,
+    age_seconds: age_seconds,
+)
+grain (pid)
+file `./ingest/osquery.py#process`;

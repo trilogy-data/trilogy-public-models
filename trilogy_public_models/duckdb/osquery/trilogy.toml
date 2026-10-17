@@ -1,0 +1,5 @@
+[engine]
+dialect = "duck_db"
+
+[engine.config]
+enable_python_datasources = true

@@ -1,0 +1,25 @@
+# Browser extensions and add-ons installed for each user and browser profile.
+
+key extension_id string; # browser/install path
+properties extension_id (
+    browser string, # chrome, edge, brave, firefox, ...
+    name string,
+    identifier string, # the browser's extension id
+    version string?,
+    profile string?, # browser profile name (chromium browsers)
+    permissions string?, # comma-separated; not reported for firefox
+    permission_count int?, # number of permissions; null for firefox
+);
+
+datasource browser_extensions (
+    extension_id: extension_id,
+    browser: browser,
+    name: name,
+    identifier: identifier,
+    version: version,
+    profile: profile,
+    permissions: permissions,
+    permission_count: permission_count,
+)
+grain (extension_id)
+file `./ingest/osquery.py#browser_extension`;

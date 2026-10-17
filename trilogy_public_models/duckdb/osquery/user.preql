@@ -1,0 +1,21 @@
+# Local and system user accounts known to the OS.
+
+key uid int; # numeric user id (on Windows, the account's relative id)
+properties uid (
+    username string,
+    description string?,
+    directory string?, # home directory
+    shell string?,
+    type string?, # windows: local, roaming, special
+);
+
+datasource users (
+    uid: uid,
+    username: username,
+    description: description,
+    directory: directory,
+    shell: shell,
+    type: type,
+)
+grain (uid)
+file `./ingest/osquery.py#user`;

@@ -1,0 +1,11 @@
+import autostart;
+
+SELECT
+    trigger,
+    kind,
+    name,
+    path,
+    status
+ORDER BY
+    trigger asc,
+    name asc;
