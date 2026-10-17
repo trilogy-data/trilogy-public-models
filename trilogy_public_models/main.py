@@ -1,7 +1,7 @@
 import os
+import tomllib
 from pathlib import Path
 
-import tomllib
 from trilogy import Dialects, Executor
 from trilogy.dialect import DuckDBConfig, MySQLConfig, SQLiteConfig
 
