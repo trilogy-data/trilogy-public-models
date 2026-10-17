@@ -1,0 +1,11 @@
+key weather_code int; # WMO weather interpretation code
+property weather_code.condition string;
+property weather_code.emoji string;
+
+datasource weather_codes (
+    code: weather_code,
+    description: condition,
+    emoji,
+)
+grain (weather_code)
+address open_meteo.main.weather_codes;

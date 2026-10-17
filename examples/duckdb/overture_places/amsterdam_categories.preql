@@ -1,0 +1,10 @@
+import place;
+
+where min_lon >= 4.880 and max_lon <= 4.900
+    and min_lat >= 52.368 and max_lat <= 52.378
+    and category is not null
+select
+    category,
+    count(place_id) as places
+order by places desc
+limit 15;

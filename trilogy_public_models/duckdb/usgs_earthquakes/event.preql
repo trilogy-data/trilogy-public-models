@@ -1,0 +1,18 @@
+key event_id string;
+property event_id.event_time datetime;
+property event_id.updated_at datetime;
+property event_id.magnitude float?;
+property event_id.magnitude_type string?;
+property event_id.place string?; # e.g. "12 km SSW of Volcano, Hawaii"
+property event_id.title string;
+property event_id.depth_km float;
+property event_id.latitude float;
+property event_id.longitude float;
+property event_id.event_type string; # earthquake, quarry blast, explosion, ...
+property event_id.status string; # automatic or reviewed
+property event_id.tsunami bool; # flagged for a possible tsunami
+property event_id.alert string?; # PAGER alert level: green, yellow, orange, red
+property event_id.felt_reports int?; # "Did You Feel It?" responses
+property event_id.significance int; # USGS significance score, 0-1000+
+property event_id.network string; # contributing seismic network
+property event_id.url string;

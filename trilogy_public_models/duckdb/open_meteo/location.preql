@@ -1,0 +1,4 @@
+# Open-Meteo answers per coordinate: every forecast datasource is a table
+# function of these two, so a query pins both with `= <literal>`.
+key latitude float;
+key longitude float;

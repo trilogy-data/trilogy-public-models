@@ -1,11 +1,21 @@
 import os
 from pathlib import Path
 
+import tomllib
 from trilogy import Dialects, Executor
 from trilogy.dialect import DuckDBConfig, MySQLConfig, SQLiteConfig
 
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
+
+
+def _engine_config(model: str) -> dict:
+    """The model's own ``[engine.config]``, from the trilogy.toml beside it."""
+    path = Path(__file__).parent / model.replace(".", "/") / "trilogy.toml"
+    if not path.exists():
+        return {}
+    with open(path, "rb") as f:
+        return tomllib.load(f).get("engine", {}).get("config", {})
 
 
 def get_executor(
@@ -16,7 +26,15 @@ def get_executor(
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
         dialect = Dialects.DUCK_DB
-        conf = DuckDBConfig(enable_gcs=True, enable_python_datasources=True)
+        # A model on VGI workers (python_datasource_transport = "vgi") needs
+        # the haybarn connection that transport selects.
+        conf = DuckDBConfig(
+            enable_gcs=True,
+            enable_python_datasources=True,
+            python_datasource_transport=_engine_config(model).get(
+                "python_datasource_transport"
+            ),
+        )
     elif "snowflake" in model:
         dialect = Dialects.SNOWFLAKE
     elif "sqlite" in model:

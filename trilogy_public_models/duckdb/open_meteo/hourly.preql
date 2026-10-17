@@ -1,0 +1,32 @@
+import location;
+import weather_code;
+
+key forecast_time datetime;
+property <latitude, longitude, forecast_time>.temperature float; # °C
+property <latitude, longitude, forecast_time>.feels_like float; # °C
+property <latitude, longitude, forecast_time>.humidity_pct float;
+property <latitude, longitude, forecast_time>.precipitation_mm float;
+property <latitude, longitude, forecast_time>.cloud_cover_pct float;
+property <latitude, longitude, forecast_time>.wind_kmh float;
+property <latitude, longitude, forecast_time>.gust_kmh float;
+property <latitude, longitude, forecast_time>.uv_index float;
+property <latitude, longitude, forecast_time>.is_day bool;
+
+# 168 hours (seven days) from midnight today, local to the coordinate.
+datasource forecast_hourly (
+    latitude,
+    longitude,
+    time: forecast_time,
+    weather_code,
+    temperature_2m: temperature,
+    apparent_temperature: feels_like,
+    relative_humidity_2m: humidity_pct,
+    precipitation: precipitation_mm,
+    cloud_cover: cloud_cover_pct,
+    wind_speed_10m: wind_kmh,
+    wind_gusts_10m: gust_kmh,
+    uv_index,
+    is_day,
+)
+grain (latitude, longitude, forecast_time)
+address open_meteo.main.forecast_hourly(latitude, longitude, timezone := 'auto');

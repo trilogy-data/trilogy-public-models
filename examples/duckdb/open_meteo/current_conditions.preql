@@ -1,0 +1,10 @@
+import current;
+
+where latitude = -33.869 and longitude = 151.209
+select
+    observed_at,
+    emoji,
+    condition,
+    current_temperature,
+    current_feels_like,
+    current_wind_kmh;

@@ -1,0 +1,7 @@
+import recent;
+
+select
+    event_type,
+    count(event_id) as events,
+    max(magnitude) as largest
+order by events desc;

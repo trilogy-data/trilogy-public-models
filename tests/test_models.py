@@ -29,6 +29,14 @@ SKIPPED_KEYS = [
     "mysql.beaver_dw",
     "mysql.beaver_neutron",
     "mysql.beaver_nova",
+    # Live Query.Farm VGI workers that answer only a bounded request, so the
+    # unfiltered scans validation runs cannot be served: open_meteo's forecasts
+    # are table functions of a coordinate the query must pin, overture refuses
+    # a scan without a bounding box, and the USGS catalog is the full ComCat
+    # history. Their examples (test_examples.py) bound every read.
+    "duckdb.open_meteo",
+    "duckdb.overture_places",
+    "duckdb.usgs_earthquakes",
 ]
 
 # duckdb.layercake reads planet-scale OSM parquet hosted by OpenStreetMap US;

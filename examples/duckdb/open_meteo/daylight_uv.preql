@@ -1,0 +1,8 @@
+import hourly;
+
+where latitude = 40.713 and longitude = -74.006 and is_day
+select
+    date(forecast_time) as day,
+    max(uv_index) as peak_uv,
+    avg(cloud_cover_pct) as avg_cloud_cover_pct
+order by day asc;

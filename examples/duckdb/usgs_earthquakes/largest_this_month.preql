@@ -1,0 +1,11 @@
+import recent;
+
+where magnitude is not null
+select
+    event_time,
+    magnitude,
+    place,
+    depth_km,
+    tsunami
+order by magnitude desc
+limit 10;

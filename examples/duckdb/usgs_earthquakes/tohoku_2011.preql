@@ -1,0 +1,11 @@
+import catalog;
+
+# The catalog is searched live: bound it by time and magnitude.
+where event_time >= '2011-03-11'::datetime
+    and event_time < '2011-03-12'::datetime
+    and magnitude >= 6
+select
+    event_time,
+    magnitude,
+    place
+order by magnitude desc;
