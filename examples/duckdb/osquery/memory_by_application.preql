@@ -1,10 +1,11 @@
-import process_tree;
+import process as p;
 
 # Memory per application, including child processes with other names.
 SELECT
-    app.name,
-    process_count,
-    total_resident_mb
+    p.app.pid,
+    p.app.name,
+    p.process_count,
+    p.total_resident_mb
 ORDER BY
-    total_resident_mb desc nulls last
+    p.total_resident_mb desc nulls last, p.app.pid asc
 LIMIT 5;
