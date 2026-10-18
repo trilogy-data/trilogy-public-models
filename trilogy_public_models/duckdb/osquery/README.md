@@ -13,7 +13,7 @@ transport (`trilogy.vgi.toml`), one resident worker for the whole model.
 | `process.preql` | pid | Running processes: path, command line, memory, CPU time, owner, `parent` and `app` roles via self imports, and per-application totals |
 | `user.preql` | uid | Local and system accounts |
 | `listening_port.preql` | pid/protocol/address/port | Listening TCP/UDP ports and the owning process |
-| `connection.preql` | pid/protocol/local/remote | Sockets with a remote end (established, closing, TIME_WAIT) |
+| `connection.preql` | pid/protocol/family/local/remote/state | Socket-state observations with a remote end (established, closing, TIME_WAIT) |
 | `interface_address.preql` | interface/address | IP addresses on each network interface |
 | `browser_extension.preql` | browser/install path | Browser extensions and add-ons, with permission counts for Chromium browsers |
 | `autostart.preql` | kind/source/name | Programs started at sign-in (Run keys, Startup folders, login items) or boot (automatic Windows services) |

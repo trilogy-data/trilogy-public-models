@@ -2,7 +2,7 @@
 import std.net;
 import process as process;
 
-key connection_id string; # pid/protocol/local>remote
+key connection_id string; # observed socket state: pid/protocol/family/local>remote/state
 properties connection_id (
     protocol string, # tcp or udp
     family string, # ipv4 or ipv6

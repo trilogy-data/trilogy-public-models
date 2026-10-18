@@ -1,5 +1,7 @@
-"""Check process self imports against a fixed snapshot, without running osquery."""
+"""Check process roles and socket observation keys without running osquery."""
 
+import runpy
+import sqlite3
 from pathlib import Path
 
 import pytest
@@ -17,6 +19,36 @@ def test_entrypoint_has_no_unbound_concepts():
     environment.parse("import entrypoint;")
     results = validate_environment(environment, scope=ValidationScope.CONCEPTS)
     assert not [result.result for result in results if result.result]
+
+
+def test_connection_ids_distinguish_live_socket_observations(monkeypatch):
+    monkeypatch.syspath_prepend(str(MODEL / "ingest"))
+    source = runpy.run_path(str(MODEL / "ingest/connection.py"))
+    connection = sqlite3.connect(":memory:")
+    try:
+        connection.execute(
+            "create table process_open_sockets (pid, protocol, family, "
+            "local_address, local_port, remote_address, remote_port, state)"
+        )
+        endpoint = (-1, 6, 2, "10.1.0.207", 34032, "173.194.202.207", 443)
+        connection.executemany(
+            "insert into process_open_sockets values (?, ?, ?, ?, ?, ?, ?, ?)",
+            [
+                (*endpoint, "ESTABLISHED"),
+                (*endpoint, "TIME_WAIT"),
+                (*endpoint, "TIME_WAIT"),
+                (*endpoint, None),
+                (*endpoint, ""),
+                (-1, 6, 10, *endpoint[3:], "TIME_WAIT"),
+            ],
+        )
+        rows = connection.execute(source["SQL"]).fetchall()
+        assert len(rows) == 4
+        assert len({row[0] for row in rows}) == 4
+        assert all(row[0] is not None and row[1] is None for row in rows)
+        assert {row[-1] for row in rows} == {"ESTABLISHED", "TIME_WAIT", None}
+    finally:
+        connection.close()
 
 
 @pytest.fixture
