@@ -1,3 +1,4 @@
+# 0.3.494: validator and planner fixes the faa and gcat_space models need (pytrilogy#962)
 pytrilogy>=0.3.494
 google-auth
 google-cloud-bigquery
