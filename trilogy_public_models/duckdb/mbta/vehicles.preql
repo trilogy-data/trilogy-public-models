@@ -14,8 +14,9 @@ property vehicle_id.vehicle_occupancy string?; # GTFS-rt OccupancyStatus; left o
 property vehicle_id.vehicle_revenue enum<string>['REVENUE', 'NON_REVENUE']?;
 property vehicle_id.vehicle_updated_at datetime; # when the vehicle last reported, from the feed itself
 
+# predictions can name a vehicle the position snapshot taken beside them lacks
 root datasource vehicle_observations (
-    id: vehicle_id,
+    id: ~vehicle_id,
     label: ?vehicle_label,
     route_id: ~?route_id,
     stop_id: ?vehicle_stop_id,

@@ -1,5 +1,4 @@
 import os
-import traceback
 from collections.abc import Iterator
 from copy import deepcopy
 from json import loads
@@ -7,8 +6,10 @@ from pathlib import Path
 
 import pytest
 
-from trilogy_public_models import data_models, get_executor
+from trilogy_public_models import data_models
 from trilogy_public_models.validator import example_path, validate_query
+
+from .test_models import backend_of, executor_for
 
 # duckdb.covid19_open_data tiles live on GCS (not committed); it is validated by
 # a dedicated build + `trilogy integration` step instead. bigquery.age_of_empires_2
@@ -60,8 +61,9 @@ def _extract_queries(example_dir: Path) -> Iterator[tuple[str, str]]:
             ):
                 query = inner
             if query:
-                yield f"{dashboard.name}#{grid_key}", imp_prefix + " " + _with_terminator(
-                    query
+                yield (
+                    f"{dashboard.name}#{grid_key}",
+                    imp_prefix + " " + _with_terminator(query),
                 )
 
 
@@ -76,52 +78,30 @@ def _discover_example_keys() -> list[tuple[str, Path]]:
     return keys
 
 
-def test_example_queries(bq_client, bq_executor, snowflake_executor):
-    failures: list[tuple[str, str, str]] = []
-    for key, example_dir in _discover_example_keys():
-        if key in SKIPPED_MODELS:
-            continue
-        if key not in data_models:
-            failures.append(
-                (key, "<model>", "example folder has no matching model in data_models")
-            )
-            continue
-        queries = list(_extract_queries(example_dir))
-        if not queries:
-            continue
+@pytest.mark.parametrize(
+    ("key", "example_dir"),
+    [
+        pytest.param(key, path, id=key, marks=getattr(pytest.mark, backend_of(key)))
+        for key, path in _discover_example_keys()
+        if key not in SKIPPED_MODELS
+    ],
+)
+def test_example_queries(key: str, example_dir: Path, request: pytest.FixtureRequest):
+    if key not in data_models:
+        pytest.fail(f"{key}: example folder has no matching model in data_models")
+    queries = [
+        q for q in _extract_queries(example_dir) if (key, q[0]) not in SKIPPED_QUERIES
+    ]
+    if not queries:
+        pytest.skip(f"{key} has no example queries")
+    executor, dry_run = executor_for(key, request)
+    environment = deepcopy(data_models[key].environment)
+    failures: list[tuple[str, str]] = []
+    for source, query in queries:
         try:
-            if "bigquery" in key:
-                executor = get_executor(key, executor=bq_executor())
-                dry_run = bq_client()
-            elif "duckdb" in key:
-                executor = get_executor(key)
-                dry_run = None
-            elif "snowflake" in key:
-                executor = get_executor(key, executor=snowflake_executor())
-                dry_run = None
-            elif "sqlite" in key:
-                executor = get_executor(key)
-                dry_run = None
-            else:
-                failures.append(
-                    (key, "<setup>", f"no executor path for dialect in {key}")
-                )
-                continue
-        except Exception as e:  # noqa: BLE001 - collect every setup failure, don't abort the run
-            failures.append(
-                (key, "<setup>", f"{type(e).__name__}: {e}\n{traceback.format_exc()}")
-            )
-            continue
-        environment = deepcopy(data_models[key].environment)
-        for source, query in queries:
-            if (key, source) in SKIPPED_QUERIES:
-                continue
-            try:
-                validate_query(query, environment, executor, dry_run)
-            except Exception as e:  # noqa: BLE001 - collect every query failure, don't abort the run
-                failures.append((key, source, f"{type(e).__name__}: {e}"))
+            validate_query(query, environment, executor, dry_run)
+        except Exception as e:  # noqa: BLE001 - collect every query failure, don't abort the run
+            failures.append((source, f"{type(e).__name__}: {e}"))
     if failures:
-        lines = [f"  {k} [{src}]: {err.splitlines()[0]}" for k, src, err in failures]
-        pytest.fail(
-            f"Broken examples ({len(failures)} failures):\n" + "\n".join(lines)
-        )
+        lines = [f"  {key} [{src}]: {err.splitlines()[0]}" for src, err in failures]
+        pytest.fail(f"Broken examples ({len(failures)} failures):\n" + "\n".join(lines))
