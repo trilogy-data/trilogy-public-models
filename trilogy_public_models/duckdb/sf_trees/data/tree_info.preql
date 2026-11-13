@@ -20,7 +20,7 @@ property tree_id.y_coord float; # internal grid y coordinate
 property tree_id.latitude float::latitude; # geographic latitude for mapping
 property tree_id.longitude float::longitude; # geographic longitude for mapping
 property tree_id.location string; # location string representation
-key data_updated_through datetime; # timestamp of last data update
+key data_updated_through timestamp; # timestamp of last data update (UTC)
 
 auto common_name <- coalesce(nullif(split(species, '::')[2],''),split(species, '::')[1]);
 
@@ -66,7 +66,7 @@ property species.tree_category string;          # palm | broadleaf | spreading |
 property species.icon_rgba_b64 string;          # raw RGBA bytes, base64-encoded, 48x48px
 property species.icon_width int;
 property species.icon_height int;
-property species.enriched_at datetime;
+property species.enriched_at timestamp;
 
 
 

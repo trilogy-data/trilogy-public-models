@@ -91,6 +91,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/ncaa_basketball/top_scoring_players.json"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/ncaa_basketball/trilogy.toml"
+    },
+    {
       "alias": "wide_table",
       "name": "wide_table",
       "purpose": "example",

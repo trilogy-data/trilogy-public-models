@@ -1,18 +1,14 @@
-import flight as flight;
+import flight;
 
 # derive reusable concepts
-auto flight_date <- flight.dep_time::date;
+auto flight_date <- dep_time::date;
 
-# this can be properties or metrics
-auto flight_count <- count(flight.id);
-
-# datasources can be read from or written to
-# use this to write to 
+# a rollup: once `trilogy refresh` builds it, queries for `count` at this grain
+# or coarser (e.g. by aircraft.model.name alone) read it instead of raw flights
 datasource daily_airplane_usage (
     flight_date,
-    flight.aircraft.model.name,
-    flight_count
+    aircraft.model.name,
+    count
 )
-grain(flight_date, flight.aircraft.model.name)
-address daily_airplane_usage
-;
+grain (flight_date, aircraft.model.name)
+address daily_airplane_usage;

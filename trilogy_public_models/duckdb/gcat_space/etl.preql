@@ -4,7 +4,7 @@
 # files are republished.
 
 # shared concepts
-property <*>.data_updated_through datetime; # date when the data was last updated
+property <*>.data_updated_through timestamp; # when the data was last updated (UTC)
 
 def extract_date(col)-> CASE
         WHEN TRIM(REGEXP_EXTRACT(REPLACE(col, '?', ''), '(\d{4}\s+[A-Za-z]{3}\s+\d{1,2})', 1)) IS NOT NULL

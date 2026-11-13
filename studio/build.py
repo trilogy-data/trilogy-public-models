@@ -130,6 +130,17 @@ def generate_json_files(check: bool):
                     if os.path.exists(trilogy_toml_path):
                         runtime_config = load_config_file(Path(trilogy_toml_path))
                         setup_sql_files = runtime_config.startup_sql
+                        # `trilogy public fetch` writes this as the fetched
+                        # model's trilogy.toml.
+                        json_data["components"].append(
+                            {
+                                "url": f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/trilogy.toml",
+                                "name": "trilogy",
+                                "alias": "trilogy",
+                                "purpose": "config",
+                                "type": "config",
+                            }
+                        )
                     for sql_file in sorted(setup_sql_files, key=lambda p: p.name):
                         file_name = sql_file.stem
                         github_path = f"https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/{engine_dir}/{dataset_dir}/{file_name}.sql"

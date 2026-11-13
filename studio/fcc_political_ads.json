@@ -34,6 +34,13 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/fcc_political_ads/file_record.preql"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/fcc_political_ads/trilogy.toml"
     }
   ],
   "description": "fcc_political_ads dataset for bigquery",

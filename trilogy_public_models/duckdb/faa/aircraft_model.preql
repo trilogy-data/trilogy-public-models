@@ -12,7 +12,7 @@ property code.weight int; # max gross takeoff weight; all zeros in this dataset 
 property code.speed int; # cruising speed in mph/knots; 0-1612, often 0 (not populated)
 
 root datasource aircraft_model (
-	aircraft_model_code:code,
+	aircraft_model_code:~code,
 	manufacturer:manufacturer,
 	model:name,
 	aircraft_type_id:type_id,

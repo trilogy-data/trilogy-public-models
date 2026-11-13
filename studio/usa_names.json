@@ -19,6 +19,13 @@
       "purpose": "example",
       "type": "dashboard",
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/usa_names/top_names.json"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/usa_names/trilogy.toml"
     }
   ],
   "description": "# Name/Birth Dataset",

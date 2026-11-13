@@ -51,7 +51,7 @@ datasource lv_info (
     min_stage,
     max_stage,
     ?length,
-    diameter,
+    ?diameter,
     ?launch_mass,
     ?leo_capacity,
     ?gto_capacity,

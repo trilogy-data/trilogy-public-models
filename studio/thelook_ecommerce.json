@@ -64,6 +64,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/bigquery/thelook_ecommerce/top_customers_avg_price.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/thelook_ecommerce/trilogy.toml"
+    },
+    {
       "alias": "users",
       "name": "users",
       "purpose": "source",

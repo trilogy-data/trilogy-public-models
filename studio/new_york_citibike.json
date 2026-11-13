@@ -42,6 +42,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/new_york_citibike/stations.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/new_york_citibike/trilogy.toml"
+    },
+    {
       "alias": "trips",
       "name": "trips",
       "purpose": "source",

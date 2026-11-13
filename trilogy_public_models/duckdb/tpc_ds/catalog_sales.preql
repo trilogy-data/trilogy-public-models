@@ -7,6 +7,7 @@ import date as sold_date;
 import time as time;
 import customer as customer;
 import customer as bill_customer;
+import address as ship_address;
 import call_center as call_center;
 import warehouse as warehouse;
 import customer_demographic as bill_customer_demographic;
@@ -35,7 +36,7 @@ datasource catalog_sales (
     CS_SOLD_TIME_SK: ~?time.id, # Time-of-day the order was placed (FK to time dimension; optional).
     CS_SHIP_DATE_SK: ~?ship_date.id, # Date the order shipped (FK to date dimension; optional).
     CS_SHIP_CUSTOMER_SK: ~?customer.id, # Customer the order was shipped to (FK to customer).
-    CS_SHIP_ADDR_SK: ~?customer.address_id, # Address the order was shipped to (FK to customer address).
+    CS_SHIP_ADDR_SK: ~?ship_address.id, # Address the order was shipped to, not necessarily the customer's current one (FK to customer_address).
     CS_BILL_CUSTOMER_SK: ~?bill_customer.id, # Customer billed for the order (FK to customer).
     CS_BILL_CDEMO_SK: ~?bill_customer_demographic.id, # Demographic profile of the billed customer at order time (FK to customer_demographic).
     CS_ITEM_SK: item.id, # Item ordered (FK to item).

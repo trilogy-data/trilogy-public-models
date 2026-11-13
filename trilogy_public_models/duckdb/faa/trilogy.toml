@@ -3,6 +3,5 @@ dialect = "duck_db"
 
 [engine.config]
 enable_gcs = true
-
-[serve]
-studio_url="http://localhost:5173/trilogy-studio-core/"
+# On disk so assets built by `trilogy refresh` survive to the next command.
+db_location = "faa.duckdb"

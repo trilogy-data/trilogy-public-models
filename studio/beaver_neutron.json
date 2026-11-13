@@ -806,6 +806,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/system/tags.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_neutron/trilogy.toml"
+    },
+    {
       "alias": "vendor/arista_provisioned_nets",
       "name": "vendor/arista_provisioned_nets",
       "purpose": "source",
