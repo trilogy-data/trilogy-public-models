@@ -7,7 +7,7 @@ property code.u_code string;
 property code.state_code string::country_code;
 property code.type string;
 property code.class string;
-property code.t_start int; # year the platform entered service; the published parquet types this as an integer
+property code.t_start string; # year the platform entered service, as published (e.g. '1965')
 property code.t_stop string;
 property code.short_name string;
 property code.name string;

@@ -9,10 +9,8 @@ property code.u_code string; # a unified code tying together an entity that has 
 property code.state_code string; #OrgCode for organzation's host state.
 property code.type string; # 	Organization roles: a slash-separated set of types. The current database is somewhat patchy in data quality for this field, and should primary be relied on for the special values CY, IGO and AP which indicate entries with a status equivalent to a nation-state.
 property code.class string; # Organization class: A, B, C, or D (Nonprofit, commercial, civil or defence)
-property code._t_start string;
-property code.t_start <-  @extract_date(_t_start); # Date the organization code began operations (approximate if needed).
-property code._t_stop string;
-property code.t_stop <- @extract_date(_t_stop); # Date the organization code ended (or was updated to new code due to state change)
+property code.t_start date; # Date the organization code began operations (approximate if needed).
+property code.t_stop date; # Date the organization code ended (or was updated to new code due to state change)
 property code.short_name string;
 property code.name string;
 property code.location string; # Approximate location (e.g. city).  In many cases this is given in the form UrbanArea-Suburb, e.g "Los Angeles-El Segundo"
@@ -99,14 +97,14 @@ datasource organizations (
     state_code,
     type,
     class,
-    t_start: _t_start,
-    t_stop: _t_stop,
+    ?t_start,
+    ?t_stop,
     short_name,
     name,
     location,
     ?longitude,
     ?latitude,
-    error,
+    ?error,
     ?parent,
     short_e_name,
     ?_e_name,

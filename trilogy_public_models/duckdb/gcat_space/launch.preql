@@ -10,7 +10,7 @@ import sites as site;
 import organization as org;
 import organization as state;
 
-merge org.state_code into state.code;
+merge org.state_code into ~state.code; # a host state is one of the organizations
 
 property id._launch_jd float; # float of launch date on julian calendar
 # property <id>.launch_date string;
