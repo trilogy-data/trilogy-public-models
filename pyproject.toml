@@ -48,3 +48,14 @@ exclude = [
 [[tool.mypy.overrides]]
 module = ["trilogy_public_models.*"]
 ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+# one marker per backend, set on each model's tests (tests/test_models.py) so
+# CI can run the backends as parallel jobs
+markers = [
+    "duckdb: a duckdb model's validation or examples",
+    "bigquery: a bigquery model's validation or examples",
+    "snowflake: a snowflake model's validation or examples",
+    "sqlite: a sqlite model's validation or examples",
+    "mysql: a mysql model's validation or examples",
+]

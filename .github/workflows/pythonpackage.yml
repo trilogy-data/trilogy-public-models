@@ -13,27 +13,38 @@ env:
   PROJECT_ID: ${{ secrets.DEMO_PROJECT }}
   SERVICE_NAME: trilogy-public-models
   REGION: us-central1
+  PYTHON_VERSION: "3.12"
 
 jobs:
-  build:
+  test:
+    # One job per backend, so the slow model validations run side by side. Each
+    # model's tests carry its backend's marker (tests/test_models.py); `other`
+    # takes snowflake, sqlite and everything that is not a model test.
+    name: test (${{ matrix.suite }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [ "3.12"]
+        include:
+          - suite: duckdb
+            marker: duckdb
+          - suite: bigquery
+            marker: bigquery
+          - suite: other
+            marker: not duckdb and not bigquery
 
     permissions:
       contents: 'read'
       id-token: 'write'
 
     steps:
-      # Setup gcloud CLI
       - uses: 'actions/checkout@v5'
       - name: Install uv
         uses: astral-sh/setup-uv@v7
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
@@ -52,12 +63,50 @@ jobs:
           pip install -r requirements.txt
           pip install -r requirements-test.txt
       - name: Install osquery
+        if: matrix.suite == 'duckdb'
         # duckdb.osquery's script datasources shell out to osqueryi; uv fetches
         # their python dependencies, but the binary comes from the osquery release.
         run: |
           curl -sSL -o /tmp/osquery.deb https://github.com/osquery/osquery/releases/download/5.23.1/osquery_5.23.1-1.linux_amd64.deb
           sudo dpkg -i /tmp/osquery.deb
           osqueryi --json "select version from osquery_info"
+      - name: Test with pytest
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          pytest --ignore=docs_src/ --cov=./ -m "${{ matrix.marker }}"
+          codecov --token=${{ secrets.CODECOV_TOKEN }}
+
+  checks:
+    name: checks
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - uses: 'actions/checkout@v5'
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: 'projects/734709568634/locations/global/workloadIdentityPools/github/providers/trilogy-public-models'
+          project_id: 'preqldata'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          pip install -r requirements.txt
+          pip install -r requirements-test.txt
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
@@ -65,12 +114,6 @@ jobs:
       - name: Lint with mypy
         run: |
           mypy trilogy_public_models
-      - name: Test with pytest
-        run: |
-          pip install pytest
-          pip install pytest-cov
-          pytest --ignore=docs_src/ --cov=./
-          codecov --token=${{ secrets.CODECOV_TOKEN }}
       - name: Model specific tests
         run: |
             trilogy integration trilogy_public_models/duckdb/gcat_space duckdb --config trilogy_public_models/duckdb/gcat_space/trilogy.toml
@@ -87,3 +130,17 @@ jobs:
       - name: Check studio interface was updated
         run: |
           python studio/build.py --check
+
+  build:
+    # Keeps the `build (3.12)` check the single job used to report, passing
+    # only when every job above passed.
+    name: build (3.12)
+    needs: [test, checks]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every job passed
+        run: |
+          echo '${{ toJSON(needs) }}'
+          test "${{ needs.test.result }}" = success
+          test "${{ needs.checks.result }}" = success

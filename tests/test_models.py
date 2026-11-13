@@ -1,7 +1,8 @@
 import os
 import traceback
-from concurrent.futures import ThreadPoolExecutor
+from collections.abc import Iterable
 
+import pytest
 from pydantic.errors import PydanticUserError
 from trilogy import Environment
 
@@ -55,40 +56,38 @@ def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = 
         ) from e
 
 
-def test_models(bq_client, bq_executor, snowflake_executor):
-    results = []
-    with ThreadPoolExecutor() as executor:
-        for key, model in data_models.items():
-            print(f"Validating {key}")
-            if key in SKIPPED_KEYS:
-                continue
+def backend_of(key: str) -> str:
+    return key.split(".", 1)[0]
 
-            if "bigquery" in key:
-                trilogy_executor = get_executor(key, executor=bq_executor())
-                future = executor.submit(
-                    single_model, key, model.environment, trilogy_executor, bq_client()
-                )
-                results.append(future)
-            elif "duckdb" in key:
-                trilogy_executor = get_executor(key)
-                future = executor.submit(
-                    single_model, key, model.environment, trilogy_executor, None
-                )
-                results.append(future)
-            elif "snowflake" in key:
-                trilogy_executor = get_executor(key, executor=snowflake_executor())
-                future = executor.submit(
-                    single_model, key, model.environment, trilogy_executor, None
-                )
-                results.append(future)
-            elif "sqlite" in key:
-                trilogy_executor = get_executor(key)
-                future = executor.submit(
-                    single_model, key, model.environment, trilogy_executor, None
-                )
-                results.append(future)
-            else:
-                raise NotImplementedError(f"Model {key} not supported")
-    for future in results:
-        result = future.result()
-        print(result)
+
+def model_params(keys: Iterable[str]) -> list:
+    """One test per model, marked with its backend so CI can split the suite."""
+    return [
+        pytest.param(key, id=key, marks=getattr(pytest.mark, backend_of(key)))
+        for key in keys
+    ]
+
+
+def executor_for(key: str, request: pytest.FixtureRequest):
+    """The model's executor and, for BigQuery, its dry-run client. Fixtures are
+    resolved per backend, so a DuckDB run needs no Google credentials."""
+    backend = backend_of(key)
+    if backend == "bigquery":
+        executor = request.getfixturevalue("bq_executor")()
+        return get_executor(key, executor=executor), request.getfixturevalue(
+            "bq_client"
+        )()
+    if backend == "snowflake":
+        executor = request.getfixturevalue("snowflake_executor")()
+        return get_executor(key, executor=executor), None
+    if backend in ("duckdb", "sqlite"):
+        return get_executor(key), None
+    raise NotImplementedError(f"Model {key} not supported")
+
+
+@pytest.mark.parametrize(
+    "key", model_params(k for k in data_models if k not in SKIPPED_KEYS)
+)
+def test_model(key: str, request: pytest.FixtureRequest):
+    executor, dry_run_client = executor_for(key, request)
+    single_model(key, data_models[key].environment, executor, dry_run_client)
