@@ -20,6 +20,13 @@
       "purpose": "data",
       "type": "csv",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mortality/mortality_vermont_compressed_1996_2016.csv"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/mortality/trilogy.toml"
     }
   ],
   "description": "# WIP CDC Wonder Data\n\nSome CDC Wonder data. Needs a model pass.",

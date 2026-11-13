@@ -769,6 +769,13 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/system/task_log.preql"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/mysql/beaver_nova/trilogy.toml"
     }
   ],
   "description": "# BEAVER nova\n\nGenerated semantic schema for the BEAVER `nova` MySQL database.\nTable modules are grouped into domain folders. `entrypoint.preql` is a lightweight discovery root; import the relevant table module directly.\n\nRegenerate with `scripts/beaver/generate_models.py`; do not edit individual table files manually.",

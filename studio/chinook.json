@@ -97,6 +97,13 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/tracks.preql"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/sqlite/chinook/trilogy.toml"
     }
   ],
   "description": "chinook dataset for sqlite",

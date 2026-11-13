@@ -27,6 +27,13 @@
       "purpose": "source",
       "type": "trilogy",
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/trends.preql"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/google_search_trends/trilogy.toml"
     }
   ],
   "description": "# Google Search Trends\n\nDaily top 25 terms in the United States with score, ranking, time, and designated market area (DMA) code.\n\nHistorical data only includes terms that are in the current trending dataset; focus on analysis of the\nlast 30 days.",

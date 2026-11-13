@@ -92,6 +92,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/age_of_empires_2/technology.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/age_of_empires_2/trilogy.toml"
+    },
+    {
       "alias": "unit_creations",
       "name": "unit_creations",
       "purpose": "source",

@@ -70,6 +70,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/supplier.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_h/trilogy.toml"
+    },
+    {
       "alias": "tutorial_one_basic",
       "name": "tutorial_one_basic",
       "purpose": "example",

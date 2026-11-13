@@ -71,6 +71,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/examples/duckdb/covid19_open_data/top_us_counties_by_cases.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/covid19_open_data/trilogy.toml"
+    },
+    {
       "alias": "us_cases_by_year",
       "name": "us_cases_by_year",
       "purpose": "example",

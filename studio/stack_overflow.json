@@ -43,6 +43,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/stack_overflow/tag.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/stack_overflow/trilogy.toml"
+    },
+    {
       "alias": "user",
       "name": "user",
       "purpose": "source",

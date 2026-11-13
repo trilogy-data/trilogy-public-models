@@ -96,6 +96,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/stage.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/gcat_space/trilogy.toml"
+    },
+    {
       "alias": "vehicle",
       "name": "vehicle",
       "purpose": "source",

@@ -113,6 +113,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/time.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/duckdb/tpc_ds/trilogy.toml"
+    },
+    {
       "alias": "warehouse",
       "name": "warehouse",
       "purpose": "source",

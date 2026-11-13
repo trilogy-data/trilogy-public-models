@@ -36,6 +36,13 @@
       "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/post.preql"
     },
     {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/bigquery/hacker_news/trilogy.toml"
+    },
+    {
       "alias": "worst_show_days",
       "name": "worst_show_days",
       "purpose": "example",
