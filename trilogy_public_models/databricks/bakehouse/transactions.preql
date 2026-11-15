@@ -1,0 +1,33 @@
+import customers as customer;
+import franchises as franchise;
+
+key id bigint;
+
+properties id (
+    sold_at timestamp,
+    product enum<string>['Austin Almond Biscotti', 'Golden Gate Ginger', 'Orchard Oasis', 'Outback Oatmeal', 'Pearly Pies', 'Tokyo Tidbits'],
+    quantity bigint,
+    unit_price bigint,
+    total_price bigint,
+    payment_method enum<string>['amex', 'mastercard', 'visa'],
+    card_number bigint,
+);
+
+metric revenue <- sum(total_price);
+metric units_sold <- sum(quantity);
+metric transaction_count <- count(id);
+
+datasource transactions (
+    transactionID: id,
+    customerID: customer.id,
+    franchiseID: franchise.id,
+    dateTime: sold_at,
+    product,
+    quantity,
+    unitPrice: unit_price,
+    totalPrice: total_price,
+    paymentMethod: payment_method,
+    cardNumber: card_number,
+)
+grain (id)
+address samples.bakehouse.sales_transactions;

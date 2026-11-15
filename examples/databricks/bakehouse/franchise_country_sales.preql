@@ -1,0 +1,9 @@
+import transactions;
+
+select
+    franchise.country,
+    transaction_count,
+    revenue,
+    revenue / transaction_count as revenue_per_transaction
+order by
+    revenue desc;

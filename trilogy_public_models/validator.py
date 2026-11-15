@@ -2,35 +2,14 @@ from json import loads
 from pathlib import Path
 
 from trilogy import Dialects, Environment
-from trilogy.authoring import (
-    Concept,
-    ConceptRef,
-    SelectStatement,
-)
-from trilogy.constants import DEFAULT_NAMESPACE
+from trilogy.authoring import SelectStatement
+from trilogy.core.enums import AddressType
 from trilogy.core.models.datasource import Datasource
 from trilogy.core.statements.execute import ProcessedShowStatement
 from trilogy.executor import Executor
 from trilogy.parser import parse_text
 
 example_path = Path(__file__).parent.parent / "examples"
-
-
-def safe_address(input: Concept | ConceptRef):
-    if input.namespace == DEFAULT_NAMESPACE:
-        return input.name
-    return input.address
-
-
-def validate_dataset(
-    dataset: Datasource, environment: Environment, executor: Executor, dry_run_client
-):
-    validation_query = (
-        "SELECT\n "
-        + ",\n\t".join([safe_address(x) for x in dataset.concepts])
-        + " LIMIT 0;"
-    )
-    validate_query(validation_query, environment, executor, dry_run_client)
 
 
 def validate_query(
@@ -51,40 +30,61 @@ def validate_query(
         if isinstance(statement, ProcessedShowStatement):
             continue
         compiled_sql = ""
-        # Start the query, passing in the extra configuration.
         try:
-            # for UI execution, cap the limit
             compiled_sql = executor.generator.compile_statement(statement)
-
-            # TODO: implement this
-            # rs = executor.engine.dry_run(compiled_sql)
-            if executor.dialect == Dialects.BIGQUERY:
-                # use a dry run to save costs
-                # TODO: move this into executor so we don't need this import
-                from google.cloud.bigquery import QueryJobConfig
-
-                job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
-                query_job = dry_run_client.query(
-                    compiled_sql, job_config=job_config
-                )  # Make an API request.
-                print(
-                    f"This query will process {query_job.total_bytes_processed} bytes."
-                )
-            elif executor.dialect == Dialects.DUCK_DB:
-                # use a dry run to save costs
-                query_job = executor.execute_raw_sql(compiled_sql)
-            elif executor.dialect == Dialects.SNOWFLAKE:
-                # dry run with fake snow
-                query_job = executor.execute_raw_sql(compiled_sql)
-            else:
-                raise NotImplementedError(
-                    f"Validation not implemented for {executor.dialect}"
-                )
+            check_sql(compiled_sql, executor, dry_run_client)
         except Exception:
             print("Failed validation on:")
             print(validation_query)
             print(compiled_sql)
             raise
+
+
+def check_sql(compiled_sql: str, executor: Executor, dry_run_client) -> None:
+    """Have the warehouse check a query, without paying to run it where it can."""
+    if executor.dialect == Dialects.BIGQUERY:
+        # a dry run is free
+        from google.cloud.bigquery import QueryJobConfig
+
+        job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
+        query_job = dry_run_client.query(compiled_sql, job_config=job_config)
+        print(f"This query will process {query_job.total_bytes_processed} bytes.")
+    elif executor.dialect in (Dialects.DUCK_DB, Dialects.SNOWFLAKE):
+        # snowflake runs against fakesnow
+        executor.execute_raw_sql(compiled_sql)
+    elif executor.dialect == Dialects.DATABRICKS:
+        # EXPLAIN analyzes the query against the catalog without scanning data;
+        # a planning error comes back as the plan text
+        plan = executor.execute_raw_sql(f"EXPLAIN {compiled_sql}").fetchall()
+        if plan and str(plan[0][0]).startswith("Error occurred"):
+            raise ValueError(f"Databricks rejected the query: {str(plan[0][0])[:1000]}")
+    else:
+        raise NotImplementedError(f"Validation not implemented for {executor.dialect}")
+
+
+def validate_datasource_columns(
+    datasource: Datasource, executor: Executor, dry_run_client
+) -> None:
+    """Every physical column a table datasource maps exists in its table.
+
+    Examples only read the columns they use, so a misspelled column elsewhere
+    would pass them. Selects the mapped columns directly, with no planning.
+    """
+    address = datasource.address
+    if isinstance(address, str) or address.type != AddressType.TABLE:
+        return
+    columns = [c.alias for c in datasource.columns if isinstance(c.alias, str)]
+    if not columns:
+        return
+    quote = executor.generator.quote
+    sql = (
+        f"SELECT {', '.join(quote(c) for c in columns)}"
+        f" FROM {executor.generator.safe_quote(address.location)} LIMIT 0"
+    )
+    try:
+        check_sql(sql, executor, dry_run_client)
+    except Exception as e:
+        raise ValueError(f"Datasource {datasource.name} failed validation: {e}") from e
 
 
 def validate_datasource_grain(datasource):
@@ -120,9 +120,17 @@ def get_example_queries(key: str) -> list[str]:
 def validate_model(key: str, model: Environment, executor: Executor, dry_run_client):
     if executor.dialect == Dialects.DUCK_DB:
         return executor.validate_environment()
-    # for dataset in model.datasources.values():
-    #     validate_dataset(dataset, model, executor, dry_run_client)
-
+    for datasource in unique_datasources(model):
+        validate_datasource_columns(datasource, executor, dry_run_client)
     for example in get_example_queries(key):
-
         validate_query(example, model, executor, dry_run_client)
+
+
+def unique_datasources(model: Environment) -> list[Datasource]:
+    """One datasource per physical table: an imported file shows up once per
+    import path."""
+    seen: dict[tuple, Datasource] = {}
+    for datasource in model.datasources.values():
+        cols = tuple(c.alias for c in datasource.columns if isinstance(c.alias, str))
+        seen.setdefault((str(datasource.address), cols), datasource)
+    return list(seen.values())

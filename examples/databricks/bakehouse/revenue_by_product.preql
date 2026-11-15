@@ -1,0 +1,8 @@
+import transactions;
+
+select
+    product,
+    units_sold,
+    revenue
+order by
+    revenue desc;

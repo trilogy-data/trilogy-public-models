@@ -1,0 +1,19 @@
+import franchises as franchise;
+
+key id int;
+
+properties id (
+    text string,
+    reviewed_at timestamp,
+);
+
+metric review_count <- count(id);
+
+datasource reviews (
+    new_id: id,
+    franchiseID: franchise.id,
+    review: text,
+    review_date: reviewed_at,
+)
+grain (id)
+address samples.bakehouse.media_customer_reviews;

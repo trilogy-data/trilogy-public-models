@@ -1,0 +1,9 @@
+import reviews;
+
+select
+    franchise.name,
+    franchise.city,
+    review_count
+order by
+    review_count desc
+limit 10;

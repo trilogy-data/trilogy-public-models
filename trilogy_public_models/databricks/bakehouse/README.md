@@ -1,0 +1,1 @@
+Bakehouse, the Databricks sample dataset (`samples.bakehouse`): sales transactions for a cookie franchise, with its customers, franchises, ingredient suppliers and customer reviews. Available in every Databricks workspace, including Free Edition.

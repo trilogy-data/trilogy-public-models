@@ -1,0 +1,88 @@
+{
+  "components": [
+    {
+      "alias": "customers",
+      "name": "customers",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/customers.preql"
+    },
+    {
+      "alias": "entrypoint",
+      "name": "entrypoint",
+      "purpose": "entrypoint",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/entrypoint.preql"
+    },
+    {
+      "alias": "franchises",
+      "name": "franchises",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/franchises.preql"
+    },
+    {
+      "alias": "review_chunks",
+      "name": "review_chunks",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/review_chunks.preql"
+    },
+    {
+      "alias": "reviews",
+      "name": "reviews",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/reviews.preql"
+    },
+    {
+      "alias": "suppliers",
+      "name": "suppliers",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/suppliers.preql"
+    },
+    {
+      "alias": "transactions",
+      "name": "transactions",
+      "purpose": "source",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/transactions.preql"
+    },
+    {
+      "alias": "trilogy",
+      "name": "trilogy",
+      "purpose": "config",
+      "type": "config",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/trilogy_public_models/databricks/bakehouse/trilogy.toml"
+    },
+    {
+      "alias": "franchise_country_sales",
+      "name": "franchise_country_sales",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/databricks/bakehouse/franchise_country_sales.preql"
+    },
+    {
+      "alias": "most_reviewed_franchises",
+      "name": "most_reviewed_franchises",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/databricks/bakehouse/most_reviewed_franchises.preql"
+    },
+    {
+      "alias": "revenue_by_product",
+      "name": "revenue_by_product",
+      "purpose": "example",
+      "type": "trilogy",
+      "url": "https://trilogy-data.github.io/trilogy-public-models/examples/databricks/bakehouse/revenue_by_product.preql"
+    }
+  ],
+  "description": "Bakehouse, the Databricks sample dataset (`samples.bakehouse`): sales transactions for a cookie franchise, with its customers, franchises, ingredient suppliers and customer reviews. Available in every Databricks workspace, including Free Edition.",
+  "engine": "databricks",
+  "link": "",
+  "name": "bakehouse",
+  "tags": [
+    "databricks"
+  ]
+}

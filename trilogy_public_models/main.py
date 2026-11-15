@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from trilogy import Dialects, Executor
-from trilogy.dialect import DuckDBConfig, MySQLConfig, SQLiteConfig
+from trilogy.dialect import DatabricksConfig, DuckDBConfig, MySQLConfig, SQLiteConfig
 
 from trilogy_public_models.discovery import data_models
 from trilogy_public_models.models import LazyEnvironment, QueryType
@@ -11,7 +11,7 @@ from trilogy_public_models.models import LazyEnvironment, QueryType
 def get_executor(
     model: str, executor: Executor | None = None, run_setup: bool = True
 ) -> Executor:
-    conf: DuckDBConfig | MySQLConfig | SQLiteConfig | None = None
+    conf: DatabricksConfig | DuckDBConfig | MySQLConfig | SQLiteConfig | None = None
     if "bigquery" in model:
         dialect = Dialects.BIGQUERY
     elif "duckdb" in model:
@@ -19,6 +19,10 @@ def get_executor(
         conf = DuckDBConfig(enable_gcs=True, enable_python_datasources=True)
     elif "snowflake" in model:
         dialect = Dialects.SNOWFLAKE
+    elif "databricks" in model:
+        dialect = Dialects.DATABRICKS
+        # connection from DATABRICKS_HOST / DATABRICKS_HTTP_PATH / DATABRICKS_TOKEN
+        conf = DatabricksConfig()
     elif "sqlite" in model:
         dialect = Dialects.SQLITE
         model_dir = Path(__file__).parent / model.replace(".", "/")

@@ -1,5 +1,5 @@
-# 0.3.494: validator and planner fixes the faa and gcat_space models need (pytrilogy#962)
-pytrilogy>=0.3.494
+# 0.3.504: the Databricks dialect (pytrilogy#999), for databricks.bakehouse
+pytrilogy>=0.3.504
 google-auth
 google-cloud-bigquery
 sqlalchemy-bigquery
