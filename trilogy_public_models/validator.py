@@ -49,8 +49,8 @@ def check_sql(compiled_sql: str, executor: Executor, dry_run_client) -> None:
         job_config = QueryJobConfig(dry_run=True, use_query_cache=False)
         query_job = dry_run_client.query(compiled_sql, job_config=job_config)
         print(f"This query will process {query_job.total_bytes_processed} bytes.")
-    elif executor.dialect in (Dialects.DUCK_DB, Dialects.SNOWFLAKE):
-        # snowflake runs against fakesnow
+    elif executor.dialect in (Dialects.DUCK_DB, Dialects.SQLITE, Dialects.SNOWFLAKE):
+        # local files; snowflake runs against fakesnow
         executor.execute_raw_sql(compiled_sql)
     elif executor.dialect == Dialects.DATABRICKS:
         # EXPLAIN analyzes the query against the catalog without scanning data;
@@ -76,7 +76,8 @@ def validate_datasource_columns(
     columns = [c.alias for c in datasource.columns if isinstance(c.alias, str)]
     if not columns:
         return
-    quote = executor.generator.quote
+    # safe_quote quotes each part of a dotted path to a nested field
+    quote = executor.generator.safe_quote
     sql = (
         f"SELECT {', '.join(quote(c) for c in columns)}"
         f" FROM {executor.generator.safe_quote(address.location)} LIMIT 0"
