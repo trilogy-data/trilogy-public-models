@@ -1,0 +1,21 @@
+import franchises as franchise;
+
+# Review text split into chunks for retrieval. A chunk id hashes its text, so
+# repeated text shares an id; a chunk is identified by id and review time.
+key chunk_id string;
+key reviewed_at timestamp;
+
+properties <chunk_id, reviewed_at> (
+    text string,
+    review_uri string,
+);
+
+datasource review_chunks (
+    chunk_id,
+    review_date: reviewed_at,
+    franchiseID: franchise.id,
+    chunked_text: text,
+    review_uri,
+)
+grain (chunk_id, reviewed_at)
+address samples.bakehouse.media_gold_reviews_chunked;

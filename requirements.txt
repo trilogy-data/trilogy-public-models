@@ -1,5 +1,5 @@
-# 0.3.494: validator and planner fixes the faa and gcat_space models need (pytrilogy#962)
-pytrilogy>=0.3.494
+# 0.3.505: the Databricks dialect (pytrilogy#999) and the rank + having fix (pytrilogy#1004)
+pytrilogy>=0.3.505
 google-auth
 google-cloud-bigquery
 sqlalchemy-bigquery

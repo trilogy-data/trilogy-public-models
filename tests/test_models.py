@@ -56,6 +56,10 @@ def single_model(key, model: Environment, bq_executor, bq_client, retry: bool = 
         ) from e
 
 
+# samples.bakehouse ships with every Databricks workspace, but CI has none.
+DATABRICKS_ENV = ("DATABRICKS_HOST", "DATABRICKS_HTTP_PATH", "DATABRICKS_TOKEN")
+
+
 def backend_of(key: str) -> str:
     return key.split(".", 1)[0]
 
@@ -74,13 +78,21 @@ def executor_for(key: str, request: pytest.FixtureRequest):
     backend = backend_of(key)
     if backend == "bigquery":
         executor = request.getfixturevalue("bq_executor")()
-        return get_executor(key, executor=executor), request.getfixturevalue(
-            "bq_client"
-        )()
+        return (
+            get_executor(key, executor=executor),
+            request.getfixturevalue("bq_client")(),
+        )
     if backend == "snowflake":
         executor = request.getfixturevalue("snowflake_executor")()
         return get_executor(key, executor=executor), None
     if backend in ("duckdb", "sqlite"):
+        return get_executor(key), None
+    if backend == "databricks":
+        missing = [v for v in DATABRICKS_ENV if not os.environ.get(v)]
+        if missing:
+            pytest.skip(
+                f"{key}: needs a Databricks SQL warehouse ({', '.join(missing)})"
+            )
         return get_executor(key), None
     raise NotImplementedError(f"Model {key} not supported")
 

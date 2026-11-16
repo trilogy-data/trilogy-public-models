@@ -1,0 +1,36 @@
+import std.geography;
+import std.net;
+
+key id bigint;
+
+properties id (
+    first_name string,
+    last_name string,
+    email_address string::email_address,
+    phone_number string,
+    address string,
+    city string::city,
+    # synthetic data: a US state name regardless of country
+    state string::us_state,
+    country enum<string>['Australia', 'Japan', 'USA']::country,
+    continent enum<string>['Asia', 'North America', 'Oceania'],
+    postal_zip_code bigint,
+    gender enum<string>['female', 'male'],
+);
+
+datasource customers (
+    customerID: id,
+    first_name,
+    last_name,
+    email_address,
+    phone_number,
+    address,
+    city,
+    state,
+    country,
+    continent,
+    postal_zip_code,
+    gender,
+)
+grain (id)
+address samples.bakehouse.sales_customers;

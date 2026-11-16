@@ -58,4 +58,5 @@ markers = [
     "snowflake: a snowflake model's validation or examples",
     "sqlite: a sqlite model's validation or examples",
     "mysql: a mysql model's validation or examples",
+    "databricks: a databricks model's validation or examples (needs DATABRICKS_* credentials)",
 ]

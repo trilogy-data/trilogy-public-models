@@ -1,0 +1,31 @@
+import std.geography;
+
+key id bigint;
+
+properties id (
+    name string,
+    ingredient string,
+    continent enum<string>['Africa', 'Asia', 'Central America', 'Europe', 'North America', 'South America'],
+    city string::city,
+    district string,
+    size enum<string>['L', 'M', 'S', 'XL', 'XXL'],
+    longitude double::longitude,
+    latitude double::latitude,
+    approved string,
+);
+
+# Franchises name suppliers missing from this table: it holds only some supplier ids.
+datasource suppliers (
+    supplierID: ~id,
+    name,
+    ingredient,
+    continent,
+    city,
+    district,
+    size,
+    longitude,
+    latitude,
+    approved,
+)
+grain (id)
+address samples.bakehouse.sales_suppliers;

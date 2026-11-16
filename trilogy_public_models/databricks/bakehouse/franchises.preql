@@ -1,0 +1,30 @@
+import std.geography;
+import suppliers as supplier;
+
+key id bigint;
+
+properties id (
+    name string,
+    city string::city,
+    district string,
+    zipcode string,
+    country enum<string>['Australia', 'Canada', 'France', 'Germany', 'Italy', 'Japan', 'Netherlands', 'Sweden', 'US']::country,
+    size enum<string>['L', 'M', 'S', 'XL', 'XXL'],
+    longitude double::longitude,
+    latitude double::latitude,
+);
+
+datasource franchises (
+    franchiseID: id,
+    name,
+    city,
+    district,
+    zipcode,
+    country,
+    size,
+    longitude,
+    latitude,
+    supplierID: supplier.id,
+)
+grain (id)
+address samples.bakehouse.sales_franchises;
